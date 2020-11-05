@@ -1,0 +1,6 @@
+include qiskit_sphinx_theme/theme.conf
+include qiskit_sphinx_theme/theme_variables.jinja
+include qiskit_sphinx_theme/*.html
+include qiskit_sphinx_theme/static/css/*.css
+include qiskit_sphinx_theme/static/js/*.js
+include qiskit_sphinx_theme/static/images/*.*
