@@ -48,5 +48,9 @@ setup(
     ],
     install_requires=[
        'sphinx'
-    ]
+    ],
+    project_urls={
+        "Bug Tracker": "https://github.com/Qiskit/qiskit_sphinx_theme/issues",
+        "Source Code": "https://github.com/Qiskit/qiskit_sphinx_theme",
+    },
 )
