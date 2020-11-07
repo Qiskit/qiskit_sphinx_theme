@@ -8,6 +8,7 @@ Qiskit sphinx theme |version| documentation
   :caption: Basic functionality
   :hidden:
 
+   Generic formatting <generic>
    Functions <functions>
 
 

@@ -36,7 +36,9 @@ project = 'Qiskit sphinx theme'
 copyright = '2012, Qiskit Development Team'  # pylint: disable=redefined-builtin
 author = 'Qiskit Development Team'
 
-release = '1.6.0'
+import qiskit_sphinx_theme
+
+release = qiskit_sphinx_theme.__version__
 
 rst_prolog = """
 .. |version| replace:: {0}
