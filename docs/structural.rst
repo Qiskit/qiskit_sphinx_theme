@@ -75,31 +75,3 @@ Vivamus sagittis risus et egestas commodo.Cras venenatis arcu in pharetra interd
 Donec quis metus porttitor tellus cursus lobortis. Quisque et orci magna. Fusce rhoncus mi mi,
 at vehicula massa rhoncus quis. Mauris augue leo, pretium eget molestie vitae, efficitur nec nulla.
 In hac habitasse platea dictumst. Sed sit amet imperdiet purus. 
-
-
-Making a list
-=============
-
-It is easy to make lists in rest
-
-Bullet points
--------------
-
-This is a subsection making bullet points
-
-* point A
-
-* point B
-
-* point C
-
-Enumerated points
-------------------
-
-This is a subsection making numbered points
-
-#. point A
-
-#. point B
-
-#. point C

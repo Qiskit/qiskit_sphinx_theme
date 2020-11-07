@@ -10,6 +10,7 @@ Qiskit sphinx theme |version| documentation
 
    Structural formatting <structural>
    Paragraph-level markup <paragraph>
+   Lists and tables <lists_tables>
    Functions <functions>
 
 
