@@ -8,7 +8,8 @@ Qiskit sphinx theme |version| documentation
   :caption: Basic functionality
   :hidden:
 
-   Generic formatting <generic>
+   Structural formatting <structural>
+   Paragraph-level markup <paragraph>
    Functions <functions>
 
 

@@ -80,6 +80,35 @@ ol {
   list-style-type: decimal;
 }
 
+img {
+  border: 0;
+  vertical-align: middle;
+  max-width: 100%;
+}
+
+.rst-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+.rst-content div.figure p.caption {
+  font-style: italic;
+}
+
+.rst-content div.figure {
+    margin-bottom: 24px;
+}
+
+.rst-content div.figure p:last-child.caption {
+  margin-bottom: 0px;
+}
+
+.rst-content .align-right {
+  float: right;
+  margin: 0px 0px 24px 24px;
+      margin-bottom: 24px;
+}
+
 .rst-versions {
   position: fixed;
   bottom: 0;
@@ -120,6 +149,28 @@ ol {
   cursor: pointer;
   color: #31135e;
   *zoom: 1;
+}
+
+.rst-content .sidebar {
+  float: right;
+  width: 40%;
+  display: block;
+  margin: 0 0 24px 24px;
+  padding: 24px;
+  background: #f3f6f6;
+  border: solid 1px #e1e4e5;
+}
+
+.rst-content .sidebar .sidebar-title {
+  display: block;
+  font-family: var(--font-family-sans-serif);
+  font-weight: bold;
+  background: #e1e4e5;
+  padding: 6px 12px;
+  margin: -24px;
+      margin-bottom: -24px;
+  margin-bottom: 24px;
+  font-size: 100%;
 }
 
 
