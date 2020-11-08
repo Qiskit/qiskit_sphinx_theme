@@ -43,6 +43,10 @@
   overflow: auto;
 }
 
+.wy-table-responsive table {
+  margin-bottom: 0 !important;
+}
+
 article.pytorch-article .wy-table-responsive table {
 width: 100%;
 }
