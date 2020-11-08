@@ -44,13 +44,6 @@
 }
 
 .wy-table-responsive table {
-  table-layout: auto !important;
-  max-width: auto !important;
-  margin-bottom: 24px;
-  overflow: auto !important;
-}
-
-.wy-table-responsive table {
   margin-bottom: 0 !important;
 }
 
@@ -75,9 +68,6 @@
   padding: 8px 16px;
 }
 
-.rst-content table.docutils:not(.field-list) tr:nth-child(2n-1) td, .wy-table-backed, .wy-table-odd td, .wy-table-striped tr:nth-child(2n-1) td {
-  background-color: #F2F4F8;
-}
 
 .rst-content table.docutils td, .rst-content table.docutils th, .rst-content table.field-list td, .rst-content table.field-list th, .wy-table td, .wy-table th {
   margin: 0;
@@ -11097,7 +11087,7 @@ article.pytorch-article .admonition > p:last-of-type {
   color: #262626;
 }
 .pytorch-article div.sphx-glr-download a code, .pytorch-article div.sphx-glr-download a kbd, .pytorch-article div.sphx-glr-download a pre, .pytorch-article div.sphx-glr-download a samp, .pytorch-article div.sphx-glr-download a span.pre {
-  font-family: FreightSans, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: var(--font-family-sans-serif);
 }
 
 .pytorch-article p.sphx-glr-script-out {
@@ -11127,6 +11117,7 @@ article.pytorch-article .wy-table-responsive table {
 }
 article.pytorch-article .wy-table-responsive table thead tr {
   border-bottom: 2px solid #6c6c6d;
+  color: #fff;
 }
 article.pytorch-article .wy-table-responsive table thead th {
   line-height: 1.75rem;
