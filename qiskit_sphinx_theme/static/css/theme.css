@@ -10544,7 +10544,7 @@ a:visited.has-code span {
 
 article.pytorch-article ul,
 article.pytorch-article ol {
-  padding-left: 1.875rem;
+  padding-left: 1.0rem;
   margin: 0;
 }
 article.pytorch-article ul li,
@@ -10732,7 +10732,7 @@ article.pytorch-article .function .viewcode-link, article.pytorch-article .attri
   text-transform: uppercase;
 }
 article.pytorch-article .function dd, article.pytorch-article .attribute dd, article.pytorch-article .class .attribute dd, article.pytorch-article .class dd {
-  padding-left: 3.75rem;
+  padding-left: 3.0rem;
 }
 article.pytorch-article .function dd p, article.pytorch-article .attribute dd p, article.pytorch-article .class .attribute dd p, article.pytorch-article .class dd p {
   color: #262626;
@@ -11725,7 +11725,7 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
   padding-top: 0.9375rem;
 }
 .pytorch-content-left .main-content ul.simple {
-  padding-bottom: 1.25rem;
+  padding-bottom: 0;
 }
 .pytorch-content-left .main-content .note:nth-child(1), .pytorch-content-left .main-content .warning:nth-child(1) {
   margin-top: 0;
