@@ -41,23 +41,22 @@
   margin-bottom: 24px;
   max-width: 100%;
   overflow: auto;
-  table-layout: auto;
 }
 
 article.pytorch-article .wy-table-responsive table {
-  width: 100%;
+width: 100%;
 }
 
 .wy-table-responsive table thead{
   background:#DDE1E6;
 }
 
-.wy-table-responsive table {
-  margin-bottom: 0 !important;
-}
-
 .rst-content table.docutils col {
   width: auto !important;
+}
+
+.wy-table-responsive table {
+  margin-bottom: 0 !important;
 }
 
 .wy-table, .rst-content table.docutils, .rst-content table.field-list {
@@ -65,6 +64,15 @@ article.pytorch-article .wy-table-responsive table {
   border-spacing: 0;
   empty-cells: show;
   margin-bottom: 24px;
+  width: auto;
+}
+
+.wy-table, .rst-content table.docutils col {
+  width: auto !important;
+}
+
+.wy-table col, .rst-content table.docutils col, .rst-content table.field-list col {
+  width: auto !important;
 }
 
 .wy-table thead, .rst-content table.docutils thead, .rst-content table.field-list thead {
@@ -82,15 +90,8 @@ article.pytorch-article .wy-table-responsive table {
 }
 
 
-.rst-content table.docutils td, .rst-content table.docutils th, .rst-content table.field-list td, .rst-content table.field-list th, .wy-table td, .wy-table th {
-  margin: 0;
-  overflow: visible;
-}
-
 .rst-content table.docutils td:first-child, .rst-content table.docutils th:first-child, .rst-content table.field-list td:first-child, .rst-content table.field-list th:first-child, .wy-table td:first-child, .wy-table th:first-child {
   border-left-width: 0;
-  width: auto;
-  min-width: 50%;
 }
 
 .rst-versions.shift-up .rst-other-versions {
