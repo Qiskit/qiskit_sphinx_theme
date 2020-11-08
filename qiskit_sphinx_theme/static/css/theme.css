@@ -9,13 +9,13 @@
   --blue: #007bff;
   --indigo: #6610f2;
   --purple: #8A3FFC;
-  --pink: #e83e8c;
-  --red: #dc3545;
+  --pink:#d12771;
+  --red: #da1e28;
   --orange: #fd7e14;
   --yellow: #ffc107;
   --green: #28a745;
-  --teal: #20c997;
-  --cyan: #17a2b8;
+  --teal: #007d79;
+  --cyan: #0072c3;
   --white: #fff;
   --gray: #6c757d;
   --gray-dark: #343a40;
@@ -36,10 +36,43 @@
   --font-family-monospace: "IBM PLex Mono", Consolas, "Courier New", monospace;
 }
 
+
+.wy-table-responsive {
+  margin-bottom: 24px;
+  max-width: 100%;
+  overflow: auto;
+}
+
 .wy-table-responsive table {
   table-layout: auto !important;
-  max-width: 100% !important;
-  overflow: visible !important;
+  max-width: auto !important;
+  margin-bottom: 24px;
+  overflow: auto !important;
+}
+
+.wy-table-responsive table {
+  margin-bottom: 0 !important;
+}
+
+.wy-table, .rst-content table.docutils, .rst-content table.field-list {
+  border-collapse: collapse;
+  border-spacing: 0;
+  empty-cells: show;
+  margin-bottom: 24px;
+}
+
+.wy-table thead, .rst-content table.docutils thead, .rst-content table.field-list thead {
+  color: #000;
+  text-align: left;
+  vertical-align: bottom;
+  white-space: nowrap;
+}
+
+.wy-table td, .rst-content table.docutils td, .rst-content table.field-list td, .wy-table th, .rst-content table.docutils th, .rst-content table.field-list th {
+  font-size: 90%;
+  margin: 0;
+  overflow: visible;
+  padding: 8px 16px;
 }
 
 .rst-content table.docutils:not(.field-list) tr:nth-child(2n-1) td, .wy-table-backed, .wy-table-odd td, .wy-table-striped tr:nth-child(2n-1) td {
@@ -190,11 +223,51 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+.rst-content dl:not(.docutils) {
+  margin-bottom: 24px;
+}
+
+.rst-content dl:not(.docutils) dt {
+  display: table;
+  margin: 6px 0;
+  margin-top: 6px;
+  line-height: normal;
+  padding: 6px;
+  position: relative;
+}
+
 @-ms-viewport {
   width: device-width;
 }
 article, aside, dialog, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block;
+}
+
+span.n{
+  color: var(--cyan);
+}
+span.sig-paren{
+  color: #212529;
+}
+
+article.pytorch-article .function dt > code, article.pytorch-article .attribute dt > code, article.pytorch-article .class .attribute dt > code, article.pytorch-article .class dt > code {
+  font-weight: 600;
+}
+
+.default_value{
+  color: var(--pink);
+}
+
+article.pytorch-article blockquote {
+  margin-left: 0.0rem !important;
+}
+
+.sig-name{
+  font-size: 100% !important;
+}
+
+dt.field-even{
+  font-size: 100% !important;
 }
 
 body {

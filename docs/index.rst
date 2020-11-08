@@ -12,6 +12,7 @@ Qiskit sphinx theme |version| documentation
    Paragraph-level markup <paragraph>
    Lists and tables <lists_tables>
    Functions <functions>
+   Classes <classes>
 
 
 .. Hiding - Indices and tables

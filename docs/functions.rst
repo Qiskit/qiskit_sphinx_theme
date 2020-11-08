@@ -1,6 +1,6 @@
+=========
 Functions
-==========
-
+=========
 
 .. py:function:: my_function(input1, input2, input3=None, **kwargs)
 
