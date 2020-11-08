@@ -33,7 +33,7 @@ Sphinx documentation builder
 
 # -- Project information -----------------------------------------------------
 project = 'Qiskit sphinx theme'
-copyright = '2012, Qiskit Development Team'  # pylint: disable=redefined-builtin
+copyright = '2020, Qiskit Development Team'  # pylint: disable=redefined-builtin
 author = 'Qiskit Development Team'
 
 import qiskit_sphinx_theme
