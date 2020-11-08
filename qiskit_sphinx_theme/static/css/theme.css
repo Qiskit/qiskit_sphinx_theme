@@ -98,6 +98,12 @@ article.pytorch-article .sphx-glr-thumbcontainer .figure::before {
   background: #F2F4F8 !important;
 }
 
+.class dd p.rubric {
+  color: #262626;
+  font-size: 110%;
+  font-weight: bold;
+}
+
 dl, ol, ul {
   margin: 0;
   padding: 0;
