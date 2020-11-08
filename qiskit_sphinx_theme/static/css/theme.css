@@ -41,10 +41,19 @@
   margin-bottom: 24px;
   max-width: 100%;
   overflow: auto;
+  table-layout: auto;
+}
+
+.wy-table-responsive table thead{
+  background:#DDE1E6;
 }
 
 .wy-table-responsive table {
   margin-bottom: 0 !important;
+}
+
+.rst-content table.docutils col {
+  width: auto !important;
 }
 
 .wy-table, .rst-content table.docutils, .rst-content table.field-list {
