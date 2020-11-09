@@ -46,3 +46,36 @@ Tabs
     :class-content: pl-1 bg-primary
 
     Tab 2 content
+
+
+Cards
+=====
+
+
+.. panels::
+    :container: container-lg
+    :column: col-lg-6 p-2
+    :img-top-cls: pl-2 pr-2
+
+    ---
+    :img-top: images/yi_jing_01_chien.jpg
+
+
+    This is an example card.
+
+    More content here.
+
+    ++++++
+    :badge:`Example,badge-primary badge-pill`
+
+
+    ---
+    :img-top: images/yi_jing_01_chien.jpg
+
+    This is an example card.
+
+    :math:`\sin^{2}(x)+\cos^{2}(x) = 1`
+
+    ++++++
+    :badge:`Example,badge-primary badge-pill`
+    :badge:`Tutorial,badge-success badge-pill`
