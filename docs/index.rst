@@ -14,6 +14,7 @@ Qiskit sphinx theme |version| documentation
    Functions <functions>
    Classes <classes>
    Jupyter <jupyter>
+   Panels <panels>
 
 
 .. Hiding - Indices and tables
