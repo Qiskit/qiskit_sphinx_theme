@@ -40,6 +40,8 @@ import qiskit_sphinx_theme
 
 release = qiskit_sphinx_theme.__version__
 
+html_theme = 'qiskit_sphinx_theme'  # use the theme in subdir 'theme'
+
 rst_prolog = """
 .. |version| replace:: {0}
 """.format(release)
@@ -125,7 +127,6 @@ modindex_common_prefix = ['qiskit.']
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'qiskit_sphinx_theme'  # use the theme in subdir 'theme'
 
 #html_sidebars = {'**': ['globaltoc.html']}
 html_last_updated_fmt = '%Y/%m/%d'
