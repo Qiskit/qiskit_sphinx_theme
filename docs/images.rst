@@ -11,4 +11,4 @@ Figures
    :scale: 40 %
    :align: center
 
-   A figure with caption.
+   A figure with caption that should be aligned to the center.
