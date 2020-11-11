@@ -13,6 +13,7 @@ Qiskit sphinx theme |version| documentation
    Lists and tables <lists_tables>
    Functions <functions>
    Classes <classes>
+   Images <images>
    Jupyter <jupyter>
    Panels <panels>
 
