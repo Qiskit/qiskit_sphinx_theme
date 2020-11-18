@@ -10533,8 +10533,14 @@ pre {
   color: #6c6c6d;
 }
 
-.headerlink {
-  display: none !important;
+a.headerlink {
+  color: #fff !important;
+  font-size: 0.8em;
+  padding: 0 4px 0 4px;
+}
+
+a.headerlink:hover{
+  color: var(--purple) !important;
 }
 
 a:link.has-code,
