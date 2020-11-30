@@ -41,6 +41,7 @@ import qiskit_sphinx_theme
 release = qiskit_sphinx_theme.__version__
 
 html_theme = 'qiskit_sphinx_theme'  # use the theme in subdir 'theme'
+templates_path = ['_templates']
 
 rst_prolog = """
 .. |version| replace:: {0}
