@@ -1,5 +1,5 @@
 <div id="qiskit-navbar" class="qiskit-navbar">
-  <div class="d-flex justify-content-between">
+  <div class="qiskit-navbar-bar d-flex justify-content-between">
     <a href="{{ theme_variables.external_urls['home'] }}">{% include "navbar-logo.html" %}</a>
 
     <button onclick="qiskitNavbarMenuToggle()" type="button" class="btn qiskit-navbar-menu-toggle-btn">
@@ -8,13 +8,21 @@
   </div>
 
   <div id="qiskit-navbar-mobile-menu" class="qiskit-navbar-mobile-menu">
-    Mobile Menu
+    <div>
+      <a class="navbar-item" href="#">Item 1</a>
+      <a class="navbar-item" href="#">Item 2</a>
+      <a class="navbar-item" href="#">Item 3</a>
+      <a class="navbar-item" href="#">Item 4</a>
+    </div>
+    <div>Bottom section</div>
   </div>
 </div>
 
 <style>
   :root {
+    --color-gray-10: #f2f4f8;
     --color-purple-70: #6929c4;
+    --font-base: 16px;
     --spacing-base: 16px;
   }
 
@@ -26,14 +34,18 @@
     display: grid;
     gap: var(--spacing-base);
     grid-template-rows: auto 1fr;
-    padding: var(--spacing-base);
   }
 
   .qiskit-navbar.expanded {
     height: 100vh;
   }
 
+  .qiskit-navbar-bar {
+    padding: var(--spacing-base);
+  }
+
   .qiskit-navbar-menu-toggle-btn {
+    align-items: center;
     display: flex;
     padding: 0;
   }
@@ -43,7 +55,21 @@
   }
 
   .qiskit-navbar-mobile-menu.expanded {
-    display: block;
+    display: grid;
+    grid-template-rows: 1fr auto;
+  }
+
+  .qiskit-navbar-mobile-menu .navbar-item {
+    align-items: center;
+    border-bottom: 1px solid var(--color-gray-10);
+    display: flex;
+    font-size: var(--font-base);
+    height: calc(var(--spacing-base) * 4);
+    padding: var(--spacing-base);
+  }
+
+  .qiskit-navbar-mobile-menu .navbar-item:hover {
+    text-decoration: underline;
   }
 </style>
 
