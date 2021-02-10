@@ -1,7 +1,7 @@
 <div class="qiskit-navbar">
-  <a href="{{ theme_variables.external_urls['home'] }}">
-    {% include "navbar-logo.html" %}
-  </a>
+  <a href="{{ theme_variables.external_urls['home'] }}">{% include "navbar-logo.html" %}</a>
+
+  {% include "navbar-menu-icon-open.html" %}
 </div>
 
 <style>
@@ -11,6 +11,9 @@
   }
 
   .qiskit-navbar {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
     padding: var(--spacing-base);
   }
 </style>
