@@ -9,10 +9,10 @@
 
   <div id="qiskit-navbar-mobile-menu" class="qiskit-navbar-mobile-menu">
     <div>
-      <a class="navbar-item" href="#">Overview</a>
-      <a class="navbar-item" href="#">Learn</a>
-      <a class="navbar-item" href="#">Community</a>
-      <a class="navbar-item active" href="#">Documentation</a>
+      <a class="navbar-item" href="{{ theme_variables.external_urls['overview'] }}">Overview</a>
+      <a class="navbar-item" href="{{ theme_variables.external_urls['resources'] }}">Learn</a>
+      <button onclick="qiskitNavbarCommunityItemsToggle()" class="navbar-item btn" type="button">Community</button>
+      <a class="navbar-item active" href="{{ theme_variables.external_urls['docs'] }}">Documentation</a>
     </div>
     <div>
       <div class="section-social">
@@ -81,12 +81,14 @@
 
   .qiskit-navbar-mobile-menu .navbar-item {
     align-items: center;
+    border: 0;
     border-bottom: 1px solid var(--color-gray-10);
     color: var(--color-gray-80);
     display: flex;
     font-size: var(--font-base);
     height: calc(var(--spacing-base) * 4);
     padding: var(--spacing-base);
+    width: 100%;
   }
 
   .qiskit-navbar-mobile-menu .navbar-item:hover {
@@ -158,5 +160,12 @@
     } else {
       expandNavbar();
     }
+  }
+
+  /**
+   * Toggle the "community" items in the navbar menu.
+   */
+  function qiskitNavbarCommunityItemsToggle() {
+    console.log('Toggle community items.');
   }
 </script>
