@@ -3,7 +3,8 @@
     <a href="{{ theme_variables.external_urls['home'] }}">{% include "svg-navbar-logo.html" %}</a>
 
     <button onclick="qiskitNavbarMenuToggle()" type="button" class="btn qiskit-navbar-menu-toggle-btn">
-      {% include "svg-navbar-menu-icon-open.html" %}
+      <span class="icon-open d-flex">{% include "svg-navbar-menu-icon-open.html" %}</span>
+      <span class="icon-close d-none">{% include "svg-navbar-menu-icon-close.html" %}</span>
     </button>
   </div>
 
@@ -70,8 +71,13 @@
 
   .qiskit-navbar-menu-toggle-btn {
     align-items: center;
+    color: var(--color-purple-70);
     display: flex;
     padding: 0;
+  }
+
+  .qiskit-navbar-menu-toggle-btn:hover {
+    color: var(--color-purple-70);
   }
 
   .qiskit-navbar-mobile-menu {
@@ -165,6 +171,10 @@
       $('body').addClass('qiskit-navbar-expanded-body');
       $('#qiskit-navbar').addClass('expanded');
       $('#qiskit-navbar-mobile-menu').addClass('expanded');
+      $('#qiskit-navbar .qiskit-navbar-menu-toggle-btn .icon-open').addClass('d-none');
+      $('#qiskit-navbar .qiskit-navbar-menu-toggle-btn .icon-open').removeClass('d-flex');
+      $('#qiskit-navbar .qiskit-navbar-menu-toggle-btn .icon-close').addClass('d-flex');
+      $('#qiskit-navbar .qiskit-navbar-menu-toggle-btn .icon-close').removeClass('d-none');
       window.qiskitNavbarMenuState.isExpanded = true;
     }
 
@@ -172,6 +182,10 @@
       $('body').removeClass('qiskit-navbar-expanded-body');
       $('#qiskit-navbar').removeClass('expanded');
       $('#qiskit-navbar-mobile-menu').removeClass('expanded');
+      $('#qiskit-navbar .qiskit-navbar-menu-toggle-btn .icon-open').addClass('d-flex');
+      $('#qiskit-navbar .qiskit-navbar-menu-toggle-btn .icon-open').removeClass('d-none');
+      $('#qiskit-navbar .qiskit-navbar-menu-toggle-btn .icon-close').addClass('d-none');
+      $('#qiskit-navbar .qiskit-navbar-menu-toggle-btn .icon-close').removeClass('d-flex');
       window.qiskitNavbarMenuState.isExpanded = false;
     }
 
