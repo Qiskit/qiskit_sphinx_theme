@@ -18,10 +18,18 @@
       <div class="section-social">
         <div class="social-headline">Stay Connected</div>
         <div class="social-icons">
-          <div>{% include "svg-social-icon-twitter.html" %}</div>
-          <div>{% include "svg-social-icon-slack.html" %}</div>
-          <div>{% include "svg-social-icon-youtube.html" %}</div>
-          <div>{% include "svg-social-icon-medium.html" %}</div>
+          <a class="social-icons-item" target="_blank" rel="noopener"
+            href="{{ theme_variables.external_urls['twitter'] }}">{% include
+            "svg-social-icon-twitter.html" %}</a>
+          <a class="social-icons-item" target="_blank" rel="noopener"
+            href="{{ theme_variables.external_urls['slack'] }}">{% include
+            "svg-social-icon-slack.html" %}</a>
+          <a class="social-icons-item" target="_blank" rel="noopener"
+            href="{{ theme_variables.external_urls['youtube'] }}">{% include
+            "svg-social-icon-youtube.html" %}</a>
+          <a class="social-icons-item" target="_blank" rel="noopener"
+            href="{{ theme_variables.external_urls['medium'] }}">{% include
+            "svg-social-icon-medium.html" %}</a>
         </div>
       </div>
       <div class="section-copyright">© Qiskit | All Rights Reserved</div>
@@ -110,6 +118,10 @@
     display: grid;
     gap: var(--spacing-base);
     grid-template-columns: auto 1fr;
+  }
+
+  .qiskit-navbar-mobile-menu .section-social .social-icons .social-icons-item {
+    color: var(--color-gray-60);
   }
 </style>
 
