@@ -9,10 +9,10 @@
 
   <div id="qiskit-navbar-mobile-menu" class="qiskit-navbar-mobile-menu">
     <div>
-      <a class="navbar-item" href="#">Item 1</a>
-      <a class="navbar-item" href="#">Item 2</a>
-      <a class="navbar-item" href="#">Item 3</a>
-      <a class="navbar-item" href="#">Item 4</a>
+      <a class="navbar-item" href="#">Overview</a>
+      <a class="navbar-item" href="#">Learn</a>
+      <a class="navbar-item" href="#">Community</a>
+      <a class="navbar-item active" href="#">Documentation</a>
     </div>
     <div>Bottom section</div>
   </div>
@@ -21,6 +21,7 @@
 <style>
   :root {
     --color-gray-10: #f2f4f8;
+    --color-gray-80: #393939;
     --color-purple-70: #6929c4;
     --font-base: 16px;
     --spacing-base: 16px;
@@ -32,7 +33,6 @@
 
   .qiskit-navbar {
     display: grid;
-    gap: var(--spacing-base);
     grid-template-rows: auto 1fr;
   }
 
@@ -62,6 +62,7 @@
   .qiskit-navbar-mobile-menu .navbar-item {
     align-items: center;
     border-bottom: 1px solid var(--color-gray-10);
+    color: var(--color-gray-80);
     display: flex;
     font-size: var(--font-base);
     height: calc(var(--spacing-base) * 4);
@@ -70,6 +71,10 @@
 
   .qiskit-navbar-mobile-menu .navbar-item:hover {
     text-decoration: underline;
+  }
+
+  .qiskit-navbar-mobile-menu .navbar-item.active {
+    color: var(--color-purple-70);
   }
 </style>
 
