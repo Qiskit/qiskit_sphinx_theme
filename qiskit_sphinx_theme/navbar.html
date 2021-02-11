@@ -15,7 +15,15 @@
       <a class="navbar-item active" href="#">Documentation</a>
     </div>
     <div>
-      <div class="section-social">Stay Connected</div>
+      <div class="section-social">
+        <div class="social-headline">Stay Connected</div>
+        <div class="social-icons">
+          <div>Icon</div>
+          <div>Icon</div>
+          <div>Icon</div>
+          <div>Icon</div>
+        </div>
+      </div>
       <div class="section-copyright">© Qiskit | All Rights Reserved</div>
     </div>
   </div>
@@ -89,7 +97,19 @@
   }
 
   .qiskit-navbar-mobile-menu .section-social {
+    color: var(--color-gray-60);
+    font-weight: 600;
     padding: var(--spacing-base);
+  }
+
+  .qiskit-navbar-mobile-menu .section-social .social-headline {
+    padding-bottom: var(--spacing-base);
+  }
+
+  .qiskit-navbar-mobile-menu .section-social .social-icons {
+    display: grid;
+    gap: var(--spacing-base);
+    grid-template-columns: auto 1fr;
   }
 </style>
 
