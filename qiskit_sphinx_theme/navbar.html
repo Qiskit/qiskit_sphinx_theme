@@ -11,7 +11,11 @@
     <div>
       <a class="navbar-item" href="{{ theme_variables.external_urls['overview'] }}">Overview</a>
       <a class="navbar-item" href="{{ theme_variables.external_urls['resources'] }}">Learn</a>
-      <button onclick="qiskitNavbarCommunityItemsToggle()" class="navbar-item btn" type="button">Community</button>
+      <button onclick="qiskitNavbarCommunityItemsToggle()" class="navbar-item navbar-item-community btn"
+        type="button">Community</button>
+      <a class="navbar-item navbar-subitem-community" href="{{ theme_variables.external_urls['events'] }}">Events</a>
+      <a class="navbar-item navbar-subitem-community"
+        href="{{ theme_variables.external_urls['advocates'] }}">Advocates</a>
       <a class="navbar-item active" href="{{ theme_variables.external_urls['docs'] }}">Documentation</a>
     </div>
     <div>
@@ -99,6 +103,24 @@
     color: var(--color-purple-70);
   }
 
+  .qiskit-navbar-mobile-menu .navbar-item.navbar-item-community {
+    transition: none;
+  }
+
+  .qiskit-navbar-mobile-menu .navbar-item.navbar-item-community.expanded {
+    background-color: var(--color-gray-10);
+  }
+
+  .qiskit-navbar-mobile-menu .navbar-item.navbar-subitem-community {
+    background-color: var(--color-gray-10);
+    display: none;
+    padding-left: calc(var(--spacing-base) * 2);
+  }
+
+  .qiskit-navbar-mobile-menu .navbar-item.navbar-subitem-community.expanded {
+    display: block;
+  }
+
   .qiskit-navbar-mobile-menu .section-copyright {
     background: var(--color-gray-10);
     color: var(--color-gray-60);
@@ -166,6 +188,30 @@
    * Toggle the "community" items in the navbar menu.
    */
   function qiskitNavbarCommunityItemsToggle() {
-    console.log('Toggle community items.');
+    function setState() {
+      window.qiskitNavbarCommunityItemsState = window.qiskitNavbarCommunityItemsState || {
+        isExpanded: false,
+      };
+    }
+
+    function expandItems() {
+      $('#qiskit-navbar-mobile-menu .navbar-item-community').addClass('expanded');
+      $('#qiskit-navbar-mobile-menu .navbar-subitem-community').addClass('expanded');
+      window.qiskitNavbarCommunityItemsState.isExpanded = true;
+    }
+
+    function collapseItems() {
+      $('#qiskit-navbar-mobile-menu .navbar-item-community').removeClass('expanded');
+      $('#qiskit-navbar-mobile-menu .navbar-subitem-community').removeClass('expanded');
+      window.qiskitNavbarCommunityItemsState.isExpanded = false;
+    }
+
+    setState();
+
+    if (window.qiskitNavbarCommunityItemsState.isExpanded) {
+      collapseItems();
+    } else {
+      expandItems();
+    }
   }
 </script>
