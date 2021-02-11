@@ -14,13 +14,17 @@
       <a class="navbar-item" href="#">Community</a>
       <a class="navbar-item active" href="#">Documentation</a>
     </div>
-    <div>Bottom section</div>
+    <div>
+      <div class="section-social">Stay Connected</div>
+      <div class="section-copyright">© Qiskit | All Rights Reserved</div>
+    </div>
   </div>
 </div>
 
 <style>
   :root {
     --color-gray-10: #f2f4f8;
+    --color-gray-60: #697077;
     --color-gray-80: #393939;
     --color-purple-70: #6929c4;
     --font-base: 16px;
@@ -75,6 +79,17 @@
 
   .qiskit-navbar-mobile-menu .navbar-item.active {
     color: var(--color-purple-70);
+  }
+
+  .qiskit-navbar-mobile-menu .section-copyright {
+    background: var(--color-gray-10);
+    color: var(--color-gray-60);
+    padding: var(--spacing-base);
+    padding-bottom: calc(var(--spacing-base) * 3.5);
+  }
+
+  .qiskit-navbar-mobile-menu .section-social {
+    padding: var(--spacing-base);
   }
 </style>
 
