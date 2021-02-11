@@ -12,8 +12,10 @@
     <div>
       <a class="navbar-item" href="{{ theme_variables.external_urls['overview'] }}">Overview</a>
       <a class="navbar-item" href="{{ theme_variables.external_urls['resources'] }}">Learn</a>
-      <button onclick="qiskitNavbarCommunityItemsToggle()" class="navbar-item navbar-item-community btn"
-        type="button">Community</button>
+      <button onclick="qiskitNavbarCommunityItemsToggle()" class="navbar-item navbar-item-community btn" type="button">
+        <span>Community</span>
+        <span class="icon-down">{% include "svg-navbar-menu-icon-down.html" %}</span>
+      </button>
       <a class="navbar-item navbar-subitem-community" href="{{ theme_variables.external_urls['events'] }}">Events</a>
       <a class="navbar-item navbar-subitem-community"
         href="{{ theme_variables.external_urls['advocates'] }}">Advocates</a>
@@ -111,12 +113,24 @@
   }
 
   .qiskit-navbar-mobile-menu .navbar-item.navbar-item-community {
+    justify-content: space-between;
     transition: none;
   }
 
   .qiskit-navbar-mobile-menu .navbar-item.navbar-item-community.expanded {
     background-color: var(--color-gray-10);
     border-color: var(--color-gray-20);
+  }
+
+  .qiskit-navbar-mobile-menu .navbar-item.navbar-item-community .icon-down {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 22px;
+  }
+
+  .qiskit-navbar-mobile-menu .navbar-item.navbar-item-community .icon-down.expanded {
+    transform: rotate(180deg);
   }
 
   .qiskit-navbar-mobile-menu .navbar-item.navbar-subitem-community {
@@ -213,12 +227,14 @@
 
     function expandItems() {
       $('#qiskit-navbar-mobile-menu .navbar-item-community').addClass('expanded');
+      $('#qiskit-navbar-mobile-menu .navbar-item-community .icon-down').addClass('expanded');
       $('#qiskit-navbar-mobile-menu .navbar-subitem-community').addClass('expanded');
       window.qiskitNavbarCommunityItemsState.isExpanded = true;
     }
 
     function collapseItems() {
       $('#qiskit-navbar-mobile-menu .navbar-item-community').removeClass('expanded');
+      $('#qiskit-navbar-mobile-menu .navbar-item-community .icon-down').removeClass('expanded');
       $('#qiskit-navbar-mobile-menu .navbar-subitem-community').removeClass('expanded');
       window.qiskitNavbarCommunityItemsState.isExpanded = false;
     }
