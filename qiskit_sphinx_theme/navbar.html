@@ -89,6 +89,12 @@
     padding: var(--spacing-base);
   }
 
+  @media (min-width: 672px) {
+    .qiskit-navbar-bar {
+      padding-left: calc(var(--spacing-base) * 2);
+    }
+  }
+
   /* Qiskit navbar menu toggle button */
 
   .qiskit-navbar-menu-toggle-btn {
@@ -177,6 +183,16 @@
 
   .qiskit-navbar-mobile-menu .navbar-item.navbar-subitem-community.expanded {
     display: flex;
+  }
+
+  @media (min-width: 672px) {
+    .qiskit-navbar-mobile-menu .navbar-item {
+      padding-left: calc(var(--spacing-base) * 2);
+    }
+
+    .qiskit-navbar-mobile-menu .navbar-item.navbar-subitem-community {
+      padding-left: calc(var(--spacing-base) * 3);
+    }
   }
 
   /* Qiskit navbar mobile menu's "copyright" and "social" sections */
