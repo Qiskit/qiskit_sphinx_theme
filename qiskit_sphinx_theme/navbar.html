@@ -5,10 +5,13 @@
     <div class="qiskit-navbar-desktop-menu">
       <a class="navbar-item" href="{{ theme_variables.external_urls['overview'] }}">Overview</a>
       <a class="navbar-item" href="{{ theme_variables.external_urls['resources'] }}">Learn</a>
-      <button onclick="qiskitNavbarCommunityItemsToggle()" class="navbar-item navbar-item-community btn" type="button">
-        <span>Community</span>
-        <span class="icon-down">{% include "svg-navbar-menu-icon-down.html" %}</span>
-      </button>
+      <div class="navbar-item navbar-item-community">
+        <button onclick="qiskitNavbarCommunityItemsToggle()" type="button" class="dropdown-btn btn">
+          <span>Community</span>
+          <span class="icon-down">{% include "svg-navbar-menu-icon-down.html" %}</span>
+        </button>
+        <div class="navbar-subitems-community">more elements</div>
+      </div>
       <a class="navbar-item active" href="{{ theme_variables.external_urls['docs'] }}">Documentation</a>
     </div>
 
@@ -151,11 +154,20 @@
       text-decoration: underline;
     }
 
-    .qiskit-navbar-desktop-menu .navbar-item.navbar-item-community {
+    .qiskit-navbar-desktop-menu .navbar-item.navbar-item-community .btn{
+      padding: 0;
+    }
+
+    .qiskit-navbar-desktop-menu .navbar-item.navbar-item-community .dropdown-btn {
       align-items: flex-end;
       display: flex;
       gap: var(--spacing-base);
-      padding: 0;
+    }
+
+    .qiskit-navbar-desktop-menu .navbar-item.navbar-item-community .navbar-subitems-community {
+      margin-top: calc(var(--spacing-base) * 2);
+      position: absolute;
+      z-index: 150;
     }
 
     .qiskit-navbar-desktop-menu .navbar-item.navbar-item-community .icon-down {
