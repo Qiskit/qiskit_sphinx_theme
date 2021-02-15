@@ -2,7 +2,7 @@
   <div class="qiskit-navbar-bar d-flex align-items-center justify-content-between">
     <a href="{{ theme_variables.external_urls['home'] }}">{% include "svg-navbar-logo.html" %}</a>
 
-    <div class="qiskit-navbar-desktop-menu">
+    <div id="qiskit-navbar-desktop-menu" class="qiskit-navbar-desktop-menu">
       <a class="navbar-item" href="{{ theme_variables.external_urls['overview'] }}">Overview</a>
       <a class="navbar-item" href="{{ theme_variables.external_urls['resources'] }}">Learn</a>
       <div class="navbar-item navbar-item-community">
@@ -154,7 +154,7 @@
       text-decoration: underline;
     }
 
-    .qiskit-navbar-desktop-menu .navbar-item.navbar-item-community .btn{
+    .qiskit-navbar-desktop-menu .navbar-item.navbar-item-community .btn {
       padding: 0;
     }
 
@@ -165,9 +165,14 @@
     }
 
     .qiskit-navbar-desktop-menu .navbar-item.navbar-item-community .navbar-subitems-community {
+      display: none;
       margin-top: calc(var(--spacing-base) * 2);
       position: absolute;
       z-index: 150;
+    }
+
+    .qiskit-navbar-desktop-menu .navbar-item.navbar-item-community .navbar-subitems-community.expanded {
+      display: block;
     }
 
     .qiskit-navbar-desktop-menu .navbar-item.navbar-item-community .icon-down {
@@ -365,6 +370,7 @@
       $('#qiskit-navbar-mobile-menu .navbar-item-community').addClass('expanded');
       $('#qiskit-navbar-mobile-menu .navbar-item-community .icon-down').addClass('expanded');
       $('#qiskit-navbar-mobile-menu .navbar-subitem-community').addClass('expanded');
+      $('#qiskit-navbar-desktop-menu .navbar-subitems-community').addClass('expanded');
       window.qiskitNavbarCommunityItemsState.isExpanded = true;
     }
 
@@ -372,6 +378,7 @@
       $('#qiskit-navbar-mobile-menu .navbar-item-community').removeClass('expanded');
       $('#qiskit-navbar-mobile-menu .navbar-item-community .icon-down').removeClass('expanded');
       $('#qiskit-navbar-mobile-menu .navbar-subitem-community').removeClass('expanded');
+      $('#qiskit-navbar-desktop-menu .navbar-subitems-community').removeClass('expanded');
       window.qiskitNavbarCommunityItemsState.isExpanded = false;
     }
 
