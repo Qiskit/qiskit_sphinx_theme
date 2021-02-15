@@ -105,6 +105,12 @@
     }
   }
 
+  @media (min-width: 1056px) {
+    .qiskit-navbar-bar {
+      padding-right: calc(var(--spacing-base) * 2);
+    }
+  }
+
   /* Qiskit navbar menu toggle button */
 
   .qiskit-navbar-menu-toggle-btn {
@@ -138,7 +144,11 @@
   @media (min-width: 1056px) {
     .qiskit-navbar-desktop-menu {
       display: flex;
-      gap: calc(var(--spacing-base) * 2);
+      gap: calc(var(--spacing-base) * 3);
+    }
+
+    .qiskit-navbar-desktop-menu .navbar-item:hover {
+      text-decoration: underline;
     }
 
     .qiskit-navbar-desktop-menu .navbar-item.navbar-item-community {
