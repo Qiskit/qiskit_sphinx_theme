@@ -10,7 +10,10 @@
           <span>Community</span>
           <span class="icon-down">{% include "svg-navbar-menu-icon-down.html" %}</span>
         </button>
-        <div class="navbar-subitems-community">more elements</div>
+        <div class="navbar-subitems-community">
+          <a class="navbar-subitem-community" href="{{ theme_variables.external_urls['events'] }}">Events</a>
+          <a class="navbar-subitem-community" href="{{ theme_variables.external_urls['advocates'] }}">Advocates</a>
+        </div>
       </div>
       <a class="navbar-item active" href="{{ theme_variables.external_urls['docs'] }}">Documentation</a>
     </div>
@@ -65,6 +68,7 @@
     --color-white: #fff;
     --color-gray-10: #f2f4f8;
     --color-gray-20: #dde1e6;
+    --color-gray-30: #c1c7cd;
     --color-gray-60: #697077;
     --color-gray-80: #393939;
     --color-purple-70: #6929c4;
@@ -142,20 +146,31 @@
   .qiskit-navbar-desktop-menu .navbar-item {
     color: var(--color-gray-80);
     font-size: var(--font-base);
+    padding: 0 var(--spacing-base);
   }
 
   @media (min-width: 1056px) {
     .qiskit-navbar-desktop-menu {
       display: flex;
-      gap: calc(var(--spacing-base) * 3);
+      gap: var(--spacing-base);
     }
 
     .qiskit-navbar-desktop-menu .navbar-item:hover {
       text-decoration: underline;
     }
 
+    .qiskit-navbar-desktop-menu .navbar-item.navbar-item-community {
+      margin: calc(var(--spacing-base) * -1) 0;
+      padding: var(--spacing-base) 0;
+      position: relative;
+    }
+
+    .qiskit-navbar-desktop-menu .navbar-item.navbar-item-community.expanded {
+      background-color: var(--color-gray-10);
+    }
+
     .qiskit-navbar-desktop-menu .navbar-item.navbar-item-community .btn {
-      padding: 0;
+      padding: 0 var(--spacing-base);
     }
 
     .qiskit-navbar-desktop-menu .navbar-item.navbar-item-community .dropdown-btn {
@@ -165,10 +180,29 @@
     }
 
     .qiskit-navbar-desktop-menu .navbar-item.navbar-item-community .navbar-subitems-community {
+      background-color: var(--color-gray-10);
+      border-top: 1px solid var(--color-gray-30);
       display: none;
-      margin-top: calc(var(--spacing-base) * 2);
+      margin-top: var(--spacing-base);
       position: absolute;
+      width: 100%;
       z-index: 150;
+    }
+
+    .qiskit-navbar-desktop-menu .navbar-item.navbar-item-community .navbar-subitems-community .navbar-subitem-community {
+      border-bottom: 1px solid var(--color-gray-30);
+      color: var(--color-gray-80);
+      display: block;
+      padding: calc(var(--spacing-base) / 2) var(--spacing-base);
+    }
+
+    .qiskit-navbar-desktop-menu .navbar-item.navbar-item-community .navbar-subitems-community .navbar-subitem-community:hover {
+      background-color: var(--color-gray-20);
+      text-decoration: underline;
+    }
+
+    .qiskit-navbar-desktop-menu .navbar-item.navbar-item-community .navbar-subitems-community .navbar-subitem-community:last-child {
+      border-bottom: none;
     }
 
     .qiskit-navbar-desktop-menu .navbar-item.navbar-item-community .navbar-subitems-community.expanded {
@@ -370,6 +404,7 @@
       $('#qiskit-navbar-mobile-menu .navbar-item-community').addClass('expanded');
       $('#qiskit-navbar-mobile-menu .navbar-item-community .icon-down').addClass('expanded');
       $('#qiskit-navbar-mobile-menu .navbar-subitem-community').addClass('expanded');
+      $('#qiskit-navbar-desktop-menu .navbar-item-community').addClass('expanded');
       $('#qiskit-navbar-desktop-menu .navbar-subitems-community').addClass('expanded');
       window.qiskitNavbarCommunityItemsState.isExpanded = true;
     }
@@ -378,6 +413,7 @@
       $('#qiskit-navbar-mobile-menu .navbar-item-community').removeClass('expanded');
       $('#qiskit-navbar-mobile-menu .navbar-item-community .icon-down').removeClass('expanded');
       $('#qiskit-navbar-mobile-menu .navbar-subitem-community').removeClass('expanded');
+      $('#qiskit-navbar-desktop-menu .navbar-item-community').removeClass('expanded');
       $('#qiskit-navbar-desktop-menu .navbar-subitems-community').removeClass('expanded');
       window.qiskitNavbarCommunityItemsState.isExpanded = false;
     }
