@@ -119,6 +119,8 @@
 
     {# SIDE NAV, TOGGLES ON MOBILE #}
 
+    {% include "versions.html" %}
+
     <div class="table-of-contents-link-wrapper">
       <span>Table of Contents</span>
       <a href="#" class="toggle-table-of-contents" data-behavior="toggle-table-of-contents"></a>
@@ -215,8 +217,6 @@
         </div>
       </section>
     </div>
-
-  {% include "versions.html" %}
 
   {% if not embedded %}
 
