@@ -175,6 +175,12 @@ img {
   }
 }
 
+@media screen and (min-width: 1600px) {
+  .rst-versions {
+    width: 350px;
+  }
+}
+
 .rst-versions.shift-up {
   height: auto;
   max-height: 100%;
@@ -205,6 +211,12 @@ img {
                            and converting it to an overlying layer */
     z-index: 400;
     border-bottom: solid 2px var(--purple);
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .rst-versions .rst-other-versions {
+    width: 350px;
   }
 }
 
