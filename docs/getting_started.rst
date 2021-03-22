@@ -28,6 +28,19 @@ Getting started
         </div>
         </a>
 
+        <a href="https://quantum-computing.ibm.com/">
+        <div class="sphx-glr-thumbcontainer">
+        <div class="figure align-center">
+        <img alt="thumbnail" src="_static/strangeworks.png">
+        <p class="caption">
+            <span class="caption-text">
+            <span class="std std-ref">Strangeworks</span>
+            </span>
+        </p>
+        </div>
+        </div>
+        </a>
+
 
 .. Hiding - Indices and tables
    :ref:`genindex`
