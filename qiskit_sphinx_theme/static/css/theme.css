@@ -12507,4 +12507,33 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
   color: white;
 }
 
+.tabbed-set > input:checked + label {
+  border-color: #8B34FC !important;
+  color: #8B34FC !important;
+}
+
+.tabbed-set>label {
+  border-bottom:.125rem solid transparent;
+  color: #ADA8A8 !important;
+  cursor:pointer;
+  font-size:var(--tabs-size-label);
+  font-weight:700;
+  padding:1em 1.25em .5em;
+  transition:color 250ms;
+  width:auto;
+  z-index:1
+ }
+ html .tabbed-set>label:hover {
+  color:#8B34FC !important;
+ }
+
+ .tabbed-content {
+  box-shadow:0 -.0625rem #D6D6D6,0 .0625rem #D6D6D6 !important;
+  display:none;
+  order:99;
+  padding-bottom:.75rem;
+  padding-top:.75rem;
+  width:100%
+ }
+
 /*# sourceMappingURL=theme.css.map */

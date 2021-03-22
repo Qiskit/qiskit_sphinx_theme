@@ -47,6 +47,10 @@ rst_prolog = """
 .. |version| replace:: {0}
 """.format(release)
 
+html_static_path = ['_static']
+templates_path = ['_templates']
+html_css_files = ['gallery.css']
+
 # -- General configuration ---------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
