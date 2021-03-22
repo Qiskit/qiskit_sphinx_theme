@@ -95,13 +95,45 @@
           <li>
             <a href="{{ theme_variables.external_urls['slack'] }}" target="_blank">Slack Support</a>
           </li>
-
           <li>
-            <a href="{{ theme_variables.external_urls['iqx'] }}" target="_blank">IBM Quantum Dashboard</a>
+            <a href="{{ theme_variables.external_urls['github'] }}" target="_blank">Github</a>
+          </li>
+
+          <li {%- if theme_pytorch_project == 'tutorials' %} class="active"{% endif %}>
+            <a href="{{ theme_variables.external_urls['tutorials'] }}">Tutorials</a>
           </li>
 
           <li>
-            <a href="{{ theme_variables.external_urls['github'] }}" target="_blank">Github</a>
+            <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
+              <a class="resource-option with-down-orange-arrow">
+                Applications
+              </a>
+              <div class="resources-dropdown-menu">
+                <a class="nav-dropdown-item" href="{{ theme_variables.external_urls['forums'] }}" target="_blank">
+                  <span class="dropdown-title">Machine learning</span>
+                  <p>QSVM, VQC (Variational Quantum Classifier), and QGAN (Quantum Generative
+                    Adversarial Network) algorithms.</p>
+                </a>
+                <a class="nav-dropdown-item" href="{{ theme_variables.external_urls['nature'] }}">
+                  <span class="dropdown-title">Nature</span>
+                  <p>Quantum applications in chemistry, physics, and biology.</p>
+                </a>
+                <a class="nav-dropdown-item" href="{{ theme_variables.external_urls['resources'] }}">
+                  <span class="dropdown-title">Finance</span>
+                  <p>Uncertainty components for stock/securities problems, Ising translators for
+                    portfolio optimizations and data providers to source real or random data.</p>
+                </a>
+                <a class="nav-dropdown-item" href="{{ theme_variables.external_urls['hub'] }}">
+                  <span class="dropdown-title">Optimization</span>
+                  <p>High-level optimization problems that are ready to
+                    run on simulators and real quantum devices</p>
+                </a>
+                <a class="nav-dropdown-item" href="{{ theme_variables.external_urls['experiments'] }}">
+                  <span class="dropdown-title">Experiments</span>
+                  <p>Work with noisy quantum computers at the level of pulses, circuits,
+                    and algorithms.</p>
+                </a>
+              </div>
           </li>
         </ul>
       </div>
