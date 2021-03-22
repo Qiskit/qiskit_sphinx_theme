@@ -89,20 +89,9 @@
       <div class="main-menu">
         <ul>
           <li>
-            <a href="{{ theme_variables.external_urls['resources'] }}" target="_blank">Learning Resources</a>
+            <a href="{{ theme_variables.external_urls['resources'] }}" target="_blank">Getting started</a>
           </li>
-
-          <li>
-            <a href="{{ theme_variables.external_urls['slack'] }}" target="_blank">Slack Support</a>
-          </li>
-          <li>
-            <a href="{{ theme_variables.external_urls['github'] }}" target="_blank">Github</a>
-          </li>
-
-          <li {%- if theme_pytorch_project == 'tutorials' %} class="active"{% endif %}>
-            <a href="{{ theme_variables.external_urls['tutorials'] }}">Tutorials</a>
-          </li>
-
+          
           <li>
             <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
               <a class="resource-option with-down-orange-arrow">
@@ -134,6 +123,21 @@
                     and algorithms.</p>
                 </a>
               </div>
+          </li>
+
+          <li>
+            <a href="{{ theme_variables.external_urls['resources'] }}" target="_blank">Qiskit Partners</a>
+          </li>
+
+          <li {%- if theme_pytorch_project == 'tutorials' %} class="active"{% endif %}>
+            <a href="{{ theme_variables.external_urls['tutorials'] }}">Tutorials</a>
+          </li>
+
+          <li>
+            <a href="{{ theme_variables.external_urls['slack'] }}" target="_blank">Slack Support</a>
+          </li>
+          <li>
+            <a href="{{ theme_variables.external_urls['github'] }}" target="_blank">Github</a>
           </li>
         </ul>
       </div>
