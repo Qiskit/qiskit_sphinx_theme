@@ -8,6 +8,7 @@ Qiskit sphinx theme |version| documentation
   :caption: Basic functionality
   :hidden:
 
+   Getting started <getting_started>
    Structural formatting <structural>
    Paragraph-level markup <paragraph>
    Lists and tables <lists_tables>

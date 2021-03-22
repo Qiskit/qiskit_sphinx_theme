@@ -88,17 +88,16 @@
 
       <div class="main-menu">
         <ul>
-          <li>
-            <a href="{{ theme_variables.external_urls['resources'] }}" target="_blank">Getting started</a>
+          <li {%- if pagename == 'getting_started' %} class="active"{% endif %}>
+            <a href="{{ pathto('getting_started') }}">Getting started</a>
           </li>
-          
           <li>
             <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
               <a class="resource-option with-down-orange-arrow">
                 Applications
               </a>
               <div class="resources-dropdown-menu">
-                <a class="nav-dropdown-item" href="{{ theme_variables.external_urls['forums'] }}" target="_blank">
+                <a class="nav-dropdown-item" href="{{ theme_variables.external_urls['ml'] }}">
                   <span class="dropdown-title">Machine learning</span>
                   <p>QSVM, VQC (Variational Quantum Classifier), and QGAN (Quantum Generative
                     Adversarial Network) algorithms.</p>
@@ -107,12 +106,12 @@
                   <span class="dropdown-title">Nature</span>
                   <p>Quantum applications in chemistry, physics, and biology.</p>
                 </a>
-                <a class="nav-dropdown-item" href="{{ theme_variables.external_urls['resources'] }}">
+                <a class="nav-dropdown-item" href="{{ theme_variables.external_urls['finance'] }}">
                   <span class="dropdown-title">Finance</span>
                   <p>Uncertainty components for stock/securities problems, Ising translators for
                     portfolio optimizations and data providers to source real or random data.</p>
                 </a>
-                <a class="nav-dropdown-item" href="{{ theme_variables.external_urls['hub'] }}">
+                <a class="nav-dropdown-item" href="{{ theme_variables.external_urls['optim'] }}">
                   <span class="dropdown-title">Optimization</span>
                   <p>High-level optimization problems that are ready to
                     run on simulators and real quantum devices</p>
@@ -129,7 +128,7 @@
             <a href="{{ theme_variables.external_urls['resources'] }}" target="_blank">Qiskit Partners</a>
           </li>
 
-          <li {%- if theme_pytorch_project == 'tutorials' %} class="active"{% endif %}>
+          <li {%- if pagename == 'tutorials' %} class="active"{% endif %}>
             <a href="{{ theme_variables.external_urls['tutorials'] }}">Tutorials</a>
           </li>
 
