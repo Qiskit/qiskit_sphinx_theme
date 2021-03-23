@@ -589,6 +589,31 @@ project don't require a reinstall to be applied:
 
     pip install -e .
 
+Ready to get going?...
+======================
+
+.. raw:: html
+
+   <div class="tutorials-callout-container">
+      <div class="row">
+
+.. customcalloutitem::
+   :description: Learn how to build, execute, and postprocess quantum circuits with Qiskit.
+   :header: Qiskit from the ground up
+   :button_link:  https://qiskit.org/documentation/partners/
+   :button_text: Start learning Qiskit
+
+
+.. customcalloutitem::
+   :description: Find out how to leverage Qiskit for everything from single-circuits to full quantum application development.
+   :header: Dive into the tutorials
+   :button_link:  https://qiskit.org/documentation/partners/
+   :button_text: Qiskit tutorials
+
+.. raw:: html
+
+   </div>
+
 .. Hiding - Indices and tables
    :ref:`genindex`
    :ref:`modindex`

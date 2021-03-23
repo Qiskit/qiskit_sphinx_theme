@@ -30,7 +30,9 @@
 """
 Sphinx documentation builder
 """
-
+import os
+import sys
+sys.path.insert(0, os.path.abspath('.'))
 # -- Project information -----------------------------------------------------
 project = 'Qiskit sphinx theme'
 copyright = '2020, Qiskit Development Team'  # pylint: disable=redefined-builtin
@@ -144,3 +146,17 @@ html_theme_options = {
 }
 
 autoclass_content = 'both'
+
+from custom_directives import (IncludeDirective, GalleryItemDirective,
+                               CustomGalleryItemDirective, CustomCalloutItemDirective,
+                               CustomCardItemDirective)
+def setup(app):
+    # Custom CSS
+    # app.add_stylesheet('css/pytorch_theme.css')
+    # app.add_stylesheet('https://fonts.googleapis.com/css?family=Lato')
+    # Custom directives
+    app.add_directive('includenodoc', IncludeDirective)
+    app.add_directive('galleryitem', GalleryItemDirective)
+    app.add_directive('customgalleryitem', CustomGalleryItemDirective)
+    app.add_directive('customcarditem', CustomCardItemDirective)
+    app.add_directive('customcalloutitem', CustomCalloutItemDirective)
