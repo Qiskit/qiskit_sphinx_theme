@@ -28,7 +28,7 @@ Getting started
         </div>
         </a>
 
-        <a href="https://quantum-computing.ibm.com/">
+        <a href="https://strangeworks.com/">
         <div class="sphx-glr-thumbcontainer">
         <div class="figure align-center">
         <img alt="thumbnail" src="_static/strangeworks.png">
