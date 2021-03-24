@@ -12536,4 +12536,20 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
   width:100%
  }
 
+ .mobile-main-menu.open ul li a, .mobile-main-menu.open .resources-mobile-menu-title {
+  font-size: 1.75rem;
+  color: #ffffff;
+  letter-spacing: 0;
+  line-height: 3rem;
+  text-decoration: none;
+}
+
+.mobile-main-menu.open .resources-mobile-menu-title {
+  font-size: 2rem;
+  color: #8B34FC;
+  letter-spacing: 0;
+  line-height: 4rem;
+  text-decoration: none;
+}
+
 /*# sourceMappingURL=theme.css.map */
