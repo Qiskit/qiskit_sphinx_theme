@@ -324,16 +324,55 @@
       <div class="main-menu">
         <ul>
           <li>
-            <a href="{{ theme_variables.external_urls['resources'] }}">Learning Resources</a>
+            <a href="{{ pathto('getting_started') }}">Getting Started</a>
+          </li>
+
+          <li class="resources-mobile-menu-title">
+            Applications
+          </li>
+          <ul class="resources-mobile-menu-items">
+            <li>
+              <a href="{{ theme_variables.external_urls['ml'] }}">Machine learning</a>
+            </li>
+
+            <li>
+              <a href="{{ theme_variables.external_urls['nature'] }}">Nature</a>
+            </li>
+
+            <li>
+              <a href="{{ theme_variables.external_urls['finance'] }}">Finance</a>
+            </li>
+
+            <li>
+              <a href="{{ theme_variables.external_urls['optim'] }}">Optimization</a>
+            </li>
+          </ul>
+
+          <li>
+            <a href="{{ theme_variables.external_urls['partners'] }}">Qiskit Partners</a>
           </li>
 
           <li>
-            <a href="{{ theme_variables.external_urls['slack'] }}">Slack Support</a>
+            <a href="{{ pathto('tutorials') }}">Tutorials</a>
           </li>
 
-          <li>
-            <a href="{{ theme_variables.external_urls['iqx'] }}">IBM Quantum Experience</a>
+          <li class="resources-mobile-menu-title">
+            Resources
           </li>
+
+          <ul class="resources-mobile-menu-items">
+            <li>
+              <a href="{{ theme_variables.external_urls['slack'] }}">Slack support</a>
+            </li>
+
+            <li>
+              <a href="{{ theme_variables.external_urls['textbook'] }}">Qiskit textbook</a>
+            </li>
+
+            <li>
+              <a href="{{ theme_variables.external_urls['events'] }}">Qiskit events</a>
+            </li>
+          </ul>
 
           <li>
             <a href="{{ theme_variables.external_urls['github'] }}">Github</a>
