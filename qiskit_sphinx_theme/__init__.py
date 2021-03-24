@@ -5,7 +5,7 @@ From https://github.com/nonhermitian/qiskit_sphinx_theme.
 """
 from os import path
 
-__version__ = '1.7.7'
+__version__ = '1.7.8'
 __version_full__ = __version__
 
 
