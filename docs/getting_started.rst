@@ -73,36 +73,34 @@ Quick installation
 
 .. tabbed:: Start on the cloud
 
-    The following cloud vendors have Qiskit pre-installed in their
-    environments:
+    The following cloud vendors have Qiskit pre-installed in their environments:
 
-    .. raw:: html
-        
-        <a href="https://quantum-computing.ibm.com/">
-        <div class="sphx-glr-thumbcontainer">
-        <div class="figure align-center">
-        <img alt="thumbnail" src="_static/ibm_qlab.png">
-        <p class="caption">
-            <span class="caption-text">
-            <span class="std std-ref">IBM Quantum Lab</span>
-            </span>
-        </p>
-        </div>
-        </div>
-        </a>
+   .. raw:: html
 
-        <a href="https://strangeworks.com/">
-        <div class="sphx-glr-thumbcontainer">
-        <div class="figure align-center">
-        <img alt="thumbnail" src="_static/strangeworks.png">
-        <p class="caption">
-            <span class="caption-text">
-            <span class="std std-ref">Strangeworks</span>
-            </span>
-        </p>
-        </div>
-        </div>
-        </a>
+      <div id="tutorial-cards-container">
+      <hr class="tutorials-hr">
+      <div class="row">
+      <div id="tutorial-cards">
+      <div class="list">
+ 
+   .. customcarditem::
+      :header: IBM Quantum Lab
+      :card_description: A Jupyter Lab based runtime for executing quantum circuit and applications on IBM Quantum hardware.
+      :image: _static/ibm_qlab.png
+      :link: https://quantum-computing.ibm.com/
+   
+   .. customcarditem::
+      :header: Strangeworks
+      :card_description: A platform that enables users and organizations to easily apply quantum computing to their most pressing problems and research.
+      :image: _static/strangeworks.png
+      :link: https://strangeworks.com/
+ 
+   .. raw:: html
+ 
+      </div>
+      <div class="pagination d-flex justify-content-center"></div>
+      </div>
+      </div>
 
 Install from source
 ===================
