@@ -23,3 +23,53 @@
   'ibm': 'https://www.ibm.com/quantum-computing/',
 }
 -%}
+
+{%- set top_menu_links = [
+  {
+    'label': 'Getting Started',
+    'path_to': 'getting_started'
+  },
+  {
+    'label': 'Tutorials',
+    'path_to': 'tutorials'
+  },
+  {
+    'label': 'Partners',
+    'url': 'https://qiskit.org/documentation/partners'
+  },
+  {
+    'label': 'Applications',
+    'children': [
+      {
+        'label': 'Machine learning',
+        'url': 'https://qiskit.org/documentation/machine-learning'
+      },
+      {
+        'label': 'Nature',
+        'url': 'https://qiskit.org/documentation/nature'
+      },
+      {
+        'label': 'Finance',
+        'url': 'https://qiskit.org/documentation/finance'
+      },
+      {
+        'label': 'Optimization',
+        'url': 'https://qiskit.org/documentation/optimization'
+      },
+    ]
+  },
+  {
+    'label': 'Experiments',
+    'url': 'https://qiskit.org/documentation/experiments'
+  },
+  {
+    'label': 'Resources',
+    'children': [
+      {
+        'label': 'Slack support',
+        'url': 'https://qiskit.slack.com'
+      }
+    ]
+  }
+]
+-%}
