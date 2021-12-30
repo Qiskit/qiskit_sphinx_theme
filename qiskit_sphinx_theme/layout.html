@@ -330,7 +330,7 @@
             {%- else -%}
               <br>
               <li class="resources-mobile-menu-title">{{ menu_link.label }}</li>
-              <ul class="resources-mobile-menu-items">{{ loop(menu_link.children) }}</ul>
+              <ul>{{ loop(menu_link.children) }}</ul>
               <br>
             {%- endif %}</li>
           {%- endfor %}
