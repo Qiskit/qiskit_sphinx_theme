@@ -104,9 +104,27 @@
 }
 -%}
 
+{%- set qiskit_textbook_link = {
+  'label': 'Qiskit Textbook',
+  'url': 'https://qiskit.org/textbook-beta'
+}
+-%}
+
+{%- set qiskit_events_link = {
+  'label': 'Qiskit events',
+  'url': 'https://qiskit.org/events'
+}
+-%}
+
 {%- set resources_link = {
   'label': resources_label,
   'children': [slack_support_link]
+}
+-%}
+
+{%- set resources_link_in_top_menu = {
+  'label': resources_label,
+  'children': [slack_support_link, qiskit_textbook_link, qiskit_events_link]
 }
 -%}
 
