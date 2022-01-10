@@ -40,15 +40,12 @@
 .wy-table-responsive {
   margin-bottom: 24px;
   max-width: 100%;
-  overflow: auto;
+  max-height: 40rem;
+  overflow: scroll;
 }
 
 .wy-table-responsive table {
   margin-bottom: 0 !important;
-}
-
-article.pytorch-article .wy-table-responsive table {
-width: 100%;
 }
 
 .wy-table-responsive table thead{
