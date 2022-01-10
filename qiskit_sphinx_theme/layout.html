@@ -7,7 +7,6 @@
   {%- set titlesuffix = "" %}
 {%- endif %}
 {%- set lang_attr = 'en' if language == None else (language | replace('_', '-')) %}
-{% import 'theme_variables.jinja' as theme_variables %}
 {% from 'theme_variables.jinja' import qiskit_org_link, getting_started_link, tutorials_link, partners_link, applications_link, experiments_link, resources_link, resources_link_in_top_menu, github_link %}
 
 <!DOCTYPE html>
@@ -108,7 +107,7 @@
             {%- else -%}
             <li>
               <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
-                <a class="resource-option with-down-orange-arrow">{{ menu_link.label }}</a>
+                <a class="with-down-orange-arrow">{{ menu_link.label }}</a>
                 <div class="resources-dropdown-menu">
                   {%- for menu_sublink in menu_link.children %}
                     <a class="nav-dropdown-item" href="{{ menu_sublink.url or pathto(menu_sublink.path) }}">
