@@ -8,7 +8,7 @@
 {%- endif %}
 {%- set lang_attr = 'en' if language == None else (language | replace('_', '-')) %}
 {% import 'theme_variables.jinja' as theme_variables %}
-{% from 'theme_variables.jinja' import getting_started_link, tutorials_link, partners_link, applications_link, experiments_link, resources_link, github_link %}
+{% from 'theme_variables.jinja' import qiskit_org_link, getting_started_link, tutorials_link, partners_link, applications_link, experiments_link, resources_link, github_link %}
 
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="{{ lang_attr }}" > <![endif]-->
@@ -96,7 +96,7 @@
 <div class="container-fluid header-holder tutorials-header" id="header-holder">
   <div class="container">
     <div class="header-container">
-      <a class="header-logo" href="{{ theme_variables.external_urls['home'] }}" aria-label="PyTorch"></a>
+      <a class="header-logo" href="{{ qiskit_org_link.url }}" aria-label="{{ qiskit_org_link.url }}"></a>
 
       <div class="main-menu">
         <ul>
@@ -295,7 +295,7 @@
     <div class="container-fluid">
       <div class="container">
         <div class="mobile-main-menu-header-container">
-          <a class="header-logo" href="{{ theme_variables.external_urls['home'] }}" aria-label="PyTorch"></a>
+          <a class="header-logo" href="{{ qiskit_org_link.url }}" aria-label="{{ qiskit_org_link.url }}"></a>
           <a class="main-menu-close-button" href="#" data-behavior="close-mobile-menu"></a>
         </div>
       </div>
