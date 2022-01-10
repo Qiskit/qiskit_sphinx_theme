@@ -8,7 +8,7 @@
 {%- endif %}
 {%- set lang_attr = 'en' if language == None else (language | replace('_', '-')) %}
 {% import 'theme_variables.jinja' as theme_variables %}
-{% from 'theme_variables.jinja' import getting_started_link, tutorials_link, partners_link, applications_link, experiments_link, resources_link %}
+{% from 'theme_variables.jinja' import getting_started_link, tutorials_link, partners_link, applications_link, experiments_link, resources_link, github_link %}
 
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="{{ lang_attr }}" > <![endif]-->
@@ -82,6 +82,17 @@
 
 </head>
 
+{%- set top_menu_links = [
+  getting_started_link,
+  tutorials_link,
+  partners_link,
+  applications_link,
+  experiments_link,
+  resources_link,
+  github_link
+]
+-%}
+
 <div class="container-fluid header-holder tutorials-header" id="header-holder">
   <div class="container">
     <div class="header-container">
@@ -89,84 +100,27 @@
 
       <div class="main-menu">
         <ul>
-          {%- for menu_link in theme_variables.top_menu_links recursive %}
+          {%- for menu_link in top_menu_links %}
             {%- if not menu_link.children -%}
-            <li><a href="{{ menu_link.url or pathto(menu_link.path_to) }}">{{ menu_link.label }}</a>
+            <li {%- if pagename == menu_link.path %} class="active"{% endif %}>
+              <a href="{{ menu_link.url or pathto(menu_link.path) }}">{{ menu_link.label }}</a>
+            </li>
             {%- else -%}
-              <br>
-              <li class="resources-mobile-menu-title">{{ menu_link.label }}</li>
-              <ul>{{ loop(menu_link.children) }}</ul>
-              <br>
-            {%- endif %}</li>
-          {%- endfor %}
-        </ul>
-
-
-
-        <ul>
-          <li {%- if pagename == 'getting_started' %} class="active"{% endif %}>
-            <a href="{{ pathto('getting_started') }}">Getting started</a>
-          </li>
-
-          <li {%- if pagename == 'tutorials' %} class="active"{% endif %}>
-            <a href="{{ pathto('tutorials') }}">Tutorials</a>
-          </li>
-
-          <li>
-            <a href="{{ theme_variables.external_urls['partners'] }}" target="_blank">Qiskit Providers</a>
-          </li>
-
-          <li>
-            <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
-              <a class="resource-option with-down-orange-arrow">
-                Applications
-              </a>
-              <div class="resources-dropdown-menu">
-                <a class="nav-dropdown-item" href="{{ theme_variables.external_urls['ml'] }}">
-                  <span class="dropdown-title">Machine learning</span>
-                  <p>QSVM, VQC (Variational Quantum Classifier), and QGAN (Quantum Generative
-                    Adversarial Network) algorithms.</p>
-                </a>
-                <a class="nav-dropdown-item" href="{{ theme_variables.external_urls['nature'] }}">
-                  <span class="dropdown-title">Nature</span>
-                  <p>Quantum applications in chemistry, physics, and biology.</p>
-                </a>
-                <a class="nav-dropdown-item" href="{{ theme_variables.external_urls['finance'] }}">
-                  <span class="dropdown-title">Finance</span>
-                  <p>Uncertainty components for stock/securities problems, Ising translators for
-                    portfolio optimizations and data providers to source real or random data.</p>
-                </a>
-                <a class="nav-dropdown-item" href="{{ theme_variables.external_urls['optim'] }}">
-                  <span class="dropdown-title">Optimization</span>
-                  <p>High-level optimization problems that are ready to
-                    run on simulators and real quantum devices</p>
-                </a>
+            <li>
+              <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
+                <a class="resource-option with-down-orange-arrow">{{ menu_link.label }}</a>
+                <div class="resources-dropdown-menu">
+                  {%- for menu_sublink in menu_link.children %}
+                    <a class="nav-dropdown-item" href="{{ menu_sublink.url or pathto(menu_sublink.path) }}">
+                      <span class="dropdown-title">{{ menu_sublink.label }}</span>
+                      <p>{{ menu_sublink.description }}</p>
+                    </a>
+                  {%- endfor %}
+                </div>
               </div>
-          </li>
-
-          <li>
-            <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
-              <a class="resource-option with-down-orange-arrow">
-                Resources
-              </a>
-              <div class="resources-dropdown-menu">
-                <a class="doc-dropdown-option nav-dropdown-item" href="{{ theme_variables.external_urls['slack'] }}">
-                  <span class="dropdown-title">Slack support</span>
-                  <p></p>
-                </a>
-                <a class="doc-dropdown-option nav-dropdown-item" href="{{ theme_variables.external_urls['textbook'] }}">
-                  <span class="dropdown-title">Qiskit Textbook</span>
-                  <p></p>
-                </a>
-                <a class="doc-dropdown-option nav-dropdown-item" href="{{ theme_variables.external_urls['events'] }}">
-                  <span class="dropdown-title">Qiskit events</span>
-                  <p></p>
-                </a>
-            </div>
-          </li>
-          <li>
-            <a href="{{ theme_variables.external_urls['github'] }}" target="_blank">Github</a>
-          </li>
+            </li>
+            {%- endif %}
+          {%- endfor %}
         </ul>
       </div>
 
@@ -352,7 +306,7 @@
         <ul>
           {%- for menu_link in mobile_menu_links recursive %}
             {%- if not menu_link.children -%}
-            <li><a href="{{ menu_link.url or pathto(menu_link.path) }}">{{ menu_link.label }}</a>
+            <li><a href="{{ menu_link.url or pathto(menu_link.path) }}">{{ menu_link.label }}</a></li>
             {%- else -%}
               <br>
               <li class="resources-mobile-menu-title">{{ menu_link.label }}</li>

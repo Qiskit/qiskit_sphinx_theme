@@ -38,7 +38,8 @@
 
 {%- set partners_link = {
   'label': 'Partners',
-  'url': 'https://qiskit.org/documentation/partners'
+  'url': 'https://qiskit.org/documentation/partners',
+  'path': 'partners'
 }
 -%}
 
@@ -47,6 +48,7 @@
 {%- set machine_learning_link = {
   'label': 'Machine learning',
   'url': 'https://qiskit.org/documentation/machine-learning',
+  'path': 'machine-learning',
   'description': 'QSVM, VQC (Variational Quantum Classifier), and QGAN (Quantum Generative Adversarial Network) algorithms.'
 }
 -%}
@@ -54,6 +56,7 @@
 {%- set nature_link = {
   'label': 'Nature',
   'url': 'https://qiskit.org/documentation/nature',
+  'path': 'nature',
   'description': 'Quantum applications in chemistry, physics, and biology.'
 }
 -%}
@@ -61,6 +64,7 @@
 {%- set finance_link = {
   'label': 'Finance',
   'url': 'https://qiskit.org/documentation/finance',
+  'path': 'finance',
   'description': 'Uncertainty components for stock/securities problems, Ising translators for portfolio optimizations and data providers to source real or random data.'
 }
 -%}
@@ -68,6 +72,7 @@
 {%- set optimization_link = {
   'label': 'Optimization',
   'url': 'https://qiskit.org/documentation/optimization',
+  'path': 'optimization',
   'description': 'High-level optimization problems that are ready to run on simulators and real quantum devices'
 }
 -%}
@@ -80,7 +85,8 @@
 
 {%- set experiments_link = {
   'label': 'Experiments',
-  'url': 'https://qiskit.org/documentation/experiments'
+  'url': 'https://qiskit.org/documentation/experiments',
+  'path': 'experiments'
 }
 -%}
 
@@ -95,5 +101,11 @@
 {%- set resources_link = {
   'label': resources_label,
   'children': [slack_support_link]
+}
+-%}
+
+{%- set github_link = {
+  'label': 'GitHub',
+  'url': 'https://github.com/Qiskit/'
 }
 -%}
