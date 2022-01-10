@@ -24,52 +24,76 @@
 }
 -%}
 
-{%- set top_menu_links = [
-  {
-    'label': 'Getting Started',
-    'path_to': 'getting_started'
-  },
-  {
-    'label': 'Tutorials',
-    'path_to': 'tutorials'
-  },
-  {
-    'label': 'Partners',
-    'url': 'https://qiskit.org/documentation/partners'
-  },
-  {
-    'label': 'Applications',
-    'children': [
-      {
-        'label': 'Machine learning',
-        'url': 'https://qiskit.org/documentation/machine-learning'
-      },
-      {
-        'label': 'Nature',
-        'url': 'https://qiskit.org/documentation/nature'
-      },
-      {
-        'label': 'Finance',
-        'url': 'https://qiskit.org/documentation/finance'
-      },
-      {
-        'label': 'Optimization',
-        'url': 'https://qiskit.org/documentation/optimization'
-      },
-    ]
-  },
-  {
-    'label': 'Experiments',
-    'url': 'https://qiskit.org/documentation/experiments'
-  },
-  {
-    'label': 'Resources',
-    'children': [
-      {
-        'label': 'Slack support',
-        'url': 'https://qiskit.slack.com'
-      }
-    ]
-  }
-]
+{%- set getting_started_link = {
+  'label': 'Getting Started',
+  'path': 'getting_started'
+}
+-%}
+
+{%- set tutorials_link = {
+  'label': 'Tutorials',
+  'path': 'tutorials'
+}
+-%}
+
+{%- set partners_link = {
+  'label': 'Partners',
+  'url': 'https://qiskit.org/documentation/partners'
+}
+-%}
+
+{%- set applications_label = 'Applications' -%}
+
+{%- set machine_learning_link = {
+  'label': 'Machine learning',
+  'url': 'https://qiskit.org/documentation/machine-learning',
+  'description': 'QSVM, VQC (Variational Quantum Classifier), and QGAN (Quantum Generative Adversarial Network) algorithms.'
+}
+-%}
+
+{%- set nature_link = {
+  'label': 'Nature',
+  'url': 'https://qiskit.org/documentation/nature',
+  'description': 'Quantum applications in chemistry, physics, and biology.'
+}
+-%}
+
+{%- set finance_link = {
+  'label': 'Finance',
+  'url': 'https://qiskit.org/documentation/finance',
+  'description': 'Uncertainty components for stock/securities problems, Ising translators for portfolio optimizations and data providers to source real or random data.'
+}
+-%}
+
+{%- set optimization_link = {
+  'label': 'Optimization',
+  'url': 'https://qiskit.org/documentation/optimization',
+  'description': 'High-level optimization problems that are ready to run on simulators and real quantum devices'
+}
+-%}
+
+{%- set applications_link = {
+  'label': applications_label,
+  'children': [machine_learning_link, nature_link, finance_link, optimization_link]
+}
+-%}
+
+{%- set experiments_link = {
+  'label': 'Experiments',
+  'url': 'https://qiskit.org/documentation/experiments'
+}
+-%}
+
+{%- set resources_label = 'Resources' -%}
+
+{%- set slack_support_link = {
+  'label': 'Slack support',
+  'url': 'https://qiskit.slack.com'
+}
+-%}
+
+{%- set resources_link = {
+  'label': resources_label,
+  'children': [slack_support_link]
+}
 -%}

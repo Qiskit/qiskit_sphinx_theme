@@ -8,6 +8,7 @@
 {%- endif %}
 {%- set lang_attr = 'en' if language == None else (language | replace('_', '-')) %}
 {% import 'theme_variables.jinja' as theme_variables %}
+{% from 'theme_variables.jinja' import getting_started_link, tutorials_link, partners_link, applications_link, experiments_link, resources_link %}
 
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="{{ lang_attr }}" > <![endif]-->
@@ -87,6 +88,21 @@
       <a class="header-logo" href="{{ theme_variables.external_urls['home'] }}" aria-label="PyTorch"></a>
 
       <div class="main-menu">
+        <ul>
+          {%- for menu_link in theme_variables.top_menu_links recursive %}
+            {%- if not menu_link.children -%}
+            <li><a href="{{ menu_link.url or pathto(menu_link.path_to) }}">{{ menu_link.label }}</a>
+            {%- else -%}
+              <br>
+              <li class="resources-mobile-menu-title">{{ menu_link.label }}</li>
+              <ul>{{ loop(menu_link.children) }}</ul>
+              <br>
+            {%- endif %}</li>
+          {%- endfor %}
+        </ul>
+
+
+
         <ul>
           <li {%- if pagename == 'getting_started' %} class="active"{% endif %}>
             <a href="{{ pathto('getting_started') }}">Getting started</a>
@@ -311,6 +327,16 @@
 
   <!-- Begin Mobile Menu -->
 
+{%- set mobile_menu_links = [
+  getting_started_link,
+  tutorials_link,
+  partners_link,
+  applications_link,
+  experiments_link,
+  resources_link
+]
+-%}
+
   <div class="mobile-main-menu">
     <div class="container-fluid">
       <div class="container">
@@ -324,9 +350,9 @@
     <div class="mobile-main-menu-links-container">
       <div class="main-menu">
         <ul>
-          {%- for menu_link in theme_variables.top_menu_links recursive %}
+          {%- for menu_link in mobile_menu_links recursive %}
             {%- if not menu_link.children -%}
-            <li><a href="{{ menu_link.url or pathto(menu_link.path_to) }}">{{ menu_link.label }}</a>
+            <li><a href="{{ menu_link.url or pathto(menu_link.path) }}">{{ menu_link.label }}</a>
             {%- else -%}
               <br>
               <li class="resources-mobile-menu-title">{{ menu_link.label }}</li>
