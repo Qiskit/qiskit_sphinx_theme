@@ -7,7 +7,6 @@
   {%- set titlesuffix = "" %}
 {%- endif %}
 {%- set lang_attr = 'en' if language == None else (language | replace('_', '-')) %}
-{% from 'theme_variables.jinja' import qiskit_org_link, getting_started_link, tutorials_link, partners_link, applications_link, experiments_link, resources_link, resources_link_in_top_menu, github_link %}
 
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="{{ lang_attr }}" > <![endif]-->
@@ -232,45 +231,7 @@
   </div>
 
   <!-- Begin Mobile Menu -->
-
-{%- set mobile_menu_links = [
-  getting_started_link,
-  tutorials_link,
-  partners_link,
-  applications_link,
-  experiments_link,
-  resources_link
-]
--%}
-
-  <div class="mobile-main-menu">
-    <div class="container-fluid">
-      <div class="container">
-        <div class="mobile-main-menu-header-container">
-          <a class="header-logo" href="{{ qiskit_org_link.url }}" aria-label="{{ qiskit_org_link.url }}"></a>
-          <a class="main-menu-close-button" href="#" data-behavior="close-mobile-menu"></a>
-        </div>
-      </div>
-    </div>
-
-    <div class="mobile-main-menu-links-container">
-      <div class="main-menu">
-        <ul>
-          {%- for menu_link in mobile_menu_links recursive %}
-            {%- if not menu_link.children -%}
-            <li><a href="{{ menu_link.url or pathto(menu_link.path) }}">{{ menu_link.label }}</a></li>
-            {%- else -%}
-              <br>
-              <li class="resources-mobile-menu-title">{{ menu_link.label }}</li>
-              <ul>{{ loop(menu_link.children) }}</ul>
-              <br>
-            {%- endif %}</li>
-          {%- endfor %}
-        </ul>
-      </div>
-    </div>
-  </div>
-
+  {% include "top-menu-mobile.html" %}
   <!-- End Mobile Menu -->
 
   <script type="text/javascript" src="{{ pathto('_static/js/vendor/anchor.min.js', 1) }}"></script>

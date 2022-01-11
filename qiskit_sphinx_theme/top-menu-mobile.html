@@ -1,0 +1,39 @@
+{% from 'theme_variables.jinja' import qiskit_org_link, getting_started_link, tutorials_link, partners_link, applications_link, experiments_link, resources_link, github_link %}
+
+{%- set mobile_menu_links = [
+    getting_started_link,
+    tutorials_link,
+    partners_link,
+    applications_link,
+    experiments_link,
+    resources_link
+  ]
+  -%}
+  
+<div class="mobile-main-menu">
+    <div class="container-fluid">
+        <div class="container">
+            <div class="mobile-main-menu-header-container">
+                <a class="header-logo" href="{{ qiskit_org_link.url }}" aria-label="{{ qiskit_org_link.url }}"></a>
+                <a class="main-menu-close-button" href="#" data-behavior="close-mobile-menu"></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="mobile-main-menu-links-container">
+        <div class="main-menu">
+            <ul>
+            {%- for menu_link in mobile_menu_links recursive %}
+                {%- if not menu_link.children -%}
+                <li><a href="{{ menu_link.url or pathto(menu_link.path) }}">{{ menu_link.label }}</a></li>
+                {%- else -%}
+                <br>
+                <li class="resources-mobile-menu-title">{{ menu_link.label }}</li>
+                <ul>{{ loop(menu_link.children) }}</ul>
+                <br>
+                {%- endif %}</li>
+            {%- endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
