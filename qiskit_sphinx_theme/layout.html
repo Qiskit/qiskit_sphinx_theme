@@ -81,54 +81,7 @@
 
 </head>
 
-{%- set top_menu_links = [
-  getting_started_link,
-  tutorials_link,
-  partners_link,
-  applications_link,
-  experiments_link,
-  resources_link_in_top_menu,
-  github_link
-]
--%}
-
-<div class="container-fluid header-holder tutorials-header" id="header-holder">
-  <div class="container">
-    <div class="header-container">
-      <a class="header-logo" href="{{ qiskit_org_link.url }}" aria-label="{{ qiskit_org_link.url }}"></a>
-
-      <div class="main-menu">
-        <ul>
-          {%- for menu_link in top_menu_links %}
-            {%- if not menu_link.children -%}
-            <li {%- if pagename == menu_link.path %} class="active"{% endif %}>
-              <a href="{{ menu_link.url or pathto(menu_link.path) }}">{{ menu_link.label }}</a>
-            </li>
-            {%- else -%}
-            <li>
-              <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
-                <a class="with-down-orange-arrow">{{ menu_link.label }}</a>
-                <div class="resources-dropdown-menu">
-                  {%- for menu_sublink in menu_link.children %}
-                    <a class="nav-dropdown-item" href="{{ menu_sublink.url or pathto(menu_sublink.path) }}">
-                      <span class="dropdown-title">{{ menu_sublink.label }}</span>
-                      <p>{{ menu_sublink.description }}</p>
-                    </a>
-                  {%- endfor %}
-                </div>
-              </div>
-            </li>
-            {%- endif %}
-          {%- endfor %}
-        </ul>
-      </div>
-
-      <a class="main-menu-open-button" href="#" data-behavior="open-mobile-menu"></a>
-    </div>
-
-  </div>
-</div>
-
+{% include "top-menu.html" %}
 
 <body class="pytorch-body">
 
