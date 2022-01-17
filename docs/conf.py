@@ -41,26 +41,6 @@ author = 'Qiskit Development Team'
 from qiskit_sphinx_theme import LINKS, APPLICATIONS_LINKS, RESOURCES_LINKS_DESKTOP, RESOURCES_LINKS_MOBILE, __version__ as release
 
 html_theme = 'qiskit_sphinx_theme'  # use the theme in subdir 'theme'
-html_context = {
-    'qiskit_org_link': LINKS['qiskit_org'],
-    'top_menu_links': [
-        LINKS['getting_started'],
-        LINKS['tutorials'],
-        LINKS['partners'],
-        APPLICATIONS_LINKS,
-        LINKS['experiments'],
-        RESOURCES_LINKS_DESKTOP,
-        LINKS['github'],
-    ],
-    'mobile_menu_links': [
-        LINKS['getting_started'],
-        LINKS['tutorials'],
-        LINKS['partners'],
-        APPLICATIONS_LINKS,
-        LINKS['experiments'],
-        RESOURCES_LINKS_MOBILE
-    ]
-}
 templates_path = ['_templates']
 
 rst_prolog = """
@@ -161,6 +141,24 @@ html_theme_options = {
     'display_version': True,
     'prev_next_buttons_location': 'bottom',
     'style_external_links': True,
+    'qiskit_org_link': LINKS['qiskit_org'],
+    'top_menu_links': [
+        LINKS['getting_started'],
+        LINKS['tutorials'],
+        LINKS['partners'],
+        APPLICATIONS_LINKS,
+        LINKS['experiments'],
+        RESOURCES_LINKS_DESKTOP,
+        LINKS['github'],
+    ],
+    'mobile_menu_links': [
+        LINKS['getting_started'],
+        LINKS['tutorials'],
+        LINKS['partners'],
+        APPLICATIONS_LINKS,
+        LINKS['experiments'],
+        RESOURCES_LINKS_MOBILE
+    ]
 }
 
 autoclass_content = 'both'

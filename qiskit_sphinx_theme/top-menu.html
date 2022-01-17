@@ -1,11 +1,11 @@
 <div class="container-fluid header-holder tutorials-header" id="header-holder">
   <div class="container">
     <div class="header-container">
-      <a class="header-logo" href="{{ qiskit_org_link.url }}" aria-label="{{ qiskit_org_link.url }}"></a>
+      <a class="header-logo" href="{{ theme_qiskit_org_link.url }}" aria-label="{{ theme_qiskit_org_link.label }}"></a>
 
       <div class="main-menu">
         <ul>
-          {%- for menu_link in top_menu_links %}
+          {%- for menu_link in theme_top_menu_links %}
             {%- if not menu_link.children -%}
             <li {%- if pagename == menu_link.path %} class="active"{% endif %}>
               <a href="{{ menu_link.url or pathto(menu_link.path) }}">{{ menu_link.label }}</a>
