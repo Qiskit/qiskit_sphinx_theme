@@ -38,7 +38,7 @@ project = 'Qiskit sphinx theme'
 copyright = '2020, Qiskit Development Team'  # pylint: disable=redefined-builtin
 author = 'Qiskit Development Team'
 
-from qiskit_sphinx_theme import LINKS, APPLICATIONS_LINKS, RESOURCES_LINKS_DESKTOP, RESOURCES_LINKS_MOBILE, __version__ as release
+from qiskit_sphinx_theme import __version__ as release
 
 html_theme = 'qiskit_sphinx_theme'  # use the theme in subdir 'theme'
 templates_path = ['_templates']
@@ -70,6 +70,7 @@ extensions = [
     'jupyter_sphinx',
     'sphinx_panels',
     'sphinx_autodoc_typehints',
+    'qiskit_sphinx_theme'
 ]
 
 # -----------------------------------------------------------------------------
@@ -141,24 +142,17 @@ html_theme_options = {
     'display_version': True,
     'prev_next_buttons_location': 'bottom',
     'style_external_links': True,
-    'qiskit_org_link': LINKS['qiskit_org'],
+    'qiskit_org_link': True,
     'top_menu_links': [
-        LINKS['getting_started'],
-        LINKS['tutorials'],
-        LINKS['partners'],
-        APPLICATIONS_LINKS,
-        LINKS['experiments'],
-        RESOURCES_LINKS_DESKTOP,
-        LINKS['github'],
-    ],
-    'mobile_menu_links': [
-        LINKS['getting_started'],
-        LINKS['tutorials'],
-        LINKS['partners'],
-        APPLICATIONS_LINKS,
-        LINKS['experiments'],
-        RESOURCES_LINKS_MOBILE
+        'getting_started',
+        'tutorials',
+        'partners',
+        'applications',
+        'experiments',
+        'resources_desktop',
+        'github'
     ]
+
 }
 
 autoclass_content = 'both'
