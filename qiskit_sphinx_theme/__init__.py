@@ -2,7 +2,6 @@
 
 """
 from os import path
-from signal import raise_signal
 
 __version__ = '1.8.6'
 __version_full__ = __version__
