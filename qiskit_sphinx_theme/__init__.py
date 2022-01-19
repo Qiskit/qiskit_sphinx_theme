@@ -105,7 +105,7 @@ def include_additional_theme_links(app, config):
     """Include other useful links on the theme"""
     config.html_theme_options['qiskit_org_link'] = QISKIT_ORG_LINK
 
-# See http://www.sphinx-doc.org/en/stable/theming.html#distribute-your-theme-as-a-python-package
+# See https://www.sphinx-doc.org/en/master/development/theming.html#distribute-your-theme-as-a-python-package
 def setup(app):
     app.connect('config-inited', map_to_theme_links)
     app.connect('config-inited', include_additional_theme_links)
