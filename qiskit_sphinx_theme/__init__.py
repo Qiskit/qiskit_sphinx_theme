@@ -7,111 +7,85 @@ from signal import raise_signal
 __version__ = '1.8.6'
 __version_full__ = __version__
 
-qiskit_org_link = {
+QISKIT_ORG = 'https://qiskit.org'
+QISKIT_MACHINE_LEARNING_DOCS = 'https://qiskit.org/documentation/machine-learning'
+QISKIT_NATURE_DOCS = 'https://qiskit.org/documentation/nature'
+QISKIT_FINANCE_DOCS = 'https://qiskit.org/documentation/finance'
+QISKIT_OPTIMIZATION_DOCS = 'https://qiskit.org/documentation/optimization'
+QISKIT_SLACK = 'https://qiskit.slack.com'
+QISKIT_TEXTBOOK = 'https://qiskit.org/textbook-beta'
+QISKIT_EVENTS = 'https://qiskit.org/events'
+QISKIT_PARTNERS_DOCS = 'https://qiskit.org/documentation/partners'
+QISKIT_EXPERIMENTS_DOCS = 'https://qiskit.org/documentation/experiments'
+QISKIT_ORGANIZATION_GITHUB = 'https://github.com/Qiskit/'
+
+QISKIT_ORG_LINK = {
     'label': 'Qiskit home page',
-    'url': 'https://qiskit.org'
+    'url': QISKIT_ORG
 }
 
-machine_learning_link = {
-    'label': 'Machine learning',
-    'url': 'https://qiskit.org/documentation/machine-learning',
-    'path': 'machine-learning',
-    'description': 'QSVM, VQC (Variational Quantum Classifier), and QGAN (Quantum Generative Adversarial Network) algorithms.'
-}
-
-nature_link = {
-    'label': 'Nature',
-    'url': 'https://qiskit.org/documentation/nature',
-    'path': 'nature',
-    'description': 'Quantum applications in chemistry, physics, and biology.'
-}
-
-finance_link = {
-    'label': 'Finance',
-    'url': 'https://qiskit.org/documentation/finance',
-    'path': 'finance',
-    'description': 'Uncertainty components for stock/securities problems, Ising translators for portfolio optimizations and data providers to source real or random data.'
-}
-
-optimization_link = {
-    'label': 'Optimization',
-    'url': 'https://qiskit.org/documentation/optimization',
-    'path': 'optimization',
-    'description': 'High-level optimization problems that are ready to run on simulators and real quantum devices'
-}
-
-applications_links = {
-  'label': 'Applications',
-  'children': [
-    machine_learning_link,
-    nature_link,
-    finance_link,
-    optimization_link
-  ]
-}
-
-resources_label = 'Resources'
-
-slack_support_link = {
-    'label': 'Slack support',
-    'url': 'https://qiskit.slack.com'
-}
-
-qiskit_textbook_link = {
-    'label': 'Qiskit Textbook',
-    'url': 'https://qiskit.org/textbook-beta'
-}
-
-qiskit_events_link = {
-    'label': 'Qiskit events',
-    'url': 'https://qiskit.org/events'
-}
-
-resources_desktop = {
-  'label': resources_label,
-  'children': [slack_support_link, qiskit_textbook_link, qiskit_events_link]
-}
-
-resources_mobile = {
-  'label': resources_label,
-  'children': [slack_support_link]
-}
-
-LINKS = {
-    'qiskit_org': qiskit_org_link,
-    'getting_started': {
+TOP_MENU_LINKS = {
+    'qiskit_core_getting_started': {
         'label': 'Getting Started',
         'path': 'getting_started'
     },
-    'tutorials': {
+    'qiskit_core_tutorials': {
         'label': 'Tutorials',
         'path': 'tutorials'
     },
-    'partners': {
+    'qiskit_partners': {
         'label': 'Partners',
-        'url': 'https://qiskit.org/documentation/partners',
-        'path': 'partners'
+        'url': QISKIT_PARTNERS_DOCS,
     },
-    'applications': applications_links,
-    'experiments': {
+    'qiskit_applications': {
+        'label': 'Applications',
+        'children': [
+            {
+                'label': 'Machine learning',
+                'url': QISKIT_MACHINE_LEARNING_DOCS,
+                'description': 'QSVM, VQC (Variational Quantum Classifier), and QGAN (Quantum Generative Adversarial Network) algorithms.'
+            },
+            {
+                'label': 'Nature',
+                'url': QISKIT_NATURE_DOCS,
+                'description': 'Quantum applications in chemistry, physics, and biology.'
+            },
+            {
+                'label': 'Finance',
+                'url': QISKIT_FINANCE_DOCS,
+                'description': 'Uncertainty components for stock/securities problems, Ising translators for portfolio optimizations and data providers to source real or random data.'
+            },
+            {
+                'label': 'Optimization',
+                'url': QISKIT_OPTIMIZATION_DOCS,
+                'description': 'High-level optimization problems that are ready to run on simulators and real quantum devices'
+            }
+        ]
+    },
+    'qiskit_experiments': {
         'label': 'Experiments',
-        'url': 'https://qiskit.org/documentation/experiments',
-        'path': 'experiments'
+        'url': QISKIT_EXPERIMENTS_DOCS,
     },
-    'slack_support': slack_support_link,
-    'qiskit_textbook': qiskit_textbook_link,
-    'qiskit_events': qiskit_events_link,
-    'github': {
+    'resources': {
+        'label': 'Resources',
+        'children': [
+            {
+                'label': 'Slack support',
+                'url': QISKIT_SLACK
+            },
+            {
+                'label': 'Qiskit Textbook',
+                'url': QISKIT_TEXTBOOK
+            },
+            {
+                'label': 'Qiskit events',
+                'url': QISKIT_EVENTS
+            }
+        ]
+    },
+    'qiskit_organization_github': {
         'label': 'GitHub',
-        'url': 'https://github.com/Qiskit/'
-    },
-    'resources_desktop': {
-        'label': resources_label,
-        'children': [slack_support_link, qiskit_textbook_link, qiskit_events_link]
-    },
-    'resources_mobile': {
-        'label': resources_label,
-        'children': [slack_support_link]
+        'url': QISKIT_ORGANIZATION_GITHUB
     }
 }
 
@@ -120,21 +94,21 @@ def get_html_theme_path():
     cur_dir = path.abspath(path.dirname(path.dirname(__file__)))
     return cur_dir
 
-def get_theme_link(current_link):
-    return LINKS[current_link]
-
-def maps_to_theme_links(app, config):
+def map_to_theme_links(app, config):
+    """Map the theme options given in the config file to links"""
     theme_options = config.html_theme_options or {}
 
-    theme_qiskit_org_link = theme_options.get('qiskit_org_link') and get_theme_link('qiskit_org') or {}
-    config.html_theme_options['qiskit_org_link'] = theme_qiskit_org_link
-
-    theme_top_menu_links = list(map(lambda top_menu_link: LINKS[top_menu_link], theme_options.get('top_menu_links')))
+    theme_top_menu_links = list(map(lambda top_menu_link: TOP_MENU_LINKS[top_menu_link], theme_options.get('top_menu_links')))
     config.html_theme_options['top_menu_links'] = theme_top_menu_links
+
+def include_additional_theme_links(app, config):
+    """Include other useful links on the theme"""
+    config.html_theme_options['qiskit_org_link'] = QISKIT_ORG_LINK
 
 # See http://www.sphinx-doc.org/en/stable/theming.html#distribute-your-theme-as-a-python-package
 def setup(app):
-    app.connect('config-inited', maps_to_theme_links)
+    app.connect('config-inited', map_to_theme_links)
+    app.connect('config-inited', include_additional_theme_links)
     app.add_html_theme('qiskit_sphinx_theme', path.abspath(path.dirname(__file__)))
 
     # return explicit parallel safe

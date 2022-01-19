@@ -142,17 +142,15 @@ html_theme_options = {
     'display_version': True,
     'prev_next_buttons_location': 'bottom',
     'style_external_links': True,
-    'qiskit_org_link': True,
     'top_menu_links': [
-        'getting_started',
-        'tutorials',
-        'partners',
-        'applications',
-        'experiments',
-        'resources_desktop',
-        'github'
+        'qiskit_core_getting_started',
+        'qiskit_core_tutorials',
+        'qiskit_partners',
+        'qiskit_applications',
+        'qiskit_experiments',
+        'resources',
+        'qiskit_organization_github'
     ]
-
 }
 
 autoclass_content = 'both'

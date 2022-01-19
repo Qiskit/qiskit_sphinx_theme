@@ -11,7 +11,7 @@
     <div class="mobile-main-menu-links-container">
         <div class="main-menu">
             <ul>
-            {%- for menu_link in theme_mobile_menu_links recursive %}
+            {%- for menu_link in theme_top_menu_links recursive %}
                 {%- if not menu_link.children -%}
                 <li><a href="{{ menu_link.url or pathto(menu_link.path) }}">{{ menu_link.label }}</a></li>
                 {%- else -%}
