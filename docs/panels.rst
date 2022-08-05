@@ -5,18 +5,23 @@ Panels
 Basic panels
 ============
 
-.. panels::
-    :container: container-lg pb-3
-    :column: col-lg-4 col-md-4 col-sm-6 col-xs-12 p-2
+.. grid::
 
-    panel1
-    ---
-    panel2
-    ---
-    panel3
-    ---
-    :column: col-lg-12 p-2
-    panel4
+    .. grid-item::
+
+        panel1
+
+    .. grid-item::
+
+        panel2
+
+    .. grid-item::
+
+        panel3
+
+    .. grid-item::
+
+        panel4
 
 Dropdowns
 =========
@@ -38,44 +43,43 @@ Dropdowns
 Tabs
 ====
 
-.. tabbed:: Tab 1
+.. tab-set::
 
-    Tab 1 content
+    .. tab-item:: Tab 1
 
-.. tabbed:: Tab 2
-    :class-content: pl-1 bg-primary
+        Tab 1 content
 
-    Tab 2 content
+    .. tab-item:: Tab 2
+
+        :class-content: pl-1 bg-primary
+
+        Tab 2 content
 
 
 Cards
 =====
 
 
-.. panels::
-    :container: container-lg
-    :column: col-lg-6 p-2
-    :img-top-cls: pl-2 pr-2
+.. grid::
 
-    ---
-    :img-top: images/yi_jing_01_chien.jpg
+    .. grid-item-card::
+
+        :img-top: images/yi_jing_01_chien.jpg
 
 
-    This is an example card.
+        This is an example card.
 
-    More content here.
+        More content here.
 
-    ++++++
-    :badge:`Example,badge-primary badge-pill`
+        :bdg:`Example`
 
 
-    ---
-    :img-top: images/yi_jing_01_chien.jpg
+    .. grid-item-card::
+        :img-top: images/yi_jing_01_chien.jpg
 
-    This is an example card.
+        This is an example card.
 
-    :math:`\sin^{2}(x)+\cos^{2}(x) = 1`
+        :math:`\sin^{2}(x)+\cos^{2}(x) = 1`
 
-    ++++++
-    :badge:`Example,badge-primary badge-pill`
-    :badge:`Tutorial,badge-success badge-pill`
+        :bdg-primary:`Example`
+        :bdg-success:`Tutorial`

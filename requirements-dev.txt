@@ -1,0 +1,4 @@
+jupyter-sphinx
+numpy
+matplotlib
+sphinx-design
