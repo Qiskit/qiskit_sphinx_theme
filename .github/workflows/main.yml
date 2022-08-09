@@ -1,0 +1,35 @@
+name: Tests
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+jobs:
+  docs:
+    name: Sample Docs Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Set up Python 3.7
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+      - name: Install ubuntu Deps
+        run: sudo apt-get install -y pandoc graphviz
+      - name: Install python Deps
+        run: |
+          python -m pip install -U tox
+          python -m pip install -r requirements-dev.txt
+      - name: Build Docs
+        run: tox -epy -- -j auto
+      - name: Compress Artifacts
+        run: |
+          mkdir artifacts
+          tar -zcvf html_docs.tar.gz docs/_build/html
+          mv html_docs.tar.gz artifacts/.
+      - uses: actions/upload-artifact@v2
+        with:
+          name: html_docs
+          path: artifacts

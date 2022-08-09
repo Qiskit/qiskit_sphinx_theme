@@ -70,8 +70,7 @@ extensions = [
     'sphinx.ext.viewcode',
     'sphinx.ext.extlinks',
     'jupyter_sphinx',
-    'sphinx_panels',
-    'sphinx_autodoc_typehints',
+    'sphinx_design',
 ]
 
 # -----------------------------------------------------------------------------
@@ -104,7 +103,7 @@ numfig_format = {
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = None
+language = "en"
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -146,17 +145,3 @@ html_theme_options = {
 }
 
 autoclass_content = 'both'
-
-from custom_directives import (IncludeDirective, GalleryItemDirective,
-                               CustomGalleryItemDirective, CustomCalloutItemDirective,
-                               CustomCardItemDirective)
-def setup(app):
-    # Custom CSS
-    # app.add_stylesheet('css/pytorch_theme.css')
-    # app.add_stylesheet('https://fonts.googleapis.com/css?family=Lato')
-    # Custom directives
-    app.add_directive('includenodoc', IncludeDirective)
-    app.add_directive('galleryitem', GalleryItemDirective)
-    app.add_directive('customgalleryitem', CustomGalleryItemDirective)
-    app.add_directive('customcarditem', CustomCardItemDirective)
-    app.add_directive('customcalloutitem', CustomCalloutItemDirective)
