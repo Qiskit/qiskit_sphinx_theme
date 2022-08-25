@@ -1,36 +1,103 @@
+{# TEMPLATE VAR SETTINGS #}
+{%- set url_root = pathto('', 1) %}
+{%- if url_root == '#' %}{% set url_root = '' %}{% endif %}
+{%- if not embedded and docstitle %}
+  {%- set titlesuffix = " &mdash; "|safe + docstitle|e %}
+{%- else %}
+  {%- set titlesuffix = "" %}
+{%- endif %}
+{%- set lang_attr = 'en' if language == None else (language | replace('_', '-')) %}
 {% import 'theme_variables.jinja' as theme_variables %}
-<!DOCTYPE html>
-  <html class="no-js" lang="{{ lang_attr }}" >
-<head>
-  {# CSS #}
-  <!-- get styles in qiskit_sphinx_theme: -->
-  <link rel="stylesheet" href="static/css/theme.css">
-  <!-- Get styles in sphinx build: -->
-  <link rel="stylesheet" href="{{ pathto('_static/' + style, 1) }}" type="text/css" />
 
-  <!-- Add copyright info at bottom -->
-  {%- if hasdoc('copyright') %}
-  <link rel="copyright" title="{{ _('Copyright') }}" href="{{ pathto('copyright') }}" />
-  {%- endif %}
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="{{ lang_attr }}" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="{{ lang_attr }}" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  {{ metatags }}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% block htmltitle %}
+  <title>{{ title|striptags|e }}{{ titlesuffix }}</title>
+  {% endblock %}
+
+  {# FAVICON #}
+  {% if favicon %}
+    <link rel="shortcut icon" href="{{ pathto('_static/' + favicon, 1) }}"/>
+  {% endif %}
+  {# CANONICAL URL #}
+  {% if theme_canonical_url %}
+    <link rel="canonical" href="{{ theme_canonical_url }}{{ pagename }}.html"/>
+  {% endif %}
+
+  {# CSS #}
+
+  {# OPENSEARCH #}
+  {% if not embedded %}
+    {% if use_opensearch %}
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="{% trans docstitle=docstitle|e %}Search within {{ docstitle }}{% endtrans %}"
+            href="{{ pathto('_static/opensearch.xml', 1) }}"/>
+    {% endif %}
+
+  {% endif %}
+
+  <link rel="stylesheet" href="{{ pathto('_static/' + style, 1) }}" type="text/css" />
+  <!-- <link rel="stylesheet" href="{{ pathto('_static/pygments.css', 1) }}" type="text/css" /> -->
+  {%- for css in css_files %}
+    {%- if css|attr("rel") %}
+  <link rel="{{ css.rel }}" href="{{ pathto(css.filename, 1) }}" type="text/css"{% if css.title is not none %} title="{{ css.title }}"{% endif %} />
+    {%- else %}
+  <link rel="stylesheet" href="{{ pathto(css, 1) }}" type="text/css" />
+    {%- endif %}
+  {%- endfor %}
+  {%- for cssfile in extra_css_files %}
+    <link rel="stylesheet" href="{{ pathto(cssfile, 1) }}" type="text/css" />
+  {%- endfor %}
+
+  {%- block linktags %}
+    {%- if hasdoc('about') %}
+    <link rel="author" title="{{ _('About these documents') }}" href="{{ pathto('about') }}" />
+    {%- endif %}
+    {%- if hasdoc('genindex') %}
+    <link rel="index" title="{{ _('Index') }}" href="{{ pathto('genindex') }}" />
+    {%- endif %}
+    {%- if hasdoc('search') %}
+    <link rel="search" title="{{ _('Search') }}" href="{{ pathto('search') }}" />
+    {%- endif %}
+    {%- if hasdoc('copyright') %}
+    <link rel="copyright" title="{{ _('Copyright') }}" href="{{ pathto('copyright') }}" />
+    {%- endif %}
+    {%- if next %}
+    <link rel="next" title="{{ next.title|striptags|e }}" href="{{ next.link|e }}" />
+    {%- endif %}
+    {%- if prev %}
+    <link rel="prev" title="{{ prev.title|striptags|e }}" href="{{ prev.link|e }}" />
+    {%- endif %}
+  {%- endblock %}
+  {%- block extrahead %} {% endblock %}
+
+  {# Keep modernizr in head - http://modernizr.com/docs/#installing #}
+  <script src="{{ pathto('_static/js/modernizr.min.js', 1) }}"></script>
+
 </head>
 
 <div class="container-fluid header-holder tutorials-header" id="header-holder">
   <div class="container">
     <div class="header-container">
-      <a class="header-logo" href="https://qiskit.org/documentation" aria-label="Qiskit"></a>
+      <a class="header-logo" href="{{ theme_variables.external_urls['home'] }}" aria-label="PyTorch"></a>
 
       <div class="main-menu">
         <ul>
           <li {%- if pagename == 'getting_started' %} class="active"{% endif %}>
-            <a href="https://qiskit.org/documentation/getting_started.html">Getting started</a>
+            <a href="{{ pathto('getting_started') }}">Getting started</a>
           </li>
 
           <li {%- if pagename == 'tutorials' %} class="active"{% endif %}>
-            <a href="https://qiskit.org/documentation/tutorials.html">Tutorials</a>
+            <a href="{{ pathto('tutorials') }}">Tutorials</a>
           </li>
 
           <li>
-            <a href="https://qiskit.org/documentation/partners/" target="_blank">Partners</a>
+            <a href="{{ theme_variables.external_urls['partners'] }}" target="_blank">Partners</a>
           </li>
 
           <li>
@@ -39,29 +106,29 @@
                 Applications
               </a>
               <div class="resources-dropdown-menu">
-                <a class="nav-dropdown-item" href="https://qiskit.org/documentation/machine-learning/">
+                <a class="nav-dropdown-item" href="{{ theme_variables.external_urls['ml'] }}">
                   <span class="dropdown-title">Machine learning</span>
                   <p>QSVM, VQC (Variational Quantum Classifier), and QGAN (Quantum Generative
                     Adversarial Network) algorithms.</p>
                 </a>
-                <a class="nav-dropdown-item" href="https://qiskit.org/documentation/nature/">
+                <a class="nav-dropdown-item" href="{{ theme_variables.external_urls['nature'] }}">
                   <span class="dropdown-title">Nature</span>
                   <p>Quantum applications in chemistry, physics, and biology.</p>
                 </a>
-                <a class="nav-dropdown-item" href="https://qiskit.org/documentation/finance/">
+                <a class="nav-dropdown-item" href="{{ theme_variables.external_urls['finance'] }}">
                   <span class="dropdown-title">Finance</span>
                   <p>Uncertainty components for stock/securities problems, Ising translators for
                     portfolio optimizations and data providers to source real or random data.</p>
                 </a>
-                <a class="nav-dropdown-item" href="https://qiskit.org/documentation/optimization/">
+                <a class="nav-dropdown-item" href="{{ theme_variables.external_urls['optim'] }}">
                   <span class="dropdown-title">Optimization</span>
                   <p>High-level optimization problems that are ready to
-                    run on simulators and real quantum devices</p>
+                    run on simulators and real quantum devicesTEST TEST TEST </p>
                 </a>
               </div>
           </li>
           <li>
-              <a href="https://qiskit.org/documentation/experiments/" target="_blank">Experiments</a>
+              <a href="{{ theme_variables.external_urls['experiments'] }}" target="_blank">Experiments</a>
           </li>
           <li>
             <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
@@ -69,22 +136,22 @@
                 Resources
               </a>
               <div class="resources-dropdown-menu">
-                <a class="doc-dropdown-option nav-dropdown-item" href="https://qiskit.slack.com/">
+                <a class="doc-dropdown-option nav-dropdown-item" href="{{ theme_variables.external_urls['slack'] }}">
                   <span class="dropdown-title">Slack support</span>
                   <p></p>
                 </a>
-                <a class="doc-dropdown-option nav-dropdown-item" href="https://qiskit.org/events">
+                <a class="doc-dropdown-option nav-dropdown-item" href="{{ theme_variables.external_urls['textbook'] }}">
                   <span class="dropdown-title">Qiskit Textbook</span>
                   <p></p>
                 </a>
-                <a class="doc-dropdown-option nav-dropdown-item" href="">
+                <a class="doc-dropdown-option nav-dropdown-item" href="{{ theme_variables.external_urls['events'] }}">
                   <span class="dropdown-title">Qiskit events</span>
                   <p></p>
                 </a>
             </div>
           </li>
           <li>
-            <a href="https://github.com/Qiskit/" target="_blank">GitHub</a>
+            <a href="{{ theme_variables.external_urls['github'] }}" target="_blank">GitHub</a>
           </li>
         </ul>
       </div>
@@ -101,11 +168,8 @@
   {% block extrabody %} {% endblock %}
 
     {# SIDE NAV, TOGGLES ON MOBILE #}
-
-    <!-- if translations available, display language dropdown menu -->
     {% include "versions.html" %}
 
-    <!-- Menu becomes dropdown in mobile view -->
     <div class="table-of-contents-link-wrapper">
       <span>Table of Contents</span>
       <a href="#" class="toggle-table-of-contents" data-behavior="toggle-table-of-contents"></a>
@@ -115,10 +179,43 @@
       <div class="pytorch-side-scroll">
         <div class="pytorch-menu pytorch-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           <div class="pytorch-left-menu-search">
+            {% block sidebartitle %}
+
+            {% if theme_display_version %}
+              {%- set nav_version = version %}
+              {% if READTHEDOCS and current_version %}
+                {%- set nav_version = current_version %}
+              {% endif %}
+              {% if nav_version %}
+                <div class="version">
+                  {{ nav_version }}
+                </div>
+              {% endif %}
+            {% endif %}
+
             {% include "searchbox.html" %}
+
+            {% endblock %}
           </div>
-          <dt>{{ repo_name }} Documentation</dt>
-          <div>Do something with sidebar headings</div>
+
+          {% block menu %}
+            {#
+              The singlehtml builder doesn't handle this toctree call when the
+              toctree is empty. Skip building this for now.
+            #}
+            {% if 'singlehtml' not in builder %}
+              {% set global_toc = toctree(maxdepth=1,
+                                          collapse=theme_collapse_navigation|tobool,
+                                          includehidden=theme_includehidden|tobool,
+                                          titles_only=theme_titles_only|tobool) %}
+            {% endif %}
+            {% if global_toc %}
+              {{ global_toc }}
+            {% else %}
+              <!-- Local TOC -->
+              <div class="local-toc">{{ toc }}</div>
+            {% endif %}
+          {% endblock %}
           {% include "stable_versions.html" %}
         </div>
       </div>

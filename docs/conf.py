@@ -145,3 +145,8 @@ html_theme_options = {
 }
 
 autoclass_content = 'both'
+
+# qiskit package specific variables
+html_context = {
+    'repo_name': 'Example Repo'
+}
