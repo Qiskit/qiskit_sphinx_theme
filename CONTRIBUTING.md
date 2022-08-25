@@ -31,5 +31,5 @@ This subfolder contains some example `.rst` files that show how to implement spe
 # Run locally
 
 1. Set up a python environment to work in
-2. run `pip install .`
+2. run `pip install .` (must do this every time)
 3. run `sphinx-build -b html docs/ docs/_build/html` to build the documentation. This will create the `/docs/_build` subfolder where you can see the html files generated based on the `.rst` files in the `docs` folder and the styles pulled from the `qiskit_sphinx_theme`.
