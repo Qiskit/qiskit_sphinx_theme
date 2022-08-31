@@ -267,6 +267,16 @@ You can create a statement with centered text with ``.. centered::``
 
 .. centered:: This is centered text!
 
+
+Deprecation note
+----------------
+
+You can create a deprecation note with ``.. deprecated:: <version>``
+
+.. deprecated:: 1.2.3
+
+    This is deprecated, use blah instead
+
 Images & Figures
 ----------------
 
