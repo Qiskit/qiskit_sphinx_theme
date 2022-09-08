@@ -3,7 +3,7 @@
 
 .. demo.rst from: http://docutils.sourceforge.net/docs/user/rst/demo.txt
 
-.. |EXAMPLE| image:: images/yi_jing_01_chien.jpg
+.. |EXAMPLE| image:: ../images/yi_jing_01_chien.jpg
    :width: 1em
 
 **********************
@@ -285,13 +285,13 @@ Images
 
 An image directive (also clickable -- a hyperlink reference):
 
-.. image:: images/yi_jing_01_chien.jpg
+.. image:: ../images/yi_jing_01_chien.jpg
    :target: directives_
 
 Figures
 ^^^^^^^
 
-.. figure:: images/yi_jing_01_chien.jpg
+.. figure:: ../images/yi_jing_01_chien.jpg
    :alt: reStructuredText, the markup syntax
 
    A figure is an image with a caption and/or a legend:
@@ -308,7 +308,7 @@ Figures
 
 A figure directive with center alignment
 
-.. figure:: images/yi_jing_01_chien.jpg
+.. figure:: ../images/yi_jing_01_chien.jpg
    :align: center
 
    This caption should be centered.
@@ -408,4 +408,4 @@ with the "compound" directive.
 Download Links
 ==============
 
-:download:`This long long long long long long long long long long long long long long long download link should be blue, normal weight text with a leading icon, and should wrap white-spaces <images/yi_jing_01_chien.jpg>`
+:download:`This long long long long long long long long long long long long long long long download link should be blue, normal weight text with a leading icon, and should wrap white-spaces <../images/yi_jing_01_chien.jpg>`

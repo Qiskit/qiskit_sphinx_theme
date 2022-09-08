@@ -64,7 +64,7 @@ Cards
 
     .. grid-item-card::
 
-        :img-top: images/yi_jing_01_chien.jpg
+        :img-top: ../images/yi_jing_01_chien.jpg
 
 
         This is an example card.
@@ -75,7 +75,7 @@ Cards
 
 
     .. grid-item-card::
-        :img-top: images/yi_jing_01_chien.jpg
+        :img-top: ../images/yi_jing_01_chien.jpg
 
         This is an example card.
 
