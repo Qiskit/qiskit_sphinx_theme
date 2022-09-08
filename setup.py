@@ -11,9 +11,9 @@ LONG_DESCRIPTION = "\n".join(DOCLINES[2:])
 
 setup(
     name = 'qiskit_sphinx_theme',
-    version = '1.8.7',
-    author = 'nonhermitian',
-    author_email= 'nonhermitian@gmail.com',
+    version = '1.9.0',
+    author="Qiskit Development Team",
+    author_email="hello@qiskit.org",
     url="https://github.com/Qiskit/qiskit_sphinx_theme",
     description=DESCRIPTION,
     long_description=LONG_DESCRIPTION,
