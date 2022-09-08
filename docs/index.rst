@@ -9,14 +9,14 @@ Qiskit sphinx theme |version| documentation
   :caption: Basic functionality
   :hidden:
 
-   Structural formatting <structural>
-   Paragraph-level markup <paragraph>
-   Lists and tables <lists_tables>
-   Functions <functions>
-   Classes <classes>
-   Images <images>
-   Jupyter <jupyter>
-   Panels <panels>
+   Structural formatting <sphinx_guide/structural>
+   Paragraph-level markup <sphinx_guide/paragraph>
+   Lists and tables <sphinx_guide/lists_tables>
+   Functions <sphinx_guide/functions>
+   Classes <sphinx_guide/classes>
+   Images <sphinx_guide/images>
+   Jupyter <sphinx_guide/jupyter>
+   Panels <sphinx_guide/panels>
 
 
 .. Hiding - Indices and tables
