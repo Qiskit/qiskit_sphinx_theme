@@ -7,7 +7,7 @@ Figures
 =======
 
 
-.. figure:: ../images/qiskit_nutshell.png
+.. figure:: /images/qiskit_nutshell.png
    :scale: 40 %
    :align: center
 
