@@ -14,9 +14,9 @@
 
     <hr class="helpful-hr hr-top">
       <div class="helpful-container">
-        <div class="helpful-question">Was this helpful?</div>
-        <div class="helpful-question yes-link" data-behavior="was-this-helpful-event" data-response="yes">Yes</div>
-        <div class="helpful-question no-link" data-behavior="was-this-helpful-event" data-response="no">No</div>
+        <div class="helpful-question">Was this page helpful?</div>
+        <a class="helpful-question yes-link" data-behavior="was-this-helpful-event" onclick="window.trackCta('Helpful - yes')">Yes</a>
+        <a class="helpful-question no-link" data-behavior="was-this-helpful-event" onclick="window.trackCta('Helpful - no')">No</a>
         <div class="was-helpful-thank-you">Thank you</div>
       </div>
     <hr class="helpful-hr hr-bottom"/>

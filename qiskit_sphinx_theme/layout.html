@@ -42,43 +42,63 @@
   {% endif %}
 
   <link rel="stylesheet" href="{{ pathto('_static/' + style, 1) }}" type="text/css" />
-  <!-- <link rel="stylesheet" href="{{ pathto('_static/pygments.css', 1) }}" type="text/css" /> -->
-  {%- for css in css_files %}
-    {%- if css|attr("rel") %}
-  <link rel="{{ css.rel }}" href="{{ pathto(css.filename, 1) }}" type="text/css"{% if css.title is not none %} title="{{ css.title }}"{% endif %} />
-    {%- else %}
-  <link rel="stylesheet" href="{{ pathto(css, 1) }}" type="text/css" />
-    {%- endif %}
-  {%- endfor %}
-  {%- for cssfile in extra_css_files %}
-    <link rel="stylesheet" href="{{ pathto(cssfile, 1) }}" type="text/css" />
-  {%- endfor %}
 
-  {%- block linktags %}
-    {%- if hasdoc('about') %}
-    <link rel="author" title="{{ _('About these documents') }}" href="{{ pathto('about') }}" />
-    {%- endif %}
-    {%- if hasdoc('genindex') %}
-    <link rel="index" title="{{ _('Index') }}" href="{{ pathto('genindex') }}" />
-    {%- endif %}
-    {%- if hasdoc('search') %}
-    <link rel="search" title="{{ _('Search') }}" href="{{ pathto('search') }}" />
-    {%- endif %}
-    {%- if hasdoc('copyright') %}
-    <link rel="copyright" title="{{ _('Copyright') }}" href="{{ pathto('copyright') }}" />
-    {%- endif %}
-    {%- if next %}
-    <link rel="next" title="{{ next.title|striptags|e }}" href="{{ next.link|e }}" />
-    {%- endif %}
-    {%- if prev %}
-    <link rel="prev" title="{{ prev.title|striptags|e }}" href="{{ prev.link|e }}" />
-    {%- endif %}
-  {%- endblock %}
-  {%- block extrahead %} {% endblock %}
+  <!-- SEGMENT ANALYTICS -->
+  {% if analytics_enabled %}
+    <script src="https://cloud.ibm.com/analytics/build/bluemix-analytics.min.js"></script>
+    <script>
+      (function () {
+        'use strict'
+        window._analytics = {
+          segment_key: 'ffdYLviQze3kzomaINXNk6NwpY9LlXcw',
+          coremetrics: false,
+          optimizely: false,
+          googleAddServices: false,
+          fullStory: false,
+          autoPageEventSpa: false,
+          autoFormEvents: false,
+          autoPageView: false
+        }
 
-  {# Keep modernizr in head - http://modernizr.com/docs/#installing #}
-  <script src="{{ pathto('_static/js/modernizr.min.js', 1) }}"></script>
+        window.digitalData = {
+          page: {
+            pageInfo: {
+              productTitle: 'IBM Q Experience',
+              analytics: {
+                category: 'Qiskit Documentation'
+              }
+            }
+          }
+        }
 
+        if (!window.bluemixAnalytics || !window.digitalData) { return }
+
+        const category = window.digitalData.page.pageInfo.analytics.category
+        const productTitle = window.digitalData.page.pageInfo.productTitle
+        const routeName = 'documentation'
+
+        window.bluemixAnalytics.pageEvent(category, routeName, {
+          navigationType: 'pushState',
+          productTitle: productTitle,
+          title: document.title
+        })
+
+        window.trackCta = (action) => {
+          if (!window.bluemixAnalytics || !window.digitalData) { return }
+
+          const category = window.digitalData.page.pageInfo.analytics.category
+          const productTitle = window.digitalData.page.pageInfo.productTitle
+
+          window.bluemixAnalytics.trackEvent('CTA Clicked', {
+            productTitle,
+            category,
+            CTA: action
+          })
+        }
+
+      }());
+    </script>
+  {% endif %}
 </head>
 
 <div class="container-fluid header-holder tutorials-header" id="header-holder">
