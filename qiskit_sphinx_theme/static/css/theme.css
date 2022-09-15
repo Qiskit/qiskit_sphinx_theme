@@ -10527,8 +10527,8 @@ ul.pytorch-breadcrumbs a {
 .rst-content footer .helpful-container .helpful-question, .rst-content footer .helpful-container .was-helpful-thank-you {
   padding: 0.625rem 1.25rem 0.625rem 1.25rem;
 }
-.rst-content footer .helpful-container .was-helpful-thank-you {
-  display: none;
+#was-helpful-thank-you {
+  visibility: hidden;
 }
 .rst-content footer .helpful-container .helpful-question.yes-link, .rst-content footer .helpful-container .helpful-question.no-link {
   color: #8B34FC;
