@@ -3,11 +3,18 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+###########################################
 Welcome to Qiskit Documentation Guidelines!
-===========================================
+###########################################
+
+Overview
+========
+
+This site hosts the guidelines and examples for writing and building documentation for Qiskit projects.
+
 
 .. toctree::
-   :maxdepth: 2
+   :hidden:
 
    Overview <self>
    Getting Started <getting_started>
@@ -17,10 +24,3 @@ Welcome to Qiskit Documentation Guidelines!
    Explanations <explanations/index>
    Release Notes <release_notes>
    GitHub <https://github.com/Qiskit/qiskit_sphinx_theme>
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
