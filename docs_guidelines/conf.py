@@ -7,8 +7,8 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'Qiskit Documentation Guidelines'
-copyright = '2022, Junye Huang, Guillermo Mijares Vilarino'
-author = 'Junye Huang, Guillermo Mijares Vilarino'
+copyright = '2022, Junye Huang, Guillermo Mijares Vilariño'
+author = 'Junye Huang, Guillermo Mijares Vilariño'
 release = '0.1.0'
 
 # -- General configuration ---------------------------------------------------
