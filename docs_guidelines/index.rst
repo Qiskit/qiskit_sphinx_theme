@@ -8,7 +8,6 @@ Welcome to Qiskit Documentation Guidelines!
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
    Overview <self>
    Getting Started <getting_started>
