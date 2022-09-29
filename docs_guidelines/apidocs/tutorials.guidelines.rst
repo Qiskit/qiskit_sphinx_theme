@@ -27,7 +27,7 @@ Provide overview at the start
 
 Summarize what the tutorial is about in the first paragraph, ideally the first sentence
 
-"In this tutorial, you will..."
+    "In this tutorial, you will..."
 
 Provide context
 ---------------
@@ -39,8 +39,8 @@ Summarize at the end
 
 Summarize what the user has accomplished at the end of the tutorial
 
-"You have built a secure, three-layer hylomorphic stasis engine…" Describe (and admire, in a mild
-way) what your learner has accomplished (note - not: “you have learned…”)
+    "You have built a secure, three-layer hylomorphic stasis engine…" Describe (and admire, in a 
+    mild way) what your learner has accomplished (note - not: “you have learned…”)
 
 3. Ensure that the tutorial works reliably and repeatable
 =========================================================
@@ -60,7 +60,7 @@ Every step should produce a result
 Every step the learner follows should produce a comprehensible result, however small. It can 
 be a print statement showing a variable, a plot, etc.
         
-"The output should look something like this…"
+    "The output should look something like this…"
 
 Each step should be brief
 -------------------------
@@ -80,9 +80,9 @@ Describe concrete steps, not abstract concepts, ignore options and alternatives
 Use titles or transition sentences to make steps more obvious
 -------------------------------------------------------------
     
-Titles for steps should be an action not a noun
+Titles for steps should be an action not a noun.
 
-"First, do x. Now, do y. Now that you have done y, do z."
+    "First, do x. Now, do y. Now that you have done y, do z."
 
 Do not generalize
 -----------------
@@ -105,4 +105,4 @@ Provide links if needed
 Link to further explanatory material if and only if it's really needed. Try not to add too
 many links. Because they will interrupt the flow of a tutorial by digressing into explanation.
     
-"We must always do x before we do y because… (see Explanation for more details).
+    "We must always do x before we do y because… (see Explanation for more details).
