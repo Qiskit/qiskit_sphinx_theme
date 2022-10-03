@@ -314,7 +314,15 @@ article.pytorch-article .function dt > code, article.pytorch-article .attribute 
 }
 
 article.pytorch-article blockquote {
-  margin-left: 2.0rem !important;
+  margin: 0 auto;
+  margin-bottom: 2.5rem;
+  margin-left: 3.75rem !important;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.375rem;
+  letter-spacing: 0.01px;
+  width: 65%;
+  color: #6c6c6d;
 }
 
 .sig-name{
@@ -10341,13 +10349,7 @@ article.pytorch-article ul li,
 article.pytorch-article ol li,
 article.pytorch-article dl dt,
 article.pytorch-article dl dd,
-article.pytorch-article blockquote {
-  font-size: 1rem;
-  line-height: 1.375rem;
-  color: #262626;
-  letter-spacing: 0.01px;
-  font-weight: 400;
-}
+
 article.pytorch-article table {
   margin-bottom: 2.5rem;
   width: 100%;
@@ -10402,11 +10404,6 @@ article.pytorch-article pre {
 article.pytorch-article hr {
   margin-top: 4.6875rem;
   margin-bottom: 4.6875rem;
-}
-article.pytorch-article blockquote {
-  margin: 0 auto;
-  margin-bottom: 2.5rem;
-  width: 65%;
 }
 article.pytorch-article img {
   width: auto;
@@ -11263,11 +11260,6 @@ img.previous-page {
 .rst-footer-buttons .btn.focus {
   -webkit-box-shadow: none;
           box-shadow: none;
-}
-
-article.pytorch-article blockquote {
-  margin-left: 3.75rem;
-  color: #6c6c6d;
 }
 
 article.pytorch-article .caption {
