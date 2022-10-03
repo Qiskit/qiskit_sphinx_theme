@@ -315,7 +315,6 @@ article.pytorch-article .function dt > code, article.pytorch-article .attribute 
 
 article.pytorch-article blockquote {
   padding: 0.5rem 1rem;
-  width: 65%;
   color: #6c6c6d;
   border-left: 0.3rem solid #eeeeee
 }
