@@ -15,6 +15,7 @@ Structure your documents
     :maxdepth: 1
 
     Add sections <add_sections>
+    Create lists <create_lists>
 
 
 Link to other pages
