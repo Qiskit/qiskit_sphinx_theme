@@ -24,7 +24,7 @@ E.g. if a qiskit project (with the `qiskit_sphinx_theme` installed) wants to ove
 This subfolder contains a scaled down version of the Sphinx build that builds the documentation for the Qiskit repos. It pulls styles from the `/qiskit_sphinx_theme` subfolder. You can check any changes you are making to the `qiskit_sphinx_theme` by building the documentation (see running locally section) and opening the html files generated in `/docs/_build/html`.
 
 ### `/docs/sphinx_guide`
-This subfolder contains some example `.rst` files that show how to implement specific Sphinx features such as class documentaition, panels layouts, images etc.
+This subfolder contains some example `.rst` files that show how to implement specific Sphinx features such as class documentation, panel layouts, images etc.
 
 ------
 ## Run locally
