@@ -197,25 +197,16 @@
 
             {% endblock %}
           </div>
-
-          {% block menu %}
-            {#
-              The singlehtml builder doesn't handle this toctree call when the
-              toctree is empty. Skip building this for now.
-            #}
-            {% if 'singlehtml' not in builder %}
-              {% set global_toc = toctree(maxdepth=1,
-                                          collapse=theme_collapse_navigation|tobool,
-                                          includehidden=theme_includehidden|tobool,
-                                          titles_only=theme_titles_only|tobool) %}
-            {% endif %}
+          <!-- {% set global_toc = toctree(maxdepth=1, 
+                                      collapse=theme_collapse_navigation|tobool,
+                                      includehidden=theme_includehidden|tobool,
+                                      titles_only=theme_titles_only|tobool) %}
             {% if global_toc %}
-              {{ global_toc }}
-            {% else %}
-              <!-- Local TOC -->
-              <div class="local-toc">{{ toc }}</div>
-            {% endif %}
-          {% endblock %}
+                {{ global_toc }}
+            {% endif %} -->
+            {% for heading in sidebar_headings %}
+            <div>{{heading.title}}</div>
+            {% endfor%}
           {% include "stable_versions.html" %}
         </div>
       </div>

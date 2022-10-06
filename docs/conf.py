@@ -145,3 +145,31 @@ html_theme_options = {
 }
 
 autoclass_content = 'both'
+
+# qiskit package specific variables
+html_context = {
+    'repo_name': 'Example Repo',
+    'analytics_enabled': True,
+    'sidebar_headings': [
+        {
+            'title': 'Heading 0',
+            'url': 'some_url',
+            'subheadings': [
+                {
+                    'title': 'Subtitle 0.1',
+                    'url': 'some_url',
+                }
+            ]
+        },
+        {
+            'title': 'Heading 1',
+            'url': 'some_url',
+            'subheadings': [
+                {
+                    'title': 'Subtitle 1.0',
+                    'url': 'some_url',
+                }
+            ]
+        }
+    ]
+}
