@@ -2,6 +2,14 @@
 How-to Guides
 #############
 
+Generate documentation
+======================
+.. toctree::
+    :maxdepth: 1
+
+    Build documentation <build_docs>
+
+
 Create documents
 ================
 .. toctree::
