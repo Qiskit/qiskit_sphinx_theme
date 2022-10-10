@@ -28,7 +28,7 @@ Then you have to create a docstring like those ones.
 Update the page
 ===============
 
-In order to update the page you have to add your class or function to the ``__init__.py`` of the module(s) in which it's included. This can be done by adding the name to a ``:toctree:`` like this one:
+In order to update the page you have to add your class or function to the ``__init__.py`` of the module(s) in which it's included. This can be done by adding the name to a ``toctree`` like this one:
 
 .. code-block:: python
 

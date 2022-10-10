@@ -64,7 +64,7 @@ In order to do that, you have to write:
 
 .. note::
 
-    For the ``jupyter-execute`` cells to appear you need to add the extension ``jupyter_sphinx`` to the ``conf.py`` of your repository.
+    For the ``jupyter-execute`` cells to appear you need to add the extension ``jupyter_sphinx`` to the ``docs/conf.py`` of your repository.
 
 
 

@@ -34,11 +34,11 @@ If instead of updating an existing section you want to create a new one, you hav
 .. code-block:: text
 
     Section name
-    ------------
+    ============
 
     .. toctree::
         :maxdepth: 1
 
         Title of your guide <your_guide>
 
-The section name must be covered by the dashes ``-`` below.
+The section name must be covered by the equal signs ``=`` below.
