@@ -45,11 +45,11 @@ There are several ways to include numbered lists in your documentation. You can 
 
 And you can present them the following ways:
 
-* Followed by a point. E.g., 1.
+* Followed by a period. E.g., 1.
 * Surrounded by parentheses. E.g., (a)
 * parenthesis on the right. E.g., i)
 
-You can pick any of these numbering types and presentations but you have to keep the same ones for the remainder of the list. The output will always be arabic numbers followed by a point. The numbers have to be written in order but don't have to start with 1. For example, you can write:
+You can pick any of these numbering types and presentations but you have to keep the same ones for the remainder of the list. The output will always be arabic numbers followed by a period. The numbers have to be written in order but don't have to start with 1. For example, you can write:
 
 .. code-block:: text
 
