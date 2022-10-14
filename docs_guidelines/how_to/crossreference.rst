@@ -64,7 +64,7 @@ If you want to link to an attribute page, you have to use ``:attr:`your_attribut
 Shorten the links
 =================
 
-You can shorten the links if you add ``~`` just before the name of your objetc (``:obj:`your_object```). For example, :class:`~qiskit.circuit.QuantumCircuit` is shorter than :class:`qiskit.circuit.QuantumCircuit`. This last sentence is written as:
+You can shorten the links if you add ``~`` just before the name of your object (``:obj:`~your_object```). For example, :class:`~qiskit.circuit.QuantumCircuit` is shorter than :class:`qiskit.circuit.QuantumCircuit`. This last sentence is written as:
 
 .. code-block:: text
 
