@@ -4,7 +4,7 @@ Qiskit sphinx theme |version| documentation
 
 
 .. toctree::
-  :maxdepth: 1
+  :maxdepth: 2
   :caption: Basic functionality
   :hidden:
 
@@ -16,6 +16,7 @@ Qiskit sphinx theme |version| documentation
    Images <images>
    Jupyter <jupyter>
    Panels <panels>
+   Example API Reference <apidocs/qiskit_api>
 
 
 .. Hiding - Indices and tables

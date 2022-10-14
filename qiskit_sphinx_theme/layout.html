@@ -170,45 +170,16 @@
     {# SIDE NAV, TOGGLES ON MOBILE #}
     {% include "versions.html" %}
 
+    <!-- Menu becomes dropdown in mobile view -->
     <div class="table-of-contents-link-wrapper">
       <span>Table of Contents</span>
       <a href="#" class="toggle-table-of-contents" data-behavior="toggle-table-of-contents"></a>
     </div>
 
+    <!-- LEFT SIDE BAR MAIN CONTENT -->
     <nav data-toggle="wy-nav-shift" class="pytorch-left-menu" id="pytorch-left-menu">
-      <div class="pytorch-side-scroll">
         <div class="pytorch-menu pytorch-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          <div class="pytorch-left-menu-search">
-            {% block sidebartitle %}
-
-            {% if theme_display_version %}
-              {%- set nav_version = version %}
-              {% if READTHEDOCS and current_version %}
-                {%- set nav_version = current_version %}
-              {% endif %}
-              {% if nav_version %}
-                <div class="version">
-                  {{ nav_version }}
-                </div>
-              {% endif %}
-            {% endif %}
-
-            {% include "searchbox.html" %}
-
-            {% endblock %}
-          </div>
-          <!-- {% set global_toc = toctree(maxdepth=1, 
-                                      collapse=theme_collapse_navigation|tobool,
-                                      includehidden=theme_includehidden|tobool,
-                                      titles_only=theme_titles_only|tobool) %}
-            {% if global_toc %}
-                {{ global_toc }}
-            {% endif %} -->
-            {% for heading in sidebar_headings %}
-            <div>{{heading.title}}</div>
-            {% endfor%}
-          {% include "stable_versions.html" %}
-        </div>
+          {% include "sidebar.html" %}
       </div>
     </nav>
 

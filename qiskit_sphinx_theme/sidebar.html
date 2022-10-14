@@ -1,0 +1,53 @@
+<div class="sidebar">
+    <div class="pytorch-left-menu-search">
+        {% include "searchbox.html" %}
+    </div>
+    <div class="sidebar-l1"><a>Getting Started</a></div>
+    <div class="sidebar-subheadings">
+        <div class="sidebar-l2"><a>getting started subheading</a></div>
+        <div class="sidebar-l2"><a>getting started subheading 2</a></div>
+    </div>
+    <div class="sidebar-l1"><a>Tutorials</a></div>
+    <div class="sidebar-subheadings">
+        <div class="sidebar-l2"><a>tutorials subheading</a></div>
+    </div>
+    </div>
+
+
+
+    {% for h in sidebar_headings %}
+        <div>{{h.title}}</div>
+        {% if h.subheadings %}
+        {% for sub in h.subheadings %}
+            <div>{{sub.title}}</div>
+        {% endfor %}
+        {% endif %}
+    {% endfor%}
+
+
+    {% set global_toc = toctree(maxdepth=-1, 
+        collapse=theme_collapse_navigation|tobool,
+        includehidden=theme_includehidden|tobool) %}
+      {% if global_toc %}
+        {{ global_toc }}
+      {% endif %}
+
+    {% include "stable_versions.html" %}
+  </div>
+
+<script>
+    var coll = document.getElementsByClassName("sidebar-l1");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var subheadings = this.nextElementSibling;
+        if (subheadings.style.display === "block") {
+        subheadings.style.display = "none";
+        } else {
+        subheadings.style.display = "block";
+        }
+    });
+    }
+</script>
