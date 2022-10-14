@@ -4,8 +4,7 @@ Qiskit sphinx theme |version| documentation
 
 
 .. toctree::
-  :maxdepth: 2
-  :caption: Basic functionality
+  :maxdepth: -1
   :hidden:
 
    Structural formatting <structural>

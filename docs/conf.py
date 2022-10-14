@@ -149,27 +149,26 @@ autoclass_content = 'both'
 # qiskit package specific variables
 html_context = {
     'repo_name': 'Example Repo',
+    'github': 'https://github.com/Qiskit/qiskit-terra',
     'analytics_enabled': True,
-    'sidebar_headings': [
-        {
-            'title': 'Heading 0',
-            'url': 'some_url',
-            'subheadings': [
-                {
-                    'title': 'Subtitle 0.1',
-                    'url': 'some_url',
-                }
-            ]
-        },
-        {
-            'title': 'Heading 1',
-            'url': 'some_url',
-            'subheadings': [
-                {
-                    'title': 'Subtitle 1.0',
-                    'url': 'some_url',
-                }
-            ]
-        }
-    ]
+    'version_list': [0.1, 0.2, 0.3],
+    # 'sidebar_headings': [
+    #     {
+    #         'title': 'Heading 1 (no subheadings)',
+    #         'url': 'functions', # use sphinx toctree
+    #     },
+    #     {
+    #         'title': 'Heading 2 (with subheadings)',
+    #         'subheadings': [
+    #             {
+    #                 'title': 'Subtitle 1 (external link)',
+    #                 'url': 'https://google.com', # use external url
+    #             },
+    #             {
+    #                 'title': 'Subtitle 2 (internal link)',
+    #                 'url': 'tutorials', # use sphinx toctree
+    #             },
+    #         ]
+    #     }
+    # ]
 }
