@@ -3,42 +3,36 @@
         {% include "searchbox.html" %}
     </div>
     <!-- if sidebar_headings var set, use custom sidebar layout -->
-    {% if sidebar_headings %} 
         {% for h in sidebar_headings %}
             {% if h.subheadings %}
-                <div class="sidebar-l1-expandable">{{h.title}}</div>
+                <div class="sidebar-l1-expandable"><a href="{{ pathto(h.url) }}">{{h.title}}</a></div>
                 <div class="sidebar-subheadings">
                     {% for sub in h.subheadings %}
                         {% if sub.url.startswith('http')%}
-                            <div class="sidebar-l2"><a href="{{sub.url}}">{{sub.title}}</a></div>
+                            <div class="sidebar-l2"><a class="reference external" target="_blank" rel="noopener noreferrer" href="{{sub.url}}">{{sub.title}}</a></div>
                         {% else %}
-                            <div class="sidebar-l2"><a href="{{ pathto(sub.url)}}">{{sub.title}}</a></div>
+                            <div class="sidebar-l2"><a class="reference internal" href="{{ pathto(sub.url)}}">{{sub.title}}</a></div>
                         {% endif %}
                     {% endfor %}
                 </div>
             {% else %}
                 {% if h.url.startswith('http')%}
-                    <div class="sidebar-l1"><a href="{{ h.url }}">{{h.title}}</a></div>
+                    <div class="sidebar-l1"><a class="reference external" target="_blank" rel="noopener noreferrer" href="{{ h.url }}">{{h.title}}</a></div>
                 {% else %}
-                    <div class="sidebar-l1"><a href="{{ pathto(h.url) }}">{{h.title}}</a></div>
+                    <div class="sidebar-l1"><a class="reference internal" href="{{ pathto(h.url) }}">{{h.title}}</a></div>
                 {% endif %}
             {% endif %}
         {% endfor%}
-    <!-- If custum sidebar_headings not set, generate sidebar from the toctree -->
-    {% else %}
+        
+    <!-- If custom sidebar_headings not set, generate sidebar from the toctree -->
         {% set global_toc = toctree(
             collapse=theme_collapse_navigation|tobool,
             includehidden=theme_includehidden|tobool) %}
         {% if global_toc %}
             {{ global_toc }}
         {% endif %}
-    {% endif %}
-
-    <!-- GITHUB LINK -->
-    <div class="sidebar-l1"><a href="{{ github }}">GitHub</a></div>
 
     <!-- PREVIOUS RELEASES -->
-    <div>
         {% if version_list %}
             <div class="sidebar-l1-expandable">Previous Releases</div>
             <div class="sidebar-subheadings">
@@ -47,23 +41,34 @@
                 {% endfor %}
             </div>
         {% endif %}
-    </div>
 
   </div>
 
 <script>
-    var coll = document.getElementsByClassName("sidebar-l1-expandable");
+    var side_rows = document.getElementsByClassName("sidebar-l1-expandable");
     var i;
-
-    for (i = 0; i < coll.length; i++) {
-    coll[i].addEventListener("click", function() {
-        this.classList.toggle("current");
-        var subheadings = this.nextElementSibling;
-        if (subheadings.style.display === "block") {
-        subheadings.style.display = "none";
-        } else {
-        subheadings.style.display = "block";
+    var j;
+    for (i = 0; i < side_rows.length; i++) {
+        for (j = 0; j < side_rows[i].nextElementSibling.children.length; j++) {
+            if (side_rows[i].nextElementSibling.children[j].children[0].className == "reference internal current") {
+            side_rows[i].nextElementSibling.style.display = "block"
         }
-    });
+        }
+        side_rows[i].addEventListener("click", function() {
+            this.classList.toggle("current");
+            var subheadings = this.nextElementSibling;
+            if (subheadings.style.display === "block") {
+            subheadings.style.display = "none";
+            } else {
+            subheadings.style.display = "block";
+            }
+        });
+    }
+    var toc_rows = document.getElementsByClassName("toctree-l1");
+    var i;
+    for (i = 0; i < toc_rows.length; i++) {
+        if (toc_rows[i].children[0].className === "reference external") {
+            toc_rows[i].className = "toctree-l1-external"
+            }
     }
 </script>

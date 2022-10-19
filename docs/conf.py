@@ -152,23 +152,24 @@ html_context = {
     'github': 'https://github.com/Qiskit/qiskit-terra',
     'analytics_enabled': True,
     'version_list': [0.1, 0.2, 0.3],
-    # 'sidebar_headings': [
-    #     {
-    #         'title': 'Heading 1 (no subheadings)',
-    #         'url': 'functions', # use sphinx toctree
-    #     },
-    #     {
-    #         'title': 'Heading 2 (with subheadings)',
-    #         'subheadings': [
-    #             {
-    #                 'title': 'Subtitle 1 (external link)',
-    #                 'url': 'https://google.com', # use external url
-    #             },
-    #             {
-    #                 'title': 'Subtitle 2 (internal link)',
-    #                 'url': 'tutorials', # use sphinx toctree
-    #             },
-    #         ]
-    #     }
-    # ]
+    'sidebar_headings': [
+        {
+            'title': 'Heading 1 (no subheadings)',
+            'url': 'images', # use sphinx toctree
+        },
+        {
+            'title': 'Heading 2 (with subheadings)',
+            'url': 'tutorials',
+            'subheadings': [
+                {
+                    'title': 'Subtitle 1 (external link)',
+                    'url': 'https://google.com', # use external url
+                },
+                {
+                    'title': 'Subtitle 2 (internal link)',
+                    'url': 'tutorials', # use sphinx toctree
+                },
+            ]
+        }
+    ]
 }

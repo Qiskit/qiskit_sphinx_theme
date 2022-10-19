@@ -12,10 +12,10 @@ Qiskit sphinx theme |version| documentation
    Lists and tables <lists_tables>
    Functions <functions>
    Classes <classes>
-   Images <images>
    Jupyter <jupyter>
    Panels <panels>
    Example API Reference <apidocs/qiskit_api>
+   GitHub <https://github.com/Qiskit/qiskit_sphinx_theme>
 
 
 .. Hiding - Indices and tables

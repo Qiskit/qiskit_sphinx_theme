@@ -26,6 +26,7 @@ To keep UX/UI similar across different Qiskit packages we strongly encourage the
    API Reference <apidocs>
    Explanations <explanations>
    Release Notes <release_notes>
+   GitHub <https://github.com/Qiskit/qiskit_sphinx_theme>
 ```
 
 The above toctree will render a sidebar that looks like the image below:
@@ -35,11 +36,9 @@ INSERT IMAGE
 Each item in the toctree corresponds to a single `.rst` file and is represented as one top level heading in the sidebar. The subheadings in the sidebar are pulled directly from the subheadings of the correseponding `.rst` file. By setting the `:maxdepth:` attribute you can define how many layers of subheadings you have. If you want no subheadings set `:maxdepth: 1`.
 
 In addition to the pages in the toctree, the sidebar also adds:
-- (required) a link to your project's GitHub (you must set the corect github url in your `conf.py`)
 - (optional) a dropdown with links to previous releases, if you have a `version_list` in your `conf.py`
 
 ## Configure a Custom Sidebar Layout
-
 
 - In `conf.py` you can set a custom structure for your sidebar by adding the `sidebar_headings` variable to `html_context`
 

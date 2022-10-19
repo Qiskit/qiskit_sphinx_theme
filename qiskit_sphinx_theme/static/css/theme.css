@@ -374,7 +374,6 @@ ol,
 ul,
 dl {
   margin-top: 0;
-  margin-bottom: 1rem;
 }
 
 ol ol,
@@ -11998,7 +11997,6 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
 .pytorch-right-menu ul {
   list-style-type: none;
   padding-left: 0;
-  margin-bottom: 2.5rem;
 }
 .pytorch-left-menu > ul,
 .pytorch-right-menu > ul {
@@ -12034,20 +12032,26 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
   padding-right: 0;
 }
 
+/* sidebar items for custom side menu */
+
 .sidebar-l1 {
-  font-weight: bolder !important;
   padding: 0 2rem;
-  height: 32px !important;
+  color: #6c6c6d;
+  font-size: 0.875rem;
+  font-weight: bolder;
+  text-decoration: none;
+  height: 32px;
+  cursor: pointer;
 }
 
 .sidebar-l1-expandable {
-  font-weight: bolder;
   padding: 0 2rem;
   height: 32px;
-}
-
-.active {
-  color: #8A3FFC
+  color: #6c6c6d;
+  font-size: 0.875rem;
+  font-weight: bolder;
+  text-decoration: none;
+  cursor:pointer;
 }
 
 .sidebar-l1-expandable:after {
@@ -12069,16 +12073,48 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
   color: #525252;
 }
 
+.reference.external:after {
+  content: url('../images/launch.svg');
+  float: right;
+  position:absolute;
+  padding-left: 0.5rem;
+}
+
+.reference.internal.current {
+  color: var(--purple);
+}
+
+/* toctree items for sphinx generated side menu */
+
 .toctree-l1 {
   font-weight: bolder;
   padding: 0 2rem;
   line-height: 32px;
+  position: relative;
+  cursor: pointer;
+}
+
+.toctree-l1-external {
+  font-weight: bolder;
+  padding: 0 2rem;
+  line-height: 32px;
+  position: relative;
+  cursor: pointer;
 }
 
 .toctree-l1:after {
   content: url('../images/qiskit-chevron-down.svg');
   float: right;
+  position:absolute;
+  right:2rem;
 }
+.toctree-l1.current:before {
+  content: url('../images/qiskit-chevron-up.svg');
+  float: right;
+  position:absolute;
+  right:2rem;
+}
+
 .toctree-l2 {
   font-weight: normal;
 }
