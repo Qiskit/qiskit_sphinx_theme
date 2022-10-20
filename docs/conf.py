@@ -159,7 +159,6 @@ html_context = {
         },
         {
             'title': 'Heading 2 (with subheadings)',
-            'url': 'tutorials',
             'subheadings': [
                 {
                     'title': 'Subtitle 1 (external link)',
@@ -168,6 +167,19 @@ html_context = {
                 {
                     'title': 'Subtitle 2 (internal link)',
                     'url': 'tutorials', # use sphinx toctree
+                },
+            ]
+        },
+        {
+            'title': 'Heading 3 (with subheadings)',
+            'subheadings': [
+                {
+                    'title': 'Subtitle 1 (external link)',
+                    'url': 'https://google.com', # use external url
+                },
+                {
+                    'title': 'Subtitle 2 (internal link)',
+                    'url': 'panels', # use sphinx toctree
                 },
             ]
         }

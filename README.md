@@ -16,7 +16,7 @@ To keep UX/UI similar across different Qiskit packages we strongly encourage the
 
 ```
 .. toctree::
-  :maxdepth: 2
+  :maxdepth: 1
   :hidden:
 
    Overview <overview>

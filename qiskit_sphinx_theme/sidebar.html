@@ -2,10 +2,10 @@
     <div class="pytorch-left-menu-search">
         {% include "searchbox.html" %}
     </div>
-    <!-- if sidebar_headings var set, use custom sidebar layout -->
+    <!-- if sidebar_headings var set, render custom sidebar layout -->
         {% for h in sidebar_headings %}
             {% if h.subheadings %}
-                <div class="sidebar-l1-expandable"><a href="{{ pathto(h.url) }}">{{h.title}}</a></div>
+                <div class="sidebar-l1-expandable">{{h.title}}</div>
                 <div class="sidebar-subheadings">
                     {% for sub in h.subheadings %}
                         {% if sub.url.startswith('http')%}
@@ -24,10 +24,10 @@
             {% endif %}
         {% endfor%}
         
-    <!-- If custom sidebar_headings not set, generate sidebar from the toctree -->
-        {% set global_toc = toctree(
-            collapse=theme_collapse_navigation|tobool,
-            includehidden=theme_includehidden|tobool) %}
+    <!-- render sidebar from the toctree -->
+        {% set global_toc = toctree(maxdepth=1,
+                                    collapse=theme_collapse_navigation|tobool,
+                                    includehidden=theme_includehidden|tobool) %}
         {% if global_toc %}
             {{ global_toc }}
         {% endif %}
@@ -49,21 +49,26 @@
     var i;
     var j;
     for (i = 0; i < side_rows.length; i++) {
-        for (j = 0; j < side_rows[i].nextElementSibling.children.length; j++) {
-            if (side_rows[i].nextElementSibling.children[j].children[0].className == "reference internal current") {
-            side_rows[i].nextElementSibling.style.display = "block"
+        // expand the dropdown if user is currently on a page included in the dropdown
+        var subheadings = side_rows[i].nextElementSibling
+        for (j = 0; j < subheadings.children.length; j++) {
+            if (subheadings.children[j].childNodes[0].href.endsWith('#')) {
+                side_rows[i].nextElementSibling.style.display = "block"
+            } else {side_rows[i].nextElementSibling.style.display = "none"}
         }
-        }
+        // expand and unexpand dropdown when clicked
         side_rows[i].addEventListener("click", function() {
-            this.classList.toggle("current");
-            var subheadings = this.nextElementSibling;
-            if (subheadings.style.display === "block") {
-            subheadings.style.display = "none";
+            this.classList.toggle("open");
+            var clicked_subheadings = this.nextElementSibling;
+            if (clicked_subheadings.style.display === "block") {
+            clicked_subheadings.style.display = "none";
             } else {
-            subheadings.style.display = "block";
+            clicked_subheadings.style.display = "block";
             }
         });
+
     }
+    // adjust toctree class name to style external links
     var toc_rows = document.getElementsByClassName("toctree-l1");
     var i;
     for (i = 0; i < toc_rows.length; i++) {

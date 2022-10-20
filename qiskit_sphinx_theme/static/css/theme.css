@@ -12073,15 +12073,8 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
   color: #525252;
 }
 
-.reference.external:after {
-  content: url('../images/launch.svg');
-  float: right;
-  position:absolute;
-  padding-left: 0.5rem;
-}
-
-.reference.internal.current {
-  color: var(--purple);
+.current {
+  color: var(--purple) !important;
 }
 
 /* toctree items for sphinx generated side menu */
@@ -12102,17 +12095,13 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
   cursor: pointer;
 }
 
-.toctree-l1:after {
-  content: url('../images/qiskit-chevron-down.svg');
+.toctree-l1-external .reference.external:after,
+.sidebar-l1 .reference.external:after,
+.sidebar-l2 .reference.external:after {
+  content: url('../images/launch.svg');
   float: right;
   position:absolute;
-  right:2rem;
-}
-.toctree-l1.current:before {
-  content: url('../images/qiskit-chevron-up.svg');
-  float: right;
-  position:absolute;
-  right:2rem;
+  padding-left: 0.5rem;
 }
 
 .toctree-l2 {
