@@ -10,8 +10,8 @@ Lower the barrier of entry
 
 Lower the barrier of entry as much as possible. Assume the user does not know much about what is
 covered in the tutorial. If we are expecting users to know something, make it explicit and link them
-to the needed explanations (See point 6) Avoid jargon as much as possible. Provide a minimum
-necessary explanation when the jargon is introduced. (See point 6)
+to the needed explanations (See :ref:`tutorial-guidelines-minimum-explanation`) Avoid jargon as much as possible. Provide a minimum
+necessary explanation when the jargon is introduced. (See :ref:`tutorial-guidelines-minimum-explanation`)
  
 Provide setup / prerequisites
 -----------------------------
@@ -49,7 +49,7 @@ Test tutorials regularly
 ------------------------
 
 on supported platform and python / Qiskit versions (for example, via CI
-tests) 
+tests)
 
 4. Ensure the user sees results immediately
 ===========================================
@@ -90,14 +90,16 @@ Do not generalize
 Focus on the particular instance of the case you want to demonstrate, do not generalize / provide
 abstractions.
 
+.. _tutorial-guidelines-minimum-explanation:
+
 6. Offer only minimum, necessary, explanation
 =============================================
 
 Explain exactly what's needed
 -----------------------------
 
-Try to explain exactly what's needed to get the steps done AND  for the user understand
-everything they're doing and why they are doing it in the first place. No more no less.   
+Try to explain exactly what's needed to get the steps done AND for the user understand
+everything they're doing and why they are doing it in the first place. No more no less.  
 
 Provide links if needed
 -----------------------
