@@ -10,21 +10,17 @@
     </div>
   {% endif %}
 
-  {% if theme_pytorch_project == 'tutorials' %}
+  {% if analytics_enabled %}
 
     <hr class="helpful-hr hr-top">
       <div class="helpful-container">
-        <div class="helpful-question">Was this helpful?</div>
-        <div class="helpful-question yes-link" data-behavior="was-this-helpful-event" data-response="yes">Yes</div>
-        <div class="helpful-question no-link" data-behavior="was-this-helpful-event" data-response="no">No</div>
-        <div class="was-helpful-thank-you">Thank you</div>
+        <div class="helpful-question">Was this page helpful?</div>
+        <a class="helpful-question yes-link" onclick="clicked('yes')">Yes</a>
+        <a class="helpful-question no-link" onclick="clicked('no')">No</a>
+        <div class="was-helpful-thank-you" id="was-helpful-thank-you">Thank you!</div>
       </div>
     <hr class="helpful-hr hr-bottom"/>
-
-  {% else %}
-
-    <hr>
-
+  
   {% endif %}
 
   <div role="contentinfo">
@@ -68,4 +64,11 @@
   {%- block extrafooter %} {% endblock %}
 
 </footer>
+
+<script>
+  function clicked(ctaType) {
+    document.getElementById('was-helpful-thank-you').style.visibility = 'visible';
+    window.trackCta(`Helpful - ${ctaType}`);
+  }
+  </script>
 

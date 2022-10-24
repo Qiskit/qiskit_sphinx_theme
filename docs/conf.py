@@ -149,7 +149,6 @@ autoclass_content = 'both'
 # qiskit package specific variables
 html_context = {
     'repo_name': 'Example Repo',
-    'github': 'https://github.com/Qiskit/qiskit-terra',
     'analytics_enabled': True,
     'version_list': [0.1, 0.2, 0.3],
     'sidebar_headings': [
