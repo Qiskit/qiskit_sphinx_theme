@@ -11,7 +11,7 @@ Qiskit sphinx theme |version| documentation
    Getting Started <paragraph>
    Tutorials <lists_tables>
    How-to Guides <functions>
-   API Reference <apidocs/qiskit_api>
+   API Reference <classes>
    Explanations <jupyter>
    Release Notes <panels>
    GitHub <https://github.com/Qiskit/qiskit_sphinx_theme>
