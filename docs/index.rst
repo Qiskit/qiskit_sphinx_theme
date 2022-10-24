@@ -7,16 +7,14 @@ Qiskit sphinx theme |version| documentation
   :maxdepth: 2
   :hidden:
 
-   Structural formatting <structural>
-   Paragraph-level markup <paragraph>
-   Lists and tables <lists_tables>
-   Functions <functions>
-   Classes <classes>
-   Jupyter <jupyter>
-   Panels <panels>
-   Example API Reference <apidocs/qiskit_api>
+   Overview <structural>
+   Getting Started <paragraph>
+   Tutorials <lists_tables>
+   How-to Guides <functions>
+   API Reference <apidocs/qiskit_api>
+   Explanations <jupyter>
+   Release Notes <panels>
    GitHub <https://github.com/Qiskit/qiskit_sphinx_theme>
-
 
 .. Hiding - Indices and tables
    :ref:`genindex`

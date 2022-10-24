@@ -12039,13 +12039,13 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
   font-size: 0.875rem;
   font-weight: bolder;
   text-decoration: none;
-  height: 32px;
+  line-height: 32px;
   cursor: pointer;
 }
 
 .sidebar-l1-expandable {
   padding: 0 2rem;
-  height: 32px;
+  line-height: 32px;
   color: #6c6c6d;
   font-size: 0.875rem;
   font-weight: bolder;
@@ -12058,7 +12058,7 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
   float: right;
 }
 
-.sidebar-l1-expandable.current:after {
+.sidebar-l1-expandable.open:after {
   content: url('../images/qiskit-chevron-up.svg');
 }
 
@@ -12068,7 +12068,7 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
 
 .sidebar-l2 {
   padding: 0 2.5rem;
-  height: 28px;
+  line-height: 28px;
   color: #525252;
 }
 

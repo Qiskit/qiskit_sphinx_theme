@@ -154,32 +154,19 @@ html_context = {
     'version_list': [0.1, 0.2, 0.3],
     'sidebar_headings': [
         {
-            'title': 'Heading 1 (no subheadings)',
+            'title': 'Custom Heading 1 (no subheadings)',
             'url': 'images', # use sphinx toctree
         },
         {
-            'title': 'Heading 2 (with subheadings)',
+            'title': 'Custom Heading 2 (with subheadings)',
             'subheadings': [
                 {
-                    'title': 'Subtitle 1 (external link)',
+                    'title': 'Custom Subtitle 1 (external link)',
                     'url': 'https://google.com', # use external url
                 },
                 {
-                    'title': 'Subtitle 2 (internal link)',
+                    'title': 'Custom Subtitle 2 (internal link)',
                     'url': 'tutorials', # use sphinx toctree
-                },
-            ]
-        },
-        {
-            'title': 'Heading 3 (with subheadings)',
-            'subheadings': [
-                {
-                    'title': 'Subtitle 1 (external link)',
-                    'url': 'https://google.com', # use external url
-                },
-                {
-                    'title': 'Subtitle 2 (internal link)',
-                    'url': 'panels', # use sphinx toctree
                 },
             ]
         }

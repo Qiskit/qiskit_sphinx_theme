@@ -4,7 +4,17 @@
     <div class="pytorch-left-menu-search">
         {% include "searchbox.html" %}
     </div>
+
+    <!-- render sidebar from the toctree -->
+    {% set global_toc = toctree(maxdepth=1,
+                                collapse=theme_collapse_navigation|tobool,
+                                includehidden=theme_includehidden|tobool) %}
+    {% if global_toc %}
+        {{ global_toc }}
+    {% endif %}
+    
     <!-- if sidebar_headings var set, render custom sidebar layout -->
+    {% if sidebar_headings %}
         {% for h in sidebar_headings %}
             {% if h.subheadings %}
                 <div class="sidebar-l1-expandable">{{h.title}}</div>
@@ -25,14 +35,7 @@
                 {% endif %}
             {% endif %}
         {% endfor%}
-        
-    <!-- render sidebar from the toctree -->
-        {% set global_toc = toctree(maxdepth=1,
-                                    collapse=theme_collapse_navigation|tobool,
-                                    includehidden=theme_includehidden|tobool) %}
-        {% if global_toc %}
-            {{ global_toc }}
-        {% endif %}
+    {% endif %}
 
     <!-- PREVIOUS RELEASES -->
         {% if version_list %}
