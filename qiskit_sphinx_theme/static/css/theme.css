@@ -11793,7 +11793,7 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
   }
 }
 .pytorch-content-left .main-content {
-  padding-top: 0.9375rem;
+  padding-top: 3rem;
 }
 .pytorch-content-left .main-content ul.simple {
   padding-bottom: 20px;
@@ -11836,7 +11836,6 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
   .pytorch-menu-vertical {
     display: block;
     padding-top: 0;
-    padding-bottom: 5.625rem;
   }
 }
 @media screen and (min-width: 1600px) {
@@ -11857,7 +11856,7 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
     display: block;
     overflow-x: hidden;
     overflow-y: hidden;
-    padding-bottom: 110px;
+    padding-bottom: 10px;
     width: 25%;
     z-index: 200;
     float: left;
