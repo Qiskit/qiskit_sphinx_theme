@@ -57,7 +57,7 @@ Document Section II
 Document Subsection
 -------------------
 
-.. figure:: images/yi_jing_01_chien.jpg
+.. figure:: /images/yi_jing_01_chien.jpg
     :align: right
     :figwidth: 200px
 
