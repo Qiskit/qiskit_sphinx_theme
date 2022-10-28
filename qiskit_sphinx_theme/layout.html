@@ -43,6 +43,15 @@
 
   <link rel="stylesheet" href="{{ pathto('_static/' + style, 1) }}" type="text/css" />
 
+  <link rel="preload" href="{{ pathto('_static/js/qiskit-ui-shell.js', 1) }}" as="script" />
+  <script type="module" src="{{ pathto('_static/js/qiskit-ui-shell.js', 1) }}"></script>
+  <style>
+    qiskit-ui-shell:not(:defined) {
+      display: block;
+      margin-bottom: 3.5rem;
+    }
+  </style>
+
   <!-- SEGMENT ANALYTICS -->
   {% if analytics_enabled %}
     <script src="https://cloud.ibm.com/analytics/build/bluemix-analytics.min.js"></script>
@@ -100,90 +109,8 @@
     </script>
   {% endif %}
 </head>
-
-<div class="container-fluid header-holder tutorials-header" id="header-holder">
-  <div class="container">
-    <div class="header-container">
-      <a class="header-logo" href="{{ theme_variables.external_urls['home'] }}" aria-label="PyTorch"></a>
-
-      <div class="main-menu">
-        <ul>
-          <li {%- if pagename == 'getting_started' %} class="active"{% endif %}>
-            <a href="{{ pathto('getting_started') }}">Getting started</a>
-          </li>
-
-          <li {%- if pagename == 'tutorials' %} class="active"{% endif %}>
-            <a href="{{ pathto('tutorials') }}">Tutorials</a>
-          </li>
-
-          <li>
-            <a href="{{ theme_variables.external_urls['partners'] }}" target="_blank">Partners</a>
-          </li>
-
-          <li>
-            <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
-              <a class="resource-option with-down-orange-arrow">
-                Applications
-              </a>
-              <div class="resources-dropdown-menu">
-                <a class="nav-dropdown-item" href="{{ theme_variables.external_urls['ml'] }}">
-                  <span class="dropdown-title">Machine learning</span>
-                  <p>QSVM, VQC (Variational Quantum Classifier), and QGAN (Quantum Generative
-                    Adversarial Network) algorithms.</p>
-                </a>
-                <a class="nav-dropdown-item" href="{{ theme_variables.external_urls['nature'] }}">
-                  <span class="dropdown-title">Nature</span>
-                  <p>Quantum applications in chemistry, physics, and biology.</p>
-                </a>
-                <a class="nav-dropdown-item" href="{{ theme_variables.external_urls['finance'] }}">
-                  <span class="dropdown-title">Finance</span>
-                  <p>Uncertainty components for stock/securities problems, Ising translators for
-                    portfolio optimizations and data providers to source real or random data.</p>
-                </a>
-                <a class="nav-dropdown-item" href="{{ theme_variables.external_urls['optim'] }}">
-                  <span class="dropdown-title">Optimization</span>
-                  <p>High-level optimization problems that are ready to
-                    run on simulators and real quantum devices</p>
-                </a>
-              </div>
-          </li>
-          <li>
-              <a href="{{ theme_variables.external_urls['experiments'] }}" target="_blank">Experiments</a>
-          </li>
-          <li>
-            <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
-              <a class="resource-option with-down-orange-arrow">
-                Resources
-              </a>
-              <div class="resources-dropdown-menu">
-                <a class="doc-dropdown-option nav-dropdown-item" href="{{ theme_variables.external_urls['slack'] }}">
-                  <span class="dropdown-title">Slack support</span>
-                  <p></p>
-                </a>
-                <a class="doc-dropdown-option nav-dropdown-item" href="{{ theme_variables.external_urls['textbook'] }}">
-                  <span class="dropdown-title">Qiskit Textbook</span>
-                  <p></p>
-                </a>
-                <a class="doc-dropdown-option nav-dropdown-item" href="{{ theme_variables.external_urls['events'] }}">
-                  <span class="dropdown-title">Qiskit events</span>
-                  <p></p>
-                </a>
-            </div>
-          </li>
-          <li>
-            <a href="{{ theme_variables.external_urls['github'] }}" target="_blank">GitHub</a>
-          </li>
-        </ul>
-      </div>
-
-      <a class="main-menu-open-button" href="#" data-behavior="open-mobile-menu"></a>
-    </div>
-
-  </div>
-</div>
-
-
 <body class="pytorch-body">
+  <qiskit-ui-shell variant="hide-account"></qiskit-ui-shell>
 
   {% block extrabody %} {% endblock %}
 
@@ -330,73 +257,6 @@
   <div>
     <br>
   </div>
-
-  <!-- Begin Mobile Menu -->
-
-  <div class="mobile-main-menu">
-    <div class="container-fluid">
-      <div class="container">
-        <div class="mobile-main-menu-header-container">
-          <a class="header-logo" href="{{ theme_variables.external_urls['home'] }}" aria-label="PyTorch"></a>
-          <a class="main-menu-close-button" href="#" data-behavior="close-mobile-menu"></a>
-        </div>
-      </div>
-    </div>
-
-    <div class="mobile-main-menu-links-container">
-      <div class="main-menu">
-        <ul>
-          <li>
-            <a href="{{ pathto('getting_started') }}">Getting Started</a>
-          </li>
-          <li>
-            <a href="{{ pathto('tutorials') }}">Tutorials</a>
-          </li>
-          <li>
-            <a href="{{ theme_variables.external_urls['partners'] }}">Partners</a>
-          </li>
-          <br>
-          <li class="resources-mobile-menu-title">
-            Applications
-          </li>
-          <ul class="resources-mobile-menu-items">
-            <li>
-              <a href="{{ theme_variables.external_urls['ml'] }}">Machine learning</a>
-            </li>
-
-            <li>
-              <a href="{{ theme_variables.external_urls['nature'] }}">Nature</a>
-            </li>
-
-            <li>
-              <a href="{{ theme_variables.external_urls['finance'] }}">Finance</a>
-            </li>
-
-            <li>
-              <a href="{{ theme_variables.external_urls['optim'] }}">Optimization</a>
-            </li>
-          </ul>
-          <br>
-          <li>
-            <a href="{{ theme_variables.external_urls['experiments'] }}">Experiments</a>
-          </li>
-          <br>
-          <li class="resources-mobile-menu-title">
-            Resources
-          </li>
-
-          <ul class="resources-mobile-menu-items">
-            <li>
-              <a href="{{ theme_variables.external_urls['slack'] }}">Slack support</a>
-            </li>
-          </ul>
-          <br>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- End Mobile Menu -->
 
   <script type="text/javascript" src="{{ pathto('_static/js/vendor/anchor.min.js', 1) }}"></script>
 
