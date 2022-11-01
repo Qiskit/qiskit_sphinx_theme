@@ -43,8 +43,8 @@
 
   <link rel="stylesheet" href="{{ pathto('_static/' + style, 1) }}" type="text/css" />
 
-  <link rel="preload" href="{{ pathto('_static/js/experimental-bundled-ui-shell.js', 1) }}" as="script" />
-  <script type="module" src="{{ pathto('_static/js/experimental-bundled-ui-shell.js', 1) }}"></script>
+  <link rel="preload" as="script" href="https://unpkg.com/@qiskit/web-components@0.10.1/experimental-bundled-ui-shell.js" crossorigin="anonymous">
+  <script type="module" src="https://unpkg.com/@qiskit/web-components@0.10.1/experimental-bundled-ui-shell.js"></script>
   <style>
     qiskit-ui-shell:not(:defined) {
       display: block;
