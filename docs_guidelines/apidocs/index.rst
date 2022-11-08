@@ -9,3 +9,4 @@ API Reference
    tutorials
    how_to
    api
+   explanation
