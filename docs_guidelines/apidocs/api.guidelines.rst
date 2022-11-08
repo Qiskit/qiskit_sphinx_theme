@@ -16,7 +16,7 @@ Focus on the arguments that make bigger differences. Among the options of a same
 the ones with significant differences. For example, if you are using ``plot_histogram`` and want to
 show different options of the ``sort`` argument, don't pick two that mostly do the same like
 ``value`` and ``value_desc``, pick one of them to show you can sort by probability and a completely
-different one like ``hamming``. 
+different one like ``hamming``.
 
 To minimize duplication of content, put common things in the module level api page instead
 of class, method, function level api page. For example, `qiskit-terra#8569
@@ -39,7 +39,7 @@ complicated input is useful to show some functionality, like creating a state wi
 amplitudes to show the different square sizes for a hinton diagram, do it but in the simplest way
 possible (the fewest possible gates, use relatively common gates, avoid extra imports like numpy).
 
-On the other side, make sure you are showing the full functionality. 
+On the other side, make sure you are showing the full functionality.
 
 4. Import only what's strictly needed when needed
 =================================================
