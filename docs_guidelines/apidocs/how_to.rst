@@ -4,6 +4,6 @@ How-to Guides
 
 .. toctree::
 
-   Guidelines <how_to.guidelines>
-   Examples <how_to.examples>
-   Template <how_to.template>
+   how_to.guidelines
+   how_to.examples
+   how_to.template

@@ -4,6 +4,6 @@ Tutorials
 
 .. toctree::
 
-   Guidelines <tutorials.guidelines>
-   Examples <tutorials.examples>
-   Template <tutorials.template>
+   tutorials.guidelines
+   tutorials.examples
+   tutorials.template

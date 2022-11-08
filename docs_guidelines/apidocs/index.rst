@@ -4,6 +4,8 @@ API Reference
 
 
 .. toctree::
-
-    Tutorials <tutorials>
-    How-to Guides <how_to>
+   :maxdepth: 2
+    
+   tutorials
+   how_to
+   api
