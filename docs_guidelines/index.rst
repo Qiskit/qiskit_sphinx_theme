@@ -21,6 +21,6 @@ This site hosts the guidelines and examples for writing and building documentati
    Tutorials <tutorials/index>
    How-to Guides <how_to/index>
    API Reference <apidocs/index>
-   Explanations <explanations/index>
+   Explanation <explanation/index>
    Release Notes <release_notes>
    GitHub <https://github.com/Qiskit/qiskit_sphinx_theme>
