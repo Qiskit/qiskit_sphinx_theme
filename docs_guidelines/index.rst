@@ -17,10 +17,10 @@ This site hosts the guidelines and examples for writing and building documentati
    :hidden:
 
    Overview <self>
-   Getting Started <getting_started>
-   Tutorials <tutorials/index>
-   How-to Guides <how_to/index>
-   API Reference <apidocs/index>
-   Explanation <explanation/index>
-   Release Notes <release_notes>
+   getting_started
+   tutorials/index
+   how_to/index
+   apidocs/index
+   explanation/index
+   release_notes
    GitHub <https://github.com/Qiskit/qiskit_sphinx_theme>
