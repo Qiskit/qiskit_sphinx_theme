@@ -2,7 +2,7 @@
 Create a new documentation project of a Qiskit package.
 =======================================================
 
-In this tutorial you will create a new documentation project for a Qiskit repository. For this purpose you will use Qiskit's Sphinx theme, ``qiskit_sphinx_theme``. 
+In this tutorial you will create and deploy a new documentation project for a Qiskit repository. For this purpose you will use Qiskit's Sphinx theme, ``qiskit_sphinx_theme``. 
 
 
 Background information
@@ -141,3 +141,511 @@ in ``docs/index.rst``.  Your ``index.rst`` should look like this:
     Release Notes <release_notes>
     GitHub <https://github.com/Qiskit/qiskit_x>
 
+Deploy docs to `qiskit.org <https://qiskit.org/>`_
+===================================================
+
+Once you have a working documentation project, you may want to deploy it to `qiskit.org <https://qiskit.org/>`_. This can be done by using `GitHub workflows <https://docs.github.com/en/actions/using-workflows/about-workflows>`_.
+These workflows are automated processes that are defined by `YAML <https://yaml.org/>`_ files. This files have to be placed in a directory called ``.github/workflows``.
+
+A workflow can be configured to be triggered by one or more events. It is divided into one or more jobs, each one formed by at least one step. A step consists of running a script you define or an `action <https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions#actions>`_,
+that is, an application that performs a complex but usually repeated task.
+
+For documentation deployment, you have to create a file called ``deploy-docs.yml`` inside the directory ``.github/workflows``.
+
+The first thing you have to include in this file is the copyright notice:
+
+.. code-block:: yaml
+
+    # This code is part of Qiskit.
+    #
+    # (C) Copyright IBM 2022.
+    #
+    # This code is licensed under the Apache License, Version 2.0. You may
+    # obtain a copy of this license in the LICENSE.txt file in the root directory
+    # of this source tree or at http://www.apache.org/licenses/LICENSE-2.0.
+    #
+    # Any modifications or derivative works of this code must retain this
+    # copyright notice, and modified files need to carry a notice indicating
+    # that they have been altered from the originals.
+
+After that, you need to state the name of your workflow using the key `name <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#name>`_. In particular, this workflow will be called ``Deploy Docs`` so your next line is:
+
+.. code-block:: yaml
+
+    name: Deploy Docs
+
+The next step is to set the event that triggers this workflow. This is done with the key `on <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on>`_. In this case, the workflow will be triggered manually. This can be set with the `workflow_dispatch <https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch>`_ event.
+
+.. code-block:: yaml
+
+    on:
+      workflow_dispatch:
+
+.. note::
+
+    It is recommended to use a 2-space indentation for YAML files.
+
+In order to avoid having more than one job or workflow running at the same time you will use a `concurrency group <https://docs.github.com/en/actions/using-jobs/using-concurrency>`_. The idea behind these groups is that only one job or workflow from each group can be run at the same time.
+In this case we will distinguish by repository name, branch ref, source branch ref and workflow. All of these can be accessed via the `github <https://docs.github.com/en/actions/learn-github-actions/contexts#github-context>`_ `context <https://docs.github.com/en/actions/learn-github-actions/contexts#about-contexts>`_ as ``github.repository``, ``github.ref``, ``github.head_ref`` and ``github.workflow`` respectively.
+These properties have to be accessed with the `expression syntax <https://docs.github.com/en/actions/learn-github-actions/expressions>`_, that is, ``${{ <expression> }}``. In order to cancel any currently running workflows from the concurrency group you can set ``cancel-in-progress`` to ``true``.
+
+.. code-block:: yaml
+
+    concurrency:
+      group: ${{ github.repository }}-${{ github.ref }}-${{ github.head_ref }}-${{ github.workflow }}
+      cancel-in-progress: true
+
+
+Once this setup is done, you can start creating the jobs. 
+
+Publish docs
+------------
+
+The first job will consist of publishing the documentation and will be called ``docs_publish``.  
+
+Set up the job
+^^^^^^^^^^^^^^
+
+In order to make sure that the deployement only comes from a stable branch and is triggered by a mantainer, you can use the `if <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idif>`_
+key. The first condition can be written using the `startsWith expression <https://docs.github.com/en/actions/learn-github-actions/expressions#startswith>`_ by checking whether ``github.ref`` starts with ``refs/heads/stable``. For the second condition, you can use the `contains expression <https://docs.github.com/en/actions/learn-github-actions/expressions#contains>`_ to check whether
+``github.actor``, that is the user that triggers the workflow, is a mantainer. This job will use the latest version of `Ubuntu <https://ubuntu.com/>`_. To ensure that, you will set the `runs-on <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idruns-on>`_ key to ``ubuntu-latest``.
+Finally, you will use the `strategy key <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategy>`_ to create a `matrix <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix>`_ in which the Python version will be included. In this case, the version will be 3.8.
+This matrix will be called ``python-version`` and its value will be ``[3.8]``. 
+
+
+.. code-block:: yaml
+
+    jobs:
+      docs_publish:
+        if: ${{ startsWith(github.ref, 'refs/heads/stable') && contains('["mantainer-1","mantainer-2", ...]', github.actor) }}
+        runs-on: ubuntu-latest
+        strategy:
+          matrix:
+            python-version: [3.8]
+        steps:
+
+Steps
+^^^^^
+
+Check-out the repository
+"""""""""""""""""""""""""
+
+The first step of this job consists of enabling the workflow to access the repository ``qiskit-x``. To do that you only need to call the pre-defined `checkout action <https://github.com/actions/checkout>`_ with the `uses <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsuses>`_ key.
+By setting the ``fetch-depth`` parameter to ``0`` via the `with <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idwith>`_ key, you can let the action reach for the full history of your repository.
+
+.. code-block:: yaml
+
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+
+Setup Python
+""""""""""""
+
+Once your repo has been reached, the workflow continues by installing a Python version, in this case, the 3.8, as defined in ``matrix.python-version``. Fortunately, the
+`setup-python action <https://github.com/actions/setup-python>`_ already does this for us!. To choose the version you only have to set the ``python-version`` parameter with the corresponding value.
+
+.. code-block:: yaml
+
+    - uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+
+
+Install the package
+""""""""""""""""""""
+
+Now that you have Python, let's install our package, Qiskit X and its more immediate dependencies and constraints from ``requirements-dev.txt`` and ``constraints.txt`` respectively. 
+You can use the `run <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun>`_ key and add the usual bash commands as a multiline block with the pipe indicator ``|``. These commands are: ``pip install -e .`` for the editable (``-e``) version of the package, ``pip install -U -r requirements-dev.txt`` for the latest version (``-U``) of the requirements (``-r``) and ``pip install -c constraints.txt`` for the constraints (``-c``).
+You can set the shell to ``bash`` via the
+`shell <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsshell>`_ keyword.
+
+
+.. code-block:: yaml
+
+    - name: Install X
+      run: |
+        pip install -e .
+        pip install -U -c constraints.txt -r requirements-dev.txt
+      shell: bash
+
+
+Install other dependencies
+""""""""""""""""""""""""""
+
+In case there are another dependencies that are not covered in the ``requirements-dev.txt``, you can add them in a similar step.
+
+.. code-block:: yaml
+
+    - name: Install Dependencies
+      run: |
+        pip install packages
+        sudo apt-get install -y other_packages
+      shell: bash
+
+Build and publish
+""""""""""""""""""
+
+Your documentation will be deployed to `IBM Cloud Object Storage <https://www.ibm.com/cloud/object-storage>`_, where qiskit.org is hosted, with `Rclone <https://rclone.org>`_, a command-line program that enables you to manage content from the cloud.
+
+Before starting with this step, it is necessary to ask a `Qiskit organization administrator <https://github.com/orgs/Qiskit/people?query=role%3Aowner>`_ to add some encrypted credentials to your repo. These credentials are:
+
+* The `Rclone <https://rclone.org>`_ configuration file, that will be saved as ``tools/rclone.conf.enc``.
+* The secret key and `initialization vector <https://en.wikipedia.org/wiki/Initialization_vector>`_ with which that configuration file is encrypted, that will be saved as `repository secrets <https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository>`_ called ``encrypted_rclone_key`` and ``encrypted_rclone_iv`` respectively.
+
+Once these credentials are included in your repo, you can set up the environment variables needed for this step. This is done with the `env <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsenv>`_ keyword.
+The first two variables will be the ``encrypted_rclone_key`` and ``encrypted_rclone_iv``, that can be accessed with the `secrets context <https://docs.github.com/en/actions/learn-github-actions/contexts#secrets-context>`_ and the `expression syntax <https://docs.github.com/en/actions/learn-github-actions/expressions>`_, that is, ``${{ <expression> }}``.
+Then, you will disable the use of `Python multiprocessing <https://docs.python.org/3/library/multiprocessing.html>`_ to parallelize operations by setting the ``QISKIT_PARALLEL`` variable to ``False`` and enable the tutorials build by setting the ``QISKIT_DOCS_BUILD_TUTORIALS`` to ``'always'``.
+So the step will start looking like this:
+
+.. code-block:: yaml
+
+    - name: Build and publish
+      env:
+        encrypted_rclone_key: ${{ secrets.encrypted_rclone_key }}
+        encrypted_rclone_iv: ${{ secrets.encrypted_rclone_iv }}
+        QISKIT_PARALLEL: False
+        QISKIT_DOCS_BUILD_TUTORIALS: 'always'
+
+When deploying documentation to qiskit.org, it's important to make sure that only the release notes that correspond to the desired release are being uploaded. For this purpuse you will create a subscript called ``tools/ignore_untagged_notes.sh`` that will be called from the workflow.
+This file will start with this `sheabang <https://en.wikipedia.org/wiki/Shebang_%28Unix%29>`_:
+
+.. code-block:: bash
+
+    #!/bin/bash
+
+Its function is to indicate that the script will be run with the Bash shell.
+
+After that, you have to add the copyright notice:
+
+.. code-block:: bash
+
+    # This code is part of Qiskit.
+    #
+    # (C) Copyright IBM 2022.
+    #
+    # This code is licensed under the Apache License, Version 2.0. You may
+    # obtain a copy of this license in the LICENSE.txt file in the root directory
+    # of this source tree or at http://www.apache.org/licenses/LICENSE-2.0.
+    #
+    # Any modifications or derivative works of this code must retain this
+    # copyright notice, and modified files need to carry a notice indicating
+    # that they have been altered from the originals.
+
+The first thing you will want to find is the tag that corresponds to the latest release of your package. This is precisely the idea behind `git describe <https://git-scm.com/docs/git-describe>`_.
+In particular, you can use the ``--tags`` option to ensure all the tags are used instead of only the annotated ones and the ``--abrev=0`` option to suppress long format. This value will be useful later, so you'll save
+it as a variable called ``LATEST_TAG`` with the ``VARIABLE=$(command)`` syntax from Bash.
+
+.. code-block:: bash
+
+    LATEST_TAG=$(git describe --tags --abbrev=0)
+
+Then you need to look for the files that don't have this tag. A way to do this is using `git diff <https://git-scm.com/docs/git-diff>`_ with the ``--name-only`` option to compare only the names of the files that are different between the current version of your repo
+(``HEAD``) and the latest tag (the variable ``LATEST_TAG``, that has to be referred with the ``$VARIABLE`` syntax). You need the name of all of the release notes (that are placed in ``releasenotes/notes``) to be added to an ignore list (that will be created with this script into ``docs/release_notes.rst``).
+This ignore list uses the `reno Sphinx <https://docs.openstack.org/reno/latest/user/sphinxext.html#directive-release-notes>`_ and will have this sctructure:
+
+.. code-block:: bash
+
+    .. release-notes::
+       :ignore-notes:
+         ignored_release_note_1,
+         ignored_release_note_2,
+         ...
+
+
+The idea is then that for any changed file, you will check if it starts with ``releasenotes/notes``. If that's the case, you will check whether it's already part of the ignore list.
+In case it's not part of that list, first you'll check if that list exists already. If it does not, you'll create it by adding the heading ``:ignore-notes:``.
+Then the release note is added to the list.
+
+The code for this process is then:
+
+.. code-block:: bash
+
+    for file_changed in `git diff --name-only HEAD $LATEST_TAG`
+    do
+        if [[ $file_changed == releasenotes/notes/* ]]; then
+            isInFile=$(grep -Exq "\s*$file_changed," docs/release_notes.rst >/dev/null; echo $?)
+            if [ $isInFile -ne 0 ]; then
+                isInFile=$(grep -Exq "\s*:ignore-notes:\s*" docs/release_notes.rst >/dev/null; echo $?)
+                if [ $isInFile -ne 0 ]; then
+                    echo "   :ignore-notes:" >> docs/release_notes.rst
+                fi
+                echo "Release note changed since $LATEST_TAG: $file_changed. Ignore in docs/release_notes.rst"
+                echo "     $file_changed," >> docs/release_notes.rst
+            fi
+        fi
+    done
+
+Note that the first ``if`` requires double square brackets (``[[ condition ]]``) because it's comparing a variable to the string ``releasenotes/notes/*``, which uses the wildcard ``*`` to indicate that it begins by ``releasenotes/notes/``.
+In order to check whether a string is in ``docs/release_notes.rst``, this script is defining the variable ``isInFile`` as the exit code (``echo $?``) of ``grep -Exq your_string docs/release_notes.rst >/dev/null``.
+This commmand would give as output any line that includes the string ``your_string`` but we are not interested in that output, so we erase it by directing it to ``dev/null``, as we only want to know whether the file was found (exit code ``0``).
+The ``-E`` flag means that patterns are seen as `extended regular expressions <https://www.gnu.org/software/grep/manual/grep.html#Basic-vs-Extended>`_, so ``\s*`` means zero or more (``*``) whitespaces (``\s``) instead of being a literal string.
+Given the structure of the ignore list, we want to make sure that the line consists of only the expression we are looking for, so we use the ``-x`` flag for this purpose.
+Finally, the ``-q`` flag ensures that no output is written and exit status is 0 if a match is found, ignoring any errors. Also note that when ``:ignore-notes:`` and the file names are added to the ignore list, the indentation is respected.
+
+After that, you will print the files of ``docs/release_notes.rst``. This could be done with ``cat docs/release_notes.rst``, but we want to remove any extra whitespaces or line breaks, so you will use this instead:
+
+.. code-block:: bash
+
+    echo "Contents of docs/release_notes.rst:"
+    echo $(cat docs/release_notes.rst)
+
+That way ``echo`` removes the format from the output of ``cat docs/release_notes.rst``.
+
+Then you will return the status code 0 if the end of the script is reached with:
+
+.. code-block:: bash
+
+    exit 0
+
+So the ``tools/ignore_untagged_notes.sh`` file will look like this:
+
+.. code-block:: bash
+
+    #!/bin/bash
+
+    # This code is part of Qiskit.
+    #
+    # (C) Copyright IBM 2022.
+    #
+    # This code is licensed under the Apache License, Version 2.0. You may
+    # obtain a copy of this license in the LICENSE.txt file in the root directory
+    # of this source tree or at http://www.apache.org/licenses/LICENSE-2.0.
+    #
+    # Any modifications or derivative works of this code must retain this
+    # copyright notice, and modified files need to carry a notice indicating
+    # that they have been altered from the originals.
+
+    LATEST_TAG=$(git describe --tags --abbrev=0)
+
+    for file_changed in `git diff --name-only HEAD $LATEST_TAG`
+    do
+        if [[ $file_changed == releasenotes/notes/* ]]; then
+            isInFile=$(grep -Exq "\s*$file_changed," docs/release_notes.rst >/dev/null; echo $?)
+            if [ $isInFile -ne 0 ]; then
+                isInFile=$(grep -Exq "\s*:ignore-notes:\s*" docs/release_notes.rst >/dev/null; echo $?)
+                if [ $isInFile -ne 0 ]; then
+                    echo "   :ignore-notes:" >> docs/release_notes.rst
+                fi
+                echo "Release note changed since $LATEST_TAG: $file_changed. Ignore in docs/release_notes.rst"
+                echo "     $file_changed," >> docs/release_notes.rst
+            fi
+        fi
+    done
+
+    echo "Contents of docs/release_notes.rst:"
+    echo "$(cat docs/release_notes.rst)"
+
+    exit 0
+
+Now you only need to set the final script to deploy the documentation! This subscript will be called ``tools/deploy_documentation.sh``.
+Like ``tools/ignore_untagged_notes``, this has to start by setting the shell to Bash and the copyright notice:
+
+.. code-block:: bash
+
+    #!/bin/bash
+
+    # This code is part of Qiskit.
+    #
+    # (C) Copyright IBM 2022.
+    #
+    # This code is licensed under the Apache License, Version 2.0. You may
+    # obtain a copy of this license in the LICENSE.txt file in the root directory
+    # of this source tree or at http://www.apache.org/licenses/LICENSE-2.0.
+    #
+    # Any modifications or derivative works of this code must retain this
+    # copyright notice, and modified files need to carry a notice indicating
+    # that they have been altered from the originals.
+
+In order to cancel the deployment if an error occurs, you will add this line:
+
+.. code-block:: bash
+
+    set -e
+
+That means that if any command exits with a non-zero exit code, the execution of this script will be aborted.
+
+
+Now you will use `curl <https://curl.se/docs/manpage.html>`_ to download the latest Linux version of `Rclone <https://rclone.org>`_, that can be found at `<https://downloads.rclone.org/rclone-current-linux-amd64.deb>`_, and save it as a file called ``rclone.deb`` via the ``-o`` option.
+Then you will download the file with `apt-get install <https://manpages.ubuntu.com/manpages/trusty/man8/apt-get.8.html>`_ with the ``-y`` flag to automatically answer "yes" to any question that may appear as part of an interactive download.
+
+.. code-block:: bash
+
+    curl https://downloads.rclone.org/rclone-current-linux-amd64.deb -o rclone.deb
+    sudo apt-get install -y ./rclone.deb
+
+Now that you have installed Rclone, you can use the ``rclone`` commands. In particular, you can use ``rclone config file`` to find the Rclone configuration file and assign it to a variable ``RCLONE_CONFIG_PATH``.
+
+.. code-block:: bash
+
+    RCLONE_CONFIG_PATH=$(rclone config file | tail -1)
+
+The reason behind the ``| tail -1`` is that the standard output of ``rclone config file`` is:
+
+.. code-block:: console
+
+    Configuration file is stored at:
+    /Users/user/.config/rclone/rclone.conf
+
+or
+
+.. code-block:: console
+
+    Configuration file doesn't exist, but rclone will use this path:
+    /Users/user/.config/rclone/rclone.conf
+
+So in both cases, the only element we are interested in (the path) is the last one (``tail -1``).
+
+You can show the current working directory with:
+
+.. code-block:: bash
+
+    echo "show current dir: "
+    pwd
+
+
+Then you will use the AES-256-CBC (256 bit `Advanced Encryption Standard <https://en.wikipedia.org/wiki/Advanced_Encryption_Standard>`_ with `Cypher block chaining <https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_block_chaining_(CBC)>`_) algorithm with the `openssl <https://www.openssl.org/docs/man3.0/man1/openssl-enc.html>`_ command, along with the ``encrypted_rclone_key`` (key or ``-K``) and ``encrypted_rclone_iv`` (``-iv``) to decrypt (``-d``) the encrypted Rclone configuration file included in the repository, ``tools/rclone.conf.enc`` (input or ``-in``), and put its content (output or ``-out``) into
+the Rclone configuration file from ``RCLONE_CONFIG_PATH``.
+
+.. code-block:: bash
+
+    openssl aes-256-cbc -K $encrypted_rclone_key -iv $encrypted_rclone_iv -in tools/rclone.conf.enc -out $RCLONE_CONFIG_PATH -d
+
+Now that your Rclone has the configuration needed to deploy the documentation, it's time to do it. The command that enables you to upload the built docs from ``docs/_build/html`` to the corresponding `IBM Cloud Object Storage <https://www.ibm.com/cloud/object-storage>`_ instance (``qiskit-org-web-resources/documentation/x``) is `rclone sync <https://rclone.org/commands/rclone_sync/>`_.
+You can use the ``--progress`` flag to get updates of the syncronization process. You need to exclude the files from ``locale`` with the ``--exclude`` flag.
+
+.. code-block:: bash
+
+    rclone sync --progress --exclude locale/** ./docs/_build/html IBMCOS:qiskit-org-web-resources/documentation/x
+
+The full ``tools/deploy_documentation.sh`` should then look like this:
+
+.. code-block:: bash
+
+    #!/bin/bash
+
+    # This code is part of Qiskit.
+    #
+    # (C) Copyright IBM 2018, 2022.
+    #
+    # This code is licensed under the Apache License, Version 2.0. You may
+    # obtain a copy of this license in the LICENSE.txt file in the root directory
+    # of this source tree or at http://www.apache.org/licenses/LICENSE-2.0.
+    #
+    # Any modifications or derivative works of this code must retain this
+    # copyright notice, and modified files need to carry a notice indicating
+    # that they have been altered from the originals.
+
+    # Script for pushing the documentation to the qiskit.org repository.
+    set -e
+
+    curl https://downloads.rclone.org/rclone-current-linux-amd64.deb -o rclone.deb
+    sudo apt-get install -y ./rclone.deb
+
+    RCLONE_CONFIG_PATH=$(rclone config file | tail -1)
+
+    echo "show current dir: "
+    pwd
+
+    # Push to qiskit.org website
+    openssl aes-256-cbc -K $encrypted_rclone_key -iv $encrypted_rclone_iv -in tools/rclone.conf.enc -out $RCLONE_CONFIG_PATH -d
+    echo "Pushing built docs to website"
+    rclone sync --progress --exclude locale/** ./docs/_build/html IBMCOS:qiskit-org-web-resources/documentation/x
+
+
+
+Now that all the subscripts are done, you can put them together to finish the docs deployment process, along with building the documentation with `sphinx-build <https://www.sphinx-doc.org/en/master/man/sphinx-build.html>`_.
+You also need to add ``earliest_version: 0.1.0`` to ``releasenotes/config.yaml`` so `reno <https://docs.openstack.org/reno/latest/>`_ can find the release notes.
+
+.. code-block:: yaml
+
+    run: |
+      echo "earliest_version: 0.1.0" >> releasenotes/config.yaml
+      tools/ignore_untagged_notes.sh
+      sphinx-build -b html docs/ docs/_build/html
+      tools/deploy_documentation.sh
+    shell: bash
+
+So the final version of this step is:
+
+.. code-block:: yaml
+
+    - name: Build and publish
+      env:
+        encrypted_rclone_key: ${{ secrets.encrypted_rclone_key }}
+        encrypted_rclone_iv: ${{ secrets.encrypted_rclone_iv }}
+        QISKIT_PARALLEL: False
+        QISKIT_DOCS_BUILD_TUTORIALS: 'always'
+      run: |
+        echo "earliest_version: 0.1.0" >> releasenotes/config.yaml
+        tools/ignore_untagged_notes.sh
+        sphinx-build -b html docs/ docs/_build/html
+        tools/deploy_documentation.sh
+      shell: bash
+
+
+The complete ``.github/workflows/deploy-docs.yml`` is then:
+
+.. code-block:: yaml
+
+    # This code is part of Qiskit.
+    #
+    # (C) Copyright IBM 2022.
+    #
+    # This code is licensed under the Apache License, Version 2.0. You may
+    # obtain a copy of this license in the LICENSE.txt file in the root directory
+    # of this source tree or at http://www.apache.org/licenses/LICENSE-2.0.
+    #
+    # Any modifications or derivative works of this code must retain this
+    # copyright notice, and modified files need to carry a notice indicating
+    # that they have been altered from the originals.
+
+    name: Deploy Docs
+
+    on:
+      workflow_dispatch:
+
+    concurrency:
+      group: ${{ github.repository }}-${{ github.ref }}-${{ github.head_ref }}-${{ github.workflow }}
+      cancel-in-progress: true
+
+    jobs:
+      docs_publish:
+        if: ${{ startsWith(github.ref, 'refs/heads/stable') && contains('["manoelmarques","mtreinish","stefan-woerner","woodsp-ibm"]', github.actor) }}
+        runs-on: ubuntu-latest
+        strategy:
+        matrix:
+            python-version: [3.8]
+        steps:
+        - uses: actions/checkout@v3
+            with:
+            fetch-depth: 0
+        - uses: actions/setup-python@v4
+            with:
+            python-version: ${{ matrix.python-version }}
+        - name: Install X
+            run: |
+              pip install -e .
+              pip install -U -c constraints.txt -r requirements-dev.txt
+            shell: bash
+        - name: Install Dependencies
+            run: |
+              pip install packages
+              sudo apt-get install -y other_packages
+            shell: bash
+        - name: Build and publish
+            env:
+              encrypted_rclone_key: ${{ secrets.encrypted_rclone_key }}
+              encrypted_rclone_iv: ${{ secrets.encrypted_rclone_iv }}
+              QISKIT_PARALLEL: False
+              QISKIT_DOCS_BUILD_TUTORIALS: 'always'
+            run: |
+              echo "earliest_version: 0.1.0" >> releasenotes/config.yaml
+              tools/ignore_untagged_notes.sh
+              sphinx-build -b html docs/ docs/_build/html
+              tools/deploy_documentation.sh
+            shell: bash
+
+
+You have created and deployed a new Qiskit documentation project!
