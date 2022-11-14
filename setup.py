@@ -27,7 +27,6 @@ setup(
         'static/css/*.css',
         'static/js/*.js',
         'static/images/*.*',
-        'theme_variables.jinja'
     ]},
     entry_points = {
         'sphinx.html_themes': [
