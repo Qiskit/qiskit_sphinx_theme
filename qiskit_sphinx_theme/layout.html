@@ -98,8 +98,14 @@
           <div class="pytorch-left-menu-search">
             {% include "searchbox.html" %}
           </div>
-          <dt>{{ project }} Documentation</dt>
-          <div>Do something with sidebar headings</div>
+          <!-- render sidebar from the toctree -->
+          {% set global_toc = toctree(maxdepth=1,
+            collapse=theme_collapse_navigation|tobool,
+            includehidden=theme_includehidden|tobool) %}
+          {% if global_toc %}
+            {{ global_toc }}
+          {% endif %}
+          <!-- add previous releases dropdown -->
           {% include "stable_versions.html" %}
         </div>
       </div>
