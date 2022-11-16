@@ -12,7 +12,7 @@ Before you dive into the creation of the docuementation project, it's important 
 
 reStructuredText (RST) is a lightweight markup language, that is, an easy to read language that formats plaintext documents according to a set of tags. It enables the creation of web pages and documentation from, for example, Python docstrings.
 
-Sphinx is a documentation generator that converts RST files to formats like HTML, LaTeX, ePub, Texinfo, manual pages or plain text. It is written in Python. The ``qiskit_sphinx_theme`` will focus on converting RST to HTML pages.
+Sphinx is a documentation generator that converts RST files to formats like `HTML <https://html.spec.whatwg.org/multipage/>`_, `LaTeX <https://www.latex-project.org/>`_, `ePub <https://www.w3.org/publishing/epub32/>`_, `Texinfo <https://www.gnu.org/software/texinfo/>`_, manual pages or plain text. It is written in Python. The ``qiskit_sphinx_theme`` will focus on converting RST to HTML pages.
 
 Install the ``qiskit_sphinx_theme``
 ===================================
@@ -102,14 +102,14 @@ Structure your documentation
 
 In Qiskit we are following the `Diataxis <https://diataxis.fr/>`_ documentation framework, that means that our documentation has to be separated into:
 
-* Tutorials.
-* How-to guides.
-* API reference.
-* Explanations.
+* `Tutorials <https://diataxis.fr/tutorials/>`_.
+* `How-to guides <https://diataxis.fr/how-to-guides/>`_.
+* `API reference <https://diataxis.fr/reference/>`_.
+* `Explanations <https://diataxis.fr/explanation/>`_.
 
 In order to do that, you have to create 4 new folders inside ``docs``, that you will call ``tutorials``, ``how_to``, ``apidocs`` and ``explanations``. Inside each one of them, a file called ``index.rst`` must be created.
 
-Apart from that, you should add your release notes to ``docs`` as a file called ``release_notes.rst`` and a getting started guide ``getting_started.rst``.
+Apart from that, you should add your release notes to ``docs`` as a file called ``release_notes.rst`` and a getting started guide called ``getting_started.rst``.
 
 Sidebar
 =======
@@ -201,7 +201,7 @@ Once this setup is done, you can start creating the jobs.
 Publish docs
 ------------
 
-The first job will consist of publishing the documentation and will be called ``docs_publish``.  
+The job will consist of publishing the documentation and will be called ``docs_publish``.  
 
 Set up the job
 ^^^^^^^^^^^^^^
@@ -230,7 +230,7 @@ Steps
 Check-out the repository
 """""""""""""""""""""""""
 
-The first step of this job consists of enabling the workflow to access the repository ``qiskit-x``. To do that you only need to call the pre-defined `checkout action <https://github.com/actions/checkout>`_ with the `uses <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsuses>`_ key.
+The first step of this job consists of enabling the workflow to access the repository ``qiskit-x``. To do that you only need to call the latest version (version 3, ``@v3``) the pre-defined `checkout action <https://github.com/actions/checkout>`_ with the `uses <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsuses>`_ key.
 By setting the ``fetch-depth`` parameter to ``0`` via the `with <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idwith>`_ key, you can let the action reach for the full history of your repository.
 
 .. code-block:: yaml
@@ -244,7 +244,7 @@ Setup Python
 """"""""""""
 
 Once your repo has been reached, the workflow continues by installing a Python version, in this case, the 3.8, as defined in ``matrix.python-version``. Fortunately, the
-`setup-python action <https://github.com/actions/setup-python>`_ already does this for us!. To choose the version you only have to set the ``python-version`` parameter with the corresponding value.
+`setup-python action <https://github.com/actions/setup-python>`_ already does this for us!. To choose the Python version you only have to set the ``python-version`` parameter with the corresponding value.
 
 .. code-block:: yaml
 
@@ -612,7 +612,7 @@ The complete ``.github/workflows/deploy-docs.yml`` is then:
 
     jobs:
       docs_publish:
-        if: ${{ startsWith(github.ref, 'refs/heads/stable') && contains('["manoelmarques","mtreinish","stefan-woerner","woodsp-ibm"]', github.actor) }}
+        if: ${{ startsWith(github.ref, 'refs/heads/stable') && contains('["mantainer-1","mantainer-2", ...]', github.actor) }}
         runs-on: ubuntu-latest
         strategy:
         matrix:
