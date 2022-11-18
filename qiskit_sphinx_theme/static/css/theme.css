@@ -36,6 +36,7 @@
   --font-family-monospace: "IBM PLex Mono", Consolas, "Courier New", monospace;
 }
 
+/* Old theme variables */
 
 .wy-table-responsive {
   margin-bottom: 24px;
@@ -314,7 +315,9 @@ article.pytorch-article .function dt > code, article.pytorch-article .attribute 
 }
 
 article.pytorch-article blockquote {
-  margin-left: 0.0rem !important;
+  padding: 0.5rem 1rem 0rem;
+  color: #6c6c6d;
+  border-left: 0.3rem solid #eeeeee
 }
 
 .sig-name{
@@ -10341,13 +10344,7 @@ article.pytorch-article ul li,
 article.pytorch-article ol li,
 article.pytorch-article dl dt,
 article.pytorch-article dl dd,
-article.pytorch-article blockquote {
-  font-size: 1rem;
-  line-height: 1.375rem;
-  color: #262626;
-  letter-spacing: 0.01px;
-  font-weight: 400;
-}
+
 article.pytorch-article table {
   margin-bottom: 2.5rem;
   width: 100%;
@@ -10402,11 +10399,6 @@ article.pytorch-article pre {
 article.pytorch-article hr {
   margin-top: 4.6875rem;
   margin-bottom: 4.6875rem;
-}
-article.pytorch-article blockquote {
-  margin: 0 auto;
-  margin-bottom: 2.5rem;
-  width: 65%;
 }
 article.pytorch-article img {
   width: auto;
@@ -10527,8 +10519,8 @@ ul.pytorch-breadcrumbs a {
 .rst-content footer .helpful-container .helpful-question, .rst-content footer .helpful-container .was-helpful-thank-you {
   padding: 0.625rem 1.25rem 0.625rem 1.25rem;
 }
-.rst-content footer .helpful-container .was-helpful-thank-you {
-  display: none;
+#was-helpful-thank-you {
+  visibility: hidden;
 }
 .rst-content footer .helpful-container .helpful-question.yes-link, .rst-content footer .helpful-container .helpful-question.no-link {
   color: #8B34FC;
@@ -11263,11 +11255,6 @@ img.previous-page {
 .rst-footer-buttons .btn.focus {
   -webkit-box-shadow: none;
           box-shadow: none;
-}
-
-article.pytorch-article blockquote {
-  margin-left: 3.75rem;
-  color: #6c6c6d;
 }
 
 article.pytorch-article .caption {
