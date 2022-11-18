@@ -161,6 +161,13 @@
 
   <script type="text/javascript" src="{{ pathto('_static/js/vendor/anchor.min.js', 1) }}"></script>
 
+  <!-- enable language dropdown menu expand -->
+  <script type="text/javascript">
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable({{ 'true' if theme_sticky_navigation|tobool else 'false' }});
+    });
+  </script>
+
   <script type="text/javascript">
     $(document).ready(function() {
       mobileMenu.bind();
