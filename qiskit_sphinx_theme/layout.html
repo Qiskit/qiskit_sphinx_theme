@@ -4,8 +4,18 @@
   {# CSS #}
   <!-- get styles in qiskit_sphinx_theme: -->
   <link rel="stylesheet" href="static/css/theme.css">
-  <!-- Get styles in sphinx build: -->
+  <!-- Get any custom styles in sphinx build: -->
   <link rel="stylesheet" href="{{ pathto('_static/' + style, 1) }}" type="text/css" />
+  {%- for css in css_files %}
+    {%- if css|attr("rel") %}
+  <link rel="{{ css.rel }}" href="{{ pathto(css.filename, 1) }}" type="text/css"{% if css.title is not none %} title="{{ css.title }}"{% endif %} />
+    {%- else %}
+  <link rel="stylesheet" href="{{ pathto(css, 1) }}" type="text/css" />
+    {%- endif %}
+  {%- endfor %}
+  {%- for cssfile in extra_css_files %}
+    <link rel="stylesheet" href="{{ pathto(cssfile, 1) }}" type="text/css" />
+  {%- endfor %}
 
   <link rel="modulepreload" href="https://unpkg.com/@qiskit/web-components@0.10.2/experimental-bundled-ui-shell.js">
   <script type="module" src="https://unpkg.com/@qiskit/web-components@0.10.2/experimental-bundled-ui-shell.js"></script>
@@ -160,6 +170,13 @@
     <script type="text/javascript" src="{{ pathto('_static/js/theme.js', 1) }}"></script>
 
   <script type="text/javascript" src="{{ pathto('_static/js/vendor/anchor.min.js', 1) }}"></script>
+
+  <!-- enable language dropdown menu expand -->
+  <script type="text/javascript">
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable({{ 'true' if theme_sticky_navigation|tobool else 'false' }});
+    });
+  </script>
 
   <script type="text/javascript">
     $(document).ready(function() {
