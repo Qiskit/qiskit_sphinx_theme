@@ -32,10 +32,12 @@ Sphinx documentation builder
 """
 import os
 import sys
+import datetime
+
 sys.path.insert(0, os.path.abspath('.'))
 # -- Project information -----------------------------------------------------
 project = 'Qiskit sphinx theme'
-copyright = '2020, Qiskit Development Team'  # pylint: disable=redefined-builtin
+copyright = f'{datetime.date.today().year}, Qiskit Development Team'  # pylint: disable=redefined-builtin
 author = 'Qiskit Development Team'
 
 import qiskit_sphinx_theme
