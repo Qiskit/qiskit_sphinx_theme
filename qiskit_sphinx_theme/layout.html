@@ -28,10 +28,8 @@
 
   <!-- SEGMENT ANALYTICS -->
   {% if analytics_enabled %}
-    <script src="https://cloud.ibm.com/analytics/build/bluemix-analytics.min.js"></script>
     <script>
       (function () {
-        'use strict'
         window._analytics = {
           segment_key: 'ffdYLviQze3kzomaINXNk6NwpY9LlXcw',
           coremetrics: false,
@@ -53,6 +51,12 @@
             }
           }
         }
+      }());
+    </script>
+    <script src="https://cloud.ibm.com/analytics/build/bluemix-analytics.min.js"></script>
+    <script>
+      (function () {
+        'use strict'
 
         if (!window.bluemixAnalytics || !window.digitalData) { return }
 
