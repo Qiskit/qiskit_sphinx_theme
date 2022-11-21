@@ -3,7 +3,7 @@
 """
 from os import path
 
-__version__ = '1.10.0rc1'
+__version__ = '1.10.0rc2'
 __version_full__ = __version__
 
 
