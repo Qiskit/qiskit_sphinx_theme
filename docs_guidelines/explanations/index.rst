@@ -7,3 +7,4 @@ Explanations
     :maxdepth: 1
 
     diataxis
+    sphinx
