@@ -8,3 +8,4 @@ Explanations
 
     diataxis
     sphinx
+    rst
