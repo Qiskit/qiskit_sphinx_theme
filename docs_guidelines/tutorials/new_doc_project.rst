@@ -1,9 +1,10 @@
-=======================================================
-Create a new documentation project of a Qiskit package.
-=======================================================
+========================================================
+Create a new documentation project for a Qiskit package.
+========================================================
 
-In this tutorial you will create and deploy a new documentation project for a Qiskit repository. For this purpose you will use Qiskit's Sphinx theme, ``qiskit_sphinx_theme``. 
-
+In this tutorial you will use the ``sphinx-quickstart`` command to create a new documentation project for a Qiskit repository with Sphinx. Then, you will structure the resulting documentation according to
+the Qiskit standard and make sure Qiskit's Sphinx HTML theme, the ``qiskit_sphinx_theme``, is used. After that, you will create a GitHub workflow to deploy your documentation to
+`qiskit.org <https://qiskit.org/>`_ with RClone. 
 
 Background information
 =======================
@@ -446,7 +447,7 @@ The reason behind the ``| tail -1`` is that the standard output of ``rclone conf
     Configuration file is stored at:
     /Users/user/.config/rclone/rclone.conf
 
-or
+or, if you don't have any Rclone configuration file,
 
 .. code-block:: console
 
