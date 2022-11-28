@@ -40,7 +40,7 @@ You can use ``sphinx-quickstart`` by going to the root directory of your reposit
 
 So the new folder will be called ``docs``. Then you will get this output:
 
-.. code-block:: bash
+.. code-block:: text
   
     Please enter values for the following settings (just press Enter to
     accept a default value, if one is given in brackets).
@@ -55,7 +55,7 @@ So the new folder will be called ``docs``. Then you will get this output:
 In this case, you will give the default answer, that is, the one between brackets (``n``), so you will not separate the ``source`` and ``build`` directories. To do this you only have to press ENTER.
 
 
-.. code-block:: bash
+.. code-block:: text
 
     The project name will occur in several places in the built documentation.
     > Project name: Qiskit X
@@ -64,7 +64,7 @@ In this case, you will give the default answer, that is, the one between bracket
 
 This time you have to give non-default answers. The project name will be that of your repository. That name will have the form "Qiskit X", where "X" can be "Machine Learning" or "Nature", for example. For the authors, you will refer to the development team of your project.
 
-.. code-block:: bash
+.. code-block:: text
 
     If the documents are to be written in a language other than English,
     you can select a language here by its language code. Sphinx will then
@@ -76,7 +76,7 @@ This time you have to give non-default answers. The project name will be that of
 
 Here the language will be English, that is, the default.
 
-.. code-block:: bash
+.. code-block:: text
 
     Creating file ./docs/conf.py.
     Creating file ./docs/index.rst.
