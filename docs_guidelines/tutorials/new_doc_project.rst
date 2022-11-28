@@ -152,23 +152,7 @@ that is, an application that performs a complex but usually repeated task.
 
 For documentation deployment, you have to create a file called ``deploy-docs.yml`` inside the directory ``.github/workflows``.
 
-The first thing you have to include in this file is the copyright notice:
-
-.. code-block:: yaml
-
-    # This code is part of Qiskit.
-    #
-    # (C) Copyright IBM 2022.
-    #
-    # This code is licensed under the Apache License, Version 2.0. You may
-    # obtain a copy of this license in the LICENSE.txt file in the root directory
-    # of this source tree or at http://www.apache.org/licenses/LICENSE-2.0.
-    #
-    # Any modifications or derivative works of this code must retain this
-    # copyright notice, and modified files need to carry a notice indicating
-    # that they have been altered from the originals.
-
-After that, you need to state the name of your workflow using the key `name <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#name>`_. In particular, this workflow will be called ``Deploy Docs`` so your next line is:
+The first thing you have to include in this file is the name of your workflow via the key `name <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#name>`_. In particular, this workflow will be called ``Deploy Docs`` so your next line is:
 
 .. code-block:: yaml
 
@@ -317,21 +301,6 @@ This file will start with this `sheabang <https://en.wikipedia.org/wiki/Shebang_
 
 Its function is to indicate that the script will be run with the Bash shell.
 
-After that, you have to add the copyright notice:
-
-.. code-block:: bash
-
-    # This code is part of Qiskit.
-    #
-    # (C) Copyright IBM 2022.
-    #
-    # This code is licensed under the Apache License, Version 2.0. You may
-    # obtain a copy of this license in the LICENSE.txt file in the root directory
-    # of this source tree or at http://www.apache.org/licenses/LICENSE-2.0.
-    #
-    # Any modifications or derivative works of this code must retain this
-    # copyright notice, and modified files need to carry a notice indicating
-    # that they have been altered from the originals.
 
 The first thing you will want to find is the tag that corresponds to the latest release of your package. This is precisely the idea behind `git describe <https://git-scm.com/docs/git-describe>`_.
 In particular, you can use the ``--tags`` option to ensure all the tags are used instead of only the annotated ones and the ``--abrev=0`` option to suppress long format. This value will be useful later, so you'll save
@@ -440,23 +409,12 @@ So the ``tools/ignore_untagged_notes.sh`` file will look like this:
     exit 0
 
 Now you only need to set the final script to deploy the documentation! This subscript will be called ``tools/deploy_documentation.sh``.
-Like ``tools/ignore_untagged_notes``, this has to start by setting the shell to Bash and the copyright notice:
+Like ``tools/ignore_untagged_notes``, this has to start by setting the shell to ``bash``:
 
 .. code-block:: bash
 
     #!/bin/bash
 
-    # This code is part of Qiskit.
-    #
-    # (C) Copyright IBM 2022.
-    #
-    # This code is licensed under the Apache License, Version 2.0. You may
-    # obtain a copy of this license in the LICENSE.txt file in the root directory
-    # of this source tree or at http://www.apache.org/licenses/LICENSE-2.0.
-    #
-    # Any modifications or derivative works of this code must retain this
-    # copyright notice, and modified files need to carry a notice indicating
-    # that they have been altered from the originals.
 
 In order to cancel the deployment if an error occurs, you will add this line:
 
