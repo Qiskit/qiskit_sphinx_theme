@@ -20,27 +20,31 @@ To keep UX/UI similar across different Qiskit packages we strongly encourage the
 
    Overview <overview>
    Getting Started <getting_started>
-   Tutorials <tutorials>
-   How-to Guides <how_to>
-   API Reference <apidocs>
-   Explanations <explanations>
+   Tutorials <tutorials/index.rst>
+   How-to Guides <how_to/index.rst>
+   API Reference <apidocs/index.rst>
+   Explanations <explanations/index.rst>
    Release Notes <release_notes>
    GitHub <https://github.com/Qiskit/your-repo>
 ```
 
 The above toctree will render a sidebar that looks like the image below:
 
-<div style='display: flex; flex-direction: row'>
-  <img style='padding-right: 20px' width="433" alt="Screenshot 2022-10-24 at 4 39 54 PM" src="https://user-images.githubusercontent.com/23662430/197626938-579dd934-682b-48ce-94e2-6b72e2026b4f.png">
-  <img width="413" alt="Screenshot 2022-10-24 at 4 42 54 PM" src="https://user-images.githubusercontent.com/23662430/197626973-19e92720-fe4f-41b3-8db7-e96b994d9302.png">
-</div>
+<img width="348" alt="Screenshot 2022-11-30 at 4 36 26 PM" src="https://user-images.githubusercontent.com/23662430/204913247-761b8202-1bb2-4233-9451-f180b00b5a12.png">
+
 
 
 Each item in the toctree corresponds to a single `.rst` file, and can use internal links or external. External links will have a "new tab" icon rendered next to them.
 
+<img width="323" alt="Screenshot 2022-11-30 at 4 24 42 PM" src="https://user-images.githubusercontent.com/23662430/204913498-f1baca0a-3557-4eed-a4c4-879c43ee9f03.png">
+
 In addition to the pages in the toctree, the sidebar also adds:
-- (optional) a dropdown at the bottom with links to previous releases, if you have a `version_list` setup in your `html_context` in your `conf.py` and corresponding logic in a `version_utils.py`
-- (optional) a separate dropdown menu at the top with different languages, but only if you have a `translations_list` setup in your `html_context` in your `conf.py` corresponding logic in a `version_utils.py`.
+- (optional) a separate dropdown menu *at the top* with different languages, but only if you have a `translations_list` setup in your `html_context` in your `conf.py` corresponding logic in a `version_utils.py`.
+- (optional) a dropdown *at the bottom* with links to previous releases, if you have a `version_list` setup in your `html_context` in your `conf.py` and corresponding logic in a `version_utils.py`, e.g:
+    <div style='display: flex; flex-direction: row'>
+    <img style='padding-right: 20px' width="433" alt="Screenshot 2022-10-24 at 4 39 54 PM" src="https://user-images.githubusercontent.com/23662430/204913753-59458fa2-11d6-43e1-89c6-de575eed18a2.png">
+    <img width="413" alt="Screenshot 2022-10-24 at 4 42 54 PM" src="https://user-images.githubusercontent.com/23662430/204913754-73ffec9c-914a-43b9-8e40-383c11017e7c.png">
+    </div>
 
 ### Add Custom Sidebar layout
 
@@ -78,9 +82,10 @@ html_context = {
 - The code snippet example above will render a sidbar that looks like this:
 
 <div style='display: flex; flex-direction: row'>
-  <img style='padding-right: 20px' width="424" alt="Screenshot 2022-10-24 at 4 49 26 PM" src="https://user-images.githubusercontent.com/23662430/197626974-3b6e844d-4638-46d1-9474-017fc959159a.png">
-  <img width="395" alt="Screenshot 2022-10-24 at 4 49 47 PM" src="https://user-images.githubusercontent.com/23662430/197626975-4d4caac3-9865-4bd7-b9eb-6d7f96f01145.png">
+  <img style='padding-right: 20px' width="424" alt="Screenshot 2022-10-24 at 4 49 26 PM" src="https://user-images.githubusercontent.com/23662430/204912771-8a0c3134-2c8f-48be-bd98-2777f8d3e306.png">
+  <img width="395" alt="Screenshot 2022-10-24 at 4 49 47 PM" src="https://user-images.githubusercontent.com/23662430/204912775-f706de32-1971-4377-9618-5a1ea8c882dd.png">
 </div>
+
 ## Enable Qiskit.org Analytics
 
 Qiskit.org uses Segment Analytics to collect information on traffic to sites under the qiskit.org domain. This is not enabled by default but if you would like to enable it you can add a `analytics_enabled` variable to the `html_context` object in your `conf.py`. Setting this to `True` will enable analytics for your site once it is deployed to `qiskit.org/documentation`. 

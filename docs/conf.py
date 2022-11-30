@@ -169,5 +169,4 @@ html_context = {
             ]
         }
     ],
-    'analytics_enabled': True
 }
