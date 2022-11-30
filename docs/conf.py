@@ -147,14 +147,13 @@ autoclass_content = 'both'
 
 # qiskit package specific variables
 html_context = {
-<<<<<<< HEAD
     'repo_name': 'Example Repo',
     'analytics_enabled': True,
     'version_list': [0.1, 0.2, 0.3],
     'sidebar_headings': [
         {
             'title': 'Custom Heading 1 (no subheadings)',
-            'url': 'images', # use sphinx toctree
+            'url': 'sphinx_guide/images', # use sphinx toctree
         },
         {
             'title': 'Custom Heading 2 (with subheadings)',
@@ -165,13 +164,10 @@ html_context = {
                 },
                 {
                     'title': 'Custom Subtitle 2 (internal link)',
-                    'url': 'tutorials', # use sphinx toctree
+                    'url': 'sphinx_guide/classes', # use sphinx toctree
                 },
             ]
         }
-    ]
-}
-=======
+    ],
     'analytics_enabled': True
 }
->>>>>>> 349288245d6e01654d73618178413b0d49bbb089

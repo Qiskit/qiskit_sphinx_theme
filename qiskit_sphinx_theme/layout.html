@@ -28,8 +28,10 @@
 
   <!-- SEGMENT ANALYTICS -->
   {% if analytics_enabled %}
+    <script src="https://cloud.ibm.com/analytics/build/bluemix-analytics.min.js"></script>
     <script>
       (function () {
+        'use strict'
         window._analytics = {
           segment_key: 'ffdYLviQze3kzomaINXNk6NwpY9LlXcw',
           coremetrics: false,
@@ -51,12 +53,6 @@
             }
           }
         }
-      }());
-    </script>
-    <script src="https://cloud.ibm.com/analytics/build/bluemix-analytics.min.js"></script>
-    <script>
-      (function () {
-        'use strict'
 
         if (!window.bluemixAnalytics || !window.digitalData) { return }
 
@@ -87,34 +83,6 @@
     </script>
   {% endif %}
 
-        if (!window.bluemixAnalytics || !window.digitalData) { return }
-
-        const category = window.digitalData.page.pageInfo.analytics.category
-        const productTitle = window.digitalData.page.pageInfo.productTitle
-        const routeName = 'documentation'
-
-        window.bluemixAnalytics.pageEvent(category, routeName, {
-          navigationType: 'pushState',
-          productTitle: productTitle,
-          title: document.title
-        })
-
-        window.trackCta = (action) => {
-          if (!window.bluemixAnalytics || !window.digitalData) { return }
-
-          const category = window.digitalData.page.pageInfo.analytics.category
-          const productTitle = window.digitalData.page.pageInfo.productTitle
-
-          window.bluemixAnalytics.trackEvent('CTA Clicked', {
-            productTitle,
-            category,
-            CTA: action
-          })
-        }
-
-      }());
-    </script>
-  {% endif %}
 </head>
 <body class="pytorch-body">
   <!-- UNIFIED TOP MENU -->

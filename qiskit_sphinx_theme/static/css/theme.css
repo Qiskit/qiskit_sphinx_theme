@@ -12023,7 +12023,6 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
   padding: 0 2rem;
   color: #6c6c6d;
   font-size: 0.875rem;
-  font-weight: bolder;
   text-decoration: none;
   line-height: 32px;
   cursor: pointer;
@@ -12034,7 +12033,6 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
   line-height: 32px;
   color: #6c6c6d;
   font-size: 0.875rem;
-  font-weight: bolder;
   text-decoration: none;
   cursor:pointer;
 }
@@ -12065,7 +12063,6 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
 /* toctree items for sphinx generated side menu */
 
 .toctree-l1 {
-  font-weight: bolder;
   padding: 0 2rem;
   line-height: 32px;
   position: relative;
@@ -12073,7 +12070,6 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
 }
 
 .toctree-l1-external {
-  font-weight: bolder;
   padding: 0 2rem;
   line-height: 32px;
   position: relative;
