@@ -141,13 +141,13 @@ html_theme_options = {
     'logo_only': True,
     'display_version': True,
     'prev_next_buttons_location': 'bottom',
-    'style_external_links': True,
 }
 
 autoclass_content = 'both'
 
 # qiskit package specific variables
 html_context = {
+<<<<<<< HEAD
     'repo_name': 'Example Repo',
     'analytics_enabled': True,
     'version_list': [0.1, 0.2, 0.3],
@@ -171,3 +171,7 @@ html_context = {
         }
     ]
 }
+=======
+    'analytics_enabled': True
+}
+>>>>>>> 349288245d6e01654d73618178413b0d49bbb089

@@ -3,18 +3,20 @@ Qiskit sphinx theme |version| documentation
 ###########################################
 
 
+
 .. toctree::
   :maxdepth: 1
   :hidden:
 
-   Overview <structural>
-   Getting Started <paragraph>
-   Tutorials <lists_tables>
-   How-to Guides <functions>
-   API Reference <classes>
-   Explanations <jupyter>
-   Release Notes <panels>
-   GitHub <https://github.com/Qiskit/qiskit_sphinx_theme>
+   Structural formatting <sphinx_guide/structural>
+   Paragraph-level markup <sphinx_guide/paragraph>
+   Lists and tables <sphinx_guide/lists_tables>
+   Functions <sphinx_guide/functions>
+   Classes <sphinx_guide/classes>
+   Images <sphinx_guide/images>
+   Jupyter <sphinx_guide/jupyter>
+   Panels <sphinx_guide/panels>
+
 
 .. Hiding - Indices and tables
    :ref:`genindex`
