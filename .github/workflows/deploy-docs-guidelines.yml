@@ -23,6 +23,8 @@ jobs:
           python -m pip install -r requirements-dev.txt
       - name: Build Docs
         run: tox -edocs-guidelines -- -j auto
+      - name: Bypass Jekyll Processing # Necessary for setting correct css path
+        run: touch docs_guidelines/_build/html/.nojekyll
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
