@@ -23,13 +23,7 @@ jobs:
           python -m pip install -r requirements-dev.txt
       - name: Build Docs
         run: tox -edocs-guidelines -- -j auto
-      - name: Setup Pages
-        uses: actions/configure-pages@v2
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          # Upload output html
-          path: 'docs_guidelines/_build/html'
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
+          folder: docs_guidelines/_build/html # The folder the action should deploy.
