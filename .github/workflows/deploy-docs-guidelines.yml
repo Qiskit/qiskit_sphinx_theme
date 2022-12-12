@@ -8,21 +8,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - name: Set up Python 3.7
         uses: actions/setup-python@v2
         with:
           python-version: 3.7
-      - name: Install ubuntu Dependencies
+      - name: Install Ubuntu Dependencies
         run: sudo apt-get install -y pandoc graphviz
       - name: Install Python Dependencies
         run: |
           python -m pip install -U 'tox<4'
           python -m pip install -r requirements-dev.txt
       - name: Build Docs
-        run: tox -edocs-guidelines -- -j auto
+        run: tox -edocs-guide -- -j auto
       - name: Bypass Jekyll Processing # Necessary for setting correct css path
         run: touch docs_guidelines/_build/html/.nojekyll
       - name: Deploy
