@@ -24,9 +24,10 @@ In order to use use the ``qiskit_sphinx_theme`` you need to first install it. Yo
 
     pip install qiskit-sphinx-theme
 
-.. warning::
+.. note::
 
-    You should not overwrite the ``qiskit_sphinx_theme``.
+    ``sphinx`` is installed directly with ``qiskit-sphinx-theme``, so it's not necessary to install it with ``pip install sphinx`` for this tutorial.
+
 
 
 Create the documentation in your repository
@@ -53,7 +54,7 @@ So the new folder will be called ``docs``. Then you will get this output:
     "source" and "build" directories within the root path.
     > Separate source and build directories (y/n) [n]:
 
-In this case, you will give the default answer, that is, the one between brackets (``n``), so you will not separate the ``source`` and ``build`` directories. To do this you only have to press ENTER.
+In this case, you will give the default answer, that is, the one between brackets (``n``), so you will not separate the ``source`` and ``build`` directories. To do this you only need to press ENTER.
 
 
 .. code-block:: text
@@ -63,7 +64,7 @@ In this case, you will give the default answer, that is, the one between bracket
     > Author name(s): Qiskit X Development Team
     > Project release []: 0.1.0
 
-This time you have to give non-default answers. The project name will be that of your repository. That name will have the form "Qiskit X", where "X" can be "Machine Learning" or "Nature", for example. For the authors, you will refer to the development team of your project.
+This time you need to give non-default answers. The project name will be that of your repository. That name will have the form "Qiskit X", where "X" can be "Machine Learning" or "Nature", for example. For the authors, you will refer to the development team of your project.
 
 .. code-block:: text
 
@@ -95,22 +96,22 @@ The new folder will consist of:
 * ``_static``: a folder for static files like images (now empty).
 * ``_build``: a folder for built documentation (now empty).
 
-Even though you have created a working Sphinx documentation folder, you are not using the ``qiskit_sphinx_theme`` yet. In order to do that, you have to open ``conf.py``
+Even though you have created a working Sphinx documentation folder, you are not using the ``qiskit_sphinx_theme`` yet. In order to do that, you need to open ``conf.py``
 and change the value of the variable ``html_theme`` from ``'alabaster'`` to ``'qiskit_sphinx_theme'``.
 
 Structure your documentation
 ============================
 
-In Qiskit we are following the `Diataxis <https://diataxis.fr/>`_ documentation framework, that means that our documentation has to be separated into:
+In Qiskit we are following the `Diataxis <https://diataxis.fr/>`_ documentation framework, that means that our documentation is divided into four categories:
 
 * `Tutorials <https://diataxis.fr/tutorials/>`_.
 * `How-to guides <https://diataxis.fr/how-to-guides/>`_.
 * `API reference <https://diataxis.fr/reference/>`_.
 * `Explanations <https://diataxis.fr/explanation/>`_.
 
-In order to do that, you have to create 4 new folders inside ``docs``, that you will call ``tutorials``, ``how_to``, ``apidocs`` and ``explanations``. Inside each one of them, a file called ``index.rst`` must be created.
+In order to do that, you need to create 4 new folders inside the ``docs`` folder, that you will call ``tutorials``, ``how_to``, ``apidocs`` and ``explanations``. Inside each one of them, add an empty (to start with) ``index.rst``.
 
-Apart from that, you should add your release notes to ``docs`` as a file called ``release_notes.rst`` and a getting started guide called ``getting_started.rst``.
+Apart from that, you should add  a ``release_notes.rst`` for putting release notes and a ``getting_started.rst`` containing installation instructions and a "hello world" example to the ``docs`` folder. 
 
 Sidebar
 =======
@@ -142,18 +143,51 @@ in ``docs/index.rst``.  Your ``index.rst`` should look like this:
     Release Notes <release_notes>
     GitHub <https://github.com/Qiskit/qiskit_x>
 
+.. warning::
+
+    You should not try to change the sidebar or, in general, overwrite the ``qiskit_sphinx_theme``.
+
+
+Build your documentation locally
+=================================
+
+Now that you have created your documentation project, it's recommended to build it locally to check whether it looks works as intended.
+
+In order to do that, you first need to have your package installed. You can do this by running the following command on the root directory of your local copy of the repository:
+
+.. code-block:: bash
+
+    pip install .
+
+Apart from the package, there are other dependencies that are necessary for building the documentation. All of them should be already included in the repo in a text file called ``requirements-dev.txt``,
+so you only need to run:
+
+.. code-block:: bash
+
+    pip install -r requirements-dev.txt
+
+The ``-r`` flag means that instead of installing a package called "`requirements-dev.txt`", you are installing the packages listed in the requirements text file ``requirements-dev.txt``.
+
+Once you have made the installations, you can finally build your documentation with `sphinx-build <https://www.sphinx-doc.org/en/master/man/sphinx-build.html>`_, setting the builder (``-b``)
+to ``html`` so the documents from the ``docs`` folder get built as HTML pages in a new folder, that you will call ``docs/_build/html``. So the final command is:
+
+.. code-block:: bash
+
+    sphinx-build -b html docs docs/_build/html
+
+
 Deploy docs to `qiskit.org <https://qiskit.org/>`_
 ===================================================
 
 Once you have a working documentation project, you may want to deploy it to `qiskit.org <https://qiskit.org/>`_. This can be done by using `GitHub workflows <https://docs.github.com/en/actions/using-workflows/about-workflows>`_.
-These workflows are automated processes that are defined by `YAML <https://yaml.org/>`_ files. This files have to be placed in a directory called ``.github/workflows``.
+These workflows are automated processes that are defined by `YAML <https://yaml.org/>`_ files. This files should be placed in a directory called ``.github/workflows``.
 
 A workflow can be configured to be triggered by one or more events. It is divided into one or more jobs, each one formed by at least one step. A step consists of running a script you define or an `action <https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions#actions>`_,
 that is, an application that performs a complex but usually repeated task.
 
-For documentation deployment, you have to create a file called ``deploy-docs.yml`` inside the directory ``.github/workflows``.
+For documentation deployment, create a file called ``deploy-docs.yml`` inside the directory ``.github/workflows``.
 
-The first thing you have to include in this file is the name of your workflow via the key `name <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#name>`_. In particular, this workflow will be called ``Deploy Docs`` so your next line is:
+The first thing you need to include in this file is the name of your workflow via the key `name <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#name>`_. In particular, this workflow will be called ``Deploy Docs`` so your next line is:
 
 .. code-block:: yaml
 
@@ -172,7 +206,7 @@ The next step is to set the event that triggers this workflow. This is done with
 
 In order to avoid having more than one job or workflow running at the same time you will use a `concurrency group <https://docs.github.com/en/actions/using-jobs/using-concurrency>`_. The idea behind these groups is that only one job or workflow from each group can be run at the same time.
 In this case we will distinguish by repository name, branch ref, source branch ref and workflow. All of these can be accessed via the `github <https://docs.github.com/en/actions/learn-github-actions/contexts#github-context>`_ `context <https://docs.github.com/en/actions/learn-github-actions/contexts#about-contexts>`_ as ``github.repository``, ``github.ref``, ``github.head_ref`` and ``github.workflow`` respectively.
-These properties have to be accessed with the `expression syntax <https://docs.github.com/en/actions/learn-github-actions/expressions>`_, that is, ``${{ <expression> }}``. In order to cancel any currently running workflows from the concurrency group you can set ``cancel-in-progress`` to ``true``.
+These properties can be accessed with the `expression syntax <https://docs.github.com/en/actions/learn-github-actions/expressions>`_, that is, ``${{ <expression> }}``. In order to cancel any currently running workflows from the concurrency group you can set ``cancel-in-progress`` to ``true``.
 
 .. code-block:: yaml
 
@@ -229,7 +263,7 @@ Setup Python
 """"""""""""
 
 Once your repo has been reached, the workflow continues by installing a Python version, in this case, the 3.8, as defined in ``matrix.python-version``. Fortunately, the
-`setup-python action <https://github.com/actions/setup-python>`_ already does this for us!. To choose the Python version you only have to set the ``python-version`` parameter with the corresponding value.
+`setup-python action <https://github.com/actions/setup-python>`_ already does this for us!. To choose the Python version you only need to set the ``python-version`` parameter with the corresponding value.
 
 .. code-block:: yaml
 
@@ -265,16 +299,22 @@ In case there are another dependencies that are not covered in the ``requirement
 
     - name: Install Dependencies
       run: |
-        pip install packages
+        pip install python_packages
         sudo apt-get install -y other_packages
       shell: bash
+
+The meaning of these Python dependencies is that they are not needed for ``qiskit-x`` to work nor to build documentation in general but might be used in some specific part of it. For example,
+the `Torch Connector tutorial <https://github.com/Qiskit/qiskit-machine-learning/blob/main/docs/tutorials/05_torch_connector.ipynb>`_ from `qiskit-machine-learning <https://github.com/Qiskit/qiskit-machine-learning>`_ uses
+the Python package ``torchvision`` to load a dataset. This repo also includes some non-Python dependencies like ``pandoc`` or ``graphviz`` that can't be installed with ``pip``, so
+`apt-get <https://linux.die.net/man/8/apt-get>`_ has to be used instead.
 
 Build and publish
 """"""""""""""""""
 
 Your documentation will be deployed to `IBM Cloud Object Storage <https://www.ibm.com/cloud/object-storage>`_, where qiskit.org is hosted, with `Rclone <https://rclone.org>`_, a command-line program that enables you to manage content from the cloud.
 
-Before starting with this step, it is necessary to ask a `Qiskit organization administrator <https://github.com/orgs/Qiskit/people?query=role%3Aowner>`_ to add some encrypted credentials to your repo. These credentials are:
+Before starting with this step, it is necessary to ask a `Qiskit organization administrator <https://github.com/orgs/Qiskit/people?query=role%3Aowner>`_ to create a data container or `bucket <https://dataplatform.cloud.ibm.com/docs/content/wsj/manage-data/cos_buckets.html?locale=en>`_ called ``qiskit-org-web-resources/documentation/x``, from whose content the page ``qiskit.org/documentation/x`` will be generated,
+and to add some encrypted credentials to your repo. These credentials are:
 
 * The `Rclone <https://rclone.org>`_ configuration file, that will be saved as ``tools/rclone.conf.enc``.
 * The secret key and `initialization vector <https://en.wikipedia.org/wiki/Initialization_vector>`_ with which that configuration file is encrypted, that will be saved as `repository secrets <https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository>`_ called ``encrypted_rclone_key`` and ``encrypted_rclone_iv`` respectively.
@@ -294,7 +334,7 @@ So the step will start looking like this:
         QISKIT_DOCS_BUILD_TUTORIALS: 'always'
 
 When deploying documentation to qiskit.org, it's important to make sure that only the release notes that correspond to the desired release are being uploaded. For this purpuse you will create a subscript called ``tools/ignore_untagged_notes.sh`` that will be called from the workflow.
-This file will start with this `sheabang <https://en.wikipedia.org/wiki/Shebang_%28Unix%29>`_:
+This file will start with this `shebang <https://en.wikipedia.org/wiki/Shebang_%28Unix%29>`_:
 
 .. code-block:: bash
 
@@ -608,3 +648,20 @@ The complete ``.github/workflows/deploy-docs.yml`` is then:
 
 
 You have created and deployed a new Qiskit documentation project!
+
+Examples
+========
+
+* `Qiskit metapackage <https://github.com/Qiskit/qiskit>`_
+    * `conf.py <https://github.com/Qiskit/qiskit/blob/master/docs/conf.py>`_
+    * `docs.yml <https://github.com/Qiskit/qiskit/blob/master/.github/workflows/docs.yml>`
+* `Qiskit Nature <https://github.com/Qiskit/qiskit-nature>`_
+    * `Nature conf.py <https://github.com/Qiskit/qiskit-nature/blob/main/docs/conf.py>`_
+    * `Nature deploy-docs.yml <https://github.com/Qiskit/qiskit-nature/blob/main/.github/workflows/deploy-docs.yml>`_
+    * `Nature deploy_documentation.sh <https://github.com/Qiskit/qiskit-nature/blob/main/tools/deploy_documentation.sh>`_
+    * `Nature ignore_untagged_notes.sh <https://github.com/Qiskit/qiskit-nature/blob/main/tools/ignore_untagged_notes.sh>`_
+* `Qiskit Machine Learning <https://github.com/Qiskit/qiskit-nature>`_
+    * `QML conf.py <https://github.com/Qiskit/qiskit-machine-learning/blob/main/docs/conf.py>`_
+    * `QML deploy-docs.yml <https://github.com/Qiskit/qiskit-machine-learning/blob/main/.github/workflows/deploy-docs.yml>`_
+    * `QML deploy_documentation.sh <https://github.com/Qiskit/qiskit-machine-learning/blob/main/tools/deploy_documentation.sh>`_
+    * `QML ignore_untagged_notes.sh <https://github.com/Qiskit/qiskit-machine-learning/blob/main/tools/ignore_untagged_notes.sh>`_
