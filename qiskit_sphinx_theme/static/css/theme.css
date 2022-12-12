@@ -10842,12 +10842,12 @@ article.pytorch-article .class dl dt em.property {
   left: 0;
   padding-right: 0;
 }
-article.pytorch-article .class .method dt,
+article.pytorch-article .method dt,
 article.pytorch-article .class .staticmethod dt {
   border-left: 3px solid var(--purple);
   border-top: none;
 }
-article.pytorch-article .class .method dt,
+article.pytorch-article .method dt,
 article.pytorch-article .class .staticmethod dt {
   padding-left: 0.5rem;
 }
