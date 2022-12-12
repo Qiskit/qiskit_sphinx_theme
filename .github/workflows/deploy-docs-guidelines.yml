@@ -19,6 +19,7 @@ jobs:
       - name: Install python Deps
         run: |
           python -m pip install -U tox
+          python -m pip install -e .
           python -m pip install -r requirements-dev.txt
       - name: Build Docs
         run: tox -epy -- -j auto
