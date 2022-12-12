@@ -22,8 +22,8 @@ jobs:
           python -m pip install -U 'tox<4'
           python -m pip install -r requirements-dev.txt
       - name: Build Docs
-        run: tox -epy -- -j auto
+        run: tox -edocs-guidelines -- -j auto
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: docs/_build/html # The folder the action should deploy.
+          folder: docs_guidelines/_build/html # The folder the action should deploy.
