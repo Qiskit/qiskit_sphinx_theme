@@ -48,7 +48,7 @@ In particular, you only need to include your new explanation in a ``toctree`` li
         Title of second existing explanation <existing_explanation_2>
         Title of your explanation <your_explanation>
 
-In this example, the title from the first existing explanation (`existing_explanation_1`) is taken directly from it while for `existing_explanation_2` and your new explanation
+In this example, the title from the first existing explanation (``existing_explanation_1.rst``) is taken directly from it while for ``existing_explanation_2.rst`` and your new explanation
 the title is set manually.
 
 It's important to make sure that the indentation of the items inside the ``toctree`` is of at least three whitespaces.

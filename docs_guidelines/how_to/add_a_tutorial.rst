@@ -43,7 +43,7 @@ Once you have created and written your file, you need to update the ``docs/tutor
 ``.rst``
 ---------
 
-If your tutorial is an `.rst` file, add it to a ``toctree`` like this one:
+If your tutorial is an ``.rst`` file, add it to a ``toctree`` like this one:
 
 .. code-block:: text
 
@@ -57,7 +57,7 @@ If your tutorial is an `.rst` file, add it to a ``toctree`` like this one:
         Title of second existing tutorial <existing_tutorial_2>
         Title of your tutorial <your_tutorial>
 
-In this example, the title from the first existing tutorial (`existing_tutorial_1`) is taken directly from it while for `existing_tutorial_2` and your new tutorial
+In this example, the title from the first existing tutorial (``existing_tutorial_1.rst``) is taken directly from it while for ``existing_tutorial_2.rst`` and your new tutorial
 the title is set manually.
 
 It's important to make sure that the indentation of the items inside the ``toctree`` is of at least three whitespaces.
@@ -67,7 +67,7 @@ The section name header needs to be covered by equal signs ``=`` below.
 ``.ipynb``
 -----------
 
-If your tutorial is an `.ipynb` file, add it to a ``nbgallery`` like this one:
+If your tutorial is an ``.ipynb`` file, add it to a ``nbgallery`` like this one:
 
 
 .. code-block:: text

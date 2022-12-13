@@ -47,7 +47,7 @@ In particular, you only need to include your new guide in a ``toctree`` like thi
         Title of second existing guide <existing_guide_2>
         Title of your guide <your_guide>
 
-In this example, the title from the first existing guide (`existing_guide_1`) is taken directly from it while for `existing_guide_2` and your new guide
+In this example, the title from the first existing guide (``existing_guide_1.rst``) is taken directly from it while for ``existing_guide_2.rst`` and your new guide
 the title is set manually.
 
 It's important to make sure that the indentation of the items inside the ``toctree`` is of at least three whitespaces.
