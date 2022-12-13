@@ -24,4 +24,9 @@ By enabling analytics we will be able to collect information on number of visits
 
 <img width="538" alt="Screenshot 2022-11-14 at 11 28 11 AM" src="https://user-images.githubusercontent.com/23662430/201715694-1e75b1fb-875b-4137-b9f3-93d1e1894f5a.png">
 
-If you do not enable analytics no data will be collected and the `Was this page helpful?` component will not show.
+If you do not enable analytics no data will be collected and the `Was this page helpful?` component
+will not show.
+
+## Documentation Guidelines
+
+For maintainers and developers of Qiskit projects, you can find a set of guidelines for writing good documentation and deployment here: https://qiskit.github.io/qiskit_sphinx_theme/
