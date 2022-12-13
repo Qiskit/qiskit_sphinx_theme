@@ -143,6 +143,7 @@ in ``docs/index.rst``.  Your ``index.rst`` should look like this:
     Release Notes <release_notes>
     GitHub <https://github.com/Qiskit/qiskit_x>
 
+
 .. warning::
 
     You should not try to change the sidebar or, in general, overwrite the ``qiskit_sphinx_theme``.
@@ -174,6 +175,13 @@ to ``html`` so the documents from the ``docs`` folder get built as HTML pages in
 .. code-block:: bash
 
     sphinx-build -b html docs docs/_build/html
+
+The locally built page should look like this:
+
+.. figure:: /images/local_build.png
+    :scale: 50 %
+    :align: center
+
 
 
 Deploy docs to `qiskit.org <https://qiskit.org/>`_
