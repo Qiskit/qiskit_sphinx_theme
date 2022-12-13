@@ -2,34 +2,39 @@
 Add an explanation
 ==================
 
-This guide shows how to add an explanation to a Qiskit repository.
+This guide shows how to add an explanation to a Qiskit project repository.
 
-Create the explanation
-======================
+Pre-requisites
+==============
 
-In order to create an explanation, you have to go to the  ``docs/explanations`` folder of your Qiskit repository and add a new ``.rst`` file there. In this guide we will assume your explanation is called ``your_explanation.rst``.
+This guide assumes your Qiskit project already has a working Sphinx documentation project in a folder called ``docs``. If you don't have it, you can set it up with
+`sphinx-quickstart <https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html>`_.
+
+Inside your ``docs`` folder there should be at least a configuration file called ``conf.py``, a ``explanations`` folder with an ``index.rst`` and in which the explanations will be included.
+This ``explanations`` folder should also be referenced as part of a ``toctree`` in another ``index.rst``, this time in the ``docs`` folder instead of the ``explanations`` one.
+
+In short, the minimum structure of your documentation should be:
+
+.. code-block:: text
+
+    docs/
+   |--explanations/
+   |       |--index.rst
+   |--index.rst 
+   |--conf.py
+
+Create a new explanation
+========================
+
+In order to create an explanation, go to the ``docs/explanations`` folder of your Qiskit project repository and add a new ``.rst`` file there. In this guide we will assume your explanation is called ``your_explanation.rst``.
 
 Update the page
 ===============
 
-Once you have created and written your file, you have to update the ``docs/explanations/index.rst`` file so your new explanation appears in the web page.
+Once you have created and written your file, you need to update the ``docs/explanations/index.rst`` file so your new explanation appears in the web page.
 
 
-Update existing section
------------------------
-
-If you want to update an existing section, you only need to add this line to the corresponding ``toctree``:
-
-.. code-block:: text
-
-    Title of your explanation <your_explanation>
-
-Make sure your explanation has the same indentation as the other explanations from the ``toctree``.
-
-Create new section
-------------------
-
-If instead of updating an existing section you want to create a new one, you have to write this:
+In particular, you only need to include your new explanation in a ``toctree`` like this one:
 
 .. code-block:: text
 
@@ -39,6 +44,13 @@ If instead of updating an existing section you want to create a new one, you hav
     .. toctree::
         :maxdepth: 1
 
+        existing_explanation_1
+        Title of second existing explanation <existing_explanation_2>
         Title of your explanation <your_explanation>
 
-The section name must be covered by the equal signs ``=`` below.
+In this example, the title from the first existing explanation (`existing_explanation_1`) is taken directly from it while for `existing_explanation_2` and your new explanation
+the title is set manually.
+
+It's important to make sure that the indentation of the items inside the ``toctree`` is of at least three whitespaces.
+
+The section name header needs to be covered by equal signs ``=`` below.

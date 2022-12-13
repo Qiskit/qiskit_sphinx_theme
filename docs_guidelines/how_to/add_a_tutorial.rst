@@ -2,56 +2,48 @@
 Add a tutorial
 ===============
 
-This guide shows how to add a tutorial to a Qiskit repository.
+This guide shows how to add a tutorial to a Qiskit project repository.
 
-Create the tutorial
-===================
+Pre-requisites
+==============
 
-In order to create a tutorial, you have to go to the  ``docs/tutorials`` folder of your Qiskit repository and add a new ``.ipynb`` or (prefereably) ``.rst`` file there. In this guide we will assume your tutorial is called ``your_tutorial.ipynb`` or ``your_tutorial.rst``.
+This guide assumes your Qiskit project already has a working Sphinx documentation project in a folder called ``docs``. If you don't have it, you can set it up with
+`sphinx-quickstart <https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html>`_.
+
+Inside your ``docs`` folder there should be at least a configuration file called ``conf.py``, a ``tutorials`` folder with an ``index.rst`` and in which the tutorials will be included.
+This ``tutorials`` folder should also be referenced as part of a ``toctree`` in another ``index.rst``, this time in the ``docs`` folder instead of the ``tutorials`` one.
+
+In short, the minimum structure of your documentation should be:
+
+.. code-block:: text
+
+    docs/
+   |--tutorials/
+   |       |--index.rst
+   |--index.rst 
+   |--conf.py
+
+
+
+Create a new tutorial
+=====================
+
+In order to create a tutorial, go to the  ``docs/tutorials`` folder of your Qiskit project repository and add a new ``.ipynb`` or (prefereably) ``.rst`` file there. In this guide we will assume your tutorial is called ``your_tutorial.ipynb`` or ``your_tutorial.rst``.
 
 .. note::
 
-    If the tutorial is an ``ipynb`` file, ``nbsphinx`` has to be included in the ``extensions`` variable of ``docs/conf.py``.
+    If the tutorial is an ``ipynb`` file, ``nbsphinx`` needs to be included in the ``extensions`` variable of ``docs/conf.py`` to convert the ``ipynb`` file into an ``rst`` file during the documentation building process.
 
 
 Update the page
 ===============
 
-Once you have created and written your file, you have to update the ``docs/tutorials/index.rst`` file so your new tutorial appears in the web page.
-
-
-Update existing section
------------------------
+Once you have created and written your file, you need to update the ``docs/tutorials/index.rst`` file so your new tutorial appears in the web page.
 
 ``.rst``
-^^^^^^^^^
+---------
 
-If you want to update an existing section, you only need to add this line to the corresponding ``nbgallery``:
-
-.. code-block:: text
-
-    Title of your tutorial <your_tutorial>
-
-Make sure your tutorial has the same indentation as the other tutorials from the ``toctree``.
-
-``.ipynb``
-^^^^^^^^^^^
-
-If you want to update an existing section, you only need to add this line to the corresponding ``nbgallery``:
-
-.. code-block:: text
-
-    your_tutorial
-
-Make sure your tutorial has the same indentation as the other tutorials from the ``nbgallery``.
-
-Create new section
-------------------
-
-``.rst``
-^^^^^^^^^
-
-If instead of updating an existing section you want to create a new one, you have to write this:
+If your tutorial is an `.rst` file, add it to a ``toctree`` like this one:
 
 .. code-block:: text
 
@@ -61,14 +53,22 @@ If instead of updating an existing section you want to create a new one, you hav
     .. toctree::
         :maxdepth: 1
 
+        existing_tutorial_1
+        Title of second existing tutorial <existing_tutorial_2>
         Title of your tutorial <your_tutorial>
 
-The section name must be covered by the equal signs ``=`` below.
+In this example, the title from the first existing tutorial (`existing_tutorial_1`) is taken directly from it while for `existing_tutorial_2` and your new tutorial
+the title is set manually.
+
+It's important to make sure that the indentation of the items inside the ``toctree`` is of at least three whitespaces.
+
+The section name header needs to be covered by equal signs ``=`` below.
 
 ``.ipynb``
-^^^^^^^^^^^
+-----------
 
-If instead of updating an existing section you want to create a new one, you have to write this:
+If your tutorial is an `.ipynb` file, add it to a ``nbgallery`` like this one:
+
 
 .. code-block:: text
 
@@ -76,7 +76,11 @@ If instead of updating an existing section you want to create a new one, you hav
     ============
 
     .. nbgallery::
+        :maxdepth: 1
 
-        your_tutorial
+        existing_tutorial_1
+        Title of second existing tutorial <existing_tutorial_2>
+        Title of your tutorial <your_tutorial>
 
-The section name must be covered by the equal signs ``=`` below.
+The ``nbgallery`` directive has the same arguments as ``toctree``, so the only difference between this case and the ``.rst`` one is
+writing the name of the directive.
