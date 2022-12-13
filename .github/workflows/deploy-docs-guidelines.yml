@@ -1,0 +1,38 @@
+name: Build and Deploy Docs Guidelines
+on:
+  # Runs on pushes targeting the `docs-guildelines` branch
+  push:
+  #  branches: ["feature/docs-guidelines"]
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  pull_request:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    name: Docs Guidelines Build
+    concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+      - name: Install Ubuntu Dependencies
+        run: sudo apt-get install -y pandoc graphviz
+      - name: Install Python Dependencies
+        run: |
+          python -m pip install -U 'tox<4'
+          python -m pip install -r requirements-dev.txt
+      - name: Build Docs Guidelines
+        run: tox -edocs-guide -- -j auto
+      - name: Bypass Jekyll Processing # Necessary for setting the correct css path
+        run: touch docs_guidelines/_build/html/.nojekyll
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: docs_guidelines/_build/html # The folder the action should deploy.
