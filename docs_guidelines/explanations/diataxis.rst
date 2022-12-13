@@ -18,6 +18,9 @@ According to those axes, documentation can be divided into:
 * `Reference <https://diataxis.fr/reference/>`_: Theory and application. The purpose of the reference is to describe, as simply and accurately as possible, how the software works. It is not taylored to any task but only to the product itself. It's recommended to add some code examples to the reference.
 * `Explanation <https://diataxis.fr/explanation/>`_: Theory and acquisition. The intention behind explanatory material is to improve the users' understanding of a certain topic. It's there to answer why things are the way they are and what the implications are. Any context and connections to other subjects or concepts are welcome here, as we are not covering how to perform a task. Explanatory material must not instruct how to perform a task or give technical reference, that's what the other 3 types are for.
 
+.. figure:: /images/diataxis.png
+   :scale: 40 %
+   :align: center
 
 Why do we use Diátaxis in Qiskit?
 =================================
