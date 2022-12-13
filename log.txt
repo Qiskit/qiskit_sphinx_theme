@@ -1,0 +1,48 @@
+[000000] codo_init
+[000000]   platform: Max OS X
+[000000]   codo_system_init
+[000562]   Compiled against SDL version: 2.0.12
+[000562]   Linked against SDL version:   2.0.12
+[000562]   Current video driver: cocoa
+[000562]   codo_reset_timer
+[000562]   codo_gui_init
+[000562]   codo_keys_init
+[000562]   codo_text_init
+[000563]   codo_video_init
+[000563]   codo_mouse_init
+[000563]   codo_joystick_init
+[000563]   searching for joysticks
+[000563]     found 0 joysticks
+[000563]   ok
+[000564] ok
+[000587] codo_load_pod: /Applications/PICO-8.app/Contents/MacOS/pico8.dat ok 
+[000590] codo_set_screen 128 128 8 100
+[000590]  window size: 640 540
+[000707]   setting filter to nearest (screen_mode 0  back page width: 128)
+  renderer metal:
+   flags: 0x0000000E ( |  | )
+   texture formats (6): ARGB8888, ABGR8888, YV12, IYUV, 0x3231564e, 0x3132564e
+   max texture size: 16384x16384
+[000715]  desktop size: 1920 1080
+[000715] ok
+[000730] codo_sound_init mix_buffer_size: 1024
+[000730] codo_sound_init
+[000730] SDL_INIT_AUDIO ok
+[001111] SDL_OpenAudio ok
+[001111]  freq:22050
+ channels:1
+[001111] Built-in audio drivers: 0 coreaudio 1 disk 2 dummy
+[001111] Current audio driver: coreaudio
+[001111] splore_init
+[001111] could not load favourites file: /Users/junye/Documents/GitHub/qiskit-dev/qiskit_sphinx_theme/favourites.txt
+[003280] loading /Users/junye/Documents/GitHub/qiskit-dev/qiskit_sphinx_theme/.github/workflows/deploy-docs-guidelines.yml
+[003421] codo_exit
+[003421]   cmusic_stop
+[003421]   codo_main_exit
+[003422]   codo_config_save
+[003422]   codo_sound_exit
+[003422]   codo_video_exit
+[003443]   codo_joystick_exit
+[003443]   codo_system_exit
+[003443]   codo_items_created: 1287
+[003443] ok
