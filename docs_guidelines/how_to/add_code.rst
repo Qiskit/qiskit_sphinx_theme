@@ -4,6 +4,12 @@ Add code to documentation
 
 This guide shows how to include code in your documentation.
 
+Pre-requisites
+==============
+
+This guide assumes your Qiskit project already has a working Sphinx documentation project in a folder called ``docs``. If you don't have it, you can set it up with
+`sphinx-quickstart <https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html>`_.
+
 There are two ways to have code in your docs:
 
 * As part of the text.
@@ -12,7 +18,7 @@ There are two ways to have code in your docs:
 Code as part of the text
 ========================
 
-If you want to include a snippet of code inside your text, you only need surround your code with pairs of backquotes, that is,  ````your_code````. So if you want to say that the output of ``2>3`` is ``False``, what you write is:
+If you want to include a snippet of code inside your text, you only need to surround your code with pairs of backquotes, that is,  ````your_code````. So if you want to say that the output of ``2>3`` is ``False``, what you write is:
 
 .. code-block:: text
 

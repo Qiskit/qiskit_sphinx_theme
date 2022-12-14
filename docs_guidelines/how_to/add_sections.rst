@@ -2,7 +2,15 @@
 Add sections to documentation
 =============================
 
-This guide shows how to separate your documentation in parts. These parts can be:
+This guide shows how to separate your documents in parts. 
+
+Pre-requisites
+==============
+
+This guide assumes your Qiskit project already has a working Sphinx documentation project in a folder called ``docs``. If you don't have it, you can set it up with
+`sphinx-quickstart <https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html>`_.
+
+You can organize your documents into:
 
 * Sections.
 * Subsections.
@@ -12,8 +20,8 @@ This guide shows how to separate your documentation in parts. These parts can be
 Create sections
 ===============
 
-In order to create a new section you have to write the name of the section covered below by equal signs ``=``. For example,
-you can include this header.
+In order to create a new section you can write the name of the section covered below by equal signs ``=``. For example,
+you can include this header:
 
 .. code-block:: text
 
@@ -28,14 +36,14 @@ Section name
 Create subsections
 ==================
 
-You can add a subsection to your section by writing the corresponding name covered below by a sign. This time it's the hyphen, ``-``. So you can include, for example, this subsection header.
+You can add a subsection to your section by writing the corresponding name covered below by a sign. This time it's the hyphen, ``-``. So you can include, for example, this subsection header:
 
 .. code-block:: text
 
     Subsection name
     ---------------
 
-A subsection must be written as part of a section. That means the subsection header can't be shown on its own.
+A subsection needs to be written as part of a section. That means the subsection header can't be shown on its own.
 
 Section name
 ============
@@ -52,7 +60,7 @@ If you want to add a subsubsection to a section of your document, you can do so 
     Subsubsection name
     ^^^^^^^^^^^^^^^^^^
 
-A subsubsection must be part of a subsection, so the proper structure would be:
+A subsubsection needs to be part of a subsection, so the proper structure would be:
 
 Section name
 ============
@@ -61,8 +69,8 @@ Subsection name
 Subsubsection name
 ^^^^^^^^^^^^^^^^^^
 
-Create paragraph
-================
+Create paragraphs
+==================
 
 To add a paragraph, you have to write its title covered below by quotation marks ``"``. For example, you can add this paragraph header:
 
@@ -71,7 +79,7 @@ To add a paragraph, you have to write its title covered below by quotation marks
     Paragraph name
     """"""""""""""
 
-A paragraph must be part of a subsubsection, so the structure is
+A paragraph needs to be part of a subsubsection, so the structure is
 
 Section name
 ============

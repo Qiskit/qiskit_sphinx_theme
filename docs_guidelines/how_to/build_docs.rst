@@ -2,15 +2,21 @@
 Build documentation locally
 ===========================
 
-This guide shows how to build the documentation of a Qiskit repository in local.
+This guide shows how to build the documentation of a Qiskit project repository in local.
+
+Pre-requisites
+==============
+
+This guide assumes your Qiskit project already has a working Sphinx documentation project in a folder called ``docs``. If you don't have it, you can set it up with
+`sphinx-quickstart <https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html>`_.
 
 Make necessary instalations
 ===========================
 
 Before trying to build your documentation, make sure you have installed:
 
-* The Qiskit package itself. ``qiskit_x``
-* Other required packages from ``requirements-dev.txt``
+* The Qiskit package you want to build, that in this guide will be called ``qiskit_x``.
+* Other required packages from the corresponding ``requirements-dev.txt``.
 
 Install the Qiskit package
 --------------------------

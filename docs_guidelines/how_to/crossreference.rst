@@ -4,6 +4,12 @@ Crossreference to other pages from documentation
 
 This guide shows how to reference to other pages in the documentation.
 
+Pre-requisites
+==============
+
+This guide assumes your Qiskit project already has a working Sphinx documentation project in a folder called ``docs``. If you don't have it, you can set it up with
+`sphinx-quickstart <https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html>`_.
+
 Add the links
 =============
 
@@ -18,7 +24,7 @@ There are several types of pages that can be referenced:
 Module pages
 ------------
 
-If the page to which you want to link corresponds to a module, you have to use ``:mod:`qiskit.module_name```.
+If the page to which you want to link corresponds to a module, you should use ``:mod:`qiskit.module_name```.
 An example of Qiskit module is :mod:`qiskit.circuit` and the link can be written as:
 
 .. code-block:: text
@@ -37,7 +43,7 @@ If you want to link to a function page, you need to use ``:func:`your_function``
 Class pages
 -----------
 
-In order to link to a class page, you must use ``:class:`your_class```. As an example, you can link to :class:`qiskit.circuit.QuantumCircuit` by writing:
+In order to link to a class page, you should use ``:class:`your_class```. As an example, you can link to :class:`qiskit.circuit.QuantumCircuit` by writing:
 
 .. code-block:: text
 
@@ -55,7 +61,7 @@ If your objective is to link the page of a method, you can use ``:meth:`your_met
 Attribute pages
 ---------------
 
-If you want to link to an attribute page, you have to use ``:attr:`your_attribute```. You can link, for example, to :attr:`qiskit.circuit.QuantumCircuit.parameters` by writing:
+If you want to link to an attribute page, you should use ``:attr:`your_attribute```. You can link, for example, to :attr:`qiskit.circuit.QuantumCircuit.parameters` by writing:
 
 .. code-block:: text
 
