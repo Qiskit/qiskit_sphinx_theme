@@ -77,7 +77,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../how_to/index.html">How-to Guides</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../apidocs/index.html">API Reference</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Explanations</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Explanations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../release_notes.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/Qiskit/qiskit_sphinx_theme">GitHub</a></li>
 </ul>
@@ -123,13 +123,15 @@
       </li>
 
         
-      <li>Explanations</li>
+          <li><a href="index.html">Explanations</a> &gt;</li>
+        
+      <li>Sphinx</li>
     
     
       <li class="pytorch-breadcrumbs-aside">
         
             
-            <a href="../_sources/explanations/index.rst.txt" rel="nofollow"><img src="../_static/images/view-page-source-icon.svg"></a>
+            <a href="../_sources/explanations/sphinx.rst.txt" rel="nofollow"><img src="../_static/images/view-page-source-icon.svg"></a>
           
         
       </li>
@@ -148,15 +150,38 @@
             <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
              <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
               
-  <section id="explanations">
-<h1>Explanations<a class="headerlink" href="#explanations" title="Permalink to this heading">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="diataxis.html">The Diátaxis framework</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sphinx.html">Sphinx</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rst.html">reStructuredText</a></li>
+  <section id="sphinx">
+<h1>Sphinx<a class="headerlink" href="#sphinx" title="Permalink to this heading">¶</a></h1>
+<section id="what-is-sphinx">
+<h2>What is Sphinx?<a class="headerlink" href="#what-is-sphinx" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="https://www.sphinx-doc.org/en/master/">Sphinx</a> is a documentation generator that converts <a class="reference external" href="https://docutils.sourceforge.io/rst.html">reStructuredText</a> (RST) files to formats like <a class="reference external" href="https://html.spec.whatwg.org/multipage/">HTML</a>, <a class="reference external" href="https://www.latex-project.org/">LaTeX</a>, <a class="reference external" href="https://www.w3.org/publishing/epub32/">ePub</a>, <a class="reference external" href="https://www.gnu.org/software/texinfo/">Texinfo</a>, manual pages or plain text.
+It is written in Python. Some of its main characteristics are:</p>
+<ul class="simple">
+<li><p>Ability to cross-reference to pages corresponding to functions, classes, attributes, parameters and similar, creating links with semantic markup.</p></li>
+<li><p>Intuitive hierarchical structure for documentation trees.</p></li>
+<li><p>Index pages generated automatically.</p></li>
+<li><p>Automatic code highlighting with <a class="reference external" href="https://pygments.org/">Pygments</a>.</p></li>
+<li><p>Customizable HTML themes.</p></li>
 </ul>
-</div>
+</section>
+<section id="why-do-we-use-sphinx-in-qiskit">
+<h2>Why do we use Sphinx in Qiskit?<a class="headerlink" href="#why-do-we-use-sphinx-in-qiskit" title="Permalink to this heading">¶</a></h2>
+<p>One of the main reasons we use Sphinx is that it creates API reference pages automatically from the Python code, which makes up
+most of Qiskit’s code, so documentation is easier to create and mantain. Apart from that, Sphinx allows you to cross-reference to pages inside the documentation instead of using the
+URL from the deployed page, so you reduce the risk of broken links to a minimum when parts of the documentation are moved to a different place.</p>
+<p>Sphinx also offers a wide array of extensions that make creating docs much easier, like the following:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html">instersphinx</a>, that enables you to link to other projects, like other Qiskit repositories.</p></li>
+<li><p><a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/napoleon.html">napoleon</a>, that lets you use <a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/format.html">NumPy</a> and <a class="reference external" href="https://google.github.io/styleguide/pyguide.html#383-functions-and-methods">Google</a> style docstrings, simpler than using <a class="reference external" href="https://sphinx-rtd-tutorial.readthedocs.io/en/latest/docstrings.html">pure RST</a>.</p></li>
+<li><p><a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html">autodoc</a>, that automatically creates module pages.</p></li>
+<li><p><a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/autosummary.html">autosummary</a>, that creates summary tables for functions, methods, attributes or parameters from their source code, avoiding duplication of content.</p></li>
+<li><p><a class="reference external" href="https://docs.openstack.org/reno/2.1.1/sphinxext.html">reno.sphinxext</a>, that incorporates release notes to the documentation automatically.</p></li>
+<li><p><a class="reference external" href="https://jupyter-sphinx.readthedocs.io/en/latest/">jupyter_sphinx</a>, that allows you to run Jupyter cells.</p></li>
+</ul>
+<p>Another Sphinx characteristic we use extensively is the ability to customize an HTML theme, so we have our own theme called
+<a class="reference external" href="https://github.com/Qiskit/qiskit_sphinx_theme">qiskit_sphinx_theme</a>, that gives <a class="reference external" href="https://qiskit.org">qiskit.org</a> and any local built Qiskit docs their
+characteristic appearance.</p>
+</section>
 </section>
 
 
@@ -200,7 +225,11 @@
           <div class="pytorch-right-menu" id="pytorch-right-menu">
             <div class="pytorch-side-scroll" id="pytorch-side-scroll-right">
               <ul>
-<li><a class="reference internal" href="#">Explanations</a></li>
+<li><a class="reference internal" href="#">Sphinx</a><ul>
+<li><a class="reference internal" href="#what-is-sphinx">What is Sphinx?</a></li>
+<li><a class="reference internal" href="#why-do-we-use-sphinx-in-qiskit">Why do we use Sphinx in Qiskit?</a></li>
+</ul>
+</li>
 </ul>
 
             </div>

@@ -77,7 +77,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../how_to/index.html">How-to Guides</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../apidocs/index.html">API Reference</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Explanations</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Explanations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../release_notes.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/Qiskit/qiskit_sphinx_theme">GitHub</a></li>
 </ul>
@@ -123,13 +123,15 @@
       </li>
 
         
-      <li>Explanations</li>
+          <li><a href="index.html">Explanations</a> &gt;</li>
+        
+      <li>reStructuredText</li>
     
     
       <li class="pytorch-breadcrumbs-aside">
         
             
-            <a href="../_sources/explanations/index.rst.txt" rel="nofollow"><img src="../_static/images/view-page-source-icon.svg"></a>
+            <a href="../_sources/explanations/rst.rst.txt" rel="nofollow"><img src="../_static/images/view-page-source-icon.svg"></a>
           
         
       </li>
@@ -148,15 +150,28 @@
             <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
              <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
               
-  <section id="explanations">
-<h1>Explanations<a class="headerlink" href="#explanations" title="Permalink to this heading">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="diataxis.html">The Diátaxis framework</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sphinx.html">Sphinx</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rst.html">reStructuredText</a></li>
-</ul>
-</div>
+  <section id="restructuredtext">
+<h1>reStructuredText<a class="headerlink" href="#restructuredtext" title="Permalink to this heading">¶</a></h1>
+<section id="what-is-restructuredtext">
+<h2>What is reStructuredText?<a class="headerlink" href="#what-is-restructuredtext" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="https://docutils.sourceforge.io/rst.html">reStructuredText</a> (RST) is a lightweight markup language,
+that is, an easy to read language that formats plaintext documents according to a set of tags. It was conceived as a
+revision of the <a class="reference external" href="https://zopestructuredtext.readthedocs.io/en/latest/">StructuredText</a> and <a class="reference external" href="https://docutils.sourceforge.io/mirror/setext.html">Setext</a> markup languages.
+It enables the creation of web pages and documentation from, for example, Python docstrings.</p>
+<p>The reStructuredText parser
+is part of <a class="reference external" href="https://docutils.sourceforge.io/index.html">Docutils</a>, a Python-based open-source text processing system that converts plaintext
+into formats like <a class="reference external" href="https://html.spec.whatwg.org/multipage/">HTML</a>, <a class="reference external" href="https://www.latex-project.org/">LaTeX</a>, <a class="reference external" href="https://manpages.bsd.lv/mdoc.html#man_pages">man-pages</a> (manual pages),
+<a class="reference external" href="https://opendocumentformat.org/">OpenDocument</a> or <a class="reference external" href="https://www.w3.org/TR/xml/">XML</a> (Extensible Markup Language).</p>
+</section>
+<section id="why-do-we-use-restructuredtext-in-qiskit">
+<h2>Why do we use reStructuredText in Qiskit?<a class="headerlink" href="#why-do-we-use-restructuredtext-in-qiskit" title="Permalink to this heading">¶</a></h2>
+<p>The main reason we are using reStructuredText in Qiskit is that it is the native language of
+<a class="reference external" href="https://www.sphinx-doc.org/en/master/">Sphinx</a>, the documentation generator used in Qiskit.
+Using other languages requires converation to RST, which is generally less efficient than using RST from the start and can occasionally cause [unintended formatting issues](<a class="reference external" href="https://github.com/spatialaudio/nbsphinx/issues/301">https://github.com/spatialaudio/nbsphinx/issues/301</a>).</p>
+<p>Because RST is the native language for Sphinx, comparing with other options like <a class="reference external" href="https://jupyter.org/">Jupyter notebooks</a> (<code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> files) or <a class="reference external" href="https://daringfireball.net/projects/markdown/">Markdown</a> (<code class="docutils literal notranslate"><span class="pre">.md</span></code> files), writing documentation in RST has the great benefit of automatic cross-referencing to other sections or files within the documentation. So if a page has been moved, the documentation will automatically change accordingly. And if a cross-reference link is broken, it can be caught in the docs building process. All of these means documentation maintenance is much easier with RST.</p>
+<p>Jupyter notebooks have one functionality that is better than RST, that is the ease of running code cells. In addition, our users are familiar with using Jupyter notebooks to execute codes. Therefore, tutorials at the moment are mostly written in Jupyter notebooks. However, in addition to no cross-referencing, Jupyter notebooks are difficult to maintain because it is not written in plaintext. It is hard to review changes.</p>
+<p>In the future, we hope to use only RST for documentation (including tutorials). There are ways to execute Python code within RST (using <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/doctest.html">doctest</a> or <a class="reference external" href="https://jupyter-sphinx.readthedocs.io/en/latest/">jupyter-sphinx</a> extension) and expose output Jupyter notebooks for users to download while Markdown doesn’t offer any of these options.</p>
+</section>
 </section>
 
 
@@ -200,7 +215,11 @@
           <div class="pytorch-right-menu" id="pytorch-right-menu">
             <div class="pytorch-side-scroll" id="pytorch-side-scroll-right">
               <ul>
-<li><a class="reference internal" href="#">Explanations</a></li>
+<li><a class="reference internal" href="#">reStructuredText</a><ul>
+<li><a class="reference internal" href="#what-is-restructuredtext">What is reStructuredText?</a></li>
+<li><a class="reference internal" href="#why-do-we-use-restructuredtext-in-qiskit">Why do we use reStructuredText in Qiskit?</a></li>
+</ul>
+</li>
 </ul>
 
             </div>

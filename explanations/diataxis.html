@@ -77,7 +77,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../how_to/index.html">How-to Guides</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../apidocs/index.html">API Reference</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Explanations</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Explanations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../release_notes.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/Qiskit/qiskit_sphinx_theme">GitHub</a></li>
 </ul>
@@ -123,13 +123,15 @@
       </li>
 
         
-      <li>Explanations</li>
+          <li><a href="index.html">Explanations</a> &gt;</li>
+        
+      <li>The Diátaxis framework</li>
     
     
       <li class="pytorch-breadcrumbs-aside">
         
             
-            <a href="../_sources/explanations/index.rst.txt" rel="nofollow"><img src="../_static/images/view-page-source-icon.svg"></a>
+            <a href="../_sources/explanations/diataxis.rst.txt" rel="nofollow"><img src="../_static/images/view-page-source-icon.svg"></a>
           
         
       </li>
@@ -148,15 +150,35 @@
             <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
              <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
               
-  <section id="explanations">
-<h1>Explanations<a class="headerlink" href="#explanations" title="Permalink to this heading">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="diataxis.html">The Diátaxis framework</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sphinx.html">Sphinx</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rst.html">reStructuredText</a></li>
+  <section id="the-diataxis-framework">
+<h1>The Diátaxis framework<a class="headerlink" href="#the-diataxis-framework" title="Permalink to this heading">¶</a></h1>
+<section id="what-is-diataxis">
+<h2>What is Diátaxis?<a class="headerlink" href="#what-is-diataxis" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="https://diataxis.fr">Diátaxis</a>, whose name comes from the Ancient Greek δῐᾰ́τᾰξῐς: dia (“across”) and taxis (“arrangement”), is a framework for technical documentation that divides it into 4 categories according to
+the users’ needs. In particular, it focuses on two axes of knowledge:</p>
+<ul class="simple">
+<li><p><cite>Theory/practice</cite>: whether the user needs theoretical knowledge or to follow practical steps to perform a task.</p></li>
+<li><p><cite>Acquisition/application</cite>: whether the documentation is to be used for study or for work, that is, for acquiring or applying knowledge.</p></li>
 </ul>
-</div>
+<p>According to those axes, documentation can be divided into:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://diataxis.fr/tutorials/">Tutorials</a>: Practice and acquisition. A tutorial acts as a lesson in which the writer/teacher takes the user/pupil by the hand though the steps needed to complete a project. This project should be a meaningful exercise that the user can reasonably complete, getting a sense of achievement and confidence with both our product and their skills.</p></li>
+<li><p><a class="reference external" href="https://diataxis.fr/how-to-guides/">How-to guides</a>: Practice and application. A how-to guide is, broadly speaking, a recipe for completing a task. The user is expected to be already familiar with the task and why they may want to do it. You don’t even need to start from the beginning but you can set a starting point that the user should know how to reach. You can present the different ways to approach the task but always focus on the action.</p></li>
+<li><p><a class="reference external" href="https://diataxis.fr/reference/">Reference</a>: Theory and application. The purpose of the reference is to describe, as simply and accurately as possible, how the software works. It is not taylored to any task but only to the product itself. It’s recommended to add some code examples to the reference.</p></li>
+<li><p><a class="reference external" href="https://diataxis.fr/explanation/">Explanation</a>: Theory and acquisition. The intention behind explanatory material is to improve the users’ understanding of a certain topic. It’s there to answer why things are the way they are and what the implications are. Any context and connections to other subjects or concepts are welcome here, as we are not covering how to perform a task. Explanatory material must not instruct how to perform a task or give technical reference, that’s what the other 3 types are for.</p></li>
+</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/diataxis.png"><img alt="../_images/diataxis.png" src="../_images/diataxis.png" style="width: 720.8000000000001px; height: 403.20000000000005px;" /></a>
+</figure>
+</section>
+<section id="why-do-we-use-diataxis-in-qiskit">
+<h2>Why do we use Diátaxis in Qiskit?<a class="headerlink" href="#why-do-we-use-diataxis-in-qiskit" title="Permalink to this heading">¶</a></h2>
+<p>The reasoning behind choosing Diátaxis for Qiskit’s documentation is twofold:
+First and foremost, Diátaxis focuses on prioritizing the users’ needs and structures the documentation according to them,
+so when the user has a specific need, they know where it’s fulfilled.
+At the same time, it gives the authors a clear direction for their documentation, highlighting where improvements can be made
+so the user gets a better experience when working with Qiskit.</p>
+</section>
 </section>
 
 
@@ -200,7 +222,11 @@
           <div class="pytorch-right-menu" id="pytorch-right-menu">
             <div class="pytorch-side-scroll" id="pytorch-side-scroll-right">
               <ul>
-<li><a class="reference internal" href="#">Explanations</a></li>
+<li><a class="reference internal" href="#">The Diátaxis framework</a><ul>
+<li><a class="reference internal" href="#what-is-diataxis">What is Diátaxis?</a></li>
+<li><a class="reference internal" href="#why-do-we-use-diataxis-in-qiskit">Why do we use Diátaxis in Qiskit?</a></li>
+</ul>
+</li>
 </ul>
 
             </div>
