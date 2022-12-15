@@ -34,7 +34,7 @@ Link to other pages
 .. toctree::
     :maxdepth: 1
 
-    Crossreference <crossreference>
+    ..Crossreference <crossreference>
     Add external links <add_external_links>
 
 Include technical expressions
@@ -43,5 +43,5 @@ Include technical expressions
 .. toctree::
     :maxdepth: 1
 
-    Include code <add_code>
+    ..Include code <add_code>
     Write mathematical expressions <write_mathematical_expressions>
