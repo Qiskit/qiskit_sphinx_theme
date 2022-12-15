@@ -4,7 +4,7 @@ API Reference Guidelines
 
 .. note:: 
    
-   We are mainly using ``jupyter-execute`` directive for putting code examples. We will investigate 
+   We are mainly using ``jupyter-execute`` directive for including code examples. We will investigate 
    using ``doctest`` to replace ``jupyter-execute`` in the future wherever it's possible to reduce 
    doc building process complexity. See 
    `qiskit-terra#7661 <https://github.com/Qiskit/qiskit-terra/issues/7661>`_ for discussions.
