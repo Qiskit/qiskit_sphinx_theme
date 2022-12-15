@@ -99,7 +99,7 @@ abstractions.
 ---------------------------------
 
 Try to explain exactly what's needed to get the steps done AND for the user understand
-everything they're doing and why they are doing it in the first place. No more no less.  
+everything they're doing and why they are doing it in the first place. No more, no less.  
 
 6.2 Provide links if needed
 ---------------------------
