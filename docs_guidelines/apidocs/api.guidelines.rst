@@ -28,7 +28,9 @@ examples to qiskit.visualization module level api page.
 
 If there are more than 4 arguments that make significant changes, it can be better to distribute
 them evenly between 2 examples. That way you avoid having an overloaded example and a user can see
-how some of the default values work. Avoid adding more than 3 code cells.
+how some of the default values work. 
+
+Avoid adding more than 3 code cells.
 
 3. Don't over complicate nor oversimplify the steps to get the input arguments
 ==============================================================================
