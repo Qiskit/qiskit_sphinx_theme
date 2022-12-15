@@ -1,4 +1,4 @@
-name: Build and Test Docs Guide
+name: Test Docs Guide
 on:
   pull_request:
     branches: ["feature/docs-guidelines"]
@@ -7,7 +7,7 @@ permissions:
   contents: write
 
 jobs:
-  build-and-:
+  build-and-test:
     name: Docs Guide Build
     concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
     runs-on: ubuntu-latest
