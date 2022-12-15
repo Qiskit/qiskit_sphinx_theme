@@ -77,8 +77,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../how_to/index.html">How-to Guides</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">How-to Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../apidocs/index.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../explanations/index.html">Explanations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../release_notes.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/Qiskit/qiskit_sphinx_theme">GitHub</a></li>
@@ -125,13 +125,15 @@
       </li>
 
         
-      <li>API Reference</li>
+          <li><a href="index.html">How-to Guides</a> &gt;</li>
+        
+      <li>Create lists</li>
     
     
       <li class="pytorch-breadcrumbs-aside">
         
             
-            <a href="../_sources/apidocs/index.rst.txt" rel="nofollow"><img src="../_static/images/view-page-source-icon.svg"></a>
+            <a href="../_sources/how_to/create_lists.rst.txt" rel="nofollow"><img src="../_static/images/view-page-source-icon.svg"></a>
           
         
       </li>
@@ -150,8 +152,111 @@
             <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
              <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
               
-  <section id="api-reference">
-<h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this heading">¶</a></h1>
+  <section id="create-lists">
+<h1>Create lists<a class="headerlink" href="#create-lists" title="Permalink to this heading">¶</a></h1>
+<p>This guide shows how to create a list in your documentation.</p>
+<p>There are several types of lists:</p>
+<ul class="simple">
+<li><p>unordered lists.</p></li>
+<li><p>ordered lists.</p></li>
+<li><p>nested lists.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Lists should be separated from the rest of the text by line breaks.</p>
+</div>
+<section id="unordered-lists">
+<h2>Unordered lists<a class="headerlink" href="#unordered-lists" title="Permalink to this heading">¶</a></h2>
+<p>You can create an unordered list by writing an asterisk <code class="docutils literal notranslate"><span class="pre">*</span></code> followed by an space and the items on your list:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>* Item 1
+* Item 2
+* Item 3
+</pre></div>
+</div>
+<p>The output of this would be:</p>
+<ul class="simple">
+<li><p>Item 1</p></li>
+<li><p>Item 2</p></li>
+<li><p>Item 3</p></li>
+</ul>
+</section>
+<section id="ordered-lists">
+<h2>Ordered lists<a class="headerlink" href="#ordered-lists" title="Permalink to this heading">¶</a></h2>
+<p>There are several ways to include numbered lists in your documentation. You can use the following numbering methods:</p>
+<ul class="simple">
+<li><p>Arabic: 1, 2, 3, 4, …</p></li>
+<li><p>Lower roman: i, ii, iii, iv, …</p></li>
+<li><p>Upper roman: I, II, III, IV, …</p></li>
+<li><p>Lower alpha: a, b, c, d, …</p></li>
+<li><p>Upper alpha: A, B, C, D, …</p></li>
+</ul>
+<p>And you can present them the following ways:</p>
+<ul class="simple">
+<li><p>Followed by a period. E.g., 1.</p></li>
+<li><p>Surrounded by parentheses. E.g., (a)</p></li>
+<li><p>parenthesis on the right. E.g., i)</p></li>
+</ul>
+<p>You can pick any of these numbering types and presentations but you have to keep the same ones for the remainder of the list. The output will always be arabic numbers followed by a period. The numbers have to be written in order but don’t have to start with 1. For example, you can write:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>b) b
+c) c
+d) d
+</pre></div>
+</div>
+<p>And the output is:</p>
+<ol class="loweralpha simple" start="2">
+<li><p>b</p></li>
+<li><p>c</p></li>
+<li><p>d</p></li>
+</ol>
+<section id="automatic-ordering">
+<h3>Automatic ordering<a class="headerlink" href="#automatic-ordering" title="Permalink to this heading">¶</a></h3>
+<p>You can make the numbering automatic if you write a hashtag <code class="docutils literal notranslate"><span class="pre">#</span></code> instead of the number/letter.  For example:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>(XX) XX
+(#) #
+(#) #
+</pre></div>
+</div>
+<p>The output of this list is:</p>
+<ol class="upperroman simple" start="20">
+<li><p>XX</p></li>
+<li><p>#</p></li>
+<li><p>#</p></li>
+</ol>
+</section>
+</section>
+<section id="nested-lists">
+<h2>Nested lists<a class="headerlink" href="#nested-lists" title="Permalink to this heading">¶</a></h2>
+<p>You can include a list inside a list if you add a 4-space indentation or bigger to the items in the nested list. The nested lists don’t have to follow the format from the parent list and you can even mix oredered and unordered lists. For example:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#. Item
+    i) nested item 1
+    #) nested item 2
+#. Item
+    * nested item
+    * nested item
+#. Item
+</pre></div>
+</div>
+<p>The output is:</p>
+<ol class="arabic simple">
+<li><dl class="simple">
+<dt>Item</dt><dd><ol class="lowerroman simple">
+<li><p>nested item 1</p></li>
+<li><p>nested item 2</p></li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Item</dt><dd><ul class="simple">
+<li><p>nested item</p></li>
+<li><p>nested item</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Item</p></li>
+</ol>
+</section>
 </section>
 
 
@@ -195,7 +300,15 @@
           <div class="pytorch-right-menu" id="pytorch-right-menu">
             <div class="pytorch-side-scroll" id="pytorch-side-scroll-right">
               <ul>
-<li><a class="reference internal" href="#">API Reference</a></li>
+<li><a class="reference internal" href="#">Create lists</a><ul>
+<li><a class="reference internal" href="#unordered-lists">Unordered lists</a></li>
+<li><a class="reference internal" href="#ordered-lists">Ordered lists</a><ul>
+<li><a class="reference internal" href="#automatic-ordering">Automatic ordering</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#nested-lists">Nested lists</a></li>
+</ul>
+</li>
 </ul>
 
             </div>

@@ -77,8 +77,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../how_to/index.html">How-to Guides</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">How-to Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../apidocs/index.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../explanations/index.html">Explanations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../release_notes.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/Qiskit/qiskit_sphinx_theme">GitHub</a></li>
@@ -125,13 +125,15 @@
       </li>
 
         
-      <li>API Reference</li>
+          <li><a href="index.html">How-to Guides</a> &gt;</li>
+        
+      <li>Add sections to documentation</li>
     
     
       <li class="pytorch-breadcrumbs-aside">
         
             
-            <a href="../_sources/apidocs/index.rst.txt" rel="nofollow"><img src="../_static/images/view-page-source-icon.svg"></a>
+            <a href="../_sources/how_to/add_sections.rst.txt" rel="nofollow"><img src="../_static/images/view-page-source-icon.svg"></a>
           
         
       </li>
@@ -150,8 +152,93 @@
             <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
              <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
               
-  <section id="api-reference">
-<h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this heading">¶</a></h1>
+  <section id="add-sections-to-documentation">
+<h1>Add sections to documentation<a class="headerlink" href="#add-sections-to-documentation" title="Permalink to this heading">¶</a></h1>
+<p>This guide shows how to separate your documents in parts.</p>
+<section id="pre-requisites">
+<h2>Pre-requisites<a class="headerlink" href="#pre-requisites" title="Permalink to this heading">¶</a></h2>
+<p>This guide assumes your Qiskit project already has a working Sphinx documentation project in a folder called <code class="docutils literal notranslate"><span class="pre">docs</span></code>. If you don’t have it, you can set it up with
+<a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html">sphinx-quickstart</a>.</p>
+<p>You can organize your documents into:</p>
+<ul class="simple">
+<li><p>Sections.</p></li>
+<li><p>Subsections.</p></li>
+<li><p>Subsubsections.</p></li>
+<li><p>Paragraphs.</p></li>
+</ul>
+</section>
+<section id="create-sections">
+<h2>Create sections<a class="headerlink" href="#create-sections" title="Permalink to this heading">¶</a></h2>
+<p>In order to create a new section you can write the name of the section covered below by equal signs <code class="docutils literal notranslate"><span class="pre">=</span></code>. For example,
+you can include this header:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Section name
+============
+</pre></div>
+</div>
+<p>And it would look like this:</p>
+</section>
+<section id="section-name">
+<h2>Section name<a class="headerlink" href="#section-name" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="create-subsections">
+<h2>Create subsections<a class="headerlink" href="#create-subsections" title="Permalink to this heading">¶</a></h2>
+<p>You can add a subsection to your section by writing the corresponding name covered below by a sign. This time it’s the hyphen, <code class="docutils literal notranslate"><span class="pre">-</span></code>. So you can include, for example, this subsection header:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Subsection name
+---------------
+</pre></div>
+</div>
+<p>A subsection needs to be written as part of a section. That means the subsection header can’t be shown on its own.</p>
+</section>
+<section id="id1">
+<h2>Section name<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<section id="subsection-name">
+<h3>Subsection name<a class="headerlink" href="#subsection-name" title="Permalink to this heading">¶</a></h3>
+</section>
+</section>
+<section id="create-subsubsections">
+<h2>Create subsubsections<a class="headerlink" href="#create-subsubsections" title="Permalink to this heading">¶</a></h2>
+<p>If you want to add a subsubsection to a section of your document, you can do so by writing its title covered below by carets, <code class="docutils literal notranslate"><span class="pre">^</span></code>. For example, you can add this subsubsection header:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Subsubsection name
+^^^^^^^^^^^^^^^^^^
+</pre></div>
+</div>
+<p>A subsubsection needs to be part of a subsection, so the proper structure would be:</p>
+</section>
+<section id="id2">
+<h2>Section name<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<section id="id3">
+<h3>Subsection name<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h3>
+<section id="subsubsection-name">
+<h4>Subsubsection name<a class="headerlink" href="#subsubsection-name" title="Permalink to this heading">¶</a></h4>
+</section>
+</section>
+</section>
+<section id="create-paragraphs">
+<h2>Create paragraphs<a class="headerlink" href="#create-paragraphs" title="Permalink to this heading">¶</a></h2>
+<p>To add a paragraph, you have to write its title covered below by quotation marks <code class="docutils literal notranslate"><span class="pre">&quot;</span></code>. For example, you can add this paragraph header:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Paragraph name
+&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+</pre></div>
+</div>
+<p>A paragraph needs to be part of a subsubsection, so the structure is</p>
+</section>
+<section id="id4">
+<h2>Section name<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h2>
+<section id="id5">
+<h3>Subsection name<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h3>
+<section id="id6">
+<h4>Subsubsection name<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h4>
+<section id="paragraph-name">
+<h5>Paragraph name<a class="headerlink" href="#paragraph-name" title="Permalink to this heading">¶</a></h5>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Actually the heading levels are not assigned to any character in particular, but it is recommended to follow the convention established
+in this guide to make our documentation more consistent.</p>
+</div>
+</section>
+</section>
+</section>
+</section>
 </section>
 
 
@@ -195,7 +282,36 @@
           <div class="pytorch-right-menu" id="pytorch-right-menu">
             <div class="pytorch-side-scroll" id="pytorch-side-scroll-right">
               <ul>
-<li><a class="reference internal" href="#">API Reference</a></li>
+<li><a class="reference internal" href="#">Add sections to documentation</a><ul>
+<li><a class="reference internal" href="#pre-requisites">Pre-requisites</a></li>
+<li><a class="reference internal" href="#create-sections">Create sections</a></li>
+<li><a class="reference internal" href="#section-name">Section name</a></li>
+<li><a class="reference internal" href="#create-subsections">Create subsections</a></li>
+<li><a class="reference internal" href="#id1">Section name</a><ul>
+<li><a class="reference internal" href="#subsection-name">Subsection name</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#create-subsubsections">Create subsubsections</a></li>
+<li><a class="reference internal" href="#id2">Section name</a><ul>
+<li><a class="reference internal" href="#id3">Subsection name</a><ul>
+<li><a class="reference internal" href="#subsubsection-name">Subsubsection name</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#create-paragraphs">Create paragraphs</a></li>
+<li><a class="reference internal" href="#id4">Section name</a><ul>
+<li><a class="reference internal" href="#id5">Subsection name</a><ul>
+<li><a class="reference internal" href="#id6">Subsubsection name</a><ul>
+<li><a class="reference internal" href="#paragraph-name">Paragraph name</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
             </div>

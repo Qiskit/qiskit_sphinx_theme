@@ -77,8 +77,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../how_to/index.html">How-to Guides</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">How-to Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../apidocs/index.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../explanations/index.html">Explanations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../release_notes.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/Qiskit/qiskit_sphinx_theme">GitHub</a></li>
@@ -125,13 +125,15 @@
       </li>
 
         
-      <li>API Reference</li>
+          <li><a href="index.html">How-to Guides</a> &gt;</li>
+        
+      <li>Add an explanation</li>
     
     
       <li class="pytorch-breadcrumbs-aside">
         
             
-            <a href="../_sources/apidocs/index.rst.txt" rel="nofollow"><img src="../_static/images/view-page-source-icon.svg"></a>
+            <a href="../_sources/how_to/add_an_explanation.rst.txt" rel="nofollow"><img src="../_static/images/view-page-source-icon.svg"></a>
           
         
       </li>
@@ -150,8 +152,48 @@
             <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
              <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
               
-  <section id="api-reference">
-<h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this heading">¶</a></h1>
+  <section id="add-an-explanation">
+<h1>Add an explanation<a class="headerlink" href="#add-an-explanation" title="Permalink to this heading">¶</a></h1>
+<p>This guide shows how to add an explanation to a Qiskit project repository.</p>
+<section id="pre-requisites">
+<h2>Pre-requisites<a class="headerlink" href="#pre-requisites" title="Permalink to this heading">¶</a></h2>
+<p>This guide assumes your Qiskit project already has a working Sphinx documentation project in a folder called <code class="docutils literal notranslate"><span class="pre">docs</span></code>. If you don’t have it, you can set it up with
+<a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html">sphinx-quickstart</a>.</p>
+<p>Inside your <code class="docutils literal notranslate"><span class="pre">docs</span></code> folder there should be at least a configuration file called <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>, a <code class="docutils literal notranslate"><span class="pre">explanations</span></code> folder with an <code class="docutils literal notranslate"><span class="pre">index.rst</span></code> and in which the explanations will be included.
+This <code class="docutils literal notranslate"><span class="pre">explanations</span></code> folder should also be referenced as part of a <code class="docutils literal notranslate"><span class="pre">toctree</span></code> in another <code class="docutils literal notranslate"><span class="pre">index.rst</span></code>, this time in the <code class="docutils literal notranslate"><span class="pre">docs</span></code> folder instead of the <code class="docutils literal notranslate"><span class="pre">explanations</span></code> one.</p>
+<p>In short, the minimum structure of your documentation should be:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span> docs/
+|--explanations/
+|       |--index.rst
+|--index.rst
+|--conf.py
+</pre></div>
+</div>
+</section>
+<section id="create-a-new-explanation">
+<h2>Create a new explanation<a class="headerlink" href="#create-a-new-explanation" title="Permalink to this heading">¶</a></h2>
+<p>In order to create an explanation, go to the <code class="docutils literal notranslate"><span class="pre">docs/explanations</span></code> folder of your Qiskit project repository and add a new <code class="docutils literal notranslate"><span class="pre">.rst</span></code> file there. In this guide we will assume your explanation is called <code class="docutils literal notranslate"><span class="pre">your_explanation.rst</span></code>.</p>
+</section>
+<section id="update-the-page">
+<h2>Update the page<a class="headerlink" href="#update-the-page" title="Permalink to this heading">¶</a></h2>
+<p>Once you have created and written your file, you need to update the <code class="docutils literal notranslate"><span class="pre">docs/explanations/index.rst</span></code> file so your new explanation appears in the web page.</p>
+<p>In particular, you only need to include your new explanation in a <code class="docutils literal notranslate"><span class="pre">toctree</span></code> like this one:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Section name
+============
+
+.. toctree::
+    :maxdepth: 1
+
+    existing_explanation_1
+    Title of second existing explanation &lt;existing_explanation_2&gt;
+    Title of your explanation &lt;your_explanation&gt;
+</pre></div>
+</div>
+<p>In this example, the title from the first existing explanation (<code class="docutils literal notranslate"><span class="pre">existing_explanation_1.rst</span></code>) is taken directly from it while for <code class="docutils literal notranslate"><span class="pre">existing_explanation_2.rst</span></code> and your new explanation
+the title is set manually.</p>
+<p>It’s important to make sure that the indentation of the items inside the <code class="docutils literal notranslate"><span class="pre">toctree</span></code> is of at least three whitespaces.</p>
+<p>The section name header needs to be covered by equal signs <code class="docutils literal notranslate"><span class="pre">=</span></code> below.</p>
+</section>
 </section>
 
 
@@ -195,7 +237,12 @@
           <div class="pytorch-right-menu" id="pytorch-right-menu">
             <div class="pytorch-side-scroll" id="pytorch-side-scroll-right">
               <ul>
-<li><a class="reference internal" href="#">API Reference</a></li>
+<li><a class="reference internal" href="#">Add an explanation</a><ul>
+<li><a class="reference internal" href="#pre-requisites">Pre-requisites</a></li>
+<li><a class="reference internal" href="#create-a-new-explanation">Create a new explanation</a></li>
+<li><a class="reference internal" href="#update-the-page">Update the page</a></li>
+</ul>
+</li>
 </ul>
 
             </div>

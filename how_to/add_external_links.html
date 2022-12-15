@@ -77,8 +77,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../how_to/index.html">How-to Guides</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">How-to Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../apidocs/index.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../explanations/index.html">Explanations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../release_notes.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/Qiskit/qiskit_sphinx_theme">GitHub</a></li>
@@ -125,13 +125,15 @@
       </li>
 
         
-      <li>API Reference</li>
+          <li><a href="index.html">How-to Guides</a> &gt;</li>
+        
+      <li>Add external links</li>
     
     
       <li class="pytorch-breadcrumbs-aside">
         
             
-            <a href="../_sources/apidocs/index.rst.txt" rel="nofollow"><img src="../_static/images/view-page-source-icon.svg"></a>
+            <a href="../_sources/how_to/add_external_links.rst.txt" rel="nofollow"><img src="../_static/images/view-page-source-icon.svg"></a>
           
         
       </li>
@@ -150,8 +152,29 @@
             <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
              <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
               
-  <section id="api-reference">
-<h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this heading">¶</a></h1>
+  <section id="add-external-links">
+<h1>Add external links<a class="headerlink" href="#add-external-links" title="Permalink to this heading">¶</a></h1>
+<p>This guide shows how to include links to pages outside your documentation.</p>
+<p>There are two types of files</p>
+<section id="rst">
+<h2><code class="docutils literal notranslate"><span class="pre">.rst</span></code><a class="headerlink" href="#rst" title="Permalink to this heading">¶</a></h2>
+<p>In order to link to an external page you have to write <code class="docutils literal notranslate"><span class="pre">`text</span> <span class="pre">of</span> <span class="pre">your</span> <span class="pre">link</span> <span class="pre">&lt;your_url&gt;`_</span></code>. For example, you can link to <a class="reference external" href="https://qiskit.org/">Qiskit’s page</a> by writing:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>`Qiskit&#39;s page &lt;https://qiskit.org/&gt;`_
+</pre></div>
+</div>
+</section>
+<section id="ipynb">
+<h2><code class="docutils literal notranslate"><span class="pre">.ipynb</span></code><a class="headerlink" href="#ipynb" title="Permalink to this heading">¶</a></h2>
+<p>If your file is a Jupyter notebook, what you have to write to link to a page is <code class="docutils literal notranslate"><span class="pre">[text</span> <span class="pre">of</span> <span class="pre">your</span> <span class="pre">link](your_url)</span></code>. If you want to link to <a class="reference external" href="https://qiskit.org/">Qiskit’s page</a> you can write:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[Qiskit&#39;s page](https://qiskit.org/)
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Avoid including backquotes <code class="docutils literal notranslate"><span class="pre">`</span></code> as part of the text of your link. Qiskit’s documentation uses <a class="reference external" href="https://nbsphinx.readthedocs.io/en/0.7.1/index.html">nbsphinx</a> to convert the <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> files to <code class="docutils literal notranslate"><span class="pre">.rst</span></code> and then to <code class="docutils literal notranslate"><span class="pre">HTML</span></code>.
+So, even though the links will work and look fine in a Jupyter notebook, they will not format properly in the actual documentation because <code class="docutils literal notranslate"><span class="pre">.rst</span></code> doesn’t admit the backquotes.</p>
+</div>
+</section>
 </section>
 
 
@@ -195,7 +218,11 @@
           <div class="pytorch-right-menu" id="pytorch-right-menu">
             <div class="pytorch-side-scroll" id="pytorch-side-scroll-right">
               <ul>
-<li><a class="reference internal" href="#">API Reference</a></li>
+<li><a class="reference internal" href="#">Add external links</a><ul>
+<li><a class="reference internal" href="#rst"><code class="docutils literal notranslate"><span class="pre">.rst</span></code></a></li>
+<li><a class="reference internal" href="#ipynb"><code class="docutils literal notranslate"><span class="pre">.ipynb</span></code></a></li>
+</ul>
+</li>
 </ul>
 
             </div>

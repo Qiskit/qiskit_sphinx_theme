@@ -77,8 +77,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../how_to/index.html">How-to Guides</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">How-to Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../apidocs/index.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../explanations/index.html">Explanations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../release_notes.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/Qiskit/qiskit_sphinx_theme">GitHub</a></li>
@@ -125,13 +125,15 @@
       </li>
 
         
-      <li>API Reference</li>
+          <li><a href="index.html">How-to Guides</a> &gt;</li>
+        
+      <li>Write mathematical expressions</li>
     
     
       <li class="pytorch-breadcrumbs-aside">
         
             
-            <a href="../_sources/apidocs/index.rst.txt" rel="nofollow"><img src="../_static/images/view-page-source-icon.svg"></a>
+            <a href="../_sources/how_to/write_mathematical_expressions.rst.txt" rel="nofollow"><img src="../_static/images/view-page-source-icon.svg"></a>
           
         
       </li>
@@ -150,8 +152,33 @@
             <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
              <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
               
-  <section id="api-reference">
-<h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this heading">¶</a></h1>
+  <section id="write-mathematical-expressions">
+<h1>Write mathematical expressions<a class="headerlink" href="#write-mathematical-expressions" title="Permalink to this heading">¶</a></h1>
+<p>This guide shows how to add <span class="math notranslate nohighlight">\(\LaTeX\)</span> expressions to documentation.</p>
+<p>There are two ways to insert mathematical expressions with Sphinx:</p>
+<ul class="simple">
+<li><p>Inside the text (<code class="docutils literal notranslate"><span class="pre">:math:</span></code>).</p></li>
+<li><p>In a separate block (<code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">math::</span></code>).</p></li>
+</ul>
+<section id="mathematical-expressions-inside-the-text">
+<h2>Mathematical expressions inside the text.<a class="headerlink" href="#mathematical-expressions-inside-the-text" title="Permalink to this heading">¶</a></h2>
+<p>If you want to include some formula in a paragraph you can use <code class="docutils literal notranslate"><span class="pre">:math:`your_formula`</span></code>. For example, Euler’s identity states that <span class="math notranslate nohighlight">\(e^{i \pi} + 1 = 0\)</span>. This last sentence was written as:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>For example, Euler&#39;s identity states that :math:`e^{i \pi} + 1 = 0`
+</pre></div>
+</div>
+</section>
+<section id="mathematical-expressions-in-a-separate-block">
+<h2>Mathematical expressions in a separate block<a class="headerlink" href="#mathematical-expressions-in-a-separate-block" title="Permalink to this heading">¶</a></h2>
+<p>If you want your mathematical formulas to be written separately, you can use <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">math::</span></code>. For example, Euler’s formula states that</p>
+<div class="math notranslate nohighlight">
+\[e^{i\theta} = \cos(\theta) + i\; \sin(\theta).\]</div>
+<p>This last expression was written as:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>.. math::
+
+    e^{i\theta} = \cos(\theta) + i\; \sin(\theta).
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -195,7 +222,11 @@
           <div class="pytorch-right-menu" id="pytorch-right-menu">
             <div class="pytorch-side-scroll" id="pytorch-side-scroll-right">
               <ul>
-<li><a class="reference internal" href="#">API Reference</a></li>
+<li><a class="reference internal" href="#">Write mathematical expressions</a><ul>
+<li><a class="reference internal" href="#mathematical-expressions-inside-the-text">Mathematical expressions inside the text.</a></li>
+<li><a class="reference internal" href="#mathematical-expressions-in-a-separate-block">Mathematical expressions in a separate block</a></li>
+</ul>
+</li>
 </ul>
 
             </div>
@@ -215,6 +246,7 @@
       <script src="../_static/thebelab-helper.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
     <script type="text/javascript" src="../_static/js/vendor/popper.min.js"></script>
     <script type="text/javascript" src="../_static/js/vendor/bootstrap.min.js"></script>
