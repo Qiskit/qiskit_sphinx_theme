@@ -75,7 +75,7 @@ something is going wrong.
 5.1 Provide concrete steps
 --------------------------
 
-Describe concrete steps, not abstract concepts, ignore options and alternatives
+Describe concrete steps, not abstract concepts, ignore options and alternatives.
 
 5.2 Use titles or transition sentences to make steps more obvious
 -----------------------------------------------------------------
