@@ -12,7 +12,7 @@ API Reference Guidelines
 1. Try to show as many arguments/options as possible within reason
 ==================================================================
 
-Focus on the arguments that make bigger differences. Among the options of a same argument, show only
+Focus on the arguments that make bigger differences. If there are multiple arguments with similar functionality, show only
 the ones with significant differences. For example, if you are using ``plot_histogram`` and want to
 show different options of the ``sort`` argument, don't pick two that mostly do the same like
 ``value`` and ``value_desc``, pick one of them to show you can sort by probability and a completely
