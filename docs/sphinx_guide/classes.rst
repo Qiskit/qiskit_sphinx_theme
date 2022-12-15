@@ -20,6 +20,13 @@ Classes
 
          A bit too verbose if you ask me.
 
+        This is a Reference. [#f1]_
+
+
+        .. rubric:: Reference:
+
+        .. [#f1] Foo, C & Bar, A. (1970). The Foo-Bar algorithm `arXiv:quant-ph/0505030 <https://arxiv.org/abs/quant-ph/0505030>`_
+
 
     .. rubric:: Methods
 
