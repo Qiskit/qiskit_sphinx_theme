@@ -4,12 +4,6 @@ Create lists
 
 This guide shows how to create a list in your documentation.
 
-Pre-requisites
-==============
-
-This guide assumes your Qiskit project already has a working Sphinx documentation project in a folder called ``docs``. If you don't have it, you can set it up with
-`sphinx-quickstart <https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html>`_.
-
 There are several types of lists:
 
 * unordered lists.

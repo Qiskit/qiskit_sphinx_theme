@@ -12,11 +12,11 @@ This guide assumes your Qiskit project already has a working Sphinx documentatio
 
 There are two ways to have code in your docs:
 
-* As part of the text.
-* In a separate block.
+* Inline code.
+* Code in a separate block.
 
-Code as part of the text
-========================
+Inline code
+===========
 
 If you want to include a snippet of code inside your text, you only need to surround your code with pairs of backquotes, that is,  ````your_code````. So if you want to say that the output of ``2>3`` is ``False``, what you write is:
 
@@ -36,7 +36,8 @@ There are several ways to include code cells in your documentation:
 ``jupyter-execute``
 -------------------
 
-With ``jupyter-execute`` you can include cells that are executed in a Jupyter kernel and show the output of that code in your documentation. The syntax is:
+If you want to run Python code that includes visualization, you can use ``jupyter-execute`` to include cells that are executed in a Jupyter kernel and show the output of that code in your documentation. The syntax is:
+
 
 .. code-block:: text
 
@@ -44,18 +45,7 @@ With ``jupyter-execute`` you can include cells that are executed in a Jupyter ke
 
         your_code
 
-For example, you can run this cell:
-
-.. jupyter-execute::
-
-    from qiskit import QuantumCircuit
-
-    qc = QuantumCircuit(2)
-    qc.h(0)
-    qc.cx(0,1)
-    qc.draw('mpl')
-
-In order to do that, you have to write:
+For example, you can write this:
 
 .. code-block:: text
 
@@ -68,6 +58,23 @@ In order to do that, you have to write:
         qc.cx(0,1)
         qc.draw('mpl')
 
+The output would be this cell:
+
+.. jupyter-execute::
+
+    from qiskit import QuantumCircuit
+
+    qc = QuantumCircuit(2)
+    qc.h(0)
+    qc.cx(0,1)
+    qc.draw('mpl')
+
+
+.. note::
+
+    Even though ``jupyter-execute`` can be used for cells without any visualization, it makes the documentation building process
+    more complex, so it is recommended to use ``doctest`` instead. See `this page <https://github.com/Qiskit/qiskit-terra/issues/7661>`_ for more details.
+
 .. note::
 
     For the ``jupyter-execute`` cells to appear you need to add the extension ``jupyter_sphinx`` to the ``docs/conf.py`` of your repository.
@@ -77,7 +84,13 @@ In order to do that, you have to write:
 ``code-block``
 --------------
 
-If you don't want your code to be executed, you can use ``code-block``, whose syntax is:
+There are some situations in which executing the code is not convenient, such as when:
+
+* The code you are showing is not written in Python but other languages like reStructuredText, YAML, Markdown or Rust.
+* The code requires connecting to a provider.
+* The code takes too long to run.
+
+In those cases, you can use ``code-block``, whose syntax is:
 
 .. code-block:: text
 
@@ -85,13 +98,8 @@ If you don't want your code to be executed, you can use ``code-block``, whose sy
 
         your_code
 
-You can pick as ``language`` any of the short names of the lexers supported by `Pygments <https://pygments.org/docs/lexers/#>`_, like ``python``, ``bash`` or ``text``. For example, you can show this cell:
-
-.. code-block:: bash
-
-    pip install qiskit
-
-In order to do that, you write 
+You can pick as ``language`` any of the short names of the lexers supported by `Pygments <https://pygments.org/docs/lexers/#>`_, like ``python``, ``bash`` or ``text``.
+For example, you can write this:
 
 .. code-block:: text
 
@@ -99,10 +107,18 @@ In order to do that, you write
 
         pip install qiskit
 
+
+And the output will look like this:
+
+.. code-block:: bash
+
+    pip install qiskit
+
+
 ``doctest``
 -----------
 
-If you want to write Python code cells and check if they work as intended, you can use ``doctest``, whose syntax is:
+If you want to write Python code cells that don't include visualizations and check if they work as intended, you can use ``doctest``, whose syntax is:
 
 .. code-block:: text
 
@@ -111,14 +127,8 @@ If you want to write Python code cells and check if they work as intended, you c
         >>> your_code
         expected_output
 
-That way, ``doctest`` runs ``your_code`` and checks whether the output is ``expected_output``. As an example, you can run this cell:
-
-.. doctest::
-
-    >>> print(3+2)
-    5
-
-In order to do that, what you have to write is: 
+That way, ``doctest`` runs ``your_code`` and checks whether the output is ``expected_output``.
+As an example, you can write this:
 
 .. code-block:: text
 
@@ -126,6 +136,13 @@ In order to do that, what you have to write is:
 
         >>> print(3+2)
         5
+
+Then this cell would be run:
+
+.. doctest::
+
+    >>> print(3+2)
+    5
 
 .. note::
 

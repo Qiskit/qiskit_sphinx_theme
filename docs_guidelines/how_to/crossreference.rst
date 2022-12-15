@@ -4,6 +4,13 @@ Crossreference to other pages from documentation
 
 This guide shows how to reference to other pages in the documentation.
 
+.. warning::
+
+    Actual crossreferencing is only possible with ``.rst`` files. If you are trying to crossreference from a Jupyter notebook (``.ipynb``),
+    you are actually linking to an external page, and therefore you should check :doc:`this guide <add_external_links>` instead.
+
+
+
 Pre-requisites
 ==============
 
@@ -25,11 +32,11 @@ Module pages
 ------------
 
 If the page to which you want to link corresponds to a module, you should use ``:mod:`qiskit.module_name```.
-An example of Qiskit module is :mod:`qiskit.circuit` and the link can be written as:
+An example of Qiskit module is :mod:`qiskit.visualization` and the link can be written as:
 
 .. code-block:: text
 
-    :mod:`qiskit.circuit`
+    :mod:`qiskit.visualization`
 
 Function pages
 --------------

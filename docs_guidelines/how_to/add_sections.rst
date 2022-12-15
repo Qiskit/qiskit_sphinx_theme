@@ -90,4 +90,9 @@ Subsubsection name
 Paragraph name
 """""""""""""""
 
+.. note::
+
+    Actually the heading levels are not assigned to any character in particular, but it is recommended to follow the convention established
+    in this guide to make our documentation more consistent.
+
 
