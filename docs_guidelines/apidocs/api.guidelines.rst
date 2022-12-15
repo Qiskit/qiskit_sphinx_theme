@@ -21,7 +21,7 @@ different one like ``hamming``.
 To minimize duplication of content, put common things in the module level api page instead
 of class, method, function level api page. For example, `qiskit-terra#8569
 <https://github.com/Qiskit/qiskit-terra/pull/8569>`_ added common usage explanations and code
-examples to qiskit.visualization module level api page.
+examples to ``qiskit.visualization`` module level API page.
 
 2. Be reasonable with the amount of code examples/cells
 =======================================================
