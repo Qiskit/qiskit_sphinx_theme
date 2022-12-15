@@ -17,7 +17,6 @@ Create documents
 
     Add a tutorial <add_a_tutorial>
     Add a how-to guide <add_a_how-to_guide>
-    Add an API reference <add_an_api_reference>
     Add an explanation <add_an_explanation>
 
 Structure your documents
@@ -34,7 +33,6 @@ Link to other pages
 .. toctree::
     :maxdepth: 1
 
-    Crossreference <crossreference>
     Add external links <add_external_links>
 
 Include technical expressions
@@ -43,5 +41,4 @@ Include technical expressions
 .. toctree::
     :maxdepth: 1
 
-    Include code <add_code>
     Write mathematical expressions <write_mathematical_expressions>
