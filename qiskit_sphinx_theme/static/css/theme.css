@@ -10796,55 +10796,97 @@ article.pytorch-article .class dt > code {
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
-article.pytorch-article .function .viewcode-link, article.pytorch-article .attribute .viewcode-link, article.pytorch-article .class .viewcode-link {
+article.pytorch-article .method .viewcode-link, 
+article.pytorch-article .function .viewcode-link, 
+article.pytorch-article .attribute .viewcode-link, 
+article.pytorch-article .class .viewcode-link {
   font-size: 0.875rem;
   color: #979797;
   letter-spacing: 0;
   line-height: 1.5rem;
   text-transform: uppercase;
 }
-article.pytorch-article .function dd, article.pytorch-article .attribute dd, article.pytorch-article .class .attribute dd, article.pytorch-article .class dd {
+article.pytorch-article .method dd, 
+article.pytorch-article .function dd, 
+article.pytorch-article .attribute dd, 
+article.pytorch-article .class .attribute dd, 
+article.pytorch-article .class dd {
   padding-left: 3.0rem;
 }
-article.pytorch-article .function dd p, article.pytorch-article .attribute dd p, article.pytorch-article .class .attribute dd p, article.pytorch-article .class dd p {
+article.pytorch-article .method dd p,
+article.pytorch-article .function dd p, 
+article.pytorch-article .attribute dd p, 
+article.pytorch-article .class .attribute dd p, 
+article.pytorch-article .class dd p {
   color: #262626;
 }
-article.pytorch-article .function table tbody tr th.field-name, article.pytorch-article .attribute table tbody tr th.field-name, article.pytorch-article .class table tbody tr th.field-name {
+article.pytorch-article .method table tbody tr th.field-name, 
+article.pytorch-article .function table tbody tr th.field-name, 
+article.pytorch-article .attribute table tbody tr th.field-name, 
+article.pytorch-article .class table tbody tr th.field-name {
   white-space: nowrap;
   color: #262626;
   width: 20%;
 }
 @media screen and (min-width: 768px) {
-  article.pytorch-article .function table tbody tr th.field-name, article.pytorch-article .attribute table tbody tr th.field-name, article.pytorch-article .class table tbody tr th.field-name {
+  article.pytorch-article .method table tbody tr th.field-name, 
+  article.pytorch-article .function table tbody tr th.field-name, 
+  article.pytorch-article .attribute table tbody tr th.field-name, 
+  article.pytorch-article .class table tbody tr th.field-name {
     width: 15%;
   }
 }
-article.pytorch-article .function table tbody tr td.field-body, article.pytorch-article .attribute table tbody tr td.field-body, article.pytorch-article .class table tbody tr td.field-body {
+article.pytorch-article .method table tbody tr td.field-body,
+article.pytorch-article .function table tbody tr td.field-body, 
+article.pytorch-article .attribute table tbody tr td.field-body, 
+article.pytorch-article .class table tbody tr td.field-body {
   padding: 0.625rem;
   width: 80%;
   color: #262626;
 }
 @media screen and (min-width: 768px) {
-  article.pytorch-article .function table tbody tr td.field-body, article.pytorch-article .attribute table tbody tr td.field-body, article.pytorch-article .class table tbody tr td.field-body {
+  article.pytorch-article .method table tbody tr td.field-body, 
+  article.pytorch-article .function table tbody tr td.field-body, 
+  article.pytorch-article .attribute table tbody tr td.field-body, 
+  article.pytorch-article .class table tbody tr td.field-body {
     width: 85%;
   }
 }
 @media screen and (min-width: 1600px) {
-  article.pytorch-article .function table tbody tr td.field-body, article.pytorch-article .attribute table tbody tr td.field-body, article.pytorch-article .class table tbody tr td.field-body {
+  article.pytorch-article .method table tbody tr td.field-body,
+  article.pytorch-article .function table tbody tr td.field-body, 
+  article.pytorch-article .attribute table tbody tr td.field-body, 
+  article.pytorch-article .class table tbody tr td.field-body {
     padding-left: 1.25rem;
   }
 }
-article.pytorch-article .function table tbody tr td.field-body p, article.pytorch-article .attribute table tbody tr td.field-body p, article.pytorch-article .class table tbody tr td.field-body p {
+article.pytorch-article .method table tbody tr td.field-body p, 
+article.pytorch-article .function table tbody tr td.field-body p, 
+article.pytorch-article .attribute table tbody tr td.field-body p, 
+article.pytorch-article .class table tbody tr td.field-body p {
   padding-left: 0px;
 }
-article.pytorch-article .function table tbody tr td.field-body p:last-of-type, article.pytorch-article .attribute table tbody tr td.field-body p:last-of-type, article.pytorch-article .class table tbody tr td.field-body p:last-of-type {
+article.pytorch-article .method table tbody tr td.field-body p:last-of-type, 
+article.pytorch-article .function table tbody tr td.field-body p:last-of-type, 
+article.pytorch-article .attribute table tbody tr td.field-body p:last-of-type, 
+article.pytorch-article .class table tbody tr td.field-body p:last-of-type {
   margin-bottom: 0;
 }
-article.pytorch-article .function table tbody tr td.field-body ol, article.pytorch-article .attribute table tbody tr td.field-body ol, article.pytorch-article .class table tbody tr td.field-body ol, article.pytorch-article .function table tbody tr td.field-body ul, article.pytorch-article .attribute table tbody tr td.field-body ul, article.pytorch-article .class table tbody tr td.field-body ul {
+article.pytorch-article .method table tbody tr td.field-body ol, 
+article.pytorch-article .function table tbody tr td.field-body ol, 
+article.pytorch-article .attribute table tbody tr td.field-body ol, 
+article.pytorch-article .class table tbody tr td.field-body ol, 
+article.pytorch-article .method table tbody tr td.field-body ul,
+article.pytorch-article .function table tbody tr td.field-body ul, 
+article.pytorch-article .attribute table tbody tr td.field-body ul, 
+article.pytorch-article .class table tbody tr td.field-body ul {
   padding-left: 1rem;
   padding-bottom: 0;
 }
-article.pytorch-article .function table.docutils.field-list, article.pytorch-article .attribute table.docutils.field-list, article.pytorch-article .class table.docutils.field-list {
+article.pytorch-article .method table.docutils.field-list,
+article.pytorch-article .function table.docutils.field-list, 
+article.pytorch-article .attribute table.docutils.field-list, 
+article.pytorch-article .class table.docutils.field-list {
   margin-bottom: 0.75rem;
 }
 article.pytorch-article .attribute .has-code {
