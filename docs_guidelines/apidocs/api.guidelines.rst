@@ -34,8 +34,9 @@ how some of the default values work. Avoid adding more than 3 code cells.
 ==============================================================================
 
 The priority should always be showing the object/function itself, not the many ways of obtaining
-the input. So try to stick to the simplest way to show the desired functionality. If a more
-complicated input is useful to show some functionality, like creating a state with many different
+the input. So try to stick to the simplest way to show the desired functionality. 
+
+If a more complicated input is useful to show some functionality, like creating a state with many different
 amplitudes to show the different square sizes for a hinton diagram, do it but in the simplest way
 possible (the fewest possible gates, use relatively common gates, avoid extra imports like numpy).
 
