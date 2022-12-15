@@ -105,6 +105,6 @@ everything they're doing and why they are doing it in the first place. No more n
 ---------------------------
 
 Link to further explanatory material if and only if it's really needed. Try not to add too
-many links. Because they will interrupt the flow of a tutorial by digressing into explanation.
+many links because they will interrupt the flow of a tutorial by digressing into explanation.
     
     "We must always do x before we do y because… (see Explanation for more details).
