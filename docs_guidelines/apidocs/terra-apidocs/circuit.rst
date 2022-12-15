@@ -1,5 +1,5 @@
-QuantumCircuit
-==============
+qiskit.circuit.QuantumCircuit
+=============================
 
 .. currentmodule:: qiskit.circuit
 
