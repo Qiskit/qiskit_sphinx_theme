@@ -1,6 +1,7 @@
 name: Build and Test Docs Guide
 on:
   pull_request:
+    branches: ["feature/docs-guidelines"]
 
 permissions:
   contents: write
