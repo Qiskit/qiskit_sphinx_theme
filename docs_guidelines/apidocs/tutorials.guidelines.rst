@@ -65,8 +65,8 @@ be a print statement showing a variable, a plot, etc.
 4.2 Each step should be brief
 -----------------------------
 Ideally each step should not take longer than a minute. If it is longer than that, please consider
-ways to show intermediate results of the step, otherwise users do not start worrying about
-somethings are going wrong.
+ways to show intermediate results of the step, or at least make them aware that it takes a while, otherwise users will start worrying that
+something is going wrong.
 
 
 5. Don't try to teach
