@@ -41,5 +41,4 @@ Include technical expressions
 .. toctree::
     :maxdepth: 1
 
-    ..Include code <add_code>
     Write mathematical expressions <write_mathematical_expressions>
