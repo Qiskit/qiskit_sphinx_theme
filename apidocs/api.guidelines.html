@@ -127,13 +127,15 @@
         
           <li><a href="index.html">API Reference</a> &gt;</li>
         
-      <li>How-to Guides</li>
+          <li><a href="api.html">API Reference</a> &gt;</li>
+        
+      <li>API Reference Guidelines</li>
     
     
       <li class="pytorch-breadcrumbs-aside">
         
             
-            <a href="../_sources/apidocs/how_to.rst.txt" rel="nofollow"><img src="../_static/images/view-page-source-icon.svg"></a>
+            <a href="../_sources/apidocs/api.guidelines.rst.txt" rel="nofollow"><img src="../_static/images/view-page-source-icon.svg"></a>
           
         
       </li>
@@ -152,25 +154,55 @@
             <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
              <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
               
-  <section id="how-to-guides">
-<h1>How-to Guides<a class="headerlink" href="#how-to-guides" title="Permalink to this heading">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="how_to.guidelines.html">How-to Guides Guidelines</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="how_to.guidelines.html#start-explaining-in-one-line-what-the-user-is-going-to-learn">1. Start explaining in one line what the user is going to learn</a></li>
-<li class="toctree-l2"><a class="reference internal" href="how_to.guidelines.html#focus-on-the-actions">2. Focus on the actions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="how_to.guidelines.html#provide-options">3. Provide options</a></li>
-<li class="toctree-l2"><a class="reference internal" href="how_to.guidelines.html#avoid-explaining-all-the-arguments-details-from-each-option">4. Avoid explaining all the arguments/details from each option</a></li>
-<li class="toctree-l2"><a class="reference internal" href="how_to.guidelines.html#remember-that-how-to-guides-are-task-oriented-not-qiskit-oriented">5. Remember that how-to guides are task oriented, not Qiskit-oriented</a></li>
-<li class="toctree-l2"><a class="reference internal" href="how_to.guidelines.html#use-you-instead-of-we">6. Use “you” instead of “we”.</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="how_to.examples.html">How-to Guides Examples</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="how_to.examples.html#qiskit-ibm-runtime">Qiskit IBM Runtime</a></li>
-</ul>
-</li>
-</ul>
+  <section id="api-reference-guidelines">
+<h1>API Reference Guidelines<a class="headerlink" href="#api-reference-guidelines" title="Permalink to this heading">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We are mainly using <code class="docutils literal notranslate"><span class="pre">jupyter-execute</span></code> directive for including code examples. We will investigate
+using <code class="docutils literal notranslate"><span class="pre">doctest</span></code> to replace <code class="docutils literal notranslate"><span class="pre">jupyter-execute</span></code> in the future wherever it’s possible to reduce
+doc building process complexity. See
+<a class="reference external" href="https://github.com/Qiskit/qiskit-terra/issues/7661">qiskit-terra#7661</a> for discussions.</p>
 </div>
+<section id="try-to-show-as-many-arguments-options-as-possible-within-reason">
+<h2>1. Try to show as many arguments/options as possible within reason<a class="headerlink" href="#try-to-show-as-many-arguments-options-as-possible-within-reason" title="Permalink to this heading">¶</a></h2>
+<p>Focus on the arguments that make bigger differences. If there are multiple arguments with similar functionality, show only
+the ones with significant differences. For example, if you are using <code class="docutils literal notranslate"><span class="pre">plot_histogram</span></code> and want to
+show different options of the <code class="docutils literal notranslate"><span class="pre">sort</span></code> argument, don’t pick two that mostly do the same like
+<code class="docutils literal notranslate"><span class="pre">value</span></code> and <code class="docutils literal notranslate"><span class="pre">value_desc</span></code>, pick one of them to show you can sort by probability and a completely
+different one like <code class="docutils literal notranslate"><span class="pre">hamming</span></code>.</p>
+<p>To minimize duplication of content, put common things in the module level api page instead
+of class, method, function level api page. For example, <a class="reference external" href="https://github.com/Qiskit/qiskit-terra/pull/8569">qiskit-terra#8569</a> added common usage explanations and code
+examples to <code class="docutils literal notranslate"><span class="pre">qiskit.visualization</span></code> module level API page.</p>
+</section>
+<section id="be-reasonable-with-the-amount-of-code-examples-cells">
+<h2>2. Be reasonable with the amount of code examples/cells<a class="headerlink" href="#be-reasonable-with-the-amount-of-code-examples-cells" title="Permalink to this heading">¶</a></h2>
+<p>If there are more than 4 arguments that make significant changes, it can be better to distribute
+them evenly between 2 examples. That way you avoid having an overloaded example and a user can see
+how some of the default values work.</p>
+<p>Avoid adding more than 3 code cells.</p>
+</section>
+<section id="don-t-over-complicate-nor-oversimplify-the-steps-to-get-the-input-arguments">
+<h2>3. Don’t over complicate nor oversimplify the steps to get the input arguments<a class="headerlink" href="#don-t-over-complicate-nor-oversimplify-the-steps-to-get-the-input-arguments" title="Permalink to this heading">¶</a></h2>
+<p>The priority should always be showing the object/function itself, not the many ways of obtaining
+the input. So try to stick to the simplest way to show the desired functionality.</p>
+<p>If a more complicated input is useful to show some functionality, like creating a state with many different
+amplitudes to show the different square sizes for a hinton diagram, do it but in the simplest way
+possible (the fewest possible gates, use relatively common gates, avoid extra imports like numpy).</p>
+<p>On the other side, make sure you are showing the full functionality.</p>
+</section>
+<section id="import-only-what-s-strictly-needed-when-needed">
+<h2>4. Import only what’s strictly needed when needed<a class="headerlink" href="#import-only-what-s-strictly-needed-when-needed" title="Permalink to this heading">¶</a></h2>
+<p>If you have more than one example, don’t repeat the imports from the former examples. Only add the
+ones that don’t appear there. That’s because these cells are all in one Jupyter kernel session. It will make code
+examples look cleaner. And if users want to use only one of the examples, they just need to copy all
+the imports from previous cells.</p>
+</section>
+<section id="make-all-the-different-examples-self-contained-except-for-the-imports">
+<h2>5. Make all the different examples self-contained (except for the imports)<a class="headerlink" href="#make-all-the-different-examples-self-contained-except-for-the-imports" title="Permalink to this heading">¶</a></h2>
+<p>Don’t reuse variables like backends even if they are the same in more than one example. That way a
+user can directly copy and paste the desired example without having to look carefully into the
+variables of the rest.</p>
+</section>
 </section>
 
 
@@ -214,7 +246,14 @@
           <div class="pytorch-right-menu" id="pytorch-right-menu">
             <div class="pytorch-side-scroll" id="pytorch-side-scroll-right">
               <ul>
-<li><a class="reference internal" href="#">How-to Guides</a></li>
+<li><a class="reference internal" href="#">API Reference Guidelines</a><ul>
+<li><a class="reference internal" href="#try-to-show-as-many-arguments-options-as-possible-within-reason">1. Try to show as many arguments/options as possible within reason</a></li>
+<li><a class="reference internal" href="#be-reasonable-with-the-amount-of-code-examples-cells">2. Be reasonable with the amount of code examples/cells</a></li>
+<li><a class="reference internal" href="#don-t-over-complicate-nor-oversimplify-the-steps-to-get-the-input-arguments">3. Don’t over complicate nor oversimplify the steps to get the input arguments</a></li>
+<li><a class="reference internal" href="#import-only-what-s-strictly-needed-when-needed">4. Import only what’s strictly needed when needed</a></li>
+<li><a class="reference internal" href="#make-all-the-different-examples-self-contained-except-for-the-imports">5. Make all the different examples self-contained (except for the imports)</a></li>
+</ul>
+</li>
 </ul>
 
             </div>
