@@ -3,7 +3,9 @@ API Reference
 #############
 
 .. toctree::
-    :hidden:
-
-    circuit <terra-apidocs/circuit>
-    visualization <terra-apidocs/visualization>
+   :maxdepth: 2
+    
+   tutorials
+   how_to
+   api
+   explanation
