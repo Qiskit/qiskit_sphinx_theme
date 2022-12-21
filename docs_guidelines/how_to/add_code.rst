@@ -33,8 +33,8 @@ There are several ways to include code cells in your documentation:
 * Non-executable cells with ``code-block``.
 * Testable code cells with ``doctest``.
 
-``jupyter-execute``
--------------------
+Executable cells
+-----------------
 
 If you want to run Python code that includes visualization, you can use ``jupyter-execute`` to include cells that are executed in a Jupyter kernel and show the output of that code in your documentation. The syntax is:
 
@@ -81,8 +81,8 @@ The output would be this cell:
 
 
 
-``code-block``
---------------
+Non-executable cells
+--------------------
 
 There are some situations in which executing the code is not convenient, such as when:
 
@@ -103,22 +103,40 @@ For example, you can write this:
 
 .. code-block:: text
 
-    .. code-block:: bash
+    .. code-block:: python
 
-        pip install qiskit
+        from qiskit import QuantumCircuit
+
+        qc = QuantumCircuit(1)
+        qc.x(0)
 
 
 And the output will look like this:
 
-.. code-block:: bash
+.. code-block:: python
 
-    pip install qiskit
+    from qiskit import QuantumCircuit
 
+    qc = QuantumCircuit(1)
+    qc.x(0)
+
+
+Testable cells
+--------------
+
+If you want to write Python code cells that don't include visualizations and check if they work as intended, you have two different options:
+
+* `doctest <https://www.sphinx-doc.org/en/master/usage/extensions/doctest.html#directive-doctest>`_.
+* `testcode <https://www.sphinx-doc.org/en/master/usage/extensions/doctest.html#directive-testcode>`_ and `testoutput <https://www.sphinx-doc.org/en/master/usage/extensions/doctest.html#directive-testoutput>`_.
+
+.. note::
+
+    For the ``doctest``, ``testcode`` and ``testoutput`` cells to appear you need to add the extension ``sphinx.ext.doctest`` to the ``conf.py`` of your repository.
 
 ``doctest``
------------
+^^^^^^^^^^^^
 
-If you want to write Python code cells that don't include visualizations and check if they work as intended, you can use ``doctest``, whose syntax is:
+If you want both input and output in the same code cell, you can use ``doctest``, whose syntax is:
 
 .. code-block:: text
 
@@ -144,6 +162,128 @@ Then this cell would be run:
     >>> print(3+2)
     5
 
-.. note::
+``testcode`` and ``testoutput``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    For the ``doctest`` cells to appear you need to add the extension ``sphinx.ext.doctest`` to the ``conf.py`` of your repository.
+If you prefer to keep the code to test from the expected output, you can put the former in a ``testcode`` cell and the latter in a ``testoutput`` cell.
+The syntax would then be:
+
+.. code-block:: text
+
+    .. testcode::
+    
+        your_code
+    
+    .. testoutput::
+    
+        expected_output
+
+
+For example, if you run this:
+
+.. code-block:: text
+
+    .. testcode::
+
+        print(3+2)
+
+    .. testoutput::
+
+        5
+
+The output is then:
+
+.. testcode::
+
+    print(3+2)
+
+.. testoutput::
+
+    5
+
+
+Run the tests
+^^^^^^^^^^^^^^
+
+In order to run the tests, you can use `sphinx-build <https://www.sphinx-doc.org/en/master/man/sphinx-build.html>` by setting the builder (``-b``)
+to ``doctest``:
+
+.. code-block:: bash
+
+    sphinx-build -b doctest your_files output_file_path
+
+For example, to run the tests from the ``docs_guidelines`` folder and put the ``output.txt`` file in ``docs_guidelines/_build`` you can run:
+
+.. code-block:: bash
+
+    sphinx-build -b doctest docs_guidelines docs_guidelines/_build
+
+And the output will be:
+
+.. code-block:: text
+
+    Document: how_to/add_code
+    -------------------------
+    1 items passed all tests:
+       2 tests in default
+    2 tests in 1 items.
+    2 passed and 0 failed.
+    Test passed.
+
+    Doctest summary
+    ===============
+        2 tests
+        0 failures in tests
+        0 failures in setup code
+        0 failures in cleanup code
+    build succeeded.
+
+    Testing of doctests in the sources finished, look at the results in docs_guidelines/_build/output.txt.
+
+Add setup cells
+^^^^^^^^^^^^^^^
+
+For both ``doctest`` and ``testcode`` - ``testoutput`` you can also add a cell that is executed before the test but not shown. This can be useful
+for example, to import a package or define a function that will be used for one or more tests.
+
+The general syntax is:
+
+.. code-block:: text
+
+    .. testsetup::
+    
+        setup_code
+    
+    .. testcode::
+    
+        your_code
+    
+    .. testoutput::
+    
+        expected_output
+
+For example, you can run this:
+
+.. code-block:: text
+
+    .. testsetup::
+
+        def hello():
+            print("Hello")
+
+    .. doctest::
+
+        >>> hello()
+        "Hello"
+
+And the result is:
+
+.. testsetup::
+
+    def hello():
+        print("Hello")
+
+.. doctest::
+    
+    >>> hello()
+    Hello
