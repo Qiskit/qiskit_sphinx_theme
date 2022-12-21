@@ -29,8 +29,5 @@ html_theme = 'qiskit_sphinx_theme'
 # -- Intersphinx configuration ------------------------------------------------
 
 intersphinx_mapping = {
-    "python": ("https://docs.python.org/3", None),
-    "numpy": ("https://numpy.org/doc/stable/", None),
-    "scipy": ("https://docs.scipy.org/doc/scipy/", None),
     "qiskit": ("https://qiskit.org/documentation/", None),
 }
