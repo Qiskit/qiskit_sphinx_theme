@@ -8,7 +8,7 @@ Pre-requisites
 ==============
 
 This guide assumes your Qiskit project already has a working Sphinx documentation project in a folder called ``docs``. If you don't have it, you can set it up with
-`sphinx-quickstart <https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html>`_.
+:doc:`sphinx-quickstart <sphinx:man/sphinx-quickstart>`.
 
 There are two ways to have code in your docs:
 
@@ -126,17 +126,17 @@ Testable cells
 
 If you want to write Python code cells that don't include visualizations and check if they work as intended, you have two different options:
 
-* `doctest <https://www.sphinx-doc.org/en/master/usage/extensions/doctest.html#directive-doctest>`_.
-* `testcode <https://www.sphinx-doc.org/en/master/usage/extensions/doctest.html#directive-testcode>`_ and `testoutput <https://www.sphinx-doc.org/en/master/usage/extensions/doctest.html#directive-testoutput>`_.
+* :rst:dir:`sphinx:doctest`
+* :rst:dir:`sphinx:testcode` and :rst:dir:`sphinx:testoutput`
 
 .. note::
 
-    For the ``doctest``, ``testcode`` and ``testoutput`` cells to appear you need to add the extension ``sphinx.ext.doctest`` to the ``conf.py`` of your repository.
+    For the :rst:dir:`sphinx:doctest`, :rst:dir:`sphinx:testcode` and :rst:dir:`sphinx:testoutput` cells to appear you need to add the extension ``sphinx.ext.doctest`` to the ``conf.py`` of your repository.
 
-``doctest``
-^^^^^^^^^^^^
+:rst:dir:`sphinx:doctest`
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you want both input and output in the same code cell, you can use ``doctest``, whose syntax is:
+If you want both input and output in the same code cell, you can use :rst:dir:`sphinx:doctest`, whose syntax is:
 
 .. code-block:: text
 
@@ -145,7 +145,7 @@ If you want both input and output in the same code cell, you can use ``doctest``
         >>> your_code
         expected_output
 
-That way, ``doctest`` runs ``your_code`` and checks whether the output is ``expected_output``.
+That way, :rst:dir:`sphinx:doctest` runs ``your_code`` and checks whether the output is ``expected_output``.
 As an example, you can write this:
 
 .. code-block:: text
@@ -162,10 +162,10 @@ Then this cell would be run:
     >>> print(3+2)
     5
 
-``testcode`` and ``testoutput``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:rst:dir:`sphinx:testcode` and :rst:dir:`sphinx:testoutput`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you prefer to keep the code to test from the expected output, you can put the former in a ``testcode`` cell and the latter in a ``testoutput`` cell.
+If you prefer to keep the code to test from the expected output, you can put the former in a :rst:dir:`sphinx:testcode` cell and the latter in a :rst:dir:`sphinx:testoutput` cell.
 The syntax would then be:
 
 .. code-block:: text
@@ -205,7 +205,7 @@ The output is then:
 Run the tests
 ^^^^^^^^^^^^^^
 
-In order to run the tests, you can use `sphinx-build <https://www.sphinx-doc.org/en/master/man/sphinx-build.html>` by setting the builder (``-b``)
+In order to run the tests, you can use :doc:`sphinx-build <sphinx:man/sphinx-build>` by setting the builder (``-b``)
 to ``doctest``:
 
 .. code-block:: bash
@@ -243,7 +243,7 @@ And the output will be:
 Add setup cells
 ^^^^^^^^^^^^^^^
 
-For both ``doctest`` and ``testcode`` - ``testoutput`` you can also add a cell that is executed before the test but not shown. This can be useful
+For both :rst:dir:`sphinx:doctest` and :rst:dir:`sphinx:testcode` - :rst:dir:`sphinx:testoutput` you can also add a cell that is executed before the test but not shown. This :rst:dir:`sphinx:testsetup` cell can be useful,
 for example, to import a package or define a function that will be used for one or more tests.
 
 The general syntax is:

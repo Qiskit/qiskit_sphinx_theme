@@ -30,4 +30,5 @@ html_theme = 'qiskit_sphinx_theme'
 
 intersphinx_mapping = {
     "qiskit": ("https://qiskit.org/documentation/", None),
+    "sphinx": ("https://www.sphinx-doc.org/en/master/", None)
 }
