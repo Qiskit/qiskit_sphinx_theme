@@ -1,2 +1,3 @@
 qiskit-terra
 pylatexenc
+sphinx_toolbox

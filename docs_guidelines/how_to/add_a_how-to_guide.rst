@@ -8,7 +8,7 @@ Pre-requisites
 ==============
 
 This guide assumes your Qiskit project already has a working Sphinx documentation project in a folder called ``docs``. If you don't have it, you can set it up with
-`sphinx-quickstart <https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html>`_.
+:doc:`sphinx-quickstart <sphinx:man/sphinx-quickstart>`.
 
 Inside your ``docs`` folder there should be at least a configuration file called ``conf.py``, a ``how_to`` folder with an ``index.rst`` and in which the guides will be included.
 This ``how_to`` folder should also be referenced as part of a ``toctree`` in another ``index.rst``, this time in the ``docs`` folder instead of the ``how_to`` one.
