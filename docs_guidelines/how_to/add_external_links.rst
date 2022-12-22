@@ -17,8 +17,8 @@ In order to link to an external page you have to write ```text of your link <you
 
 .. note::
 
-    You can also use :mod:`sphinx:sphinx.ext.intersphinx` to link to pages from other project's documentation using the crossreference syntax.
-    For more information about crossreferencing and using :mod:`sphinx:sphinx.ext.intersphinx`, check :doc:`this guide <crossreference>`.
+    You can also use :mod:`intersphinx <sphinx:sphinx.ext.intersphinx>` to link to pages from other project's documentation using the crossreference syntax.
+    For more information about crossreferencing and using :mod:`intersphinx <sphinx:sphinx.ext.intersphinx>`, check :doc:`this guide <crossreference>`.
 
 ``.ipynb``
 ===========

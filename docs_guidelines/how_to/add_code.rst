@@ -30,8 +30,8 @@ Code blocks
 There are several ways to include code cells in your documentation:
 
 * Executable cells with ``jupyter-execute``.
-* Non-executable cells with ``code-block``.
-* Testable code cells with ``doctest``.
+* Non-executable cells with :rst:dir:`sphinx:code-block`.
+* Testable code cells with :mod:`doctest <sphinx.ext.doctest>`.
 
 Executable cells
 -----------------
@@ -73,11 +73,11 @@ The output would be this cell:
 .. note::
 
     Even though ``jupyter-execute`` can be used for cells without any visualization, it makes the documentation building process
-    more complex, so it is recommended to use ``doctest`` instead. See `this page <https://github.com/Qiskit/qiskit-terra/issues/7661>`_ for more details.
+    more complex, so it is recommended to use :mod:`doctest <sphinx.ext.doctest>` instead. See `this page <https://github.com/Qiskit/qiskit-terra/issues/7661>`_ for more details.
 
 .. note::
 
-    For the ``jupyter-execute`` cells to appear you need to add the extension ``jupyter_sphinx`` to the ``docs/conf.py`` of your repository.
+    For the ``jupyter-execute`` cells to appear you need to add ``jupyter_sphinx`` to the :confval:`sphinx:extensions` variable in the ``docs/conf.py`` of your repository.
 
 
 
@@ -90,7 +90,7 @@ There are some situations in which executing the code is not convenient, such as
 * The code requires connecting to a provider.
 * The code takes too long to run.
 
-In those cases, you can use ``code-block``, whose syntax is:
+In those cases, you can use :rst:dir:`sphinx:code-block`, whose syntax is:
 
 .. code-block:: text
 

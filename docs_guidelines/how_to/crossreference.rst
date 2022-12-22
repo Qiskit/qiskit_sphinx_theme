@@ -15,7 +15,7 @@ Pre-requisites
 ==============
 
 This guide assumes your Qiskit project already has a working Sphinx documentation project in a folder called ``docs``. If you don't have it, you can set it up with
-`sphinx-quickstart <https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html>`_.
+:doc:`sphinx-quickstart <sphinx:man/sphinx-quickstart>`.
 
 Add the links
 =============
@@ -134,3 +134,9 @@ Shorten the reference
 =====================
 
 It's not always necessary to specify the full name of your object when writing the reference. For example, you can write ``:class:`.QuantumCircuit``` instead of ``:class:`qiskit.circuit.QuantumCircuit``` to link to :class:`.QuantumCircuit` if no other class from any module is called ``QuantumCircuit``. If there is another class with the same name, you will get a warning from Sphinx.
+You can also set any title you want for your links by using the following syntax: ``:role:`title <name>```. For example, you can add
+:class:`this link <qiskit.circuit.QuantumCircuit>` by writing:
+
+.. code-block:: text
+
+    :class:`this link <qiskit.circuit.QuantumCircuit>`

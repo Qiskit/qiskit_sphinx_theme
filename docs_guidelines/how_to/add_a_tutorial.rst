@@ -11,7 +11,7 @@ This guide assumes your Qiskit project already has a working Sphinx documentatio
 :doc:`sphinx-quickstart <sphinx:man/sphinx-quickstart>`.
 
 Inside your ``docs`` folder there should be at least a configuration file called ``conf.py``, a ``tutorials`` folder with an ``index.rst`` and in which the tutorials will be included.
-This ``tutorials`` folder should also be referenced as part of a ``toctree`` in another ``index.rst``, this time in the ``docs`` folder instead of the ``tutorials`` one.
+This ``tutorials`` folder should also be referenced as part of a :rst:dir:`sphinx:toctree` in another ``index.rst``, this time in the ``docs`` folder instead of the ``tutorials`` one.
 
 In short, the minimum structure of your documentation should be:
 
@@ -32,7 +32,7 @@ In order to create a tutorial, go to the  ``docs/tutorials`` folder of your Qisk
 
 .. note::
 
-    If the tutorial is an ``ipynb`` file, ``nbsphinx`` needs to be included in the ``extensions`` variable of ``docs/conf.py`` to convert the ``ipynb`` file into an ``rst`` file during the documentation building process.
+    If the tutorial is an ``ipynb`` file, ``nbsphinx`` needs to be included in the :confval:`sphinx:extensions` variable of ``docs/conf.py`` to convert the ``ipynb`` file into an ``rst`` file during the documentation building process.
 
 
 Update the page
@@ -43,7 +43,7 @@ Once you have created and written your file, you need to update the ``docs/tutor
 ``.rst``
 ---------
 
-If your tutorial is an ``.rst`` file, add it to a ``toctree`` like this one:
+If your tutorial is an ``.rst`` file, add it to a :rst:dir:`sphinx:toctree` like this one:
 
 .. code-block:: text
 
@@ -60,7 +60,7 @@ If your tutorial is an ``.rst`` file, add it to a ``toctree`` like this one:
 In this example, the title from the first existing tutorial (``existing_tutorial_1.rst``) is taken directly from it while for ``existing_tutorial_2.rst`` and your new tutorial
 the title is set manually.
 
-It's important to make sure that the indentation of the items inside the ``toctree`` is of at least three whitespaces.
+It's important to make sure that the indentation of the items inside the :rst:dir:`sphinx:toctree` is of at least three whitespaces.
 
 The section name header needs to be covered by equal signs ``=`` below.
 
@@ -82,5 +82,5 @@ If your tutorial is an ``.ipynb`` file, add it to a ``nbgallery`` like this one:
         Title of second existing tutorial <existing_tutorial_2>
         Title of your tutorial <your_tutorial>
 
-The ``nbgallery`` directive has the same arguments as ``toctree``, so the only difference between this case and the ``.rst`` one is
+The ``nbgallery`` directive has the same arguments as :rst:dir:`sphinx:toctree`, so the only difference between this case and the ``.rst`` one is
 writing the name of the directive.
