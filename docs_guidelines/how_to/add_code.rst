@@ -199,7 +199,7 @@ The output is then:
 
 .. testoutput::
 
-    5
+    10
 
 
 Run the tests
