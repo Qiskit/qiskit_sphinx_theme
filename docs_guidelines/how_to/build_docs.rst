@@ -8,7 +8,7 @@ Pre-requisites
 ==============
 
 This guide assumes your Qiskit project already has a working Sphinx documentation project in a folder called ``docs``. If you don't have it, you can set it up with
-`sphinx-quickstart <https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html>`_.
+:doc:`sphinx-quickstart <sphinx:man/sphinx-quickstart>`.
 
 Install package and dependencies
 ================================
@@ -53,7 +53,7 @@ You can install them with `apt-get install <https://linux.die.net/man/8/apt-get>
 Build the documentation
 =======================
 
-Once you have installed every needed package in your virtual environment, you can build the documentation with `sphinx-build <https://www.sphinx-doc.org/en/master/man/sphinx-build.html>`_ the following way:
+Once you have installed every needed package in your virtual environment, you can build the documentation with :doc:`sphinx-build <sphinx:man/sphinx-build>` the following way:
 
 .. code-block:: bash
 
