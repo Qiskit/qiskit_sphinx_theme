@@ -75,7 +75,6 @@ If you want to link to an attribute page, you should use ``:attr:`your_attribute
 
     :attr:`qiskit.circuit.QuantumCircuit.parameters`
 
-=======
 
 Pages from other documentation projects
 ---------------------------------------
@@ -120,6 +119,8 @@ For example, to link to :class:`qiskit.circuit.QuantumCircuit` you can write bot
     Strictly speaking, what you are doing with :mod:`~sphinx.ext.intersphinx` is linking to external pages but with the crossreference syntax.
     For more information about linking to external pages, check :doc:`this guide <add_external_links>`.
 
+
+
 Shorten the links
 =================
 
@@ -139,4 +140,3 @@ You can also set any title you want for your links by using the following syntax
 .. code-block:: text
 
     :class:`this link <qiskit.circuit.QuantumCircuit>`
-
