@@ -160,14 +160,14 @@
 <p>In order to create an API reference, you need to find the function or class for which you want to include the reference in the <code class="docutils literal notranslate"><span class="pre">qiskit_x</span></code> folder of your repository <code class="docutils literal notranslate"><span class="pre">qiskit-x</span></code>.
 Then you have to create a docstring like those ones.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">YourClass</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;This is the API reference for</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;This is the API reference for</span>
 <span class="sd">    YourClass.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">():</span>
     <span class="o">...</span>
 
 <span class="k">def</span> <span class="nf">your_func</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;This is the reference</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;This is the reference</span>
 <span class="sd">    for your_func.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="o">...</span>
@@ -176,7 +176,7 @@ Then you have to create a docstring like those ones.</p>
 </section>
 <section id="update-the-page">
 <h2>Update the page<a class="headerlink" href="#update-the-page" title="Permalink to this heading">¶</a></h2>
-<p>In order to update the page you need to add your class or function to the <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> of the module(s) in which it’s included. This can be done by adding the name to a <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-toctree" title="(in Sphinx v6.0.0b3)"><code class="docutils literal notranslate"><span class="pre">toctree</span></code></a> like this one:</p>
+<p>In order to update the page you need to add your class or function to the <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> of the module(s) in which it’s included. This can be done by adding the name to a <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-toctree" title="(in Sphinx v6.2.0)"><code class="docutils literal notranslate"><span class="pre">toctree</span></code></a> like this one:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">autosummary</span><span class="p">::</span>
     <span class="p">:</span><span class="n">toctree</span><span class="p">:</span> <span class="o">../</span><span class="n">stubs</span><span class="o">/</span>
     <span class="n">YourClass</span>

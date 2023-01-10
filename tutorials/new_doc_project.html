@@ -166,7 +166,7 @@ the Qiskit standard and make sure Qiskit’s Sphinx HTML theme, the <code class=
 <section id="install-the-qiskit-sphinx-theme">
 <h2>Install the <code class="docutils literal notranslate"><span class="pre">qiskit_sphinx_theme</span></code><a class="headerlink" href="#install-the-qiskit-sphinx-theme" title="Permalink to this heading">¶</a></h2>
 <p>In order to use use the <code class="docutils literal notranslate"><span class="pre">qiskit_sphinx_theme</span></code> you need to first install it. You can do that with <code class="docutils literal notranslate"><span class="pre">pip</span></code> by running this:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install qiskit-sphinx-theme
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>qiskit-sphinx-theme
 </pre></div>
 </div>
 <div class="admonition note">
@@ -178,7 +178,7 @@ the Qiskit standard and make sure Qiskit’s Sphinx HTML theme, the <code class=
 <h2>Create the documentation in your repository<a class="headerlink" href="#create-the-documentation-in-your-repository" title="Permalink to this heading">¶</a></h2>
 <p>In order to crete a documentation folder you can use <a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html">sphinx-quickstart</a>. It asks some questions and creates a functional documentation folder according to your answers.
 You can use <code class="docutils literal notranslate"><span class="pre">sphinx-quickstart</span></code> by going to the root directory of your repository and running this command.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sphinx-quickstart docs
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sphinx-quickstart<span class="w"> </span>docs
 </pre></div>
 </div>
 <p>So the new folder will be called <code class="docutils literal notranslate"><span class="pre">docs</span></code>. Then you will get this output:</p>
@@ -279,18 +279,18 @@ GitHub &lt;https://github.com/Qiskit/qiskit_x&gt;
 <h2>Build your documentation locally<a class="headerlink" href="#build-your-documentation-locally" title="Permalink to this heading">¶</a></h2>
 <p>Now that you have created your documentation project, it’s recommended to build it locally to check whether it looks works as intended.</p>
 <p>In order to do that, you first need to have your package installed. You can do this by running the following command on the root directory of your local copy of the repository:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install .
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>.
 </pre></div>
 </div>
 <p>Apart from the package, there are other dependencies that are necessary for building the documentation. All of them should be already included in the repo in a text file called <code class="docutils literal notranslate"><span class="pre">requirements-dev.txt</span></code>,
 so you only need to run:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install -r requirements-dev.txt
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements-dev.txt
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">-r</span></code> flag means that instead of installing a package called “<cite>requirements-dev.txt</cite>”, you are installing the packages listed in the requirements text file <code class="docutils literal notranslate"><span class="pre">requirements-dev.txt</span></code>.</p>
 <p>Once you have made the installations, you can finally build your documentation with <a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-build.html">sphinx-build</a>, setting the builder (<code class="docutils literal notranslate"><span class="pre">-b</span></code>)
 to <code class="docutils literal notranslate"><span class="pre">html</span></code> so the documents from the <code class="docutils literal notranslate"><span class="pre">docs</span></code> folder get built as HTML pages in a new folder, that you will call <code class="docutils literal notranslate"><span class="pre">docs/_build/html</span></code>. So the final command is:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sphinx-build -b html docs docs/_build/html
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sphinx-build<span class="w"> </span>-b<span class="w"> </span>html<span class="w"> </span>docs<span class="w"> </span>docs/_build/html
 </pre></div>
 </div>
 <p>The locally built page should look like this:</p>
@@ -306,12 +306,12 @@ These workflows are automated processes that are defined by <a class="reference 
 that is, an application that performs a complex but usually repeated task.</p>
 <p>For documentation deployment, create a file called <code class="docutils literal notranslate"><span class="pre">deploy-docs.yml</span></code> inside the directory <code class="docutils literal notranslate"><span class="pre">.github/workflows</span></code>.</p>
 <p>The first thing you need to include in this file is the name of your workflow via the key <a class="reference external" href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#name">name</a>. In particular, this workflow will be called <code class="docutils literal notranslate"><span class="pre">Deploy</span> <span class="pre">Docs</span></code> so your next line is:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy Docs</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy Docs</span>
 </pre></div>
 </div>
 <p>The next step is to set the event that triggers this workflow. This is done with the key <a class="reference external" href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on">on</a>. In this case, the workflow will be triggered manually. This can be set with the <a class="reference external" href="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch">workflow_dispatch</a> event.</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">on</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">workflow_dispatch</span><span class="p">:</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">on</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">workflow_dispatch</span><span class="p">:</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -321,9 +321,9 @@ that is, an application that performs a complex but usually repeated task.</p>
 <p>In order to avoid having more than one job or workflow running at the same time you will use a <a class="reference external" href="https://docs.github.com/en/actions/using-jobs/using-concurrency">concurrency group</a>. The idea behind these groups is that only one job or workflow from each group can be run at the same time.
 In this case we will distinguish by repository name, branch ref, source branch ref and workflow. All of these can be accessed via the <a class="reference external" href="https://docs.github.com/en/actions/learn-github-actions/contexts#github-context">github</a> <a class="reference external" href="https://docs.github.com/en/actions/learn-github-actions/contexts#about-contexts">context</a> as <code class="docutils literal notranslate"><span class="pre">github.repository</span></code>, <code class="docutils literal notranslate"><span class="pre">github.ref</span></code>, <code class="docutils literal notranslate"><span class="pre">github.head_ref</span></code> and <code class="docutils literal notranslate"><span class="pre">github.workflow</span></code> respectively.
 These properties can be accessed with the <a class="reference external" href="https://docs.github.com/en/actions/learn-github-actions/expressions">expression syntax</a>, that is, <code class="docutils literal notranslate"><span class="pre">${{</span> <span class="pre">&lt;expression&gt;</span> <span class="pre">}}</span></code>. In order to cancel any currently running workflows from the concurrency group you can set <code class="docutils literal notranslate"><span class="pre">cancel-in-progress</span></code> to <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">concurrency</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ github.repository }}-${{ github.ref }}-${{ github.head_ref }}-${{ github.workflow }}</span><span class="w"></span>
-<span class="w">  </span><span class="nt">cancel-in-progress</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">concurrency</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ github.repository }}-${{ github.ref }}-${{ github.head_ref }}-${{ github.workflow }}</span>
+<span class="w">  </span><span class="nt">cancel-in-progress</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </pre></div>
 </div>
 <p>Once this setup is done, you can start creating the jobs.</p>
@@ -337,14 +337,14 @@ key. The first condition can be written using the <a class="reference external" 
 <code class="docutils literal notranslate"><span class="pre">github.actor</span></code>, that is the user that triggers the workflow, is a mantainer. This job will use the latest version of <a class="reference external" href="https://ubuntu.com/">Ubuntu</a>. To ensure that, you will set the <a class="reference external" href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idruns-on">runs-on</a> key to <code class="docutils literal notranslate"><span class="pre">ubuntu-latest</span></code>.
 Finally, you will use the <a class="reference external" href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategy">strategy key</a> to create a <a class="reference external" href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix">matrix</a> in which the Python version will be included. In this case, the version will be 3.8.
 This matrix will be called <code class="docutils literal notranslate"><span class="pre">python-version</span></code> and its value will be <code class="docutils literal notranslate"><span class="pre">[3.8]</span></code>.</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">jobs</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">docs_publish</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ startsWith(github.ref, &#39;refs/heads/stable&#39;) &amp;&amp; contains(&#39;[&quot;mantainer-1&quot;,&quot;mantainer-2&quot;, ...]&#39;, github.actor) }}</span><span class="w"></span>
-<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span><span class="w"></span>
-<span class="w">    </span><span class="nt">strategy</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="nt">matrix</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">3.8</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">docs_publish</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ startsWith(github.ref, &#39;refs/heads/stable&#39;) &amp;&amp; contains(&#39;[&quot;mantainer-1&quot;,&quot;mantainer-2&quot;, ...]&#39;, github.actor) }}</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">strategy</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">matrix</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">3.8</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
 </pre></div>
 </div>
 </section>
@@ -354,9 +354,9 @@ This matrix will be called <code class="docutils literal notranslate"><span clas
 <h5>Check-out the repository<a class="headerlink" href="#check-out-the-repository" title="Permalink to this heading">¶</a></h5>
 <p>The first step of this job consists of enabling the workflow to access the repository <code class="docutils literal notranslate"><span class="pre">qiskit-x</span></code>. To do that you only need to call the latest version (version 3, <code class="docutils literal notranslate"><span class="pre">&#64;v3</span></code>) the pre-defined <a class="reference external" href="https://github.com/actions/checkout">checkout action</a> with the <a class="reference external" href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsuses">uses</a> key.
 By setting the <code class="docutils literal notranslate"><span class="pre">fetch-depth</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">0</span></code> via the <a class="reference external" href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idwith">with</a> key, you can let the action reach for the full history of your repository.</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v3</span><span class="w"></span>
-<span class="w">  </span><span class="nt">with</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">fetch-depth</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v3</span>
+<span class="w">  </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">fetch-depth</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
 </pre></div>
 </div>
 </section>
@@ -364,9 +364,9 @@ By setting the <code class="docutils literal notranslate"><span class="pre">fetc
 <h5>Setup Python<a class="headerlink" href="#setup-python" title="Permalink to this heading">¶</a></h5>
 <p>Once your repo has been reached, the workflow continues by installing a Python version, in this case, the 3.8, as defined in <code class="docutils literal notranslate"><span class="pre">matrix.python-version</span></code>. Fortunately, the
 <a class="reference external" href="https://github.com/actions/setup-python">setup-python action</a> already does this for us!. To choose the Python version you only need to set the <code class="docutils literal notranslate"><span class="pre">python-version</span></code> parameter with the corresponding value.</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v4</span><span class="w"></span>
-<span class="w">  </span><span class="nt">with</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ matrix.python-version }}</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v4</span>
+<span class="w">  </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ matrix.python-version }}</span>
 </pre></div>
 </div>
 </section>
@@ -376,22 +376,22 @@ By setting the <code class="docutils literal notranslate"><span class="pre">fetc
 You can use the <a class="reference external" href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun">run</a> key and add the usual bash commands as a multiline block with the pipe indicator <code class="docutils literal notranslate"><span class="pre">|</span></code>. These commands are: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code> for the editable (<code class="docutils literal notranslate"><span class="pre">-e</span></code>) version of the package, <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-U</span> <span class="pre">-r</span> <span class="pre">requirements-dev.txt</span></code> for the latest version (<code class="docutils literal notranslate"><span class="pre">-U</span></code>) of the requirements (<code class="docutils literal notranslate"><span class="pre">-r</span></code>) and <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">constraints.txt</span></code> for the constraints (<code class="docutils literal notranslate"><span class="pre">-c</span></code>).
 You can set the shell to <code class="docutils literal notranslate"><span class="pre">bash</span></code> via the
 <a class="reference external" href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsshell">shell</a> keyword.</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install X</span><span class="w"></span>
-<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
-<span class="w">    </span><span class="no">pip install -e .</span><span class="w"></span>
-<span class="w">    </span><span class="no">pip install -U -c constraints.txt -r requirements-dev.txt</span><span class="w"></span>
-<span class="w">  </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bash</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install X</span>
+<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">    </span><span class="no">pip install -e .</span>
+<span class="w">    </span><span class="no">pip install -U -c constraints.txt -r requirements-dev.txt</span>
+<span class="w">  </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bash</span>
 </pre></div>
 </div>
 </section>
 <section id="install-other-dependencies">
 <h5>Install other dependencies<a class="headerlink" href="#install-other-dependencies" title="Permalink to this heading">¶</a></h5>
 <p>In case there are another dependencies that are not covered in the <code class="docutils literal notranslate"><span class="pre">requirements-dev.txt</span></code>, you can add them in a similar step.</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install Dependencies</span><span class="w"></span>
-<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
-<span class="w">    </span><span class="no">pip install python_packages</span><span class="w"></span>
-<span class="w">    </span><span class="no">sudo apt-get install -y other_packages</span><span class="w"></span>
-<span class="w">  </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bash</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install Dependencies</span>
+<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">    </span><span class="no">pip install python_packages</span>
+<span class="w">    </span><span class="no">sudo apt-get install -y other_packages</span>
+<span class="w">  </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bash</span>
 </pre></div>
 </div>
 <p>The meaning of these Python dependencies is that they are not needed for <code class="docutils literal notranslate"><span class="pre">qiskit-x</span></code> to work nor to build documentation in general but might be used in some specific part of it. For example,
@@ -412,12 +412,12 @@ and to add some encrypted credentials to your repo. These credentials are:</p>
 The first two variables will be the <code class="docutils literal notranslate"><span class="pre">encrypted_rclone_key</span></code> and <code class="docutils literal notranslate"><span class="pre">encrypted_rclone_iv</span></code>, that can be accessed with the <a class="reference external" href="https://docs.github.com/en/actions/learn-github-actions/contexts#secrets-context">secrets context</a> and the <a class="reference external" href="https://docs.github.com/en/actions/learn-github-actions/expressions">expression syntax</a>, that is, <code class="docutils literal notranslate"><span class="pre">${{</span> <span class="pre">&lt;expression&gt;</span> <span class="pre">}}</span></code>.
 Then, you will disable the use of <a class="reference external" href="https://docs.python.org/3/library/multiprocessing.html">Python multiprocessing</a> to parallelize operations by setting the <code class="docutils literal notranslate"><span class="pre">QISKIT_PARALLEL</span></code> variable to <code class="docutils literal notranslate"><span class="pre">False</span></code> and enable the tutorials build by setting the <code class="docutils literal notranslate"><span class="pre">QISKIT_DOCS_BUILD_TUTORIALS</span></code> to <code class="docutils literal notranslate"><span class="pre">'always'</span></code>.
 So the step will start looking like this:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build and publish</span><span class="w"></span>
-<span class="w">  </span><span class="nt">env</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">encrypted_rclone_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.encrypted_rclone_key }}</span><span class="w"></span>
-<span class="w">    </span><span class="nt">encrypted_rclone_iv</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.encrypted_rclone_iv }}</span><span class="w"></span>
-<span class="w">    </span><span class="nt">QISKIT_PARALLEL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="w">    </span><span class="nt">QISKIT_DOCS_BUILD_TUTORIALS</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;always&#39;</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build and publish</span>
+<span class="w">  </span><span class="nt">env</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">encrypted_rclone_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.encrypted_rclone_key }}</span>
+<span class="w">    </span><span class="nt">encrypted_rclone_iv</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.encrypted_rclone_iv }}</span>
+<span class="w">    </span><span class="nt">QISKIT_PARALLEL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="w">    </span><span class="nt">QISKIT_DOCS_BUILD_TUTORIALS</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;always&#39;</span>
 </pre></div>
 </div>
 <p>When deploying documentation to qiskit.org, it’s important to make sure that only the release notes that correspond to the desired release are being uploaded. For this purpuse you will create a subscript called <code class="docutils literal notranslate"><span class="pre">tools/ignore_untagged_notes.sh</span></code> that will be called from the workflow.
@@ -429,36 +429,36 @@ This file will start with this <a class="reference external" href="https://en.wi
 <p>The first thing you will want to find is the tag that corresponds to the latest release of your package. This is precisely the idea behind <a class="reference external" href="https://git-scm.com/docs/git-describe">git describe</a>.
 In particular, you can use the <code class="docutils literal notranslate"><span class="pre">--tags</span></code> option to ensure all the tags are used instead of only the annotated ones and the <code class="docutils literal notranslate"><span class="pre">--abrev=0</span></code> option to suppress long format. This value will be useful later, so you’ll save
 it as a variable called <code class="docutils literal notranslate"><span class="pre">LATEST_TAG</span></code> with the <code class="docutils literal notranslate"><span class="pre">VARIABLE=$(command)</span></code> syntax from Bash.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">LATEST_TAG</span><span class="o">=</span><span class="k">$(</span>git describe --tags --abbrev<span class="o">=</span><span class="m">0</span><span class="k">)</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">LATEST_TAG</span><span class="o">=</span><span class="k">$(</span>git<span class="w"> </span>describe<span class="w"> </span>--tags<span class="w"> </span>--abbrev<span class="o">=</span><span class="m">0</span><span class="k">)</span>
 </pre></div>
 </div>
 <p>Then you need to look for the files that don’t have this tag. A way to do this is using <a class="reference external" href="https://git-scm.com/docs/git-diff">git diff</a> with the <code class="docutils literal notranslate"><span class="pre">--name-only</span></code> option to compare only the names of the files that are different between the current version of your repo
 (<code class="docutils literal notranslate"><span class="pre">HEAD</span></code>) and the latest tag (the variable <code class="docutils literal notranslate"><span class="pre">LATEST_TAG</span></code>, that has to be referred with the <code class="docutils literal notranslate"><span class="pre">$VARIABLE</span></code> syntax). You need the name of all of the release notes (that are placed in <code class="docutils literal notranslate"><span class="pre">releasenotes/notes</span></code>) to be added to an ignore list (that will be created with this script into <code class="docutils literal notranslate"><span class="pre">docs/release_notes.rst</span></code>).
 This ignore list uses the <a class="reference external" href="https://docs.openstack.org/reno/latest/user/sphinxext.html#directive-release-notes">reno Sphinx</a> and will have this sctructure:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>.. release-notes::
-   :ignore-notes:
-     ignored_release_note_1,
-     ignored_release_note_2,
-     ...
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>..<span class="w"> </span>release-notes::
+<span class="w">   </span>:ignore-notes:
+<span class="w">     </span>ignored_release_note_1,
+<span class="w">     </span>ignored_release_note_2,
+<span class="w">     </span>...
 </pre></div>
 </div>
 <p>The idea is then that for any changed file, you will check if it starts with <code class="docutils literal notranslate"><span class="pre">releasenotes/notes</span></code>. If that’s the case, you will check whether it’s already part of the ignore list.
 In case it’s not part of that list, first you’ll check if that list exists already. If it does not, you’ll create it by adding the heading <code class="docutils literal notranslate"><span class="pre">:ignore-notes:</span></code>.
 Then the release note is added to the list.</p>
 <p>The code for this process is then:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> file_changed <span class="k">in</span> <span class="sb">`</span>git diff --name-only HEAD <span class="nv">$LATEST_TAG</span><span class="sb">`</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span>file_changed<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="sb">`</span>git<span class="w"> </span>diff<span class="w"> </span>--name-only<span class="w"> </span>HEAD<span class="w"> </span><span class="nv">$LATEST_TAG</span><span class="sb">`</span>
 <span class="k">do</span>
-    <span class="k">if</span> <span class="o">[[</span> <span class="nv">$file_changed</span> <span class="o">==</span> releasenotes/notes/* <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
-        <span class="nv">isInFile</span><span class="o">=</span><span class="k">$(</span>grep -Exq <span class="s2">&quot;\s*</span><span class="nv">$file_changed</span><span class="s2">,&quot;</span> docs/release_notes.rst &gt;/dev/null<span class="p">;</span> <span class="nb">echo</span> <span class="nv">$?</span><span class="k">)</span>
-        <span class="k">if</span> <span class="o">[</span> <span class="nv">$isInFile</span> -ne <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-            <span class="nv">isInFile</span><span class="o">=</span><span class="k">$(</span>grep -Exq <span class="s2">&quot;\s*:ignore-notes:\s*&quot;</span> docs/release_notes.rst &gt;/dev/null<span class="p">;</span> <span class="nb">echo</span> <span class="nv">$?</span><span class="k">)</span>
-            <span class="k">if</span> <span class="o">[</span> <span class="nv">$isInFile</span> -ne <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-                <span class="nb">echo</span> <span class="s2">&quot;   :ignore-notes:&quot;</span> &gt;&gt; docs/release_notes.rst
-            <span class="k">fi</span>
-            <span class="nb">echo</span> <span class="s2">&quot;Release note changed since </span><span class="nv">$LATEST_TAG</span><span class="s2">: </span><span class="nv">$file_changed</span><span class="s2">. Ignore in docs/release_notes.rst&quot;</span>
-            <span class="nb">echo</span> <span class="s2">&quot;     </span><span class="nv">$file_changed</span><span class="s2">,&quot;</span> &gt;&gt; docs/release_notes.rst
-        <span class="k">fi</span>
-    <span class="k">fi</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$file_changed</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>releasenotes/notes/*<span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span><span class="nv">isInFile</span><span class="o">=</span><span class="k">$(</span>grep<span class="w"> </span>-Exq<span class="w"> </span><span class="s2">&quot;\s*</span><span class="nv">$file_changed</span><span class="s2">,&quot;</span><span class="w"> </span>docs/release_notes.rst<span class="w"> </span>&gt;/dev/null<span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$?</span><span class="k">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$isInFile</span><span class="w"> </span>-ne<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">            </span><span class="nv">isInFile</span><span class="o">=</span><span class="k">$(</span>grep<span class="w"> </span>-Exq<span class="w"> </span><span class="s2">&quot;\s*:ignore-notes:\s*&quot;</span><span class="w"> </span>docs/release_notes.rst<span class="w"> </span>&gt;/dev/null<span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$?</span><span class="k">)</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$isInFile</span><span class="w"> </span>-ne<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">                </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;   :ignore-notes:&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>docs/release_notes.rst
+<span class="w">            </span><span class="k">fi</span>
+<span class="w">            </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Release note changed since </span><span class="nv">$LATEST_TAG</span><span class="s2">: </span><span class="nv">$file_changed</span><span class="s2">. Ignore in docs/release_notes.rst&quot;</span>
+<span class="w">            </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;     </span><span class="nv">$file_changed</span><span class="s2">,&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>docs/release_notes.rst
+<span class="w">        </span><span class="k">fi</span>
+<span class="w">    </span><span class="k">fi</span>
 <span class="k">done</span>
 </pre></div>
 </div>
@@ -469,13 +469,13 @@ The <code class="docutils literal notranslate"><span class="pre">-E</span></code
 Given the structure of the ignore list, we want to make sure that the line consists of only the expression we are looking for, so we use the <code class="docutils literal notranslate"><span class="pre">-x</span></code> flag for this purpose.
 Finally, the <code class="docutils literal notranslate"><span class="pre">-q</span></code> flag ensures that no output is written and exit status is 0 if a match is found, ignoring any errors. Also note that when <code class="docutils literal notranslate"><span class="pre">:ignore-notes:</span></code> and the file names are added to the ignore list, the indentation is respected.</p>
 <p>After that, you will print the files of <code class="docutils literal notranslate"><span class="pre">docs/release_notes.rst</span></code>. This could be done with <code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">docs/release_notes.rst</span></code>, but we want to remove any extra whitespaces or line breaks, so you will use this instead:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;Contents of docs/release_notes.rst:&quot;</span>
-<span class="nb">echo</span> <span class="k">$(</span>cat docs/release_notes.rst<span class="k">)</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Contents of docs/release_notes.rst:&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="k">$(</span>cat<span class="w"> </span>docs/release_notes.rst<span class="k">)</span>
 </pre></div>
 </div>
 <p>That way <code class="docutils literal notranslate"><span class="pre">echo</span></code> removes the format from the output of <code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">docs/release_notes.rst</span></code>.</p>
 <p>Then you will return the status code 0 if the end of the script is reached with:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">exit</span> <span class="m">0</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">exit</span><span class="w"> </span><span class="m">0</span>
 </pre></div>
 </div>
 <p>So the <code class="docutils literal notranslate"><span class="pre">tools/ignore_untagged_notes.sh</span></code> file will look like this:</p>
@@ -493,27 +493,27 @@ Finally, the <code class="docutils literal notranslate"><span class="pre">-q</sp
 <span class="c1"># copyright notice, and modified files need to carry a notice indicating</span>
 <span class="c1"># that they have been altered from the originals.</span>
 
-<span class="nv">LATEST_TAG</span><span class="o">=</span><span class="k">$(</span>git describe --tags --abbrev<span class="o">=</span><span class="m">0</span><span class="k">)</span>
+<span class="nv">LATEST_TAG</span><span class="o">=</span><span class="k">$(</span>git<span class="w"> </span>describe<span class="w"> </span>--tags<span class="w"> </span>--abbrev<span class="o">=</span><span class="m">0</span><span class="k">)</span>
 
-<span class="k">for</span> file_changed <span class="k">in</span> <span class="sb">`</span>git diff --name-only HEAD <span class="nv">$LATEST_TAG</span><span class="sb">`</span>
+<span class="k">for</span><span class="w"> </span>file_changed<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="sb">`</span>git<span class="w"> </span>diff<span class="w"> </span>--name-only<span class="w"> </span>HEAD<span class="w"> </span><span class="nv">$LATEST_TAG</span><span class="sb">`</span>
 <span class="k">do</span>
-    <span class="k">if</span> <span class="o">[[</span> <span class="nv">$file_changed</span> <span class="o">==</span> releasenotes/notes/* <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
-        <span class="nv">isInFile</span><span class="o">=</span><span class="k">$(</span>grep -Exq <span class="s2">&quot;\s*</span><span class="nv">$file_changed</span><span class="s2">,&quot;</span> docs/release_notes.rst &gt;/dev/null<span class="p">;</span> <span class="nb">echo</span> <span class="nv">$?</span><span class="k">)</span>
-        <span class="k">if</span> <span class="o">[</span> <span class="nv">$isInFile</span> -ne <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-            <span class="nv">isInFile</span><span class="o">=</span><span class="k">$(</span>grep -Exq <span class="s2">&quot;\s*:ignore-notes:\s*&quot;</span> docs/release_notes.rst &gt;/dev/null<span class="p">;</span> <span class="nb">echo</span> <span class="nv">$?</span><span class="k">)</span>
-            <span class="k">if</span> <span class="o">[</span> <span class="nv">$isInFile</span> -ne <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-                <span class="nb">echo</span> <span class="s2">&quot;   :ignore-notes:&quot;</span> &gt;&gt; docs/release_notes.rst
-            <span class="k">fi</span>
-            <span class="nb">echo</span> <span class="s2">&quot;Release note changed since </span><span class="nv">$LATEST_TAG</span><span class="s2">: </span><span class="nv">$file_changed</span><span class="s2">. Ignore in docs/release_notes.rst&quot;</span>
-            <span class="nb">echo</span> <span class="s2">&quot;     </span><span class="nv">$file_changed</span><span class="s2">,&quot;</span> &gt;&gt; docs/release_notes.rst
-        <span class="k">fi</span>
-    <span class="k">fi</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$file_changed</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>releasenotes/notes/*<span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span><span class="nv">isInFile</span><span class="o">=</span><span class="k">$(</span>grep<span class="w"> </span>-Exq<span class="w"> </span><span class="s2">&quot;\s*</span><span class="nv">$file_changed</span><span class="s2">,&quot;</span><span class="w"> </span>docs/release_notes.rst<span class="w"> </span>&gt;/dev/null<span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$?</span><span class="k">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$isInFile</span><span class="w"> </span>-ne<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">            </span><span class="nv">isInFile</span><span class="o">=</span><span class="k">$(</span>grep<span class="w"> </span>-Exq<span class="w"> </span><span class="s2">&quot;\s*:ignore-notes:\s*&quot;</span><span class="w"> </span>docs/release_notes.rst<span class="w"> </span>&gt;/dev/null<span class="p">;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$?</span><span class="k">)</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$isInFile</span><span class="w"> </span>-ne<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">                </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;   :ignore-notes:&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>docs/release_notes.rst
+<span class="w">            </span><span class="k">fi</span>
+<span class="w">            </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Release note changed since </span><span class="nv">$LATEST_TAG</span><span class="s2">: </span><span class="nv">$file_changed</span><span class="s2">. Ignore in docs/release_notes.rst&quot;</span>
+<span class="w">            </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;     </span><span class="nv">$file_changed</span><span class="s2">,&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>docs/release_notes.rst
+<span class="w">        </span><span class="k">fi</span>
+<span class="w">    </span><span class="k">fi</span>
 <span class="k">done</span>
 
-<span class="nb">echo</span> <span class="s2">&quot;Contents of docs/release_notes.rst:&quot;</span>
-<span class="nb">echo</span> <span class="s2">&quot;</span><span class="k">$(</span>cat docs/release_notes.rst<span class="k">)</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Contents of docs/release_notes.rst:&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>cat<span class="w"> </span>docs/release_notes.rst<span class="k">)</span><span class="s2">&quot;</span>
 
-<span class="nb">exit</span> <span class="m">0</span>
+<span class="nb">exit</span><span class="w"> </span><span class="m">0</span>
 </pre></div>
 </div>
 <p>Now you only need to set the final script to deploy the documentation! This subscript will be called <code class="docutils literal notranslate"><span class="pre">tools/deploy_documentation.sh</span></code>.
@@ -522,18 +522,18 @@ Like <code class="docutils literal notranslate"><span class="pre">tools/ignore_u
 </pre></div>
 </div>
 <p>In order to cancel the deployment if an error occurs, you will add this line:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span> -e
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="w"> </span>-e
 </pre></div>
 </div>
 <p>That means that if any command exits with a non-zero exit code, the execution of this script will be aborted.</p>
 <p>Now you will use <a class="reference external" href="https://curl.se/docs/manpage.html">curl</a> to download the latest Linux version of <a class="reference external" href="https://rclone.org">Rclone</a>, that can be found at <a class="reference external" href="https://downloads.rclone.org/rclone-current-linux-amd64.deb">https://downloads.rclone.org/rclone-current-linux-amd64.deb</a>, and save it as a file called <code class="docutils literal notranslate"><span class="pre">rclone.deb</span></code> via the <code class="docutils literal notranslate"><span class="pre">-o</span></code> option.
 Then you will download the file with <a class="reference external" href="https://manpages.ubuntu.com/manpages/trusty/man8/apt-get.8.html">apt-get install</a> with the <code class="docutils literal notranslate"><span class="pre">-y</span></code> flag to automatically answer “yes” to any question that may appear as part of an interactive download.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl https://downloads.rclone.org/rclone-current-linux-amd64.deb -o rclone.deb
-sudo apt-get install -y ./rclone.deb
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>https://downloads.rclone.org/rclone-current-linux-amd64.deb<span class="w"> </span>-o<span class="w"> </span>rclone.deb
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>./rclone.deb
 </pre></div>
 </div>
 <p>Now that you have installed Rclone, you can use the <code class="docutils literal notranslate"><span class="pre">rclone</span></code> commands. In particular, you can use <code class="docutils literal notranslate"><span class="pre">rclone</span> <span class="pre">config</span> <span class="pre">file</span></code> to find the Rclone configuration file and assign it to a variable <code class="docutils literal notranslate"><span class="pre">RCLONE_CONFIG_PATH</span></code>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">RCLONE_CONFIG_PATH</span><span class="o">=</span><span class="k">$(</span>rclone config file <span class="p">|</span> tail -1<span class="k">)</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">RCLONE_CONFIG_PATH</span><span class="o">=</span><span class="k">$(</span>rclone<span class="w"> </span>config<span class="w"> </span>file<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-1<span class="k">)</span>
 </pre></div>
 </div>
 <p>The reason behind the <code class="docutils literal notranslate"><span class="pre">|</span> <span class="pre">tail</span> <span class="pre">-1</span></code> is that the standard output of <code class="docutils literal notranslate"><span class="pre">rclone</span> <span class="pre">config</span> <span class="pre">file</span></code> is:</p>
@@ -548,18 +548,18 @@ sudo apt-get install -y ./rclone.deb
 </div>
 <p>So in both cases, the only element we are interested in (the path) is the last one (<code class="docutils literal notranslate"><span class="pre">tail</span> <span class="pre">-1</span></code>).</p>
 <p>You can show the current working directory with:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;show current dir: &quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;show current dir: &quot;</span>
 <span class="nb">pwd</span>
 </pre></div>
 </div>
 <p>Then you will use the AES-256-CBC (256 bit <a class="reference external" href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard">Advanced Encryption Standard</a> with <a class="reference external" href="https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_block_chaining_(CBC)">Cypher block chaining</a>) algorithm with the <a class="reference external" href="https://www.openssl.org/docs/man3.0/man1/openssl-enc.html">openssl</a> command, along with the <code class="docutils literal notranslate"><span class="pre">encrypted_rclone_key</span></code> (key or <code class="docutils literal notranslate"><span class="pre">-K</span></code>) and <code class="docutils literal notranslate"><span class="pre">encrypted_rclone_iv</span></code> (<code class="docutils literal notranslate"><span class="pre">-iv</span></code>) to decrypt (<code class="docutils literal notranslate"><span class="pre">-d</span></code>) the encrypted Rclone configuration file included in the repository, <code class="docutils literal notranslate"><span class="pre">tools/rclone.conf.enc</span></code> (input or <code class="docutils literal notranslate"><span class="pre">-in</span></code>), and put its content (output or <code class="docutils literal notranslate"><span class="pre">-out</span></code>) into
 the Rclone configuration file from <code class="docutils literal notranslate"><span class="pre">RCLONE_CONFIG_PATH</span></code>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>openssl aes-256-cbc -K <span class="nv">$encrypted_rclone_key</span> -iv <span class="nv">$encrypted_rclone_iv</span> -in tools/rclone.conf.enc -out <span class="nv">$RCLONE_CONFIG_PATH</span> -d
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>openssl<span class="w"> </span>aes-256-cbc<span class="w"> </span>-K<span class="w"> </span><span class="nv">$encrypted_rclone_key</span><span class="w"> </span>-iv<span class="w"> </span><span class="nv">$encrypted_rclone_iv</span><span class="w"> </span>-in<span class="w"> </span>tools/rclone.conf.enc<span class="w"> </span>-out<span class="w"> </span><span class="nv">$RCLONE_CONFIG_PATH</span><span class="w"> </span>-d
 </pre></div>
 </div>
 <p>Now that your Rclone has the configuration needed to deploy the documentation, it’s time to do it. The command that enables you to upload the built docs from <code class="docutils literal notranslate"><span class="pre">docs/_build/html</span></code> to the corresponding <a class="reference external" href="https://www.ibm.com/cloud/object-storage">IBM Cloud Object Storage</a> instance (<code class="docutils literal notranslate"><span class="pre">qiskit-org-web-resources/documentation/x</span></code>) is <a class="reference external" href="https://rclone.org/commands/rclone_sync/">rclone sync</a>.
 You can use the <code class="docutils literal notranslate"><span class="pre">--progress</span></code> flag to get updates of the syncronization process. You need to exclude the files from <code class="docutils literal notranslate"><span class="pre">locale</span></code> with the <code class="docutils literal notranslate"><span class="pre">--exclude</span></code> flag.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rclone sync --progress --exclude locale/** ./docs/_build/html IBMCOS:qiskit-org-web-resources/documentation/x
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rclone<span class="w"> </span>sync<span class="w"> </span>--progress<span class="w"> </span>--exclude<span class="w"> </span>locale/**<span class="w"> </span>./docs/_build/html<span class="w"> </span>IBMCOS:qiskit-org-web-resources/documentation/x
 </pre></div>
 </div>
 <p>The full <code class="docutils literal notranslate"><span class="pre">tools/deploy_documentation.sh</span></code> should then look like this:</p>
@@ -578,105 +578,105 @@ You can use the <code class="docutils literal notranslate"><span class="pre">--p
 <span class="c1"># that they have been altered from the originals.</span>
 
 <span class="c1"># Script for pushing the documentation to the qiskit.org repository.</span>
-<span class="nb">set</span> -e
+<span class="nb">set</span><span class="w"> </span>-e
 
-curl https://downloads.rclone.org/rclone-current-linux-amd64.deb -o rclone.deb
-sudo apt-get install -y ./rclone.deb
+curl<span class="w"> </span>https://downloads.rclone.org/rclone-current-linux-amd64.deb<span class="w"> </span>-o<span class="w"> </span>rclone.deb
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>./rclone.deb
 
-<span class="nv">RCLONE_CONFIG_PATH</span><span class="o">=</span><span class="k">$(</span>rclone config file <span class="p">|</span> tail -1<span class="k">)</span>
+<span class="nv">RCLONE_CONFIG_PATH</span><span class="o">=</span><span class="k">$(</span>rclone<span class="w"> </span>config<span class="w"> </span>file<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-1<span class="k">)</span>
 
-<span class="nb">echo</span> <span class="s2">&quot;show current dir: &quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;show current dir: &quot;</span>
 <span class="nb">pwd</span>
 
 <span class="c1"># Push to qiskit.org website</span>
-openssl aes-256-cbc -K <span class="nv">$encrypted_rclone_key</span> -iv <span class="nv">$encrypted_rclone_iv</span> -in tools/rclone.conf.enc -out <span class="nv">$RCLONE_CONFIG_PATH</span> -d
-<span class="nb">echo</span> <span class="s2">&quot;Pushing built docs to website&quot;</span>
-rclone sync --progress --exclude locale/** ./docs/_build/html IBMCOS:qiskit-org-web-resources/documentation/x
+openssl<span class="w"> </span>aes-256-cbc<span class="w"> </span>-K<span class="w"> </span><span class="nv">$encrypted_rclone_key</span><span class="w"> </span>-iv<span class="w"> </span><span class="nv">$encrypted_rclone_iv</span><span class="w"> </span>-in<span class="w"> </span>tools/rclone.conf.enc<span class="w"> </span>-out<span class="w"> </span><span class="nv">$RCLONE_CONFIG_PATH</span><span class="w"> </span>-d
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Pushing built docs to website&quot;</span>
+rclone<span class="w"> </span>sync<span class="w"> </span>--progress<span class="w"> </span>--exclude<span class="w"> </span>locale/**<span class="w"> </span>./docs/_build/html<span class="w"> </span>IBMCOS:qiskit-org-web-resources/documentation/x
 </pre></div>
 </div>
 <p>Now that all the subscripts are done, you can put them together to finish the docs deployment process, along with building the documentation with <a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-build.html">sphinx-build</a>.
 You also need to add <code class="docutils literal notranslate"><span class="pre">earliest_version:</span> <span class="pre">0.1.0</span></code> to <code class="docutils literal notranslate"><span class="pre">releasenotes/config.yaml</span></code> so <a class="reference external" href="https://docs.openstack.org/reno/latest/">reno</a> can find the release notes.</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
-<span class="w">  </span><span class="no">echo &quot;earliest_version: 0.1.0&quot; &gt;&gt; releasenotes/config.yaml</span><span class="w"></span>
-<span class="w">  </span><span class="no">tools/ignore_untagged_notes.sh</span><span class="w"></span>
-<span class="w">  </span><span class="no">sphinx-build -b html docs/ docs/_build/html</span><span class="w"></span>
-<span class="w">  </span><span class="no">tools/deploy_documentation.sh</span><span class="w"></span>
-<span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bash</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">  </span><span class="no">echo &quot;earliest_version: 0.1.0&quot; &gt;&gt; releasenotes/config.yaml</span>
+<span class="w">  </span><span class="no">tools/ignore_untagged_notes.sh</span>
+<span class="w">  </span><span class="no">sphinx-build -b html docs/ docs/_build/html</span>
+<span class="w">  </span><span class="no">tools/deploy_documentation.sh</span>
+<span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bash</span>
 </pre></div>
 </div>
 <p>So the final version of this step is:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build and publish</span><span class="w"></span>
-<span class="w">  </span><span class="nt">env</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">encrypted_rclone_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.encrypted_rclone_key }}</span><span class="w"></span>
-<span class="w">    </span><span class="nt">encrypted_rclone_iv</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.encrypted_rclone_iv }}</span><span class="w"></span>
-<span class="w">    </span><span class="nt">QISKIT_PARALLEL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="w">    </span><span class="nt">QISKIT_DOCS_BUILD_TUTORIALS</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;always&#39;</span><span class="w"></span>
-<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
-<span class="w">    </span><span class="no">echo &quot;earliest_version: 0.1.0&quot; &gt;&gt; releasenotes/config.yaml</span><span class="w"></span>
-<span class="w">    </span><span class="no">tools/ignore_untagged_notes.sh</span><span class="w"></span>
-<span class="w">    </span><span class="no">sphinx-build -b html docs/ docs/_build/html</span><span class="w"></span>
-<span class="w">    </span><span class="no">tools/deploy_documentation.sh</span><span class="w"></span>
-<span class="w">  </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bash</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build and publish</span>
+<span class="w">  </span><span class="nt">env</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">encrypted_rclone_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.encrypted_rclone_key }}</span>
+<span class="w">    </span><span class="nt">encrypted_rclone_iv</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.encrypted_rclone_iv }}</span>
+<span class="w">    </span><span class="nt">QISKIT_PARALLEL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="w">    </span><span class="nt">QISKIT_DOCS_BUILD_TUTORIALS</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;always&#39;</span>
+<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">    </span><span class="no">echo &quot;earliest_version: 0.1.0&quot; &gt;&gt; releasenotes/config.yaml</span>
+<span class="w">    </span><span class="no">tools/ignore_untagged_notes.sh</span>
+<span class="w">    </span><span class="no">sphinx-build -b html docs/ docs/_build/html</span>
+<span class="w">    </span><span class="no">tools/deploy_documentation.sh</span>
+<span class="w">  </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bash</span>
 </pre></div>
 </div>
 <p>The complete <code class="docutils literal notranslate"><span class="pre">.github/workflows/deploy-docs.yml</span></code> is then:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># This code is part of Qiskit.</span><span class="w"></span>
-<span class="c1">#</span><span class="w"></span>
-<span class="c1"># (C) Copyright IBM 2022.</span><span class="w"></span>
-<span class="c1">#</span><span class="w"></span>
-<span class="c1"># This code is licensed under the Apache License, Version 2.0. You may</span><span class="w"></span>
-<span class="c1"># obtain a copy of this license in the LICENSE.txt file in the root directory</span><span class="w"></span>
-<span class="c1"># of this source tree or at http://www.apache.org/licenses/LICENSE-2.0.</span><span class="w"></span>
-<span class="c1">#</span><span class="w"></span>
-<span class="c1"># Any modifications or derivative works of this code must retain this</span><span class="w"></span>
-<span class="c1"># copyright notice, and modified files need to carry a notice indicating</span><span class="w"></span>
-<span class="c1"># that they have been altered from the originals.</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># This code is part of Qiskit.</span>
+<span class="c1">#</span>
+<span class="c1"># (C) Copyright IBM 2022.</span>
+<span class="c1">#</span>
+<span class="c1"># This code is licensed under the Apache License, Version 2.0. You may</span>
+<span class="c1"># obtain a copy of this license in the LICENSE.txt file in the root directory</span>
+<span class="c1"># of this source tree or at http://www.apache.org/licenses/LICENSE-2.0.</span>
+<span class="c1">#</span>
+<span class="c1"># Any modifications or derivative works of this code must retain this</span>
+<span class="c1"># copyright notice, and modified files need to carry a notice indicating</span>
+<span class="c1"># that they have been altered from the originals.</span>
 
-<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy Docs</span><span class="w"></span>
+<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy Docs</span>
 
-<span class="nt">on</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">workflow_dispatch</span><span class="p">:</span><span class="w"></span>
+<span class="nt">on</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">workflow_dispatch</span><span class="p">:</span>
 
-<span class="nt">concurrency</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ github.repository }}-${{ github.ref }}-${{ github.head_ref }}-${{ github.workflow }}</span><span class="w"></span>
-<span class="w">  </span><span class="nt">cancel-in-progress</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<span class="nt">concurrency</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ github.repository }}-${{ github.ref }}-${{ github.head_ref }}-${{ github.workflow }}</span>
+<span class="w">  </span><span class="nt">cancel-in-progress</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 
-<span class="nt">jobs</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">docs_publish</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ startsWith(github.ref, &#39;refs/heads/stable&#39;) &amp;&amp; contains(&#39;[&quot;mantainer-1&quot;,&quot;mantainer-2&quot;, ...]&#39;, github.actor) }}</span><span class="w"></span>
-<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span><span class="w"></span>
-<span class="w">    </span><span class="nt">strategy</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">matrix</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">3.8</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v3</span><span class="w"></span>
-<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">with</span><span class="p p-Indicator">:</span><span class="w"></span>
-<span class="w">        </span><span class="nt">fetch-depth</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v4</span><span class="w"></span>
-<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">with</span><span class="p p-Indicator">:</span><span class="w"></span>
-<span class="w">        </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ matrix.python-version }}</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install X</span><span class="w"></span>
-<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">run</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
-<span class="w">          </span><span class="no">pip install -e .</span><span class="w"></span>
-<span class="w">          </span><span class="no">pip install -U -c constraints.txt -r requirements-dev.txt</span><span class="w"></span>
-<span class="w">        </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bash</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install Dependencies</span><span class="w"></span>
-<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">run</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
-<span class="w">          </span><span class="no">pip install packages</span><span class="w"></span>
-<span class="w">          </span><span class="no">sudo apt-get install -y other_packages</span><span class="w"></span>
-<span class="w">        </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bash</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build and publish</span><span class="w"></span>
-<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">env</span><span class="p p-Indicator">:</span><span class="w"></span>
-<span class="w">          </span><span class="nt">encrypted_rclone_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.encrypted_rclone_key }}</span><span class="w"></span>
-<span class="w">          </span><span class="nt">encrypted_rclone_iv</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.encrypted_rclone_iv }}</span><span class="w"></span>
-<span class="w">          </span><span class="nt">QISKIT_PARALLEL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="w">          </span><span class="nt">QISKIT_DOCS_BUILD_TUTORIALS</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;always&#39;</span><span class="w"></span>
-<span class="w">      </span><span class="w w-Error">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
-<span class="w">          </span><span class="no">echo &quot;earliest_version: 0.1.0&quot; &gt;&gt; releasenotes/config.yaml</span><span class="w"></span>
-<span class="w">          </span><span class="no">tools/ignore_untagged_notes.sh</span><span class="w"></span>
-<span class="w">          </span><span class="no">sphinx-build -b html docs/ docs/_build/html</span><span class="w"></span>
-<span class="w">          </span><span class="no">tools/deploy_documentation.sh</span><span class="w"></span>
-<span class="w">        </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bash</span><span class="w"></span>
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">docs_publish</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ startsWith(github.ref, &#39;refs/heads/stable&#39;) &amp;&amp; contains(&#39;[&quot;mantainer-1&quot;,&quot;mantainer-2&quot;, ...]&#39;, github.actor) }}</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">strategy</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">matrix</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">3.8</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v3</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">with</span><span class="p p-Indicator">:</span>
+<span class="w">        </span><span class="nt">fetch-depth</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v4</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">with</span><span class="p p-Indicator">:</span>
+<span class="w">        </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ matrix.python-version }}</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install X</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">run</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">          </span><span class="no">pip install -e .</span>
+<span class="w">          </span><span class="no">pip install -U -c constraints.txt -r requirements-dev.txt</span>
+<span class="w">        </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bash</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install Dependencies</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">run</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">          </span><span class="no">pip install packages</span>
+<span class="w">          </span><span class="no">sudo apt-get install -y other_packages</span>
+<span class="w">        </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bash</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build and publish</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">env</span><span class="p p-Indicator">:</span>
+<span class="w">          </span><span class="nt">encrypted_rclone_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.encrypted_rclone_key }}</span>
+<span class="w">          </span><span class="nt">encrypted_rclone_iv</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.encrypted_rclone_iv }}</span>
+<span class="w">          </span><span class="nt">QISKIT_PARALLEL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="w">          </span><span class="nt">QISKIT_DOCS_BUILD_TUTORIALS</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;always&#39;</span>
+<span class="w">      </span><span class="w w-Error">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">          </span><span class="no">echo &quot;earliest_version: 0.1.0&quot; &gt;&gt; releasenotes/config.yaml</span>
+<span class="w">          </span><span class="no">tools/ignore_untagged_notes.sh</span>
+<span class="w">          </span><span class="no">sphinx-build -b html docs/ docs/_build/html</span>
+<span class="w">          </span><span class="no">tools/deploy_documentation.sh</span>
+<span class="w">        </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bash</span>
 </pre></div>
 </div>
 <p>You have created and deployed a new Qiskit documentation project!</p>

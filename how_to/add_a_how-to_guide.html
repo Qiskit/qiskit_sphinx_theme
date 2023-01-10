@@ -158,9 +158,9 @@
 <section id="pre-requisites">
 <h2>Pre-requisites<a class="headerlink" href="#pre-requisites" title="Permalink to this heading">¶</a></h2>
 <p>This guide assumes your Qiskit project already has a working Sphinx documentation project in a folder called <code class="docutils literal notranslate"><span class="pre">docs</span></code>. If you don’t have it, you can set it up with
-<a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html" title="(in Sphinx v6.0.0b3)"><span class="xref std std-doc">sphinx-quickstart</span></a>.</p>
+<a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html" title="(in Sphinx v6.2.0)"><span class="xref std std-doc">sphinx-quickstart</span></a>.</p>
 <p>Inside your <code class="docutils literal notranslate"><span class="pre">docs</span></code> folder there should be at least a configuration file called <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>, a <code class="docutils literal notranslate"><span class="pre">how_to</span></code> folder with an <code class="docutils literal notranslate"><span class="pre">index.rst</span></code> and in which the guides will be included.
-This <code class="docutils literal notranslate"><span class="pre">how_to</span></code> folder should also be referenced as part of a <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-toctree" title="(in Sphinx v6.0.0b3)"><code class="docutils literal notranslate"><span class="pre">toctree</span></code></a> in another <code class="docutils literal notranslate"><span class="pre">index.rst</span></code>, this time in the <code class="docutils literal notranslate"><span class="pre">docs</span></code> folder instead of the <code class="docutils literal notranslate"><span class="pre">how_to</span></code> one.</p>
+This <code class="docutils literal notranslate"><span class="pre">how_to</span></code> folder should also be referenced as part of a <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-toctree" title="(in Sphinx v6.2.0)"><code class="docutils literal notranslate"><span class="pre">toctree</span></code></a> in another <code class="docutils literal notranslate"><span class="pre">index.rst</span></code>, this time in the <code class="docutils literal notranslate"><span class="pre">docs</span></code> folder instead of the <code class="docutils literal notranslate"><span class="pre">how_to</span></code> one.</p>
 <p>In short, the minimum structure of your documentation should be:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span> docs/
 |--how_to/
@@ -177,7 +177,7 @@ This <code class="docutils literal notranslate"><span class="pre">how_to</span><
 <section id="update-the-page">
 <h2>Update the page<a class="headerlink" href="#update-the-page" title="Permalink to this heading">¶</a></h2>
 <p>Once you have created and written your file, you need to update the <code class="docutils literal notranslate"><span class="pre">docs/how_to/index.rst</span></code> file so your new guide appears in the web page.</p>
-<p>In particular, you only need to include your new guide in a <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-toctree" title="(in Sphinx v6.0.0b3)"><code class="docutils literal notranslate"><span class="pre">toctree</span></code></a> like this one:</p>
+<p>In particular, you only need to include your new guide in a <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-toctree" title="(in Sphinx v6.2.0)"><code class="docutils literal notranslate"><span class="pre">toctree</span></code></a> like this one:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Section name
 ============
 
@@ -191,7 +191,7 @@ This <code class="docutils literal notranslate"><span class="pre">how_to</span><
 </div>
 <p>In this example, the title from the first existing guide (<code class="docutils literal notranslate"><span class="pre">existing_guide_1.rst</span></code>) is taken directly from it while for <code class="docutils literal notranslate"><span class="pre">existing_guide_2.rst</span></code> and your new guide
 the title is set manually.</p>
-<p>It’s important to make sure that the indentation of the items inside the <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-toctree" title="(in Sphinx v6.0.0b3)"><code class="docutils literal notranslate"><span class="pre">toctree</span></code></a> is of at least three whitespaces.</p>
+<p>It’s important to make sure that the indentation of the items inside the <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-toctree" title="(in Sphinx v6.2.0)"><code class="docutils literal notranslate"><span class="pre">toctree</span></code></a> is of at least three whitespaces.</p>
 <p>The section name header needs to be covered by equal signs <code class="docutils literal notranslate"><span class="pre">=</span></code> below.</p>
 </section>
 </section>
