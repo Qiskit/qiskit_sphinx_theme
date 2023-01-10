@@ -1,6 +1,6 @@
-===============
-Add a tutorial
-===============
+=====================
+How to add a tutorial
+=====================
 
 This guide shows how to add a tutorial to a Qiskit project repository.
 
