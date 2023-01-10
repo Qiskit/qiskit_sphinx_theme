@@ -1,6 +1,6 @@
-==================
-Add an explanation
-==================
+=========================
+How to add an explanation
+=========================
 
 This guide shows how to add an explanation to a Qiskit project repository.
 
