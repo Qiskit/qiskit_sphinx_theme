@@ -1,6 +1,6 @@
-==================
-Add a how-to guide
-==================
+=========================
+How to add a how-to guide
+=========================
 
 This guide shows how to add a how-to guide to a Qiskit project repository.
 
