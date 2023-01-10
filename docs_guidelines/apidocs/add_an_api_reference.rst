@@ -1,6 +1,6 @@
-====================
-Add an API reference
-====================
+===========================
+How to add an API reference
+===========================
 
 This guide shows how to add an API reference page to your documentation.
 
