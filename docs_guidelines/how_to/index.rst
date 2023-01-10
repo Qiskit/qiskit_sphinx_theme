@@ -5,6 +5,6 @@ How-to Guides
 .. toctree::
     :maxdepth: 1
 
-    how_to.guidelines
-    how_to.examples
-    add_a_how-to_guide
+    how_to_guidelines
+    how_to_examples
+    how_to_add_a_how_to_guide

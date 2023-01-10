@@ -5,6 +5,6 @@ Explanations
 .. toctree::
     :maxdepth: 1
 
-    explanation.guidelines
-    explanation.examples
-    add_an_explanation
+    explanations_guidelines
+    explanations_examples
+    how_to_add_an_explanation
