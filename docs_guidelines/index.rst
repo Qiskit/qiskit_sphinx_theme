@@ -14,6 +14,7 @@ This site hosts the guidelines and examples for writing and building documentati
 
 
 .. toctree::
+   :caption: Standard Sidebar
    :hidden:
 
    Overview <self>
@@ -24,3 +25,9 @@ This site hosts the guidelines and examples for writing and building documentati
    Explanations <explanations/index>
    Release Notes <release_notes>
    GitHub <https://github.com/Qiskit/qiskit_sphinx_theme>
+
+.. toctree:: 
+   :caption: Other Resources
+   :hidden:
+
+   sphinx_guide/index
