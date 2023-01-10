@@ -18,12 +18,12 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: '3.9'
-      - name: Install Ubuntu Dependencies
+      - name: Install Non-Python Dependencies
         run: sudo apt-get install -y pandoc graphviz
-      - name: Install Python Dependencies
-        run: |
-          python -m pip install -U 'tox<4'
-          python -m pip install -r requirements-dev.txt
+      - name: Install tox
+        run: python -m pip install -U 'tox<4'
+      - name: Test Code Examples
+        run: tox -edoctest -- -j auto
       - name: Build Docs Guide
         run: tox -edocs-guide -- -j auto
       - name: Compress Artifacts
