@@ -12,12 +12,21 @@ Overview
 
 This site hosts the guidelines and examples for writing and building documentation for Qiskit projects.
 
+.. toctree:: 
+   :caption: Frontmatter
+   :hidden:
+
+   Overview <self>
+   frontmatter/how_to_use_this_guide
+   frontmatter/diataxis
+   frontmatter/new_doc_project
+
 
 .. toctree::
    :caption: Standard Sidebar
    :hidden:
 
-   Overview <self>
+   Overview <overview_guide>
    Getting Started <getting_started>
    Tutorials <tutorials/index>
    How-to Guides <how_to/index>
