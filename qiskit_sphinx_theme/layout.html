@@ -115,7 +115,7 @@
           <!-- render sidebar from the toctree -->
           {% set global_toc = toctree(maxdepth=1,
             collapse=theme_collapse_navigation|tobool,
-            includehidden=theme_includehidden|tobool) %}
+            includehidden=False) %}
           {% if global_toc %}
             {{ global_toc }}
           {% endif %}
