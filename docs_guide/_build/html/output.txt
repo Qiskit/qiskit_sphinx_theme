@@ -1,0 +1,29 @@
+Results of doctest builder run on 2022-12-22 16:10:34
+=====================================================
+
+Document: how_to/add_code
+-------------------------
+**********************************************************************
+File "how_to/add_code.rst", line 391, in default
+Failed example:
+    prin(3+2)
+Exception raised:
+    Traceback (most recent call last):
+      File "/Users/junye/opt/miniconda3/envs/qiskit-sphinx-theme-dev/lib/python3.10/doctest.py", line 1350, in __run
+        exec(compile(example.source, filename, "single",
+      File "<doctest default[0]>", line 1, in <module>
+        prin(3+2)
+    NameError: name 'prin' is not defined
+**********************************************************************
+1 items had failures:
+   1 of   3 in default
+3 tests in 1 items.
+2 passed and 1 failed.
+***Test Failed*** 1 failures.
+
+Doctest summary
+===============
+    3 tests
+    1 failure in tests
+    0 failures in setup code
+    0 failures in cleanup code

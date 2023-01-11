@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+  <html class="no-js" lang="" >
+<head>
+  
+  <!-- get styles in qiskit_sphinx_theme: -->
+  <link rel="stylesheet" href="static/css/theme.css">
+  <!-- Get any custom styles in sphinx build: -->
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/thebelab.css" type="text/css" />
+
+  <link rel="modulepreload" href="https://unpkg.com/@qiskit/web-components@0.10.2/experimental-bundled-ui-shell.js">
+  <script type="module" src="https://unpkg.com/@qiskit/web-components@0.10.2/experimental-bundled-ui-shell.js"></script>
+  <style>
+    qiskit-ui-shell:not(:defined) {
+      display: block;
+      margin-bottom: 3.5rem;
+    }
+  </style>
+
+  <!-- SEGMENT ANALYTICS -->
+  
+
+</head>
+<body class="pytorch-body">
+  <!-- UNIFIED TOP MENU -->
+  <qiskit-ui-shell variant="hide-account"></qiskit-ui-shell>
+
+   
+
+    <!-- LEFT SIDE BAR -->
+
+    <!-- if translations available, display language dropdown menu -->
+    <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="rst-current-version-label"></span>
+    <span class="rst-versions-dropdown-icon"></span>
+  </span>
+  <div class="rst-other-versions">
+    
+  </div>
+  <script>
+    jQuery('.version').click((evt) => {
+      const hash = window.location.hash
+      const complete_url = evt.target.href + hash
+      window.location = complete_url
+      evt.preventDefault()
+    })
+  </script>
+</div>
+
+    <!-- Menu becomes dropdown in mobile view -->
+    <div class="table-of-contents-link-wrapper">
+      <span>Table of Contents</span>
+      <a href="#" class="toggle-table-of-contents" data-behavior="toggle-table-of-contents"></a>
+    </div>
+
+    <!-- LEFT SIDE BAR MAIN CONTENT -->
+    <nav data-toggle="wy-nav-shift" class="pytorch-left-menu" id="pytorch-left-menu">
+      <div class="pytorch-side-scroll">
+        <div class="pytorch-menu pytorch-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          <div class="pytorch-left-menu-search">
+            <div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search Qiskit Documentation Guidelines Docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+          </div>
+          <!-- render sidebar from the toctree -->
+          
+          
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">How-to Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../apidocs/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../explanations/index.html">Explanations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release_notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/Qiskit/qiskit_sphinx_theme">GitHub</a></li>
+</ul>
+
+          
+          <!-- add previous releases dropdown -->
+          
+        </div>
+      </div>
+    </nav>
+
+    <div class="pytorch-container">
+
+      <!-- BREADCRUMB MINI MENU BELOW TOP NAV BAR -->
+      <div class="pytorch-page-level-bar" id="pytorch-page-level-bar">
+        <div class="pytorch-breadcrumbs-wrapper">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="pytorch-breadcrumbs">
+    
+      <li>
+        <a href="../index.html">
+          
+            Qiskit Documentation Guidelines documentation
+          
+        </a> &gt;
+      </li>
+
+        
+          <li><a href="index.html">How-to Guides</a> &gt;</li>
+        
+      <li>Build documentation locally</li>
+    
+    
+      <li class="pytorch-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/how_to/build_docs.rst.txt" rel="nofollow"><img src="../_static/images/view-page-source-icon.svg"></a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+</div>
+        </div>
+      </div>
+
+      <!-- BREADCRUMB MINI MENU BELOW TOP NAV BAR -->
+      <section data-toggle="wy-nav-shift" id="pytorch-content-wrap" class="pytorch-content-wrap">
+        <div class="pytorch-content-left">
+          <div class="rst-content">
+            <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
+             <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
+              
+  <section id="build-documentation-locally">
+<h1>Build documentation locally<a class="headerlink" href="#build-documentation-locally" title="Permalink to this heading">¶</a></h1>
+<p>This guide shows how to build the documentation of a Qiskit project repository in local.</p>
+<section id="pre-requisites">
+<h2>Pre-requisites<a class="headerlink" href="#pre-requisites" title="Permalink to this heading">¶</a></h2>
+<p>This guide assumes your Qiskit project already has a working Sphinx documentation project in a folder called <code class="docutils literal notranslate"><span class="pre">docs</span></code>. If you don’t have it, you can set it up with
+<a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html" title="(in Sphinx v6.2.0)"><span class="xref std std-doc">sphinx-quickstart</span></a>.</p>
+</section>
+<section id="install-package-and-dependencies">
+<h2>Install package and dependencies<a class="headerlink" href="#install-package-and-dependencies" title="Permalink to this heading">¶</a></h2>
+<p>Before trying to build your documentation, make sure you have installed:</p>
+<ul class="simple">
+<li><p>The Qiskit package you want to build, that in this guide will be called <code class="docutils literal notranslate"><span class="pre">qiskit_x</span></code>.</p></li>
+<li><p>Other required packages from the corresponding <code class="docutils literal notranslate"><span class="pre">requirements-dev.txt</span></code>.</p></li>
+</ul>
+<section id="install-the-qiskit-package">
+<h3>Install the Qiskit package<a class="headerlink" href="#install-the-qiskit-package" title="Permalink to this heading">¶</a></h3>
+<p>Once you have cloned the <code class="docutils literal notranslate"><span class="pre">qiskit-x</span></code> repository with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/Qiskit/qiskit-x.git</span></code>, you can install the <code class="docutils literal notranslate"><span class="pre">qiskit_x</span></code> package from source by going to the root directory of your local copy and running this on your console:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>.
+</pre></div>
+</div>
+<p>If you prefer to install the editable version, so you don’t have to reinstall each time the code from the project is changed, you can write:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+</pre></div>
+</div>
+</section>
+<section id="install-required-packages">
+<h3>Install required packages<a class="headerlink" href="#install-required-packages" title="Permalink to this heading">¶</a></h3>
+<p>Apart from installing the <code class="docutils literal notranslate"><span class="pre">qiskit_x</span></code> package, there are other needed packages for development. They are included in the <code class="docutils literal notranslate"><span class="pre">requirements-dev.txt</span></code> files of the repository. You can install the packages from those files with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements-dev.txt
+</pre></div>
+</div>
+<p>However, there can also be some other necessary packages that are not Python, and therefore not installable with <code class="docutils literal notranslate"><span class="pre">pip</span></code>, like <a class="reference external" href="https://pandoc.org/">pandoc</a> or graphviz <cite>graphviz &lt;https://graphviz.org/&gt;</cite>.
+You can install them with <a class="reference external" href="https://linux.die.net/man/8/apt-get">apt-get install</a>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>other_packages
+</pre></div>
+</div>
+</section>
+</section>
+<section id="build-the-documentation">
+<h2>Build the documentation<a class="headerlink" href="#build-the-documentation" title="Permalink to this heading">¶</a></h2>
+<p>Once you have installed every needed package in your virtual environment, you can build the documentation with <a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-build.html" title="(in Sphinx v6.2.0)"><span class="xref std std-doc">sphinx-build</span></a> the following way:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sphinx-build<span class="w"> </span>-b<span class="w"> </span>html<span class="w"> </span>docs<span class="w"> </span>docs/_build/html
+</pre></div>
+</div>
+<p>After that, the documentation you have built from the <code class="docutils literal notranslate"><span class="pre">docs</span></code> folder will be in <code class="docutils literal notranslate"><span class="pre">docs/_build/html</span></code>.</p>
+</section>
+<section id="shortcuts">
+<h2>Shortcuts<a class="headerlink" href="#shortcuts" title="Permalink to this heading">¶</a></h2>
+<p>There are also some shortcuts for all or part of this process that can be made by modifying certain files. This guide will focus on the full process
+but you can remove any lines you don’t want to automatice. This shortcuts are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tox</span> <span class="pre">-edocs</span></code></p></li>
+</ul>
+<section id="make-html">
+<h3><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code><a class="headerlink" href="#make-html" title="Permalink to this heading">¶</a></h3>
+<p>In order to build your documentation with <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code> you need to include the following lines in your <code class="docutils literal notranslate"><span class="pre">Makefile</span></code>.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>html:
+    pip install -r requirements-dev.txt
+    sudo apt-get install -y other_packages
+    sphinx-build -b html docs docs/_build
+</pre></div>
+</div>
+</section>
+<section id="tox-edocs">
+<h3><code class="docutils literal notranslate"><span class="pre">tox</span> <span class="pre">-edocs</span></code><a class="headerlink" href="#tox-edocs" title="Permalink to this heading">¶</a></h3>
+<p>If you want to use <code class="docutils literal notranslate"><span class="pre">tox</span> <span class="pre">-edocs</span></code> to build your documentation with <a class="reference external" href="https://tox.wiki/en/latest/">tox</a>, you can include the following in your <code class="docutils literal notranslate"><span class="pre">tox.ini</span></code> file:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[testenv:docs]
+envdir = .tox/docs
+basepython = python3
+deps =
+    -r{toxinidir}/requirements-dev.txt
+    other_dependencies
+commands =
+    sphinx-build -b html {posargs} {toxinidir}/docs {toxinidir}/docs/_build/html
+</pre></div>
+</div>
+<p>the variable <code class="docutils literal notranslate"><span class="pre">toxinidir</span></code> is the path to your <code class="docutils literal notranslate"><span class="pre">tox.ini</span></code>, that should be in the root directory of your repository.</p>
+</section>
+</section>
+</section>
+
+
+             </article>
+            </div>
+            <footer>
+<!-- USER FEEDBACK -->
+  
+
+  <div role="contentinfo">
+    <p>
+    <!-- SHOW QISKIT COPYRIGHT TEXT -->
+        &copy; Copyright 2022, Qiskit Development Team.
+
+    <!-- SHOW DATE PAGE LAST UPDATED -->
+
+    </p>
+  </div>
+
+<!-- SHOW 'MADE WITH SPHINX' TEXT -->
+    
+      <div>
+        Built with <a href="http://sphinx-doc.org/">Sphinx</a> using <a href="https://github.com/Qiskit/qiskit_sphinx_theme">Qiskit Sphinx Theme </a> (based on <a href="https://github.com/pytorch/pytorch_sphinx_theme"> PyTorch Sphinx Theme</a>).
+      </div>
+     
+
+</footer>
+
+<script>
+  function clicked(ctaType) {
+    document.getElementById('was-helpful-thank-you').style.visibility = 'visible';
+    window.trackCta(`Helpful - ${ctaType}`);
+  }
+</script>
+
+          </div>
+        </div>
+
+        <!-- RIGHT SIDE AUTOSUMMARY MENU -->
+        <div class="pytorch-content-right" id="pytorch-content-right">
+          <div class="pytorch-right-menu" id="pytorch-right-menu">
+            <div class="pytorch-side-scroll" id="pytorch-side-scroll-right">
+              <ul>
+<li><a class="reference internal" href="#">Build documentation locally</a><ul>
+<li><a class="reference internal" href="#pre-requisites">Pre-requisites</a></li>
+<li><a class="reference internal" href="#install-package-and-dependencies">Install package and dependencies</a><ul>
+<li><a class="reference internal" href="#install-the-qiskit-package">Install the Qiskit package</a></li>
+<li><a class="reference internal" href="#install-required-packages">Install required packages</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#build-the-documentation">Build the documentation</a></li>
+<li><a class="reference internal" href="#shortcuts">Shortcuts</a><ul>
+<li><a class="reference internal" href="#make-html"><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code></a></li>
+<li><a class="reference internal" href="#tox-edocs"><code class="docutils literal notranslate"><span class="pre">tox</span> <span class="pre">-edocs</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+          </div>
+        </div>
+      </section>
+    </div> 
+
+  <!-- MOBILE MENU FOR SIDEBAR -->
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+      <script src="../_static/jquery.js"></script>
+      <script src="../_static/underscore.js"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script src="../_static/doctools.js"></script>
+      <script src="../_static/sphinx_highlight.js"></script>
+      <script src="../_static/thebelab-helper.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+
+    <script type="text/javascript" src="../_static/js/vendor/popper.min.js"></script>
+    <script type="text/javascript" src="../_static/js/vendor/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript" src="../_static/js/vendor/anchor.min.js"></script>
+
+  <!-- enable language dropdown menu expand -->
+  <script type="text/javascript">
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable(true);
+    });
+  </script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      mobileMenu.bind();
+      mobileTOC.bind();
+      pytorchAnchors.bind();
+      sideMenus.bind();
+      scrollToAnchor.bind();
+      highlightNavigation.bind();
+      mainMenuDropdown.bind();
+      filterTags.bind();
+
+      // Add class to links that have code blocks, since we cannot create links in code blocks
+      $("article.pytorch-article a span.pre").each(function(e) {
+        $(this).closest("a").addClass("has-code");
+      });
+    })
+  </script>
+
+</body>
+</html>

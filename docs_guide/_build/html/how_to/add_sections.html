@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+  <html class="no-js" lang="" >
+<head>
+  
+  <!-- get styles in qiskit_sphinx_theme: -->
+  <link rel="stylesheet" href="static/css/theme.css">
+  <!-- Get any custom styles in sphinx build: -->
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/thebelab.css" type="text/css" />
+
+  <link rel="modulepreload" href="https://unpkg.com/@qiskit/web-components@0.10.2/experimental-bundled-ui-shell.js">
+  <script type="module" src="https://unpkg.com/@qiskit/web-components@0.10.2/experimental-bundled-ui-shell.js"></script>
+  <style>
+    qiskit-ui-shell:not(:defined) {
+      display: block;
+      margin-bottom: 3.5rem;
+    }
+  </style>
+
+  <!-- SEGMENT ANALYTICS -->
+  
+
+</head>
+<body class="pytorch-body">
+  <!-- UNIFIED TOP MENU -->
+  <qiskit-ui-shell variant="hide-account"></qiskit-ui-shell>
+
+   
+
+    <!-- LEFT SIDE BAR -->
+
+    <!-- if translations available, display language dropdown menu -->
+    <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="rst-current-version-label"></span>
+    <span class="rst-versions-dropdown-icon"></span>
+  </span>
+  <div class="rst-other-versions">
+    
+  </div>
+  <script>
+    jQuery('.version').click((evt) => {
+      const hash = window.location.hash
+      const complete_url = evt.target.href + hash
+      window.location = complete_url
+      evt.preventDefault()
+    })
+  </script>
+</div>
+
+    <!-- Menu becomes dropdown in mobile view -->
+    <div class="table-of-contents-link-wrapper">
+      <span>Table of Contents</span>
+      <a href="#" class="toggle-table-of-contents" data-behavior="toggle-table-of-contents"></a>
+    </div>
+
+    <!-- LEFT SIDE BAR MAIN CONTENT -->
+    <nav data-toggle="wy-nav-shift" class="pytorch-left-menu" id="pytorch-left-menu">
+      <div class="pytorch-side-scroll">
+        <div class="pytorch-menu pytorch-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          <div class="pytorch-left-menu-search">
+            <div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search Qiskit Documentation Guidelines Docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+          </div>
+          <!-- render sidebar from the toctree -->
+          
+          
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">How-to Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../apidocs/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../explanations/index.html">Explanations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release_notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/Qiskit/qiskit_sphinx_theme">GitHub</a></li>
+</ul>
+
+          
+          <!-- add previous releases dropdown -->
+          
+        </div>
+      </div>
+    </nav>
+
+    <div class="pytorch-container">
+
+      <!-- BREADCRUMB MINI MENU BELOW TOP NAV BAR -->
+      <div class="pytorch-page-level-bar" id="pytorch-page-level-bar">
+        <div class="pytorch-breadcrumbs-wrapper">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="pytorch-breadcrumbs">
+    
+      <li>
+        <a href="../index.html">
+          
+            Qiskit Documentation Guidelines documentation
+          
+        </a> &gt;
+      </li>
+
+        
+          <li><a href="index.html">How-to Guides</a> &gt;</li>
+        
+      <li>Add sections to documentation</li>
+    
+    
+      <li class="pytorch-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/how_to/add_sections.rst.txt" rel="nofollow"><img src="../_static/images/view-page-source-icon.svg"></a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+</div>
+        </div>
+      </div>
+
+      <!-- BREADCRUMB MINI MENU BELOW TOP NAV BAR -->
+      <section data-toggle="wy-nav-shift" id="pytorch-content-wrap" class="pytorch-content-wrap">
+        <div class="pytorch-content-left">
+          <div class="rst-content">
+            <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
+             <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
+              
+  <section id="add-sections-to-documentation">
+<h1>Add sections to documentation<a class="headerlink" href="#add-sections-to-documentation" title="Permalink to this heading">¶</a></h1>
+<p>This guide shows how to separate your documents in parts.</p>
+<section id="pre-requisites">
+<h2>Pre-requisites<a class="headerlink" href="#pre-requisites" title="Permalink to this heading">¶</a></h2>
+<p>This guide assumes your Qiskit project already has a working Sphinx documentation project in a folder called <code class="docutils literal notranslate"><span class="pre">docs</span></code>. If you don’t have it, you can set it up with
+<a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html" title="(in Sphinx v6.2.0)"><span class="xref std std-doc">sphinx-quickstart</span></a>.</p>
+<p>You can organize your documents into:</p>
+<ul class="simple">
+<li><p>Sections.</p></li>
+<li><p>Subsections.</p></li>
+<li><p>Subsubsections.</p></li>
+<li><p>Paragraphs.</p></li>
+</ul>
+</section>
+<section id="create-sections">
+<h2>Create sections<a class="headerlink" href="#create-sections" title="Permalink to this heading">¶</a></h2>
+<p>In order to create a new section you can write the name of the section covered below by equal signs <code class="docutils literal notranslate"><span class="pre">=</span></code>. For example,
+you can include this header:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Section name
+============
+</pre></div>
+</div>
+<p>And it would look like this:</p>
+</section>
+<section id="section-name">
+<h2>Section name<a class="headerlink" href="#section-name" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="create-subsections">
+<h2>Create subsections<a class="headerlink" href="#create-subsections" title="Permalink to this heading">¶</a></h2>
+<p>You can add a subsection to your section by writing the corresponding name covered below by a sign. This time it’s the hyphen, <code class="docutils literal notranslate"><span class="pre">-</span></code>. So you can include, for example, this subsection header:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Subsection name
+---------------
+</pre></div>
+</div>
+<p>A subsection needs to be written as part of a section. That means the subsection header can’t be shown on its own.</p>
+</section>
+<section id="id1">
+<h2>Section name<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<section id="subsection-name">
+<h3>Subsection name<a class="headerlink" href="#subsection-name" title="Permalink to this heading">¶</a></h3>
+</section>
+</section>
+<section id="create-subsubsections">
+<h2>Create subsubsections<a class="headerlink" href="#create-subsubsections" title="Permalink to this heading">¶</a></h2>
+<p>If you want to add a subsubsection to a section of your document, you can do so by writing its title covered below by carets, <code class="docutils literal notranslate"><span class="pre">^</span></code>. For example, you can add this subsubsection header:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Subsubsection name
+^^^^^^^^^^^^^^^^^^
+</pre></div>
+</div>
+<p>A subsubsection needs to be part of a subsection, so the proper structure would be:</p>
+</section>
+<section id="id2">
+<h2>Section name<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<section id="id3">
+<h3>Subsection name<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h3>
+<section id="subsubsection-name">
+<h4>Subsubsection name<a class="headerlink" href="#subsubsection-name" title="Permalink to this heading">¶</a></h4>
+</section>
+</section>
+</section>
+<section id="create-paragraphs">
+<h2>Create paragraphs<a class="headerlink" href="#create-paragraphs" title="Permalink to this heading">¶</a></h2>
+<p>To add a paragraph, you have to write its title covered below by quotation marks <code class="docutils literal notranslate"><span class="pre">&quot;</span></code>. For example, you can add this paragraph header:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Paragraph name
+&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;
+</pre></div>
+</div>
+<p>A paragraph needs to be part of a subsubsection, so the structure is</p>
+</section>
+<section id="id4">
+<h2>Section name<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h2>
+<section id="id5">
+<h3>Subsection name<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h3>
+<section id="id6">
+<h4>Subsubsection name<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h4>
+<section id="paragraph-name">
+<h5>Paragraph name<a class="headerlink" href="#paragraph-name" title="Permalink to this heading">¶</a></h5>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Actually the heading levels are not assigned to any character in particular, but it is recommended to follow the convention established
+in this guide to make our documentation more consistent.</p>
+</div>
+</section>
+</section>
+</section>
+</section>
+</section>
+
+
+             </article>
+            </div>
+            <footer>
+<!-- USER FEEDBACK -->
+  
+
+  <div role="contentinfo">
+    <p>
+    <!-- SHOW QISKIT COPYRIGHT TEXT -->
+        &copy; Copyright 2022, Qiskit Development Team.
+
+    <!-- SHOW DATE PAGE LAST UPDATED -->
+
+    </p>
+  </div>
+
+<!-- SHOW 'MADE WITH SPHINX' TEXT -->
+    
+      <div>
+        Built with <a href="http://sphinx-doc.org/">Sphinx</a> using <a href="https://github.com/Qiskit/qiskit_sphinx_theme">Qiskit Sphinx Theme </a> (based on <a href="https://github.com/pytorch/pytorch_sphinx_theme"> PyTorch Sphinx Theme</a>).
+      </div>
+     
+
+</footer>
+
+<script>
+  function clicked(ctaType) {
+    document.getElementById('was-helpful-thank-you').style.visibility = 'visible';
+    window.trackCta(`Helpful - ${ctaType}`);
+  }
+</script>
+
+          </div>
+        </div>
+
+        <!-- RIGHT SIDE AUTOSUMMARY MENU -->
+        <div class="pytorch-content-right" id="pytorch-content-right">
+          <div class="pytorch-right-menu" id="pytorch-right-menu">
+            <div class="pytorch-side-scroll" id="pytorch-side-scroll-right">
+              <ul>
+<li><a class="reference internal" href="#">Add sections to documentation</a><ul>
+<li><a class="reference internal" href="#pre-requisites">Pre-requisites</a></li>
+<li><a class="reference internal" href="#create-sections">Create sections</a></li>
+<li><a class="reference internal" href="#section-name">Section name</a></li>
+<li><a class="reference internal" href="#create-subsections">Create subsections</a></li>
+<li><a class="reference internal" href="#id1">Section name</a><ul>
+<li><a class="reference internal" href="#subsection-name">Subsection name</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#create-subsubsections">Create subsubsections</a></li>
+<li><a class="reference internal" href="#id2">Section name</a><ul>
+<li><a class="reference internal" href="#id3">Subsection name</a><ul>
+<li><a class="reference internal" href="#subsubsection-name">Subsubsection name</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#create-paragraphs">Create paragraphs</a></li>
+<li><a class="reference internal" href="#id4">Section name</a><ul>
+<li><a class="reference internal" href="#id5">Subsection name</a><ul>
+<li><a class="reference internal" href="#id6">Subsubsection name</a><ul>
+<li><a class="reference internal" href="#paragraph-name">Paragraph name</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+          </div>
+        </div>
+      </section>
+    </div> 
+
+  <!-- MOBILE MENU FOR SIDEBAR -->
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+      <script src="../_static/jquery.js"></script>
+      <script src="../_static/underscore.js"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script src="../_static/doctools.js"></script>
+      <script src="../_static/sphinx_highlight.js"></script>
+      <script src="../_static/thebelab-helper.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+
+    <script type="text/javascript" src="../_static/js/vendor/popper.min.js"></script>
+    <script type="text/javascript" src="../_static/js/vendor/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript" src="../_static/js/vendor/anchor.min.js"></script>
+
+  <!-- enable language dropdown menu expand -->
+  <script type="text/javascript">
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable(true);
+    });
+  </script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      mobileMenu.bind();
+      mobileTOC.bind();
+      pytorchAnchors.bind();
+      sideMenus.bind();
+      scrollToAnchor.bind();
+      highlightNavigation.bind();
+      mainMenuDropdown.bind();
+      filterTags.bind();
+
+      // Add class to links that have code blocks, since we cannot create links in code blocks
+      $("article.pytorch-article a span.pre").each(function(e) {
+        $(this).closest("a").addClass("has-code");
+      });
+    })
+  </script>
+
+</body>
+</html>

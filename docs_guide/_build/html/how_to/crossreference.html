@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+  <html class="no-js" lang="" >
+<head>
+  
+  <!-- get styles in qiskit_sphinx_theme: -->
+  <link rel="stylesheet" href="static/css/theme.css">
+  <!-- Get any custom styles in sphinx build: -->
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/thebelab.css" type="text/css" />
+
+  <link rel="modulepreload" href="https://unpkg.com/@qiskit/web-components@0.10.2/experimental-bundled-ui-shell.js">
+  <script type="module" src="https://unpkg.com/@qiskit/web-components@0.10.2/experimental-bundled-ui-shell.js"></script>
+  <style>
+    qiskit-ui-shell:not(:defined) {
+      display: block;
+      margin-bottom: 3.5rem;
+    }
+  </style>
+
+  <!-- SEGMENT ANALYTICS -->
+  
+
+</head>
+<body class="pytorch-body">
+  <!-- UNIFIED TOP MENU -->
+  <qiskit-ui-shell variant="hide-account"></qiskit-ui-shell>
+
+   
+
+    <!-- LEFT SIDE BAR -->
+
+    <!-- if translations available, display language dropdown menu -->
+    <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="rst-current-version-label"></span>
+    <span class="rst-versions-dropdown-icon"></span>
+  </span>
+  <div class="rst-other-versions">
+    
+  </div>
+  <script>
+    jQuery('.version').click((evt) => {
+      const hash = window.location.hash
+      const complete_url = evt.target.href + hash
+      window.location = complete_url
+      evt.preventDefault()
+    })
+  </script>
+</div>
+
+    <!-- Menu becomes dropdown in mobile view -->
+    <div class="table-of-contents-link-wrapper">
+      <span>Table of Contents</span>
+      <a href="#" class="toggle-table-of-contents" data-behavior="toggle-table-of-contents"></a>
+    </div>
+
+    <!-- LEFT SIDE BAR MAIN CONTENT -->
+    <nav data-toggle="wy-nav-shift" class="pytorch-left-menu" id="pytorch-left-menu">
+      <div class="pytorch-side-scroll">
+        <div class="pytorch-menu pytorch-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          <div class="pytorch-left-menu-search">
+            <div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search Qiskit Documentation Guidelines Docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+          </div>
+          <!-- render sidebar from the toctree -->
+          
+          
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">How-to Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../apidocs/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../explanations/index.html">Explanations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release_notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/Qiskit/qiskit_sphinx_theme">GitHub</a></li>
+</ul>
+
+          
+          <!-- add previous releases dropdown -->
+          
+        </div>
+      </div>
+    </nav>
+
+    <div class="pytorch-container">
+
+      <!-- BREADCRUMB MINI MENU BELOW TOP NAV BAR -->
+      <div class="pytorch-page-level-bar" id="pytorch-page-level-bar">
+        <div class="pytorch-breadcrumbs-wrapper">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="pytorch-breadcrumbs">
+    
+      <li>
+        <a href="../index.html">
+          
+            Qiskit Documentation Guidelines documentation
+          
+        </a> &gt;
+      </li>
+
+        
+          <li><a href="index.html">How-to Guides</a> &gt;</li>
+        
+      <li>Crossreference to other pages from documentation</li>
+    
+    
+      <li class="pytorch-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/how_to/crossreference.rst.txt" rel="nofollow"><img src="../_static/images/view-page-source-icon.svg"></a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+</div>
+        </div>
+      </div>
+
+      <!-- BREADCRUMB MINI MENU BELOW TOP NAV BAR -->
+      <section data-toggle="wy-nav-shift" id="pytorch-content-wrap" class="pytorch-content-wrap">
+        <div class="pytorch-content-left">
+          <div class="rst-content">
+            <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
+             <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
+              
+  <section id="crossreference-to-other-pages-from-documentation">
+<h1>Crossreference to other pages from documentation<a class="headerlink" href="#crossreference-to-other-pages-from-documentation" title="Permalink to this heading">¶</a></h1>
+<p>This guide shows how to reference to other pages in the documentation.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Actual crossreferencing is only possible with <code class="docutils literal notranslate"><span class="pre">.rst</span></code> files. If you are trying to crossreference from a Jupyter notebook (<code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>),
+you are actually linking to an external page, and therefore you should check <a class="reference internal" href="add_external_links.html"><span class="doc">this guide</span></a> instead.</p>
+</div>
+<section id="pre-requisites">
+<h2>Pre-requisites<a class="headerlink" href="#pre-requisites" title="Permalink to this heading">¶</a></h2>
+<p>This guide assumes your Qiskit project already has a working Sphinx documentation project in a folder called <code class="docutils literal notranslate"><span class="pre">docs</span></code>. If you don’t have it, you can set it up with
+<a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html" title="(in Sphinx v6.2.0)"><span class="xref std std-doc">sphinx-quickstart</span></a>.</p>
+</section>
+<section id="add-the-links">
+<h2>Add the links<a class="headerlink" href="#add-the-links" title="Permalink to this heading">¶</a></h2>
+<p>There are several types of pages that can be referenced:</p>
+<ul class="simple">
+<li><p>Module pages</p></li>
+<li><p>Function pages</p></li>
+<li><p>Class pages</p></li>
+<li><p>Method pages</p></li>
+<li><p>Attribute pages</p></li>
+<li><p>Pages from other documentation projects</p></li>
+</ul>
+<section id="module-pages">
+<h3>Module pages<a class="headerlink" href="#module-pages" title="Permalink to this heading">¶</a></h3>
+<p>If the page to which you want to link corresponds to a module, you should use <code class="docutils literal notranslate"><span class="pre">:mod:`your_module`</span></code>.
+An example of Qiskit module is <a class="reference external" href="https://qiskit.org/documentation/apidoc/visualization.html#module-qiskit.visualization" title="(in Qiskit)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">qiskit.visualization</span></code></a> and the link can be written as:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>:mod:`qiskit.visualization`
+</pre></div>
+</div>
+</section>
+<section id="function-pages">
+<h3>Function pages<a class="headerlink" href="#function-pages" title="Permalink to this heading">¶</a></h3>
+<p>If you want to link to a function page, you need to use <code class="docutils literal notranslate"><span class="pre">:func:`your_function`</span></code>. For example, you can link to the <a class="reference external" href="https://qiskit.org/documentation/stubs/qiskit.visualization.circuit_drawer.html#qiskit.visualization.circuit_drawer" title="(in Qiskit)"><code class="xref py py-func docutils literal notranslate"><span class="pre">qiskit.visualization.circuit_drawer()</span></code></a> by writing:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>:func:`qiskit.visualization.circuit_drawer`
+</pre></div>
+</div>
+</section>
+<section id="class-pages">
+<h3>Class pages<a class="headerlink" href="#class-pages" title="Permalink to this heading">¶</a></h3>
+<p>In order to link to a class page, you should use <code class="docutils literal notranslate"><span class="pre">:class:`your_class`</span></code>. As an example, you can link to <a class="reference external" href="https://qiskit.org/documentation/stubs/qiskit.circuit.QuantumCircuit.html#qiskit.circuit.QuantumCircuit" title="(in Qiskit)"><code class="xref py py-class docutils literal notranslate"><span class="pre">qiskit.circuit.QuantumCircuit</span></code></a> by writing:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>:class:`qiskit.circuit.QuantumCircuit`
+</pre></div>
+</div>
+</section>
+<section id="method-pages">
+<h3>Method pages<a class="headerlink" href="#method-pages" title="Permalink to this heading">¶</a></h3>
+<p>If your objective is to link the page of a method, you can use <code class="docutils literal notranslate"><span class="pre">:meth:`your_method`</span></code>. For example, to link to the <a class="reference external" href="https://qiskit.org/documentation/stubs/qiskit.circuit.QuantumCircuit.draw.html#qiskit.circuit.QuantumCircuit.draw" title="(in Qiskit)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">qiskit.circuit.QuantumCircuit.draw()</span></code></a> method if you write:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>:meth:`qiskit.circuit.QuantumCircuit.draw`
+</pre></div>
+</div>
+</section>
+<section id="attribute-pages">
+<h3>Attribute pages<a class="headerlink" href="#attribute-pages" title="Permalink to this heading">¶</a></h3>
+<p>If you want to link to an attribute page, you should use <code class="docutils literal notranslate"><span class="pre">:attr:`your_attribute`</span></code>. You can link, for example, to <a class="reference external" href="https://qiskit.org/documentation/stubs/qiskit.circuit.QuantumCircuit.html#qiskit.circuit.QuantumCircuit.parameters" title="(in Qiskit)"><code class="xref py py-attr docutils literal notranslate"><span class="pre">qiskit.circuit.QuantumCircuit.parameters</span></code></a> by writing:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>:attr:`qiskit.circuit.QuantumCircuit.parameters`
+</pre></div>
+</div>
+</section>
+<section id="pages-from-other-documentation-projects">
+<h3>Pages from other documentation projects<a class="headerlink" href="#pages-from-other-documentation-projects" title="Permalink to this heading">¶</a></h3>
+<p>You can also use practically the same syntax to link to pages from other documentation projects. For this to work you need to
+add <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html#module-sphinx.ext.intersphinx" title="(in Sphinx v6.2.0)"><code class="docutils literal notranslate"><span class="pre">sphinx.ext.intersphinx</span></code></a> to the <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-extensions" title="(in Sphinx v6.2.0)"><code class="docutils literal notranslate"><span class="pre">extensions</span></code></a> variable of your <code class="docutils literal notranslate"><span class="pre">docs/conf.py</span></code>.</p>
+<p>After that, you’d need to create a new variable called <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html#confval-intersphinx_mapping" title="(in Sphinx v6.2.0)"><code class="docutils literal notranslate"><span class="pre">intersphinx_mapping</span></code></a> in your <code class="docutils literal notranslate"><span class="pre">docs/conf.py</span></code>. This variable
+has to be a dictionary whose keys are the name of the other projects (or any desired shortcut) and whose values are tuples that include
+the HTML page of the corresponding documentation and the object inventory. If the inventory is set to <code class="docutils literal notranslate"><span class="pre">None</span></code>, the</p>
+<p>The basic syntax is then:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">intersphinx_mapping</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;package&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;package_url&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)}</span>
+</pre></div>
+</div>
+<p>For example, if you want to add Qiskit’s and Sphinx’s documentation you can write this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">intersphinx_mapping</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;qiskit&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;https://qiskit.org/documentation/&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+    <span class="s2">&quot;sphinx&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;https://www.sphinx-doc.org/en/master/&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Once you have set the <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html#confval-intersphinx_mapping" title="(in Sphinx v6.2.0)"><code class="docutils literal notranslate"><span class="pre">intersphinx_mapping</span></code></a>, you can link to any <code class="xref py py-mod docutils literal notranslate"><span class="pre">role</span></code> like
+<code class="docutils literal notranslate"><span class="pre">:mod:</span></code>, <code class="docutils literal notranslate"><span class="pre">:func:</span></code> or <code class="docutils literal notranslate"><span class="pre">:class:</span></code> in the same way as the previous sections, that is, <code class="docutils literal notranslate"><span class="pre">:role:`name`</span></code>.</p>
+<p>However, if you want to make sure you are taking the object from the documentation of a specific package, the name of the object has to be preceded by that of the
+project that you set in <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html#confval-intersphinx_mapping" title="(in Sphinx v6.2.0)"><code class="docutils literal notranslate"><span class="pre">intersphinx_mapping</span></code></a>, followed by a colon <code class="docutils literal notranslate"><span class="pre">:</span></code>. So the syntax is:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>:role:`package:name`
+</pre></div>
+</div>
+<p>For example, to link to <a class="reference external" href="https://qiskit.org/documentation/stubs/qiskit.circuit.QuantumCircuit.html#qiskit.circuit.QuantumCircuit" title="(in Qiskit)"><code class="xref py py-class docutils literal notranslate"><span class="pre">qiskit.circuit.QuantumCircuit</span></code></a> you can write both <code class="docutils literal notranslate"><span class="pre">:class:`qiskit.circuit.QuantumCircuit`</span></code> or
+<code class="docutils literal notranslate"><span class="pre">:class:`qiskit:qiskit.circuit.QuantumCircuit</span></code>. In this case it doesn’t matter because there’s only one class with this name.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Strictly speaking, what you are doing with <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html#module-sphinx.ext.intersphinx" title="(in Sphinx v6.2.0)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">intersphinx</span></code></a> is linking to external pages but with the crossreference syntax.
+For more information about linking to external pages, check <a class="reference internal" href="add_external_links.html"><span class="doc">this guide</span></a>.</p>
+</div>
+</section>
+</section>
+<section id="shorten-the-links">
+<h2>Shorten the links<a class="headerlink" href="#shorten-the-links" title="Permalink to this heading">¶</a></h2>
+<p>You can shorten the links if you add <code class="docutils literal notranslate"><span class="pre">~</span></code> just before the name of your object (<code class="docutils literal notranslate"><span class="pre">:obj:`~your_object`</span></code>). For example, <a class="reference external" href="https://qiskit.org/documentation/stubs/qiskit.circuit.QuantumCircuit.html#qiskit.circuit.QuantumCircuit" title="(in Qiskit)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuantumCircuit</span></code></a> is shorter than <a class="reference external" href="https://qiskit.org/documentation/stubs/qiskit.circuit.QuantumCircuit.html#qiskit.circuit.QuantumCircuit" title="(in Qiskit)"><code class="xref py py-class docutils literal notranslate"><span class="pre">qiskit.circuit.QuantumCircuit</span></code></a>. This last sentence is written as:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>For example, :class:`~qiskit.circuit.QuantumCircuit` is shorter than :class:`qiskit.circuit.QuantumCircuit`.
+</pre></div>
+</div>
+</section>
+<section id="shorten-the-reference">
+<h2>Shorten the reference<a class="headerlink" href="#shorten-the-reference" title="Permalink to this heading">¶</a></h2>
+<p>It’s not always necessary to specify the full name of your object when writing the reference. For example, you can write <code class="docutils literal notranslate"><span class="pre">:class:`.QuantumCircuit`</span></code> instead of <code class="docutils literal notranslate"><span class="pre">:class:`qiskit.circuit.QuantumCircuit`</span></code> to link to <code class="xref py py-class docutils literal notranslate"><span class="pre">QuantumCircuit</span></code> if no other class from any module is called <code class="docutils literal notranslate"><span class="pre">QuantumCircuit</span></code>. If there is another class with the same name, you will get a warning from Sphinx.
+You can also set any title you want for your links by using the following syntax: <code class="docutils literal notranslate"><span class="pre">:role:`title</span> <span class="pre">&lt;name&gt;`</span></code>. For example, you can add
+<a class="reference external" href="https://qiskit.org/documentation/stubs/qiskit.circuit.QuantumCircuit.html#qiskit.circuit.QuantumCircuit" title="(in Qiskit)"><code class="xref py py-class docutils literal notranslate"><span class="pre">this</span> <span class="pre">link</span></code></a> by writing:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>:class:`this link &lt;qiskit.circuit.QuantumCircuit&gt;`
+</pre></div>
+</div>
+</section>
+</section>
+
+
+             </article>
+            </div>
+            <footer>
+<!-- USER FEEDBACK -->
+  
+
+  <div role="contentinfo">
+    <p>
+    <!-- SHOW QISKIT COPYRIGHT TEXT -->
+        &copy; Copyright 2022, Qiskit Development Team.
+
+    <!-- SHOW DATE PAGE LAST UPDATED -->
+
+    </p>
+  </div>
+
+<!-- SHOW 'MADE WITH SPHINX' TEXT -->
+    
+      <div>
+        Built with <a href="http://sphinx-doc.org/">Sphinx</a> using <a href="https://github.com/Qiskit/qiskit_sphinx_theme">Qiskit Sphinx Theme </a> (based on <a href="https://github.com/pytorch/pytorch_sphinx_theme"> PyTorch Sphinx Theme</a>).
+      </div>
+     
+
+</footer>
+
+<script>
+  function clicked(ctaType) {
+    document.getElementById('was-helpful-thank-you').style.visibility = 'visible';
+    window.trackCta(`Helpful - ${ctaType}`);
+  }
+</script>
+
+          </div>
+        </div>
+
+        <!-- RIGHT SIDE AUTOSUMMARY MENU -->
+        <div class="pytorch-content-right" id="pytorch-content-right">
+          <div class="pytorch-right-menu" id="pytorch-right-menu">
+            <div class="pytorch-side-scroll" id="pytorch-side-scroll-right">
+              <ul>
+<li><a class="reference internal" href="#">Crossreference to other pages from documentation</a><ul>
+<li><a class="reference internal" href="#pre-requisites">Pre-requisites</a></li>
+<li><a class="reference internal" href="#add-the-links">Add the links</a><ul>
+<li><a class="reference internal" href="#module-pages">Module pages</a></li>
+<li><a class="reference internal" href="#function-pages">Function pages</a></li>
+<li><a class="reference internal" href="#class-pages">Class pages</a></li>
+<li><a class="reference internal" href="#method-pages">Method pages</a></li>
+<li><a class="reference internal" href="#attribute-pages">Attribute pages</a></li>
+<li><a class="reference internal" href="#pages-from-other-documentation-projects">Pages from other documentation projects</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#shorten-the-links">Shorten the links</a></li>
+<li><a class="reference internal" href="#shorten-the-reference">Shorten the reference</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+          </div>
+        </div>
+      </section>
+    </div> 
+
+  <!-- MOBILE MENU FOR SIDEBAR -->
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+      <script src="../_static/jquery.js"></script>
+      <script src="../_static/underscore.js"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script src="../_static/doctools.js"></script>
+      <script src="../_static/sphinx_highlight.js"></script>
+      <script src="../_static/thebelab-helper.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+
+    <script type="text/javascript" src="../_static/js/vendor/popper.min.js"></script>
+    <script type="text/javascript" src="../_static/js/vendor/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript" src="../_static/js/vendor/anchor.min.js"></script>
+
+  <!-- enable language dropdown menu expand -->
+  <script type="text/javascript">
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable(true);
+    });
+  </script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      mobileMenu.bind();
+      mobileTOC.bind();
+      pytorchAnchors.bind();
+      sideMenus.bind();
+      scrollToAnchor.bind();
+      highlightNavigation.bind();
+      mainMenuDropdown.bind();
+      filterTags.bind();
+
+      // Add class to links that have code blocks, since we cannot create links in code blocks
+      $("article.pytorch-article a span.pre").each(function(e) {
+        $(this).closest("a").addClass("has-code");
+      });
+    })
+  </script>
+
+</body>
+</html>
