@@ -3,9 +3,9 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-###########################################
-Welcome to Qiskit Documentation Guidelines!
-###########################################
+############################
+Welcome to Qiskit Docs Guide
+############################
 
 Overview
 ========
@@ -17,9 +17,9 @@ This site hosts the guidelines and examples for writing and building documentati
    :hidden:
 
    Start Here <self>
-   frontmatter/how_to_use_this_guide
-   frontmatter/diataxis
-   frontmatter/new_doc_project
+   intro/how_to_use_this_guide
+   intro/diataxis
+   intro/new_doc_project
    sphinx_guide/index
 
 
