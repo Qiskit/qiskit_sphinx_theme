@@ -12,18 +12,19 @@ Overview
 
 This site hosts the guidelines and examples for writing and building documentation for Qiskit projects.
 
-.. toctree:: 
-   :caption: Frontmatter
+.. toctree::
+   :caption: Introduction
    :hidden:
 
-   Overview <self>
+   Start Here <self>
    frontmatter/how_to_use_this_guide
    frontmatter/diataxis
    frontmatter/new_doc_project
+   sphinx_guide/index
 
 
 .. toctree::
-   :caption: Standard Sidebar
+   :caption: Instructions for Individual Pages
    :hidden:
 
    Overview <overview_guide>
@@ -34,9 +35,3 @@ This site hosts the guidelines and examples for writing and building documentati
    Explanations <explanations/index>
    Release Notes <release_notes>
    GitHub <https://github.com/Qiskit/qiskit_sphinx_theme>
-
-.. toctree:: 
-   :caption: Other Resources
-   :hidden:
-
-   sphinx_guide/index

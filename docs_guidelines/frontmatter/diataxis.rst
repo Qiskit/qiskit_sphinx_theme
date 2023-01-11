@@ -1,5 +1,5 @@
 ======================
-The Diátaxis framework
+The Diátaxis Framework
 ======================
 
 What is Diátaxis?

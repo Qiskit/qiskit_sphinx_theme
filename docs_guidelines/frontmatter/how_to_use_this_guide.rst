@@ -1,3 +1,3 @@
 #####################
-How to use this guide
+How to Use This Guide
 #####################
