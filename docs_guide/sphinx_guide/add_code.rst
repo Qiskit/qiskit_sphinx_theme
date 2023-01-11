@@ -212,11 +212,11 @@ to ``doctest``:
 
     sphinx-build -b doctest your_files output_file_path
 
-For example, to run the tests from the ``docs_guidelines`` folder and put the ``output.txt`` file in ``docs_guidelines/_build`` you can run:
+For example, to run the tests from the ``docs_guide`` folder and put the ``output.txt`` file in ``docs_guide/_build`` you can run:
 
 .. code-block:: bash
 
-    sphinx-build -b doctest docs_guidelines docs_guidelines/_build
+    sphinx-build -b doctest docs_guide docs_guide/_build
 
 And the output will be:
 
@@ -238,7 +238,7 @@ And the output will be:
         0 failures in cleanup code
     build succeeded.
 
-    Testing of doctests in the sources finished, look at the results in docs_guidelines/_build/output.txt.
+    Testing of doctests in the sources finished, look at the results in docs_guide/_build/output.txt.
 
 Add setup cells
 ^^^^^^^^^^^^^^^
