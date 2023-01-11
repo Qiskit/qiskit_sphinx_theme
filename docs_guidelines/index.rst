@@ -27,7 +27,7 @@ This site hosts the guidelines and examples for writing and building documentati
    :caption: Instructions for Individual Pages
    :hidden:
 
-   overview_guide
+   overview
    getting_started
    tutorials/index
    how_to/index
