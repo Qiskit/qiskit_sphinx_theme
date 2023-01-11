@@ -6,8 +6,10 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'Qiskit Documentation Guidelines'
-copyright = '2022, Qiskit Development Team'
+import datetime
+
+project = 'Qiskit Docs Guide'
+copyright = f'2022-{datetime.date.today().year}, Qiskit Development Team'
 author = 'Qiskit Development Team'
 release = '1.0'
 
