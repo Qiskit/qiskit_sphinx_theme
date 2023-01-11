@@ -8,8 +8,8 @@
 
 project = 'Qiskit Documentation Guidelines'
 copyright = '2022, Qiskit Development Team'
-author = 'Junye Huang, Guillermo Mijares Vilariño'
-release = '0.1.0'
+author = 'Qiskit Development Team'
+release = '1.0'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
