@@ -27,11 +27,11 @@ This site hosts the guidelines and examples for writing and building documentati
    :caption: Instructions for Individual Pages
    :hidden:
 
-   Overview <overview_guide>
-   Getting Started <getting_started>
-   Tutorials <tutorials/index>
-   How-to Guides <how_to/index>
-   API Reference <apidocs/index>
-   Explanations <explanations/index>
-   Release Notes <release_notes>
+   overview_guide
+   getting_started
+   tutorials/index
+   how_to/index
+   apidocs/index
+   explanations/index
+   release_notes
    GitHub <https://github.com/Qiskit/qiskit_sphinx_theme>

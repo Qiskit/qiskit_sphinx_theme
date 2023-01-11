@@ -1,5 +1,5 @@
 #############
-Release notes
+Release Notes
 #############
 
 .. note::
