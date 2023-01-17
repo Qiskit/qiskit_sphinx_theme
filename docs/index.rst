@@ -17,7 +17,7 @@ Qiskit sphinx theme |version| documentation
    Jupyter <sphinx_guide/jupyter>
    Panels <sphinx_guide/panels>
 
-  ..  
+  ..
     these headings are included in the toc tree but hidden from the sidebar
 .. toctree::
   :maxdepth: 1
