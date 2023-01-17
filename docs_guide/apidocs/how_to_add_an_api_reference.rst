@@ -2,6 +2,11 @@
 How to add an API reference
 ===========================
 
+.. note:: 
+
+   This page is written as a `How-to Guide` under :doc:`../intro/diataxis`.
+
+
 This guide shows how to add an API reference page to your documentation.
 
 Create a new API reference

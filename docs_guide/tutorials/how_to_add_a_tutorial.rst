@@ -2,6 +2,11 @@
 How to add a tutorial
 =====================
 
+.. note:: 
+
+   This page is written as a `How-to Guide` under :doc:`../intro/diataxis`.
+
+
 This guide shows how to add a tutorial to a Qiskit project repository.
 
 Pre-requisites

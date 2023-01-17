@@ -2,6 +2,11 @@
 Write mathematical expressions
 ==============================
 
+.. note:: 
+
+   This page is written as a `How-to Guide` under :doc:`../intro/diataxis`.
+
+
 This guide shows how to add :math:`\LaTeX` expressions to documentation.
 
 There are two ways to insert mathematical expressions with Sphinx:

@@ -32,7 +32,7 @@ Link to other pages
 .. toctree::
     :maxdepth: 1
 
-    Crossreference <crossreference>
+    Cross-reference <cross-reference>
     Add external links <add_external_links>
 
 Include technical expressions

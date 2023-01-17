@@ -2,6 +2,11 @@
 Add code to documentation
 =========================
 
+.. note:: 
+
+   This page is written as a `How-to Guide` under :doc:`../intro/diataxis`.
+
+
 This guide shows how to include code in your documentation.
 
 Pre-requisites

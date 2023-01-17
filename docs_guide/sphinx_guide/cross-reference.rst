@@ -1,6 +1,11 @@
-================================================
-Crossreference to other pages from documentation
-================================================
+=================================================
+Cross-reference to other pages from documentation
+=================================================
+
+.. note:: 
+
+   This page is written as a `How-to Guide` under :doc:`../intro/diataxis`.
+
 
 This guide shows how to reference to other pages in the documentation.
 

@@ -2,6 +2,11 @@
 Add sections to documentation
 =============================
 
+.. note:: 
+
+   This page is written as a `How-to Guide` under :doc:`../intro/diataxis`.
+
+
 This guide shows how to separate your documents in parts. 
 
 Pre-requisites

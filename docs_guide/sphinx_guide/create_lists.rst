@@ -2,6 +2,11 @@
 Create lists
 ============
 
+.. note:: 
+
+   This page is written as a `How-to Guide` under :doc:`../intro/diataxis`.
+
+
 This guide shows how to create a list in your documentation.
 
 There are several types of lists:
