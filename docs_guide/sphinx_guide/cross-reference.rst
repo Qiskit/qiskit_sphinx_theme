@@ -8,7 +8,7 @@ This guide shows how to reference to other pages in the documentation.
 
 .. warning::
 
-    Actual crossreferencing is only possible with ``.rst`` files. If you are trying to crossreference from a Jupyter notebook (``.ipynb``),
+    Actual cross-referencing is only possible with ``.rst`` files. If you are trying to cross-reference from a Jupyter notebook (``.ipynb``),
     you are actually linking to an external page, and therefore you should check :doc:`this guide <add_external_links>` instead.
 
 
@@ -118,7 +118,7 @@ For example, to link to :class:`qiskit.circuit.QuantumCircuit` you can write bot
 
 .. note::
 
-    Strictly speaking, what you are doing with :mod:`~sphinx.ext.intersphinx` is linking to external pages but with the crossreference syntax.
+    Strictly speaking, what you are doing with :mod:`~sphinx.ext.intersphinx` is linking to external pages but with the cross-reference syntax.
     For more information about linking to external pages, check :doc:`this guide <add_external_links>`.
 
 
