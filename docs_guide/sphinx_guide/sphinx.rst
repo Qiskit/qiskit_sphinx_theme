@@ -2,6 +2,11 @@
 Sphinx
 ======
 
+.. note:: 
+
+   This page is written as an `Explanation` under :doc:`diataxis`.
+
+
 What is Sphinx?
 ===============
 

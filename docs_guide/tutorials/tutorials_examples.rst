@@ -2,6 +2,8 @@
 Tutorials Examples
 ##################
 
+This page highlights good examples of tutorials within Qiskit projects. You can follow these
+examples to create your own tutorials.
 
 Qiskit IBM Runtime
 ==================
