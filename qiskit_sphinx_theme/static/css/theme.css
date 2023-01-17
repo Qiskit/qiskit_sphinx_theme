@@ -36,6 +36,10 @@
   --font-family-monospace: "IBM PLex Mono", Consolas, "Courier New", monospace;
 }
 
+.toctree-wrapper.compound {
+  display: none;
+}
+
 /* Old theme variables */
 
 .wy-table-responsive {

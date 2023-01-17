@@ -6,8 +6,7 @@ Qiskit sphinx theme |version| documentation
 
 .. toctree::
   :maxdepth: 1
-  :caption: Basic functionality
-  :hidden:
+    :caption: Basic functionality
 
    Structural formatting <sphinx_guide/structural>
    Paragraph-level markup <sphinx_guide/paragraph>
@@ -17,6 +16,15 @@ Qiskit sphinx theme |version| documentation
    Images <sphinx_guide/images>
    Jupyter <sphinx_guide/jupyter>
    Panels <sphinx_guide/panels>
+
+   .. these headings are included in the toc tree but hidden from the sidebar
+.. toctree::
+  :maxdepth: 1
+  :hidden:
+
+   hidden <sphinx_guide/structural>
+   hidden <sphinx_guide/paragraph>
+   hidden <sphinx_guide/lists_tables>
 
 
 .. Hiding - Indices and tables
