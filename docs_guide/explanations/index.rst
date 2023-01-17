@@ -7,4 +7,5 @@ Explanations
 
     explanations_guidelines
     explanations_examples
+    explanations_templates
     how_to_add_an_explanation
