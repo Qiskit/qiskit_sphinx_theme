@@ -6,7 +6,7 @@ Qiskit sphinx theme |version| documentation
 
 .. toctree::
   :maxdepth: 1
-    :caption: Basic functionality
+  :caption: Basic functionality
 
    Structural formatting <sphinx_guide/structural>
    Paragraph-level markup <sphinx_guide/paragraph>
