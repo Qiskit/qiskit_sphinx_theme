@@ -2,10 +2,7 @@
 Add external links
 ==================
 
-.. note:: 
-
-   This page is written as a `How-to Guide` under :doc:`../intro/diataxis`.
-
+.. include:: ../others/how-to_type.rst
 
 This guide shows how to include links to pages outside your documentation.
 

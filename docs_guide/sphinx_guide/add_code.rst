@@ -2,10 +2,7 @@
 Add code to documentation
 =========================
 
-.. note:: 
-
-   This page is written as a `How-to Guide` under :doc:`../intro/diataxis`.
-
+.. include:: ../others/how-to_type.rst
 
 This guide shows how to include code in your documentation.
 

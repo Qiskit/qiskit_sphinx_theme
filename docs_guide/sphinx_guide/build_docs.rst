@@ -2,10 +2,7 @@
 Build documentation locally
 ===========================
 
-.. note:: 
-
-   This page is written as a `How-to Guide` under :doc:`../intro/diataxis`.
-
+.. include:: ../others/how-to_type.rst
 
 This guide shows how to build the documentation of a Qiskit project repository in local.
 

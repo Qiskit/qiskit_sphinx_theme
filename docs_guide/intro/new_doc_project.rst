@@ -2,10 +2,7 @@
 Create a New Documentation Project
 ==================================
 
-.. note:: 
-
-   This page is written as a `Tutorial` under :doc:`diataxis`.
-
+.. include:: ../others/tutorial_type.rst
 
 In this tutorial you will use the ``sphinx-quickstart`` command to create a new documentation project for a Qiskit repository with Sphinx. Then, you will structure the resulting documentation according to
 the Qiskit standard and make sure Qiskit's Sphinx HTML theme, the ``qiskit_sphinx_theme``, is used. After that, you will create a GitHub workflow to deploy your documentation to

@@ -1,11 +1,10 @@
+.. _diataxis:
+
 ======================
 The Diátaxis Framework
 ======================
 
-.. note:: 
-
-   This page is written as an `Explanation` under :doc:`diataxis`.
-
+.. include:: ../others/explanation_type.rst
 
 What is Diátaxis?
 =================
