@@ -1,3 +1,3 @@
 .. note:: 
 
-   This page is written as an `Explanation` under :ref:`diataxis`.
+   This page was written in the style of an `explanation` according to :ref:`diataxis`.
