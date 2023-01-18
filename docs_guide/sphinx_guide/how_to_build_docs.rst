@@ -1,6 +1,6 @@
-===========================
-Build documentation locally
-===========================
+==================================
+How to build documentation locally
+==================================
 
 .. include:: ../others/how-to_type.rst
 

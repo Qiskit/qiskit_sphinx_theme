@@ -664,7 +664,7 @@ Examples
 
 * `Qiskit metapackage <https://github.com/Qiskit/qiskit>`_
     * `conf.py <https://github.com/Qiskit/qiskit/blob/master/docs/conf.py>`_
-    * `docs.yml <https://github.com/Qiskit/qiskit/blob/master/.github/workflows/docs.yml>`
+    * `docs.yml <https://github.com/Qiskit/qiskit/blob/master/.github/workflows/docs.yml>`_
 * `Qiskit Nature <https://github.com/Qiskit/qiskit-nature>`_
     * `Nature conf.py <https://github.com/Qiskit/qiskit-nature/blob/main/docs/conf.py>`_
     * `Nature deploy-docs.yml <https://github.com/Qiskit/qiskit-nature/blob/main/.github/workflows/deploy-docs.yml>`_

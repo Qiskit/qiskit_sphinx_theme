@@ -1,6 +1,6 @@
-=============================
-Add sections to documentation
-=============================
+====================================
+How to add sections to documentation
+====================================
 
 .. include:: ../others/how-to_type.rst
 

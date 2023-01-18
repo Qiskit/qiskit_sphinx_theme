@@ -1,6 +1,8 @@
-=================================================
-Cross-reference to other pages from documentation
-=================================================
+.. _cross-reference:
+
+========================================================
+How to cross-reference to other pages from documentation
+========================================================
 
 .. include:: ../others/how-to_type.rst
 
@@ -9,9 +11,7 @@ This guide shows how to reference to other pages in the documentation.
 .. warning::
 
     Actual cross-referencing is only possible with ``.rst`` files. If you are trying to cross-reference from a Jupyter notebook (``.ipynb``),
-    you are actually linking to an external page, and therefore you should check :doc:`this guide <add_external_links>` instead.
-
-
+    you are actually linking to an external page, and therefore you should check :ref:`add_external_links` instead.
 
 Pre-requisites
 ==============
@@ -119,9 +119,7 @@ For example, to link to :class:`qiskit.circuit.QuantumCircuit` you can write bot
 .. note::
 
     Strictly speaking, what you are doing with :mod:`~sphinx.ext.intersphinx` is linking to external pages but with the cross-reference syntax.
-    For more information about linking to external pages, check :doc:`this guide <add_external_links>`.
-
-
+    For more information about linking to external pages, check :ref:`add_external_links`.
 
 Shorten the links
 =================

@@ -1,6 +1,6 @@
-=========================
-Add code to documentation
-=========================
+================================
+How to add code to documentation
+================================
 
 .. include:: ../others/how-to_type.rst
 

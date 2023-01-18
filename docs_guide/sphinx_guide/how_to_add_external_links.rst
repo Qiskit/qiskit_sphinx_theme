@@ -1,6 +1,8 @@
-==================
-Add external links
-==================
+.. _add_external_links:
+
+=========================
+How to add external links
+=========================
 
 .. include:: ../others/how-to_type.rst
 
@@ -20,7 +22,7 @@ In order to link to an external page you have to write ```text of your link <you
 .. note::
 
     You can also use :mod:`intersphinx <sphinx:sphinx.ext.intersphinx>` to link to pages from other project's documentation using the cross-reference syntax.
-    For more information about crossreferencing and using :mod:`intersphinx <sphinx:sphinx.ext.intersphinx>`, check :doc:`this guide <cross-reference>`.
+    For more information about cross-referencing and using :mod:`intersphinx <sphinx:sphinx.ext.intersphinx>`, check :ref:`cross-reference`.
 
 ``.ipynb``
 ===========

@@ -1,6 +1,6 @@
-==============================
-Write mathematical expressions
-==============================
+=====================================
+How to write mathematical expressions
+=====================================
 
 .. include:: ../others/how-to_type.rst
 

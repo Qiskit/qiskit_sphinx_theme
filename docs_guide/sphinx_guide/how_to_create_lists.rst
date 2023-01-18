@@ -1,6 +1,6 @@
-============
-Create lists
-============
+===================
+How to create lists
+===================
 
 .. include:: ../others/how-to_type.rst
 

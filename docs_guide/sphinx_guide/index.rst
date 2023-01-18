@@ -15,7 +15,7 @@ Generate documentation
 .. toctree::
     :maxdepth: 1
 
-    Build documentation <build_docs>
+    how_to_build_docs
 
 
 Structure your documents
@@ -23,8 +23,8 @@ Structure your documents
 .. toctree::
     :maxdepth: 1
 
-    Add sections <add_sections>
-    Create lists <create_lists>
+    how_to_add_sections
+    how_to_create_lists
 
 
 Link to other pages
@@ -32,8 +32,8 @@ Link to other pages
 .. toctree::
     :maxdepth: 1
 
-    Cross-reference <cross-reference>
-    Add external links <add_external_links>
+    how_to_cross-reference
+    how_to_add_external_links
 
 Include technical expressions
 =============================
@@ -41,5 +41,5 @@ Include technical expressions
 .. toctree::
     :maxdepth: 1
 
-    Include code <add_code>
-    Write mathematical expressions <write_mathematical_expressions>
+    how_to_add_code
+    how_to_write_mathematical_expressions
