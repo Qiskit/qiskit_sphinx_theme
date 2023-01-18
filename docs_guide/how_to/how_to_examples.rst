@@ -8,8 +8,6 @@ examples to create your own how-to guides.
 Qiskit IBM Runtime
 ==================
 
-* `Run on quantum backends <https://qiskit.org/documentation/partners/qiskit_ibm_runtime/how_to/backends.html>`_
-
-* `Run a primitive in a session <https://qiskit.org/documentation/partners/qiskit_ibm_runtime/how_to/run_session.html>`_
-
-* `Manage your account <https://qiskit.org/documentation/partners/qiskit_ibm_runtime/how_to/account-management.html>`_
+* :external+qiskit-ibm-runtime:doc:`how_to/backends`
+* :external+qiskit-ibm-runtime:doc:`how_to/run_session`
+* :external+qiskit-ibm-runtime:doc:`how_to/account-management`

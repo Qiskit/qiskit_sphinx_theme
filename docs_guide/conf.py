@@ -31,6 +31,7 @@ html_theme = 'qiskit_sphinx_theme'
 # -- Intersphinx configuration ------------------------------------------------
 
 intersphinx_mapping = {
+    "sphinx": ("https://www.sphinx-doc.org/en/master/", None),
     "qiskit": ("https://qiskit.org/documentation/", None),
-    "sphinx": ("https://www.sphinx-doc.org/en/master/", None)
+    "qiskit-ibm-runtime": ("https://qiskit.org/documentation/partners/qiskit_ibm_runtime/", None),
 }
