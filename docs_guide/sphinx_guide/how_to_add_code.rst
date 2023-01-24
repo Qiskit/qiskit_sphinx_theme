@@ -6,11 +6,7 @@ How to add code to documentation
 
 This guide shows how to include code in your documentation.
 
-Pre-requisites
-==============
-
-This guide assumes your Qiskit project already has a working Sphinx documentation project in a folder called ``docs``. If you don't have it, you can set it up with
-:doc:`sphinx-quickstart <sphinx:man/sphinx-quickstart>`.
+.. include:: ../others/general_pre-requisites.rst
 
 There are two ways to have code in your docs:
 

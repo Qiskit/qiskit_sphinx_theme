@@ -6,24 +6,7 @@ How to add a how-to guide
 
 This guide shows how to add a how-to guide to a Qiskit project repository.
 
-Pre-requisites
-==============
-
-This guide assumes your Qiskit project already has a working Sphinx documentation project in a folder called ``docs``. If you don't have it, you can set it up with
-:doc:`sphinx-quickstart <sphinx:man/sphinx-quickstart>`.
-
-Inside your ``docs`` folder there should be at least a configuration file called ``conf.py``, a ``how_to`` folder with an ``index.rst`` and in which the guides will be included.
-This ``how_to`` folder should also be referenced as part of a :rst:dir:`sphinx:toctree` in another ``index.rst``, this time in the ``docs`` folder instead of the ``how_to`` one.
-
-In short, the minimum structure of your documentation should be:
-
-.. code-block:: text
-
-    docs/
-   |--how_to/
-   |       |--index.rst
-   |--index.rst 
-   |--conf.py
+.. include:: ../others/general_pre-requisites.rst
 
 Create a new guide
 ==================

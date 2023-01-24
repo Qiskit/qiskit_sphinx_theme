@@ -13,11 +13,7 @@ This guide shows how to reference to other pages in the documentation.
     Actual cross-referencing is only possible with ``.rst`` files. If you are trying to cross-reference from a Jupyter notebook (``.ipynb``),
     you are actually linking to an external page, and therefore you should check :ref:`add_external_links` instead.
 
-Pre-requisites
-==============
-
-This guide assumes your Qiskit project already has a working Sphinx documentation project in a folder called ``docs``. If you don't have it, you can set it up with
-:doc:`sphinx-quickstart <sphinx:man/sphinx-quickstart>`.
+.. include:: ../others/general_pre-requisites.rst
 
 Add the links
 =============
@@ -103,7 +99,7 @@ For example, if you want to add Qiskit's and Sphinx's documentation you can writ
         "sphinx": ("https://www.sphinx-doc.org/en/master/", None)
     }
 
-Once you have set the :confval:`sphinx:intersphinx_mapping`, you can link to any :mod:`role <sphinx:roles>` like
+Once you have set the :confval:`sphinx:intersphinx_mapping`, you can link to any :mod:`sphinx:roles` like
 ``:mod:``, ``:func:`` or ``:class:`` in the same way as the previous sections, that is, ``:role:`name```. 
 
 However, if you want to make sure you are taking the object from the documentation of a specific package, the name of the object has to be preceded by that of the

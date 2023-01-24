@@ -6,6 +6,8 @@ How to add an API reference
 
 This guide shows how to add an API reference page to your documentation.
 
+.. include:: ../others/general_pre-requisites.rst
+
 Create a new API reference
 ==========================
 
