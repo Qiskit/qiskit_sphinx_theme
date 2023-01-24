@@ -21,7 +21,7 @@ This site hosts the guidelines and examples for writing and building documentati
 
 
 .. toctree::
-   :caption: Instructions for Individual Pages
+   :caption: Instructions for Standard Pages
    :hidden:
 
    overview
