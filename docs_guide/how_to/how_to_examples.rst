@@ -8,6 +8,6 @@ examples to create your own how-to guides.
 Qiskit IBM Runtime
 ==================
 
-* :external+qiskit-ibm-runtime:doc:`how_to/backends`
-* :external+qiskit-ibm-runtime:doc:`how_to/run_session`
-* :external+qiskit-ibm-runtime:doc:`how_to/account-management`
+* :doc:`qiskit-ibm-runtime:how_to/backends`
+* :doc:`qiskit-ibm-runtime:how_to/run_session`
+* :doc:`qiskit-ibm-runtime:how_to/account-management`

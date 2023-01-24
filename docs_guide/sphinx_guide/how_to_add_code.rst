@@ -29,7 +29,7 @@ There are several ways to include code cells in your documentation:
 
 * Executable cells with ``jupyter-execute``.
 * Non-executable cells with :rst:dir:`sphinx:code-block`.
-* Testable code cells with :mod:`doctest <sphinx.ext.doctest>`.
+* Testable code cells with :mod:`sphinx.ext.doctest`.
 
 Executable cells
 -----------------
@@ -71,7 +71,7 @@ The output would be this cell:
 .. note::
 
     Even though ``jupyter-execute`` can be used for cells without any visualization, it makes the documentation building process
-    more complex, so it is recommended to use :mod:`doctest <sphinx.ext.doctest>` instead. See `this page <https://github.com/Qiskit/qiskit-terra/issues/7661>`_ for more details.
+    more complex, so it is recommended to use :mod:`sphinx.ext.doctest` instead. See `this page <https://github.com/Qiskit/qiskit-terra/issues/7661>`_ for more details.
 
 .. note::
 

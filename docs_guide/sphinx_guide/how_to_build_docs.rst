@@ -55,7 +55,7 @@ You can install them with `apt-get install <https://linux.die.net/man/8/apt-get>
 Build the documentation
 =======================
 
-Once you have installed every needed package in your virtual environment, you can build the documentation with :doc:`sphinx-build <sphinx:man/sphinx-build>` the following way:
+Once you have installed every needed package in your virtual environment, you can build the documentation with :doc:`sphinx:man/sphinx-build` the following way:
 
 .. code-block:: bash
 
