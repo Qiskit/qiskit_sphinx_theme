@@ -6,18 +6,18 @@ Create a New Documentation Project
 
 .. include:: ../others/tutorial_type.rst
 
-In this tutorial you will use the ``sphinx-quickstart`` command to create a new documentation project for a Qiskit repository with Sphinx. Then, you will structure the resulting documentation according to
+In this tutorial you will use the :doc:`sphinx-quickstart <sphinx:man/sphinx-quickstart>` command to create a new documentation project for a Qiskit repository with :doc:`Sphinx <sphinx:index>`. Then, you will structure the resulting documentation according to
 the Qiskit standard and make sure Qiskit's Sphinx HTML theme, the ``qiskit_sphinx_theme``, is used. After that, you will create a GitHub workflow to deploy your documentation to
-`qiskit.org <https://qiskit.org/>`_ with RClone. 
+`qiskit.org <https://qiskit.org/>`_ with `Rclone <https://rclone.org>`_. 
 
 Background information
 =======================
 
 Before you dive into the creation of the documentation project, it's important to know what reStructuredText and Sphinx are.
 
-reStructuredText (RST) is a lightweight markup language, that is, an easy to read language that formats plaintext documents according to a set of tags. It enables the creation of web pages and documentation from, for example, Python docstrings.
+`reStructuredText <https://docutils.sourceforge.io/rst.html>`_ (RST) is a lightweight markup language, that is, an easy to read language that formats plaintext documents according to a set of tags. It enables the creation of web pages and documentation from, for example, Python docstrings.
 
-Sphinx is a documentation generator that converts RST files to formats like `HTML <https://html.spec.whatwg.org/multipage/>`_, `LaTeX <https://www.latex-project.org/>`_, `ePub <https://www.w3.org/publishing/epub32/>`_, `Texinfo <https://www.gnu.org/software/texinfo/>`_, manual pages or plain text. It is written in Python. The ``qiskit_sphinx_theme`` will focus on converting RST to HTML pages.
+:doc:`Sphinx <sphinx:index>` is a documentation generator that converts RST files to formats like `HTML <https://html.spec.whatwg.org/multipage/>`_, `LaTeX <https://www.latex-project.org/>`_, `ePub <https://www.w3.org/publishing/epub32/>`_, `Texinfo <https://www.gnu.org/software/texinfo/>`_, manual pages or plain text. It is written in Python. The ``qiskit_sphinx_theme`` will focus on converting RST to HTML pages.
 
 Install the ``qiskit_sphinx_theme``
 ===================================
@@ -37,7 +37,7 @@ In order to use use the ``qiskit_sphinx_theme`` you need to first install it. Yo
 Create the documentation in your repository
 ===========================================
 
-In order to crete a documentation folder you can use `sphinx-quickstart <https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html>`_. It asks some questions and creates a functional documentation folder according to your answers.
+In order to crete a documentation folder you can use :doc:`sphinx-quickstart <sphinx:man/sphinx-quickstart>`. It asks some questions and creates a functional documentation folder according to your answers.
 You can use ``sphinx-quickstart`` by going to the root directory of your repository and running this command.
 
 .. code-block:: bash
@@ -140,7 +140,7 @@ In short, the recommended structure of your documentation is:
 Sidebar
 =======
 
-Now that you have all the needed ``.rst`` files, you can create a sidebar for your documentation page. This can be done by linking to the files with a `toctree <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-toctree>`_
+Now that you have all the needed ``.rst`` files, you can create a sidebar for your documentation page. This can be done by linking to the files with a :rst:dir:`sphinx:toctree`
 in ``docs/index.rst``.  Your ``index.rst`` should look like this:
 
 .. code-block:: text
@@ -193,7 +193,7 @@ so you only need to run:
 
 The ``-r`` flag means that instead of installing a package called "`requirements-dev.txt`", you are installing the packages listed in the requirements text file ``requirements-dev.txt``.
 
-Once you have made the installations, you can finally build your documentation with `sphinx-build <https://www.sphinx-doc.org/en/master/man/sphinx-build.html>`_, setting the builder (``-b``)
+Once you have made the installations, you can finally build your documentation with :doc:`sphinx-build <sphinx:man/sphinx-build>`, setting the builder (``-b``)
 to ``html`` so the documents from the ``docs`` folder get built as HTML pages in a new folder, that you will call ``docs/_build/html``. So the final command is:
 
 .. code-block:: bash
@@ -586,7 +586,7 @@ The full ``tools/deploy_documentation.sh`` should then look like this:
 
 
 
-Now that all the subscripts are done, you can put them together to finish the docs deployment process, along with building the documentation with `sphinx-build <https://www.sphinx-doc.org/en/master/man/sphinx-build.html>`_.
+Now that all the subscripts are done, you can put them together to finish the docs deployment process, along with building the documentation with :doc:`sphinx-build <sphinx:man/sphinx-build>`.
 You also need to add ``earliest_version: 0.1.0`` to ``releasenotes/config.yaml`` so `reno <https://docs.openstack.org/reno/latest/>`_ can find the release notes.
 
 .. code-block:: yaml
