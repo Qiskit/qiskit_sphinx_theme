@@ -24,3 +24,11 @@ Similarly, the :ref:`overview`, :ref:`getting_started` and :ref:`release_notes` 
 If what you are looking for is not how to deal with the content of your documentation but with the more technical details of creating documentation with :doc:`Sphinx <sphinx:index>`, the documentation builder we are using in Qiskit,
 check the :ref:`sphinx_guide` section. There you will find explanatory material about Sphinx and ReStructuredText (Sphinx's native language), as well as guides for Sphinx-related tasks such as
 building documentation, structuring it with different headers and lists and including links and technical expressions like code blocks or mathematic formulae.
+
+
+Contributing to this guide
+==========================
+
+If you want to help improve this guide, you can open an issue in the [qiskit_sphinx_theme](https://github.com/Qiskit/qiskit_sphinx_theme) repository with the label
+`qiskit docs guide` to make any suggestions or directly create a pull request to the `feature/docs-guidelines` `branch <https://github.com/Qiskit/qiskit_sphinx_theme/tree/feature/docs-guidelines>`_
+if you prefer to make the changes yourself.
