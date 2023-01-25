@@ -19,7 +19,7 @@ This guide includes a section for each one of these types: :ref:`tutorials`, :re
 include it in your documentation. That also means that this guide itself is not actually implementing `Diátaxis <https://diataxis.fr>`_, so, for example,
 the :ref:`tutorials` section is not made up of tutorials, even though you can find examples there.
 
-Similarly, the :ref:`overview`, :ref:`getting_started` and :ref:`release_notes` pages will contain information about how to write this kind of files instead of being actual instances of them.
+Similarly, the :ref:`overview`, :ref:`getting-started` and :ref:`release-notes` pages will contain information about how to write this kind of files instead of being actual instances of them.
 
 If what you are looking for is not how to deal with the content of your documentation but with the more technical details of creating documentation with :doc:`Sphinx <sphinx:index>`, the documentation builder we are using in Qiskit,
 check the :ref:`sphinx_guide` section. There you will find explanatory material about Sphinx and ReStructuredText (Sphinx's native language), as well as guides for Sphinx-related tasks such as
