@@ -29,7 +29,7 @@ jobs:
       - name: Compress Artifacts
         run: |
           mkdir artifacts
-          tar -zcvf html_docs.tar.gz docs_guidelines/_build/html
+          tar -zcvf html_docs.tar.gz docs_guide/_build/html
           mv html_docs.tar.gz artifacts/.
       - uses: actions/upload-artifact@v2
         with:
