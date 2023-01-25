@@ -257,9 +257,9 @@ The job will consist of publishing the documentation and will be called ``docs_p
 Set up the job
 ^^^^^^^^^^^^^^
 
-In order to make sure that the deployement only comes from a stable branch and is triggered by a mantainer, you can use the `if <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idif>`_
+In order to make sure that the deployment only comes from a stable branch and is triggered by a maintainer, you can use the `if <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idif>`_
 key. The first condition can be written using the `startsWith expression <https://docs.github.com/en/actions/learn-github-actions/expressions#startswith>`_ by checking whether ``github.ref`` starts with ``refs/heads/stable``. For the second condition, you can use the `contains expression <https://docs.github.com/en/actions/learn-github-actions/expressions#contains>`_ to check whether
-``github.actor``, that is the user that triggers the workflow, is a mantainer. This job will use the latest version of `Ubuntu <https://ubuntu.com/>`_. To ensure that, you will set the `runs-on <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idruns-on>`_ key to ``ubuntu-latest``.
+``github.actor``, that is the user that triggers the workflow, is a maintainer. This job will use the latest version of `Ubuntu <https://ubuntu.com/>`_. To ensure that, you will set the `runs-on <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idruns-on>`_ key to ``ubuntu-latest``.
 Finally, you will use the `strategy key <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategy>`_ to create a `matrix <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix>`_ in which the Python version will be included. In this case, the version will be 3.8.
 This matrix will be called ``python-version`` and its value will be ``[3.8]``. 
 
@@ -268,7 +268,7 @@ This matrix will be called ``python-version`` and its value will be ``[3.8]``.
 
     jobs:
       docs_publish:
-        if: ${{ startsWith(github.ref, 'refs/heads/stable') && contains('["mantainer-1","mantainer-2", ...]', github.actor) }}
+        if: ${{ startsWith(github.ref, 'refs/heads/stable') && contains('["maintainer-1","maintainer-2", ...]', github.actor) }}
         runs-on: ubuntu-latest
         strategy:
           matrix:
@@ -365,7 +365,7 @@ So the step will start looking like this:
         QISKIT_PARALLEL: False
         QISKIT_DOCS_BUILD_TUTORIALS: 'always'
 
-When deploying documentation to qiskit.org, it's important to make sure that only the release notes that correspond to the desired release are being uploaded. For this purpuse you will create a subscript called ``tools/ignore_untagged_notes.sh`` that will be called from the workflow.
+When deploying documentation to qiskit.org, it's important to make sure that only the release notes that correspond to the desired release are being uploaded. For this purpose you will create a subscript called ``tools/ignore_untagged_notes.sh`` that will be called from the workflow.
 This file will start with this `shebang <https://en.wikipedia.org/wiki/Shebang_%28Unix%29>`_:
 
 .. code-block:: bash
@@ -385,7 +385,7 @@ it as a variable called ``LATEST_TAG`` with the ``VARIABLE=$(command)`` syntax f
 
 Then you need to look for the files that don't have this tag. A way to do this is using `git diff <https://git-scm.com/docs/git-diff>`_ with the ``--name-only`` option to compare only the names of the files that are different between the current version of your repo
 (``HEAD``) and the latest tag (the variable ``LATEST_TAG``, that has to be referred with the ``$VARIABLE`` syntax). You need the name of all of the release notes (that are placed in ``releasenotes/notes``) to be added to an ignore list (that will be created with this script into ``docs/release_notes.rst``).
-This ignore list uses the `reno Sphinx <https://docs.openstack.org/reno/latest/user/sphinxext.html#directive-release-notes>`_ and will have this sctructure:
+This ignore list uses the `reno Sphinx <https://docs.openstack.org/reno/latest/user/sphinxext.html#directive-release-notes>`_ and will have this structure:
 
 .. code-block:: bash
 
@@ -421,7 +421,7 @@ The code for this process is then:
 
 Note that the first ``if`` requires double square brackets (``[[ condition ]]``) because it's comparing a variable to the string ``releasenotes/notes/*``, which uses the wildcard ``*`` to indicate that it begins by ``releasenotes/notes/``.
 In order to check whether a string is in ``docs/release_notes.rst``, this script is defining the variable ``isInFile`` as the exit code (``echo $?``) of ``grep -Exq your_string docs/release_notes.rst >/dev/null``.
-This commmand would give as output any line that includes the string ``your_string`` but we are not interested in that output, so we erase it by directing it to ``dev/null``, as we only want to know whether the file was found (exit code ``0``).
+This command would give as output any line that includes the string ``your_string`` but we are not interested in that output, so we erase it by directing it to ``dev/null``, as we only want to know whether the file was found (exit code ``0``).
 The ``-E`` flag means that patterns are seen as `extended regular expressions <https://www.gnu.org/software/grep/manual/grep.html#Basic-vs-Extended>`_, so ``\s*`` means zero or more (``*``) whitespaces (``\s``) instead of being a literal string.
 Given the structure of the ignore list, we want to make sure that the line consists of only the expression we are looking for, so we use the ``-x`` flag for this purpose.
 Finally, the ``-q`` flag ensures that no output is written and exit status is 0 if a match is found, ignoring any errors. Also note that when ``:ignore-notes:`` and the file names are added to the ignore list, the indentation is respected.
@@ -544,7 +544,7 @@ the Rclone configuration file from ``RCLONE_CONFIG_PATH``.
     openssl aes-256-cbc -K $encrypted_rclone_key -iv $encrypted_rclone_iv -in tools/rclone.conf.enc -out $RCLONE_CONFIG_PATH -d
 
 Now that your Rclone has the configuration needed to deploy the documentation, it's time to do it. The command that enables you to upload the built docs from ``docs/_build/html`` to the corresponding `IBM Cloud Object Storage <https://www.ibm.com/cloud/object-storage>`_ instance (``qiskit-org-web-resources/documentation/x``) is `rclone sync <https://rclone.org/commands/rclone_sync/>`_.
-You can use the ``--progress`` flag to get updates of the syncronization process. You need to exclude the files from ``locale`` with the ``--exclude`` flag.
+You can use the ``--progress`` flag to get updates of the synchronization process. You need to exclude the files from ``locale`` with the ``--exclude`` flag.
 
 .. code-block:: bash
 
@@ -643,7 +643,7 @@ The complete ``.github/workflows/deploy-docs.yml`` is then:
 
     jobs:
       docs_publish:
-        if: ${{ startsWith(github.ref, 'refs/heads/stable') && contains('["mantainer-1","mantainer-2", ...]', github.actor) }}
+        if: ${{ startsWith(github.ref, 'refs/heads/stable') && contains('["maintainer-1","maintainer-2", ...]', github.actor) }}
         runs-on: ubuntu-latest
         strategy:
         matrix:
