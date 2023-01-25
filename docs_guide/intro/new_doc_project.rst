@@ -1,3 +1,5 @@
+.. _create-new-doc-project:
+
 ==================================
 Create a New Documentation Project
 ==================================
@@ -11,7 +13,7 @@ the Qiskit standard and make sure Qiskit's Sphinx HTML theme, the ``qiskit_sphin
 Background information
 =======================
 
-Before you dive into the creation of the docuementation project, it's important to know what reStructuredText and Sphinx are.
+Before you dive into the creation of the documentation project, it's important to know what reStructuredText and Sphinx are.
 
 reStructuredText (RST) is a lightweight markup language, that is, an easy to read language that formats plaintext documents according to a set of tags. It enables the creation of web pages and documentation from, for example, Python docstrings.
 
@@ -101,19 +103,39 @@ The new folder will consist of:
 Even though you have created a working Sphinx documentation folder, you are not using the ``qiskit_sphinx_theme`` yet. In order to do that, you need to open ``conf.py``
 and change the value of the variable ``html_theme`` from ``'alabaster'`` to ``'qiskit_sphinx_theme'``.
 
+.. _doc-structure:
+
 Structure your documentation
 ============================
 
-In Qiskit we are following the `Diataxis <https://diataxis.fr/>`_ documentation framework, that means that our documentation is divided into four categories:
+In Qiskit, we are following :ref:`diataxis`, that means that our documentation is divided into four categories:
 
-* `Tutorials <https://diataxis.fr/tutorials/>`_.
-* `How-to guides <https://diataxis.fr/how-to-guides/>`_.
-* `API reference <https://diataxis.fr/reference/>`_.
-* `Explanations <https://diataxis.fr/explanation/>`_.
+* `Tutorials <https://diataxis.fr/tutorials/>`_
+* `How-to guides <https://diataxis.fr/how-to-guides/>`_
+* `API reference <https://diataxis.fr/reference/>`_
+* `Explanations <https://diataxis.fr/explanation/>`_
 
 In order to do that, you need to create 4 new folders inside the ``docs`` folder, that you will call ``tutorials``, ``how_to``, ``apidocs`` and ``explanations``. Inside each one of them, add an empty (to start with) ``index.rst``.
 
-Apart from that, you should add  a ``release_notes.rst`` for putting release notes and a ``getting_started.rst`` containing installation instructions and a "hello world" example to the ``docs`` folder. 
+Apart from that, you should add a ``release_notes.rst`` for putting release notes and a ``getting_started.rst`` containing installation instructions and a "hello world" example to the ``docs`` folder. 
+
+In short, the recommended structure of your documentation is:
+
+.. code-block:: text
+
+   docs/
+   |--conf.py
+   |--index.rst
+   |--getting_started.rst
+   |--release_notes.rst
+   |--tutorials/
+   |  |--index.rst
+   |--how_to/
+   |  |--index.rst
+   |--apidocs/
+   |  |--index.rst
+   |--explanations/
+      |--index.rst
 
 Sidebar
 =======
