@@ -586,7 +586,7 @@ The full ``tools/deploy_documentation.sh`` should then look like this:
 
 
 
-Now that all the subscripts are done, you can put them together to finish the docs deployment process, along with building the documentation with :doc:`sphinx-build <sphinx:man/sphinx-build>`.
+Now that all the subscripts are done, you can put them together to finish the docs deployment process, along with building the documentation with :doc:`sphinx:man/sphinx-build`.
 You also need to add ``earliest_version: 0.1.0`` to ``releasenotes/config.yaml`` so `reno <https://docs.openstack.org/reno/latest/>`_ can find the release notes.
 
 .. code-block:: yaml
