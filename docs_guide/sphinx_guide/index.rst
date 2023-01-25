@@ -1,4 +1,4 @@
-.. _sphinx_guide:
+.. _sphinx-guide:
 
 ############
 Sphinx Guide
