@@ -16,7 +16,7 @@ In Qiskit we are using a documentation framework called `Diátaxis <https://diat
 For more details about what each documentation category means, check :ref:`this page <diataxis>`.
 
 This guide includes a section for each one of these types: :ref:`tutorials`, :ref:`how_to`, :ref:`apidocs` and :ref:`explanations`. Each section includes content-related guidelines for writing the corresponding document type, as well as existing examples and the instructions needed to
-include it in your documentation. That also means that this guide is not actually implementing `Diátaxis <https://diataxis.fr>`_, so, for example,
+include it in your documentation. That also means that this guide itself is not actually implementing `Diátaxis <https://diataxis.fr>`_, so, for example,
 the :ref:`tutorials` section is not made up of tutorials, even though you can find examples there.
 
 Similarly, the :ref:`overview`, :ref:`getting_started` and :ref:`release_notes` pages will contain information about how to write this kind of files instead of being actual instances of them.
