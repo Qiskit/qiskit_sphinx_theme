@@ -2,6 +2,8 @@
 reStructuredText
 =================
 
+.. include:: ../others/explanation_type.rst
+
 What is reStructuredText?
 =========================
 
