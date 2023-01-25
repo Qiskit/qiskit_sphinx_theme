@@ -193,7 +193,7 @@ so you only need to run:
 
 The ``-r`` flag means that instead of installing a package called "`requirements-dev.txt`", you are installing the packages listed in the requirements text file ``requirements-dev.txt``.
 
-Once you have made the installations, you can finally build your documentation with :doc:`sphinx-build <sphinx:man/sphinx-build>`, setting the builder (``-b``)
+Once you have made the installations, you can finally build your documentation with :doc:`sphinx:man/sphinx-build`, setting the builder (``-b``)
 to ``html`` so the documents from the ``docs`` folder get built as HTML pages in a new folder, that you will call ``docs/_build/html``. So the final command is:
 
 .. code-block:: bash
