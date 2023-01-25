@@ -6,7 +6,7 @@ Create a New Documentation Project
 
 .. include:: ../others/tutorial_type.rst
 
-In this tutorial you will use the :doc:`sphinx-quickstart <sphinx:man/sphinx-quickstart>` command to create a new documentation project for a Qiskit repository with :doc:`Sphinx <sphinx:index>`. Then, you will structure the resulting documentation according to
+In this tutorial you will use the :doc:`sphinx:man/sphinx-quickstart` command to create a new documentation project for a Qiskit repository with :doc:`Sphinx <sphinx:index>`. Then, you will structure the resulting documentation according to
 the Qiskit standard and make sure Qiskit's Sphinx HTML theme, the ``qiskit_sphinx_theme``, is used. After that, you will create a GitHub workflow to deploy your documentation to
 `qiskit.org <https://qiskit.org/>`_ with `Rclone <https://rclone.org>`_. 
 
