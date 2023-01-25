@@ -1,3 +1,3 @@
 .. note:: 
 
-   This page is written as a `How-to Guide` under :ref:`diataxis`.
+   This page was written in the style of a `How-to Guide` according to :ref:`diataxis`.

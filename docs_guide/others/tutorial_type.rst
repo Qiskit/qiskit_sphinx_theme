@@ -1,3 +1,3 @@
 .. note:: 
 
-   This page is written as a `Tutorial` under :ref:`diataxis`.
+   This page was written in the style of a `Tutorial` according to :ref:`diataxis`.
