@@ -5,4 +5,7 @@ Tutorials
 .. toctree::
     :maxdepth: 1
 
-    new_doc_project
+    tutorials_guidelines
+    tutorials_examples
+    tutorials_templates
+    how_to_add_a_tutorial
