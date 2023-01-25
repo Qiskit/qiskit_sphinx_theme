@@ -39,4 +39,4 @@ as well as some practical guides for Sphinx-related tasks and, finally, guidelin
 Next steps
 ==========
 
-:ref:`how_to_use_this_guide`
+:ref:`how-to-use-this-guide`
