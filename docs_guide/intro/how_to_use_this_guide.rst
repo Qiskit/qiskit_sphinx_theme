@@ -1,4 +1,4 @@
-.. _how_to_use_this_guide:
+.. _how-to-use-this-guide:
 
 #####################
 How to Use This Guide
