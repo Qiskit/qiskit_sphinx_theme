@@ -37,7 +37,7 @@ In order to use use the ``qiskit_sphinx_theme`` you need to first install it. Yo
 Create the documentation in your repository
 ===========================================
 
-In order to crete a documentation folder you can use :doc:`sphinx-quickstart <sphinx:man/sphinx-quickstart>`. It asks some questions and creates a functional documentation folder according to your answers.
+In order to create a documentation folder you can use :doc:`sphinx:man/sphinx-quickstart`. It asks some questions and creates a functional documentation folder according to your answers.
 You can use ``sphinx-quickstart`` by going to the root directory of your repository and running this command.
 
 .. code-block:: bash
