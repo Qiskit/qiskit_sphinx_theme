@@ -1,8 +1,8 @@
 .. _how_to_use_this_guide:
 
-=====================
+#####################
 How to Use This Guide
-=====================
+#####################
 
 The first thing you need to do to use this guide is to set up a documentation project. If you haven't done so, check :doc:`this tutorial <new_doc_project>`.
 

@@ -1,8 +1,8 @@
 .. _create-new-doc-project:
 
-==================================
+##################################
 Create a New Documentation Project
-==================================
+##################################
 
 .. include:: ../others/tutorial_type.rst
 
