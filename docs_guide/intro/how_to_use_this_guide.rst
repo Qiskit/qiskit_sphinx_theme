@@ -30,4 +30,4 @@ Contributing to this guide
 ==========================
 
 If you want to help improve this guide, you can open an issue in the `qiskit_sphinx_theme <https://github.com/Qiskit/qiskit_sphinx_theme>`_ repository to make any suggestions
-or directly create a pull request for the `docs_guide` folder of the repository if you prefer to make the changes yourself.
+or directly create a pull request for the ``docs_guide`` folder of the repository if you prefer to make the changes yourself.
