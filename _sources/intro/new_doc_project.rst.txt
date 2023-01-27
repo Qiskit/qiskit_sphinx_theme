@@ -1,23 +1,23 @@
 .. _create-new-doc-project:
 
-==================================
+##################################
 Create a New Documentation Project
-==================================
+##################################
 
 .. include:: ../others/tutorial_type.rst
 
-In this tutorial you will use the ``sphinx-quickstart`` command to create a new documentation project for a Qiskit repository with Sphinx. Then, you will structure the resulting documentation according to
+In this tutorial you will use the :doc:`sphinx:man/sphinx-quickstart` command to create a new documentation project for a Qiskit repository with :doc:`Sphinx <sphinx:index>`. Then, you will structure the resulting documentation according to
 the Qiskit standard and make sure Qiskit's Sphinx HTML theme, the ``qiskit_sphinx_theme``, is used. After that, you will create a GitHub workflow to deploy your documentation to
-`qiskit.org <https://qiskit.org/>`_ with RClone. 
+`qiskit.org <https://qiskit.org/>`_ with `Rclone <https://rclone.org>`_. 
 
 Background information
 =======================
 
 Before you dive into the creation of the documentation project, it's important to know what reStructuredText and Sphinx are.
 
-reStructuredText (RST) is a lightweight markup language, that is, an easy to read language that formats plaintext documents according to a set of tags. It enables the creation of web pages and documentation from, for example, Python docstrings.
+`reStructuredText <https://docutils.sourceforge.io/rst.html>`_ (RST) is a lightweight markup language, that is, an easy to read language that formats plaintext documents according to a set of tags. It enables the creation of web pages and documentation from, for example, Python docstrings.
 
-Sphinx is a documentation generator that converts RST files to formats like `HTML <https://html.spec.whatwg.org/multipage/>`_, `LaTeX <https://www.latex-project.org/>`_, `ePub <https://www.w3.org/publishing/epub32/>`_, `Texinfo <https://www.gnu.org/software/texinfo/>`_, manual pages or plain text. It is written in Python. The ``qiskit_sphinx_theme`` will focus on converting RST to HTML pages.
+:doc:`Sphinx <sphinx:index>` is a documentation generator that converts RST files to formats like `HTML <https://html.spec.whatwg.org/multipage/>`_, `LaTeX <https://www.latex-project.org/>`_, `ePub <https://www.w3.org/publishing/epub32/>`_, `Texinfo <https://www.gnu.org/software/texinfo/>`_, manual pages or plain text. It is written in Python. The ``qiskit_sphinx_theme`` will focus on converting RST to HTML pages.
 
 Install the ``qiskit_sphinx_theme``
 ===================================
@@ -37,7 +37,7 @@ In order to use use the ``qiskit_sphinx_theme`` you need to first install it. Yo
 Create the documentation in your repository
 ===========================================
 
-In order to crete a documentation folder you can use `sphinx-quickstart <https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html>`_. It asks some questions and creates a functional documentation folder according to your answers.
+In order to create a documentation folder you can use :doc:`sphinx:man/sphinx-quickstart`. It asks some questions and creates a functional documentation folder according to your answers.
 You can use ``sphinx-quickstart`` by going to the root directory of your repository and running this command.
 
 .. code-block:: bash
@@ -140,7 +140,7 @@ In short, the recommended structure of your documentation is:
 Sidebar
 =======
 
-Now that you have all the needed ``.rst`` files, you can create a sidebar for your documentation page. This can be done by linking to the files with a `toctree <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-toctree>`_
+Now that you have all the needed ``.rst`` files, you can create a sidebar for your documentation page. This can be done by linking to the files with a :rst:dir:`sphinx:toctree`
 in ``docs/index.rst``.  Your ``index.rst`` should look like this:
 
 .. code-block:: text
@@ -193,7 +193,7 @@ so you only need to run:
 
 The ``-r`` flag means that instead of installing a package called "`requirements-dev.txt`", you are installing the packages listed in the requirements text file ``requirements-dev.txt``.
 
-Once you have made the installations, you can finally build your documentation with `sphinx-build <https://www.sphinx-doc.org/en/master/man/sphinx-build.html>`_, setting the builder (``-b``)
+Once you have made the installations, you can finally build your documentation with :doc:`sphinx:man/sphinx-build`, setting the builder (``-b``)
 to ``html`` so the documents from the ``docs`` folder get built as HTML pages in a new folder, that you will call ``docs/_build/html``. So the final command is:
 
 .. code-block:: bash
@@ -257,9 +257,9 @@ The job will consist of publishing the documentation and will be called ``docs_p
 Set up the job
 ^^^^^^^^^^^^^^
 
-In order to make sure that the deployement only comes from a stable branch and is triggered by a mantainer, you can use the `if <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idif>`_
+In order to make sure that the deployment only comes from a stable branch and is triggered by a maintainer, you can use the `if <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idif>`_
 key. The first condition can be written using the `startsWith expression <https://docs.github.com/en/actions/learn-github-actions/expressions#startswith>`_ by checking whether ``github.ref`` starts with ``refs/heads/stable``. For the second condition, you can use the `contains expression <https://docs.github.com/en/actions/learn-github-actions/expressions#contains>`_ to check whether
-``github.actor``, that is the user that triggers the workflow, is a mantainer. This job will use the latest version of `Ubuntu <https://ubuntu.com/>`_. To ensure that, you will set the `runs-on <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idruns-on>`_ key to ``ubuntu-latest``.
+``github.actor``, that is the user that triggers the workflow, is a maintainer. This job will use the latest version of `Ubuntu <https://ubuntu.com/>`_. To ensure that, you will set the `runs-on <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idruns-on>`_ key to ``ubuntu-latest``.
 Finally, you will use the `strategy key <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategy>`_ to create a `matrix <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix>`_ in which the Python version will be included. In this case, the version will be 3.8.
 This matrix will be called ``python-version`` and its value will be ``[3.8]``. 
 
@@ -268,7 +268,7 @@ This matrix will be called ``python-version`` and its value will be ``[3.8]``.
 
     jobs:
       docs_publish:
-        if: ${{ startsWith(github.ref, 'refs/heads/stable') && contains('["mantainer-1","mantainer-2", ...]', github.actor) }}
+        if: ${{ startsWith(github.ref, 'refs/heads/stable') && contains('["maintainer-1","maintainer-2", ...]', github.actor) }}
         runs-on: ubuntu-latest
         strategy:
           matrix:
@@ -365,7 +365,7 @@ So the step will start looking like this:
         QISKIT_PARALLEL: False
         QISKIT_DOCS_BUILD_TUTORIALS: 'always'
 
-When deploying documentation to qiskit.org, it's important to make sure that only the release notes that correspond to the desired release are being uploaded. For this purpuse you will create a subscript called ``tools/ignore_untagged_notes.sh`` that will be called from the workflow.
+When deploying documentation to qiskit.org, it's important to make sure that only the release notes that correspond to the desired release are being uploaded. For this purpose you will create a subscript called ``tools/ignore_untagged_notes.sh`` that will be called from the workflow.
 This file will start with this `shebang <https://en.wikipedia.org/wiki/Shebang_%28Unix%29>`_:
 
 .. code-block:: bash
@@ -385,7 +385,7 @@ it as a variable called ``LATEST_TAG`` with the ``VARIABLE=$(command)`` syntax f
 
 Then you need to look for the files that don't have this tag. A way to do this is using `git diff <https://git-scm.com/docs/git-diff>`_ with the ``--name-only`` option to compare only the names of the files that are different between the current version of your repo
 (``HEAD``) and the latest tag (the variable ``LATEST_TAG``, that has to be referred with the ``$VARIABLE`` syntax). You need the name of all of the release notes (that are placed in ``releasenotes/notes``) to be added to an ignore list (that will be created with this script into ``docs/release_notes.rst``).
-This ignore list uses the `reno Sphinx <https://docs.openstack.org/reno/latest/user/sphinxext.html#directive-release-notes>`_ and will have this sctructure:
+This ignore list uses the `reno Sphinx <https://docs.openstack.org/reno/latest/user/sphinxext.html#directive-release-notes>`_ and will have this structure:
 
 .. code-block:: bash
 
@@ -421,7 +421,7 @@ The code for this process is then:
 
 Note that the first ``if`` requires double square brackets (``[[ condition ]]``) because it's comparing a variable to the string ``releasenotes/notes/*``, which uses the wildcard ``*`` to indicate that it begins by ``releasenotes/notes/``.
 In order to check whether a string is in ``docs/release_notes.rst``, this script is defining the variable ``isInFile`` as the exit code (``echo $?``) of ``grep -Exq your_string docs/release_notes.rst >/dev/null``.
-This commmand would give as output any line that includes the string ``your_string`` but we are not interested in that output, so we erase it by directing it to ``dev/null``, as we only want to know whether the file was found (exit code ``0``).
+This command would give as output any line that includes the string ``your_string`` but we are not interested in that output, so we erase it by directing it to ``dev/null``, as we only want to know whether the file was found (exit code ``0``).
 The ``-E`` flag means that patterns are seen as `extended regular expressions <https://www.gnu.org/software/grep/manual/grep.html#Basic-vs-Extended>`_, so ``\s*`` means zero or more (``*``) whitespaces (``\s``) instead of being a literal string.
 Given the structure of the ignore list, we want to make sure that the line consists of only the expression we are looking for, so we use the ``-x`` flag for this purpose.
 Finally, the ``-q`` flag ensures that no output is written and exit status is 0 if a match is found, ignoring any errors. Also note that when ``:ignore-notes:`` and the file names are added to the ignore list, the indentation is respected.
@@ -544,7 +544,7 @@ the Rclone configuration file from ``RCLONE_CONFIG_PATH``.
     openssl aes-256-cbc -K $encrypted_rclone_key -iv $encrypted_rclone_iv -in tools/rclone.conf.enc -out $RCLONE_CONFIG_PATH -d
 
 Now that your Rclone has the configuration needed to deploy the documentation, it's time to do it. The command that enables you to upload the built docs from ``docs/_build/html`` to the corresponding `IBM Cloud Object Storage <https://www.ibm.com/cloud/object-storage>`_ instance (``qiskit-org-web-resources/documentation/x``) is `rclone sync <https://rclone.org/commands/rclone_sync/>`_.
-You can use the ``--progress`` flag to get updates of the syncronization process. You need to exclude the files from ``locale`` with the ``--exclude`` flag.
+You can use the ``--progress`` flag to get updates of the synchronization process. You need to exclude the files from ``locale`` with the ``--exclude`` flag.
 
 .. code-block:: bash
 
@@ -586,7 +586,7 @@ The full ``tools/deploy_documentation.sh`` should then look like this:
 
 
 
-Now that all the subscripts are done, you can put them together to finish the docs deployment process, along with building the documentation with `sphinx-build <https://www.sphinx-doc.org/en/master/man/sphinx-build.html>`_.
+Now that all the subscripts are done, you can put them together to finish the docs deployment process, along with building the documentation with :doc:`sphinx:man/sphinx-build`.
 You also need to add ``earliest_version: 0.1.0`` to ``releasenotes/config.yaml`` so `reno <https://docs.openstack.org/reno/latest/>`_ can find the release notes.
 
 .. code-block:: yaml
@@ -643,7 +643,7 @@ The complete ``.github/workflows/deploy-docs.yml`` is then:
 
     jobs:
       docs_publish:
-        if: ${{ startsWith(github.ref, 'refs/heads/stable') && contains('["mantainer-1","mantainer-2", ...]', github.actor) }}
+        if: ${{ startsWith(github.ref, 'refs/heads/stable') && contains('["maintainer-1","maintainer-2", ...]', github.actor) }}
         runs-on: ubuntu-latest
         strategy:
         matrix:

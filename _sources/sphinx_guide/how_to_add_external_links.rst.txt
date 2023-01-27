@@ -1,8 +1,8 @@
 .. _add_external_links:
 
-=========================
+#########################
 How to add external links
-=========================
+#########################
 
 .. include:: ../others/how-to_type.rst
 

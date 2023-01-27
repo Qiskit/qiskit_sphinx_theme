@@ -1,8 +1,8 @@
 .. _diataxis:
 
-======================
+######################
 The Diátaxis Framework
-======================
+######################
 
 .. include:: ../others/explanation_type.rst
 

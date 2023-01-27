@@ -1,6 +1,6 @@
-======
+######
 Sphinx
-======
+######
 
 .. include:: ../others/explanation_type.rst
 

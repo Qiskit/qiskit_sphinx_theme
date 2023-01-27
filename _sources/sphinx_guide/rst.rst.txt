@@ -1,6 +1,6 @@
-=================
+################
 reStructuredText
-=================
+################
 
 .. include:: ../others/explanation_type.rst
 
