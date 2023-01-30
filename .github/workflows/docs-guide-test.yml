@@ -1,7 +1,7 @@
 name: Test Docs Guide
 on:
   pull_request:
-    branches: ["feature/docs-guidelines"]
+    branches: [main]
 
 permissions:
   contents: write
