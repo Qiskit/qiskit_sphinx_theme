@@ -23,7 +23,7 @@ Why do we use reStructuredText in Qiskit?
 
 The main reason we are using reStructuredText in Qiskit is that it is the native language of
 `Sphinx <https://www.sphinx-doc.org/en/master/>`_, the documentation generator used in Qiskit.
-Using other languages requires converation to RST, which is generally less efficient than using RST from the start and can occasionally cause [unintended formatting issues](https://github.com/spatialaudio/nbsphinx/issues/301).
+Using other languages requires converation to RST, which is generally less efficient than using RST from the start and can occasionally cause `unintended formatting issues <https://github.com/spatialaudio/nbsphinx/issues/301>`_.
 
 Because RST is the native language for Sphinx, comparing with other options like `Jupyter notebooks <https://jupyter.org/>`_ (``.ipynb`` files) or `Markdown <https://daringfireball.net/projects/markdown/>`_ (``.md`` files), writing documentation in RST has the great benefit of automatic cross-referencing to other sections or files within the documentation. So if a page has been moved, the documentation will automatically change accordingly. And if a cross-reference link is broken, it can be caught in the docs building process. All of these means documentation maintenance is much easier with RST. 
 
