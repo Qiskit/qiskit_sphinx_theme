@@ -4,7 +4,7 @@ How to add a how-to guide
 
 .. include:: ../others/how-to_type.rst
 
-This guide shows how to add a how-to guide to a Qiskit project repository.
+This guide shows how to add a how-to guide to a project repository.
 
 .. include:: ../others/general_pre-requisites.rst
 
