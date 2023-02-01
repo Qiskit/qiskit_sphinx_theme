@@ -10,7 +10,7 @@ In Qiskit we are using a documentation framework called `Diátaxis <https://diat
 
 * `Tutorials <https://diataxis.fr/tutorials/>`_: practical steps for learning.
 * `How-to guides <https://diataxis.fr/how-to-guides/>`_: practical steps for work.
-* `Reference <https://diataxis.fr/reference/>`_: theoretical information for work.
+* `Reference <https://diataxis.fr/reference/>`_: concise technical manual of the API for work
 * `Explanation <https://diataxis.fr/explanation/>`_: theoretical information for learning.
 
 For more details about what each documentation category means, check :ref:`this page <diataxis>`.
