@@ -4,7 +4,7 @@
 How to Use This Guide
 #####################
 
-The first thing you need to do to use this guide is to set up a documentation project. If you haven't done so, check :doc:`this tutorial <new_doc_project>`.
+The first thing you need to do to use this guide is to set up a documentation project. If you haven't done so, check out :doc:`this tutorial <new_doc_project>`.
 
 In Qiskit we are using a documentation framework called `Diátaxis <https://diataxis.fr>`_. It divides documentation according to the user's needs in the following categories:
 
