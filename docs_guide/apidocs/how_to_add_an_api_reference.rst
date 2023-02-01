@@ -11,7 +11,7 @@ This guide shows how to add an API reference page to your documentation.
 Create a new API reference
 ==========================
 
-In order to create an API reference, you need to find the function or class for which you want to include the reference in the ``qiskit_x`` folder of your repository ``qiskit-x``.
+In order to create an API reference, you need to find the function or class for which you want to write the reference in the main code of your project.
 Then you have to create a docstring like those ones.
 
 .. code-block:: python
