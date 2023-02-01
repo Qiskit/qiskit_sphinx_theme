@@ -4,7 +4,7 @@ How to add an explanation
 
 .. include:: ../others/how-to_type.rst
 
-This guide shows how to add an explanation to a Qiskit project repository.
+This guide shows how to add an explanation to a project repository.
 
 .. include:: ../others/general_pre-requisites.rst
 
