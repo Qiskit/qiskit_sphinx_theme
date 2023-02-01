@@ -4,14 +4,14 @@ How to add a how-to guide
 
 .. include:: ../others/how-to_type.rst
 
-This guide shows how to add a how-to guide to a Qiskit project repository.
+This guide shows how to add a how-to guide to a project repository.
 
 .. include:: ../others/general_pre-requisites.rst
 
 Create a new guide
 ==================
 
-In order to create a how-to guide, go to the ``docs/how_to`` folder of your Qiskit project repository and add a new ``.rst`` file there. In this guide we will assume your guide is called ``your_guide.rst``.
+In order to create a how-to guide, go to the ``docs/how_to`` folder of your project repository and add a new ``.rst`` file there. In this guide we will assume your guide is called ``your_guide.rst``.
 
 Update the page
 ===============

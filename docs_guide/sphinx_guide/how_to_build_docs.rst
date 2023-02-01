@@ -44,7 +44,7 @@ Apart from installing the ``qiskit_x`` package, there are other needed packages 
 
     pip install -r requirements-dev.txt
 
-However, there can also be some other necessary packages that are not Python, and therefore not installable with ``pip``, like `pandoc <https://pandoc.org/>`_ or graphviz `graphviz <https://graphviz.org/>`.
+However, there can also be some other necessary packages that are not Python, and therefore not installable with ``pip``, like `pandoc <https://pandoc.org/>`_ or graphviz `graphviz <https://graphviz.org/>`_.
 You can install them with `apt-get install <https://linux.die.net/man/8/apt-get>`_:
 
 .. code-block:: bash

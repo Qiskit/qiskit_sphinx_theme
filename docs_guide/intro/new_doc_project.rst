@@ -68,7 +68,7 @@ In this case, you will give the default answer, that is, the one between bracket
     > Author name(s): Qiskit X Development Team
     > Project release []: 0.1.0
 
-This time you need to give non-default answers. The project name will be that of your repository. That name will have the form "Qiskit X", where "X" can be "Machine Learning" or "Nature", for example. For the authors, you will refer to the development team of your project.
+This time you need to give non-default answers. Set your project name and put your development team name as the author name. If you have a release cycle you can put your current version in the project release field.
 
 .. code-block:: text
 
@@ -170,13 +170,15 @@ in ``docs/index.rst``.  Your ``index.rst`` should look like this:
 
 .. warning::
 
-    You should not try to change the sidebar or, in general, overwrite the ``qiskit_sphinx_theme``.
+    We strongly recommend you follow this sidebar layout as closely as possible for your project, in order to maintain consistency with other projects using these standards.
+    
+    Additionally, if you are using the ``qiskit_sphinx_theme`` make sure you are not accidentally overriding the theme. If you add any files to your ``_templates`` or ``_static`` folders with the same name as a theme filename this could override the theme features and styles. It is not recommended to override the theme features unless you really need to. If the theme does not have functionality you need or you found a bug please open an issue for it at https://github.com/Qiskit/qiskit_sphinx_theme/issues
 
 
 Build your documentation locally
 =================================
 
-Now that you have created your documentation project, it's recommended to build it locally to check whether it looks works as intended.
+Now that you have created your documentation project, it's recommended to build it locally to check whether it looks and works as intended.
 
 In order to do that, you first need to have your package installed. You can do this by running the following command on the root directory of your local copy of the repository:
 
@@ -212,7 +214,7 @@ Deploy docs to `qiskit.org <https://qiskit.org/>`_
 ===================================================
 
 Once you have a working documentation project, you may want to deploy it to `qiskit.org <https://qiskit.org/>`_. This can be done by using `GitHub workflows <https://docs.github.com/en/actions/using-workflows/about-workflows>`_.
-These workflows are automated processes that are defined by `YAML <https://yaml.org/>`_ files. This files should be placed in a directory called ``.github/workflows``.
+These workflows are automated processes that are defined by `YAML <https://yaml.org/>`_ files. These files should be placed in a directory called ``.github/workflows``.
 
 A workflow can be configured to be triggered by one or more events. It is divided into one or more jobs, each one formed by at least one step. A step consists of running a script you define or an `action <https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions#actions>`_,
 that is, an application that performs a complex but usually repeated task.
@@ -281,7 +283,7 @@ Steps
 Check-out the repository
 """""""""""""""""""""""""
 
-The first step of this job consists of enabling the workflow to access the repository ``qiskit-x``. To do that you only need to call the latest version (version 3, ``@v3``) the pre-defined `checkout action <https://github.com/actions/checkout>`_ with the `uses <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsuses>`_ key.
+The first step of this job consists of enabling the workflow to access your repository. To do that you only need to call the latest version (version 3, ``@v3``) the pre-defined `checkout action <https://github.com/actions/checkout>`_ with the `uses <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsuses>`_ key.
 By setting the ``fetch-depth`` parameter to ``0`` via the `with <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idwith>`_ key, you can let the action reach for the full history of your repository.
 
 .. code-block:: yaml
@@ -307,7 +309,7 @@ Once your repo has been reached, the workflow continues by installing a Python v
 Install the package
 """"""""""""""""""""
 
-Now that you have Python, let's install our package, Qiskit X and its more immediate dependencies and constraints from ``requirements-dev.txt`` and ``constraints.txt`` respectively. 
+Now that you have Python, let's install our package and its more immediate dependencies and constraints from ``requirements-dev.txt`` and ``constraints.txt`` respectively. 
 You can use the `run <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun>`_ key and add the usual bash commands as a multiline block with the pipe indicator ``|``. These commands are: ``pip install -e .`` for the editable (``-e``) version of the package, ``pip install -U -r requirements-dev.txt`` for the latest version (``-U``) of the requirements (``-r``) and ``pip install -c constraints.txt`` for the constraints (``-c``).
 You can set the shell to ``bash`` via the
 `shell <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsshell>`_ keyword.
@@ -335,15 +337,15 @@ In case there are another dependencies that are not covered in the ``requirement
         sudo apt-get install -y other_packages
       shell: bash
 
-The meaning of these Python dependencies is that they are not needed for ``qiskit-x`` to work nor to build documentation in general but might be used in some specific part of it. For example,
+The meaning of these Python dependencies is that they are not needed for our package to work nor to build documentation in general but might be used in some specific part of it. For example,
 the `Torch Connector tutorial <https://github.com/Qiskit/qiskit-machine-learning/blob/main/docs/tutorials/05_torch_connector.ipynb>`_ from `qiskit-machine-learning <https://github.com/Qiskit/qiskit-machine-learning>`_ uses
 the Python package ``torchvision`` to load a dataset. This repo also includes some non-Python dependencies like ``pandoc`` or ``graphviz`` that can't be installed with ``pip``, so
 `apt-get <https://linux.die.net/man/8/apt-get>`_ has to be used instead.
 
-Build and publish
+Build and publish to qiskit.org
 """"""""""""""""""
 
-Your documentation will be deployed to `IBM Cloud Object Storage <https://www.ibm.com/cloud/object-storage>`_, where qiskit.org is hosted, with `Rclone <https://rclone.org>`_, a command-line program that enables you to manage content from the cloud.
+If you are deploying your documentation to a qiskit.org domain, then your documentation will need to be deployed to `IBM Cloud Object Storage <https://www.ibm.com/cloud/object-storage>`_, where qiskit.org is hosted, with `Rclone <https://rclone.org>`_, a command-line program that enables you to manage content from the cloud.
 
 Before starting with this step, it is necessary to ask a `Qiskit organization administrator <https://github.com/orgs/Qiskit/people?query=role%3Aowner>`_ to create a data container or `bucket <https://dataplatform.cloud.ibm.com/docs/content/wsj/manage-data/cos_buckets.html?locale=en>`_ called ``qiskit-org-web-resources/documentation/x``, from whose content the page ``qiskit.org/documentation/x`` will be generated,
 and to add some encrypted credentials to your repo. These credentials are:

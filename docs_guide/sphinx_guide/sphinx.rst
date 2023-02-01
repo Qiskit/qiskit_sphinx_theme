@@ -35,5 +35,5 @@ Sphinx also offers a wide array of extensions that make creating docs much easie
 
 
 Another Sphinx characteristic we use extensively is the ability to customize an HTML theme, so we have our own theme called
-`qiskit_sphinx_theme <https://github.com/Qiskit/qiskit_sphinx_theme>`_, that gives `qiskit.org <https://qiskit.org>`_ and any local built Qiskit docs their
+`qiskit_sphinx_theme <https://github.com/Qiskit/qiskit_sphinx_theme>`_, that gives `qiskit.org <https://qiskit.org>`_ and any locally built Qiskit docs their
 characteristic appearance.
