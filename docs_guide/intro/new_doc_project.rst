@@ -283,7 +283,7 @@ Steps
 Check-out the repository
 """""""""""""""""""""""""
 
-The first step of this job consists of enabling the workflow to access the repository ``qiskit-x``. To do that you only need to call the latest version (version 3, ``@v3``) the pre-defined `checkout action <https://github.com/actions/checkout>`_ with the `uses <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsuses>`_ key.
+The first step of this job consists of enabling the workflow to access your repository. To do that you only need to call the latest version (version 3, ``@v3``) the pre-defined `checkout action <https://github.com/actions/checkout>`_ with the `uses <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsuses>`_ key.
 By setting the ``fetch-depth`` parameter to ``0`` via the `with <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idwith>`_ key, you can let the action reach for the full history of your repository.
 
 .. code-block:: yaml
