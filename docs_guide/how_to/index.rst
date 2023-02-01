@@ -4,7 +4,9 @@
 How-to Guides
 #############
 
-This section of your project documentation should contain how-to guides. Use the resources below to learn how to write good quality how-tos.
+This section of your project documentation should contain how-to guides. Use the resources below to
+learn how to write good quality how-tos.
+
 .. toctree::
     :maxdepth: 1
 

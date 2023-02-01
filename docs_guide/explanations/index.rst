@@ -4,7 +4,9 @@
 Explanations
 ############
 
-This section of your project documentation should contain any explanation-style content you have written for your project. Use the resources below to learn how to write good quality explanations.
+This section of your project documentation should contain any explanation-style content you have
+written for your project. Use the resources below to learn how to write good quality explanations.
+
 .. toctree::
     :maxdepth: 1
 

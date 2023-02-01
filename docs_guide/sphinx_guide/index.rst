@@ -4,7 +4,9 @@
 Sphinx Guide
 ############
 
-The following resources provide guidance on Sphinx, reStructuredText and how to use them effectively in your project.
+The following resources provide guidance on Sphinx, reStructuredText and how to use them effectively
+in your project.
+
 Basics
 ======
 .. toctree:: 

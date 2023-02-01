@@ -343,7 +343,7 @@ the Python package ``torchvision`` to load a dataset. This repo also includes so
 `apt-get <https://linux.die.net/man/8/apt-get>`_ has to be used instead.
 
 Build and publish to qiskit.org
-""""""""""""""""""
+"""""""""""""""""""""""""""""""
 
 If you are deploying your documentation to a qiskit.org domain, then your documentation will need to be deployed to `IBM Cloud Object Storage <https://www.ibm.com/cloud/object-storage>`_, where qiskit.org is hosted, with `Rclone <https://rclone.org>`_, a command-line program that enables you to manage content from the cloud.
 
