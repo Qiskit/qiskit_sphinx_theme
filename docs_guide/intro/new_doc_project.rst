@@ -178,7 +178,7 @@ in ``docs/index.rst``.  Your ``index.rst`` should look like this:
 Build your documentation locally
 =================================
 
-Now that you have created your documentation project, it's recommended to build it locally to check whether it looks works as intended.
+Now that you have created your documentation project, it's recommended to build it locally to check whether it looks and works as intended.
 
 In order to do that, you first need to have your package installed. You can do this by running the following command on the root directory of your local copy of the repository:
 
