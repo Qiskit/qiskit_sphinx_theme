@@ -337,7 +337,7 @@ In case there are another dependencies that are not covered in the ``requirement
         sudo apt-get install -y other_packages
       shell: bash
 
-The meaning of these Python dependencies is that they are not needed for ``qiskit-x`` to work nor to build documentation in general but might be used in some specific part of it. For example,
+The meaning of these Python dependencies is that they are not needed for our package to work nor to build documentation in general but might be used in some specific part of it. For example,
 the `Torch Connector tutorial <https://github.com/Qiskit/qiskit-machine-learning/blob/main/docs/tutorials/05_torch_connector.ipynb>`_ from `qiskit-machine-learning <https://github.com/Qiskit/qiskit-machine-learning>`_ uses
 the Python package ``torchvision`` to load a dataset. This repo also includes some non-Python dependencies like ``pandoc`` or ``graphviz`` that can't be installed with ``pip``, so
 `apt-get <https://linux.die.net/man/8/apt-get>`_ has to be used instead.
