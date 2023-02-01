@@ -309,7 +309,7 @@ Once your repo has been reached, the workflow continues by installing a Python v
 Install the package
 """"""""""""""""""""
 
-Now that you have Python, let's install our package, Qiskit X and its more immediate dependencies and constraints from ``requirements-dev.txt`` and ``constraints.txt`` respectively. 
+Now that you have Python, let's install our package and its more immediate dependencies and constraints from ``requirements-dev.txt`` and ``constraints.txt`` respectively. 
 You can use the `run <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun>`_ key and add the usual bash commands as a multiline block with the pipe indicator ``|``. These commands are: ``pip install -e .`` for the editable (``-e``) version of the package, ``pip install -U -r requirements-dev.txt`` for the latest version (``-U``) of the requirements (``-r``) and ``pip install -c constraints.txt`` for the constraints (``-c``).
 You can set the shell to ``bash`` via the
 `shell <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsshell>`_ keyword.
