@@ -11,7 +11,7 @@ This guide shows how to add an explanation to a Qiskit project repository.
 Create a new explanation
 ========================
 
-In order to create an explanation, go to the ``docs/explanations`` folder of your Qiskit project repository and add a new ``.rst`` file there. In this guide we will assume your explanation is called ``your_explanation.rst``.
+In order to create an explanation, go to the ``docs/explanations`` folder of your project repository and add a new ``.rst`` file there. In this guide we will assume your explanation is called ``your_explanation.rst``.
 
 Update the page
 ===============
