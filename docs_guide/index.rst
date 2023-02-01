@@ -27,7 +27,7 @@ as well as some practical guides for Sphinx-related tasks and, finally, guidelin
    :caption: Instructions for Standard Pages
    :hidden:
 
-   overview
+   home
    getting_started
    tutorials/index
    how_to/index
