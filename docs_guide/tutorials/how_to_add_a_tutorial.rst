@@ -4,7 +4,7 @@ How to add a tutorial
 
 .. include:: ../others/how-to_type.rst
 
-This guide shows how to add a tutorial to a Qiskit project repository.
+This guide shows how to add a tutorial to your project repository.
 
 .. include:: ../others/general_pre-requisites.rst
 
