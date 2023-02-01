@@ -68,7 +68,7 @@ In this case, you will give the default answer, that is, the one between bracket
     > Author name(s): Qiskit X Development Team
     > Project release []: 0.1.0
 
-This time you need to give non-default answers. The project name will be that of your repository. That name will have the form "Qiskit X", where "X" can be "Machine Learning" or "Nature", for example. For the authors, you will refer to the development team of your project.
+This time you need to give non-default answers. Set your project name and put your development team name as the author name. If you have a release cycle you can put your current version in the project release field.
 
 .. code-block:: text
 
