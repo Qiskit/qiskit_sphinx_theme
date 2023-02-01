@@ -3,9 +3,10 @@ The Sphinx theme for the Qiskit documentation.
 
 ## Overview
 
-This repository hosts three things: Qiskit Sphinx theme
-([qiskit_sphinx_theme](/qiskit_sphinx_theme/) folder), Sample Docs ([docs](/docs) folder) and Qiskit
-Docs Guide ([docs_guide](/docs_guide/) folder). 
+This repository hosts three things: 
+- Qiskit Sphinx theme (located in the [qiskit_sphinx_theme](`/qiskit_sphinx_theme/`) folder)
+- Sample Docs (located in the [docs](`/docs`) folder)
+- Qiskit Docs Guide (located in the [docs_guide](`/docs_guide/`) folder)
 
 The Qiskit Sphinx Theme is the theme used by Qiskit
 Documentation (https://qiskit.org/documentation/) site. It contains mainly front end elements that
