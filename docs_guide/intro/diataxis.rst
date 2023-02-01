@@ -29,8 +29,20 @@ According to those axes, documentation can be divided into:
 Why do we use Diátaxis in Qiskit?
 =================================
 
-The reasoning behind choosing Diátaxis for Qiskit's documentation is twofold:
-First and foremost, Diátaxis focuses on prioritizing the users' needs and structures the documentation according to them,
-so when the user has a specific need, they know where it's fulfilled.
-At the same time, it gives the authors a clear direction for their documentation, highlighting where improvements can be made
-so the user gets a better experience when working with Qiskit.
+The reasoning behind choosing Diátaxis for Qiskit's documentation is twofold: First and foremost,
+Diátaxis focuses on prioritizing the users' needs and structures the documentation according to
+them, so when the user has a specific need, they know where it's fulfilled. At the same time, it
+gives the authors a clear direction for their documentation, highlighting where improvements can be
+made so the user gets a better experience when working with Qiskit. 
+
+Writing coherent documentation can be challenging and not every piece of information that is useful
+to your users will fit exactly into one of the diataxis categories. This framework provides a
+helpful guideline and attempts provide some consistency across different software packages, but as
+with every framework there are edge cases that may not fit exactly. To create effective and
+consistent docs try to keep these concepts in mind as best you can before you start writing, rather
+than creating the content and trying to fit it to the framework afterwards. And as always, make sure
+to focus on what key things you want your user to walk away with after consuming a piece of
+documentation.
+
+
+
