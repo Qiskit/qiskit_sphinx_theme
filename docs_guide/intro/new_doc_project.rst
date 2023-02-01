@@ -214,7 +214,7 @@ Deploy docs to `qiskit.org <https://qiskit.org/>`_
 ===================================================
 
 Once you have a working documentation project, you may want to deploy it to `qiskit.org <https://qiskit.org/>`_. This can be done by using `GitHub workflows <https://docs.github.com/en/actions/using-workflows/about-workflows>`_.
-These workflows are automated processes that are defined by `YAML <https://yaml.org/>`_ files. This files should be placed in a directory called ``.github/workflows``.
+These workflows are automated processes that are defined by `YAML <https://yaml.org/>`_ files. These files should be placed in a directory called ``.github/workflows``.
 
 A workflow can be configured to be triggered by one or more events. It is divided into one or more jobs, each one formed by at least one step. A step consists of running a script you define or an `action <https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions#actions>`_,
 that is, an application that performs a complex but usually repeated task.
