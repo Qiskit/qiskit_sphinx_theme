@@ -170,7 +170,9 @@ in ``docs/index.rst``.  Your ``index.rst`` should look like this:
 
 .. warning::
 
-    You should not try to change the sidebar or, in general, overwrite the ``qiskit_sphinx_theme``.
+    We strongly recommend you follow this sidebar layout as closely as possible for your project, in order to maintain consistency with other projects using these standards.
+    
+    Additionally, if you are using the ``qiskit_sphinx_theme`` make sure you are not accidentally overriding the theme. If you add any files to your ``_templates`` or ``_static`` folders with the same name as a theme filename this could override the theme features and styles. It is not recommended to override the theme features unless you really need to. If the theme does not have functionality you need or you found a bug please open an issue for it at https://github.com/Qiskit/qiskit_sphinx_theme/issues
 
 
 Build your documentation locally
