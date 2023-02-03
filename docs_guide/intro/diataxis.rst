@@ -16,8 +16,8 @@ What is Diátaxis?
 `Diátaxis <https://diataxis.fr>`_, whose name comes from the Ancient Greek δῐᾰ́τᾰξῐς: dia (“across”) and taxis (“arrangement”), is a framework for technical documentation that divides it into 4 categories according to
 the users' needs. In particular, it focuses on two axes of knowledge: 
 
-* `Theory/practice`: whether the user needs theoretical knowledge or to follow practical steps to perform a task.
-* `Acquisition/application`: whether the documentation is to be used for study or for work, that is, for acquiring or applying knowledge.
+* `Theory/practice`: when the user needs theoretical knowledge or to follow practical steps to perform a task.
+* `Acquisition/application`: when the documentation is to be used for study or for work, that is, for acquiring or applying knowledge.
 
 According to those axes, documentation can be divided into:
 
