@@ -34,6 +34,11 @@
   --breakpoint-xl: 1200px;
   --font-family-sans-serif: "IBM PLex Sans", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-family-monospace: "IBM PLex Mono", Consolas, "Courier New", monospace;
+  --header-height: 52px;
+}
+
+section {
+  scroll-margin-top: var(--header-height);
 }
 
 /* Old theme variables */
