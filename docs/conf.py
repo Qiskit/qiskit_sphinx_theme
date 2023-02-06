@@ -147,9 +147,13 @@ autoclass_content = 'both'
 
 # qiskit package specific variables
 html_context = {
-    'repo_name': 'Example Repo',
+    # toggle analytics
     'analytics_enabled': True,
+
+    # dummy list for versions
     'version_list': [0.1, 0.2, 0.3],
+
+    # example custom sidebar headings & subheadings
     'sidebar_headings': [
         {
             'title': 'Custom Heading 1 (no subheadings)',
@@ -170,3 +174,7 @@ html_context = {
         }
     ],
 }
+
+# set up custom extension for languages
+def setup(app):
+    app.setup_extension('language_utils')
