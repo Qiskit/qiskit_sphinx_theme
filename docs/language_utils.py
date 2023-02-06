@@ -40,6 +40,7 @@ def setup(app):
     app.connect('config-inited', _extend_html_context)
     app.add_config_value('content_prefix', '', '')
     app.add_config_value('translations', True, 'html')
+    return dict(parallel_read_safe=True)
 
 
 def _extend_html_context(app, config):
