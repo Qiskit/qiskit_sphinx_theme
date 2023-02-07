@@ -164,7 +164,7 @@ html_context = {
             'subheadings': [
                 {
                     'title': 'Custom Subtitle 1 (external link)',
-                    'url': 'https://google.com', # use external url
+                    'url': 'https://www.youtube.com/qiskit', # use external url
                 },
                 {
                     'title': 'Custom Subtitle 2 (internal link)',
