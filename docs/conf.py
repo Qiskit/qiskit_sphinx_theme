@@ -153,27 +153,10 @@ html_context = {
     # dummy list for versions
     'version_list': [0.1, 0.2, 0.3],
 
-    # example custom sidebar headings & subheadings
-    'sidebar_headings': [
-        {
-            'title': 'Custom Heading 1 (no subheadings)',
-            'url': 'sphinx_guide/images', # use sphinx toctree
-        },
-        {
-            'title': 'Custom Heading 2 (with subheadings)',
-            'subheadings': [
-                {
-                    'title': 'Custom Subtitle 1 (external link)',
-                    'url': 'https://www.youtube.com/qiskit', # use external url
-                },
-                {
-                    'title': 'Custom Subtitle 2 (internal link)',
-                    'url': 'sphinx_guide/classes', # use sphinx toctree
-                },
-            ]
-        }
-    ],
+    # make captioned headings into dropdowns
+    'expandable_sidebar': True
 }
+
 
 # set up custom extension for languages
 def setup(app):

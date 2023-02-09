@@ -18,73 +18,96 @@ To keep UX/UI similar across different Qiskit packages we strongly encourage the
   :maxdepth: 1
   :hidden:
 
-   Overview <overview>
+   Documentation Home <index>
    Getting Started <getting_started>
-   Tutorials <tutorials/index.rst>
-   How-to Guides <how_to/index.rst>
-   API Reference <apidocs/index.rst>
-   Explanations <explanations/index.rst>
+   Tutorials <tutorials/index>
+   How-to Guides <how_to/index>
+   API Reference <apidocs/index>
+   Explanations <explanations/index>
    Release Notes <release_notes>
-   GitHub <https://github.com/Qiskit/your-repo>
+   GitHub <https://github.com/your-repo>
 ```
 
 The above toctree will render a sidebar that looks like the image below:
 
-<img width="348" alt="Screenshot 2022-11-30 at 4 36 26 PM" src="https://user-images.githubusercontent.com/23662430/204913247-761b8202-1bb2-4233-9451-f180b00b5a12.png">
-
-
+<img width="626" alt="Screenshot 2023-02-09 at 12 13 52 PM" src="https://user-images.githubusercontent.com/23662430/217783745-43623c4f-897a-4a96-9d05-137d881ddb3f.png">
 
 Each item in the toctree corresponds to a single `.rst` file, and can use internal links or external. External links will have a "new tab" icon rendered next to them.
 
-<img width="323" alt="Screenshot 2022-11-30 at 4 24 42 PM" src="https://user-images.githubusercontent.com/23662430/204913498-f1baca0a-3557-4eed-a4c4-879c43ee9f03.png">
+<img width="257" alt="Screenshot 2023-02-09 at 12 14 45 PM" src="https://user-images.githubusercontent.com/23662430/217783918-ae4fc420-43c5-4d56-b135-4f12043cd881.png">
 
 In addition to the pages in the toctree, the sidebar also adds:
 - (optional) a separate dropdown menu *at the top* with different languages, but only if you have a `translations_list` setup in your `html_context` in your `conf.py` corresponding logic in a `version_utils.py`.
-- (optional) a dropdown *at the bottom* with links to previous releases, if you have a `version_list` setup in your `html_context` in your `conf.py` and corresponding logic in a `version_utils.py`, e.g:
-    <div style='display: flex; flex-direction: row'>
-    <img style='padding-right: 20px' width="433" alt="Screenshot 2022-10-24 at 4 39 54 PM" src="https://user-images.githubusercontent.com/23662430/204913753-59458fa2-11d6-43e1-89c6-de575eed18a2.png">
-    <img width="413" alt="Screenshot 2022-10-24 at 4 42 54 PM" src="https://user-images.githubusercontent.com/23662430/204913754-73ffec9c-914a-43b9-8e40-383c11017e7c.png">
-    </div>
+- (optional) a dropdown *at the bottom* with links to previous releases, if you have a `version_list` setup in your `html_context` in your `conf.py` and corresponding logic in a `version_utils.py`.
 
-### Add Custom Sidebar layout
+### Add Expandable Items to Sidebar
 
-In addition to the auto-generated `toctree` headings you may want to add your own custom sidebar headings.
+You may want to configure your documentation to include expandable items in the sidebar, for example:
 
-- In `conf.py` you can set a custom structure for your sidebar by adding the `sidebar_headings` variable to `html_context`. You can include headings with or without subheadings.
-- You must use the following object structure in your `sidebar_headings` variable to have the headings render correctly in the sidebar:
+<img width="467" alt="Screenshot 2023-02-09 at 12 29 13 PM" src="https://user-images.githubusercontent.com/23662430/217787248-8017da57-c347-4eea-a220-8515ca2ce8d6.png">
 
-```
-html_context = {
- ...
-    'sidebar_headings': [
-        {
-            'title': 'Custom Heading 1 (no subheadings)',
-            'url': 'images', # you can use a sphinx toctree reference
-        },
-        {
-            'title': 'Custom Heading 2 (with subheadings)',
-            'subheadings': [
-                {
-                    'title': 'Custom Subtitle 1 (external link)',
-                    'url': 'https://google.com', # you can use an external url
-                },
-                {
-                    'title': 'Custom Subtitle 2 (internal link)',
-                    'url': 'tutorials',
-                },
-            ]
-        },
-    ]
-}
+To configure your documentation to use exapandable sidebar headings like the example above you must do the following:
+1. Add a `expandable_sidebar` variable to the `html_context` object in your `conf.py` and set the value to `True`:
+    ```
+    html_context = {
+        'analytics_enabled': True
+    }
+    ```
+2. Refactor the `toctree` in your `index.rst` to separate your pages into different sections. Sections that include a `:caption:` directive will be turned into expandable sidebar sections, with the caption forming the title of the dropdown. for example, to render the expandable sidebar shown above your `toctree` in your `index.rst` should look like this:
+    ```
+    .. toctree::
+    :maxdepth: 1
+    :hidden:
 
-```
-- If you add the `sidebar_headings` variable your headings will display underneath the `toctree` generated headings. If you do not add the `sidebar_headings` variable to your `html_context` the sidebar will not include any custom headings, only those generated from the `toctree`.
-- The code snippet example above will render a sidbar that looks like this:
+    Documentation Home <index>
+    Getting Started <get_started>
 
-<div style='display: flex; flex-direction: row'>
-  <img style='padding-right: 20px' width="424" alt="Screenshot 2022-10-24 at 4 49 26 PM" src="https://user-images.githubusercontent.com/23662430/204912771-8a0c3134-2c8f-48be-bd98-2777f8d3e306.png">
-  <img width="395" alt="Screenshot 2022-10-24 at 4 49 47 PM" src="https://user-images.githubusercontent.com/23662430/204912775-f706de32-1971-4377-9618-5a1ea8c882dd.png">
-</div>
+    .. toctree::
+    :maxdepth: 1
+    :hidden:
+    :caption: Tutorials
+
+    Tutorial 1 <tutorials/01>
+    Tutorial 2 <tutorials/02>
+    Tutorial 3 <tutorials/03>>
+    All Tutorials <tutorials/index>
+
+    .. toctree::
+    :maxdepth: 1
+    :hidden:
+    :glob:
+    :caption: How-to Guides
+
+    how_tos/*
+
+    .. toctree::
+    :maxdepth: 1
+    :hidden:
+    :glob:
+    :caption: API Reference
+
+    apidocs/*
+
+    .. toctree::
+    :maxdepth: 1
+    :hidden:
+    :glob:
+    :caption: Explanations
+
+    expalanations/*
+
+    .. toctree::
+    :maxdepth: 1
+    :hidden:
+
+    Release Notes <release_notes>
+    GitHub <https://github.com/your-repo>
+    ```
+
+
+*Tip: if you want to add all files in a sub-directory to your expandable dropdown section you can use the `:glob:` directive instead of listing out each page (see example above for the How-to Guides, API Reference and Explanations sections). This will list out each page in alphabetical order, so if you want a specific order you will need to list the pages out individually in the `toctree` (see example above for the Tutorials section)*
+
+
 
 ## Enable Qiskit.org Analytics
 

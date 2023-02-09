@@ -12,30 +12,6 @@
     {% if global_toc %}
         {{ global_toc }}
     {% endif %}
-    
-    <!-- if sidebar_headings var set, render custom sidebar layout -->
-    {% if sidebar_headings %}
-        {% for h in sidebar_headings %}
-            {% if h.subheadings %}
-                <div class="sidebar-l1-expandable">{{h.title}}</div>
-                <div class="sidebar-subheadings">
-                    {% for sub in h.subheadings %}
-                        {% if sub.url.startswith('http')%}
-                            <div class="sidebar-l2"><a class="reference external" target="_blank" rel="noopener noreferrer" href="{{sub.url}}">{{sub.title}}</a></div>
-                        {% else %}
-                            <div class="sidebar-l2"><a class="reference internal" href="{{ pathto(sub.url)}}">{{sub.title}}</a></div>
-                        {% endif %}
-                    {% endfor %}
-                </div>
-            {% else %}
-                {% if h.url.startswith('http')%}
-                    <div class="sidebar-l1"><a class="reference external" target="_blank" rel="noopener noreferrer" href="{{ h.url }}">{{h.title}}</a></div>
-                {% else %}
-                    <div class="sidebar-l1"><a class="reference internal" href="{{ pathto(h.url) }}">{{h.title}}</a></div>
-                {% endif %}
-            {% endif %}
-        {% endfor%}
-    {% endif %}
 
     <!-- PREVIOUS RELEASES -->
         {% if version_list %}
@@ -51,22 +27,25 @@
   </div>
 </nav>
 
-
-
+<!-- OPTIONAL EXPANDABLE FUNCTIONALITY -->
+{% if expandable_sidebar %}
 <script>
-    var side_rows = document.getElementsByClassName("sidebar-l1-expandable");
+    var expandable_rows = document.getElementsByClassName("caption");
     var i;
     var j;
-    for (i = 0; i < side_rows.length; i++) {
+    for (i = 0; i < expandable_rows.length; i++) {
+        // add the chevron icon
+        expandable_rows[i].classList.add("expandable")
         // expand the dropdown if user is currently on a page included in the dropdown
-        var subheadings = side_rows[i].nextElementSibling
-        for (j = 0; j < subheadings.children.length; j++) {
-            if (subheadings.children[j].childNodes[0].href.endsWith('#')) {
-                side_rows[i].nextElementSibling.style.display = "block"
-            } else {side_rows[i].nextElementSibling.style.display = "none"}
-        }
+        var subheadings = expandable_rows[i].nextElementSibling
+        if (subheadings.classList.contains("current")) {
+            subheadings.style.display = "block"
+            subheadings.style.marginLeft = "0.5rem";
+            expandable_rows[i].classList.add("open");
+        } else {subheadings.style.display = "none"}
+
         // expand and unexpand dropdown when clicked
-        side_rows[i].addEventListener("click", function() {
+        expandable_rows[i].addEventListener("click", function() {
             this.classList.toggle("open");
             var clicked_subheadings = this.nextElementSibling;
             if (clicked_subheadings.style.display === "block") {
@@ -77,6 +56,24 @@
         });
 
     }
+</script>
+{% endif %}
+
+<!-- STYLING -->
+<script>
+    // indent subheadings under captions
+    expandable_rows = document.getElementsByClassName("caption");
+    var i;
+    for (i = 0; i < expandable_rows.length; i++) {
+        expandable_rows[i].nextElementSibling.style.marginLeft = "1rem"
+
+        // un-bold subheadings in dropdown
+        var subheadings = expandable_rows[i].nextElementSibling
+        for (j = 0; j < subheadings.children.length; j++) {
+            subheadings.children[j].style.fontWeight = "unset"
+        }
+    }
+
     // adjust toctree class name to style external links
     var toc_rows = document.getElementsByClassName("toctree-l1");
     var i;
@@ -84,5 +81,19 @@
         if (toc_rows[i].children[0].className === "reference external") {
             toc_rows[i].className = "toctree-l1-external"
             }
+    }
+
+    // expand and unexpand previous releases dropdown when clicked
+    var release_rows = document.getElementsByClassName("sidebar-l1-expandable");
+    for (i = 0; i < expandable_rows.length; i++) {
+        release_rows[i].addEventListener("click", function() {
+            this.classList.toggle("open");
+            var clicked_subheadings = this.nextElementSibling;
+            if (clicked_subheadings.style.display === "block") {
+            clicked_subheadings.style.display = "none";
+            } else {
+            clicked_subheadings.style.display = "block";
+            }
+        });
     }
 </script>
