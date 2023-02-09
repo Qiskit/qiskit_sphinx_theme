@@ -5,7 +5,6 @@ Qiskit sphinx theme |version| documentation
 
 
 .. toctree::
-   :maxdepth: 1
    :hidden:
 
    Documentation Home <self>
@@ -13,7 +12,6 @@ Qiskit sphinx theme |version| documentation
    sphinx_guide/panels
 
 .. toctree::
-  :maxdepth: 1
   :hidden:
   :caption: Expandable Section
 
@@ -22,15 +20,9 @@ Qiskit sphinx theme |version| documentation
    Images <sphinx_guide/images>
 
 .. toctree::
-   :glob:
+   :hidden:
 
    sphinx_guide/jupyter
    sphinx_guide/paragraph
    sphinx_guide/structural
    GitHub <https://github.com/Qiskit/qiskit-terra>
-
-
-.. Hiding - Indices and tables
-   :ref:`genindex`
-   :ref:`modindex`
-   :ref:`search`
