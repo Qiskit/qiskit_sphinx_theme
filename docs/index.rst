@@ -8,7 +8,7 @@ Qiskit sphinx theme |version| documentation
    :maxdepth: 1
    :hidden:
 
-   Documentation Home <index>
+   Documentation Home <self>
    sphinx_guide/lists_tables
    sphinx_guide/panels
 
