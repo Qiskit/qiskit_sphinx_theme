@@ -20,7 +20,6 @@ Qiskit sphinx theme |version| documentation
    Real really really reallly looooooong title <sphinx_guide/functions>
    Classes <sphinx_guide/classes>
    Images <sphinx_guide/images>
-   GitHub <https://github.com/Qiskit/qiskit-terra>
 
 .. toctree::
    :glob:
