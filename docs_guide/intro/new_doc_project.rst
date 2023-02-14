@@ -161,16 +161,16 @@ in ``docs/index.rst``.  Your ``index.rst`` should look like this:
 
 
     .. toctree::
-    :hidden:
+       :hidden:
 
-    Documentation Home <self>
-    Getting Started <getting_started>
-    Tutorials <tutorials/index>
-    How-to Guides <how_to/index>
-    API Reference <apidocs/index>
-    Explanations <explanations/index>
-    Release Notes <release_notes>
-    GitHub <https://github.com/hal/qiskit-hal-proivder>
+       Documentation Home <self>
+       Getting Started <getting_started>
+       Tutorials <tutorials/index>
+       How-to Guides <how_to/index>
+       API Reference <apidocs/index>
+       Explanations <explanations/index>
+       Release Notes <release_notes>
+       GitHub <https://github.com/hal/qiskit-hal-proivder>
 
 
 .. warning::

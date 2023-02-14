@@ -34,11 +34,11 @@ If your tutorial is an ``.rst`` file, add it to a :rst:dir:`sphinx:toctree` like
     ============
 
     .. toctree::
-        :maxdepth: 1
+       :maxdepth: 1
 
-        existing_tutorial_1
-        Title of second existing tutorial <existing_tutorial_2>
-        Title of your tutorial <your_tutorial>
+       existing_tutorial_1
+       Title of second existing tutorial <existing_tutorial_2>
+       Title of your tutorial <your_tutorial>
 
 In this example, the title from the first existing tutorial (``existing_tutorial_1.rst``) is taken directly from it while for ``existing_tutorial_2.rst`` and your new tutorial
 the title is set manually.

@@ -27,11 +27,11 @@ In particular, you only need to include your new explanation in a :rst:dir:`sphi
     ============
 
     .. toctree::
-        :maxdepth: 1
+       :maxdepth: 1
 
-        existing_explanation_1
-        Title of second existing explanation <existing_explanation_2>
-        Title of your explanation <your_explanation>
+       existing_explanation_1
+       Title of second existing explanation <existing_explanation_2>
+       Title of your explanation <your_explanation>
 
 In this example, the title from the first existing explanation (``existing_explanation_1.rst``) is taken directly from it while for ``existing_explanation_2.rst`` and your new explanation
 the title is set manually.

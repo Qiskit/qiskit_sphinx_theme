@@ -26,11 +26,11 @@ In particular, you only need to include your new guide in a :rst:dir:`sphinx:toc
     ============
 
     .. toctree::
-        :maxdepth: 1
+       :maxdepth: 1
 
-        existing_guide_1
-        Title of second existing guide <existing_guide_2>
-        Title of your guide <your_guide>
+       existing_guide_1
+       Title of second existing guide <existing_guide_2>
+       Title of your guide <your_guide>
 
 In this example, the title from the first existing guide (``existing_guide_1.rst``) is taken directly from it while for ``existing_guide_2.rst`` and your new guide
 the title is set manually.

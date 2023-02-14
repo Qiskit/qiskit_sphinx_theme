@@ -8,9 +8,9 @@ This section of your project documentation should contain any tutorials you have
 project. Use the resources below to learn how to write good quality tutorials.
 
 .. toctree::
-    :maxdepth: 1
+   :maxdepth: 1
 
-    tutorials_guidelines
-    tutorials_examples
-    tutorials_templates
-    how_to_add_a_tutorial
+   tutorials_guidelines
+   tutorials_examples
+   tutorials_templates
+   how_to_add_a_tutorial
