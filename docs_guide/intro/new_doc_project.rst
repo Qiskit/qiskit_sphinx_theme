@@ -6,9 +6,12 @@ Create a New Documentation Project
 
 .. include:: ../others/tutorial_type.rst
 
-In this tutorial you will use the :doc:`sphinx:man/sphinx-quickstart` command to create a new documentation project for a Qiskit repository with :doc:`Sphinx <sphinx:index>`. Then, you will structure the resulting documentation according to
-the Qiskit standard and make sure Qiskit's Sphinx HTML theme, the ``qiskit_sphinx_theme``, is used. After that, you will create a GitHub workflow to deploy your documentation to
-`qiskit.org <https://qiskit.org/>`_ with `Rclone <https://rclone.org>`_. 
+In this tutorial you will use the :doc:`sphinx:man/sphinx-quickstart` command to create a new
+documentation project for a repository in the Qiskit Ecosystem with :doc:`Sphinx <sphinx:index>`.
+Then, you will structure the resulting documentation according to the Qiskit standard and make sure
+Qiskit's Sphinx HTML theme, the ``qiskit_sphinx_theme``, is used. After that, you will create a
+GitHub workflow to deploy your documentation to `qiskit.org <https://qiskit.org/>`_ (only applicable
+for selected projects) with `Rclone <https://rclone.org>`_. 
 
 Background information
 =======================
@@ -30,7 +33,7 @@ In order to use use the ``qiskit_sphinx_theme`` you need to first install it. Yo
 
 .. note::
 
-    ``sphinx`` is installed directly with ``qiskit-sphinx-theme``, so it's not necessary to install it with ``pip install sphinx`` for this tutorial.
+    ``sphinx`` is installed as an dependency with ``qiskit-sphinx-theme``, so it's not necessary to install it with ``pip install sphinx`` for this tutorial.
 
 
 
@@ -64,11 +67,13 @@ In this case, you will give the default answer, that is, the one between bracket
 .. code-block:: text
 
     The project name will occur in several places in the built documentation.
-    > Project name: Qiskit X
-    > Author name(s): Qiskit X Development Team
-    > Project release []: 0.1.0
+    > Project name: <Enter Your Project Name, e.g. qiskit-hal-provider>
+    > Author name(s): <Enter Author Names or a Team, e.g. Qiskit HAL Provider Development Team>
+    > Project release []: <Enter Project Release Corresponding to the Documentation, e.g. 0.1.0>
 
-This time you need to give non-default answers. Set your project name and put your development team name as the author name. If you have a release cycle you can put your current version in the project release field.
+This time you need to give non-default answers. Set your project name and put your development team
+name as the author name. If you have a release cycle you can put your current version in the project
+release field. Throughout this tutorial, we will use ``Qiskit HAL Provider`` as an example.
 
 .. code-block:: text
 
@@ -108,7 +113,7 @@ and change the value of the variable ``html_theme`` from ``'alabaster'`` to ``'q
 Structure your documentation
 ============================
 
-In Qiskit, we are following :ref:`diataxis`, that means that our documentation is divided into four categories:
+In Qiskit and its Ecosystem, we are following :ref:`diataxis`, that means that our documentation is divided into four categories:
 
 * `Tutorials <https://diataxis.fr/tutorials/>`_
 * `How-to guides <https://diataxis.fr/how-to-guides/>`_
@@ -145,9 +150,9 @@ in ``docs/index.rst``.  Your ``index.rst`` should look like this:
 
 .. code-block:: text
 
-    =====================================
-    Welcome to Qiskit X's documentation!
-    =====================================
+    ===============================================
+    Welcome to Qiskit HAL Provider's documentation!
+    ===============================================
 
     Overview
     ========
@@ -165,7 +170,7 @@ in ``docs/index.rst``.  Your ``index.rst`` should look like this:
     API Reference <apidocs/index>
     Explanations <explanations/index>
     Release Notes <release_notes>
-    GitHub <https://github.com/Qiskit/qiskit_x>
+    GitHub <https://github.com/hal/qiskit-hal-proivder>
 
 
 .. warning::
@@ -211,7 +216,13 @@ The locally built page should look like this:
 
 
 Deploy docs to `qiskit.org <https://qiskit.org/>`_
-===================================================
+==================================================
+
+.. note:: 
+
+   At the moment, this section is only applicable for selected Qiskit projects such as Qiskit and 
+   Qiskit Nature. For other projects, you can deploy your own documentation using `Read the Docs
+   <https://docs.readthedocs.io/en/stable/tutorial/>`_ or GitHub pages.
 
 Once you have a working documentation project, you may want to deploy it to `qiskit.org <https://qiskit.org/>`_. This can be done by using `GitHub workflows <https://docs.github.com/en/actions/using-workflows/about-workflows>`_.
 These workflows are automated processes that are defined by `YAML <https://yaml.org/>`_ files. These files should be placed in a directory called ``.github/workflows``.
@@ -317,7 +328,7 @@ You can set the shell to ``bash`` via the
 
 .. code-block:: yaml
 
-    - name: Install X
+    - name: Install <Package Name>
       run: |
         pip install -e .
         pip install -U -c constraints.txt -r requirements-dev.txt
@@ -657,7 +668,7 @@ The complete ``.github/workflows/deploy-docs.yml`` is then:
         - uses: actions/setup-python@v4
             with:
             python-version: ${{ matrix.python-version }}
-        - name: Install X
+        - name: Install <Package Name>
             run: |
               pip install -e .
               pip install -U -c constraints.txt -r requirements-dev.txt
