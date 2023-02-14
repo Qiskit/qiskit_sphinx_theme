@@ -210,8 +210,6 @@ to ``html`` so the documents from the ``docs`` folder get built as HTML pages in
 The locally built page should look like this:
 
 .. figure:: /images/local_build.png
-    :scale: 50 %
-    :align: center
 
 
 
