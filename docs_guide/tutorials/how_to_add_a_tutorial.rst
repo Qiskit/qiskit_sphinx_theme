@@ -65,5 +65,5 @@ If your tutorial is an ``.ipynb`` file, add it to a ``nbgallery`` like this one:
         Title of second existing tutorial <existing_tutorial_2>
         Title of your tutorial <your_tutorial>
 
-The ``nbgallery`` directive has the same arguments as :rst:dir:`sphinx:toctree`, so the only difference between this case and the ``.rst`` one is
-writing the name of the directive.
+The ``nbgallery`` directive has the same arguments as :rst:dir:`sphinx:toctree`, so the only
+difference between this case and the ``.rst`` one is writing the name of the directive.

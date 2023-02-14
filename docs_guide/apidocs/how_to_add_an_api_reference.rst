@@ -37,6 +37,7 @@ In order to update the page you need to add your class or function to the ``__in
 .. code-block:: python
 
     .. autosummary::
-        :toctree: ../stubs/
-        YourClass
-        your_func
+       :toctree: ../stubs/
+       
+       YourClass
+       your_func

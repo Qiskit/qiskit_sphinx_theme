@@ -37,5 +37,3 @@ In this example, the title from the first existing explanation (``existing_expla
 the title is set manually.
 
 It's important to make sure that the indentation of the items inside the :rst:dir:`sphinx:toctree` is of at least three whitespaces.
-
-The section name header needs to be covered by equal signs ``=`` below.
