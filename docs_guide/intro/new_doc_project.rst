@@ -163,7 +163,7 @@ in ``docs/index.rst``.  Your ``index.rst`` should look like this:
     .. toctree::
     :hidden:
 
-    Overview <self>
+    Documentation Home <self>
     Getting Started <getting_started>
     Tutorials <tutorials/index>
     How-to Guides <how_to/index>
