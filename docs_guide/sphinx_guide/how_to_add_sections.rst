@@ -18,8 +18,7 @@ You can organize your documents into:
 Create sections
 ===============
 
-In order to create a new section you can write the name of the section covered below by equal signs ``=``. For example,
-you can include this header:
+Section headers are created by underlining (and optionally overlining) the section title with a punctuation character, at least as long as the text:
 
 .. code-block:: text
 
