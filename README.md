@@ -55,14 +55,12 @@ To configure your documentation to use exapandable sidebar headings like the exa
 2. Refactor the `toctree` in your `index.rst` to separate your pages into different sections. Sections that include a `:caption:` directive will be turned into expandable sidebar sections, with the caption forming the title of the dropdown. for example, to render the expandable sidebar shown above your `toctree` in your `index.rst` should look like this:
     ```
     .. toctree::
-    :maxdepth: 1
     :hidden:
 
     Documentation Home <index>
     Getting Started <get_started>
 
     .. toctree::
-    :maxdepth: 1
     :hidden:
     :caption: Tutorials
 
@@ -72,7 +70,6 @@ To configure your documentation to use exapandable sidebar headings like the exa
     All Tutorials <tutorials/index>
 
     .. toctree::
-    :maxdepth: 1
     :hidden:
     :glob:
     :caption: How-to Guides
@@ -80,7 +77,6 @@ To configure your documentation to use exapandable sidebar headings like the exa
     how_tos/*
 
     .. toctree::
-    :maxdepth: 1
     :hidden:
     :glob:
     :caption: API Reference
@@ -88,7 +84,6 @@ To configure your documentation to use exapandable sidebar headings like the exa
     apidocs/*
 
     .. toctree::
-    :maxdepth: 1
     :hidden:
     :glob:
     :caption: Explanations
@@ -96,7 +91,6 @@ To configure your documentation to use exapandable sidebar headings like the exa
     expalanations/*
 
     .. toctree::
-    :maxdepth: 1
     :hidden:
 
     Release Notes <release_notes>
