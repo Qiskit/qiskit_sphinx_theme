@@ -13,9 +13,8 @@ pip install qiskit-sphinx-theme
 
 To keep UX/UI similar across different Qiskit packages we strongly encourage the following structure for you sidebar, which can be set in the toctree of your `index.rst`:
 
-```
+```rst
 .. toctree::
-  :maxdepth: 1
   :hidden:
 
    Documentation Home <index>
@@ -50,7 +49,7 @@ To configure your documentation to use exapandable sidebar headings like the exa
 1. Add a `expandable_sidebar` variable to the `html_context` object in your `conf.py` and set the value to `True`:
     ```
     html_context = {
-        'analytics_enabled': True
+        'expandable_sidebar': True
     }
     ```
 2. Refactor the `toctree` in your `index.rst` to separate your pages into different sections. Sections that include a `:caption:` directive will be turned into expandable sidebar sections, with the caption forming the title of the dropdown. for example, to render the expandable sidebar shown above your `toctree` in your `index.rst` should look like this:
