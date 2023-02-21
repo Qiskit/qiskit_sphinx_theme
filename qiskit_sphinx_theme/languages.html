@@ -1,17 +1,16 @@
+{% if translations_list %}
 <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
   <span class="rst-current-version" data-toggle="rst-current-version">
     <span class="rst-current-version-label">{{ language_label }}</span>
     <span class="rst-versions-dropdown-icon"></span>
   </span>
   <div class="rst-other-versions">
-    {% if translations %}
     <dl>
       <dt>{{ _('Languages') }}</dt>
       {% for code, language in translations_list %}
         <dd><a class="version" href="{{ translation_url(code, pagename) }}">{{ language }}</a></dd>
       {% endfor %}
     </dl>
-    {% endif %}
   </div>
   <script>
     jQuery('.version').click((evt) => {
@@ -22,3 +21,4 @@
     })
   </script>
 </div>
+{% endif %}
