@@ -9,6 +9,98 @@ This package is available on PyPI using:
 ```bash
 pip install qiskit-sphinx-theme
 ```
+## Configure Left Sidebar
+
+To keep UX/UI similar across different Qiskit packages we strongly encourage the following structure for you sidebar, which can be set in the toctree of your `index.rst`:
+
+```rst
+.. toctree::
+  :hidden:
+
+   Documentation Home <index>
+   Getting Started <getting_started>
+   Tutorials <tutorials/index>
+   How-to Guides <how_to/index>
+   API Reference <apidocs/index>
+   Explanations <explanations/index>
+   Release Notes <release_notes>
+   GitHub <https://github.com/your-repo>
+```
+
+The above toctree will render a sidebar that looks like the image below:
+
+<img width="626" alt="Screenshot 2023-02-09 at 12 13 52 PM" src="https://user-images.githubusercontent.com/23662430/217783745-43623c4f-897a-4a96-9d05-137d881ddb3f.png">
+
+Each item in the toctree corresponds to a single `.rst` file, and can use internal links or external. External links will have a "new tab" icon rendered next to them.
+
+<img width="257" alt="Screenshot 2023-02-09 at 12 14 45 PM" src="https://user-images.githubusercontent.com/23662430/217783918-ae4fc420-43c5-4d56-b135-4f12043cd881.png">
+
+In addition to the pages in the toctree, the sidebar also adds:
+- (optional) a separate dropdown menu *at the top* with different languages, but only if you have a `translations_list` setup in your `html_context` in your `conf.py` corresponding logic in a `version_utils.py`.
+- (optional) a dropdown *at the bottom* with links to previous releases, if you have a `version_list` setup in your `html_context` in your `conf.py` and corresponding logic in a `version_utils.py`.
+
+### Add Expandable Items to Sidebar
+
+You may want to configure your documentation to include expandable items in the sidebar, for example:
+
+<img width="467" alt="Screenshot 2023-02-09 at 12 29 13 PM" src="https://user-images.githubusercontent.com/23662430/217787248-8017da57-c347-4eea-a220-8515ca2ce8d6.png">
+
+To configure your documentation to use exapandable sidebar headings like the example above you must do the following:
+1. Add a `expandable_sidebar` variable to the `html_context` object in your `conf.py` and set the value to `True`:
+    ```
+    html_context = {
+        'expandable_sidebar': True
+    }
+    ```
+2. Refactor the `toctree` in your `index.rst` to separate your pages into different sections. Sections that include a `:caption:` directive will be turned into expandable sidebar sections, with the caption forming the title of the dropdown. for example, to render the expandable sidebar shown above your `toctree` in your `index.rst` should look like this:
+    ```
+    .. toctree::
+    :hidden:
+
+    Documentation Home <index>
+    Getting Started <get_started>
+
+    .. toctree::
+    :hidden:
+    :caption: Tutorials
+
+    Tutorial 1 <tutorials/01>
+    Tutorial 2 <tutorials/02>
+    Tutorial 3 <tutorials/03>>
+    All Tutorials <tutorials/index>
+
+    .. toctree::
+    :hidden:
+    :glob:
+    :caption: How-to Guides
+
+    how_tos/*
+
+    .. toctree::
+    :hidden:
+    :glob:
+    :caption: API Reference
+
+    apidocs/*
+
+    .. toctree::
+    :hidden:
+    :glob:
+    :caption: Explanations
+
+    expalanations/*
+
+    .. toctree::
+    :hidden:
+
+    Release Notes <release_notes>
+    GitHub <https://github.com/your-repo>
+    ```
+
+
+*Tip: if you want to add all files in a sub-directory to your expandable dropdown section you can use the `:glob:` directive instead of listing out each page (see example above for the How-to Guides, API Reference and Explanations sections). This will list out each page in alphabetical order, so if you want a specific order you will need to list the pages out individually in the `toctree` (see example above for the Tutorials section)*
+
+
 
 ## Enable Qiskit.org Analytics
 

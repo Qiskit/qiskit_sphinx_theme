@@ -147,5 +147,17 @@ autoclass_content = 'both'
 
 # qiskit package specific variables
 html_context = {
-    'analytics_enabled': True
+    # toggle analytics
+    'analytics_enabled': True,
+
+    # dummy list for versions
+    'version_list': [0.1, 0.2, 0.3],
+
+    # make captioned headings into dropdowns
+    'expandable_sidebar': True
 }
+
+
+# set up custom extension for languages
+def setup(app):
+    app.setup_extension('language_utils')
