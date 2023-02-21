@@ -41,6 +41,6 @@ This is what tutorials and how-to guides are for.
 8. Avoid going into the details of any particular class, function, method, ... 
 ==============================================================================
 
-This is what API reference is for. However it's fine to mention for example a particular argument if
+This is what :ref:`API reference <apidocs>` is for. However it's fine to mention for example a particular argument if
 it helps with the explanation. For example, show how to change the order of qubits to the one in
 textbooks with the ``reverse_bits`` argument of the ``QuantumCircuit.draw`` method.
