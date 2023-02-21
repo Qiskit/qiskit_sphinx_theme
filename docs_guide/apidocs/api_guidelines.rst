@@ -9,8 +9,8 @@ API Reference Guidelines
    doc building process complexity. See 
    `qiskit-terra#7661 <https://github.com/Qiskit/qiskit-terra/issues/7661>`_ for discussions.
 
-1. Try to show as many arguments/options as possible within reason
-==================================================================
+1. Show a decent amount of arguments / options
+==============================================
 
 Focus on the arguments that make bigger differences. If there are multiple arguments with similar functionality, show only
 the ones with significant differences. For example, if you are using ``plot_histogram`` and want to
@@ -30,7 +30,8 @@ If there are more than 4 arguments that make significant changes, it can be bett
 them evenly between 2 examples. That way you avoid having an overloaded example and a user can see
 how some of the default values work. 
 
-Avoid adding more than 3 code cells.
+Avoid adding more than 3 code examples. Too many examples make the page noisy. If you want to
+demonstrate more functionalities, please consider writing a dedicated :ref:`how-to guide <how-to>`.
 
 3. Don't over complicate nor oversimplify the steps to get the input arguments
 ==============================================================================
