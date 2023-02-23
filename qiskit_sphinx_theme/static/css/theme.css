@@ -12372,6 +12372,7 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
   border-bottom: 1px solid #e2e2e2;
   width: 100%;
   z-index: 201;
+  height: fit-content;
 }
 @media screen and (min-width: 1101px) {
   .pytorch-page-level-bar {
@@ -12382,6 +12383,7 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
     height: 45px;
     padding-left: 0;
     width: 100%;
+    height: fit-content;
     position: absolute;
     z-index: 1;
   }
@@ -12390,6 +12392,7 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
     top: 0;
     left: 25%;
     padding-left: 0;
+    height: fit-content;
     right: 0;
     width: 75%;
   }
@@ -12399,12 +12402,14 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
     left: 0;
     right: 0;
     width: auto;
+    height: fit-content;
     z-index: 1;
   }
   .pytorch-page-level-bar.left-menu-is-fixed {
     left: 350px;
     right: 0;
     width: auto;
+    height: fit-content;
   }
 }
 .pytorch-page-level-bar ul, .pytorch-page-level-bar li {
