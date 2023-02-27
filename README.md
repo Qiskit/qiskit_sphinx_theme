@@ -65,13 +65,13 @@ You may want to configure your documentation to include expandable items in the 
 
 To configure your documentation to use exapandable sidebar headings like the example above you must do the following:
 1. Add a `expandable_sidebar` variable to the `html_context` object in your `conf.py` and set the value to `True`:
-    ```
+    ```python
     html_context = {
         'expandable_sidebar': True
     }
     ```
 2. Refactor the `toctree` in your `index.rst` to separate your pages into different sections. Sections that include a `:caption:` directive will be turned into expandable sidebar sections, with the caption forming the title of the dropdown. for example, to render the expandable sidebar shown above your `toctree` in your `index.rst` should look like this:
-    ```
+    ```rst
     .. toctree::
     :hidden:
 
@@ -124,7 +124,7 @@ To configure your documentation to use exapandable sidebar headings like the exa
 
 Qiskit.org uses Segment Analytics to collect information on traffic to sites under the qiskit.org domain. This is not enabled by default but if you would like to enable it you can add a `analytics_enabled` variable to the `html_context` object in your `conf.py`. Setting this to `True` will enable analytics for your site once it is deployed to `qiskit.org/documentation`. 
 
-```
+```python
 html_context = {
     'analytics_enabled': True
 }
