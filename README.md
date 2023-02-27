@@ -18,7 +18,7 @@ not introduce unintended changes.
 
 The Qiskit Docs Guide hosts instructions, guidelines and recommendations of good documentation
 practices. It's intent is to help Qiskit maintainers improve the documentation of their projects.
-The guide is hosted online here: https://qiskit.github.io/qiskit_sphinx_theme/.
+The guide is hosted online here: https://qisk.it/docs-guide.
 
 ## Installation
 
