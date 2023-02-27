@@ -84,7 +84,7 @@ Non-executable cells
 
 There are some situations in which executing the code is not convenient, such as when:
 
-* The code you are showing is not written in Python but other languages like reStructuredText, YAML, Markdown or Rust.
+* The code you are showing is written in languages other than Python, like reStructuredText, YAML, Markdown or Rust.
 * The code requires connecting to a provider.
 * The code takes too long to run.
 

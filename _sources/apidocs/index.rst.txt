@@ -4,6 +4,9 @@
 API Reference
 #############
 
+This section of your project documentation should contain your API reference documentation. Use the
+resources below to learn how to write good quality API references.
+
 .. toctree::
    :maxdepth: 1
     

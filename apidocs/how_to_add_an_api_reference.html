@@ -11,8 +11,8 @@
   <link rel="stylesheet" href="../_static/jupyter-sphinx.css" type="text/css" />
   <link rel="stylesheet" href="../_static/thebelab.css" type="text/css" />
 
-  <link rel="modulepreload" href="https://unpkg.com/@qiskit/web-components@0.10.2/experimental-bundled-ui-shell.js">
-  <script type="module" src="https://unpkg.com/@qiskit/web-components@0.10.2/experimental-bundled-ui-shell.js"></script>
+  <link rel="modulepreload" href="https://unpkg.com/@qiskit/web-components/experimental-bundled-ui-shell.js">
+  <script type="module" src="https://unpkg.com/@qiskit/web-components/experimental-bundled-ui-shell.js"></script>
   <style>
     qiskit-ui-shell:not(:defined) {
       display: block;
@@ -33,23 +33,7 @@
     <!-- LEFT SIDE BAR -->
 
     <!-- if translations available, display language dropdown menu -->
-    <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
-  <span class="rst-current-version" data-toggle="rst-current-version">
-    <span class="rst-current-version-label"></span>
-    <span class="rst-versions-dropdown-icon"></span>
-  </span>
-  <div class="rst-other-versions">
     
-  </div>
-  <script>
-    jQuery('.version').click((evt) => {
-      const hash = window.location.hash
-      const complete_url = evt.target.href + hash
-      window.location = complete_url
-      evt.preventDefault()
-    })
-  </script>
-</div>
 
     <!-- Menu becomes dropdown in mobile view -->
     <div class="table-of-contents-link-wrapper">
@@ -59,21 +43,22 @@
 
     <!-- LEFT SIDE BAR MAIN CONTENT -->
     <nav data-toggle="wy-nav-shift" class="pytorch-left-menu" id="pytorch-left-menu">
-      <div class="pytorch-side-scroll">
-        <div class="pytorch-menu pytorch-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          <div class="pytorch-left-menu-search">
-            <div role="search">
+    <div class="pytorch-menu pytorch-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+      <div class="sidebar">
+    <div class="pytorch-left-menu-search">
+        <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search Qiskit Docs Guide Docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-          </div>
-          <!-- render sidebar from the toctree -->
-          
-          
-            <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+    </div>
+
+    <!-- render sidebar from the toctree -->
+    
+    
+        <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Start Here</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../intro/how_to_use_this_guide.html">How to Use This Guide</a></li>
@@ -83,7 +68,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Instructions for Standard Pages</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../home.html">Documentation Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../how_to/index.html">How-to Guides</a></li>
@@ -93,12 +78,56 @@
 <li class="toctree-l1"><a class="reference external" href="https://github.com/Qiskit/qiskit_sphinx_theme">GitHub</a></li>
 </ul>
 
-          
-          <!-- add previous releases dropdown -->
-          
-        </div>
-      </div>
-    </nav>
+    
+
+    <!-- PREVIOUS RELEASES -->
+        
+
+    </div>
+  </div>
+</nav>
+
+<!-- OPTIONAL EXPANDABLE FUNCTIONALITY -->
+
+
+<!-- STYLING -->
+<script>
+    // indent subheadings under captions
+    expandable_rows = document.getElementsByClassName("caption");
+    var i;
+    for (i = 0; i < expandable_rows.length; i++) {
+        expandable_rows[i].nextElementSibling.style.marginLeft = "1rem"
+
+        // un-bold subheadings in dropdown
+        var subheadings = expandable_rows[i].nextElementSibling
+        for (j = 0; j < subheadings.children.length; j++) {
+            subheadings.children[j].style.fontWeight = "unset"
+        }
+    }
+
+    // adjust toctree class name to style external links
+    var toc_rows = document.getElementsByClassName("toctree-l1");
+    var i;
+    for (i = 0; i < toc_rows.length; i++) {
+        if (toc_rows[i].children[0].className === "reference external") {
+            toc_rows[i].className = "toctree-l1-external"
+            }
+    }
+
+    // expand and unexpand previous releases dropdown when clicked
+    var release_rows = document.getElementsByClassName("sidebar-l1-expandable");
+    for (i = 0; i < expandable_rows.length; i++) {
+        release_rows[i].addEventListener("click", function() {
+            this.classList.toggle("open");
+            var clicked_subheadings = this.nextElementSibling;
+            if (clicked_subheadings.style.display === "block") {
+            clicked_subheadings.style.display = "none";
+            } else {
+            clicked_subheadings.style.display = "block";
+            }
+        });
+    }
+</script>
 
     <div class="pytorch-container">
 
@@ -170,36 +199,90 @@
 <p>This guide shows how to add an API reference page to your documentation.</p>
 <section id="pre-requisites">
 <h2>Pre-requisites<a class="headerlink" href="#pre-requisites" title="Permalink to this heading">¶</a></h2>
-<p>This guide assumes your Qiskit project already has a working Sphinx documentation project in a
+<p>This guide assumes your project already has a working Sphinx documentation project in a
 folder called <code class="docutils literal notranslate"><span class="pre">docs</span></code> and <a class="reference internal" href="../intro/new_doc_project.html#doc-structure"><span class="std std-ref">the recommended folder structure</span></a>. If you don’t
 have it, you can set it up with <a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html" title="(in Sphinx v6.2.0)"><span>sphinx-quickstart</span></a> following the tutorial <a class="reference internal" href="../intro/new_doc_project.html#create-new-doc-project"><span class="std std-ref">Create a New Documentation Project</span></a>.</p>
 </section>
 <section id="create-a-new-api-reference">
 <h2>Create a new API reference<a class="headerlink" href="#create-a-new-api-reference" title="Permalink to this heading">¶</a></h2>
-<p>In order to create an API reference, you need to find the function or class for which you want to include the reference in the <code class="docutils literal notranslate"><span class="pre">qiskit_x</span></code> folder of your repository <code class="docutils literal notranslate"><span class="pre">qiskit-x</span></code>.
-Then you have to create a docstring like those ones.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">YourClass</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;This is the API reference for</span>
-<span class="sd">    YourClass.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">():</span>
-    <span class="o">...</span>
+<p>In order to create an API reference, you need to find the function or class for which you want to
+write the reference in the main code of your project. In Qiskit, we are following <a class="reference external" href="https://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings">the Google Python
+Style Guide</a> for
+docstrings.</p>
+<p>If your class has public attributes, they should be documented here in an <code class="docutils literal notranslate"><span class="pre">Attributes</span></code> section.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">SampleClass</span><span class="p">:</span>
+<span class="sd">&quot;&quot;&quot;Summary of class here.</span>
 
-<span class="k">def</span> <span class="nf">your_func</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;This is the reference</span>
-<span class="sd">    for your_func.</span>
+<span class="sd">Longer class information...</span>
+<span class="sd">Longer class information...</span>
+
+<span class="sd">Attributes:</span>
+<span class="sd">    likes_spam: A boolean indicating if we like SPAM or not.</span>
+<span class="sd">    eggs: An integer count of the eggs we have laid.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">likes_spam</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Initializes the instance based on spam preference.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">      likes_spam: Defines if instance exhibits this preference.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="o">...</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">likes_spam</span> <span class="o">=</span> <span class="n">likes_spam</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">eggs</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">def</span> <span class="nf">public_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Performs operation blah.&quot;&quot;&quot;</span>
 </pre></div>
 </div>
+<p>For functions and methods, document the arguments, return objects and errors in <code class="docutils literal notranslate"><span class="pre">Args</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Returns</span></code> and <code class="docutils literal notranslate"><span class="pre">Raises</span></code> section.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fetch_smalltable_rows</span><span class="p">(</span>
+    <span class="n">table_handle</span><span class="p">:</span> <span class="n">smalltable</span><span class="o">.</span><span class="n">Table</span><span class="p">,</span>
+    <span class="n">keys</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">bytes</span> <span class="o">|</span> <span class="nb">str</span><span class="p">],</span>
+    <span class="n">require_all_keys</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">bytes</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Fetches rows from a Smalltable.</span>
+
+<span class="sd">    Retrieves rows pertaining to the given keys from the Table instance</span>
+<span class="sd">    represented by table_handle.  String keys will be UTF-8 encoded.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        table_handle: An open smalltable.Table instance.</span>
+<span class="sd">        keys: A sequence of strings representing the key of each table</span>
+<span class="sd">        row to fetch.  String keys will be UTF-8 encoded.</span>
+<span class="sd">        require_all_keys: If True only rows with values set for all keys will be</span>
+<span class="sd">        returned.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A dict mapping keys to the corresponding table row data</span>
+<span class="sd">        fetched. Each row is represented as a tuple of strings. For</span>
+<span class="sd">        example:</span>
+
+<span class="sd">        {b&#39;Serak&#39;: (&#39;Rigel VII&#39;, &#39;Preparer&#39;),</span>
+<span class="sd">        b&#39;Zim&#39;: (&#39;Irk&#39;, &#39;Invader&#39;),</span>
+<span class="sd">        b&#39;Lrrr&#39;: (&#39;Omicron Persei 8&#39;, &#39;Emperor&#39;)}</span>
+
+<span class="sd">        Returned keys are always bytes.  If a key from the keys argument is</span>
+<span class="sd">        missing from the dictionary, then that row was not found in the</span>
+<span class="sd">        table (and require_all_keys must have been False).</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        IOError: An error occurred accessing the smalltable.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<p>The above code examples were copied from <a class="reference external" href="https://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings">the Google Python
+Style Guide</a>. Please
+refer to it for more detailed explanations.</p>
 </section>
 <section id="update-the-page">
 <h2>Update the page<a class="headerlink" href="#update-the-page" title="Permalink to this heading">¶</a></h2>
 <p>In order to update the page you need to add your class or function to the <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> of the module(s) in which it’s included. This can be done by adding the name to a <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-toctree" title="(in Sphinx v6.2.0)"><code class="docutils literal notranslate"><span class="pre">toctree</span></code></a> like this one:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">autosummary</span><span class="p">::</span>
-    <span class="p">:</span><span class="n">toctree</span><span class="p">:</span> <span class="o">../</span><span class="n">stubs</span><span class="o">/</span>
-    <span class="n">YourClass</span>
-    <span class="n">your_func</span>
+   <span class="p">:</span><span class="n">toctree</span><span class="p">:</span> <span class="o">../</span><span class="n">stubs</span><span class="o">/</span>
+
+   <span class="n">SampleClass</span>
+   <span class="n">fetch_smalltable_rows</span>
 </pre></div>
 </div>
 </section>
@@ -211,6 +294,16 @@ Then you have to create a docstring like those ones.</p>
             <footer>
 <!-- USER FEEDBACK -->
   
+
+  <!-- NEXT/PREVIOUS BUTTONS -->
+  <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+    
+      <a href="../explanations/index.html" class="btn btn-neutral float-right" title="Explanations" accesskey="n" rel="next">Next <img src="../_static/images/chevron-right-orange.svg" class="next-page"></a>
+    
+    
+      <a href="api_templates.html" class="btn btn-neutral" title="API Reference Templates" accesskey="p" rel="prev"><img src="../_static/images/chevron-right-orange.svg" class="previous-page"> Previous</a>
+    
+  </div>
 
   <div role="contentinfo">
     <p>
@@ -228,7 +321,7 @@ Then you have to create a docstring like those ones.</p>
         Built with <a href="http://sphinx-doc.org/">Sphinx</a> using <a href="https://github.com/Qiskit/qiskit_sphinx_theme">Qiskit Sphinx Theme </a> (based on <a href="https://github.com/pytorch/pytorch_sphinx_theme"> PyTorch Sphinx Theme</a>).
       </div>
      
-
+<br>
 </footer>
 
 <script>

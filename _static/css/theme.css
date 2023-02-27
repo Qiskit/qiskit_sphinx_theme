@@ -8,7 +8,7 @@
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
-  --purple: #8A3FFC;
+  --purple: #8A3FFC; /* Qiskit Purple */
   --pink:#d12771;
   --red: #da1e28;
   --orange: #fd7e14;
@@ -34,9 +34,12 @@
   --breakpoint-xl: 1200px;
   --font-family-sans-serif: "IBM PLex Sans", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-family-monospace: "IBM PLex Mono", Consolas, "Courier New", monospace;
+  --header-height: 52px;
 }
 
-/* Old theme variables */
+section {
+  scroll-margin-top: var(--header-height);
+}
 
 .wy-table-responsive {
   margin-bottom: 24px;
@@ -262,7 +265,6 @@ img {
   font-size: 100%;
 }
 
-
 *,
 *::before,
 *::after {
@@ -306,7 +308,12 @@ span.sig-paren{
   color: #212529;
 }
 
-article.pytorch-article .function dt > code, article.pytorch-article .attribute dt > code, article.pytorch-article .class .attribute dt > code, article.pytorch-article .class dt > code {
+article.pytorch-article .method dt > code, 
+article.pytorch-article .staticmethod dt > code, 
+article.pytorch-article .function dt > code, 
+article.pytorch-article .attribute dt > code, 
+article.pytorch-article .class .attribute dt > code, 
+article.pytorch-article .class dt > code {
   font-weight: 600;
 }
 
@@ -379,7 +386,6 @@ ol,
 ul,
 dl {
   margin-top: 0;
-  margin-bottom: 1rem;
 }
 
 ol ol,
@@ -5997,7 +6003,6 @@ button.close {
 .carousel-control-next:focus {
   color: #fff;
   text-decoration: none;
-  outline: 0;
   opacity: .9;
 }
 
@@ -10722,7 +10727,12 @@ article.pytorch-article .section :not(dt) > code .pre {
   outline: 0px;
   padding: 0px;
 }
-article.pytorch-article .function dt, article.pytorch-article .attribute dt, article.pytorch-article .class .attribute dt, article.pytorch-article .class dt {
+article.pytorch-article .method dt, 
+article.pytorch-article .staticmethod dt,
+article.pytorch-article .function dt, 
+article.pytorch-article .attribute dt, 
+article.pytorch-article .class .attribute dt, 
+article.pytorch-article .class dt {
   position: relative;
   background: #f3f4f7;
   padding: 0.5rem;
@@ -10730,14 +10740,33 @@ article.pytorch-article .function dt, article.pytorch-article .attribute dt, art
   word-wrap: break-word;
   padding-right: 100px;
 }
-article.pytorch-article .function dt em.property, article.pytorch-article .attribute dt em.property, article.pytorch-article .class dt em.property {
+article.pytorch-article .method dt em.property, 
+article.pytorch-article .staticmethod dt em.property, 
+article.pytorch-article .function dt em.property, 
+article.pytorch-article .attribute dt em.property, 
+article.pytorch-article .class dt em.property {
   font-family: inherit;
 }
-article.pytorch-article .function dt em, article.pytorch-article .attribute dt em, article.pytorch-article .class .attribute dt em, article.pytorch-article .class dt em, article.pytorch-article .function dt .sig-paren, article.pytorch-article .attribute dt .sig-paren, article.pytorch-article .class dt .sig-paren {
+article.pytorch-article .method dt em, 
+article.pytorch-article .staticmethod dt em,
+article.pytorch-article .function dt em, 
+article.pytorch-article .attribute dt em, 
+article.pytorch-article .class .attribute dt em, 
+article.pytorch-article .class dt em,
+article.pytorch-article .method dt .sig-paren, 
+article.pytorch-article .staticmethod dt .sig-paren, 
+article.pytorch-article .function dt .sig-paren, 
+article.pytorch-article .attribute dt .sig-paren, 
+article.pytorch-article .class dt .sig-paren {
   font-family: var(--font-family-monospace);
   font-size: 87.5%;
 }
-article.pytorch-article .function dt a, article.pytorch-article .attribute dt a, article.pytorch-article .class .attribute dt a, article.pytorch-article .class dt a {
+article.pytorch-article .method dt a, 
+article.pytorch-article .staticmethod dt a, 
+article.pytorch-article .function dt a, 
+article.pytorch-article .attribute dt a, 
+article.pytorch-article .class .attribute dt a, 
+article.pytorch-article .class dt a {
   position: absolute;
   right: 30px;
   padding-right: 0;
@@ -10745,17 +10774,30 @@ article.pytorch-article .function dt a, article.pytorch-article .attribute dt a,
   -webkit-transform: perspective(1px) translateY(-50%);
           transform: perspective(1px) translateY(-50%);
 }
-article.pytorch-article .function dt:hover .viewcode-link, article.pytorch-article .attribute dt:hover .viewcode-link, article.pytorch-article .class dt:hover .viewcode-link {
+article.pytorch-article .method dt:hover .viewcode-link, 
+article.pytorch-article .staticmethod dt:hover .viewcode-link, 
+article.pytorch-article .function dt:hover .viewcode-link, 
+article.pytorch-article .attribute dt:hover .viewcode-link, 
+article.pytorch-article .class dt:hover .viewcode-link {
   color: var(--purple);
 }
-article.pytorch-article .function .anchorjs-link, article.pytorch-article .attribute .anchorjs-link, article.pytorch-article .class .anchorjs-link {
+article.pytorch-article .method .anchorjs-link, 
+article.pytorch-article .staticmethod .anchorjs-link, 
+article.pytorch-article .function .anchorjs-link, 
+article.pytorch-article .attribute .anchorjs-link, 
+article.pytorch-article .class .anchorjs-link {
   display: inline;
   position: absolute;
   right: 8px;
   font-size: 1.5625rem !important;
   padding-left: 0;
 }
-article.pytorch-article .function dt > code, article.pytorch-article .attribute dt > code, article.pytorch-article .class .attribute dt > code, article.pytorch-article .class dt > code {
+article.pytorch-article .method dt > code, 
+article.pytorch-article .staticmethod dt > code,
+article.pytorch-article .function dt > code, 
+article.pytorch-article .attribute dt > code, 
+article.pytorch-article .class .attribute dt > code, 
+article.pytorch-article .class dt > code {
   color: #262626;
   border-top: solid 2px #f3f4f7;
   background-color: #f3f4f7;
@@ -10763,55 +10805,110 @@ article.pytorch-article .function dt > code, article.pytorch-article .attribute 
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
-article.pytorch-article .function .viewcode-link, article.pytorch-article .attribute .viewcode-link, article.pytorch-article .class .viewcode-link {
+article.pytorch-article .method .viewcode-link, 
+article.pytorch-article .staticmethod .viewcode-link, 
+article.pytorch-article .function .viewcode-link, 
+article.pytorch-article .attribute .viewcode-link, 
+article.pytorch-article .class .viewcode-link {
   font-size: 0.875rem;
   color: #979797;
   letter-spacing: 0;
   line-height: 1.5rem;
   text-transform: uppercase;
 }
-article.pytorch-article .function dd, article.pytorch-article .attribute dd, article.pytorch-article .class .attribute dd, article.pytorch-article .class dd {
+article.pytorch-article .method dd, 
+article.pytorch-article .staticmethod dd, 
+article.pytorch-article .function dd, 
+article.pytorch-article .attribute dd, 
+article.pytorch-article .class .attribute dd, 
+article.pytorch-article .class dd {
   padding-left: 3.0rem;
 }
-article.pytorch-article .function dd p, article.pytorch-article .attribute dd p, article.pytorch-article .class .attribute dd p, article.pytorch-article .class dd p {
+article.pytorch-article .method dd p, 
+article.pytorch-article .staticmethod dd p, 
+article.pytorch-article .function dd p, 
+article.pytorch-article .attribute dd p, 
+article.pytorch-article .class .attribute dd p, 
+article.pytorch-article .class dd p {
   color: #262626;
 }
-article.pytorch-article .function table tbody tr th.field-name, article.pytorch-article .attribute table tbody tr th.field-name, article.pytorch-article .class table tbody tr th.field-name {
+article.pytorch-article .method table tbody tr th.field-name, 
+article.pytorch-article .staticmethod table tbody tr th.field-name, 
+article.pytorch-article .function table tbody tr th.field-name, 
+article.pytorch-article .attribute table tbody tr th.field-name, 
+article.pytorch-article .class table tbody tr th.field-name {
   white-space: nowrap;
   color: #262626;
   width: 20%;
 }
 @media screen and (min-width: 768px) {
-  article.pytorch-article .function table tbody tr th.field-name, article.pytorch-article .attribute table tbody tr th.field-name, article.pytorch-article .class table tbody tr th.field-name {
+  article.pytorch-article .method table tbody tr th.field-name, 
+  article.pytorch-article .staticmethod table tbody tr th.field-name, 
+  article.pytorch-article .function table tbody tr th.field-name, 
+  article.pytorch-article .attribute table tbody tr th.field-name, 
+  article.pytorch-article .class table tbody tr th.field-name {
     width: 15%;
   }
 }
-article.pytorch-article .function table tbody tr td.field-body, article.pytorch-article .attribute table tbody tr td.field-body, article.pytorch-article .class table tbody tr td.field-body {
+article.pytorch-article .method table tbody tr td.field-body, 
+article.pytorch-article .staticmethod table tbody tr td.field-body,
+article.pytorch-article .function table tbody tr td.field-body, 
+article.pytorch-article .attribute table tbody tr td.field-body, 
+article.pytorch-article .class table tbody tr td.field-body {
   padding: 0.625rem;
   width: 80%;
   color: #262626;
 }
 @media screen and (min-width: 768px) {
-  article.pytorch-article .function table tbody tr td.field-body, article.pytorch-article .attribute table tbody tr td.field-body, article.pytorch-article .class table tbody tr td.field-body {
+  article.pytorch-article .method table tbody tr td.field-body, 
+  article.pytorch-article .staticmethod table tbody tr td.field-body, 
+  article.pytorch-article .function table tbody tr td.field-body, 
+  article.pytorch-article .attribute table tbody tr td.field-body, 
+  article.pytorch-article .class table tbody tr td.field-body {
     width: 85%;
   }
 }
 @media screen and (min-width: 1600px) {
-  article.pytorch-article .function table tbody tr td.field-body, article.pytorch-article .attribute table tbody tr td.field-body, article.pytorch-article .class table tbody tr td.field-body {
+  article.pytorch-article .method table tbody tr td.field-body, 
+  article.pytorch-article .staticmethod table tbody tr td.field-body,
+  article.pytorch-article .function table tbody tr td.field-body, 
+  article.pytorch-article .attribute table tbody tr td.field-body, 
+  article.pytorch-article .class table tbody tr td.field-body {
     padding-left: 1.25rem;
   }
 }
-article.pytorch-article .function table tbody tr td.field-body p, article.pytorch-article .attribute table tbody tr td.field-body p, article.pytorch-article .class table tbody tr td.field-body p {
+article.pytorch-article .method table tbody tr td.field-body p, 
+article.pytorch-article .staticmethod table tbody tr td.field-body p, 
+article.pytorch-article .function table tbody tr td.field-body p, 
+article.pytorch-article .attribute table tbody tr td.field-body p, 
+article.pytorch-article .class table tbody tr td.field-body p {
   padding-left: 0px;
 }
-article.pytorch-article .function table tbody tr td.field-body p:last-of-type, article.pytorch-article .attribute table tbody tr td.field-body p:last-of-type, article.pytorch-article .class table tbody tr td.field-body p:last-of-type {
+article.pytorch-article .method table tbody tr td.field-body p:last-of-type, 
+article.pytorch-article .staticmethod table tbody tr td.field-body p:last-of-type, 
+article.pytorch-article .function table tbody tr td.field-body p:last-of-type, 
+article.pytorch-article .attribute table tbody tr td.field-body p:last-of-type, 
+article.pytorch-article .class table tbody tr td.field-body p:last-of-type {
   margin-bottom: 0;
 }
-article.pytorch-article .function table tbody tr td.field-body ol, article.pytorch-article .attribute table tbody tr td.field-body ol, article.pytorch-article .class table tbody tr td.field-body ol, article.pytorch-article .function table tbody tr td.field-body ul, article.pytorch-article .attribute table tbody tr td.field-body ul, article.pytorch-article .class table tbody tr td.field-body ul {
+article.pytorch-article .method table tbody tr td.field-body ol, 
+article.pytorch-article .staticmethod table tbody tr td.field-body ol, 
+article.pytorch-article .function table tbody tr td.field-body ol, 
+article.pytorch-article .attribute table tbody tr td.field-body ol, 
+article.pytorch-article .class table tbody tr td.field-body ol, 
+article.pytorch-article .method table tbody tr td.field-body ul, 
+article.pytorch-article .staticmethod table tbody tr td.field-body ul,
+article.pytorch-article .function table tbody tr td.field-body ul, 
+article.pytorch-article .attribute table tbody tr td.field-body ul, 
+article.pytorch-article .class table tbody tr td.field-body ul {
   padding-left: 1rem;
   padding-bottom: 0;
 }
-article.pytorch-article .function table.docutils.field-list, article.pytorch-article .attribute table.docutils.field-list, article.pytorch-article .class table.docutils.field-list {
+article.pytorch-article .method table.docutils.field-list, 
+article.pytorch-article .staticmethod table.docutils.field-list,
+article.pytorch-article .function table.docutils.field-list, 
+article.pytorch-article .attribute table.docutils.field-list, 
+article.pytorch-article .class table.docutils.field-list {
   margin-bottom: 0.75rem;
 }
 article.pytorch-article .attribute .has-code {
@@ -10841,15 +10938,6 @@ article.pytorch-article .class dl dt em.property {
   position: static;
   left: 0;
   padding-right: 0;
-}
-article.pytorch-article .class .method dt,
-article.pytorch-article .class .staticmethod dt {
-  border-left: 3px solid var(--purple);
-  border-top: none;
-}
-article.pytorch-article .class .method dt,
-article.pytorch-article .class .staticmethod dt {
-  padding-left: 0.5rem;
 }
 article.pytorch-article .class .attribute dt {
   border-top: none;
@@ -11784,7 +11872,7 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
   }
 }
 .pytorch-content-left .main-content {
-  padding-top: 0.9375rem;
+  padding-top: 3rem;
 }
 .pytorch-content-left .main-content ul.simple {
   padding-bottom: 20px;
@@ -11823,21 +11911,15 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
   }
 }
 
-.pytorch-menu-vertical {
-  padding: 1.25rem 1.875rem 2.5rem 1.875rem;
-}
 @media screen and (min-width: 1101px) {
   .pytorch-menu-vertical {
     display: block;
     padding-top: 0;
-    padding-right: 13.5%;
-    padding-bottom: 5.625rem;
   }
 }
 @media screen and (min-width: 1600px) {
   .pytorch-menu-vertical {
     padding-left: 0;
-    padding-right: 1.5625rem;
   }
 }
 
@@ -11853,8 +11935,7 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
     display: block;
     overflow-x: hidden;
     overflow-y: hidden;
-    padding-bottom: 110px;
-    padding: 0 1.875rem 0 0;
+    padding-bottom: 10px;
     width: 25%;
     z-index: 200;
     float: left;
@@ -11869,7 +11950,6 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
 }
 @media screen and (min-width: 1600px) {
   .pytorch-left-menu {
-    padding: 0 0 0 1.875rem;
     width: 350px;
   }
 }
@@ -11888,14 +11968,26 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
   padding-top: 1rem;
 }
 
+/* SIDEBAR */
+
 .pytorch-left-menu p.caption {
-  color: #262626;
-  display: block;
-  font-size: 1rem;
-  line-height: 1.375rem;
-  margin-bottom: 1rem;
-  text-transform: none;
-  white-space: nowrap;
+  padding: 0 2rem;
+  line-height: 32px;
+  color: #6c6c6d;
+  font-size: 0.875rem;
+  text-decoration: none;
+  cursor:pointer;
+  margin-bottom: 0;
+  font-weight: 600;
+}
+
+.pytorch-left-menu p.caption.expandable:after {
+  content: url('../images/qiskit-chevron-down.svg');
+  float: right;
+}
+
+.pytorch-left-menu p.caption.expandable.open:after {
+  content: url('../images/qiskit-chevron-up.svg');
 }
 
 .pytorch-left-menu-search {
@@ -11903,7 +11995,7 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
 }
 @media screen and (min-width: 1101px) {
   .pytorch-left-menu-search {
-    margin: 1.25rem 0.625rem 1.875rem 0;
+    margin: 1.25rem 2rem;
   }
 }
 
@@ -11995,7 +12087,6 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
 .pytorch-right-menu ul {
   list-style-type: none;
   padding-left: 0;
-  margin-bottom: 2.5rem;
 }
 .pytorch-left-menu > ul,
 .pytorch-right-menu > ul {
@@ -12030,6 +12121,73 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
   padding-left: 0;
   padding-right: 0;
 }
+
+/* sidebar items for custom side menu */
+
+.sidebar-l1-expandable {
+  font-weight: 600;
+  padding: 0 2rem;
+  line-height: 32px;
+  color: #6c6c6d;
+  font-size: 0.875rem;
+  text-decoration: none;
+  cursor:pointer;
+}
+
+.sidebar-l1-expandable:after {
+  content: url('../images/qiskit-chevron-down.svg');
+  float: right;
+}
+
+.sidebar-l1-expandable.open:after {
+  content: url('../images/qiskit-chevron-up.svg');
+}
+
+.sidebar-subheadings {
+  display: none;
+}
+
+.sidebar-l2 {
+  padding: 0 3rem;
+  line-height: 28px;
+  color: #525252;
+}
+
+.current {
+  color: var(--purple) !important;
+}
+
+/* toctree items for sphinx generated side menu */
+
+.toctree-l1 {
+  padding: 0 2rem;
+  line-height: 32px;
+  position: relative;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.toctree-l1-external {
+  padding: 0 2rem;
+  line-height: 32px;
+  position: relative;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.toctree-l1-external .reference.external:after,
+.sidebar-l1 .reference.external:after,
+.sidebar-l2 .reference.external:after {
+  content: url('../images/launch.svg');
+  float: right;
+  position:absolute;
+  padding-left: 0.5rem;
+}
+
+.toctree-l2 {
+  font-weight: normal;
+}
+
 .pytorch-left-menu li span.toctree-expand,
 .pytorch-right-menu li span.toctree-expand {
   display: block;
@@ -12051,18 +12209,9 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
   font-size: 0.8em;
   line-height: 1.6em;
 }
+
 .pytorch-left-menu li.toctree-l1.current > a,
 .pytorch-right-menu li.toctree-l1.current > a {
-  color: var(--purple);
-}
-.pytorch-left-menu li.toctree-l1.current > a:before,
-.pytorch-right-menu li.toctree-l1.current > a:before {
-  content: "\2022";
-  display: inline-block;
-  position: absolute;
-  left: -15px;
-  top: 1px;
-  font-size: 1.375rem;
   color: var(--purple);
 }
 @media screen and (min-width: 1101px) {
@@ -12076,11 +12225,21 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
 .pytorch-right-menu li.toctree-l2.current li.toctree-l3 > ul {
   display: none;
 }
+
+.pytorch-left-menu li.toctree-l1.current li.toctree-l2 {
+  margin-left: 5%;
+}
+
 .pytorch-left-menu li.toctree-l1.current li.toctree-l2.current > ul, .pytorch-left-menu li.toctree-l2.current li.toctree-l3.current > ul,
 .pytorch-right-menu li.toctree-l1.current li.toctree-l2.current > ul,
 .pytorch-right-menu li.toctree-l2.current li.toctree-l3.current > ul {
   display: block;
 }
+
+.pytorch-right-menu li.toctree-l1.current li.toctree-l2.current > a:before {
+  color: var(--purple);
+}
+
 .pytorch-left-menu li.toctree-l2.current li.toctree-l3 > a,
 .pytorch-right-menu li.toctree-l2.current li.toctree-l3 > a {
   display: block;
