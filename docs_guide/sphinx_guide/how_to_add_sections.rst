@@ -31,11 +31,11 @@ determined from the succession of headings. Here, we follow the convention is us
 Developer’s Guide for documenting <https://devguide.python.org/documentation/markup/#sections>`_
 with slight modification:
 
-* \# with overline, for page title
-* \= for sections
-* \- for subsections
-* \^ for subsubsections
-* \" for paragraphs
+* ``#`` with overline, for page title
+* ``=`` for sections
+* ``-`` for subsections
+* ``^`` for subsubsections
+* ``"`` for paragraphs
 
 Code:
 
