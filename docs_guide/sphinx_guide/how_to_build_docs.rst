@@ -17,13 +17,15 @@ Install package and dependencies
 
 Before trying to build your documentation, make sure you have installed:
 
-* The Qiskit package you want to build, that in this guide will be called ``qiskit_x``.
+* The project you want to build, that in this guide will be called ``qiskit_x``.
 * Other required packages from the corresponding ``requirements-dev.txt``.
 
 Install the Qiskit package
 --------------------------
 
-Once you have cloned the ``qiskit-x`` repository with ``git clone https://github.com/Qiskit/qiskit-x.git``, you can install the ``qiskit_x`` package from source by going to the root directory of your local copy and running this on your console:
+Once you have cloned the ``qiskit-x`` repository with ``git clone https://github.com/<your
+user/organization name>/qiskit-x.git``, you can install the ``qiskit_x`` package from source by going to
+the root directory of your local copy and running this on your console:
 
 .. code-block:: bash
 
