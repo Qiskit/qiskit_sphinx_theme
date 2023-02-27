@@ -97,5 +97,5 @@ In order to update the page you need to add your class or function to the ``__in
     .. autosummary::
        :toctree: ../stubs/
        
-       YourClass
-       your_func
+       SampleClass
+       fetch_smalltable_rows
