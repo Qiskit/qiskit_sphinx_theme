@@ -1,6 +1,24 @@
 # qiskit_sphinx_theme
 The Sphinx theme for the Qiskit documentation.
 
+## Overview
+
+This repository hosts three things: 
+- Qiskit Sphinx theme (located in the [qiskit_sphinx_theme](/qiskit_sphinx_theme) folder)
+- Sample Docs (located in the [docs](/docs) folder)
+- Qiskit Docs Guide (located in the [docs_guide](/docs_guide) folder)
+
+The Qiskit Sphinx Theme is the theme used by Qiskit
+Documentation (https://qiskit.org/documentation/) site. It contains mainly front end elements that
+gives the Qiskit design style.
+
+The Sample Docs is a minimal Sphinx project that is used for testing the Qiskit Sphinx Theme. Every
+pull request will trigger [a GitHub workflow](https://github.com/Qiskit/qiskit_sphinx_theme/blob/main/.github/workflows/main.yml) that builds the Sample Docs to make sure the changes do
+not introduce unintended changes.
+
+The Qiskit Docs Guide hosts instructions, guidelines and recommendations of good documentation
+practices. It's intent is to help Qiskit maintainers improve the documentation of their projects.
+The guide is hosted online here: https://qiskit.github.io/qiskit_sphinx_theme/.
 
 ## Installation
 
@@ -117,3 +135,4 @@ By enabling analytics we will be able to collect information on number of visits
 <img width="538" alt="Screenshot 2022-11-14 at 11 28 11 AM" src="https://user-images.githubusercontent.com/23662430/201715694-1e75b1fb-875b-4137-b9f3-93d1e1894f5a.png">
 
 If you do not enable analytics no data will be collected and the `Was this page helpful?` component will not show.
+
