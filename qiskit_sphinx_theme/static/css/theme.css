@@ -10458,6 +10458,8 @@ p a:hover {
 ul.pytorch-breadcrumbs {
   padding-left: 0;
   list-style-type: none;
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
 }
 ul.pytorch-breadcrumbs li {
   display: inline-block;
