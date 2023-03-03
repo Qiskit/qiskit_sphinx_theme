@@ -2,3 +2,4 @@ jupyter-sphinx
 numpy
 matplotlib
 sphinx-design
+sphinx-autodoc-typehints

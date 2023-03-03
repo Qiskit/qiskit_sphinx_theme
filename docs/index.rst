@@ -5,21 +5,24 @@ Qiskit sphinx theme |version| documentation
 
 
 .. toctree::
-  :maxdepth: 1
-  :caption: Basic functionality
-  :hidden:
+   :hidden:
 
-   Structural formatting <sphinx_guide/structural>
-   Paragraph-level markup <sphinx_guide/paragraph>
-   Lists and tables <sphinx_guide/lists_tables>
-   Functions <sphinx_guide/functions>
+   Documentation Home <self>
+   sphinx_guide/lists_tables
+   sphinx_guide/panels
+
+.. toctree::
+  :hidden:
+  :caption: Expandable Section
+
+   Real really really reallly looooooong title <sphinx_guide/functions>
    Classes <sphinx_guide/classes>
    Images <sphinx_guide/images>
-   Jupyter <sphinx_guide/jupyter>
-   Panels <sphinx_guide/panels>
 
+.. toctree::
+   :hidden:
 
-.. Hiding - Indices and tables
-   :ref:`genindex`
-   :ref:`modindex`
-   :ref:`search`
+   sphinx_guide/jupyter
+   sphinx_guide/paragraph
+   sphinx_guide/structural
+   GitHub <https://github.com/Qiskit/qiskit-terra>

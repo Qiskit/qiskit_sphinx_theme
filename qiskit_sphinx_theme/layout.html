@@ -97,7 +97,7 @@
     <!-- LEFT SIDE BAR -->
 
     <!-- if translations available, display language dropdown menu -->
-    {% include "versions.html" %}
+    {% include "languages.html" %}
 
     <!-- Menu becomes dropdown in mobile view -->
     <div class="table-of-contents-link-wrapper">
@@ -106,24 +106,7 @@
     </div>
 
     <!-- LEFT SIDE BAR MAIN CONTENT -->
-    <nav data-toggle="wy-nav-shift" class="pytorch-left-menu" id="pytorch-left-menu">
-      <div class="pytorch-side-scroll">
-        <div class="pytorch-menu pytorch-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          <div class="pytorch-left-menu-search">
-            {% include "searchbox.html" %}
-          </div>
-          <!-- render sidebar from the toctree -->
-          {% set global_toc = toctree(maxdepth=1,
-            collapse=theme_collapse_navigation|tobool,
-            includehidden=theme_includehidden|tobool) %}
-          {% if global_toc %}
-            {{ global_toc }}
-          {% endif %}
-          <!-- add previous releases dropdown -->
-          {% include "stable_versions.html" %}
-        </div>
-      </div>
-    </nav>
+    {% include "sidebar.html" %}
 
     <div class="pytorch-container">
 
