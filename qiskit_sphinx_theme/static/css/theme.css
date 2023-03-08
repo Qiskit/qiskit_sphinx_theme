@@ -12299,6 +12299,11 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
 .pytorch-right-menu a:hover span.pre {
   color: #6c6c6d;
 }
+.pytorch-right-menu a.reference.internal{
+  word-wrap: break-word;
+  width: 75%;
+  display: block;
+}
 .pytorch-right-menu a.reference.internal.expanded:before {
   content: "-";
   font-family: var(--font-family-monospace);
