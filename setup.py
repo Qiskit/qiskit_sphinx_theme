@@ -1,39 +1,27 @@
-"""qiskit_sphinx_theme
-
-A Sphinx theme for Qiskit that is based on the
-Pytorch Sphinx theme.
-"""
 from setuptools import setup
 
-DOCLINES = __doc__.split('\n')
-DESCRIPTION = DOCLINES[0]
-LONG_DESCRIPTION = "\n".join(DOCLINES[2:])
-
 setup(
-    name = 'qiskit_sphinx_theme',
-    version = '1.11.0rc1',
+    name='qiskit_sphinx_theme',
+    version='1.11.0rc1',
     author="Qiskit Development Team",
     author_email="hello@qiskit.org",
     url="https://github.com/Qiskit/qiskit_sphinx_theme",
-    description=DESCRIPTION,
-    long_description=LONG_DESCRIPTION,
-    py_modules = ['qiskit_sphinx_theme'],
-    packages = ['qiskit_sphinx_theme'],
+    description="A Sphinx theme for Qiskit that is based on the Pytorch Sphinx theme.",
+    py_modules=['qiskit_sphinx_theme'],
+    packages=[
+        "qiskit_sphinx_theme",
+        "qiskit_sphinx_theme.static.css",
+        "qiskit_sphinx_theme.static.images",
+        "qiskit_sphinx_theme.static.js",
+    ],
     include_package_data=True,
     zip_safe=False,
-    package_data={'qiskit_sphinx_theme': [
-        'theme.conf',
-        '*.html',
-        'static/css/*.css',
-        'static/js/*.js',
-        'static/images/*.*',
-    ]},
-    entry_points = {
+    entry_points={
         'sphinx.html_themes': [
             'qiskit_sphinx_theme = qiskit_sphinx_theme',
-        ]
+        ],
     },
-    license= 'Apache 2',
+    license='Apache 2',
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Environment :: Web Environment",
