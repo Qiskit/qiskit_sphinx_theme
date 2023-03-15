@@ -31,7 +31,8 @@ setup(
         "Operating System :: OS Independent",
         "Programming Language :: Python",
         "Topic :: Internet",
-        "Topic :: Software Development :: Documentation"
+        "Topic :: Software Development :: Documentation",
+        "Framework :: Sphinx :: Theme",
     ],
     install_requires=[
        'sphinx'
