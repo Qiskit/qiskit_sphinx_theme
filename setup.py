@@ -17,7 +17,7 @@ setup(
     url="https://github.com/Qiskit/qiskit_sphinx_theme",
     description=DESCRIPTION,
     long_description=LONG_DESCRIPTION,
-    py_modules = ['qiskit_sphinx_theme'],
+    py_modules=[],
     packages = ['qiskit_sphinx_theme'],
     include_package_data=True,
     zip_safe=False,
