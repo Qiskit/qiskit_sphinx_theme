@@ -15,7 +15,6 @@ setup(
         "qiskit_sphinx_theme.static.js",
     ],
     include_package_data=True,
-    zip_safe=False,
     entry_points={
         'sphinx.html_themes': [
             'qiskit_sphinx_theme = qiskit_sphinx_theme',
