@@ -7,7 +7,6 @@ setup(
     author_email="hello@qiskit.org",
     url="https://github.com/Qiskit/qiskit_sphinx_theme",
     description="A Sphinx theme for Qiskit that is based on the Pytorch Sphinx theme.",
-    py_modules=['qiskit_sphinx_theme'],
     packages=[
         "qiskit_sphinx_theme",
         "qiskit_sphinx_theme.static.css",
