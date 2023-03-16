@@ -23,9 +23,9 @@ jobs:
       - name: Install tox
         run: python -m pip install -U 'tox<4'
       - name: Test Code Examples
-        run: tox -edoctest -- -j auto
+        run: tox -e doctest
       - name: Build Docs Guide
-        run: tox -edocs-guide -- -j auto
+        run: tox -e docs-guide
       - name: Bypass Jekyll Processing # Necessary for setting the correct css path
         run: touch docs_guide/_build/html/.nojekyll
       - name: Deploy
