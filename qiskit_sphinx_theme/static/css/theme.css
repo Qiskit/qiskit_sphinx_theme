@@ -10347,8 +10347,13 @@ article.pytorch-article p {
 article.pytorch-article p,
 article.pytorch-article ul li,
 article.pytorch-article ol li,
-article.pytorch-article dl dt,
-article.pytorch-article dl dd,
+article.pytorch-article dl dd {
+  font-size: 1rem;
+  line-height: 1.375rem;
+  color: #262626;
+  letter-spacing: 0.01px;
+  font-weight: 400;
+}
 
 article.pytorch-article table {
   margin-bottom: 2.5rem;
