@@ -13,6 +13,7 @@ setup(
         'sphinx.html_themes': [
             'qiskit_sphinx_theme = qiskit_sphinx_theme',
             'qiskit_core__legacy_pytorch = qiskit_sphinx_theme',
+            'qiskit_ecosystem__legacy_pytorch = qiskit_sphinx_theme',
         ],
     },
     license='Apache 2',

@@ -42,7 +42,7 @@ import qiskit_sphinx_theme
 
 release = qiskit_sphinx_theme.__version__
 
-html_theme = 'qiskit_core__legacy_pytorch'  # use the theme in subdir 'theme'
+html_theme = 'qiskit_ecosystem__legacy_pytorch'
 templates_path = ['_templates']
 
 rst_prolog = """
