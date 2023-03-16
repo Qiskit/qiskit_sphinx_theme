@@ -1,11 +1,15 @@
-"""Pytorch Sphinx theme.
+"""Pytorch Sphinx theme."""
 
-"""
-from os import path
+from pathlib import Path
 from warnings import warn
 
 __version__ = '1.11.0rc1'
 __version_full__ = __version__
+
+
+def _get_theme_absolute_path(folder_name: str) -> str:
+    path = Path(__file__).parent / folder_name
+    return str(path.resolve())
 
 
 def get_html_theme_path():
@@ -23,13 +27,10 @@ def get_html_theme_path():
         stacklevel=2,
         category=DeprecationWarning,
     )
-    cur_dir = path.abspath(path.dirname(path.dirname(__file__)))
-    return cur_dir
+    return _get_theme_absolute_path("pytorch_base")
 
 
 # See https://www.sphinx-doc.org/en/master/development/theming.html
 def setup(app):
-    app.add_html_theme('qiskit_sphinx_theme', path.abspath(path.dirname(__file__)))
-
-    # return explicit parallel safe
+    app.add_html_theme("qiskit_sphinx_theme", _get_theme_absolute_path("pytorch_base"))
     return {'parallel_read_safe': True, 'parallel_write_safe': True}

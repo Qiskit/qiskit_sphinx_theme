@@ -1,5 +1,3 @@
-include qiskit_sphinx_theme/theme.conf
-include qiskit_sphinx_theme/*.html
-include qiskit_sphinx_theme/static/css/*.css
-include qiskit_sphinx_theme/static/js/*.js
-include qiskit_sphinx_theme/static/images/*.*
+recursive-include qiskit_sphinx_theme *.html
+recursive-include qiskit_sphinx_theme theme.conf
+graft qiskit_sphinx_theme/pytorch_base/static
