@@ -16,7 +16,7 @@ def get_html_theme_path():
     """
     warn(
         "`qiskit_sphinx_theme.get_html_theme_path()` is deprecated and will be removed in version "
-        "1.12 of the package. We are adding multiple 'variants' / theme names to the package, so "
+        "1.13 of the package. We are adding multiple 'variants' / theme names to the package, so "
         "the function no longer makes semantic sense.\n\n"
         "It should not be necessary to set the option `html_theme_path`; you only need to set "
         "`html_theme`. See https://github.com/Qiskit/qiskit-finance/pull/244 for an example.",
