@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_namespace_packages
 
 setup(
     name='qiskit_sphinx_theme',
@@ -8,12 +8,7 @@ setup(
     url="https://github.com/Qiskit/qiskit_sphinx_theme",
     description="A Sphinx theme for Qiskit that is based on the Pytorch Sphinx theme.",
     py_modules=['qiskit_sphinx_theme'],
-    packages=[
-        "qiskit_sphinx_theme",
-        "qiskit_sphinx_theme.static.css",
-        "qiskit_sphinx_theme.static.images",
-        "qiskit_sphinx_theme.static.js",
-    ],
+    packages=find_namespace_packages(exclude=["docs*", "docs_guide*"]),
     include_package_data=True,
     entry_points={
         'sphinx.html_themes': [
