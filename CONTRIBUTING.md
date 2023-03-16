@@ -42,19 +42,19 @@ This subfolder contains some example `.rst` files that show how to implement spe
 1. Bump the version:
    1. `git pull main`
    2. Create a new branch
-   3. Bump `setup.py` and `qiskit_sphinx_theme/__init__.py` to use the new version
+   3. Bump `setup.py` and `qiskit_sphinx_theme/__init__.py` to use the new version, e.g. https://github.com/Qiskit/qiskit_sphinx_theme/pull/207
    4. PR the change and land it
 2. Push the Git tag:
-   1. `git pull main` to pull the version bump. If other commits have landed since the version bump, use `git revert --hard <sha>` to change to the version bump.
+   1. `git pull main` to pull the version bump. If other commits have landed since the version bump, use `git revert --hard <sha>` to change to the version bump's commit (you can find the SHA with `git log`).
    2. `git tag <version>`, e.g. 1.11.0
    3. `git push upstream <version>`
 3. Check that the release worked:
    1. Check that the tag shows up in https://github.com/Qiskit/qiskit_sphinx_theme/tags
-   2. The pip release is automated with [GitHub Actions](https://github.com/Qiskit/qiskit_sphinx_theme/actions). After a few minutes, check that https://pypi.org/project/qiskit-sphinx-theme/#history has the release. (You can skip to the next step while waiting)
+   2. The pip release is automated with [GitHub Actions](https://github.com/Qiskit/qiskit_sphinx_theme/actions/workflows/release.yml). After a few minutes, check that https://pypi.org/project/qiskit-sphinx-theme/#history has the release. (You can skip to the next step while waiting)
 4. Announce the release on GitHub:
    1. On https://github.com/Qiskit/qiskit_sphinx_theme/tags, click the `...` to the right of the released tag's row. Click "Create release"
-   2. Add release notes
+   2. Add release notes, e.g. https://github.com/Qiskit/qiskit_sphinx_theme/releases/tag/1.11.0rc1
       1. Add the sections `**Features / API Changes:**` and `**Bug Fixes:**`. 
-      2. Use `git diff` to see what changes have been made. Copy and paste those entries as bullets into the relevant sections. Ignore any "internal only" changes like CI changes or updates to the README.
+      2. Use `git log --oneline` to see what changes have been made. Copy and paste those entries as bullets into the relevant sections. Ignore any "internal only" changes like CI changes or updates to the README.
       3. Preview the release notes with the "Preview" tab.
    3. Click "Publish release"
