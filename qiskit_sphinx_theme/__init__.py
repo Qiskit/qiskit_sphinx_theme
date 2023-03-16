@@ -32,5 +32,8 @@ def get_html_theme_path():
 
 # See https://www.sphinx-doc.org/en/master/development/theming.html
 def setup(app):
-    app.add_html_theme("qiskit_sphinx_theme", _get_theme_absolute_path("pytorch_base"))
+    legacy_pytorch_theme = _get_theme_absolute_path("pytorch_base")
+    app.add_html_theme('qiskit_sphinx_theme', legacy_pytorch_theme)
+    app.add_html_theme('qiskit_core__legacy_pytorch', legacy_pytorch_theme)
+
     return {'parallel_read_safe': True, 'parallel_write_safe': True}
