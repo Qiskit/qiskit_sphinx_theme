@@ -27,7 +27,7 @@ def get_html_theme_path():
         stacklevel=2,
         category=DeprecationWarning,
     )
-    return _get_theme_absolute_path("pytorch_base]")
+    return _get_theme_absolute_path("pytorch_base")
 
 
 # See https://www.sphinx-doc.org/en/master/development/theming.html
