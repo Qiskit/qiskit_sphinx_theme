@@ -37,6 +37,8 @@ Enumerated Lists
 
 #. List items may also be auto-enumerated.
 
+This is some paragraph text directly after an ordered list.
+
 Definition Lists
 ----------------
 
