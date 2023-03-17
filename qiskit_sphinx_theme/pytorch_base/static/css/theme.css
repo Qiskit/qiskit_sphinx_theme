@@ -113,6 +113,12 @@ article.pytorch-article .sphx-glr-thumbcontainer .figure::before {
   font-weight: bold;
 }
 
+.method dd p.rubric {
+  color: #262626;
+  font-size: 110%;
+  font-weight: bold;
+}
+
 dl, ol, ul {
   margin: 0;
   padding: 0;
