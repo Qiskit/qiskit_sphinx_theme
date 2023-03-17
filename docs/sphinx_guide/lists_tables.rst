@@ -151,6 +151,8 @@ Simple
 
       - Still no margins
 
+This is some paragraph text directly after an unordered list.
+
 Complex
 ^^^^^^^
 
@@ -181,6 +183,7 @@ Complex
 
   This item has multiple paragraphs.
 
+This is some paragraph text directly after an unordered list.
 
 Second list level
 ^^^^^^^^^^^^^^^^^

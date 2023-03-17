@@ -11882,9 +11882,7 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
 .pytorch-content-left .main-content {
   padding-top: 3rem;
 }
-.pytorch-content-left .main-content ul.simple {
-  padding-bottom: 20px;
-}
+
 .pytorch-content-left .main-content .note:nth-child(1), .pytorch-content-left .main-content .warning:nth-child(1) {
   margin-top: 0;
 }
