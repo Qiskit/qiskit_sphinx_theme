@@ -10597,6 +10597,7 @@ article.pytorch-article ul,
 article.pytorch-article ol {
   padding-left: 1.0rem;
   margin: 0;
+  margin-bottom: 16px;
 }
 article.pytorch-article ul li,
 article.pytorch-article ol li {
