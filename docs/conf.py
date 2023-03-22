@@ -71,6 +71,7 @@ extensions = [
     'sphinx.ext.extlinks',
     'jupyter_sphinx',
     'sphinx_design',
+    'qiskit_json_builder'
 ]
 
 # -----------------------------------------------------------------------------
