@@ -42,8 +42,38 @@ import qiskit_sphinx_theme
 
 release = qiskit_sphinx_theme.__version__
 
-html_theme = 'qiskit_sphinx_theme'  # use the theme in subdir 'theme'
-templates_path = ['_templates']
+html_theme = 'furo'
+html_theme_options = {
+    "light_css_variables": {
+        "color-brand-primary": "#8A3FFC",
+        "color-brand-content": "#8A3FFC",
+        "font-stack": "IBM Plex Sans, Roboto, Helvetica Neue, Arial, sans-serif",
+        "font-stack--monospace": "IBM Plex Mono, Consolas, Courier New, monospace",
+    },
+}
+
+html_sidebars = {
+    "**": [
+        "sidebar/languages.html",  # Custom to our theme.
+        "sidebar/search.html",
+        "sidebar/scroll-start.html",
+        "sidebar/navigation.html",
+        "sidebar/version_list.html",  # Custom to our theme.
+        "sidebar/scroll-end.html",
+    ]
+}
+
+# qiskit package specific variables
+html_context = {
+    # toggle analytics
+    'analytics_enabled': True,
+
+    # dummy list for versions
+    'version_list': [0.1, 0.2, 0.3],
+
+    # make captioned headings into dropdowns
+    'expandable_sidebar': True
+}
 
 rst_prolog = """
 .. |version| replace:: {0}
@@ -51,7 +81,7 @@ rst_prolog = """
 
 html_static_path = ['_static']
 templates_path = ['_templates']
-html_css_files = ['gallery.css']
+html_css_files = ['gallery.css', 'custom.css']
 
 # -- General configuration ---------------------------------------------------
 
@@ -138,25 +168,7 @@ modindex_common_prefix = ['qiskit.']
 #html_sidebars = {'**': ['globaltoc.html']}
 html_last_updated_fmt = '%Y/%m/%d'
 
-html_theme_options = {
-    'logo_only': True,
-    'display_version': True,
-    'prev_next_buttons_location': 'bottom',
-}
-
 autoclass_content = 'both'
-
-# qiskit package specific variables
-html_context = {
-    # toggle analytics
-    'analytics_enabled': True,
-
-    # dummy list for versions
-    'version_list': [0.1, 0.2, 0.3],
-
-    # make captioned headings into dropdowns
-    'expandable_sidebar': True
-}
 
 
 # -----------------------------------------------------------------------------

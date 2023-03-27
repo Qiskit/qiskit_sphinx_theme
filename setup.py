@@ -28,7 +28,8 @@ setup(
         "Framework :: Sphinx :: Theme",
     ],
     install_requires=[
-       'sphinx'
+        "sphinx",
+        "furo",
     ],
     project_urls={
         "Bug Tracker": "https://github.com/Qiskit/qiskit_sphinx_theme/issues",
