@@ -27,7 +27,7 @@ def get_html_theme_path():
         stacklevel=2,
         category=DeprecationWarning,
     )
-    return _get_theme_absolute_path("ecosystem_legacy_pytorch")
+    return _get_theme_absolute_path("pytorch/ecosystem")
 
 
 # See https://www.sphinx-doc.org/en/master/development/theming.html
@@ -35,12 +35,12 @@ def setup(app):
     # Note: base themes should not be exposed in the entry_points for the package
     # (in setup.py/pyproject.toml). We only need to register the theme for `inherit` in `theme.conf`
     # to work.
-    app.add_html_theme("__qiskit_pytorch_base", _get_theme_absolute_path("pytorch_base"))
+    app.add_html_theme("__qiskit_pytorch_base", _get_theme_absolute_path("pytorch/base"))
 
-    app.add_html_theme('qiskit_sdk__legacy_pytorch', _get_theme_absolute_path("sdk_legacy_pytorch"))
+    app.add_html_theme('qiskit_legacy', _get_theme_absolute_path("pytorch/terra"))
 
-    ecosystem_legacy_pytorch_theme = _get_theme_absolute_path("ecosystem_legacy_pytorch")
-    app.add_html_theme('qiskit_sphinx_theme', ecosystem_legacy_pytorch_theme)
-    app.add_html_theme("qiskit_ecosystem__legacy_pytorch", ecosystem_legacy_pytorch_theme)
+    ecosystem_pytorch_theme = _get_theme_absolute_path("pytorch/ecosystem")
+    app.add_html_theme('qiskit_sphinx_theme', ecosystem_pytorch_theme)
+    app.add_html_theme("qiskit_ecosystem_legacy", ecosystem_pytorch_theme)
 
     return {'parallel_read_safe': True, 'parallel_write_safe': True}

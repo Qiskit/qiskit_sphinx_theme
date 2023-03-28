@@ -42,7 +42,7 @@ import qiskit_sphinx_theme
 
 release = qiskit_sphinx_theme.__version__
 
-html_theme = 'qiskit_ecosystem__legacy_pytorch'
+html_theme = 'qiskit_ecosystem_legacy'
 
 rst_prolog = """
 .. |version| replace:: {0}
