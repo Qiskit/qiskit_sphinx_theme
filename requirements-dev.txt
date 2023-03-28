@@ -1,3 +1,4 @@
+ipykernel
 jupyter-sphinx
 numpy
 matplotlib
