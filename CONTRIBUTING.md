@@ -39,19 +39,37 @@ This subfolder contains some example `.rst` files that show how to implement spe
 ------
 ## Releases
 
-1. Bump the version:
-   1. `git pull main`
-   2. Create a new branch
+We use semantic versioning. When starting a new minor release series like `1.11`, we create a new Git branch `2.11` and then selectively cherry-pick any bug fixes from `main` into that release.
+
+So, the release process changes whether you are releasing the first `rc1` for a release series vs. releasing later versions of the series.
+
+1. (If not the first rc1) Cherry-pick all relevant changes to the release branch, e.g. `1.11`:
+   1. Look for PRs that have the label `needs cherrypick`: https://github.com/Qiskit/qiskit_sphinx_theme/issues?q=label%3A%22needs+cherrypick%22+
+   2. `git fetch --all`
+   3. `git checkout <release-branch>`, e.g. `1.11`.
+   4. For each PR:
+      1. `git checkout -b cp-<short-description>`, e.g. `cp-scrolling-fix`
+      2. Find the commit SHA at the bottom of the PR. There will be a message like `merged commit 9e02144 into`
+      3. `git cherry-pick <commit SHA>`
+      4. `git push --set-upstream origin <branch-name>` and open a pull request. Change the PR's merge base in the top to the appropriate branch; it defaults to `main`.
+      5. Remove the `needs cherrypick` label from the PR.
+2. Bump the version:
+   1. `git pull <release-branch>`. If this is the first `rc1`, use `main`; otherwise, use e.g. `1.11`.
+   2. `git checkout -b release-<release-name>`, e.g. `release-1.11.0rc1`
    3. Bump `setup.py` and `qiskit_sphinx_theme/__init__.py` to use the new version, e.g. https://github.com/Qiskit/qiskit_sphinx_theme/pull/207
-   4. PR the change and land it
-2. Push the Git tag:
-   1. `git pull main` to pull the version bump. If other commits have landed since the version bump, use `git revert --hard <sha>` to change to the version bump's commit (you can find the SHA with `git log`).
+   4. PR the change and land it. If this is not the first `rc1`, change the PR's merge base in the top to the appropriate branch; it defaults to `main`.
+3. Push the Git tag:
+   1. `git pull upstream <release-branch>` to pull the version bump. If other commits have landed since the version bump, use `git revert --hard <sha>` to change to the version bump's commit (you can find the SHA with `git log --oneline`).
    2. `git tag <version>`, e.g. 1.11.0
    3. `git push upstream <version>`
-3. Check that the release worked:
+4. (If the first rc1) Create the new Git branch:
+   1. Make sure that you are still on the commit of the version bump.
+   2. `git checkout -b <minor-release-version>`, e.g. `1.11`. This should not include the patch version.
+   3. `git push upstream <minor-release-version>`
+5. Check that the release worked:
    1. Check that the tag shows up in https://github.com/Qiskit/qiskit_sphinx_theme/tags
    2. The pip release is automated with [GitHub Actions](https://github.com/Qiskit/qiskit_sphinx_theme/actions/workflows/release.yml). After a few minutes, check that https://pypi.org/project/qiskit-sphinx-theme/#history has the release. (You can skip to the next step while waiting)
-4. Announce the release on GitHub:
+6. Announce the release on GitHub:
    1. On https://github.com/Qiskit/qiskit_sphinx_theme/tags, click the `...` to the right of the released tag's row. Click "Create release"
    2. Add release notes, e.g. https://github.com/Qiskit/qiskit_sphinx_theme/releases/tag/1.11.0rc1
       1. Add the sections `**Features / API Changes:**` and `**Bug Fixes:**`. 
