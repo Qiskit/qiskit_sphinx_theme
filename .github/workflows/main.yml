@@ -25,14 +25,14 @@ jobs:
         run: |
           # Make sure that all themes can build.
           BUILD_DIR=docs/_build_ecosystem_legacy/html tox -e py -- -D html_theme=qiskit_ecosystem_legacy
-          BUILD_DIR=docs/_build_terra_legacy/html tox -e py -- -D html_theme=qiskit_legacy
+          BUILD_DIR=docs/_build_qiskit_legacy/html tox -e py -- -D html_theme=qiskit_legacy
       - name: Compress Artifacts
         run: |
           mkdir artifacts
           tar -zcvf ecosystem_legacy_html_docs.tar.gz docs/_build_ecosystem_legacy/html
-          tar -zcvf terra_legacy_html_docs.tar.gz docs/_build_terra_legacy/html
+          tar -zcvf qiskit_legacy_html_docs.tar.gz docs/_build_qiskit_legacy/html
           mv ecosystem_legacy_html_docs.tar.gz artifacts/.
-          mv terra_legacy_html_docs.tar.gz artifacts/.
+          mv qiskit_legacy_html_docs.tar.gz artifacts/.
       - uses: actions/upload-artifact@v2
         with:
           name: html_docs

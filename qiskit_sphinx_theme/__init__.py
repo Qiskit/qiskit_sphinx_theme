@@ -37,7 +37,7 @@ def setup(app):
     # to work.
     app.add_html_theme("__qiskit_pytorch_base", _get_theme_absolute_path("pytorch/base"))
 
-    app.add_html_theme('qiskit_legacy', _get_theme_absolute_path("pytorch/terra"))
+    app.add_html_theme('qiskit_legacy', _get_theme_absolute_path("pytorch/qiskit"))
 
     ecosystem_pytorch_theme = _get_theme_absolute_path("pytorch/ecosystem")
     app.add_html_theme('qiskit_sphinx_theme', ecosystem_pytorch_theme)

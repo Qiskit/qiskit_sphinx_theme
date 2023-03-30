@@ -1,5 +1,3 @@
 recursive-include qiskit_sphinx_theme *.html
 recursive-include qiskit_sphinx_theme theme.conf
-graft qiskit_sphinx_theme/pytorch/base/static
-graft qiskit_sphinx_theme/pytorch/ecosystem/static
-graft qiskit_sphinx_theme/pytorch/terra/static
+graft qiskit_sphinx_theme/**/static
