@@ -24,8 +24,8 @@ jobs:
       - name: Build Docs
         run: |
           # Make sure that all themes can build.
-          BUILD_DIR=docs/_build_ecosystem_legacy tox -e py -- -D html_theme=qiskit_ecosystem_legacy
-          BUILD_DIR=docs/_build_terra_legacy tox -e py -- -D html_theme=qiskit_legacy
+          BUILD_DIR=docs/_build_ecosystem_legacy/html tox -e py -- -D html_theme=qiskit_ecosystem_legacy
+          BUILD_DIR=docs/_build_terra_legacy/html tox -e py -- -D html_theme=qiskit_legacy
       - name: Compress Artifacts
         run: |
           mkdir artifacts
