@@ -8,6 +8,7 @@ jobs:
   docs:
     name: Sample Docs Build
     runs-on: ubuntu-latest
+    if: github.repository_owner == 'Qiskit'
     steps:
       - uses: actions/checkout@v2
         with:
