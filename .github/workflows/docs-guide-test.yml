@@ -9,6 +9,7 @@ jobs:
     name: Docs Guide Build
     concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
     runs-on: ubuntu-latest
+    if: github.repository_owner == 'Qiskit'
     steps:
       - name: Checkout
         uses: actions/checkout@v3
