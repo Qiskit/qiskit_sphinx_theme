@@ -25,4 +25,5 @@ Qiskit sphinx theme |version| documentation
    sphinx_guide/jupyter
    sphinx_guide/paragraph
    sphinx_guide/structural
+   sphinx_guide/notebook_gallery
    GitHub <https://github.com/Qiskit/qiskit-terra>
