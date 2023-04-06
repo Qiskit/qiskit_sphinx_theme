@@ -37,6 +37,8 @@ Enumerated Lists
 
 #. List items may also be auto-enumerated.
 
+This is some paragraph text directly after an ordered list.
+
 Definition Lists
 ----------------
 
@@ -149,6 +151,8 @@ Simple
 
       - Still no margins
 
+This is some paragraph text directly after an unordered list.
+
 Complex
 ^^^^^^^
 
@@ -179,6 +183,7 @@ Complex
 
   This item has multiple paragraphs.
 
+This is some paragraph text directly after an unordered list.
 
 Second list level
 ^^^^^^^^^^^^^^^^^
