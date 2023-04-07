@@ -1,0 +1,7 @@
+#######################
+Tutorials
+#######################
+
+
+.. nbgallery::
+    notebook.ipynb
