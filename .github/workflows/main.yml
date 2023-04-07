@@ -22,10 +22,11 @@ jobs:
       - name: Install tox
         run: |
           python -m pip install -U 'tox<4'
-      - name: Build Docs
+      - name: Build Ecosystem Legacy theme
         run: |
-          # Make sure that all themes can build.
           BUILD_DIR=docs/_build_ecosystem_legacy/html tox -e py -- -D html_theme=qiskit_ecosystem_legacy
+      - name: Build Qiskit Legacy theme
+        run: |
           BUILD_DIR=docs/_build_qiskit_legacy/html tox -e py -- -D html_theme=qiskit_legacy
       - name: Compress Artifacts
         run: |
