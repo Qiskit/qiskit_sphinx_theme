@@ -39,16 +39,18 @@ This subfolder contains some example `.rst` files that show how to implement spe
 ------
 ## Releases
 
-We use [semantic versioning](https://semver.org/). When starting a new minor "release series" like `1.11`, we create a new Git branch `1.11`. That allows us to keep making breaking changes to `main` without impacting prior releases. We can then cherry-pick relevant bug fixes from `main` to the release branch like `1.11`.
+We use [semantic versioning](https://semver.org/). Every release is part of one specific "minor version release series"; for example, 1.11.0rc1 and 1.11.3 are both part of the 1.11 release series.
 
-The release process changes whether you are releasing the very first `rc1` for that minor release series, e.g. `1.11.0rc1` or `1.12.0rc1`. Otherwise, all other releases follow the same process.
+When starting a new minor release series like `1.11`, we create a new Git branch `1.11`. That allows us to keep making breaking changes to `main` without impacting prior releases. We can then cherry-pick relevant bug fixes from `main` to the release branch like `1.11`.
+
+The release process changes whether you are releasing the very first `rc1` for that release series, e.g. `1.11.0rc1` or `1.12.0rc1`. Otherwise, all other releases follow the same process.
 
 ### Process for `rc1` releases
 
 1. Bump the version:
    1. `git checkout main`
    2. `git pull upstream main`
-   3. `git checkout -b release-<release-name>`, e.g. `release-1.11.0rc1`
+   3. `git checkout -b release-<version-number>`, e.g. `release-1.11.0rc1`
    4. Bump `setup.py` and `qiskit_sphinx_theme/__init__.py` to use the new version, e.g. https://github.com/Qiskit/qiskit_sphinx_theme/pull/207
    5. PR the change and land it
 2. Push the Git tag:
@@ -64,6 +66,11 @@ The release process changes whether you are releasing the very first `rc1` for t
 
 ### Process for all other releases
 
+Use this process for:
+
+* All release candidates other than `rc1`
+* All stable releases, like `1.11.1`
+
 1. Cherry-pick all relevant changes to the release branch, e.g. `1.11`:
    1. Look for PRs that have the label `needs cherrypick`: https://github.com/Qiskit/qiskit_sphinx_theme/issues?q=label%3A%22needs+cherrypick%22+
    2. `git fetch --all`
@@ -72,14 +79,14 @@ The release process changes whether you are releasing the very first `rc1` for t
       1. `git checkout -b cp-<short-description>`, e.g. `cp-scrolling-fix`
       2. Find the commit SHA at the bottom of the PR. There will be a message like `merged commit 9e02144 into ...`
       3. `git cherry-pick <commit SHA>`
-      4. `git push --set-upstream origin <branch-name>` and open a pull request. Change the PR's merge base in the top to the appropriate branch; it defaults to `main`.
+      4. `git push origin <branch-name-from-step-1>`, e.g. `cp-scrolling-fix`. Open a pull request. Change the PR's merge base in the top to the release branch; it defaults to `main`.
       5. Remove the `needs cherrypick` label from the original PR.
 2. Bump the version:
    1. `git checkout <release-branch>`, e.g. `1.11`.
-   2. `git pull <release-branch>`, e.g. `1.11`.
-   3. `git checkout -b release-<release-name>`, e.g. `release-1.11.0rc3`
+   2. `git pull upstream <release-branch>`, e.g. `1.11`.
+   3. `git checkout -b release-<full-version>`, e.g. `release-1.11.0rc3`
    4. Bump `setup.py` and `qiskit_sphinx_theme/__init__.py` to use the new version, e.g. https://github.com/Qiskit/qiskit_sphinx_theme/pull/207
-   5. PR the change and land it. Change the PR's merge base in the top to the appropriate branch; it defaults to `main`.
+   5. PR the change and land it. Change the PR's merge base in the top to the release branch; it defaults to `main`.
 3. Push the Git tag:
    1. `git checkout <release-branch>`, e.g. `1.11`.
    2. `git pull upstream <release-branch>` to pull the version bump. If other commits have landed since the version bump, use `git revert --hard <sha>` to change to the version bump's commit (you can find the SHA with `git log --oneline`).
