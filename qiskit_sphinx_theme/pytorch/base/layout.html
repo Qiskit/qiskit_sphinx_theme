@@ -31,8 +31,8 @@
   <link rel="stylesheet" href="{{ pathto(cssfile, 1) }}" type="text/css" />
   {%- endfor -%}
 
-  <link rel="modulepreload" href="https://unpkg.com/@qiskit/web-components/experimental-bundled-ui-shell.js">
-  <script type="module" src="https://unpkg.com/@qiskit/web-components/experimental-bundled-ui-shell.js"></script>
+  <link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/@qiskit/web-components/experimental-bundled-ui-shell.js">
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@qiskit/web-components/experimental-bundled-ui-shell.js"></script>
   <style>
     qiskit-ui-shell:not(:defined) {
       display: block;
@@ -119,7 +119,7 @@
       <a href="#" class="toggle-table-of-contents" data-behavior="toggle-table-of-contents"></a>
     </div>
 
-    <!-- LEFT SIDE BAR MAIN CONTENT -->
+    <!-- left side bar main content -->
     {% include "sidebar.html" %}
 
     <div class="pytorch-container">
@@ -131,8 +131,9 @@
         </div>
       </div>
 
-      <!-- BREADCRUMB MINI MENU BELOW TOP NAV BAR -->
+      <!-- MAIN CENTRE CONTENT -->
       <section data-toggle="wy-nav-shift" id="pytorch-content-wrap" class="pytorch-content-wrap">
+        
         <div class="pytorch-content-left">
         {%- block content %}
           <div class="rst-content">

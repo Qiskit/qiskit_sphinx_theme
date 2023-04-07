@@ -70,6 +70,7 @@ extensions = [
     'sphinx.ext.extlinks',
     'jupyter_sphinx',
     'sphinx_design',
+    "nbsphinx",
 ]
 
 # -----------------------------------------------------------------------------
@@ -154,6 +155,16 @@ html_context = {
 
     # make captioned headings into dropdowns
     'expandable_sidebar': True
+}
+
+
+# -----------------------------------------------------------------------------
+# nbsphinx
+# -----------------------------------------------------------------------------
+
+nbsphinx_execute = "never"
+nbsphinx_thumbnails = {
+    "sphinx_guide/notebook": "_static/no_image.png",
 }
 
 
