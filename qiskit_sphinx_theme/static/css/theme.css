@@ -1,4 +1,12 @@
 @charset "UTF-8";
+
+/* Import IBM Plex Sans and IBM Plex Mono, at regular 400 and bold 700, italics for both. For
+IBM Plex Sans, also include font weights 500 and 600 (non-italics), which are used in table of
+contents. */
+@import url(
+  'https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&display=swap'
+);
+
 /*!
  * Bootstrap v4.0.0 (https://getbootstrap.com)
  * Copyright 2011-2018 The Bootstrap Authors
@@ -32,8 +40,8 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "IBM PLex Sans", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-family-monospace: "IBM PLex Mono", Consolas, "Courier New", monospace;
+  --font-family-sans-serif: "IBM Plex Sans", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-family-monospace: "IBM Plex Mono", Consolas, "Courier New", monospace;
   --header-height: 52px;
 }
 
@@ -110,7 +118,7 @@ article.pytorch-article .sphx-glr-thumbcontainer .figure::before {
 .class dd p.rubric {
   color: #262626;
   font-size: 110%;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 dl, ol, ul {
@@ -256,7 +264,7 @@ img {
 .rst-content .sidebar .sidebar-title {
   display: block;
   font-family: var(--font-family-sans-serif);
-  font-weight: bold;
+  font-weight: 700;
   background: #e1e4e5;
   padding: 6px 12px;
   margin: -24px;
@@ -414,7 +422,7 @@ dfn {
 
 b,
 strong {
-  font-weight: bolder;
+  font-weight: 700;
 }
 
 small {
@@ -9448,7 +9456,7 @@ a.text-dark:hover, a.text-dark:focus {
 
 .highlight .cp {
   color: #999999;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .highlight .c1 {
@@ -9458,7 +9466,7 @@ a.text-dark:hover, a.text-dark:focus {
 
 .highlight .cs {
   color: #999999;
-  font-weight: bold;
+  font-weight: 700;
   font-style: italic;
 }
 
@@ -9504,7 +9512,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .highlight .gs {
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .highlight .gu {
@@ -9517,37 +9525,37 @@ a.text-dark:hover, a.text-dark:focus {
 
 .highlight .kc {
   color: #000000;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .highlight .kd {
   color: #000000;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .highlight .kn {
   color: #000000;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .highlight .kp {
   color: #000000;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .highlight .kr {
   color: #000000;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .highlight .kt {
   color: #445588;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .highlight .k, .highlight .kv {
   color: #000000;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .highlight .mf {
@@ -9636,7 +9644,7 @@ a.text-dark:hover, a.text-dark:focus {
 
 .highlight .nc {
   color: #445588;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .highlight .no {
@@ -9645,7 +9653,7 @@ a.text-dark:hover, a.text-dark:focus {
 
 .highlight .nd {
   color: #3c5d5d;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .highlight .ni {
@@ -9654,17 +9662,17 @@ a.text-dark:hover, a.text-dark:focus {
 
 .highlight .ne {
   color: #990000;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .highlight .nf {
   color: #990000;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .highlight .nl {
   color: #990000;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .highlight .nn {
@@ -9693,12 +9701,12 @@ a.text-dark:hover, a.text-dark:focus {
 
 .highlight .ow {
   color: #000000;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .highlight .o {
   color: #000000;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .highlight .w {
@@ -10621,7 +10629,7 @@ article.pytorch-article h3,
 article.pytorch-article h4,
 article.pytorch-article h5,
 article.pytorch-article h6 {
-  font-weight: normal;
+  font-weight: 400;
 }
 article.pytorch-article h1 a,
 article.pytorch-article h2 a,
@@ -10984,7 +10992,7 @@ div.versionchanged {
   background-color: #fffbe8;
 }
 .versionmodified {
-  font-weight: bold;
+  font-weight: 700;
 }
 
 article.pytorch-article .note,
@@ -12191,7 +12199,7 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
 }
 
 .toctree-l2 {
-  font-weight: normal;
+  font-weight: 400;
 }
 
 .pytorch-left-menu li span.toctree-expand,
