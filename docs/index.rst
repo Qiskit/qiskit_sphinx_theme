@@ -8,7 +8,8 @@ Qiskit sphinx theme |version| documentation
    :hidden:
 
    Documentation Home <self>
-   sphinx_guide/lists_tables
+   sphinx_guide/lists
+   sphinx_guide/tables
    sphinx_guide/panels
 
 .. toctree::
