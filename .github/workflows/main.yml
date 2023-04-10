@@ -22,19 +22,23 @@ jobs:
       - name: Install tox
         run: |
           python -m pip install -U 'tox<4'
+      # For some reason, the Jupyter Extension fails to build properly if one theme has already
+      # been built with a custom BUILD_DIR. So, we eagerly upload the artifacts for each theme
+      # build, and then delete the BUILD_DIR before proceeding to the next theme.
+      - name: Create artifacts/ folder
+        run: mkdir artifacts
       - name: Build Ecosystem Legacy theme
         run: |
           BUILD_DIR=docs/_build_ecosystem_legacy/html tox -e py -- -D html_theme=qiskit_ecosystem_legacy
+          tar -zcvf ecosystem_legacy_html_docs.tar.gz docs/_build_ecosystem_legacy/html
+          mv ecosystem_legacy_html_docs.tar.gz artifacts/.
+          rm -rf docs/_build_ecosystem_legacy
       - name: Build Qiskit Legacy theme
         run: |
           BUILD_DIR=docs/_build_qiskit_legacy/html tox -e py -- -D html_theme=qiskit_legacy
-      - name: Compress Artifacts
-        run: |
-          mkdir artifacts
-          tar -zcvf ecosystem_legacy_html_docs.tar.gz docs/_build_ecosystem_legacy/html
           tar -zcvf qiskit_legacy_html_docs.tar.gz docs/_build_qiskit_legacy/html
-          mv ecosystem_legacy_html_docs.tar.gz artifacts/.
           mv qiskit_legacy_html_docs.tar.gz artifacts/.
+          rm -rf docs/_build_qiskit_legacy
       - uses: actions/upload-artifact@v2
         with:
           name: html_docs
