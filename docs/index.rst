@@ -11,14 +11,15 @@ Qiskit sphinx theme |version| documentation
    sphinx_guide/lists
    sphinx_guide/tables
    sphinx_guide/panels
+   sphinx_guide/images
 
 .. toctree::
   :hidden:
-  :caption: Expandable Section
+  :caption: API (An Expandable Section)
 
-   Real really really reallly looooooong title <sphinx_guide/functions>
+   Functions <sphinx_guide/functions>
    Classes <sphinx_guide/classes>
-   Images <sphinx_guide/images>
+   Super duper duper duper duper duper long title to test line wrapping <sphinx_guide/long_title>
 
 .. toctree::
    :hidden:
@@ -27,4 +28,5 @@ Qiskit sphinx theme |version| documentation
    sphinx_guide/paragraph
    sphinx_guide/structural
    sphinx_guide/notebook_gallery
+   sphinx_guide/long_title
    GitHub <https://github.com/Qiskit/qiskit-terra>
