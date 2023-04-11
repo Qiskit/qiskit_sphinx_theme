@@ -12,7 +12,7 @@
 # copyright notice, and modified files need to carry a notice indicating
 # that they have been altered from the originals.
 
-# THIS EXTENSION IS BASED ON versionutils.py IN qiskit/docs
+# THIS EXTENSION IS BASED ON versionutils.py IN qiskit-metapackage/docs
 
 from functools import partial
 
@@ -60,15 +60,19 @@ def _get_current_translation(config):
         found = None
     return found
 
+
 def _get_translation_url(config, code, pagename):
     base = '/locale/%s' % code if code and code != default_language else ''
     return _get_url(config, base, pagename)
 
+
 def _get_language_label(config):
     return '%s' % (_get_current_translation(config) or config.language,)
 
+
 def _get_url(config, base, pagename):
     return _add_content_prefix(config, '%s/%s.html' % (base, pagename))
+
 
 def _add_content_prefix(config, url):
     prefix = ''

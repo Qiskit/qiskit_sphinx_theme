@@ -29,16 +29,16 @@ jobs:
         run: mkdir artifacts
       - name: Build Ecosystem Legacy theme
         run: |
-          BUILD_DIR=docs/_build_ecosystem_legacy/html tox -e py -- -D html_theme=qiskit_ecosystem_legacy
-          tar -zcvf ecosystem_legacy_html_docs.tar.gz docs/_build_ecosystem_legacy/html
+          BUILD_DIR=example_docs/_build_ecosystem_legacy/html tox -e py -- -D html_theme=qiskit_ecosystem_legacy
+          tar -zcvf ecosystem_legacy_html_docs.tar.gz example_docs/_build_ecosystem_legacy/html
           mv ecosystem_legacy_html_docs.tar.gz artifacts/.
-          rm -rf docs/_build_ecosystem_legacy
+          rm -rf example_docs/_build_ecosystem_legacy
       - name: Build Qiskit Legacy theme
         run: |
-          BUILD_DIR=docs/_build_qiskit_legacy/html tox -e py -- -D html_theme=qiskit_legacy
-          tar -zcvf qiskit_legacy_html_docs.tar.gz docs/_build_qiskit_legacy/html
+          BUILD_DIR=example_docs/_build_qiskit_legacy/html tox -e py -- -D html_theme=qiskit_legacy
+          tar -zcvf qiskit_legacy_html_docs.tar.gz example_docs/_build_qiskit_legacy/html
           mv qiskit_legacy_html_docs.tar.gz artifacts/.
-          rm -rf docs/_build_qiskit_legacy
+          rm -rf example_docs/_build_qiskit_legacy
       - uses: actions/upload-artifact@v2
         with:
           name: html_docs
