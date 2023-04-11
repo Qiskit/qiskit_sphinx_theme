@@ -18,7 +18,7 @@ Qiskit sphinx theme |version| documentation
   :caption: API (An Expandable Section)
 
    Functions <sphinx_guide/functions>
-   Classes <sphinx_guide/classes>
+   Autodoc <sphinx_guide/autodoc>
    Super duper duper duper duper duper long title to test line wrapping <sphinx_guide/long_title>
 
 .. toctree::

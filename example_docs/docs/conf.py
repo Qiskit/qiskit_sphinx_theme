@@ -33,6 +33,8 @@ Sphinx documentation builder
 import os
 import sys
 sys.path.insert(0, os.path.abspath('.'))
+sys.path.insert(0, os.path.abspath('..'))
+
 # -- Project information -----------------------------------------------------
 project = 'Qiskit sphinx theme'
 copyright = '2020, Qiskit Development Team'  # pylint: disable=redefined-builtin
@@ -75,18 +77,15 @@ extensions = [
 ]
 
 # -----------------------------------------------------------------------------
-# Autosummary
-# -----------------------------------------------------------------------------
-
-autosummary_generate = True
-
-# -----------------------------------------------------------------------------
 # Autodoc
 # -----------------------------------------------------------------------------
 
-autodoc_default_options = {
-    'inherited-members': None,
-}
+# Keep aligned with Terra.
+autosummary_generate = True
+autosummary_generate_overwrite = False
+autoclass_content = "both"
+autodoc_typehints = "description"
+autodoc_typehints_description_target = "documented_params"
 
 
 # If true, figures, tables and code-blocks are automatically numbered if they
@@ -143,8 +142,6 @@ html_theme_options = {
     'display_version': True,
     'prev_next_buttons_location': 'bottom',
 }
-
-autoclass_content = 'both'
 
 # qiskit package specific variables
 html_context = {
