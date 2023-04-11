@@ -1,30 +1,30 @@
 <nav data-toggle="wy-nav-shift" class="pytorch-left-menu" id="pytorch-left-menu">
     <div class="pytorch-menu pytorch-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-      <div class="sidebar">
-    <div class="pytorch-left-menu-search">
-        {% include "searchbox.html" %}
-    </div>
+        <div class="sidebar">
+            <div class="pytorch-left-menu-search">
+                {% include "searchbox.html" %}
+            </div>
 
-    <!-- render sidebar from the toctree -->
-    {% set global_toc = toctree(maxdepth=1,
-                                collapse=theme_collapse_navigation|tobool,
-                                includehidden=theme_includehidden|tobool) %}
-    {% if global_toc %}
-        {{ global_toc }}
-    {% endif %}
+            <!-- render sidebar from the toctree -->
+            {% set global_toc = toctree(maxdepth=1,
+            collapse=theme_collapse_navigation|tobool,
+            includehidden=theme_includehidden|tobool) %}
+            {% if global_toc %}
+            {{ global_toc }}
+            {% endif %}
 
-    <!-- PREVIOUS RELEASES -->
-        {% if version_list %}
+            <!-- PREVIOUS RELEASES -->
+            {% if version_list %}
             <div class="sidebar-l1-expandable">Previous Releases</div>
             <div class="sidebar-subheadings">
                 {% for version in version_list | sort(reverse=True) %}
-                    <div class="sidebar-l2"><a href="/documentation/stable/{{ version }}/index.html">{{ version }}</a></div>
+                <div class="sidebar-l2"><a href="./stable/{{ version }}/index.html">{{ version }}</a></div>
                 {% endfor %}
             </div>
-        {% endif %}
+            {% endif %}
 
+        </div>
     </div>
-  </div>
 </nav>
 
 <!-- OPTIONAL EXPANDABLE FUNCTIONALITY -->
@@ -42,16 +42,16 @@
             subheadings.style.display = "block"
             subheadings.style.marginLeft = "0.5rem";
             expandable_rows[i].classList.add("open");
-        } else {subheadings.style.display = "none"}
+        } else { subheadings.style.display = "none" }
 
         // expand and unexpand dropdown when clicked
-        expandable_rows[i].addEventListener("click", function() {
+        expandable_rows[i].addEventListener("click", function () {
             this.classList.toggle("open");
             var clicked_subheadings = this.nextElementSibling;
             if (clicked_subheadings.style.display === "block") {
-            clicked_subheadings.style.display = "none";
+                clicked_subheadings.style.display = "none";
             } else {
-            clicked_subheadings.style.display = "block";
+                clicked_subheadings.style.display = "block";
             }
         });
 
@@ -80,19 +80,19 @@
     for (i = 0; i < toc_rows.length; i++) {
         if (toc_rows[i].children[0].className === "reference external") {
             toc_rows[i].className = "toctree-l1-external"
-            }
+        }
     }
 
     // expand and unexpand previous releases dropdown when clicked
     var release_rows = document.getElementsByClassName("sidebar-l1-expandable");
     for (i = 0; i < expandable_rows.length; i++) {
-        release_rows[i].addEventListener("click", function() {
+        release_rows[i].addEventListener("click", function () {
             this.classList.toggle("open");
             var clicked_subheadings = this.nextElementSibling;
             if (clicked_subheadings.style.display === "block") {
-            clicked_subheadings.style.display = "none";
+                clicked_subheadings.style.display = "none";
             } else {
-            clicked_subheadings.style.display = "block";
+                clicked_subheadings.style.display = "block";
             }
         });
     }
