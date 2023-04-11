@@ -2,38 +2,35 @@
 Classes
 =======
 
-.. py:class:: Electron
+.. py:class:: Electron(size=None, name=None)
 
-    .. rubric:: Attributes
+  Create an electron.
 
-    .. py:attribute:: charge
-    
-        The charge of the electron.
+  :param float size: How big should this thing be?
+  :param str name: The name we'll call the electron. Nicknames preferred.
+  :raises ValueError: You did something wrong
 
+  .. rubric:: Methods
 
-    .. py:attribute:: mass
+  .. py:attribute:: compute_momentum(velocity)
 
-         The mass of the electron.
+    Compute the electrons velocity.
 
-    
-    .. py:attribute:: really_long_named_attribute_that_probably_does_not_fit_nicely
+    :param float velocity: The electrons velocity
+    :return: The computed momentum
+    :rtype: float
+    :raises ValueError: You did something wrong
 
-         A bit too verbose if you ask me.
+  .. rubric:: Attributes
 
+  .. py:attribute:: charge
 
-    .. rubric:: Methods
+  .. py:attribute:: mass
+    :type: float
+    :value: 2.1
 
+    The mass of the electron.
 
-    .. py:attribute:: compute_momentum(velocity)
+  .. py:attribute:: really_long_named_attribute_that_probably_does_not_fit_nicely
 
-        Compute the electrons velocity.
-
-        :param float velocity: The electrons velocity
-        :return: The computed momentum
-        :rtype: float
-        :raises ValueError: You did something wrong
-
-
-
-
-
+    A bit too verbose if you ask me.
