@@ -268,7 +268,7 @@ Hlists
 .. hlist::
     :columns: 2
 
-    - .. figure:: https://source.unsplash.com/200x200/daily?cute+puppy
+    - .. figure:: /images/yi_jing_01_chien.jpg
 
          This is a short caption for a figure.
 

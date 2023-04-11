@@ -92,7 +92,7 @@ List Tables
 
 .. list-table:: This is a list table with images in it.
 
-    * - .. figure:: https://source.unsplash.com/200x200/daily?cute+puppy
+    * - .. figure:: /images/yi_jing_01_chien.jpg
 
            This is a short caption for a figure.
 
