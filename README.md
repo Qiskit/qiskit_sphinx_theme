@@ -5,19 +5,19 @@ The Sphinx theme for the Qiskit documentation.
 
 This repository hosts three things: 
 - Qiskit Sphinx theme (located in the [qiskit_sphinx_theme](/qiskit_sphinx_theme) folder)
-- Sample Docs (located in the [docs](/docs) folder)
+- Example Docs (located in the [example_docs](/example_docs) folder)
 - Qiskit Docs Guide (located in the [docs_guide](/docs_guide) folder)
 
 The Qiskit Sphinx Theme is the theme used by Qiskit
 Documentation (https://qiskit.org/documentation/) site. It contains mainly front end elements that
 gives the Qiskit design style.
 
-The Sample Docs is a minimal Sphinx project that is used for testing the Qiskit Sphinx Theme. Every
-pull request will trigger [a GitHub workflow](https://github.com/Qiskit/qiskit_sphinx_theme/blob/main/.github/workflows/main.yml) that builds the Sample Docs to make sure the changes do
+The Example Docs is a minimal Sphinx project that is used for testing the Qiskit Sphinx Theme. Every
+pull request will trigger [a GitHub workflow](https://github.com/Qiskit/qiskit_sphinx_theme/blob/main/.github/workflows/main.yml) that builds the Example Docs to make sure the changes do
 not introduce unintended changes.
 
 The Qiskit Docs Guide hosts instructions, guidelines and recommendations of good documentation
-practices. It's intent is to help Qiskit maintainers improve the documentation of their projects.
+practices. Its intent is to help Qiskit maintainers improve the documentation of their projects.
 The guide is hosted online here: https://qisk.it/docs-guide.
 
 ## Installation
