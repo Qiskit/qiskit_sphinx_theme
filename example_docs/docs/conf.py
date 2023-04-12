@@ -32,8 +32,8 @@ Sphinx documentation builder
 """
 import os
 import sys
-sys.path.insert(0, os.path.abspath('.'))
-sys.path.insert(0, os.path.abspath('..'))
+
+sys.path.insert(0, os.path.abspath(".."))
 
 # -- Project information -----------------------------------------------------
 project = 'Qiskit sphinx theme'
@@ -168,4 +168,4 @@ nbsphinx_thumbnails = {
 
 # set up custom extension for languages
 def setup(app):
-    app.setup_extension('language_utils')
+    app.setup_extension('docs.language_utils')
