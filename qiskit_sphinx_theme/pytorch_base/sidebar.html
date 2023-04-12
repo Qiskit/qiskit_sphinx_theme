@@ -18,7 +18,7 @@
             <div class="sidebar-l1-expandable">Previous Releases</div>
             <div class="sidebar-subheadings">
                 {% for version in version_list | sort(reverse=True) %}
-                    <div class="sidebar-l2"><a href="/documentation/stable/{{ version }}/index.html">{{ version }}</a></div>
+                    <div class="sidebar-l2"><a href="#" onclick="redirectToVersion( {{ version }} )">{{ version }}</a></div>
                 {% endfor %}
             </div>
         {% endif %}
@@ -26,6 +26,49 @@
     </div>
   </div>
 </nav>
+
+<!-- PREVIOUS RELEASES URL -->
+{% if version_list %}
+<script>
+    const _ECOSYSTEM_PROJECTS = [
+        "aer",
+        "experiments",
+        "finance",
+        "machine-learning",
+        "nature",
+        "optimization",
+        "rustworkx",
+    ];
+
+    const _determineVersionURL = (currentURL, version) => {
+        const ecosystemMatch = currentURL.match(/(?:.*)(\/ecosystem\/\w+)(?:\/|$)/);
+
+        // With `/documentation/...` URLs, we need to detect whether the folder after `/documentation`
+        // is a top-level Ecosystem project (e.g. /documentation/nature) vs. a sub-folder
+        // of the Terra docs (e.g. /documentation/apidocs/foo.html).
+        //
+        // So, we hardcode the specific ecosystem projects that were using the legacy scheme.
+        // Everything else is assumed to be a Terra sub-folder.
+        const projectsPattern = _ECOSYSTEM_PROJECTS.join("|");
+        const legacyEcosystemMatch = currentURL.match(
+            new RegExp(`(?:.*)(\\/documentation\\/(${projectsPattern}))(?:\\/|$)`)
+        );
+        const terraMatch = currentURL.match(/(?:.*)(\/documentation)(?:\/|$)/);
+        const match = ecosystemMatch || legacyEcosystemMatch || terraMatch;
+        if (!match) {
+            return null;
+        }
+        return `${match[1]}/stable/${version}/index.html`;
+    };
+
+    const redirectToVersion = (version) => {
+        const result = _determineVersionURL(window.location.href, version);
+        if (result) {
+            window.location.href = result;
+        }
+    }
+</script>
+{% endif %}
 
 <!-- OPTIONAL EXPANDABLE FUNCTIONALITY -->
 {% if expandable_sidebar %}
