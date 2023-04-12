@@ -9827,6 +9827,8 @@ code, kbd, pre, samp {
   background-color: #f3f4f7;
   border-top: solid 2px #f3f4f7;
   border-bottom: solid 2px #f3f4f7;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 code span, kbd span, pre span, samp span {
   font-family: var(--font-family-monospace);
