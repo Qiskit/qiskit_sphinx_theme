@@ -10,8 +10,6 @@
 Paragraph Level Markup
 **********************
 
-.. contents:: Table of Contents
-
 Inline Markup
 =============
 
@@ -237,8 +235,6 @@ Directives
 
 Contents
 --------
-
-.. contents:: :local:
 
 These are just a sample of the many reStructuredText Directives. For others, please see:
 http://docutils.sourceforge.net/docs/ref/rst/directives.html.

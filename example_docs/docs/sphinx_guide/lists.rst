@@ -2,9 +2,6 @@
 Lists
 =====
 
-
-.. contents:: Table of Contents
-
 Enumerated Lists
 ----------------
 
