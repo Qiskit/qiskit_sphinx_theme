@@ -31,7 +31,7 @@ jobs:
           rm -rf example_docs/_build_pytorch
       - name: Build Furo theme
         run: |
-          THEME=furo BUILD_DIR=example_docs/_build_furo/html tox run -e py
+          THEME=_qiskit_furo BUILD_DIR=example_docs/_build_furo/html tox run -e py
           tar -zcvf furo_html_docs.tar.gz example_docs/_build_furo/html
           mv furo_html_docs.tar.gz artifacts/.
           rm -rf example_docs/_build_furo

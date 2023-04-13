@@ -45,7 +45,7 @@ html_last_updated_fmt = '%Y/%m/%d'
 _THEME = os.getenv("THEME", "qiskit_sphinx_theme")
 html_theme = _THEME
 
-if _THEME == "furo":
+if _THEME == "_qiskit_furo":
     html_static_path = ["_static/common", "_static/furo"]
     templates_path = ["_templates/common", "_templates/furo"]
     html_css_files = ["gallery.css", "custom.css"]
