@@ -1,0 +1,178 @@
+<!doctype html>
+<html class="no-js"{% if language is not none %} lang="{{ language }}"{% endif %}>
+  <head>
+    {%- block site_meta -%}
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark">
+
+    {%- if metatags %}{{ metatags }}{% endif -%}
+
+    {%- block linktags %}
+        {%- if hasdoc('about') -%}
+          <link rel="author" title="{{ _('About these documents') }}" href="{{ pathto('about') }}" />
+        {%- endif -%}
+        {%- if hasdoc('genindex') -%}
+          <link rel="index" title="{{ _('Index') }}" href="{{ pathto('genindex') }}" />
+        {%- endif -%}
+        {%- if hasdoc('search') -%}
+          <link rel="search" title="{{ _('Search') }}" href="{{ pathto('search') }}" />
+        {%- endif -%}
+        {%- if hasdoc('copyright') -%}
+          <link rel="copyright" title="{{ _('Copyright') }}" href="{{ pathto('copyright') }}" />
+        {%- endif -%}
+        {%- if next -%}
+          <link rel="next" title="{{ next.title|striptags|e }}" href="{{ next.link|e }}" />
+        {%- endif -%}
+        {%- if prev -%}
+          <link rel="prev" title="{{ prev.title|striptags|e }}" href="{{ prev.link|e }}" />
+        {%- endif -%}
+        {#- rel="canonical" (set by html_baseurl) -#}
+        {%- if pageurl %}
+        <link rel="canonical" href="{{ pageurl|e }}" />
+        {%- endif %}
+    {%- endblock linktags %}
+
+    {# Favicon #}
+    {%- if favicon_url -%}
+      <link rel="shortcut icon" href="{{ favicon_url }}"/>
+    {%- endif -%}
+
+    <!-- Generated with Sphinx {{ sphinx_version }} and Furo {{ furo_version }} -->
+
+    {%- endblock site_meta -%}
+
+    {#- Site title -#}
+    {%- block htmltitle -%}
+      {% if not docstitle %}
+        <title>{{ title|striptags|e }}</title>
+      {% elif pagename == master_doc %}
+        <title>{{ docstitle|striptags|e }}</title>
+      {% else %}
+        <title>{{ title|striptags|e }} - {{ docstitle|striptags|e }}</title>
+      {% endif %}
+    {%- endblock -%}
+
+    {%- block styles -%}
+
+    {# Custom stylesheets #}
+    {%- block regular_styles -%}
+    {%- for css in css_files -%}
+      {% if css|attr("filename") -%}
+        {{ css_tag(css) }}
+      {%- else -%}
+        <link rel="stylesheet" href="{{ pathto(css, 1)|e }}" type="text/css" />
+      {%- endif %}
+    {% endfor -%}
+    {%- endblock regular_styles -%}
+
+    {#- Theme-related stylesheets -#}
+    {%- block theme_styles %}
+    {% include "partials/_head_css_variables.html" with context %}
+    {%- endblock -%}
+
+    {%- block extra_styles %}
+    {%- endblock -%}
+
+    {%- endblock styles -%}
+
+    {#- Custom front matter #}
+    {%- block extrahead -%}
+    <!-- QISKIT FURO CHANGE: start. Add our custom <HEAD> values. -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+      <link rel="modulepreload" href="https://unpkg.com/@qiskit/web-components/experimental-bundled-ui-shell.js">
+      <script type="module" src="https://unpkg.com/@qiskit/web-components/experimental-bundled-ui-shell.js"></script>
+      <style>
+        qiskit-ui-shell:not(:defined) {
+          display: block;
+          margin-bottom: 3.5rem;
+        }
+      </style>
+
+      {%- if analytics_enabled %}
+        <script>
+          (function () {
+            window._analytics = {
+              segment_key: 'ffdYLviQze3kzomaINXNk6NwpY9LlXcw',
+              coremetrics: false,
+              optimizely: false,
+              googleAddServices: false,
+              fullStory: false,
+              autoPageEventSpa: false,
+              autoFormEvents: false,
+              autoPageView: false
+            }
+
+            window.digitalData = {
+              page: {
+                pageInfo: {
+                  productTitle: 'IBM Q Experience',
+                  analytics: {
+                    category: 'Qiskit.org'
+                  }
+                }
+              }
+            }
+          }());
+        </script>
+        <script src="https://cloud.ibm.com/analytics/build/bluemix-analytics.min.js"></script>
+        <script>
+          (function () {
+            'use strict'
+
+            if (!window.bluemixAnalytics || !window.digitalData) { return }
+
+            const category = window.digitalData.page.pageInfo.analytics.category
+            const productTitle = window.digitalData.page.pageInfo.productTitle
+            const routeName = 'documentation'
+
+            window.bluemixAnalytics.pageEvent(category, routeName, {
+              navigationType: 'pushState',
+              productTitle: productTitle,
+              title: document.title
+            })
+
+            window.trackCta = (action) => {
+              if (!window.bluemixAnalytics || !window.digitalData) { return }
+
+              const category = window.digitalData.page.pageInfo.analytics.category
+              const productTitle = window.digitalData.page.pageInfo.productTitle
+
+              window.bluemixAnalytics.trackEvent('CTA Clicked', {
+                productTitle,
+                category,
+                CTA: action
+              })
+            }
+
+          }());
+        </script>
+      {%- endif -%}
+    <!-- QISKIT FURO CHANGE: end. -->
+    {%- endblock -%}
+  </head>
+  <body>
+    {% block body %}
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    {% endblock %}
+
+    {%- block scripts -%}
+
+    {# Custom JS #}
+    {%- block regular_scripts -%}
+    {% for path in script_files -%}
+      {{ js_tag(path) }}
+    {% endfor -%}
+    {%- endblock regular_scripts -%}
+
+    {# Theme-related JavaScript code #}
+    {%- block theme_scripts -%}
+    {%- endblock -%}
+
+    {%- endblock scripts -%}
+  </body>
+</html>
