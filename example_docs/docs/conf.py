@@ -78,9 +78,6 @@ autoclass_content = "both"
 autodoc_typehints = "description"
 autodoc_typehints_description_target = "documented_params"
 
-add_module_names = False
-modindex_common_prefix = ['qiskit.']
-
 # This adds numbers to the captions for figures, tables,
 # and code blocks.
 numfig = True
