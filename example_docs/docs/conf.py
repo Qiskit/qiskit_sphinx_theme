@@ -13,6 +13,8 @@
 import os
 import sys
 
+# This allows autodoc to find the `api_example` folder and
+# for us to register our `docs.language_utils` extension.
 sys.path.insert(0, os.path.abspath(".."))
 
 project = 'Qiskit sphinx theme'
@@ -21,9 +23,12 @@ author = 'Qiskit Development Team'
 language = "en"
 release = "9.99"
 
+# This allows including custom CSS and HTML templates.
 html_static_path = ['_static']
 templates_path = ['_templates']
 html_css_files = ['gallery.css']
+
+# Sphinx should ignore these patterns when building.
 exclude_patterns = ['_build', '**.ipynb_checkpoints']
 
 extensions = [
@@ -47,31 +52,43 @@ html_theme_options = {
     'prev_next_buttons_location': 'bottom',
 }
 html_context = {
+    # Add "Was this page useful?" to the footer.
     'analytics_enabled': True,
+    # Users of the theme can set prior version numbers. They'll
+    # show up in the sidebar under the "Previous Versions" section.
     'version_list': [0.1, 0.2, 0.3],
+    # This allows docs authors to have folders that can be
+    # closed and opened in the left sidebar.
     'expandable_sidebar': True
 }
 
+# Sets a better style for code syntax highlighting.
 pygments_style = 'colorful'
 
+# This allows RST files to put `|version|` in their file and
+# have it updated with the release set in conf.py.
 rst_prolog = f"""
 .. |version| replace:: {release}
 """
 
+# Options for autodoc. These reflect the values from Terra.
 autosummary_generate = True
-autodoc_default_options = {
-    'inherited-members': None,
-}
-autoclass_content = 'both'
+autosummary_generate_overwrite = False
+autoclass_content = "both"
+autodoc_typehints = "description"
+autodoc_typehints_description_target = "documented_params"
 
 add_module_names = False
 modindex_common_prefix = ['qiskit.']
 
+# This adds numbers to the captions for figures, tables,
+# and code blocks.
 numfig = True
 numfig_format = {
     'table': 'Table %s'
 }
 
+# Settings for Jupyter notebooks.
 nbsphinx_execute = "never"
 nbsphinx_thumbnails = {
     "sphinx_guide/notebook": "_static/no_image.png",
@@ -79,4 +96,5 @@ nbsphinx_thumbnails = {
 
 
 def setup(app):
+    """Entry point for Sphinx extensions."""
     app.setup_extension('docs.language_utils')
