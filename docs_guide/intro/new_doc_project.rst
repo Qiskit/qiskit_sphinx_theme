@@ -150,9 +150,9 @@ in ``docs/index.rst``.  Your ``index.rst`` should look like this:
 
 .. code-block:: text
 
-    ===============================================
+    ###############################################
     Welcome to Qiskit HAL Provider's documentation!
-    ===============================================
+    ###############################################
 
     Overview
     ========
