@@ -460,7 +460,7 @@ So the ``tools/ignore_untagged_notes.sh`` file will look like this:
 
     # This code is part of Qiskit.
     #
-    # (C) Copyright IBM 2022.
+    # (C) Copyright IBM 20XX.
     #
     # This code is licensed under the Apache License, Version 2.0. You may
     # obtain a copy of this license in the LICENSE.txt file in the root directory
@@ -569,7 +569,7 @@ The full ``tools/deploy_documentation.sh`` should then look like this:
 
     # This code is part of Qiskit.
     #
-    # (C) Copyright IBM 2018, 2022.
+    # (C) Copyright IBM 20XX.
     #
     # This code is licensed under the Apache License, Version 2.0. You may
     # obtain a copy of this license in the LICENSE.txt file in the root directory
@@ -633,7 +633,7 @@ The complete ``.github/workflows/deploy-docs.yml`` is then:
 
     # This code is part of Qiskit.
     #
-    # (C) Copyright IBM 2022.
+    # (C) Copyright IBM 20XX.
     #
     # This code is licensed under the Apache License, Version 2.0. You may
     # obtain a copy of this license in the LICENSE.txt file in the root directory
