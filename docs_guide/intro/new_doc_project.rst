@@ -356,7 +356,7 @@ Build and publish to qiskit.org
 
 If you are deploying your documentation to a qiskit.org domain, then your documentation will need to be deployed to `IBM Cloud Object Storage <https://www.ibm.com/cloud/object-storage>`_, where qiskit.org is hosted, with `Rclone <https://rclone.org>`_, a command-line program that enables you to manage content from the cloud.
 
-Before starting with this step, it is necessary to ask a `Qiskit organization administrator <https://github.com/orgs/Qiskit/people?query=role%3Aowner>`_ to create a data container or `bucket <https://dataplatform.cloud.ibm.com/docs/content/wsj/manage-data/cos_buckets.html?locale=en>`_ called ``qiskit-org-web-resources/documentation/x``, from whose content the page ``qiskit.org/documentation/x`` will be generated,
+Before starting with this step, it is necessary to ask a `Qiskit organization administrator <https://github.com/orgs/Qiskit/people?query=role%3Aowner>`_ to create a data container or `bucket <https://dataplatform.cloud.ibm.com/docs/content/wsj/manage-data/cos_buckets.html?locale=en>`_ called ``qiskit-org-web-resources/documentation/hal-provider``, from whose content the page ``qiskit.org/documentation/hal-provider`` will be generated,
 and to add some encrypted credentials to your repo. These credentials are:
 
 * The `Rclone <https://rclone.org>`_ configuration file, that will be saved as ``tools/rclone.conf.enc``.
@@ -554,12 +554,12 @@ the Rclone configuration file from ``RCLONE_CONFIG_PATH``.
 
     openssl aes-256-cbc -K $encrypted_rclone_key -iv $encrypted_rclone_iv -in tools/rclone.conf.enc -out $RCLONE_CONFIG_PATH -d
 
-Now that your Rclone has the configuration needed to deploy the documentation, it's time to do it. The command that enables you to upload the built docs from ``docs/_build/html`` to the corresponding `IBM Cloud Object Storage <https://www.ibm.com/cloud/object-storage>`_ instance (``qiskit-org-web-resources/documentation/x``) is `rclone sync <https://rclone.org/commands/rclone_sync/>`_.
+Now that your Rclone has the configuration needed to deploy the documentation, it's time to do it. The command that enables you to upload the built docs from ``docs/_build/html`` to the corresponding `IBM Cloud Object Storage <https://www.ibm.com/cloud/object-storage>`_ instance (``qiskit-org-web-resources/documentation/hal-provider``) is `rclone sync <https://rclone.org/commands/rclone_sync/>`_.
 You can use the ``--progress`` flag to get updates of the synchronization process. You need to exclude the files from ``locale`` with the ``--exclude`` flag.
 
 .. code-block:: bash
 
-    rclone sync --progress --exclude locale/** ./docs/_build/html IBMCOS:qiskit-org-web-resources/documentation/x
+    rclone sync --progress --exclude locale/** ./docs/_build/html IBMCOS:qiskit-org-web-resources/documentation/hal-provider
 
 The full ``tools/deploy_documentation.sh`` should then look like this:
 
@@ -593,7 +593,7 @@ The full ``tools/deploy_documentation.sh`` should then look like this:
     # Push to qiskit.org website
     openssl aes-256-cbc -K $encrypted_rclone_key -iv $encrypted_rclone_iv -in tools/rclone.conf.enc -out $RCLONE_CONFIG_PATH -d
     echo "Pushing built docs to website"
-    rclone sync --progress --exclude locale/** ./docs/_build/html IBMCOS:qiskit-org-web-resources/documentation/x
+    rclone sync --progress --exclude locale/** ./docs/_build/html IBMCOS:qiskit-org-web-resources/documentation/hal-provider
 
 
 
