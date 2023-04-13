@@ -23,6 +23,9 @@ author = 'Qiskit Development Team'
 language = "en"
 release = "9.99"
 
+# This allows including custom HTML templates.
+templates_path = ["_templates"]
+
 # Sphinx should ignore these patterns when building.
 exclude_patterns = ['_build', '**.ipynb_checkpoints']
 
@@ -47,7 +50,6 @@ html_theme = _THEME
 
 if _THEME == "_qiskit_furo":
     html_static_path = ["_static/common", "_static/furo"]
-    templates_path = ["_templates/common", "_templates/furo"]
     html_css_files = ["gallery.css", "custom.css"]
     html_theme_options = {
         "light_css_variables": {
@@ -57,19 +59,8 @@ if _THEME == "_qiskit_furo":
             "font-stack--monospace": "IBM Plex Mono, Consolas, Courier New, monospace",
         },
     }
-    html_sidebars = {
-        "**": [
-            "sidebar/languages.html",  # Custom to our theme.
-            "sidebar/search.html",
-            "sidebar/scroll-start.html",
-            "sidebar/navigation.html",
-            "sidebar/version_list.html",  # Custom to our theme.
-            "sidebar/scroll-end.html",
-        ]
-    }
 else:
     html_static_path = ["_static/common"]
-    templates_path = ["_templates/common"]
     html_css_files = ["gallery.css"]
     html_theme_options = {
         'logo_only': True,
