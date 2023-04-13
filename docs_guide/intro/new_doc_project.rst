@@ -663,31 +663,31 @@ The complete ``.github/workflows/deploy-docs.yml`` is then:
           - uses: actions/checkout@v3
             with:
               fetch-depth: 0
-        - uses: actions/setup-python@v4
-          with:
-            python-version: ${{ matrix.python-version }}
-        - name: Install <Package Name>
-          run: |
-            pip install -e .
-            pip install -U -c constraints.txt -r requirements-dev.txt
-          shell: bash
-        - name: Install Dependencies
-          run: |
-            pip install packages
-            sudo apt-get install -y other_packages
-          shell: bash
-        - name: Build and publish
-          env:
-            encrypted_rclone_key: ${{ secrets.encrypted_rclone_key }}
-            encrypted_rclone_iv: ${{ secrets.encrypted_rclone_iv }}
-            QISKIT_PARALLEL: False
-            QISKIT_DOCS_BUILD_TUTORIALS: 'always'
-          run: |
-            echo "earliest_version: 0.1.0" >> releasenotes/config.yaml
-            tools/ignore_untagged_notes.sh
-            sphinx-build -b html docs/ docs/_build/html
-            tools/deploy_documentation.sh
-          shell: bash
+          - uses: actions/setup-python@v4
+            with:
+              python-version: ${{ matrix.python-version }}
+          - name: Install <Package Name>
+            run: |
+              pip install -e .
+              pip install -U -c constraints.txt -r requirements-dev.txt
+            shell: bash
+          - name: Install Dependencies
+            run: |
+              pip install packages
+              sudo apt-get install -y other_packages
+            shell: bash
+          - name: Build and publish
+            env:
+              encrypted_rclone_key: ${{ secrets.encrypted_rclone_key }}
+              encrypted_rclone_iv: ${{ secrets.encrypted_rclone_iv }}
+              QISKIT_PARALLEL: False
+              QISKIT_DOCS_BUILD_TUTORIALS: 'always'
+            run: |
+              echo "earliest_version: 0.1.0" >> releasenotes/config.yaml
+              tools/ignore_untagged_notes.sh
+              sphinx-build -b html docs/ docs/_build/html
+              tools/deploy_documentation.sh
+            shell: bash
 
 
 You have created and deployed a new Qiskit documentation project!
