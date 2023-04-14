@@ -20,11 +20,11 @@ jobs:
       - name: Install Non-Python Dependencies
         run: sudo apt-get install -y pandoc graphviz
       - name: Install tox
-        run: python -m pip install -U 'tox<4'
+        run: python -m pip install -U tox
       - name: Test Code Examples
-        run: tox -e doctest
+        run: tox run -e doctest
       - name: Build Docs Guide
-        run: tox -e docs-guide
+        run: tox run -e docs-guide
       - name: Compress Artifacts
         run: |
           mkdir artifacts
