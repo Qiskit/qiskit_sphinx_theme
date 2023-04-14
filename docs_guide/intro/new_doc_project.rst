@@ -362,6 +362,11 @@ and to add some encrypted credentials to your repo. These credentials are:
 * The `Rclone <https://rclone.org>`_ configuration file, that will be saved as ``tools/rclone.conf.enc``.
 * The secret key and `initialization vector <https://en.wikipedia.org/wiki/Initialization_vector>`_ with which that configuration file is encrypted, that will be saved as `repository secrets <https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository>`_ called ``encrypted_rclone_key`` and ``encrypted_rclone_iv`` respectively.
 
+.. note::
+
+    Both the configuration file, secret key and initialization vector are the same across all of the Ecosystem's packages supported by IBM. They can be found
+    `in this repository <https://github.ibm.com/IBM-Q-Software/qiskit-community-mgt/>`_ as ``rclone.conf.txt`` and ``rclone_encrypt_secrets.txt``.
+
 Once these credentials are included in your repo, you can set up the environment variables needed for this step. This is done with the `env <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsenv>`_ keyword.
 The first two variables will be the ``encrypted_rclone_key`` and ``encrypted_rclone_iv``, that can be accessed with the `secrets context <https://docs.github.com/en/actions/learn-github-actions/contexts#secrets-context>`_ and the `expression syntax <https://docs.github.com/en/actions/learn-github-actions/expressions>`_, that is, ``${{ <expression> }}``.
 Then, you will disable the use of `Python multiprocessing <https://docs.python.org/3/library/multiprocessing.html>`_ to parallelize operations by setting the ``QISKIT_PARALLEL`` variable to ``False`` and enable the tutorials build by setting the ``QISKIT_DOCS_BUILD_TUTORIALS`` to ``'always'``.
