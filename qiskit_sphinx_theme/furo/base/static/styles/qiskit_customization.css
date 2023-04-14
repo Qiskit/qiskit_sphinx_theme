@@ -1,3 +1,13 @@
+/* Define some Furo variables. See
+ *  https://github.com/pradyunsg/furo/tree/main/src/furo/assets/styles/variables
+ *  for all options. */
+body {
+    --color-brand-primary: #8A3FFC;
+    --color-brand-content: #8A3FFC;
+    --font-stack: 'IBM Plex Sans', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
+    --font-stack--monospace: 'IBM Plex Mono', 'Consolas', 'Courier New', monospace;
+}
+
 /* ------------------------------
 * User analytics in the footer
 * ------------------------------ */

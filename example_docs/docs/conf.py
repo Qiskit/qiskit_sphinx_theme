@@ -50,16 +50,7 @@ html_last_updated_fmt = '%Y/%m/%d'
 _THEME = os.getenv("THEME", "qiskit_sphinx_theme")
 html_theme = _THEME
 
-if _THEME == "_qiskit_furo":
-    html_theme_options = {
-        "light_css_variables": {
-            "color-brand-primary": "#8A3FFC",
-            "color-brand-content": "#8A3FFC",
-            "font-stack": "IBM Plex Sans, Roboto, Helvetica Neue, Arial, sans-serif",
-            "font-stack--monospace": "IBM Plex Mono, Consolas, Courier New, monospace",
-        },
-    }
-else:
+if _THEME != "_qiskit_furo":
     html_theme_options = {
         'logo_only': True,
         'display_version': True,
