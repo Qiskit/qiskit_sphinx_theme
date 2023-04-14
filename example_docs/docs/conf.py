@@ -25,6 +25,8 @@ release = "9.99"
 
 # This allows including custom HTML templates.
 templates_path = ["_templates"]
+html_static_path = ["_static"]
+html_css_files = ["gallery.css"]
 
 # Sphinx should ignore these patterns when building.
 exclude_patterns = ['_build', '**.ipynb_checkpoints']
@@ -49,8 +51,6 @@ _THEME = os.getenv("THEME", "qiskit_sphinx_theme")
 html_theme = _THEME
 
 if _THEME == "_qiskit_furo":
-    html_static_path = ["_static/common", "_static/furo"]
-    html_css_files = ["gallery.css", "custom.css"]
     html_theme_options = {
         "light_css_variables": {
             "color-brand-primary": "#8A3FFC",
@@ -60,8 +60,6 @@ if _THEME == "_qiskit_furo":
         },
     }
 else:
-    html_static_path = ["_static/common"]
-    html_css_files = ["gallery.css"]
     html_theme_options = {
         'logo_only': True,
         'display_version': True,
