@@ -10,8 +10,6 @@
 Paragraph Level Markup
 **********************
 
-.. contents:: Table of Contents
-
 Inline Markup
 =============
 
@@ -232,29 +230,11 @@ Here's a reference to the above, [12]_ citation.
 
 Here is another type of citation: `citation`
 
-Glossary
---------
-
-This is a glossary with definition terms for thing like :term:`Writing`:
-
-.. glossary::
-  
-  Documentation
-     Provides users with the knowledge they need to use something.
-
-  Reading
-     The process of taking information into ones mind through the use of eyes.
-
-  Writing
-     The process of putting thoughts into a medium for other people to :term:`read <Reading>`.
-
 Directives
 ==========
 
 Contents
 --------
-
-.. contents:: :local:
 
 These are just a sample of the many reStructuredText Directives. For others, please see:
 http://docutils.sourceforge.net/docs/ref/rst/directives.html.

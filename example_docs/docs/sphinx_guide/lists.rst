@@ -1,10 +1,4 @@
-
-**************
-Lists & Tables
-**************
-
-.. contents:: Table of Contents
-
+=====
 Lists
 =====
 
@@ -36,6 +30,8 @@ Enumerated Lists
    iv. iv
 
 #. List items may also be auto-enumerated.
+
+This is some paragraph text directly after an ordered list.
 
 Definition Lists
 ----------------
@@ -127,6 +123,36 @@ Field list
     language, containing examples of all basic reStructuredText
     constructs and many advanced constructs.
 
+Glossary
+--------
+
+This is a glossary with definition terms for thing like :term:`Writing`:
+
+.. glossary::
+
+  Documentation
+     Provides users with the knowledge they need to use something.
+
+  Reading
+     The process of taking information into ones mind through the use of eyes.
+
+  Writing
+     The process of putting thoughts into a medium for other people to :term:`read <Reading>`.
+
+Here's another glossary, with more detail. The important bit here is that the contents of the definition are multi-paragraph.
+
+.. glossary::
+
+    Import Package
+
+        A Python module which can contain other modules or recursively, other packages.
+
+        An import package is more commonly referred to with the single word “package”, but this guide will use the expanded term when more clarity is needed to prevent confusion with a Distribution Package which is also commonly called a “package”.
+
+    Package Index
+
+        A repository of distributions with a web interface to automate package discovery and consumption.
+
 Bullet Lists
 ------------
 
@@ -148,6 +174,8 @@ Simple
     - Still no margins
 
       - Still no margins
+
+This is some paragraph text directly after an unordered list.
 
 Complex
 ^^^^^^^
@@ -179,6 +207,7 @@ Complex
 
   This item has multiple paragraphs.
 
+This is some paragraph text directly after an unordered list.
 
 Second list level
 ^^^^^^^^^^^^^^^^^
@@ -240,7 +269,7 @@ Hlists
 
          This is a short caption for a figure.
 
-    - .. figure:: /images/yi_jing_01_chien.jpg
+    - .. figure:: https://source.unsplash.com/200x200/daily?cute+puppy
 
          This is a long caption for a figure. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
          Donec porttitor dolor in odio posuere, vitae ornare libero mattis. In lobortis justo vestibulum nibh aliquet, non.
@@ -256,89 +285,3 @@ Numbered List
 - A) Using bullets and letters. (A)
 - B) Using bullets and letters. (B)
 - C) Using bullets and letters. (C)
-
-Tables
-======
-
-Grid Tables
------------
-
-Here's a grid table followed by a simple table:
-
-+------------------------+------------+----------+----------+
-| Header row, column 1   | Header 2   | Header 3 | Header 4 |
-| (header rows optional) |            |          |          |
-+========================+============+==========+==========+
-| body row 1, column 1   | column 2   | column 3 | column 4 |
-+------------------------+------------+----------+----------+
-| body row 2             | Cells may span columns.          |
-+------------------------+------------+---------------------+
-| body row 3             | Cells may  | - Table cells       |
-+------------------------+ span rows. | - contain           |
-| body row 4             |            | - body elements.    |
-+------------------------+------------+----------+----------+
-| body row 5             | Cells may also be     |          |
-|                        | empty: ``-->``        |          |
-+------------------------+-----------------------+----------+
-
-=====  =====  ======
-   Inputs     Output
-------------  ------
-  A      B    A or B
-=====  =====  ======
-False  False  False
-True   False  True
-False  True   True
-True   True   True
-=====  =====  ======
-
-Giant Tables
-^^^^^^^^^^^^
-
-+------------+------------+-----------+------------+------------+-----------+------------+------------+-----------+------------+------------+-----------+
-| Header 1   | Header 2   | Header 3  | Header 1   | Header 2   | Header 3  | Header 1   | Header 2   | Header 3  | Header 1   | Header 2   | Header 3  |
-+============+============+===========+============+============+===========+============+============+===========+============+============+===========+
-| body row 1 | column 2   | column 3  | body row 1 | column 2   | column 3  | body row 1 | column 2   | column 3  | body row 1 | column 2   | column 3  |
-+------------+------------+-----------+------------+------------+-----------+------------+------------+-----------+------------+------------+-----------+
-| body row 1 | column 2   | column 3  | body row 1 | column 2   | column 3  | body row 1 | column 2   | column 3  | body row 1 | column 2   | column 3  |
-+------------+------------+-----------+------------+------------+-----------+------------+------------+-----------+------------+------------+-----------+
-| body row 1 | column 2   | column 3  | body row 1 | column 2   | column 3  | body row 1 | column 2   | column 3  | body row 1 | column 2   | column 3  |
-+------------+------------+-----------+------------+------------+-----------+------------+------------+-----------+------------+------------+-----------+
-| body row 1 | column 2   | column 3  | body row 1 | column 2   | column 3  | body row 1 | column 2   | column 3  | body row 1 | column 2   | column 3  |
-+------------+------------+-----------+------------+------------+-----------+------------+------------+-----------+------------+------------+-----------+
-
-List Tables
------------
-
-.. list-table:: List tables can have captions like this one.
-    :widths: 10 5 10 50
-    :header-rows: 1
-    :stub-columns: 1
-
-    * - List table
-      - Header 1
-      - Header 2
-      - Header 3 long. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet mauris arcu.
-    * - Stub Row 1
-      - Row 1
-      - Column 2
-      - Column 3 long. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet mauris arcu.
-    * - Stub Row 2
-      - Row 2
-      - Column 2
-      - Column 3 long. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet mauris arcu.
-    * - Stub Row 3
-      - Row 3
-      - Column 2
-      - Column 3 long. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet mauris arcu.
-
-.. list-table:: This is a list table with images in it.
-
-    * - .. figure:: /images/yi_jing_01_chien.jpg
-
-           This is a short caption for a figure.
-
-      - .. figure:: /images/yi_jing_01_chien.jpg
-
-           This is a long caption for a figure. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-           Donec porttitor dolor in odio posuere, vitae ornare libero mattis. In lobortis justo vestibulum nibh aliquet, non.

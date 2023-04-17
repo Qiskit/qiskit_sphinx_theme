@@ -1,5 +1,7 @@
+ipykernel
 jupyter-sphinx
 numpy
 matplotlib
 sphinx-design
 sphinx-autodoc-typehints
+nbsphinx==0.9.*
