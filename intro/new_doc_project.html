@@ -165,7 +165,7 @@
 documentation project for a repository in the Qiskit Ecosystem with <a class="reference external" href="https://www.sphinx-doc.org/en/master/index.html" title="(in Sphinx v6.2.0)"><span class="xref std std-doc">Sphinx</span></a>.
 Then, you will structure the resulting documentation according to the Qiskit standard and make sure
 Qiskit’s Sphinx HTML theme, the <code class="docutils literal notranslate"><span class="pre">qiskit_sphinx_theme</span></code>, is used. After that, you will create a
-GitHub workflow to deploy your documentation to <a class="reference external" href="https://qiskit.org/">qiskit.org</a> (only applicable
+GitHub workflow to deploy your documentation to <a class="reference external" href="https://qiskit.org/ecosystem">qiskit.org/ecosystem</a> (only applicable
 for selected projects) with <a class="reference external" href="https://rclone.org">Rclone</a>.</p>
 <section id="background-information">
 <h2>Background information<a class="headerlink" href="#background-information" title="Permalink to this heading">¶</a></h2>
@@ -275,9 +275,9 @@ and change the value of the variable <code class="docutils literal notranslate">
 <h2>Sidebar<a class="headerlink" href="#sidebar" title="Permalink to this heading">¶</a></h2>
 <p>Now that you have all the needed <code class="docutils literal notranslate"><span class="pre">.rst</span></code> files, you can create a sidebar for your documentation page. This can be done by linking to the files with a <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-toctree" title="(in Sphinx v6.2.0)"><code class="docutils literal notranslate"><span class="pre">toctree</span></code></a>
 in <code class="docutils literal notranslate"><span class="pre">docs/index.rst</span></code>.  Your <code class="docutils literal notranslate"><span class="pre">index.rst</span></code> should look like this:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>===============================================
-Welcome to Qiskit HAL Provider&#39;s documentation!
-===============================================
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>###############################################################################
+Welcome to &lt;Enter your Project Name, e.g. Qiskit HAL Provider&gt;&#39;s documentation!
+###############################################################################
 
 Overview
 ========
@@ -295,7 +295,7 @@ Explain your package here.
    API Reference &lt;apidocs/index&gt;
    Explanations &lt;explanations/index&gt;
    Release Notes &lt;release_notes&gt;
-   GitHub &lt;https://github.com/hal/qiskit-hal-proivder&gt;
+   GitHub &lt;Enter Link to your Repository, e.g. https://github.com/hal/qiskit-hal-provider&gt;
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -327,14 +327,14 @@ to <code class="docutils literal notranslate"><span class="pre">html</span></cod
 <img alt="../_images/local_build.png" src="../_images/local_build.png" />
 </figure>
 </section>
-<section id="deploy-docs-to-qiskit-org">
-<h2>Deploy docs to <a class="reference external" href="https://qiskit.org/">qiskit.org</a><a class="headerlink" href="#deploy-docs-to-qiskit-org" title="Permalink to this heading">¶</a></h2>
+<section id="deploy-docs-to-qiskit-org-ecosystem">
+<h2>Deploy docs to <a class="reference external" href="https://qiskit.org/ecosystem">qiskit.org/ecosystem</a><a class="headerlink" href="#deploy-docs-to-qiskit-org-ecosystem" title="Permalink to this heading">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>At the moment, this section is only applicable for selected Qiskit projects such as Qiskit and
 Qiskit Nature. For other projects, you can deploy your own documentation using <a class="reference external" href="https://docs.readthedocs.io/en/stable/tutorial/">Read the Docs</a> or GitHub pages.</p>
 </div>
-<p>Once you have a working documentation project, you may want to deploy it to <a class="reference external" href="https://qiskit.org/">qiskit.org</a>. This can be done by using <a class="reference external" href="https://docs.github.com/en/actions/using-workflows/about-workflows">GitHub workflows</a>.
+<p>Once you have a working documentation project, you may want to deploy it to <a class="reference external" href="https://qiskit.org/ecosystem">qiskit.org/ecosystem</a>. This can be done by using <a class="reference external" href="https://docs.github.com/en/actions/using-workflows/about-workflows">GitHub workflows</a>.
 These workflows are automated processes that are defined by <a class="reference external" href="https://yaml.org/">YAML</a> files. These files should be placed in a directory called <code class="docutils literal notranslate"><span class="pre">.github/workflows</span></code>.</p>
 <p>A workflow can be configured to be triggered by one or more events. It is divided into one or more jobs, each one formed by at least one step. A step consists of running a script you define or an <a class="reference external" href="https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions#actions">action</a>,
 that is, an application that performs a complex but usually repeated task.</p>
@@ -433,15 +433,20 @@ the <a class="reference external" href="https://github.com/Qiskit/qiskit-machine
 the Python package <code class="docutils literal notranslate"><span class="pre">torchvision</span></code> to load a dataset. This repo also includes some non-Python dependencies like <code class="docutils literal notranslate"><span class="pre">pandoc</span></code> or <code class="docutils literal notranslate"><span class="pre">graphviz</span></code> that can’t be installed with <code class="docutils literal notranslate"><span class="pre">pip</span></code>, so
 <a class="reference external" href="https://linux.die.net/man/8/apt-get">apt-get</a> has to be used instead.</p>
 </section>
-<section id="build-and-publish-to-qiskit-org">
-<h5>Build and publish to qiskit.org<a class="headerlink" href="#build-and-publish-to-qiskit-org" title="Permalink to this heading">¶</a></h5>
-<p>If you are deploying your documentation to a qiskit.org domain, then your documentation will need to be deployed to <a class="reference external" href="https://www.ibm.com/cloud/object-storage">IBM Cloud Object Storage</a>, where qiskit.org is hosted, with <a class="reference external" href="https://rclone.org">Rclone</a>, a command-line program that enables you to manage content from the cloud.</p>
-<p>Before starting with this step, it is necessary to ask a <a class="reference external" href="https://github.com/orgs/Qiskit/people?query=role%3Aowner">Qiskit organization administrator</a> to create a data container or <a class="reference external" href="https://dataplatform.cloud.ibm.com/docs/content/wsj/manage-data/cos_buckets.html?locale=en">bucket</a> called <code class="docutils literal notranslate"><span class="pre">qiskit-org-web-resources/documentation/x</span></code>, from whose content the page <code class="docutils literal notranslate"><span class="pre">qiskit.org/documentation/x</span></code> will be generated,
+<section id="build-and-publish-to-qiskit-org-ecosystem">
+<h5>Build and publish to qiskit.org/ecosystem<a class="headerlink" href="#build-and-publish-to-qiskit-org-ecosystem" title="Permalink to this heading">¶</a></h5>
+<p>If you are deploying your documentation to a qiskit.org/ecosystem domain, then your documentation will need to be deployed to <a class="reference external" href="https://www.ibm.com/cloud/object-storage">IBM Cloud Object Storage</a>, where qiskit.org is hosted, with <a class="reference external" href="https://rclone.org">Rclone</a>, a command-line program that enables you to manage content from the cloud.</p>
+<p>Before starting with this step, it is necessary to ask a <a class="reference external" href="https://github.com/orgs/Qiskit/people?query=role%3Aowner">Qiskit organization administrator</a> to create a data container or <a class="reference external" href="https://dataplatform.cloud.ibm.com/docs/content/wsj/manage-data/cos_buckets.html?locale=en">bucket</a> called, following our HAL Provider example, <code class="docutils literal notranslate"><span class="pre">qiskit-org-web-resources/ecosystem/hal-provider</span></code>, from whose content the page <code class="docutils literal notranslate"><span class="pre">qiskit.org/ecosystem/hal-provider</span></code> will be generated,
 and to add some encrypted credentials to your repo. These credentials are:</p>
 <ul class="simple">
 <li><p>The <a class="reference external" href="https://rclone.org">Rclone</a> configuration file, that will be saved as <code class="docutils literal notranslate"><span class="pre">tools/rclone.conf.enc</span></code>.</p></li>
 <li><p>The secret key and <a class="reference external" href="https://en.wikipedia.org/wiki/Initialization_vector">initialization vector</a> with which that configuration file is encrypted, that will be saved as <a class="reference external" href="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository">repository secrets</a> called <code class="docutils literal notranslate"><span class="pre">encrypted_rclone_key</span></code> and <code class="docutils literal notranslate"><span class="pre">encrypted_rclone_iv</span></code> respectively.</p></li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Both the configuration file, secret key and initialization vector are the same across all of the Ecosystem’s packages supported by IBM. They can be found
+<a class="reference external" href="https://github.ibm.com/IBM-Q-Software/qiskit-community-mgt/">in this repository</a> as <code class="docutils literal notranslate"><span class="pre">rclone.conf.txt</span></code> and <code class="docutils literal notranslate"><span class="pre">rclone_encrypt_secrets.txt</span></code>.</p>
+</div>
 <p>Once these credentials are included in your repo, you can set up the environment variables needed for this step. This is done with the <a class="reference external" href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsenv">env</a> keyword.
 The first two variables will be the <code class="docutils literal notranslate"><span class="pre">encrypted_rclone_key</span></code> and <code class="docutils literal notranslate"><span class="pre">encrypted_rclone_iv</span></code>, that can be accessed with the <a class="reference external" href="https://docs.github.com/en/actions/learn-github-actions/contexts#secrets-context">secrets context</a> and the <a class="reference external" href="https://docs.github.com/en/actions/learn-github-actions/expressions">expression syntax</a>, that is, <code class="docutils literal notranslate"><span class="pre">${{</span> <span class="pre">&lt;expression&gt;</span> <span class="pre">}}</span></code>.
 Then, you will disable the use of <a class="reference external" href="https://docs.python.org/3/library/multiprocessing.html">Python multiprocessing</a> to parallelize operations by setting the <code class="docutils literal notranslate"><span class="pre">QISKIT_PARALLEL</span></code> variable to <code class="docutils literal notranslate"><span class="pre">False</span></code> and enable the tutorials build by setting the <code class="docutils literal notranslate"><span class="pre">QISKIT_DOCS_BUILD_TUTORIALS</span></code> to <code class="docutils literal notranslate"><span class="pre">'always'</span></code>.
@@ -454,7 +459,7 @@ So the step will start looking like this:</p>
 <span class="w">    </span><span class="nt">QISKIT_DOCS_BUILD_TUTORIALS</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;always&#39;</span>
 </pre></div>
 </div>
-<p>When deploying documentation to qiskit.org, it’s important to make sure that only the release notes that correspond to the desired release are being uploaded. For this purpose you will create a subscript called <code class="docutils literal notranslate"><span class="pre">tools/ignore_untagged_notes.sh</span></code> that will be called from the workflow.
+<p>When deploying documentation to qiskit.org/ecosystem, it’s important to make sure that only the release notes that correspond to the desired release are being uploaded. For this purpose you will create a subscript called <code class="docutils literal notranslate"><span class="pre">tools/ignore_untagged_notes.sh</span></code> that will be called from the workflow.
 This file will start with this <a class="reference external" href="https://en.wikipedia.org/wiki/Shebang_%28Unix%29">shebang</a>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 </pre></div>
@@ -517,7 +522,7 @@ Finally, the <code class="docutils literal notranslate"><span class="pre">-q</sp
 
 <span class="c1"># This code is part of Qiskit.</span>
 <span class="c1">#</span>
-<span class="c1"># (C) Copyright IBM 2022.</span>
+<span class="c1"># (C) Copyright IBM 20XX.</span>
 <span class="c1">#</span>
 <span class="c1"># This code is licensed under the Apache License, Version 2.0. You may</span>
 <span class="c1"># obtain a copy of this license in the LICENSE.txt file in the root directory</span>
@@ -591,9 +596,9 @@ the Rclone configuration file from <code class="docutils literal notranslate"><s
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>openssl<span class="w"> </span>aes-256-cbc<span class="w"> </span>-K<span class="w"> </span><span class="nv">$encrypted_rclone_key</span><span class="w"> </span>-iv<span class="w"> </span><span class="nv">$encrypted_rclone_iv</span><span class="w"> </span>-in<span class="w"> </span>tools/rclone.conf.enc<span class="w"> </span>-out<span class="w"> </span><span class="nv">$RCLONE_CONFIG_PATH</span><span class="w"> </span>-d
 </pre></div>
 </div>
-<p>Now that your Rclone has the configuration needed to deploy the documentation, it’s time to do it. The command that enables you to upload the built docs from <code class="docutils literal notranslate"><span class="pre">docs/_build/html</span></code> to the corresponding <a class="reference external" href="https://www.ibm.com/cloud/object-storage">IBM Cloud Object Storage</a> instance (<code class="docutils literal notranslate"><span class="pre">qiskit-org-web-resources/documentation/x</span></code>) is <a class="reference external" href="https://rclone.org/commands/rclone_sync/">rclone sync</a>.
+<p>Now that your Rclone has the configuration needed to deploy the documentation, it’s time to do it. The command that enables you to upload the built docs from <code class="docutils literal notranslate"><span class="pre">docs/_build/html</span></code> to the corresponding <a class="reference external" href="https://www.ibm.com/cloud/object-storage">IBM Cloud Object Storage</a> instance (in our case, <code class="docutils literal notranslate"><span class="pre">qiskit-org-web-resources/ecosystem/hal-provider</span></code>) is <a class="reference external" href="https://rclone.org/commands/rclone_sync/">rclone sync</a>.
 You can use the <code class="docutils literal notranslate"><span class="pre">--progress</span></code> flag to get updates of the synchronization process. You need to exclude the files from <code class="docutils literal notranslate"><span class="pre">locale</span></code> with the <code class="docutils literal notranslate"><span class="pre">--exclude</span></code> flag.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rclone<span class="w"> </span>sync<span class="w"> </span>--progress<span class="w"> </span>--exclude<span class="w"> </span>locale/**<span class="w"> </span>./docs/_build/html<span class="w"> </span>IBMCOS:qiskit-org-web-resources/documentation/x
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rclone<span class="w"> </span>sync<span class="w"> </span>--progress<span class="w"> </span>--exclude<span class="w"> </span>locale/**<span class="w"> </span>./docs/_build/html<span class="w"> </span>IBMCOS:qiskit-org-web-resources/ecosystem/&lt;Enter<span class="w"> </span>Your<span class="w"> </span>Project<span class="w"> </span>Name,<span class="w"> </span>e.g.<span class="w"> </span>hal-provider&gt;
 </pre></div>
 </div>
 <p>The full <code class="docutils literal notranslate"><span class="pre">tools/deploy_documentation.sh</span></code> should then look like this:</p>
@@ -601,7 +606,7 @@ You can use the <code class="docutils literal notranslate"><span class="pre">--p
 
 <span class="c1"># This code is part of Qiskit.</span>
 <span class="c1">#</span>
-<span class="c1"># (C) Copyright IBM 2018, 2022.</span>
+<span class="c1"># (C) Copyright IBM 20XX.</span>
 <span class="c1">#</span>
 <span class="c1"># This code is licensed under the Apache License, Version 2.0. You may</span>
 <span class="c1"># obtain a copy of this license in the LICENSE.txt file in the root directory</span>
@@ -611,7 +616,7 @@ You can use the <code class="docutils literal notranslate"><span class="pre">--p
 <span class="c1"># copyright notice, and modified files need to carry a notice indicating</span>
 <span class="c1"># that they have been altered from the originals.</span>
 
-<span class="c1"># Script for pushing the documentation to the qiskit.org repository.</span>
+<span class="c1"># Script for pushing the documentation to the qiskit.org/ecosystem.</span>
 <span class="nb">set</span><span class="w"> </span>-e
 
 curl<span class="w"> </span>https://downloads.rclone.org/rclone-current-linux-amd64.deb<span class="w"> </span>-o<span class="w"> </span>rclone.deb
@@ -622,10 +627,10 @@ sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w
 <span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;show current dir: &quot;</span>
 <span class="nb">pwd</span>
 
-<span class="c1"># Push to qiskit.org website</span>
+<span class="c1"># Push to qiskit.org/ecosystem</span>
 openssl<span class="w"> </span>aes-256-cbc<span class="w"> </span>-K<span class="w"> </span><span class="nv">$encrypted_rclone_key</span><span class="w"> </span>-iv<span class="w"> </span><span class="nv">$encrypted_rclone_iv</span><span class="w"> </span>-in<span class="w"> </span>tools/rclone.conf.enc<span class="w"> </span>-out<span class="w"> </span><span class="nv">$RCLONE_CONFIG_PATH</span><span class="w"> </span>-d
 <span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Pushing built docs to website&quot;</span>
-rclone<span class="w"> </span>sync<span class="w"> </span>--progress<span class="w"> </span>--exclude<span class="w"> </span>locale/**<span class="w"> </span>./docs/_build/html<span class="w"> </span>IBMCOS:qiskit-org-web-resources/documentation/x
+rclone<span class="w"> </span>sync<span class="w"> </span>--progress<span class="w"> </span>--exclude<span class="w"> </span>locale/**<span class="w"> </span>./docs/_build/html<span class="w"> </span>IBMCOS:qiskit-org-web-resources/ecosystem/&lt;Enter<span class="w"> </span>Your<span class="w"> </span>Project<span class="w"> </span>Name,<span class="w"> </span>e.g.<span class="w"> </span>hal-provider&gt;
 </pre></div>
 </div>
 <p>Now that all the subscripts are done, you can put them together to finish the docs deployment process, along with building the documentation with <a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-build.html" title="(in Sphinx v6.2.0)"><span>sphinx-build</span></a>.
@@ -656,7 +661,7 @@ You also need to add <code class="docutils literal notranslate"><span class="pre
 <p>The complete <code class="docutils literal notranslate"><span class="pre">.github/workflows/deploy-docs.yml</span></code> is then:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># This code is part of Qiskit.</span>
 <span class="c1">#</span>
-<span class="c1"># (C) Copyright IBM 2022.</span>
+<span class="c1"># (C) Copyright IBM 20XX.</span>
 <span class="c1">#</span>
 <span class="c1"># This code is licensed under the Apache License, Version 2.0. You may</span>
 <span class="c1"># obtain a copy of this license in the LICENSE.txt file in the root directory</span>
@@ -680,32 +685,32 @@ You also need to add <code class="docutils literal notranslate"><span class="pre
 <span class="w">    </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ startsWith(github.ref, &#39;refs/heads/stable&#39;) &amp;&amp; contains(&#39;[&quot;maintainer-1&quot;,&quot;maintainer-2&quot;, ...]&#39;, github.actor) }}</span>
 <span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
 <span class="w">    </span><span class="nt">strategy</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">matrix</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">matrix</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">3.8</span><span class="p p-Indicator">]</span>
 <span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v3</span>
-<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">with</span><span class="p p-Indicator">:</span>
-<span class="w">        </span><span class="nt">fetch-depth</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v4</span>
-<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">with</span><span class="p p-Indicator">:</span>
-<span class="w">        </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ matrix.python-version }}</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install &lt;Package Name&gt;</span>
-<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">run</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v3</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">fetch-depth</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v4</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ matrix.python-version }}</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install &lt;Package Name&gt;</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
 <span class="w">          </span><span class="no">pip install -e .</span>
 <span class="w">          </span><span class="no">pip install -U -c constraints.txt -r requirements-dev.txt</span>
 <span class="w">        </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bash</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install Dependencies</span>
-<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">run</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install Dependencies</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
 <span class="w">          </span><span class="no">pip install packages</span>
 <span class="w">          </span><span class="no">sudo apt-get install -y other_packages</span>
 <span class="w">        </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bash</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build and publish</span>
-<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">env</span><span class="p p-Indicator">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build and publish</span>
+<span class="w">        </span><span class="nt">env</span><span class="p">:</span>
 <span class="w">          </span><span class="nt">encrypted_rclone_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.encrypted_rclone_key }}</span>
 <span class="w">          </span><span class="nt">encrypted_rclone_iv</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.encrypted_rclone_iv }}</span>
 <span class="w">          </span><span class="nt">QISKIT_PARALLEL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
 <span class="w">          </span><span class="nt">QISKIT_DOCS_BUILD_TUTORIALS</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;always&#39;</span>
-<span class="w">      </span><span class="w w-Error">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
 <span class="w">          </span><span class="no">echo &quot;earliest_version: 0.1.0&quot; &gt;&gt; releasenotes/config.yaml</span>
 <span class="w">          </span><span class="no">tools/ignore_untagged_notes.sh</span>
 <span class="w">          </span><span class="no">sphinx-build -b html docs/ docs/_build/html</span>
@@ -811,7 +816,7 @@ You also need to add <code class="docutils literal notranslate"><span class="pre
 <li><a class="reference internal" href="#structure-your-documentation">Structure your documentation</a></li>
 <li><a class="reference internal" href="#sidebar">Sidebar</a></li>
 <li><a class="reference internal" href="#build-your-documentation-locally">Build your documentation locally</a></li>
-<li><a class="reference internal" href="#deploy-docs-to-qiskit-org">Deploy docs to qiskit.org</a><ul>
+<li><a class="reference internal" href="#deploy-docs-to-qiskit-org-ecosystem">Deploy docs to qiskit.org/ecosystem</a><ul>
 <li><a class="reference internal" href="#publish-docs">Publish docs</a><ul>
 <li><a class="reference internal" href="#set-up-the-job">Set up the job</a></li>
 <li><a class="reference internal" href="#steps">Steps</a><ul>
@@ -819,7 +824,7 @@ You also need to add <code class="docutils literal notranslate"><span class="pre
 <li><a class="reference internal" href="#setup-python">Setup Python</a></li>
 <li><a class="reference internal" href="#install-the-package">Install the package</a></li>
 <li><a class="reference internal" href="#install-other-dependencies">Install other dependencies</a></li>
-<li><a class="reference internal" href="#build-and-publish-to-qiskit-org">Build and publish to qiskit.org</a></li>
+<li><a class="reference internal" href="#build-and-publish-to-qiskit-org-ecosystem">Build and publish to qiskit.org/ecosystem</a></li>
 </ul>
 </li>
 </ul>
