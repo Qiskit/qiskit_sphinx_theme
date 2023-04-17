@@ -170,7 +170,7 @@ in ``docs/index.rst``.  Your ``index.rst`` should look like this:
        API Reference <apidocs/index>
        Explanations <explanations/index>
        Release Notes <release_notes>
-       GitHub < <Enter Link to your Repository, e.g. https://github.com/hal/qiskit-hal-proivder> >
+       GitHub <Enter Link to your Repository, e.g. https://github.com/hal/qiskit-hal-proivder>
 
 
 .. warning::
