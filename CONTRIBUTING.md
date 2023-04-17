@@ -35,6 +35,8 @@ We use [Tox](https://tox.wiki/en/latest/), which you will need to install global
 * Build `docs_guide`: `tox -e docs-guide`
 * Run doctests for the docs guide: `tox -e doctest`
 
+Sometimes Sphinx's caching can get in a bad state. If you're having issues, try adding `-r -- -E` to the end of your command, e.g. `tox -e py -r -- -E`. That will reinstall the dependencies and tell Sphinx to ignore the cache.
+
 ------
 ## Releases
 
