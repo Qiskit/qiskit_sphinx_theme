@@ -23,10 +23,10 @@ author = 'Qiskit Development Team'
 language = "en"
 release = "9.99"
 
-# This allows including custom HTML templates.
-templates_path = ["_templates"]
-html_static_path = ["_static"]
-html_css_files = ["gallery.css"]
+# This allows including custom CSS and HTML templates.
+html_static_path = ['_static']
+templates_path = ['_templates']
+html_css_files = ['gallery.css']
 
 # Sphinx should ignore these patterns when building.
 exclude_patterns = ['_build', '**.ipynb_checkpoints']
@@ -56,6 +56,7 @@ if _THEME != "_qiskit_furo":
         'display_version': True,
         'prev_next_buttons_location': 'bottom',
     }
+    # Sets a better style for code syntax highlighting.
     pygments_style = 'colorful'
 
 html_context = {
@@ -68,9 +69,6 @@ html_context = {
     # closed and opened in the left sidebar.
     'expandable_sidebar': True
 }
-
-# Sets a better style for code syntax highlighting.
-pygments_style = 'colorful'
 
 # This allows RST files to put `|version|` in their file and
 # have it updated with the release set in conf.py.

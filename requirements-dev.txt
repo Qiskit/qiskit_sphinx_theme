@@ -5,4 +5,3 @@ matplotlib
 sphinx-design
 sphinx-autodoc-typehints
 nbsphinx==0.9.*
-furo  # To build the example docs. This will eventually be added to qiskit_sphinx_theme itself.
