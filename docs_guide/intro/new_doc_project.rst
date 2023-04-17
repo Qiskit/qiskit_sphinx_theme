@@ -150,9 +150,9 @@ in ``docs/index.rst``.  Your ``index.rst`` should look like this:
 
 .. code-block:: text
 
-    ###############################################
-    Welcome to Qiskit HAL Provider's documentation!
-    ###############################################
+    ###############################################################################
+    Welcome to <Enter your Project Name, e.g. Qiskit HAL Provider>'s documentation!
+    ###############################################################################
 
     Overview
     ========
@@ -170,7 +170,7 @@ in ``docs/index.rst``.  Your ``index.rst`` should look like this:
        API Reference <apidocs/index>
        Explanations <explanations/index>
        Release Notes <release_notes>
-       GitHub <https://github.com/hal/qiskit-hal-proivder>
+       GitHub < <Enter Link to your Repository, e.g. https://github.com/hal/qiskit-hal-proivder> >
 
 
 .. warning::
@@ -564,7 +564,7 @@ You can use the ``--progress`` flag to get updates of the synchronization proces
 
 .. code-block:: bash
 
-    rclone sync --progress --exclude locale/** ./docs/_build/html IBMCOS:qiskit-org-web-resources/ecosystem/hal-provider
+    rclone sync --progress --exclude locale/** ./docs/_build/html IBMCOS:qiskit-org-web-resources/ecosystem/<Enter Your Project Name, e.g. hal-provider>
 
 The full ``tools/deploy_documentation.sh`` should then look like this:
 
@@ -598,7 +598,7 @@ The full ``tools/deploy_documentation.sh`` should then look like this:
     # Push to qiskit.org/ecosystem
     openssl aes-256-cbc -K $encrypted_rclone_key -iv $encrypted_rclone_iv -in tools/rclone.conf.enc -out $RCLONE_CONFIG_PATH -d
     echo "Pushing built docs to website"
-    rclone sync --progress --exclude locale/** ./docs/_build/html IBMCOS:qiskit-org-web-resources/ecosystem/hal-provider
+    rclone sync --progress --exclude locale/** ./docs/_build/html IBMCOS:qiskit-org-web-resources/ecosystem/<Enter Your Project Name, e.g. hal-provider>
 
 
 
