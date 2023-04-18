@@ -12,15 +12,11 @@ body {
 * User analytics in the footer
 * ------------------------------ */
 
-/* TODO: why won't the border render?? */
-footer .helpful-hr {
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-}
-
 footer .helpful-container {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
+  border-top: 1px solid var(--color-background-border);
+  border-bottom: 1px solid var(--color-background-border);
+  color: var(--color-foreground-secondary);
 }
 
 footer .helpful-container .helpful-question,
@@ -36,6 +32,7 @@ footer .helpful-container .was-helpful-thank-you {
 .helpful-container .helpful-question.no-link {
   color: #8B34FC;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .helpful-container .helpful-question.yes-link:hover,
