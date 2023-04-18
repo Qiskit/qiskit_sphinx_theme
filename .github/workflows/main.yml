@@ -23,12 +23,12 @@ jobs:
       # build, and then delete the BUILD_DIR before proceeding to the next theme.
       - name: Create artifacts/ folder
         run: mkdir artifacts
-      - name: Build Pytorch theme
+      - name: Build Legacy theme
         run: |
-          THEME=qiskit_sphinx_theme BUILD_DIR=example_docs/_build_pytorch/html tox run -e py
-          tar -zcvf pytorch_html_docs.tar.gz example_docs/_build_pytorch/html
-          mv pytorch_html_docs.tar.gz artifacts/.
-          rm -rf example_docs/_build_pytorch
+          THEME=qiskit_sphinx_theme BUILD_DIR=example_docs/_build_legacy/html tox run -e py
+          tar -zcvf legacy_html_docs.tar.gz example_docs/_build_legacy/html
+          mv legacy_html_docs.tar.gz artifacts/.
+          rm -rf example_docs/_build_legacy
       - name: Build Furo theme
         run: |
           THEME=_qiskit_furo BUILD_DIR=example_docs/_build_furo/html tox run -e py
