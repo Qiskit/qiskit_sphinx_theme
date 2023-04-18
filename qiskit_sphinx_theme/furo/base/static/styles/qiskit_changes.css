@@ -9,6 +9,32 @@ body {
 }
 
 /* ------------------------------
+* Top nav bar
+* ------------------------------ */
+
+/* Fix Qiskit top nav bar hiding Furo's top nav bar when scrolled down. */
+.mobile-header,
+.sidebar-sticky,
+.toc-sticky {
+  top: var(--header-height);
+}
+
+/* Show the whole contents of the mobile expandable menus.
+*  `box-sizing: border-box` ensures padding is included in the height calculations. */
+@media (max-width: 67em) {
+  .sidebar-drawer {
+    padding-top: var(--header-height);
+    box-sizing: border-box;
+  }
+}
+@media (max-width: 82em) {
+  .toc-drawer {
+    padding-top: var(--header-height);
+    box-sizing: border-box;
+  }
+}
+
+/* ------------------------------
 * User analytics in the footer
 * ------------------------------ */
 

@@ -36,7 +36,9 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="{{ pathto(master_doc) }}"><div class="brand">{{ docstitle if docstitle else project }}</div></a>
+      {#- QISKIT CHANGE: start. Don't show the project title on mobile. -#}
+      {#- <a href="{{ pathto(master_doc) }}"><div class="brand">{{ docstitle if docstitle else project }}</div></a> -#}
+      {#- QISKIT CHANGE: end -#}
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
