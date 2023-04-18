@@ -1,13 +1,13 @@
-<!-- Vendored from Furo. Prefix any change with a `QISKIT CHANGE:` comment. -->
+{#- Vendored from Furo. Prefix any change with a `QISKIT CHANGE:` comment. -#}
 {% extends "base.html" %}
 
 {% block body -%}
 {{ super() }}
 {% include "partials/icons.html" %}
 
-<!-- QISKIT CHANGE: start. Add our top nav bar. -->
+{#- QISKIT CHANGE: start. -#}
 <qiskit-ui-shell variant="hide-account"></qiskit-ui-shell>
-<!-- QISKIT CHANGE: end. -->
+{#- QISKIT CHANGE: end. -#}
 
 <input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
 <input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
@@ -99,9 +99,9 @@
       <footer>
         {% block footer %}
 
-        <!-- QISKIT CHANGE: start. -->
+        {#- QISKIT CHANGE: start. -#}
         {% include "custom_templates/footer_analytics.html" %}
-        <!-- QISKIT CHANGE: end. -->
+        {#- QISKIT CHANGE: end. -#}
 
         <div class="related-pages">
           {% if next -%}
