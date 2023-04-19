@@ -37,6 +37,26 @@ This subfolder contains some example `.rst` files that show how to implement spe
 4. Run `sphinx-build -b html example_docs/docs/ example_docs/docs/_build/html` to build the documentation. This will create the `example_docs/docs/_build` subfolder where you can see the html files generated based on the `.rst` files in the `docs` folder and the styles pulled from the `qiskit_sphinx_theme`.
 
 ------
+## Updating bundled web components
+
+We use web components from https://github.com/Qiskit/web-components to include common design elements from qiskit.org in our documentation.
+
+To update the top nav bar web component:
+
+1. In https://github.com/Qiskit/web-components, run `npm install` then `npm run build`.
+2. There should be a file created at the root of the repository called `experimental-bundled-ui-shell.js`. Copy its contents into the file `js/web-components/top-nav-bar.js.jinja`.
+3. Add back `{% raw %}` to the very top of the file and `{% endraw %}` to the very end. 
+4. Build the example docs to ensure everything works.
+
+If you want to add a new web component:
+
+1. Work with the web components repository to set up `npm run build` to generate a single JavaScript file.
+2. Add the file contents to the `js/web-components/` folder. Add `{% raw %}` to the very top of the file and `{% endraw %}` to the very end.
+3. Add to the HTML template (e.g. `layout.html`) a line like `<script type="module">{% include "static/js/web-components/top-nav-bar.js.jinja" %}</script>` in the `<head>`.
+4. Build the example docs to ensure everything works.
+5. Update this guide with specific instructions for the web component.
+
+------
 ## Releases
 
 We use [semantic versioning](https://semver.org/). Every release is part of one specific "minor version release series"; for example, 1.11.0rc1 and 1.11.3 are both part of the 1.11 release series.

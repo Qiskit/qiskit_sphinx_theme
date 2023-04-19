@@ -31,8 +31,7 @@
   <link rel="stylesheet" href="{{ pathto(cssfile, 1) }}" type="text/css" />
   {%- endfor -%}
 
-  <link rel="modulepreload" href="{{ pathto('_static/js/web-components/top-nav-bar.js', 1) }}">
-  <script type="module" src="{{ pathto('_static/js/web-components/top-nav-bar.js', 1) }}"></script>
+  <script type="module">{% include "static/js/web-components/top-nav-bar.js.jinja" %}</script>
 
   <!-- SEGMENT ANALYTICS -->
   {%- if analytics_enabled %}
