@@ -12,8 +12,14 @@ def get_html_theme_path():
     cur_dir = path.abspath(path.dirname(path.dirname(__file__)))
     return cur_dir
 
+
 # See http://www.sphinx-doc.org/en/stable/theming.html#distribute-your-theme-as-a-python-package
 def setup(app):
+    # Sphinx 6 stopped including jQuery by default. Our templates still depend on jQuery,
+    # so install it for our users automatically.
+    # TODO(#275): Instead, stop using jQuery in our themes.
+    app.setup_extension("sphinxcontrib.jquery")
+
     app.add_html_theme('qiskit_sphinx_theme', path.abspath(path.dirname(__file__)))
 
     # return explicit parallel safe

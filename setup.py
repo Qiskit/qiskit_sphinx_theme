@@ -46,7 +46,8 @@ setup(
         "Topic :: Software Development :: Documentation"
     ],
     install_requires=[
-       'sphinx'
+        "sphinx",
+        "sphinxcontrib-jquery",
     ],
     project_urls={
         "Bug Tracker": "https://github.com/Qiskit/qiskit_sphinx_theme/issues",
