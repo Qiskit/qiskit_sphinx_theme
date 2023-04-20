@@ -44,11 +44,6 @@ contents. */
   --font-family-monospace: "IBM Plex Mono", Consolas, "Courier New", monospace;
 }
 
-qiskit-ui-shell:not(:defined) {
-  display: block;
-  margin-bottom: 3.5rem;
-}
-
 section {
   scroll-margin-top: var(--header-height);
 }
