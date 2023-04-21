@@ -612,18 +612,7 @@ window.sideMenus = {
     }
   },
 
-  handleLeftMenu: function () {
-    var windowHeight = utilities.windowHeight();
-    var topOfFooterRelativeToWindow = document.getElementById("docs-tutorials-resources").getBoundingClientRect().top;
-
-    if (topOfFooterRelativeToWindow >= windowHeight) {
-      document.getElementById("pytorch-left-menu").style.height = "100%";
-    } else {
-      var howManyPixelsOfTheFooterAreInTheWindow = windowHeight - topOfFooterRelativeToWindow;
-      var leftMenuDifference = howManyPixelsOfTheFooterAreInTheWindow;
-      document.getElementById("pytorch-left-menu").style.height = (windowHeight - leftMenuDifference) + "px";
-    }
-  },
+  handleLeftMenu: function () {},
 
   handleRightMenu: function() {
     var rightMenuWrapper = document.getElementById("pytorch-content-right");
