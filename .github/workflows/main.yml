@@ -1,9 +1,5 @@
 name: Tests
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+on: [push, pull_request]
 jobs:
   docs:
     name: Sample Docs Build
@@ -13,17 +9,17 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - name: Set up Python 3.7
+      - name: Set up Python 3.9
         uses: actions/setup-python@v2
         with:
-          python-version: 3.7
+          python-version: 3.9
       - name: Install ubuntu Deps
         run: sudo apt-get install -y pandoc graphviz
       - name: Install tox
         run: |
-          python -m pip install -U 'tox<4'
+          python -m pip install -U tox
       - name: Build Docs
-        run: tox -e py
+        run: tox run -e py
       - name: Compress Artifacts
         run: |
           mkdir artifacts
