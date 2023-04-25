@@ -44,13 +44,13 @@ We use web components from https://github.com/Qiskit/web-components to include c
 To update the top nav bar web component:
 
 1. In https://github.com/Qiskit/web-components, run `npm install` then `npm run build`.
-2. There should be a file created at the root of the repository called `experimental-bundled-ui-shell.js`. Copy its contents into the file `js/web-components/top-nav-bar.js`. 
-3. Build the example docs to ensure everything works.
+2. There should be a file created at the root of the web components repository called `experimental-bundled-ui-shell.js`. Copy its contents into the file `js/web-components/top-nav-bar.js` in this theme repository. 
+3. Build the example docs with `tox -e py` to ensure everything works.
 
 If you want to add a new web component:
 
-1. Work with the web components repository to set up `npm run build` to generate a single JavaScript file.
-2. Add the file contents to the `js/web-components/` folder.
+1. Work with the web components repository's team to set up `npm run build` to generate a single JavaScript file.
+2. Add the file contents to the `js/web-components/` folder in this theme repository.
 3. Add to the HTML template (e.g. `layout.html`) a line like `<script src="{{ pathto('_static/js/web-components/my-component.js', 1) }}"></script>` in the `<head>`.
 4. Build the example docs to ensure everything works.
 5. Update this guide with specific instructions for the web component.
