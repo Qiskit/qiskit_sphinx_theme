@@ -1,0 +1,20 @@
+{
+  "name": "qiskit_sphinx_theme",
+  "version": "1.0.0",
+  "devDependencies": {
+    "jest": "^29.5.0"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/.venv",
+      "/venv",
+      "/.tox",
+      "/build",
+      "/dist"
+    ]
+  }
+}
