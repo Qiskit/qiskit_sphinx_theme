@@ -10,7 +10,7 @@ In this tutorial you will use the :doc:`sphinx:man/sphinx-quickstart` command to
 documentation project for a repository in the Qiskit Ecosystem with :doc:`Sphinx <sphinx:index>`.
 Then, you will structure the resulting documentation according to the Qiskit standard and make sure
 Qiskit's Sphinx HTML theme, the ``qiskit_sphinx_theme``, is used. After that, you will create a
-GitHub workflow to deploy your documentation to `qiskit.org <https://qiskit.org/>`_ (only applicable
+GitHub workflow to deploy your documentation to `qiskit.org/ecosystem <https://qiskit.org/ecosystem>`_ (only applicable
 for selected projects) with `Rclone <https://rclone.org>`_. 
 
 Background information
@@ -150,9 +150,9 @@ in ``docs/index.rst``.  Your ``index.rst`` should look like this:
 
 .. code-block:: text
 
-    ===============================================
-    Welcome to Qiskit HAL Provider's documentation!
-    ===============================================
+    ###############################################################################
+    Welcome to <Enter your Project Name, e.g. Qiskit HAL Provider>'s documentation!
+    ###############################################################################
 
     Overview
     ========
@@ -170,7 +170,7 @@ in ``docs/index.rst``.  Your ``index.rst`` should look like this:
        API Reference <apidocs/index>
        Explanations <explanations/index>
        Release Notes <release_notes>
-       GitHub <https://github.com/hal/qiskit-hal-proivder>
+       GitHub <Enter Link to your Repository, e.g. https://github.com/hal/qiskit-hal-provider>
 
 
 .. warning::
@@ -213,8 +213,8 @@ The locally built page should look like this:
 
 
 
-Deploy docs to `qiskit.org <https://qiskit.org/>`_
-==================================================
+Deploy docs to `qiskit.org/ecosystem <https://qiskit.org/ecosystem>`_
+======================================================================
 
 .. note:: 
 
@@ -222,7 +222,7 @@ Deploy docs to `qiskit.org <https://qiskit.org/>`_
    Qiskit Nature. For other projects, you can deploy your own documentation using `Read the Docs
    <https://docs.readthedocs.io/en/stable/tutorial/>`_ or GitHub pages.
 
-Once you have a working documentation project, you may want to deploy it to `qiskit.org <https://qiskit.org/>`_. This can be done by using `GitHub workflows <https://docs.github.com/en/actions/using-workflows/about-workflows>`_.
+Once you have a working documentation project, you may want to deploy it to `qiskit.org/ecosystem <https://qiskit.org/ecosystem>`_. This can be done by using `GitHub workflows <https://docs.github.com/en/actions/using-workflows/about-workflows>`_.
 These workflows are automated processes that are defined by `YAML <https://yaml.org/>`_ files. These files should be placed in a directory called ``.github/workflows``.
 
 A workflow can be configured to be triggered by one or more events. It is divided into one or more jobs, each one formed by at least one step. A step consists of running a script you define or an `action <https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions#actions>`_,
@@ -351,16 +351,21 @@ the `Torch Connector tutorial <https://github.com/Qiskit/qiskit-machine-learning
 the Python package ``torchvision`` to load a dataset. This repo also includes some non-Python dependencies like ``pandoc`` or ``graphviz`` that can't be installed with ``pip``, so
 `apt-get <https://linux.die.net/man/8/apt-get>`_ has to be used instead.
 
-Build and publish to qiskit.org
-"""""""""""""""""""""""""""""""
+Build and publish to qiskit.org/ecosystem
+"""""""""""""""""""""""""""""""""""""""""
 
-If you are deploying your documentation to a qiskit.org domain, then your documentation will need to be deployed to `IBM Cloud Object Storage <https://www.ibm.com/cloud/object-storage>`_, where qiskit.org is hosted, with `Rclone <https://rclone.org>`_, a command-line program that enables you to manage content from the cloud.
+If you are deploying your documentation to a qiskit.org/ecosystem domain, then your documentation will need to be deployed to `IBM Cloud Object Storage <https://www.ibm.com/cloud/object-storage>`_, where qiskit.org is hosted, with `Rclone <https://rclone.org>`_, a command-line program that enables you to manage content from the cloud.
 
-Before starting with this step, it is necessary to ask a `Qiskit organization administrator <https://github.com/orgs/Qiskit/people?query=role%3Aowner>`_ to create a data container or `bucket <https://dataplatform.cloud.ibm.com/docs/content/wsj/manage-data/cos_buckets.html?locale=en>`_ called ``qiskit-org-web-resources/documentation/x``, from whose content the page ``qiskit.org/documentation/x`` will be generated,
+Before starting with this step, it is necessary to ask a `Qiskit organization administrator <https://github.com/orgs/Qiskit/people?query=role%3Aowner>`_ to create a data container or `bucket <https://dataplatform.cloud.ibm.com/docs/content/wsj/manage-data/cos_buckets.html?locale=en>`_ called, following our HAL Provider example, ``qiskit-org-web-resources/ecosystem/hal-provider``, from whose content the page ``qiskit.org/ecosystem/hal-provider`` will be generated,
 and to add some encrypted credentials to your repo. These credentials are:
 
 * The `Rclone <https://rclone.org>`_ configuration file, that will be saved as ``tools/rclone.conf.enc``.
 * The secret key and `initialization vector <https://en.wikipedia.org/wiki/Initialization_vector>`_ with which that configuration file is encrypted, that will be saved as `repository secrets <https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository>`_ called ``encrypted_rclone_key`` and ``encrypted_rclone_iv`` respectively.
+
+.. note::
+
+    Both the configuration file, secret key and initialization vector are the same across all of the Ecosystem's packages supported by IBM. They can be found
+    `in this repository <https://github.ibm.com/IBM-Q-Software/qiskit-community-mgt/>`_ as ``rclone.conf.txt`` and ``rclone_encrypt_secrets.txt``.
 
 Once these credentials are included in your repo, you can set up the environment variables needed for this step. This is done with the `env <https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsenv>`_ keyword.
 The first two variables will be the ``encrypted_rclone_key`` and ``encrypted_rclone_iv``, that can be accessed with the `secrets context <https://docs.github.com/en/actions/learn-github-actions/contexts#secrets-context>`_ and the `expression syntax <https://docs.github.com/en/actions/learn-github-actions/expressions>`_, that is, ``${{ <expression> }}``.
@@ -376,7 +381,7 @@ So the step will start looking like this:
         QISKIT_PARALLEL: False
         QISKIT_DOCS_BUILD_TUTORIALS: 'always'
 
-When deploying documentation to qiskit.org, it's important to make sure that only the release notes that correspond to the desired release are being uploaded. For this purpose you will create a subscript called ``tools/ignore_untagged_notes.sh`` that will be called from the workflow.
+When deploying documentation to qiskit.org/ecosystem, it's important to make sure that only the release notes that correspond to the desired release are being uploaded. For this purpose you will create a subscript called ``tools/ignore_untagged_notes.sh`` that will be called from the workflow.
 This file will start with this `shebang <https://en.wikipedia.org/wiki/Shebang_%28Unix%29>`_:
 
 .. code-block:: bash
@@ -460,7 +465,7 @@ So the ``tools/ignore_untagged_notes.sh`` file will look like this:
 
     # This code is part of Qiskit.
     #
-    # (C) Copyright IBM 2022.
+    # (C) Copyright IBM 20XX.
     #
     # This code is licensed under the Apache License, Version 2.0. You may
     # obtain a copy of this license in the LICENSE.txt file in the root directory
@@ -554,12 +559,12 @@ the Rclone configuration file from ``RCLONE_CONFIG_PATH``.
 
     openssl aes-256-cbc -K $encrypted_rclone_key -iv $encrypted_rclone_iv -in tools/rclone.conf.enc -out $RCLONE_CONFIG_PATH -d
 
-Now that your Rclone has the configuration needed to deploy the documentation, it's time to do it. The command that enables you to upload the built docs from ``docs/_build/html`` to the corresponding `IBM Cloud Object Storage <https://www.ibm.com/cloud/object-storage>`_ instance (``qiskit-org-web-resources/documentation/x``) is `rclone sync <https://rclone.org/commands/rclone_sync/>`_.
+Now that your Rclone has the configuration needed to deploy the documentation, it's time to do it. The command that enables you to upload the built docs from ``docs/_build/html`` to the corresponding `IBM Cloud Object Storage <https://www.ibm.com/cloud/object-storage>`_ instance (in our case, ``qiskit-org-web-resources/ecosystem/hal-provider``) is `rclone sync <https://rclone.org/commands/rclone_sync/>`_.
 You can use the ``--progress`` flag to get updates of the synchronization process. You need to exclude the files from ``locale`` with the ``--exclude`` flag.
 
 .. code-block:: bash
 
-    rclone sync --progress --exclude locale/** ./docs/_build/html IBMCOS:qiskit-org-web-resources/documentation/x
+    rclone sync --progress --exclude locale/** ./docs/_build/html IBMCOS:qiskit-org-web-resources/ecosystem/<Enter Your Project Name, e.g. hal-provider>
 
 The full ``tools/deploy_documentation.sh`` should then look like this:
 
@@ -569,7 +574,7 @@ The full ``tools/deploy_documentation.sh`` should then look like this:
 
     # This code is part of Qiskit.
     #
-    # (C) Copyright IBM 2018, 2022.
+    # (C) Copyright IBM 20XX.
     #
     # This code is licensed under the Apache License, Version 2.0. You may
     # obtain a copy of this license in the LICENSE.txt file in the root directory
@@ -579,7 +584,7 @@ The full ``tools/deploy_documentation.sh`` should then look like this:
     # copyright notice, and modified files need to carry a notice indicating
     # that they have been altered from the originals.
 
-    # Script for pushing the documentation to the qiskit.org repository.
+    # Script for pushing the documentation to the qiskit.org/ecosystem.
     set -e
 
     curl https://downloads.rclone.org/rclone-current-linux-amd64.deb -o rclone.deb
@@ -590,10 +595,10 @@ The full ``tools/deploy_documentation.sh`` should then look like this:
     echo "show current dir: "
     pwd
 
-    # Push to qiskit.org website
+    # Push to qiskit.org/ecosystem
     openssl aes-256-cbc -K $encrypted_rclone_key -iv $encrypted_rclone_iv -in tools/rclone.conf.enc -out $RCLONE_CONFIG_PATH -d
     echo "Pushing built docs to website"
-    rclone sync --progress --exclude locale/** ./docs/_build/html IBMCOS:qiskit-org-web-resources/documentation/x
+    rclone sync --progress --exclude locale/** ./docs/_build/html IBMCOS:qiskit-org-web-resources/ecosystem/<Enter Your Project Name, e.g. hal-provider>
 
 
 
@@ -633,7 +638,7 @@ The complete ``.github/workflows/deploy-docs.yml`` is then:
 
     # This code is part of Qiskit.
     #
-    # (C) Copyright IBM 2022.
+    # (C) Copyright IBM 20XX.
     #
     # This code is licensed under the Apache License, Version 2.0. You may
     # obtain a copy of this license in the LICENSE.txt file in the root directory
@@ -657,26 +662,26 @@ The complete ``.github/workflows/deploy-docs.yml`` is then:
         if: ${{ startsWith(github.ref, 'refs/heads/stable') && contains('["maintainer-1","maintainer-2", ...]', github.actor) }}
         runs-on: ubuntu-latest
         strategy:
-        matrix:
+          matrix:
             python-version: [3.8]
         steps:
-        - uses: actions/checkout@v3
+          - uses: actions/checkout@v3
             with:
-            fetch-depth: 0
-        - uses: actions/setup-python@v4
+              fetch-depth: 0
+          - uses: actions/setup-python@v4
             with:
-            python-version: ${{ matrix.python-version }}
-        - name: Install <Package Name>
+              python-version: ${{ matrix.python-version }}
+          - name: Install <Package Name>
             run: |
               pip install -e .
               pip install -U -c constraints.txt -r requirements-dev.txt
             shell: bash
-        - name: Install Dependencies
+          - name: Install Dependencies
             run: |
               pip install packages
               sudo apt-get install -y other_packages
             shell: bash
-        - name: Build and publish
+          - name: Build and publish
             env:
               encrypted_rclone_key: ${{ secrets.encrypted_rclone_key }}
               encrypted_rclone_iv: ${{ secrets.encrypted_rclone_iv }}

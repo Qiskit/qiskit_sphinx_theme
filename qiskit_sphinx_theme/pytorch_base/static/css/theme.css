@@ -42,7 +42,6 @@ contents. */
   --breakpoint-xl: 1200px;
   --font-family-sans-serif: "IBM Plex Sans", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-family-monospace: "IBM Plex Mono", Consolas, "Courier New", monospace;
-  --header-height: 52px;
 }
 
 section {

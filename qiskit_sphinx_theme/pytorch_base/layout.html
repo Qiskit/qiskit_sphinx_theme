@@ -31,14 +31,7 @@
   <link rel="stylesheet" href="{{ pathto(cssfile, 1) }}" type="text/css" />
   {%- endfor -%}
 
-  <link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/@qiskit/web-components/experimental-bundled-ui-shell.js">
-  <script type="module" src="https://cdn.jsdelivr.net/npm/@qiskit/web-components/experimental-bundled-ui-shell.js"></script>
-  <style>
-    qiskit-ui-shell:not(:defined) {
-      display: block;
-      margin-bottom: 3.5rem;
-    }
-  </style>
+  <script src="{{ pathto('_static/js/web-components/top-nav-bar.js', 1) }}"></script>
 
   <!-- SEGMENT ANALYTICS -->
   {%- if analytics_enabled %}
@@ -186,7 +179,6 @@
     $(document).ready(function() {
       mobileMenu.bind();
       mobileTOC.bind();
-      pytorchAnchors.bind();
       sideMenus.bind();
       scrollToAnchor.bind();
       highlightNavigation.bind();
