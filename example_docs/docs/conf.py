@@ -41,6 +41,7 @@ extensions = [
     'jupyter_sphinx',
     'sphinx_design',
     "nbsphinx",
+    "sphinxcontrib.jquery",
 ]
 
 html_last_updated_fmt = '%Y/%m/%d'
