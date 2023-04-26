@@ -27,27 +27,6 @@
   </div>
 </nav>
 
-<!-- PREVIOUS RELEASES URL -->
-{% if version_list %}
-<script>
-    const _determineVersionURL = (currentURL, version) => {
-        // We expect URls to either be `documentation/` (Terra) or `ecosystem/<project>`.
-        const match = currentURL.match(/(?:.*)(\/ecosystem\/\w+|\/documentation)(?:\/|$)/);
-        if (!match) {
-            return null;
-        }
-        return `${match[1]}/stable/${version}/index.html`;
-    };
-
-    const redirectToVersion = (version) => {
-        const result = _determineVersionURL(window.location.href, version);
-        if (result) {
-            window.location.href = result;
-        }
-    }
-</script>
-{% endif %}
-
 <!-- OPTIONAL EXPANDABLE FUNCTIONALITY -->
 {% if expandable_sidebar %}
 <script>
