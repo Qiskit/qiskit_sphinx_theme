@@ -52,10 +52,11 @@ To update the top nav bar web component:
 If you want to add a new web component:
 
 1. Work with the web components repository's team to set up `npm run build` to generate a single JavaScript file.
-2. Add the file contents to the `js/web-components/` folders in this theme repository.
-3. Add to the HTML template (e.g. `layout.html` for Pytorch and `base.html` Furo) a line like `<script src="{{ pathto('_static/js/web-components/my-component.js', 1) }}"></script>` in the `<head>`. Then, use the web component element in the relevant HTML, e.g. `<my-component>`.
-4. Build the example docs with `tox -e py` and `THEME=_qiskit_furo tox -e py` to ensure everything works.
-5. Update this guide with specific instructions for the web component.
+2. Add the file contents to the `qiskit_sphinx_theme/furo/base/static/js/web-components/` folder in this theme repository. (We shouldn't add web components to Pytorch.)
+3. Load the web component in `extra_head.html` with a line like `<script src="{{ pathto('_static/js/web-components/my-component.js', 1) }}"></script>`.
+4. Use the web component element in the relevant HTML, e.g. `<my-component>` in `layout.html`. Remember to surround the change with a `QISKIT CHANGE:` comment.
+5. Build the example docs with `THEME=_qiskit_furo tox -e py` to ensure everything works.
+6. Update this guide with specific instructions for the web component.
 
 ------
 ## Releases
