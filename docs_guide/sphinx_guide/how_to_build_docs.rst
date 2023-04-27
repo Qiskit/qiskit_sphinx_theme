@@ -24,7 +24,7 @@ Install the Qiskit package
 --------------------------
 
 Once you have cloned the ``qiskit-x`` repository with ``git clone https://github.com/<your
-user/organization name>/qiskit-x.git``, you can install the ``qiskit_x`` package from source by going to
+user/organization_name/qiskit-x.git``, you can install the ``qiskit_x`` package from source by going to
 the root directory of your local copy and running this on your console:
 
 .. code-block:: bash
@@ -46,7 +46,7 @@ Apart from installing the ``qiskit_x`` package, there are other needed packages 
 
     pip install -r requirements-dev.txt
 
-However, there can also be some other necessary packages that are not Python, and therefore not installable with ``pip``, like `pandoc <https://pandoc.org/>`_ or graphviz `graphviz <https://graphviz.org/>`_.
+However, there can also be some other necessary packages that are not Python, and therefore not installable with ``pip``, like `pandoc <https://pandoc.org/>`_ or `graphviz <https://graphviz.org/>`_.
 You can install them with `apt-get install <https://linux.die.net/man/8/apt-get>`_:
 
 .. code-block:: bash
