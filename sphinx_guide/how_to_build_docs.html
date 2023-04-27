@@ -160,7 +160,7 @@
 <section id="pre-requisites">
 <h2>Pre-requisites<a class="headerlink" href="#pre-requisites" title="Permalink to this heading">¶</a></h2>
 <p>This guide assumes your project already has a working Sphinx documentation project in a folder called <code class="docutils literal notranslate"><span class="pre">docs</span></code>. If you don’t have it, you can set it up with
-<a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html" title="(in Sphinx v6.2.2)"><span class="xref std std-doc">sphinx-quickstart</span></a>.</p>
+<a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html" title="(in Sphinx v7.0.0)"><span class="xref std std-doc">sphinx-quickstart</span></a>.</p>
 </section>
 <section id="install-package-and-dependencies">
 <h2>Install package and dependencies<a class="headerlink" href="#install-package-and-dependencies" title="Permalink to this heading">¶</a></h2>
@@ -172,7 +172,7 @@
 <section id="install-the-qiskit-package">
 <h3>Install the Qiskit package<a class="headerlink" href="#install-the-qiskit-package" title="Permalink to this heading">¶</a></h3>
 <p>Once you have cloned the <code class="docutils literal notranslate"><span class="pre">qiskit-x</span></code> repository with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/&lt;your</span>
-<span class="pre">user/organization</span> <span class="pre">name&gt;/qiskit-x.git</span></code>, you can install the <code class="docutils literal notranslate"><span class="pre">qiskit_x</span></code> package from source by going to
+<span class="pre">user/organization_name/qiskit-x.git</span></code>, you can install the <code class="docutils literal notranslate"><span class="pre">qiskit_x</span></code> package from source by going to
 the root directory of your local copy and running this on your console:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>.
 </pre></div>
@@ -188,7 +188,7 @@ the root directory of your local copy and running this on your console:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements-dev.txt
 </pre></div>
 </div>
-<p>However, there can also be some other necessary packages that are not Python, and therefore not installable with <code class="docutils literal notranslate"><span class="pre">pip</span></code>, like <a class="reference external" href="https://pandoc.org/">pandoc</a> or graphviz <a class="reference external" href="https://graphviz.org/">graphviz</a>.
+<p>However, there can also be some other necessary packages that are not Python, and therefore not installable with <code class="docutils literal notranslate"><span class="pre">pip</span></code>, like <a class="reference external" href="https://pandoc.org/">pandoc</a> or <a class="reference external" href="https://graphviz.org/">graphviz</a>.
 You can install them with <a class="reference external" href="https://linux.die.net/man/8/apt-get">apt-get install</a>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>other_packages
 </pre></div>
@@ -197,7 +197,7 @@ You can install them with <a class="reference external" href="https://linux.die.
 </section>
 <section id="build-the-documentation">
 <h2>Build the documentation<a class="headerlink" href="#build-the-documentation" title="Permalink to this heading">¶</a></h2>
-<p>Once you have installed every needed package in your virtual environment, you can build the documentation with <a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-build.html" title="(in Sphinx v6.2.2)"><span>sphinx-build</span></a> the following way:</p>
+<p>Once you have installed every needed package in your virtual environment, you can build the documentation with <a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-build.html" title="(in Sphinx v7.0.0)"><span>sphinx-build</span></a> the following way:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sphinx-build<span class="w"> </span>-b<span class="w"> </span>html<span class="w"> </span>docs<span class="w"> </span>docs/_build/html
 </pre></div>
 </div>

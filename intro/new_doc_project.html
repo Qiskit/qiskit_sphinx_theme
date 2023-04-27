@@ -154,8 +154,8 @@
 <p class="admonition-title">Note</p>
 <p>This page was written in the style of a <cite>Tutorial</cite> according to <a class="reference internal" href="diataxis.html#diataxis"><span class="std std-ref">The Diátaxis Framework</span></a>.</p>
 </div>
-<p>In this tutorial you will use the <a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html" title="(in Sphinx v6.2.2)"><span>sphinx-quickstart</span></a> command to create a new
-documentation project for a repository in the Qiskit Ecosystem with <a class="reference external" href="https://www.sphinx-doc.org/en/master/index.html" title="(in Sphinx v6.2.2)"><span class="xref std std-doc">Sphinx</span></a>.
+<p>In this tutorial you will use the <a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html" title="(in Sphinx v7.0.0)"><span>sphinx-quickstart</span></a> command to create a new
+documentation project for a repository in the Qiskit Ecosystem with <a class="reference external" href="https://www.sphinx-doc.org/en/master/index.html" title="(in Sphinx v7.0.0)"><span class="xref std std-doc">Sphinx</span></a>.
 Then, you will structure the resulting documentation according to the Qiskit standard and make sure
 Qiskit’s Sphinx HTML theme, the <code class="docutils literal notranslate"><span class="pre">qiskit_sphinx_theme</span></code>, is used. After that, you will create a
 GitHub workflow to deploy your documentation to <a class="reference external" href="https://qiskit.org/ecosystem">qiskit.org/ecosystem</a> (only applicable
@@ -164,7 +164,7 @@ for selected projects) with <a class="reference external" href="https://rclone.o
 <h2>Background information<a class="headerlink" href="#background-information" title="Permalink to this heading">¶</a></h2>
 <p>Before you dive into the creation of the documentation project, it’s important to know what reStructuredText and Sphinx are.</p>
 <p><a class="reference external" href="https://docutils.sourceforge.io/rst.html">reStructuredText</a> (RST) is a lightweight markup language, that is, an easy to read language that formats plaintext documents according to a set of tags. It enables the creation of web pages and documentation from, for example, Python docstrings.</p>
-<p><a class="reference external" href="https://www.sphinx-doc.org/en/master/index.html" title="(in Sphinx v6.2.2)"><span class="xref std std-doc">Sphinx</span></a> is a documentation generator that converts RST files to formats like <a class="reference external" href="https://html.spec.whatwg.org/multipage/">HTML</a>, <a class="reference external" href="https://www.latex-project.org/">LaTeX</a>, <a class="reference external" href="https://www.w3.org/publishing/epub32/">ePub</a>, <a class="reference external" href="https://www.gnu.org/software/texinfo/">Texinfo</a>, manual pages or plain text. It is written in Python. The <code class="docutils literal notranslate"><span class="pre">qiskit_sphinx_theme</span></code> will focus on converting RST to HTML pages.</p>
+<p><a class="reference external" href="https://www.sphinx-doc.org/en/master/index.html" title="(in Sphinx v7.0.0)"><span class="xref std std-doc">Sphinx</span></a> is a documentation generator that converts RST files to formats like <a class="reference external" href="https://html.spec.whatwg.org/multipage/">HTML</a>, <a class="reference external" href="https://www.latex-project.org/">LaTeX</a>, <a class="reference external" href="https://www.w3.org/publishing/epub32/">ePub</a>, <a class="reference external" href="https://www.gnu.org/software/texinfo/">Texinfo</a>, manual pages or plain text. It is written in Python. The <code class="docutils literal notranslate"><span class="pre">qiskit_sphinx_theme</span></code> will focus on converting RST to HTML pages.</p>
 </section>
 <section id="install-the-qiskit-sphinx-theme">
 <h2>Install the <code class="docutils literal notranslate"><span class="pre">qiskit_sphinx_theme</span></code><a class="headerlink" href="#install-the-qiskit-sphinx-theme" title="Permalink to this heading">¶</a></h2>
@@ -179,7 +179,7 @@ for selected projects) with <a class="reference external" href="https://rclone.o
 </section>
 <section id="create-the-documentation-in-your-repository">
 <h2>Create the documentation in your repository<a class="headerlink" href="#create-the-documentation-in-your-repository" title="Permalink to this heading">¶</a></h2>
-<p>In order to create a documentation folder you can use <a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html" title="(in Sphinx v6.2.2)"><span>sphinx-quickstart</span></a>. It asks some questions and creates a functional documentation folder according to your answers.
+<p>In order to create a documentation folder you can use <a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html" title="(in Sphinx v7.0.0)"><span>sphinx-quickstart</span></a>. It asks some questions and creates a functional documentation folder according to your answers.
 You can use <code class="docutils literal notranslate"><span class="pre">sphinx-quickstart</span></code> by going to the root directory of your repository and running this command.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sphinx-quickstart<span class="w"> </span>docs
 </pre></div>
@@ -266,7 +266,7 @@ and change the value of the variable <code class="docutils literal notranslate">
 </section>
 <section id="sidebar">
 <h2>Sidebar<a class="headerlink" href="#sidebar" title="Permalink to this heading">¶</a></h2>
-<p>Now that you have all the needed <code class="docutils literal notranslate"><span class="pre">.rst</span></code> files, you can create a sidebar for your documentation page. This can be done by linking to the files with a <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-toctree" title="(in Sphinx v6.2.2)"><code class="docutils literal notranslate"><span class="pre">toctree</span></code></a>
+<p>Now that you have all the needed <code class="docutils literal notranslate"><span class="pre">.rst</span></code> files, you can create a sidebar for your documentation page. This can be done by linking to the files with a <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-toctree" title="(in Sphinx v7.0.0)"><code class="docutils literal notranslate"><span class="pre">toctree</span></code></a>
 in <code class="docutils literal notranslate"><span class="pre">docs/index.rst</span></code>.  Your <code class="docutils literal notranslate"><span class="pre">index.rst</span></code> should look like this:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>###############################################################################
 Welcome to &lt;Enter your Project Name, e.g. Qiskit HAL Provider&gt;&#39;s documentation!
@@ -310,7 +310,7 @@ so you only need to run:</p>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">-r</span></code> flag means that instead of installing a package called “<cite>requirements-dev.txt</cite>”, you are installing the packages listed in the requirements text file <code class="docutils literal notranslate"><span class="pre">requirements-dev.txt</span></code>.</p>
-<p>Once you have made the installations, you can finally build your documentation with <a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-build.html" title="(in Sphinx v6.2.2)"><span>sphinx-build</span></a>, setting the builder (<code class="docutils literal notranslate"><span class="pre">-b</span></code>)
+<p>Once you have made the installations, you can finally build your documentation with <a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-build.html" title="(in Sphinx v7.0.0)"><span>sphinx-build</span></a>, setting the builder (<code class="docutils literal notranslate"><span class="pre">-b</span></code>)
 to <code class="docutils literal notranslate"><span class="pre">html</span></code> so the documents from the <code class="docutils literal notranslate"><span class="pre">docs</span></code> folder get built as HTML pages in a new folder, that you will call <code class="docutils literal notranslate"><span class="pre">docs/_build/html</span></code>. So the final command is:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sphinx-build<span class="w"> </span>-b<span class="w"> </span>html<span class="w"> </span>docs<span class="w"> </span>docs/_build/html
 </pre></div>
@@ -626,7 +626,7 @@ openssl<span class="w"> </span>aes-256-cbc<span class="w"> </span>-K<span class=
 rclone<span class="w"> </span>sync<span class="w"> </span>--progress<span class="w"> </span>--exclude<span class="w"> </span>locale/**<span class="w"> </span>./docs/_build/html<span class="w"> </span>IBMCOS:qiskit-org-web-resources/ecosystem/&lt;Enter<span class="w"> </span>Your<span class="w"> </span>Project<span class="w"> </span>Name,<span class="w"> </span>e.g.<span class="w"> </span>hal-provider&gt;
 </pre></div>
 </div>
-<p>Now that all the subscripts are done, you can put them together to finish the docs deployment process, along with building the documentation with <a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-build.html" title="(in Sphinx v6.2.2)"><span>sphinx-build</span></a>.
+<p>Now that all the subscripts are done, you can put them together to finish the docs deployment process, along with building the documentation with <a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-build.html" title="(in Sphinx v7.0.0)"><span>sphinx-build</span></a>.
 You also need to add <code class="docutils literal notranslate"><span class="pre">earliest_version:</span> <span class="pre">0.1.0</span></code> to <code class="docutils literal notranslate"><span class="pre">releasenotes/config.yaml</span></code> so <a class="reference external" href="https://docs.openstack.org/reno/latest/">reno</a> can find the release notes.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
 <span class="w">  </span><span class="no">echo &quot;earliest_version: 0.1.0&quot; &gt;&gt; releasenotes/config.yaml</span>
