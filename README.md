@@ -27,6 +27,14 @@ This package is available on PyPI using:
 ```bash
 pip install qiskit-sphinx-theme
 ```
+
+## Run JavaScript tests
+
+To run the JavaScript tests, you need Jest ([install instructions](https://jestjs.io/docs/getting-started)). The tests run with:
+
+```bash
+npm test
+```
 ## Configure Left Sidebar
 
 To keep UX/UI similar across different Qiskit packages we strongly encourage the following structure for you sidebar, which can be set in the toctree of your `index.rst`:
