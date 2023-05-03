@@ -6,6 +6,9 @@ body {
     --color-brand-content: #8A3FFC;
     --font-stack: 'IBM Plex Sans', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
     --font-stack--monospace: 'IBM Plex Mono', 'Consolas', 'Courier New', monospace;
+    /* This value is duplicated from `top-nav-bar.js`. Its definition of the variable is not
+     * exposed globally. Keep in sync. */
+    --qiskit-top-nav-bar-height: 3.5rem;
 }
 
 /* ------------------------------
@@ -16,20 +19,20 @@ body {
 .mobile-header,
 .sidebar-sticky,
 .toc-sticky {
-  top: var(--header-height);
+  top: var(--qiskit-top-nav-bar-height);
 }
 
 /* Show the whole contents of the mobile expandable menus.
 *  `box-sizing: border-box` ensures padding is included in the height calculations. */
 @media (max-width: 67em) {
   .sidebar-drawer {
-    padding-top: var(--header-height);
+    padding-top: var(--qiskit-top-nav-bar-height);
     box-sizing: border-box;
   }
 }
 @media (max-width: 82em) {
   .toc-drawer {
-    padding-top: var(--header-height);
+    padding-top: var(--qiskit-top-nav-bar-height);
     box-sizing: border-box;
   }
 }
