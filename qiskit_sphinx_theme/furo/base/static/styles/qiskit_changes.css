@@ -12,11 +12,6 @@ body {
 * Top nav bar
 * ------------------------------ */
 
-/* Remove this once we support dark mode: https://github.com/Qiskit/qiskit_sphinx_theme/issues/273 */
-.theme-toggle-container {
-  display: none;
-}
-
 /* Fix Qiskit top nav bar hiding Furo's top nav bar when scrolled down. */
 .mobile-header,
 .sidebar-sticky,
