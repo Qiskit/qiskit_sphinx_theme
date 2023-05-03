@@ -1,6 +1,9 @@
 /* Define some Furo variables. See
  *  https://github.com/pradyunsg/furo/tree/main/src/furo/assets/styles/variables
- *  for all options. */
+ *  for all options.
+ *
+ * Variables that start with `--qiskit-` are new values we use in this file; they are not overrides.
+ */
 body {
     --color-brand-primary: #8A3FFC;
     --color-brand-content: #8A3FFC;
