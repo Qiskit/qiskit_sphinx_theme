@@ -1,0 +1,16 @@
+{% if analytics_enabled %}
+  <script>
+    function userFeedbackClicked(ctaType) {
+      document.getElementById('was-helpful-thank-you').style.visibility = 'visible';
+      window.trackCta(`Helpful - ${ctaType}`);
+    }
+  </script>
+    <hr class="helpful-hr hr-top" />
+    <div class="helpful-container">
+      <div class="helpful-question">Was this page helpful?</div>
+      <a class="helpful-question yes-link" onclick="userFeedbackClicked('yes')">Yes</a>
+      <a class="helpful-question no-link" onclick="userFeedbackClicked('no')">No</a>
+      <div class="was-helpful-thank-you" id="was-helpful-thank-you">Thank you!</div>
+    </div>
+    <hr class="helpful-hr hr-bottom"/>
+{% endif %}

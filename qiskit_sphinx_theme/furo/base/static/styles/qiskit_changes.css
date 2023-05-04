@@ -1,0 +1,45 @@
+/* Define some Furo variables. See
+ *  https://github.com/pradyunsg/furo/tree/main/src/furo/assets/styles/variables
+ *  for all options. */
+body {
+    --color-brand-primary: #8A3FFC;
+    --color-brand-content: #8A3FFC;
+    --font-stack: 'IBM Plex Sans', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
+    --font-stack--monospace: 'IBM Plex Mono', 'Consolas', 'Courier New', monospace;
+}
+
+/* ------------------------------
+* User analytics in the footer
+* ------------------------------ */
+
+/* TODO: why won't the border render?? */
+footer .helpful-hr {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+footer .helpful-container {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+footer .helpful-container .helpful-question,
+footer .helpful-container .was-helpful-thank-you {
+  padding: 0.625rem 1.25rem 0.625rem 1.25rem;
+}
+
+#was-helpful-thank-you {
+  visibility: hidden;
+}
+
+.helpful-container .helpful-question.yes-link,
+.helpful-container .helpful-question.no-link {
+  color: #8B34FC;
+  cursor: pointer;
+}
+
+.helpful-container .helpful-question.yes-link:hover,
+.helpful-container .helpful-question.no-link:hover {
+  background-color: #8B34FC;
+  color: #ffffff;
+}

@@ -1,0 +1,10 @@
+{% if version_list %}
+    <div class="sidebar-l1-expandable">Previous Releases</div>
+    <div class="sidebar-subheadings">
+        {% for version in version_list | sort(reverse=True) %}
+            <div class="sidebar-l2">
+                <a href="#" onclick="redirectToVersion( {{ version }} )" rel="nofollow">{{ version }}</a>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
