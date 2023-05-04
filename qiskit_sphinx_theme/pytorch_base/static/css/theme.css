@@ -42,7 +42,9 @@ contents. */
   --breakpoint-xl: 1200px;
   --font-family-sans-serif: "IBM Plex Sans", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-family-monospace: "IBM Plex Mono", Consolas, "Courier New", monospace;
-  --header-height: 52px;
+  /* This value is duplicated from `top-nav-bar.js`. Its definition of the variable is not exposed
+   * globally. Keep in sync. */
+  --header-height: 3.5rem;
 }
 
 section {

@@ -38,6 +38,40 @@ We use [Tox](https://tox.wiki/en/latest/), which you will need to install global
 Sometimes Sphinx's caching can get in a bad state. If you're having issues, try adding `-r -- -E` to the end of your command, e.g. `tox -e py -r -- -E`. That will reinstall the dependencies and tell Sphinx to ignore the cache.
 
 ------
+## Run JavaScript tests
+
+We write some tests in JavaScript (Node.js) to have automated checks of the theme, e.g. that certain components render properly.
+
+To run these tests, you first need to install Node.js on your machine. If you expect to use JavaScript in other projects, we recommend using [NVM](https://github.com/nvm-sh/nvm). Otherwise, consider using [Homebrew](https://formulae.brew.sh/formula/node) or installing [Node.js directly](https://nodejs.org/en).
+
+Then:
+
+1. `npm install`
+2. `npm test`
+
+------
+## Updating bundled web components
+
+We use web components from https://github.com/Qiskit/web-components to include common design elements from qiskit.org in our documentation.
+
+To update the top nav bar web component:
+
+1. In https://github.com/Qiskit/web-components, run `npm install` then `npm run build`.
+2. There should be a file created at the root of the web components repository called `experimental-bundled-ui-shell.js`. Copy its contents into these files in this theme repository:
+   1. `qiskit_sphinx_theme/pytorch_base/static/js/web-components/top-nav-bar.js`
+   2. `qiskit_sphinx_theme/furo/base/static/js/web-components/top-nav-bar.js`
+3. Build the example docs with `tox -e py` and `THEME=_qiskit_furo tox -e py` to ensure everything works.
+
+If you want to add a new web component:
+
+1. Work with the web components repository's team to set up `npm run build` to generate a single JavaScript file.
+2. Add the file contents to the `qiskit_sphinx_theme/furo/base/static/js/web-components/` folder in this theme repository. (We shouldn't add web components to Pytorch.)
+3. Load the web component in `extra_head.html` with a line like `<script src="{{ pathto('_static/js/web-components/my-component.js', 1) }}"></script>`.
+4. Use the web component element in the relevant HTML, e.g. `<my-component>` in `layout.html`. Remember to surround the change with a `QISKIT CHANGE:` comment.
+5. Build the example docs with `THEME=_qiskit_furo tox -e py` to ensure everything works.
+6. Update this guide with specific instructions for the web component.
+
+------
 ## Releases
 
 We use [semantic versioning](https://semver.org/). Every release is part of one specific "minor version release series"; for example, 1.11.0rc1 and 1.11.3 are both part of the 1.11 release series.

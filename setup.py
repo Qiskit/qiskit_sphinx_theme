@@ -12,6 +12,7 @@ setup(
     entry_points={
         'sphinx.html_themes': [
             'qiskit_sphinx_theme = qiskit_sphinx_theme',
+            '_qiskit_furo = qiskit_sphinx_theme',
         ],
     },
     license='Apache 2',
@@ -28,7 +29,9 @@ setup(
         "Framework :: Sphinx :: Theme",
     ],
     install_requires=[
-       'sphinx'
+        "furo @ git+https://github.com/pradyunsg/furo.git@48c0bf2aa983fb1ccd79b4167fe85387249afedf",
+        "sphinx",
+        "sphinxcontrib-jquery",  # Remove once we get rid of the Pytorch theme.
     ],
     project_urls={
         "Bug Tracker": "https://github.com/Qiskit/qiskit_sphinx_theme/issues",

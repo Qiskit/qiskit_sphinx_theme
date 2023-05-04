@@ -41,16 +41,25 @@ extensions = [
     'jupyter_sphinx',
     'sphinx_design',
     "nbsphinx",
+    "sphinxcontrib.jquery",
 ]
 
 html_last_updated_fmt = '%Y/%m/%d'
 
-html_theme = 'qiskit_sphinx_theme'
-html_theme_options = {
-    'logo_only': True,
-    'display_version': True,
-    'prev_next_buttons_location': 'bottom',
-}
+# This allows us to test both the Furo and Pytorch themes. In normal repositories, `html_theme`
+# would be set to one specific theme.
+_THEME = os.getenv("THEME", "qiskit_sphinx_theme")
+html_theme = _THEME
+
+if _THEME != "_qiskit_furo":
+    html_theme_options = {
+        'logo_only': True,
+        'display_version': True,
+        'prev_next_buttons_location': 'bottom',
+    }
+    # Sets a better style for code syntax highlighting.
+    pygments_style = 'colorful'
+
 html_context = {
     # Add "Was this page useful?" to the footer.
     'analytics_enabled': True,
@@ -61,9 +70,6 @@ html_context = {
     # closed and opened in the left sidebar.
     'expandable_sidebar': True
 }
-
-# Sets a better style for code syntax highlighting.
-pygments_style = 'colorful'
 
 # This allows RST files to put `|version|` in their file and
 # have it updated with the release set in conf.py.
