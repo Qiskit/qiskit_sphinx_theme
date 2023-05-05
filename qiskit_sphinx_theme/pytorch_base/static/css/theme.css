@@ -10637,6 +10637,7 @@ article.pytorch-article h4,
 article.pytorch-article h5,
 article.pytorch-article h6 {
   font-weight: 400;
+  word-wrap: break-word;
 }
 article.pytorch-article h1 a,
 article.pytorch-article h2 a,
