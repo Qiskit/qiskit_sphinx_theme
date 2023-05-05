@@ -13,8 +13,7 @@
 import os
 import sys
 
-# This allows autodoc to find the `api_example` folder and
-# for us to register our `docs.language_utils` extension.
+# This allows autodoc to find the `api_example` folder.
 sys.path.insert(0, os.path.abspath(".."))
 
 project = 'Qiskit sphinx theme'
@@ -41,7 +40,7 @@ extensions = [
     'jupyter_sphinx',
     'sphinx_design',
     "nbsphinx",
-    "sphinxcontrib.jquery",
+    "qiskit_sphinx_theme",
 ]
 
 html_last_updated_fmt = '%Y/%m/%d'
@@ -96,8 +95,3 @@ nbsphinx_execute = "never"
 nbsphinx_thumbnails = {
     "sphinx_guide/notebook": "_static/no_image.png",
 }
-
-
-def setup(app):
-    """Entry point for Sphinx extensions."""
-    app.setup_extension('docs.language_utils')

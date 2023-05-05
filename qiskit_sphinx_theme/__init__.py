@@ -3,6 +3,8 @@
 from pathlib import Path
 from warnings import warn
 
+from qiskit_sphinx_theme import translations
+
 __version__ = '1.11.0rc1'
 __version_full__ = __version__
 
@@ -32,15 +34,13 @@ def get_html_theme_path():
 
 # See https://www.sphinx-doc.org/en/master/development/theming.html
 def setup(app):
-    # Sphinx 6 stopped including jQuery by default. Our Pytorch theme depend on jQuery,
-    # so install it for our users automatically.
-    app.setup_extension("sphinxcontrib.jquery")
+    translations.setup(app)
 
     app.add_html_theme("qiskit_sphinx_theme", _get_theme_absolute_path("pytorch_base"))
     app.add_html_theme("_qiskit_furo", _get_theme_absolute_path("furo/base"))
 
-    # The below must be kept in sync with `furo/__init__.py`.
     if app.config.html_theme == "_qiskit_furo":
+        # The below must be kept in sync with `furo/__init__.py`.
         from furo import (
             WrapTableAndMathInAContainerTransform,
             _builder_inited,
@@ -52,5 +52,9 @@ def setup(app):
         app.connect("html-page-context", _html_page_context)
         app.connect("builder-inited", _builder_inited)
         app.connect("build-finished", _overwrite_pygments_css)
+    else:
+        # Sphinx 6 stopped including jQuery by default. Our Pytorch theme depend on jQuery,
+        # so activate it for our users automatically.
+        app.setup_extension("sphinxcontrib.jquery")
 
     return {'parallel_read_safe': True, 'parallel_write_safe': True}
