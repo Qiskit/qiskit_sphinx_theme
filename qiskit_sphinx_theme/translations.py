@@ -20,15 +20,12 @@ default_language = 'en'
 def setup(app):
     app.connect('config-inited', _extend_html_context)
     app.add_config_value("content_prefix", default="", rebuild="", types=[str])
-    app.add_config_value("translations", default=True, rebuild="html")
     app.add_config_value("translations_list", default=[], rebuild="html", types=[list])
 
 
 def _extend_html_context(app, config):
     context = config.html_context
-    context['translations'] = config.translations
     context['translations_list'] = config.translations_list
-    context['current_translation'] = _get_current_translation(config) or config.language
     context['translation_url'] = partial(_get_translation_url, config)
     context['language_label'] = _get_language_label(config)
 
