@@ -43,7 +43,7 @@ We use [Tox](https://tox.wiki/en/latest/), which you will need to install global
 
 Sometimes Sphinx's caching can get in a bad state. First, try running `tox -e docs-clean`, which will remove Sphinx's cache. If you are still having issues, try adding `-r` your command, e.g. `tox -e py -r`. `-r` tells Tox to reinstall the dependencies.
 
-To build the Furo theme, use `THEME=_qiskit_furo` in front of the command, e.g. `THEME=_qiskit_furo tox -e py`.
+We are in the process of migrating our theme from Pytorch to Furo (see https://github.com/Qiskit/qiskit_sphinx_theme/issues/232). To build the Furo theme, use `THEME=_qiskit_furo` in front of the command, e.g. `THEME=_qiskit_furo tox -e py`.
 
 ------
 ## Run JavaScript tests
