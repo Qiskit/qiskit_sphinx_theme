@@ -7,7 +7,7 @@ https://qiskit.org/documentation/contributing_to_qiskit.html
 
 ## Contributing to qiskit_sphinx_theme
 
-In addition to the general guidelines there are specific details for
+In addition to the general guidelines, there are specific details for
 contributing to qiskit_sphinx_theme, these are documented below.
 
 ------
@@ -20,24 +20,30 @@ This subfolder contains the raw html and css files that are used to set the fram
 
 E.g. if a qiskit project (with the `qiskit_sphinx_theme` installed) wants to override any of the themes files (such as the `layout.html`) that the `qiskit_sphinx_theme` provides it needs to have its own version of that file (e.g. `layout.html`) stored in its `docs/_templates` folder.
 
-### `/docs`
-This subfolder contains a scaled down version of the Sphinx build that builds the documentation for the Qiskit repos. It pulls styles from the `/qiskit_sphinx_theme` subfolder. You can check any changes you are making to the `qiskit_sphinx_theme` by building the documentation (see running locally section) and opening the html files generated in `/docs/_build/html`.
+### `/example_docs`
+This subfolder contains a scaled down version of the Sphinx build that builds the documentation for the Qiskit repos. 
 
-### `/docs/sphinx_guide`
-This subfolder contains some example `.rst` files that show how to implement specific Sphinx features such as class documentation, panel layouts, images etc.
+It pulls styles from the `/qiskit_sphinx_theme` subfolder. You can check any changes you are making to the `qiskit_sphinx_theme` by building the documentation (see running locally section) and opening the html files generated in `/example_docs/docs/_build/html`.
+
+### `/docs_guide`
+This subfolder contains instructions on how to use Sphinx in Qiskit projects.
 
 ------
 ## Run locally
 
 We use [Tox](https://tox.wiki/en/latest/), which you will need to install globally (e.g. using [`pipx`](https://pypa.github.io/pipx/)).
 
-* Build `docs/`: `tox -e py`
-* Build `docs_guide`: `tox -e docs-guide`
+* Build `example_docs/`:
+  1. `tox -e py`
+  2. Open up `example_docs/docs/_build/html/index.html` in your browser
+* Build `docs_guide`:
+  1. `tox -e docs-guide`
+  2. Open up `docs_guide/_build/html/index.html` in your browser.
 * Run doctests for the docs guide: `tox -e doctest`
 
-Sometimes Sphinx's caching can get in a bad state. If you're having issues, try adding `-r -- -E` to the end of your command, e.g. `tox -e py -r -- -E`. That will reinstall the dependencies and tell Sphinx to ignore the cache.
+Sometimes Sphinx's caching can get in a bad state. First, try running `tox -e docs-clean`, which will remove Sphinx's cache. If you are still having issues, try adding `-r` your command, e.g. `tox -e py -r`. `-r` tells Tox to reinstall the dependencies.
 
-To build the Furo theme, use `THEME=_qiskit_furo tox -e py`.
+To build the Furo theme, use `THEME=_qiskit_furo` in front of the command, e.g. `THEME=_qiskit_furo tox -e py`.
 
 ------
 ## Run JavaScript tests
