@@ -26,7 +26,7 @@ This subfolder contains a scaled down version of the Sphinx build that builds th
 It pulls styles from the `/qiskit_sphinx_theme` subfolder. You can check any changes you are making to the `qiskit_sphinx_theme` by building the documentation (see running locally section) and opening the html files generated in `/example_docs/docs/_build/html`.
 
 ### `/docs_guide`
-This subfolder contains instructions on how to use Sphinx in Qiskit projects.
+This subfolder contains guidance on how to write documentation and build sphinx projects for Qiskit and Qiskit Ecosystem projects. You can view the fully rendered docs guide at https://qisk.it/docs-guide
 
 ------
 ## Run locally
