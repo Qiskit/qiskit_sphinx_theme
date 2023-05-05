@@ -30,3 +30,6 @@ class Electron:
         :return: The computed momentum.
         :raises ValueError: You did something wrong
         """
+    
+    def method_with_a_reallyyreallreallyreallyreallyreallyreallreallyreallyreallyreally_long_title(self):
+        """blahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblah"""
