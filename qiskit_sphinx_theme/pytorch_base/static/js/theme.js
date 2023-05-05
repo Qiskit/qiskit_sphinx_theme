@@ -87,12 +87,7 @@ window.utilities = {
   },
 
   headersHeight: function() {
-    if (document.getElementById("pytorch-left-menu").classList.contains("make-fixed")) {
-      return document.getElementById("pytorch-page-level-bar").offsetHeight;
-    } else {
-      return document.getElementById("header-holder").offsetHeight +
-             document.getElementById("pytorch-page-level-bar").offsetHeight;
-    }
+    return document.getElementById("pytorch-page-level-bar").offsetHeight;
   },
 
   windowHeight: function() {
@@ -240,8 +235,7 @@ window.highlightNavigation = {
 
     var scrollPosition = utilities.scrollTop();
     var OFFSET_TOP_PADDING = 25;
-    var offset = document.getElementById("header-holder").offsetHeight +
-                 document.getElementById("pytorch-page-level-bar").offsetHeight +
+    var offset = document.getElementById("pytorch-page-level-bar").offsetHeight +
                  OFFSET_TOP_PADDING;
 
     var sections = highlightNavigation.sections;
@@ -484,9 +478,6 @@ window.sideMenus = {
     }
 
     if (rightMenuHasLinks) {
-      // Don't show the Shortcuts menu title text unless there are menu items
-      document.getElementById("pytorch-shortcuts-wrapper").style.display = "block";
-
       // We are hiding the titles of the pages in the right side menu but there are a few
       // pages that include other pages in the right side menu (see 'torch.nn' in the docs)
       // so if we exclude those it looks confusing. Here we add a 'title-link' class to these
@@ -577,16 +568,8 @@ window.sideMenus = {
   },
 
   handleNavBar: function() {
-    var mainHeaderHeight = document.getElementById('header-holder').offsetHeight;
-
-    // If we are scrolled past the main navigation header fix the sub menu bar to top of page
-    if (utilities.scrollTop() >= mainHeaderHeight) {
-      document.getElementById("pytorch-left-menu").classList.add("make-fixed");
-      document.getElementById("pytorch-page-level-bar").classList.add("left-menu-is-fixed");
-    } else {
-      document.getElementById("pytorch-left-menu").classList.remove("make-fixed");
-      document.getElementById("pytorch-page-level-bar").classList.remove("left-menu-is-fixed");
-    }
+    document.getElementById("pytorch-left-menu").classList.remove("make-fixed");
+    document.getElementById("pytorch-page-level-bar").classList.remove("left-menu-is-fixed");
   },
 
   expandClosestUnexpandedParentList: function (el) {
