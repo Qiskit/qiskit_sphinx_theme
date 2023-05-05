@@ -70,6 +70,18 @@ html_context = {
     'expandable_sidebar': True
 }
 
+translations_list = [
+    ('en', 'English'),
+    ('bn_BN', 'Bengali'),
+    ('fr_FR', 'French'),
+    ('de_DE', 'German'),
+    ('ja_JP', 'Japanese'),
+    ('ko_KR', 'Korean'),
+    ('pt_UN', 'Portuguese'),
+    ('es_UN', 'Spanish'),
+    ('ta_IN', 'Tamil'),
+]
+
 # This allows RST files to put `|version|` in their file and
 # have it updated with the release set in conf.py.
 rst_prolog = f"""

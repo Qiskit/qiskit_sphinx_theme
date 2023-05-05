@@ -14,32 +14,20 @@
 
 from functools import partial
 
-
-translations_list = [
-    ('en', 'English'),
-    ('bn_BN', 'Bengali'),
-    ('fr_FR', 'French'),
-    ('de_DE', 'German'),
-    ('ja_JP', 'Japanese'),
-    ('ko_KR', 'Korean'),
-    ('pt_UN', 'Portuguese'),
-    ('es_UN', 'Spanish'),
-    ('ta_IN', 'Tamil'),
-]
-
 default_language = 'en'
 
 
 def setup(app):
     app.connect('config-inited', _extend_html_context)
-    app.add_config_value('content_prefix', '', '')
-    app.add_config_value('translations', True, 'html')
+    app.add_config_value("content_prefix", default="", rebuild="", types=[str])
+    app.add_config_value("translations", default=True, rebuild="html")
+    app.add_config_value("translations_list", default=[], rebuild="html", types=[list])
 
 
 def _extend_html_context(app, config):
     context = config.html_context
     context['translations'] = config.translations
-    context['translations_list'] = translations_list
+    context['translations_list'] = config.translations_list
     context['current_translation'] = _get_current_translation(config) or config.language
     context['translation_url'] = partial(_get_translation_url, config)
     context['language_label'] = _get_language_label(config)
@@ -48,7 +36,7 @@ def _extend_html_context(app, config):
 def _get_current_translation(config):
     language = config.language or default_language
     try:
-        found = next(v for k, v in translations_list if k == language)
+        found = next(v for k, v in config.translations_list if k == language)
     except StopIteration:
         found = None
     return found
