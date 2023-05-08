@@ -1,10 +1,10 @@
 const { describe, expect, test } = require("@jest/globals");
 const {
   determineVersionURL: determineVersionURLPytorch,
-} = require("../qiskit_sphinx_theme/pytorch_base/static/js/utils.js");
+} = require("../../qiskit_sphinx_theme/pytorch_base/static/js/utils.js");
 const {
   determineVersionURL: determineVersionURLFuro,
-} = require("../qiskit_sphinx_theme/furo/base/static/js/utils.js");
+} = require("../../qiskit_sphinx_theme/furo/base/static/js/utils.js");
 
 const checkVersionURL = (inputURL, version, expected) => {
   expect(determineVersionURLPytorch(inputURL, version)).toEqual(expected);
