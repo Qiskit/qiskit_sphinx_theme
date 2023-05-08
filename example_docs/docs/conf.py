@@ -1,6 +1,6 @@
 # This code is part of Qiskit.
 #
-# (C) Copyright IBM 2018.
+# (C) Copyright IBM 2018, 2023.
 #
 # This code is licensed under the Apache License, Version 2.0. You may
 # obtain a copy of this license in the LICENSE.txt file in the root directory
@@ -70,16 +70,12 @@ html_context = {
     'expandable_sidebar': True
 }
 
+# When creating a new repo, follow the instructions in this repo's README.md on
+# `Enable translations`. Remove this value if you aren't using translations.
 translations_list = [
     ('en', 'English'),
     ('bn_BN', 'Bengali'),
     ('fr_FR', 'French'),
-    ('de_DE', 'German'),
-    ('ja_JP', 'Japanese'),
-    ('ko_KR', 'Korean'),
-    ('pt_UN', 'Portuguese'),
-    ('es_UN', 'Spanish'),
-    ('ta_IN', 'Tamil'),
 ]
 
 # This allows RST files to put `|version|` in their file and

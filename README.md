@@ -28,6 +28,11 @@ This package is available on PyPI using:
 pip install qiskit-sphinx-theme
 ```
 
+Then, set up the theme by updating `conf.py`:
+
+1. Set `html_theme = "qiskit_sphinx_theme"`
+2. Add `"qiskit_sphinx_theme"` to `extensions`
+
 ## Configure Left Sidebar
 
 To keep UX/UI similar across different Qiskit packages we strongly encourage the following structure for you sidebar, which can be set in the toctree of your `index.rst`:
