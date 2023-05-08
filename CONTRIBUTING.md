@@ -33,17 +33,18 @@ This subfolder contains guidance on how to write documentation and build sphinx 
 
 We use [Tox](https://tox.wiki/en/latest/), which you will need to install globally (e.g. using [`pipx`](https://pypa.github.io/pipx/)).
 
+* Run Python tests: `tox -e py`
 * Build `example_docs/`:
-  1. `tox -e py`
+  1. `tox -e docs`
   2. Open up `example_docs/docs/_build/html/index.html` in your browser
 * Build `docs_guide`:
   1. `tox -e docs-guide`
   2. Open up `docs_guide/_build/html/index.html` in your browser.
 * Run doctests for the docs guide: `tox -e doctest`
 
-Sometimes Sphinx's caching can get in a bad state. First, try running `tox -e docs-clean`, which will remove Sphinx's cache. If you are still having issues, try adding `-r` your command, e.g. `tox -e py -r`. `-r` tells Tox to reinstall the dependencies.
+Sometimes Sphinx's caching can get in a bad state. First, try running `tox -e docs-clean`, which will remove Sphinx's cache. If you are still having issues, try adding `-r` your command, e.g. `tox -e docs -r`. `-r` tells Tox to reinstall the dependencies.
 
-We are in the process of migrating our theme from Pytorch to Furo (see https://github.com/Qiskit/qiskit_sphinx_theme/issues/232). To build the local docs using the Furo theme, use `THEME=_qiskit_furo` in front of the command, e.g. `THEME=_qiskit_furo tox -e py`.
+We are in the process of migrating our theme from Pytorch to Furo (see https://github.com/Qiskit/qiskit_sphinx_theme/issues/232). To build the local docs using the Furo theme, use `THEME=_qiskit_furo` in front of the command, e.g. `THEME=_qiskit_furo tox -e docs`.
 
 ------
 ## Run JavaScript tests
@@ -68,7 +69,7 @@ To update the top nav bar web component:
 2. There should be a file created at the root of the web components repository called `experimental-bundled-ui-shell.js`. Copy its contents into these files in this theme repository:
    1. `qiskit_sphinx_theme/pytorch_base/static/js/web-components/top-nav-bar.js`
    2. `qiskit_sphinx_theme/furo/base/static/js/web-components/top-nav-bar.js`
-3. Build the example docs with `tox -e py` and `THEME=_qiskit_furo tox -e py` to ensure everything works.
+3. Build the example docs with `tox -e docs` and `THEME=_qiskit_furo tox -e docs` to ensure everything works.
 
 If you want to add a new web component:
 
@@ -76,7 +77,7 @@ If you want to add a new web component:
 2. Add the file contents to the `qiskit_sphinx_theme/furo/base/static/js/web-components/` folder in this theme repository. (We shouldn't add web components to Pytorch.)
 3. Load the web component in `extra_head.html` with a line like `<script src="{{ pathto('_static/js/web-components/my-component.js', 1) }}"></script>`.
 4. Use the web component element in the relevant HTML, e.g. `<my-component>` in `layout.html`. Remember to surround the change with a `QISKIT CHANGE:` comment.
-5. Build the example docs with `THEME=_qiskit_furo tox -e py` to ensure everything works.
+5. Build the example docs with `THEME=_qiskit_furo tox -e docs` to ensure everything works.
 6. Update this guide with specific instructions for the web component.
 
 ------

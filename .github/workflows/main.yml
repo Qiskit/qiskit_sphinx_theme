@@ -24,8 +24,9 @@ jobs:
       - name: Install Ubuntu deps
         run: sudo apt-get install -y pandoc graphviz
       - name: Install tox
-        run: |
-          python -m pip install -U tox
+        run: python -m pip install -U tox
+      - name: Run Pytest
+        run: tox run -e py
       # For some reason, the Jupyter Extension fails to build properly if one theme has already
       # been built with a custom BUILD_DIR. So, we eagerly upload the artifacts for each theme
       # build, and then delete the BUILD_DIR before proceeding to the next theme.
@@ -33,13 +34,13 @@ jobs:
         run: mkdir artifacts
       - name: Build Legacy theme
         run: |
-          THEME=qiskit_sphinx_theme BUILD_DIR=example_docs/_build_legacy/html tox run -e py
+          THEME=qiskit_sphinx_theme BUILD_DIR=example_docs/_build_legacy/html tox run -e docs
           tar -zcvf legacy_html_docs.tar.gz example_docs/_build_legacy/html
           mv legacy_html_docs.tar.gz artifacts/.
           rm -rf example_docs/_build_legacy
       - name: Build Furo theme
         run: |
-          THEME=_qiskit_furo BUILD_DIR=example_docs/_build_furo/html tox run -e py
+          THEME=_qiskit_furo BUILD_DIR=example_docs/_build_furo/html tox run -e docs
           tar -zcvf furo_html_docs.tar.gz example_docs/_build_furo/html
           mv furo_html_docs.tar.gz artifacts/.
           rm -rf example_docs/_build_furo

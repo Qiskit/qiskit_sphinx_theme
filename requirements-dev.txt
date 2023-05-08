@@ -5,3 +5,4 @@ matplotlib
 sphinx-design
 sphinx-autodoc-typehints
 nbsphinx==0.9.*
+pytest==7.*
