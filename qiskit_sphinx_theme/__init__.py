@@ -3,7 +3,7 @@
 from pathlib import Path
 from warnings import warn
 
-from qiskit_sphinx_theme import translations
+from qiskit_sphinx_theme import previous_releases, translations
 
 __version__ = '1.11.0rc1'
 __version_full__ = __version__
@@ -37,8 +37,9 @@ def setup(app):
     # Used to generate URL references. Expected to be e.g. `ecosystem/finance`.
     app.add_config_value("docs_url_prefix", default=None, rebuild="html", types=[str])
 
-    # We always activate translations support, but users need to set `translations_list` in config
-    # for it to be used.
+    # We always activate these plugins, but users need to set `translations_list` and
+    # `versions_list` to activate them.
+    previous_releases.setup(app)
     translations.setup(app)
 
     app.add_html_theme("qiskit_sphinx_theme", _get_theme_absolute_path("pytorch_base"))
