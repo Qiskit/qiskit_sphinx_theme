@@ -34,6 +34,9 @@ def get_html_theme_path():
 
 # See https://www.sphinx-doc.org/en/master/development/theming.html
 def setup(app):
+    # Used to generate URL references. Expected to be e.g. `ecosystem/finance`.
+    app.add_config_value("docs_url_prefix", default=None, rebuild="html", types=[str])
+
     # We always activate translations support, but users need to set `translations_list` in config
     # for it to be used.
     translations.setup(app)

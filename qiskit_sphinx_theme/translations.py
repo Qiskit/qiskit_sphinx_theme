@@ -23,15 +23,20 @@ DEFAULT_LANGUAGE = 'en'
 
 
 def setup(app: sphinx.application.Sphinx) -> None:
-    app.connect('config-inited', _extend_html_context)
-    app.add_config_value("content_prefix", default="", rebuild="", types=[str])
     app.add_config_value("translations_list", default=[], rebuild="html", types=[list])
+    app.connect('config-inited', _extend_html_context)
 
 
 def _extend_html_context(_: sphinx.application.Sphinx, config: sphinx.config.Config) -> None:
     context = config.html_context
     context['translations_list'] = config.translations_list
-    context['translation_url'] = partial(get_translation_url, config.content_prefix)
+    if config.translations_list and not config.docs_url_prefix:
+        raise Exception(
+            "Because `translations_list` is set in `conf.py`, you must also set "
+            "`docs_url_prefix` in `conf.py` to e.g. `ecosystem/finance` or `ecosystem/nature`."
+        )
+
+    context['translation_url'] = partial(get_translation_url, config.docs_url_prefix)
     context['language_label'] = get_language_label(config.language, config.translations_list)
 
 
@@ -46,7 +51,6 @@ def get_language_label(config_language: str, translations_list: list[tuple[str, 
     return found or config_language
 
 
-def get_translation_url(content_prefix_option: str, language_code: str, pagename: str) -> str:
+def get_translation_url(docs_url_prefix: str, language_code: str, pagename: str) -> str:
     base = f"/locale/{language_code}" if language_code != DEFAULT_LANGUAGE else ""
-    prefix = f"/{content_prefix_option}" if content_prefix_option else ""
-    return f"{prefix}{base}/{pagename}.html"
+    return f"/{docs_url_prefix}{base}/{pagename}.html"

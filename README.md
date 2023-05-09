@@ -132,7 +132,7 @@ Once the Translations team is ready, then update your `conf.py`:
 
 * Ensure that `qiskit_sphinx_theme` is in the `extensions` setting.
 * Set the option `translations_list` to a list of pairs of the locale code and the language name, e.g. `[..., ("de_DE", "German")]`.
-* Set the option `content_prefix` to your project's URL prefix, like `ecosystem/finance`.
+* Set the option `docs_url_prefix` to your project's URL prefix, like `ecosystem/finance`.
 
 For example:
 
@@ -149,7 +149,7 @@ translations_list = [
     ('de_DE', 'German'),
 ]
 
-content_prefix = "ecosystem/finance"
+docs_url_prefix = "ecosystem/finance"
 ```
 
 ## Enable Qiskit.org Analytics
