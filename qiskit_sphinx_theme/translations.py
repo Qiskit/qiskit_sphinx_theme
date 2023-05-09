@@ -14,7 +14,7 @@
 
 from functools import partial
 
-default_language = 'en'
+DEFAULT_LANGUAGE = 'en'
 
 
 def setup(app):
@@ -30,30 +30,16 @@ def _extend_html_context(app, config):
     context['language_label'] = get_language_label(config.language, config.translations_list)
 
 
-def _get_current_translation(config_language, translations_list):
-    language = config_language or default_language
+def get_language_label(config_language, translations_list):
+    language = config_language or DEFAULT_LANGUAGE
     try:
         found = next(v for k, v in translations_list if k == language)
     except StopIteration:
         found = None
-    return found
-
-
-def get_language_label(config_language, translations_list):
-    return '%s' % (_get_current_translation(config_language, translations_list) or config_language,)
+    return found or config_language
 
 
 def get_translation_url(content_prefix_option, code, pagename):
-    base = '/locale/%s' % code if code and code != default_language else ''
-    return _get_url(content_prefix_option, base, pagename)
-
-
-def _get_url(content_prefix_option, base, pagename):
-    return _add_content_prefix(content_prefix_option, '%s/%s.html' % (base, pagename))
-
-
-def _add_content_prefix(content_prefix_option, url):
-    prefix = ''
-    if content_prefix_option:
-        prefix = '/%s' % content_prefix_option
-    return '%s%s' % (prefix, url)
+    base = f"/locale/{code}" if code != DEFAULT_LANGUAGE else ""
+    prefix = f"/{content_prefix_option}" if content_prefix_option else ""
+    return f"{prefix}{base}/{pagename}.html"
