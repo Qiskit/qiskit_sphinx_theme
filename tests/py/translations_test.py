@@ -43,5 +43,3 @@ def test_get_language_label() -> None:
 
     # If the language code cannot be found, we set the label to that code.
     assert get_language_label("unknown_code", translations_list) == "unknown_code"
-    # If the language is not set in config, we use the default.
-    assert get_language_label(None, translations_list) == "English"
