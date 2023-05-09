@@ -22,6 +22,16 @@ Also in ``docs/conf.py``, it is recommended to set the following configuration v
 * :confval:`sphinx:autodoc_typehints_description_target` to ``"documented_params"`` so that only the types of parameters and return values that are included in the docstring.
 * :confval:`sphinx:autoclass_content` to ``"both"`` so when you use the :rst:dir:`sphinx:autoclass` directive you get the docstrings of both the class and the ``__init__()`` method.
 
+So you should have these lines in your ``docs/conf.py``:
+
+.. code-block:: python
+
+    autosummary_generate = True
+    autosummary_generate_overwrite = False
+    autodoc_typehints = "description"
+    autodoc_typehints_description_target = "documented_params"
+    autoclass_content = "both"
+
 For more details about other configuration variables check out the documentation pages of :mod:`sphinx:sphinx.ext.autosummary` and :mod:`sphinx:sphinx.ext.autodoc`.
 
 .. note::
