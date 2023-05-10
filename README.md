@@ -27,6 +27,12 @@ This package is available on PyPI using:
 ```bash
 pip install qiskit-sphinx-theme
 ```
+
+Then, set up the theme by updating `conf.py`:
+
+1. Set `html_theme = "qiskit_sphinx_theme"`
+2. Add `"qiskit_sphinx_theme"` to `extensions`
+
 ## Configure Left Sidebar
 
 To keep UX/UI similar across different Qiskit packages we strongly encourage the following structure for you sidebar, which can be set in the toctree of your `index.rst`:
@@ -118,7 +124,33 @@ To configure your documentation to use exapandable sidebar headings like the exa
 
 *Tip: if you want to add all files in a sub-directory to your expandable dropdown section you can use the `:glob:` directive instead of listing out each page (see example above for the How-to Guides, API Reference and Explanations sections). This will list out each page in alphabetical order, so if you want a specific order you will need to list the pages out individually in the `toctree` (see example above for the Tutorials section)*
 
+## Enable translations
 
+First, coordinate with the Translations team at https://github.com/qiskit-community/qiskit-translations to express your interest and to coordinate setting up the infrastructure.
+
+Once the Translations team is ready, then update your `conf.py`:
+
+* Ensure that `qiskit_sphinx_theme` is in the `extensions` setting.
+* Set the option `translations_list` to a list of pairs of the locale code and the language name, e.g. `[..., ("de_DE", "German")]`.
+* Set the option `content_prefix` to your project's URL prefix, like `ecosystem/finance`.
+
+For example:
+
+```python
+extensions = [
+   ...,
+   "qiskit_sphinx_theme",
+]
+
+translations_list = [
+    ('en', 'English'),
+    ('bn_BN', 'Bengali'),
+    ('fr_FR', 'French'),
+    ('de_DE', 'German'),
+]
+
+content_prefix = "ecosystem/finance"
+```
 
 ## Enable Qiskit.org Analytics
 

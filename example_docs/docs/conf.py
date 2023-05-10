@@ -1,6 +1,6 @@
 # This code is part of Qiskit.
 #
-# (C) Copyright IBM 2018.
+# (C) Copyright IBM 2018, 2023.
 #
 # This code is licensed under the Apache License, Version 2.0. You may
 # obtain a copy of this license in the LICENSE.txt file in the root directory
@@ -13,8 +13,7 @@
 import os
 import sys
 
-# This allows autodoc to find the `api_example` folder and
-# for us to register our `docs.language_utils` extension.
+# This allows autodoc to find the `api_example` folder.
 sys.path.insert(0, os.path.abspath(".."))
 
 project = 'Qiskit sphinx theme'
@@ -41,7 +40,7 @@ extensions = [
     'jupyter_sphinx',
     'sphinx_design',
     "nbsphinx",
-    "sphinxcontrib.jquery",
+    "qiskit_sphinx_theme",
 ]
 
 html_last_updated_fmt = '%Y/%m/%d'
@@ -71,6 +70,14 @@ html_context = {
     'expandable_sidebar': True
 }
 
+# When creating a new repo, follow the instructions in this repo's README.md on
+# `Enable translations`. Remove this value if you aren't using translations.
+translations_list = [
+    ('en', 'English'),
+    ('bn_BN', 'Bengali'),
+    ('fr_FR', 'French'),
+]
+
 # This allows RST files to put `|version|` in their file and
 # have it updated with the release set in conf.py.
 rst_prolog = f"""
@@ -96,8 +103,3 @@ nbsphinx_execute = "never"
 nbsphinx_thumbnails = {
     "sphinx_guide/notebook": "_static/no_image.png",
 }
-
-
-def setup(app):
-    """Entry point for Sphinx extensions."""
-    app.setup_extension('docs.language_utils')

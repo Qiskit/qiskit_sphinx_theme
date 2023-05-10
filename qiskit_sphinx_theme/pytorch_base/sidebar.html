@@ -18,7 +18,9 @@
             <div class="sidebar-l1-expandable">Previous Releases</div>
             <div class="sidebar-subheadings">
                 {% for version in version_list | sort(reverse=True) %}
-                    <div class="sidebar-l2"><a href="/documentation/stable/{{ version }}/index.html">{{ version }}</a></div>
+                    <div class="sidebar-l2">
+                        <a href="#" onclick="redirectToVersion( {{ version }} )" rel="nofollow">{{ version }}</a>
+                    </div>
                 {% endfor %}
             </div>
         {% endif %}
@@ -85,7 +87,7 @@
 
     // expand and unexpand previous releases dropdown when clicked
     var release_rows = document.getElementsByClassName("sidebar-l1-expandable");
-    for (i = 0; i < expandable_rows.length; i++) {
+    for (i = 0; i < release_rows.length; i++) {
         release_rows[i].addEventListener("click", function() {
             this.classList.toggle("open");
             var clicked_subheadings = this.nextElementSibling;

@@ -42,6 +42,9 @@ contents. */
   --breakpoint-xl: 1200px;
   --font-family-sans-serif: "IBM Plex Sans", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-family-monospace: "IBM Plex Mono", Consolas, "Courier New", monospace;
+  /* This value is duplicated from `top-nav-bar.js`. Its definition of the variable is not exposed
+   * globally. Keep in sync. */
+  --header-height: 3.5rem;
 }
 
 section {
@@ -10634,6 +10637,7 @@ article.pytorch-article h4,
 article.pytorch-article h5,
 article.pytorch-article h6 {
   font-weight: 400;
+  word-wrap: break-word;
 }
 article.pytorch-article h1 a,
 article.pytorch-article h2 a,
@@ -12754,4 +12758,3 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
   text-transform: uppercase;
   padding-right: 5px;
 }
-/*# sourceMappingURL=theme.css.map */
