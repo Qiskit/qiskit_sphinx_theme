@@ -1,26 +1,59 @@
 /* Define some Furo variables. See
  *  https://github.com/pradyunsg/furo/tree/main/src/furo/assets/styles/variables
- *  for all options. */
+ *  for all options.
+ *
+ * Variables that start with `--qiskit-` are new values we use in this file; they are not overrides.
+ */
 body {
     --color-brand-primary: #8A3FFC;
     --color-brand-content: #8A3FFC;
     --font-stack: 'IBM Plex Sans', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
     --font-stack--monospace: 'IBM Plex Mono', 'Consolas', 'Courier New', monospace;
+    /* This value is duplicated from `top-nav-bar.js`. Its definition of the variable is not
+     * exposed globally. Keep in sync. */
+    --qiskit-top-nav-bar-height: 3.5rem;
+}
+
+/* ------------------------------
+* Top nav bar
+* ------------------------------ */
+
+/* Disable dark mode until qiskit.org has it: https://github.com/Qiskit/qiskit.org/issues/2310 */
+.theme-toggle-container {
+  display: none;
+}
+
+/* Fix Qiskit top nav bar hiding Furo's top nav bar when scrolled down. */
+.mobile-header,
+.sidebar-sticky,
+.toc-sticky {
+  top: var(--qiskit-top-nav-bar-height);
+}
+
+/* Show the whole contents of the mobile expandable menus.
+*  `box-sizing: border-box` ensures padding is included in the height calculations. */
+@media (max-width: 67em) {
+  .sidebar-drawer {
+    padding-top: var(--qiskit-top-nav-bar-height);
+    box-sizing: border-box;
+  }
+}
+@media (max-width: 82em) {
+  .toc-drawer {
+    padding-top: var(--qiskit-top-nav-bar-height);
+    box-sizing: border-box;
+  }
 }
 
 /* ------------------------------
 * User analytics in the footer
 * ------------------------------ */
 
-/* TODO: why won't the border render?? */
-footer .helpful-hr {
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-}
-
 footer .helpful-container {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
+  border-top: 1px solid var(--color-background-border);
+  border-bottom: 1px solid var(--color-background-border);
+  color: var(--color-foreground-secondary);
 }
 
 footer .helpful-container .helpful-question,
@@ -36,6 +69,7 @@ footer .helpful-container .was-helpful-thank-you {
 .helpful-container .helpful-question.no-link {
   color: #8B34FC;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .helpful-container .helpful-question.yes-link:hover,

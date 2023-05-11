@@ -3,6 +3,12 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <script src="{{ pathto('_static/js/web-components/top-nav-bar.js', 1) }}"></script>
 <script type="text/javascript" src="{{ pathto('_static/js/utils.js', 1) }}"></script>
+<script>
+  {#- Force light mode. -#}
+  document.addEventListener("DOMContentLoaded", function () {
+    document.body.setAttribute("data-theme", "light");
+  });
+</script>
 
 {%- if analytics_enabled %}
 <script>
