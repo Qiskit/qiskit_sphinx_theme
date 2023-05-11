@@ -1,3 +1,6 @@
+from __future__ import annotations
+
+from typing import overload
 
 class Electron:
     """A representation of an electron."""
@@ -33,3 +36,38 @@ class Electron:
     
     def method_with_a_reallyyreallreallyreallyreallyreallyreallreallyreallyreallyreally_long_title(self):
         """blahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblah"""
+
+    @overload
+    def overloaded_func(
+        self,
+        arg1: tuple[str, str],
+        arg2: list[str],
+        arg3: int,
+        arg4: Electron,
+    ) -> None:
+        ...
+
+    @overload
+    def overloaded_func(
+        self,
+        arg1: tuple[int, int],
+        arg2: list[int],
+        arg3: bool,
+        arg4: set[Electron],
+    ) -> None:
+        ...
+
+    def overloaded_func(
+        self,
+        arg1: tuple[str, str] | tuple[int, int],
+        arg2: list[str] | list[int],
+        arg3: int | bool,
+        arg4: Electron | set[Electron],
+    ) -> None:
+        """This is meant to test out https://github.com/Qiskit/qiskit_sphinx_theme/pull/319.
+
+        :param arg1: Tuples ftw!
+        :param arg2: But lists are more flexy.
+        :param arg3: Primitive values are good too.
+        :param arg4: Recursionnnnn.
+        """
