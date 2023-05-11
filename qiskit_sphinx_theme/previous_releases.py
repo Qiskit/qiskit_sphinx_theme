@@ -21,10 +21,10 @@ if TYPE_CHECKING:
 
 
 def setup(app: sphinx.application.Sphinx) -> None:
-    app.connect('config-inited', _extend_html_context)
+    app.connect('config-inited', extend_html_context)
 
 
-def _extend_html_context(_: sphinx.application.Sphinx, config: sphinx.config.Config) -> None:
+def extend_html_context(_: sphinx.application.Sphinx, config: sphinx.config.Config) -> None:
     context = config.html_context
     if context.get("version_list") and not config.docs_url_prefix:
         raise Exception(

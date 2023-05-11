@@ -24,10 +24,10 @@ DEFAULT_LANGUAGE = 'en'
 
 def setup(app: sphinx.application.Sphinx) -> None:
     app.add_config_value("translations_list", default=[], rebuild="html", types=[list])
-    app.connect('config-inited', _extend_html_context)
+    app.connect('config-inited', extend_html_context)
 
 
-def _extend_html_context(_: sphinx.application.Sphinx, config: sphinx.config.Config) -> None:
+def extend_html_context(_: sphinx.application.Sphinx, config: sphinx.config.Config) -> None:
     context = config.html_context
     context['translations_list'] = config.translations_list
     if config.translations_list and not config.docs_url_prefix:
