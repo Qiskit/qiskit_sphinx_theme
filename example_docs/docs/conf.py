@@ -25,7 +25,6 @@ release = "9.99"
 # This allows including custom CSS and HTML templates.
 html_static_path = ['_static']
 templates_path = ['_templates']
-html_css_files = ['gallery.css']
 
 # Sphinx should ignore these patterns when building.
 exclude_patterns = ['_build', '**.ipynb_checkpoints']
