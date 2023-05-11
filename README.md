@@ -161,7 +161,10 @@ First, start additionally deploying your docs to `<project-prefix>/stable/<versi
 Then, update your `conf.py`:
 
 * Ensure that `qiskit_sphinx_theme` is in the `extensions` setting.
-* Add to the option `html_context` an entry for `version_list` with a list of the prior versions, e.g. `["0.4", "0.5"]`. Each of these versions must be deployed with the above `stable/<version>` URL scheme.
+* Add to the option `html_context` an entry for `version_list` with a list of the prior versions, e.g. `["0.4", "0.5"]`.
+  * Each of these versions must be deployed with the above `stable/<version>` URL scheme.
+  * You can manually set this, or some projects write a Sphinx extension to dynamically compute the value.
+  * You should only put prior versions in this list, not the current release.
 * Set the option `docs_url_prefix` to your project's URL prefix, like `ecosystem/finance`.
 
 For example:
