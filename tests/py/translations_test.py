@@ -6,8 +6,8 @@ from qiskit_sphinx_theme.translations import get_language_label, get_translation
 @pytest.mark.parametrize(
     "docs_url_prefix,page,expected",
     [
-        ("", "index", "/index.html"),
-        ("", "subdir/my_page", "/subdir/my_page.html"),
+        ("documentation", "index", "/documentation/index.html"),
+        ("documentation", "subdir/my_page", "/documentation/subdir/my_page.html"),
         ("ecosystem/finance", "index", "/ecosystem/finance/index.html"),
         ("ecosystem/finance", "subdir/my_page", "/ecosystem/finance/subdir/my_page.html"),
     ]
@@ -24,8 +24,8 @@ def test_get_translation_url_default_language(
 @pytest.mark.parametrize(
     "docs_url_prefix,page,expected",
     [
-        ("", "index", "/locale/fr_FR/index.html"),
-        ("", "subdir/my_page", "/locale/fr_FR/subdir/my_page.html"),
+        ("documentation", "index", "/documentation/locale/fr_FR/index.html"),
+        ("documentation", "subdir/my_page", "/documentation/locale/fr_FR/subdir/my_page.html"),
         ("ecosystem/finance", "index", "/ecosystem/finance/locale/fr_FR/index.html"),
         (
             "ecosystem/finance",
