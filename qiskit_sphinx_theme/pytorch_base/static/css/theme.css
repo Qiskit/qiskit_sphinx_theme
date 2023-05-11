@@ -10967,7 +10967,7 @@ article.pytorch-article .class .attribute dt {
   border-top: none;
 }
 article.pytorch-article .class .attribute dt em.property {
-  text-transform: capitalize;
+  text-transform: none;
   position: relative;
   left: 0;
 }
