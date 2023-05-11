@@ -101,5 +101,5 @@ numfig_format = {
 # Settings for Jupyter notebooks.
 nbsphinx_execute = "never"
 nbsphinx_thumbnails = {
-    "sphinx_guide/notebook": "_static/no_image.png",
+    "sphinx_guide/notebook": "_static/images/logo.png",
 }
