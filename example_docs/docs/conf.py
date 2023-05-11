@@ -67,7 +67,11 @@ html_context = {
     'version_list': [0.1, 0.2, 0.3],
     # This allows docs authors to have folders that can be
     # closed and opened in the left sidebar.
-    'expandable_sidebar': True
+    'expandable_sidebar': True,
+    # The theme distributes a few opt-in overrides of autodoc.
+    # You can choose which to use by listing the file names here. Otherwise,
+    # it will use the default from autodoc.
+    "use_autodoc_overrides": ["class.rst"],
 }
 
 # When creating a new repo, follow the instructions in this repo's README.md on
