@@ -17,7 +17,7 @@ def test_get_translation_url_default_language(
 ) -> None:
     """For the default language (English), we leave off /locale from the URL."""
     assert get_translation_url(
-        content_prefix_option=docs_url_prefix, code="en", pagename=page
+        content_prefix_option=docs_url_prefix, language_code="en", pagename=page
     ) == expected
 
 
@@ -39,7 +39,7 @@ def test_get_translation_url_translated_language(
 ) -> None:
     """For translations, the URL should include /locale/<code>/."""
     assert get_translation_url(
-        content_prefix_option=docs_url_prefix, code="fr_FR", pagename=page
+        content_prefix_option=docs_url_prefix, language_code="fr_FR", pagename=page
     ) == expected
 
 
