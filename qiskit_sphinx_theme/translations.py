@@ -26,34 +26,34 @@ def setup(app):
 def _extend_html_context(app, config):
     context = config.html_context
     context['translations_list'] = config.translations_list
-    context['translation_url'] = partial(_get_translation_url, config)
-    context['language_label'] = _get_language_label(config)
+    context['translation_url'] = partial(get_translation_url, config.content_prefix)
+    context['language_label'] = get_language_label(config.language, config.translations_list)
 
 
-def _get_current_translation(config):
-    language = config.language or default_language
+def _get_current_translation(config_language, translations_list):
+    language = config_language or default_language
     try:
-        found = next(v for k, v in config.translations_list if k == language)
+        found = next(v for k, v in translations_list if k == language)
     except StopIteration:
         found = None
     return found
 
 
-def _get_translation_url(config, code, pagename):
+def get_language_label(config_language, translations_list):
+    return '%s' % (_get_current_translation(config_language, translations_list) or config_language,)
+
+
+def get_translation_url(content_prefix_option, code, pagename):
     base = '/locale/%s' % code if code and code != default_language else ''
-    return _get_url(config, base, pagename)
+    return _get_url(content_prefix_option, base, pagename)
 
 
-def _get_language_label(config):
-    return '%s' % (_get_current_translation(config) or config.language,)
+def _get_url(content_prefix_option, base, pagename):
+    return _add_content_prefix(content_prefix_option, '%s/%s.html' % (base, pagename))
 
 
-def _get_url(config, base, pagename):
-    return _add_content_prefix(config, '%s/%s.html' % (base, pagename))
-
-
-def _add_content_prefix(config, url):
+def _add_content_prefix(content_prefix_option, url):
     prefix = ''
-    if config.content_prefix:
-        prefix = '/%s' % config.content_prefix
+    if content_prefix_option:
+        prefix = '/%s' % content_prefix_option
     return '%s%s' % (prefix, url)

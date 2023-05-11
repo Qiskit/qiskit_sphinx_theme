@@ -5,11 +5,11 @@ const { expect, test } = require("@jest/globals");
 test("top-nav-bar.js should have identical content", async () => {
   const furoFp = path.resolve(
     __dirname,
-    "../qiskit_sphinx_theme/furo/base/static/js/web-components/top-nav-bar.js"
+    "../../qiskit_sphinx_theme/furo/base/static/js/web-components/top-nav-bar.js"
   );
   const pytorchFp = path.resolve(
     __dirname,
-    "../qiskit_sphinx_theme/pytorch_base/static/js/web-components/top-nav-bar.js"
+    "../../qiskit_sphinx_theme/pytorch_base/static/js/web-components/top-nav-bar.js"
   );
 
   const furo = await fs.readFile(furoFp, "utf8");

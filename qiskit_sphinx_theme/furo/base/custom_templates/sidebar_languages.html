@@ -13,12 +13,14 @@
     </dl>
   </div>
   <script>
-    jQuery('.version').click((evt) => {
-      const hash = window.location.hash
-      const complete_url = evt.target.href + hash
-      window.location = complete_url
-      evt.preventDefault()
-    })
+    document.querySelectorAll('.version').forEach((element) => {
+      element.addEventListener('click', (evt) => {
+        const hash = window.location.hash;
+        const complete_url = evt.target.href + hash;
+        window.location = complete_url;
+        evt.preventDefault();
+      });
+    });
   </script>
 </div>
 {% endif %}
