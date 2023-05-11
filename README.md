@@ -152,6 +152,33 @@ translations_list = [
 docs_url_prefix = "ecosystem/finance"
 ```
 
+## Enable Previous Releases
+
+This feature allows you to link to previous versions of the docs in the left sidebar.
+
+First, start additionally deploying your docs to `<project-prefix>/stable/<version>/`, e.g. `/ecosystem/finance/stable/0.5/index.html`. See https://github.com/Qiskit/qiskit-experiments/blob/227867937a08075092cd11756214bee3fb1d4d3d/tools/deploy_documentation.sh#L38-L39 for an example.
+
+Then, update your `conf.py`:
+
+* Ensure that `qiskit_sphinx_theme` is in the `extensions` setting.
+* Add to the option `html_context` an entry for `version_list` with a list of the prior versions, e.g. `["0.4", "0.5"]`. Each of these versions must be deployed with the above `stable/<version>` URL scheme.
+* Set the option `docs_url_prefix` to your project's URL prefix, like `ecosystem/finance`.
+
+For example:
+
+```python
+extensions = [
+   ...,
+   "qiskit_sphinx_theme",
+]
+
+html_context = {
+   "version_list": ["0.4", "0.5"],
+}
+
+docs_url_prefix = "ecosystem/finance"
+```
+
 ## Enable Qiskit.org Analytics
 
 Qiskit.org uses Segment Analytics to collect information on traffic to sites under the qiskit.org domain. This is not enabled by default but if you would like to enable it you can add a `analytics_enabled` variable to the `html_context` object in your `conf.py`. Setting this to `True` will enable analytics for your site once it is deployed to `qiskit.org/documentation`. 
