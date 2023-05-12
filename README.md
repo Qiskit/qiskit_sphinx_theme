@@ -152,6 +152,15 @@ translations_list = [
 content_prefix = "ecosystem/finance"
 ```
 
+## Use custom RST directives
+
+The `qiskit_sphinx_theme` extension defines the below custom directives for you to use in RST, if you'd like. See `example_docs/docs/sphinx_guide/custom_directives.rst` for examples of how to use them.
+
+* `customcardelement`
+* `customcalloutitem`
+
+![Screenshot of examples of custom directives](example_docs/screenshots/custom_directives.png)
+
 ## Enable Qiskit.org Analytics
 
 Qiskit.org uses Segment Analytics to collect information on traffic to sites under the qiskit.org domain. This is not enabled by default but if you would like to enable it you can add a `analytics_enabled` variable to the `html_context` object in your `conf.py`. Setting this to `True` will enable analytics for your site once it is deployed to `qiskit.org/documentation`. 

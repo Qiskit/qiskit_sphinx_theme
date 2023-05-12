@@ -3,7 +3,7 @@
 from pathlib import Path
 from warnings import warn
 
-from qiskit_sphinx_theme import translations
+from qiskit_sphinx_theme import directives, translations
 
 __version__ = '1.11.0rc1'
 __version_full__ = __version__
@@ -34,8 +34,8 @@ def get_html_theme_path():
 
 # See https://www.sphinx-doc.org/en/master/development/theming.html
 def setup(app):
-    # We always activate translations support, but users need to set `translations_list` in config
-    # for it to be used.
+    # We always activate these plugins, but users need to use them to actually do anything.
+    directives.setup(app)
     translations.setup(app)
 
     app.add_html_theme("qiskit_sphinx_theme", _get_theme_absolute_path("pytorch_base"))
