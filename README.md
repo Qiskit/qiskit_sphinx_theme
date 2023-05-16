@@ -132,7 +132,7 @@ Once the Translations team is ready, then update your `conf.py`:
 
 * Ensure that `qiskit_sphinx_theme` is in the `extensions` setting.
 * Set the option `translations_list` to a list of pairs of the locale code and the language name, e.g. `[..., ("de_DE", "German")]`.
-* Set the option `content_prefix` to your project's URL prefix, like `ecosystem/finance`.
+* Set the option `docs_url_prefix` to your project's URL prefix, like `ecosystem/finance`.
 
 For example:
 
@@ -149,8 +149,47 @@ translations_list = [
     ('de_DE', 'German'),
 ]
 
-content_prefix = "ecosystem/finance"
+docs_url_prefix = "ecosystem/finance"
 ```
+
+## Enable Previous Releases
+
+This feature allows you to link to previous versions of the docs in the left sidebar.
+
+First, start additionally deploying your docs to `<project-prefix>/stable/<version>/`, e.g. `/ecosystem/finance/stable/0.5/index.html`. See https://github.com/Qiskit/qiskit-experiments/blob/227867937a08075092cd11756214bee3fb1d4d3d/tools/deploy_documentation.sh#L38-L39 for an example.
+
+Then, update your `conf.py`:
+
+* Ensure that `qiskit_sphinx_theme` is in the `extensions` setting.
+* Add to the option `html_context` an entry for `version_list` with a list of the prior versions, e.g. `["0.4", "0.5"]`.
+  * Each of these versions must be deployed with the above `stable/<version>` URL scheme.
+  * You can manually set this, or some projects write a Sphinx extension to dynamically compute the value.
+  * You should only put prior versions in this list, not the current release.
+* Set the option `docs_url_prefix` to your project's URL prefix, like `ecosystem/finance`.
+
+For example:
+
+```python
+extensions = [
+   ...,
+   "qiskit_sphinx_theme",
+]
+
+html_context = {
+   "version_list": ["0.4", "0.5"],
+}
+
+docs_url_prefix = "ecosystem/finance"
+```
+
+## Use custom RST directives
+
+The `qiskit_sphinx_theme` extension defines the below custom directives for you to use in RST, if you'd like. See `example_docs/docs/sphinx_guide/custom_directives.rst` for examples of how to use them.
+
+* `qiskit-card-item`
+* `qiskit-call-to-action-item`
+
+![Screenshot of examples of custom directives](https://github.com/Qiskit/qiskit_sphinx_theme/assets/14852634/9c672417-6451-4547-bc36-10709f7f3880)
 
 ## Enable Qiskit.org Analytics
 

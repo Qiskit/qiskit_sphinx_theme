@@ -1,9 +1,21 @@
+# This code is part of Qiskit.
+#
+# (C) Copyright IBM 2020, 2023.
+#
+# This code is licensed under the Apache License, Version 2.0. You may
+# obtain a copy of this license in the LICENSE.txt file in the root directory
+# of this source tree or at http://www.apache.org/licenses/LICENSE-2.0.
+#
+# Any modifications or derivative works of this code must retain this
+# copyright notice, and modified files need to carry a notice indicating
+# that they have been altered from the originals.
+
 """Pytorch Sphinx theme."""
 
 from pathlib import Path
 from warnings import warn
 
-from qiskit_sphinx_theme import translations
+from qiskit_sphinx_theme import directives, previous_releases, translations
 
 __version__ = '1.11.0rc1'
 __version_full__ = __version__
@@ -34,8 +46,15 @@ def get_html_theme_path():
 
 # See https://www.sphinx-doc.org/en/master/development/theming.html
 def setup(app):
-    # We always activate translations support, but users need to set `translations_list` in config
-    # for it to be used.
+    # Used to generate URL references. Expected to be e.g. `ecosystem/finance`.
+    app.add_config_value("docs_url_prefix", default=None, rebuild="html", types=[str])
+
+    # We always activate these plugins, but they are only used when users:
+    # * use the directives in their RST,
+    # * set `translations_list` in conf.py, or
+    # * set `versions_list` in conf.py.
+    directives.setup(app)
+    previous_releases.setup(app)
     translations.setup(app)
 
     app.add_html_theme("qiskit_sphinx_theme", _get_theme_absolute_path("pytorch_base"))

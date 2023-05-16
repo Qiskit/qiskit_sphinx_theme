@@ -28,5 +28,6 @@ Qiskit sphinx theme |version| documentation
    sphinx_guide/paragraph
    sphinx_guide/structural
    sphinx_guide/notebook_gallery
+   sphinx_guide/custom_directives
    sphinx_guide/long_title
    GitHub <https://github.com/Qiskit/qiskit-terra>
