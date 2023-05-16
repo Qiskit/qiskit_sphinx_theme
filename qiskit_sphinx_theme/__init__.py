@@ -15,7 +15,7 @@
 from pathlib import Path
 from warnings import warn
 
-from qiskit_sphinx_theme import directives, translations
+from qiskit_sphinx_theme import directives, previous_releases, translations
 
 __version__ = '1.11.0rc1'
 __version_full__ = __version__
@@ -46,8 +46,15 @@ def get_html_theme_path():
 
 # See https://www.sphinx-doc.org/en/master/development/theming.html
 def setup(app):
-    # We always activate these plugins, but users need to use them in their `.rst` files to actually do anything.
+    # Used to generate URL references. Expected to be e.g. `ecosystem/finance`.
+    app.add_config_value("docs_url_prefix", default=None, rebuild="html", types=[str])
+
+    # We always activate these plugins, but they are only used when users:
+    # * use the directives in their RST,
+    # * set `translations_list` in conf.py, or
+    # * set `versions_list` in conf.py.
     directives.setup(app)
+    previous_releases.setup(app)
     translations.setup(app)
 
     app.add_html_theme("qiskit_sphinx_theme", _get_theme_absolute_path("pytorch_base"))

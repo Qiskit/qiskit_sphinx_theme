@@ -1,13 +1,19 @@
+from unittest.mock import Mock
+
 import pytest
 
-from qiskit_sphinx_theme.translations import get_language_label, get_translation_url
+from qiskit_sphinx_theme.translations import (
+    extend_html_context,
+    get_language_label,
+    get_translation_url,
+)
 
 
 @pytest.mark.parametrize(
     "docs_url_prefix,page,expected",
     [
-        ("", "index", "/index.html"),
-        ("", "subdir/my_page", "/subdir/my_page.html"),
+        ("documentation", "index", "/documentation/index.html"),
+        ("documentation", "subdir/my_page", "/documentation/subdir/my_page.html"),
         ("ecosystem/finance", "index", "/ecosystem/finance/index.html"),
         ("ecosystem/finance", "subdir/my_page", "/ecosystem/finance/subdir/my_page.html"),
     ]
@@ -17,15 +23,15 @@ def test_get_translation_url_default_language(
 ) -> None:
     """For the default language (English), we leave off /locale from the URL."""
     assert get_translation_url(
-        content_prefix_option=docs_url_prefix, language_code="en", pagename=page
+        docs_url_prefix=docs_url_prefix, language_code="en", pagename=page
     ) == expected
 
 
 @pytest.mark.parametrize(
     "docs_url_prefix,page,expected",
     [
-        ("", "index", "/locale/fr_FR/index.html"),
-        ("", "subdir/my_page", "/locale/fr_FR/subdir/my_page.html"),
+        ("documentation", "index", "/documentation/locale/fr_FR/index.html"),
+        ("documentation", "subdir/my_page", "/documentation/locale/fr_FR/subdir/my_page.html"),
         ("ecosystem/finance", "index", "/ecosystem/finance/locale/fr_FR/index.html"),
         (
             "ecosystem/finance",
@@ -39,7 +45,7 @@ def test_get_translation_url_translated_language(
 ) -> None:
     """For translations, the URL should include /locale/<code>/."""
     assert get_translation_url(
-        content_prefix_option=docs_url_prefix, language_code="fr_FR", pagename=page
+        docs_url_prefix=docs_url_prefix, language_code="fr_FR", pagename=page
     ) == expected
 
 
@@ -61,3 +67,27 @@ def test_get_language_label(language_code: str, expected: str) -> None:
         ('fr_FR', 'French'),
     ]
     assert get_language_label(language_code, translations_list) == expected
+
+
+def test_docs_url_prefix_validation() -> None:
+    """Check that we error if `docs_url_prefix` is not set when `translations_list` is.
+
+    But, we should no-op if `translations_list` is not set.
+    """
+    valid_config_with_translations = Mock(
+        html_context={},
+        translations_list=[("lang", "Language")],
+        docs_url_prefix="ecosystem/finance",
+    )
+    extend_html_context(Mock(), valid_config_with_translations)
+
+    valid_config_no_translations = Mock(
+        html_context={}, translations_list=[], docs_url_prefix=None
+    )
+    extend_html_context(Mock(), valid_config_no_translations)
+
+    invalid_config = Mock(
+        html_context={}, translations_list=[("lang", "Language")], docs_url_prefix=None
+    )
+    with pytest.raises(Exception):
+        extend_html_context(Mock(), invalid_config)
