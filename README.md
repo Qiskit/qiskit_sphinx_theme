@@ -159,7 +159,7 @@ The `qiskit_sphinx_theme` extension defines the below custom directives for you 
 * `qiskit-card-item`
 * `qiskit-call-to-action-item`
 
-![Screenshot of examples of custom directives](example_docs/screenshots/custom_directives.png)
+![Screenshot of examples of custom directives](https://github.com/Qiskit/qiskit_sphinx_theme/assets/14852634/9c672417-6451-4547-bc36-10709f7f3880)
 
 ## Enable Qiskit.org Analytics
 
