@@ -46,7 +46,7 @@ def get_html_theme_path():
 
 # See https://www.sphinx-doc.org/en/master/development/theming.html
 def setup(app):
-    # We always activate these plugins, but users need to use them to actually do anything.
+    # We always activate these plugins, but users need to use them in their `.rst` files to actually do anything.
     directives.setup(app)
     translations.setup(app)
 
