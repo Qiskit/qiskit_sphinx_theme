@@ -23,12 +23,12 @@ if TYPE_CHECKING:
 
 
 def setup(app: sphinx.application.Sphinx) -> None:
-    app.add_directive(CustomCardItemDirective.NAME, CustomCardItemDirective)
-    app.add_directive(CustomCalloutItemDirective.NAME, CustomCalloutItemDirective)
+    app.add_directive(CardItemDirective.NAME, CardItemDirective)
+    app.add_directive(CallToActionItemDirective.NAME, CallToActionItemDirective)
 
 
-class CustomCardItemDirective(Directive):
-    NAME = "customcarditem"
+class CardItemDirective(Directive):
+    NAME = "qiskit-card-item"
 
     option_spec = {
         "header": directives.unchanged,
@@ -71,8 +71,8 @@ class CustomCardItemDirective(Directive):
         return [card]
 
 
-class CustomCalloutItemDirective(Directive):
-    NAME = "customcalloutitem"
+class CallToActionItemDirective(Directive):
+    NAME = "qiskit-call-to-action-item"
 
     option_spec = {
         "header": directives.unchanged,

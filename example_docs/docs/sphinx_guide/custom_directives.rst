@@ -2,15 +2,15 @@
 Custom Directives
 =================
 
-customcalloutitem
-=================
+qiskit-call-to-action-item
+==========================
 
 .. raw:: html
 
    <div class="tutorials-callout-container">
       <div class="row">
 
-.. customcalloutitem::
+.. qiskit-call-to-action-item::
    :header: Go back to qiskit.org!
    :description: That's a cool site too :)
    :button_link:  https://qiskit.org
@@ -22,8 +22,8 @@ customcalloutitem
    </div>
 
 
-customcarditem
-==============
+qiskit-card-item
+================
 
 .. raw:: html
 
@@ -37,7 +37,7 @@ customcarditem
   Note: To get the `image` working locally, we have to use a relative link like `../`. In
   production, it should simply be `_static/ibm_qlab.png.
 
-.. customcarditem::
+.. qiskit-card-item::
   :header: IBM Quantum Lab
   :card_description: Build quantum applications and experiments with Qiskit in a cloud programming environment.
   :image: ../_static/ibm_qlab.png

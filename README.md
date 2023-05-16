@@ -156,8 +156,8 @@ content_prefix = "ecosystem/finance"
 
 The `qiskit_sphinx_theme` extension defines the below custom directives for you to use in RST, if you'd like. See `example_docs/docs/sphinx_guide/custom_directives.rst` for examples of how to use them.
 
-* `customcardelement`
-* `customcalloutitem`
+* `qiskit-card-item`
+* `qiskit-call-to-action-item`
 
 ![Screenshot of examples of custom directives](example_docs/screenshots/custom_directives.png)
 
