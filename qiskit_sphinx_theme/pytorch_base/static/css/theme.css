@@ -9859,11 +9859,6 @@ a:visited code.highlighter-rouge,
 a:hover code.highlighter-rouge {
   color: #4974D1;
 }
-a:link.has-code,
-a:visited.has-code,
-a:hover.has-code {
-  color: #4974D1;
-}
 
 p code,
 h1 code,
@@ -10595,17 +10590,6 @@ a.headerlink {
 
 a.headerlink:hover{
   color: var(--purple) !important;
-}
-
-a:link.has-code,
-a:hover.has-code,
-a:visited.has-code {
-  color: #4974D1;
-}
-a:link.has-code span,
-a:hover.has-code span,
-a:visited.has-code span {
-  color: #4974D1;
 }
 
 article.pytorch-article ul,
