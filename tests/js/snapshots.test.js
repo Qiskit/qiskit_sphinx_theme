@@ -169,6 +169,15 @@ test.describe("left side bar", () => {
     const translations = page.locator("div.qiskit-translations-container");
     await expect(translations).toHaveScreenshot();
   });
+
+  test("previous releases are expandable", async ({ page }) => {
+    await page.goto("");
+    await click(page, "div.qiskit-previous-releases-container i");
+    const previousReleases = page.locator(
+      "div.qiskit-previous-releases-container"
+    );
+    await expect(previousReleases).toHaveScreenshot();
+  });
 });
 
 test.describe("footer", () => {
