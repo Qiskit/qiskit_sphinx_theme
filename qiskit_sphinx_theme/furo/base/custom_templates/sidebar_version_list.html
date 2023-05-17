@@ -1,8 +1,8 @@
 {% if version_list %}
-    <div class="sidebar-l1-expandable">Previous Releases</div>
-    <div class="sidebar-subheadings">
+    <div>Previous Releases</div>
+    <div>
         {% for version in version_list | sort(reverse=True) %}
-            <div class="sidebar-l2">
+            <div>
                 <a href="{{ previous_versions_url(version) }}" rel="nofollow">{{ version }}</a>
             </div>
         {% endfor %}
