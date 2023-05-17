@@ -30,7 +30,6 @@ setup(
     ],
     install_requires=[
         "docutils",
-        "furo @ git+https://github.com/pradyunsg/furo.git@48c0bf2aa983fb1ccd79b4167fe85387249afedf",
         "sphinx",
         "sphinxcontrib-jquery",  # Remove once we get rid of the Pytorch theme.
     ],
