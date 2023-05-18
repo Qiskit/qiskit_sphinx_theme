@@ -1,3 +1,7 @@
+from __future__ import annotations
+
+from typing import overload
+
 
 class Electron:
     """A representation of an electron."""
@@ -5,9 +9,12 @@ class Electron:
     def __init__(self, size: str = None, name: str = None) -> None:
         """Create an electron.
 
-        :param size: How big should this thing be?
-        :param name: The name we'll call the electron. Nicknames preferred.
-        :raises ValueError: You did something wrong
+        Args:
+            size: How big should this thing be?
+            name: The name we'll call the electron. Nicknames preferred.
+
+        Raises:
+            ValueError: You did something wrong
         """
 
     @property
@@ -26,10 +33,51 @@ class Electron:
     def compute_momentum(self, velocity: float) -> float:
         """Compute the electron's velocity.
 
-        :param velocity: The electron's velocity
-        :return: The computed momentum.
-        :raises ValueError: You did something wrong
+        Args:
+            velocity: The electron's velocity
+
+        Returns:
+            The computed momentum.
+
+        Raises:
+            ValueError: You did something wrong
         """
     
     def method_with_a_reallyyreallreallyreallyreallyreallyreallreallyreallyreallyreally_long_title(self):
         """blahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblah"""
+
+    @overload
+    def overloaded_func(
+        self,
+        arg1: tuple[str, str],
+        arg2: list[str],
+        arg3: int,
+        arg4: Electron,
+    ) -> None:
+        ...
+
+    @overload
+    def overloaded_func(
+        self,
+        arg1: tuple[int, int],
+        arg2: list[int],
+        arg3: bool,
+        arg4: set[Electron],
+    ) -> None:
+        ...
+
+    def overloaded_func(
+        self,
+        arg1: tuple[str, str] | tuple[int, int],
+        arg2: list[str] | list[int],
+        arg3: int | bool,
+        arg4: Electron | set[Electron],
+    ) -> None:
+        """This is meant to test out https://github.com/Qiskit/qiskit_sphinx_theme/pull/319.
+
+        Args:
+            arg1: Tuples ftw!
+            arg2: But lists are more flexy.
+            arg3: Primitive values are good too.
+            arg4: Recursionnnnn.
+        """
