@@ -2,7 +2,7 @@ from setuptools import find_namespace_packages, setup
 
 setup(
     name='qiskit_sphinx_theme',
-    version='1.11.0rc1',
+    version='1.12.0rc1',
     author="Qiskit Development Team",
     author_email="hello@qiskit.org",
     url="https://github.com/Qiskit/qiskit_sphinx_theme",
@@ -30,7 +30,6 @@ setup(
     ],
     install_requires=[
         "docutils",
-        "furo @ git+https://github.com/pradyunsg/furo.git@48c0bf2aa983fb1ccd79b4167fe85387249afedf",
         "sphinx",
         "sphinxcontrib-jquery",  # Remove once we get rid of the Pytorch theme.
     ],
