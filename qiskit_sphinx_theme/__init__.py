@@ -17,7 +17,7 @@ from warnings import warn
 
 from qiskit_sphinx_theme import directives, previous_releases, translations
 
-__version__ = '1.12.0rc1'
+__version__ = '1.12.0'
 __version_full__ = __version__
 
 
