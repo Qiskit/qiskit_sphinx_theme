@@ -42,7 +42,9 @@ extensions = [
     "qiskit_sphinx_theme",
 ]
 
-html_last_updated_fmt = '%Y/%m/%d'
+# Usually this would be something like "%Y/%m/%d", but we need a deterministic value for our Jest
+# snapshot tests.
+html_last_updated_fmt = "2020/01/01"
 
 # This allows us to test both the Furo and Pytorch themes. In normal repositories, `html_theme`
 # would be set to one specific theme.

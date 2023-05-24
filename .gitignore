@@ -133,3 +133,4 @@ dmypy.json
 
 # JavaScript
 /node_modules
+/tests/js/__image_snapshots__/__diff_output__

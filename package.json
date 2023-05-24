@@ -2,9 +2,13 @@
   "name": "qiskit_sphinx_theme",
   "version": "1.0.0",
   "devDependencies": {
-    "jest": "^29.5.0"
+    "http-server": "^14.1.1",
+    "jest": "^29.5.0",
+    "jest-image-snapshot": "^6.1.0",
+    "puppeteer": "^20.3.0"
   },
   "scripts": {
+    "start": "cd example_docs/docs/_build/html; http-server",
     "test": "jest"
   },
   "jest": {
@@ -15,6 +19,9 @@
       "/.tox",
       "/build",
       "/dist"
+    ],
+    "setupFilesAfterEnv": [
+      "./tests/js/jest.setup.js"
     ]
   }
 }

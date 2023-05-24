@@ -56,7 +56,13 @@ To run these tests, you first need to install Node.js on your machine. If you ex
 Then:
 
 1. `npm install`
-2. `npm test`
+2. Build the Furo docs, `THEME=_qiskit_furo tox -e docs`
+3. Start the server, `npm start`. (To stop the server later, enter `ctrl-c`.)
+4. In a new terminal tab, `npm test`
+
+You must rebuild the Furo docs whenever you make changes to the theme; the docs will not automatically rebuild.
+
+These tests use [Jest snapshot testing](https://jestjs.io/docs/snapshot-testing) to take screenshots of the site and check that every change we make is intentional. Jest will fail if the screenshot has changed. You can inspect `tests/js/__image_snapshots__/__diff_output__` to compare the before and after. If your change was intentional, then regenerate the screenshots by running `npm test -- -u`.
 
 ------
 ## Updating bundled web components

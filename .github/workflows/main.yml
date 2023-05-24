@@ -15,8 +15,6 @@ jobs:
           node-version: 18
       - name: Install Node.js dependencies
         run: npm ci
-      - name: Run Node.js tests
-        run: npm test
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
@@ -30,6 +28,9 @@ jobs:
       # For some reason, the Jupyter Extension fails to build properly if one theme has already
       # been built with a custom BUILD_DIR. So, we eagerly upload the artifacts for each theme
       # build, and then delete the BUILD_DIR before proceeding to the next theme.
+      #
+      # But, we build Furo with the default BUILD_DIR because our JavaScript Snapshot tests start
+      # the server at that standard location.
       - name: Create artifacts/ folder
         run: mkdir artifacts
       - name: Build Legacy theme
@@ -40,10 +41,15 @@ jobs:
           rm -rf example_docs/_build_legacy
       - name: Build Furo theme
         run: |
-          THEME=_qiskit_furo BUILD_DIR=example_docs/_build_furo/html tox run -e docs
-          tar -zcvf furo_html_docs.tar.gz example_docs/_build_furo/html
+          THEME=_qiskit_furo tox run -e docs
+          tar -zcvf furo_html_docs.tar.gz example_docs/docs/_build/html
           mv furo_html_docs.tar.gz artifacts/.
-          rm -rf example_docs/_build_furo
+      - name: Start server for Furo theme
+        run: |
+          npm start &
+          sleep 8 # give server some time to start
+      - name: Run JavaScript and snapshot tests
+        run: npm test
       - uses: actions/upload-artifact@v2
         with:
           name: html_docs
