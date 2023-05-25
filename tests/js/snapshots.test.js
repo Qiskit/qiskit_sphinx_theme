@@ -24,13 +24,16 @@ beforeAll(async () => {
   const indexHtml = await fs.readFile(indexHtmlFp, "utf8");
   if (!indexHtml.includes("Furo")) {
     throw new Error(
-       "The example docs weren't built with Furo. Please first run " +
-       "`THEME=_qiskit_furo tox -e docs`, then restart the server with `npm start`, then run " +
-       "the tests with `npm test`"
-    )
+      "The example docs weren't built with Furo. Please first run " +
+        "`THEME=_qiskit_furo tox -e docs`, then restart the server with `npm start`, then run " +
+        "the tests with `npm test`"
+    );
   }
 
-  browser = await puppeteer.launch({ headless: "true" });
+  browser = await puppeteer.launch({
+    headless: "true",
+    viewport: { height: 1920, width: 1080 },
+  });
 
   const err = async () => {
     await browser.close();
