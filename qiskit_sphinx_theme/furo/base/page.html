@@ -32,9 +32,9 @@
     <div class="header-left">
       <label class="nav-overlay-icon" for="__navigation">
         <div class="visually-hidden">Toggle site navigation sidebar</div>
-        {#- QISKIT Todo: change the icon to text  -#}
-          
-          <i class="icon"> Contents <!--svg><use href="#svg-menu"></use></svg--></i> 
+        {#- QISKIT CHANGE: start. Replace left table of contents with text. -#}
+          <h2> Site contents </h2><i class="icon"><svg><use href="#svg-chevron-right-black"></use></svg></i> 
+          {#- QISKIT CHANGE: end. -#}
       </label>
     </div>
     <div class="header-center">
@@ -53,8 +53,9 @@
       </div>
       <label class="toc-overlay-icon toc-header-icon{% if furo_hide_toc %} no-toc{% endif %}" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
-        {#- QISKIT Todo: change svg-toc with  Carbon icons -#}
-        <i class="icon"><svg id="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><defs><style>.cls-1{fill:none;}</style></defs><title>open-panel--right</title><path d="M28,4H4A2,2,0,0,0,2,6V26a2,2,0,0,0,2,2H28a2,2,0,0,0,2-2V6A2,2,0,0,0,28,4ZM4,6H20V26H4ZM28,26H22V6h6Z"/><rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32" height="32"/></svg><!--svg><use href="#svg-menu"></use></svg--></i>
+        {#- QISKIT Todo: change svg-toc with Carbon icons -#}
+        <i class="icon"><svg><use href="#svg-toc-v2"></use></svg></i>
+        {#- QISKIT CHANGE: end. -#}
       </label>
     </div>
   </header>
