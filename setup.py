@@ -30,8 +30,13 @@ setup(
     ],
     install_requires=[
         "docutils",
-        "sphinx",
-        "sphinxcontrib-jquery",  # Remove once we get rid of the Pytorch theme.
+        # Keep in sync with Furo's constraint.
+        "sphinx>=6.0",
+        # Remove jQuery once we get rid of the Pytorch theme.
+        "sphinxcontrib-jquery",
+        # When upgrading Furo, closely analyze each commit in the release to check for any changes
+        # that would break our fork.
+        "furo==2023.5.20",
     ],
     project_urls={
         "Bug Tracker": "https://github.com/Qiskit/qiskit_sphinx_theme/issues",
