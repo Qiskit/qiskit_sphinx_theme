@@ -1,3 +1,5 @@
+{#- This file is vendored from Furo. When adding custom Qiskit code, surround it with
+  `QISKIT CHANGE: start` and `QISKIT CHANGE: end` Jinja-style comments. -#}
 {# Adapted from Just the Docs #}
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="svg-toc" viewBox="0 0 24 24">
@@ -58,7 +60,8 @@
       <path d="M13 6h1" />
     </svg>
   </symbol>
-  <symbol id="svg-toc-v2" viewBox="0 0 24 24">
+  {#- QISKIT CHANGE: start. -#}
+  <symbol id="svg-qiskit-toc" viewBox="0 0 24 24">
     <title>open-panel--right</title>
     <svg id="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
         <defs><style>.cls-1{fill:none;}</style></defs>
@@ -66,8 +69,7 @@
         <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32" height="32"/>
     </svg>
   </symbol>
-
-  <symbol id="svg-chevron-right-black" viewBox="0 0 24 24">
+  <symbol id="svg-right-chevron" viewBox="0 0 24 24">
     <title>Page 1</title>
     <svg
         xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -132,4 +134,5 @@
             </g>
         </g>
     </svg>
+    {#- QISKIT CHANGE: end. -#}
 </svg>
