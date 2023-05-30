@@ -32,7 +32,9 @@
     <div class="header-left">
       <label class="nav-overlay-icon" for="__navigation">
         <div class="visually-hidden">Toggle site navigation sidebar</div>
-        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+        {#- QISKIT CHANGE: start. Replace left table of contents with text. -#}
+          <h4> Site contents </h4><i class="icon"><svg><use href="#svg-qiskit-chevron-right"></use></svg></i> 
+          {#- QISKIT CHANGE: end. -#}
       </label>
     </div>
     <div class="header-center">
@@ -51,7 +53,9 @@
       </div>
       <label class="toc-overlay-icon toc-header-icon{% if furo_hide_toc %} no-toc{% endif %}" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
-        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+        {#- QISKIT Todo: change svg-toc with Carbon icons -#}
+        <i class="icon"><svg><use href="#svg-qiskit-toc"></use></svg></i>
+        {#- QISKIT CHANGE: end. -#}
       </label>
     </div>
   </header>
