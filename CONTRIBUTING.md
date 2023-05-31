@@ -80,6 +80,10 @@ If you want to add a new web component:
 5. Build the example docs with `THEME=_qiskit_furo tox -e docs` to ensure everything works.
 6. Update this guide with specific instructions for the web component.
 
+### FYI: How Furo Theme Inheritance Works"
+
+In the repository, in case of using a new icon, you should access `furo/base/partials/icons.html`, copy the HTML code of the `<svg></svg>` tags, and add them as the first term within the `<symbol>` tag, including the `id` attribute which will be the name associated with the icon. To call it, you must reference it with `#`. Otherwise, the SVG files will not be displayed.
+
 ------
 ## Releases
 
