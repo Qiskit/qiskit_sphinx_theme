@@ -1,5 +1,8 @@
 # This Action builds the example docs in pull requests so that we can view a live preview.
 # It uses IBM Cloud to build the Dockerfile at the root of the repository.
+#
+# Due to security, this can only run on branches of qiskit-sphinx-theme, i.e. not on forks.
+# We skip the actions if running on a fork.
 
 name: Preview
 
@@ -11,7 +14,7 @@ jobs:
   setup:
     if: |
       (github.event.action == 'opened' || github.event.action == 'reopened' || github.event.action == 'synchronize') &&
-      github.repository_owner == 'Qiskit'
+      github.event.pull_request.head.repo.full_name == github.repository
     uses: Qiskit/gh-actions/.github/workflows/code-engine-preview.yml@main
     with:
       code_engine_project: qiskit-sphinx-theme-preview
@@ -22,7 +25,9 @@ jobs:
       ibmcloud_api_key: ${{ secrets.IBMCLOUD_API_KEY }}
 
   teardown:
-    if: github.event.action == 'closed' && github.repository_owner == 'Qiskit'
+    if: |
+      github.event.action == 'closed' &&
+      github.event.pull_request.head.repo.full_name == github.repository
     uses: Qiskit/gh-actions/.github/workflows/code-engine-cleanup.yml@main
     with:
       code_engine_project: qiskit-sphinx-theme-preview
