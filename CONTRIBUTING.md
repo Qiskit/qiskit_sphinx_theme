@@ -80,7 +80,7 @@ If you want to add a new web component:
 5. Build the example docs with `THEME=_qiskit_furo tox -e docs` to ensure everything works.
 6. Update this guide with specific instructions for the web component.
 
-### FYI: How Furo Theme Inheritance Works"
+### FYI: How Furo Theme Inheritance Works
 
 The Furo theme works with three components: the page.html file, which is the main file of this work and will contain all the relevant information; it connects with two folders, "static" and "partials". In the "static" folder, there are three subfolders: "images" which contains the page logo, "js" which controls the page and helps in building the logic of how our page is constructed, and "styles" which contains the CSS part that defines the design, the style of representing our page (UI) on different devices and their proportions, the font style, and the company colors. For adding icons, we have the "partials" folder, following the SVG format.
 
