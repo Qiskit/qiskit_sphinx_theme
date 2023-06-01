@@ -16,6 +16,8 @@ from pathlib import Path
 
 from qiskit_sphinx_theme import directives, previous_releases, translations
 
+
+
 __version__ = '1.12.0rc1'
 __version_full__ = __version__
 
@@ -23,6 +25,30 @@ __version_full__ = __version__
 def _get_theme_absolute_path(folder_name: str) -> str:
     path = Path(__file__).parent / folder_name
     return str(path.resolve())
+
+
+def remove_thebe_if_not_needed(app, pagename, templatename, context, doctree):
+    """
+    Remove files that jupyter-sphinx incorrectly tries to add.
+    
+    See https://github.com/Qiskit/qiskit_sphinx_theme/issues/291 for more context 
+    """
+    if not doctree:
+        return
+    
+    from jupyter_sphinx.thebelab import ThebeButtonNode
+    if not doctree.traverse(ThebeButtonNode):
+        new_script_files = []
+        for js_file in context["script_files"]:
+            if js_file not in ["_static/sphinx-thebe.js", "_static/thebelab-helper.js", "https://unpkg.com/thebelab@latest/lib/index.js"]:
+                new_script_files.append(js_file)
+        context["script_files"] = new_script_files
+
+        new_css_files = []
+        for css_file in context["css_files"]:
+            if css_file not in ['_static/thebelab.css', '_static/sphinx-thebe.css']:
+                new_css_files.append(css_file)
+        context["css_files"] = new_css_files
 
 
 # See https://www.sphinx-doc.org/en/master/development/theming.html
@@ -41,6 +67,12 @@ def setup(app):
     app.add_html_theme("qiskit_sphinx_theme", _get_theme_absolute_path("pytorch_base"))
     app.add_html_theme("_qiskit_furo", _get_theme_absolute_path("furo/base"))
 
+
+    try:
+        app.connect("html-page-context", remove_thebe_if_not_needed)
+    except ImportError:
+        pass
+
     if app.config.html_theme == "_qiskit_furo":
         # The below must be kept in sync with `furo/__init__.py`.
         from furo import (
@@ -49,6 +81,8 @@ def setup(app):
             _html_page_context,
             _overwrite_pygments_css,
         )
+
+        
 
         app.add_post_transform(WrapTableAndMathInAContainerTransform)
         app.connect("html-page-context", _html_page_context)
