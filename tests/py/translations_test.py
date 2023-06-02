@@ -62,9 +62,9 @@ def test_get_translation_url_translated_language(
 def test_get_language_label(language_code: str, expected: str) -> None:
     """Look up the label corresponding to the language_code."""
     translations_list = [
-        ('en', 'English'),
-        ('bn_BN', 'Bengali'),
-        ('fr_FR', 'French'),
+        ("en", "English"),
+        ("bn_BN", "Bengali"),
+        ("fr_FR", "French"),
     ]
     assert get_language_label(language_code, translations_list) == expected
 
