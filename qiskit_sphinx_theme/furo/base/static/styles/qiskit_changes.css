@@ -30,6 +30,24 @@ body {
   top: var(--qiskit-top-nav-bar-height);
 }
 
+/* Fix # anchor links not accounting for the top nav bar.
+*
+* The rules for mobile come from Furo, but we add --qiskit-top-nav-bar-height.
+* But for some reason, the default rule has too much spacing if we include Furo's original rule's
+* --header-height. */
+:target {
+  scroll-margin-top: var(--qiskit-top-nav-bar-height);
+}
+@media (max-width: 67em) {
+  :target {
+     scroll-margin-top: calc(0.5rem + var(--header-height) + var(--qiskit-top-nav-bar-height));
+  }
+  /* When a heading is selected */
+  section > span:target {
+    scroll-margin-top: calc(0.8rem + var(--header-height) + var(--qiskit-top-nav-bar-height));
+  }
+}
+
 /* Show the whole contents of the mobile expandable menus.
 *  `box-sizing: border-box` ensures padding is included in the height calculations. */
 @media (max-width: 67em) {
