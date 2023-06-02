@@ -66,7 +66,7 @@ html_context = {
     "version_list": [0.1, 0.2, 0.3],
     # This allows docs authors to have folders that can be
     # closed and opened in the left sidebar.
-    "expandable_sidebar": True
+    "expandable_sidebar": True,
 }
 
 docs_url_prefix = "ecosystem/example_docs"
@@ -95,9 +95,7 @@ autodoc_typehints_description_target = "documented_params"
 # This adds numbers to the captions for figures, tables,
 # and code blocks.
 numfig = True
-numfig_format = {
-    "table": "Table %s"
-}
+numfig_format = {"table": "Table %s"}
 
 # Settings for Jupyter notebooks.
 nbsphinx_execute = "never"

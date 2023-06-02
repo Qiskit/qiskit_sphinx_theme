@@ -43,10 +43,11 @@ def extend_html_context(_: sphinx.application.Sphinx, config: sphinx.config.Conf
 def get_language_label(config_language: str, translations_list: list[tuple[str, str]]) -> str:
     found = next(
         (
-            language_label for language_code, language_label in translations_list
+            language_label
+            for language_code, language_label in translations_list
             if language_code == config_language
         ),
-        None
+        None,
     )
     return found or config_language
 

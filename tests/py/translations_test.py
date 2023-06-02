@@ -16,15 +16,16 @@ from qiskit_sphinx_theme.translations import (
         ("documentation", "subdir/my_page", "/documentation/subdir/my_page.html"),
         ("ecosystem/finance", "index", "/ecosystem/finance/index.html"),
         ("ecosystem/finance", "subdir/my_page", "/ecosystem/finance/subdir/my_page.html"),
-    ]
+    ],
 )
 def test_get_translation_url_default_language(
     docs_url_prefix: str, page: str, expected: str
 ) -> None:
     """For the default language (English), we leave off /locale from the URL."""
-    assert get_translation_url(
-        docs_url_prefix=docs_url_prefix, language_code="en", pagename=page
-    ) == expected
+    assert (
+        get_translation_url(docs_url_prefix=docs_url_prefix, language_code="en", pagename=page)
+        == expected
+    )
 
 
 @pytest.mark.parametrize(
@@ -38,15 +39,16 @@ def test_get_translation_url_default_language(
             "subdir/my_page",
             "/ecosystem/finance/locale/fr_FR/subdir/my_page.html",
         ),
-    ]
+    ],
 )
 def test_get_translation_url_translated_language(
     docs_url_prefix: str, page: str, expected: str
 ) -> None:
     """For translations, the URL should include /locale/<code>/."""
-    assert get_translation_url(
-        docs_url_prefix=docs_url_prefix, language_code="fr_FR", pagename=page
-    ) == expected
+    assert (
+        get_translation_url(docs_url_prefix=docs_url_prefix, language_code="fr_FR", pagename=page)
+        == expected
+    )
 
 
 @pytest.mark.parametrize(
@@ -57,7 +59,7 @@ def test_get_translation_url_translated_language(
         ("en", "English"),
         # If the language code cannot be found, we set the label to that code.
         ("unknown_code", "unknown_code"),
-    ]
+    ],
 )
 def test_get_language_label(language_code: str, expected: str) -> None:
     """Look up the label corresponding to the language_code."""
@@ -81,9 +83,7 @@ def test_docs_url_prefix_validation() -> None:
     )
     extend_html_context(Mock(), valid_config_with_translations)
 
-    valid_config_no_translations = Mock(
-        html_context={}, translations_list=[], docs_url_prefix=None
-    )
+    valid_config_no_translations = Mock(html_context={}, translations_list=[], docs_url_prefix=None)
     extend_html_context(Mock(), valid_config_no_translations)
 
     invalid_config = Mock(

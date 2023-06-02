@@ -60,7 +60,7 @@ class CardItemDirective(Directive):
     </div>
     <p class="card-summary">{card_description}</p>
     <p class="tags">{tags}</p>
-    <div class="tutorials-image"><img src="{image_source}"></div>
+    <div class="tutorials-image"><img src='{image_source}'></div>
     </div>
     </div>
     </div>

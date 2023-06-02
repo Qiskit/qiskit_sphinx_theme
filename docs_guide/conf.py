@@ -17,23 +17,15 @@ release = "1.0"
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = [
-    "jupyter_sphinx", 
-    "sphinx.ext.doctest", 
-    "sphinx.ext.intersphinx", 
-    "sphinx_toolbox.confval"
-    ]
+    "jupyter_sphinx",
+    "sphinx.ext.doctest",
+    "sphinx.ext.intersphinx",
+    "sphinx_toolbox.confval",
+]
 
 templates_path = ["_templates"]
-exclude_patterns = [
-    "_build", 
-    "Thumbs.db",
-    ".DS_Store"
-    ]
 
-
-
-# -- Options for HTML output -------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
+exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
 html_theme = "qiskit_sphinx_theme"
 
