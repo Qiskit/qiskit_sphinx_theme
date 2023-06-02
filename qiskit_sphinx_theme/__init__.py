@@ -16,7 +16,6 @@ from pathlib import Path
 
 from qiskit_sphinx_theme import directives, previous_releases, translations
 
-
 __version__ = '1.12.0rc1'
 __version_full__ = __version__
 
@@ -38,12 +37,14 @@ def remove_thebe_if_not_needed(app, pagename, templatename, context, doctree):
     except ImportError:
         return 
 
-    if not doctree  or doctree.traverse(ThebeButtonNode):    
-        thebe_js_files = ["_static/sphinx-thebe.js", "_static/thebelab-helper.js", "https://unpkg.com/thebelab@latest/lib/index.js"]
-        context["script_files"] = [js_file for js_file in context["script_files"] if js_file not in thebe_js_files]
+    if not doctree  or doctree.traverse(ThebeButtonNode):   
+        return 
+    
+    thebe_js_files = ["_static/sphinx-thebe.js", "_static/thebelab-helper.js", "https://unpkg.com/thebelab@latest/lib/index.js"]
+    context["script_files"] = [js_file for js_file in context["script_files"] if js_file not in thebe_js_files]
 
-        thebe_css_files = ['_static/thebelab.css', '_static/sphinx-thebe.css']
-        context["css_files"] = [css_file for css_file in context["css_files"] if css_file not in thebe_css_files]
+    thebe_css_files = ['_static/thebelab.css', '_static/sphinx-thebe.css']
+    context["css_files"] = [css_file for css_file in context["css_files"] if css_file not in thebe_css_files]
 
 
 # See https://www.sphinx-doc.org/en/master/development/theming.html
@@ -73,7 +74,6 @@ def setup(app):
             _overwrite_pygments_css,
         )
 
-        
         app.add_post_transform(WrapTableAndMathInAContainerTransform)
         app.connect("html-page-context", _html_page_context)
         app.connect("builder-inited", _builder_inited)
