@@ -13,7 +13,6 @@
 """Pytorch Sphinx theme."""
 
 from pathlib import Path
-from warnings import warn
 
 from qiskit_sphinx_theme import directives, previous_releases, translations
 
@@ -26,22 +25,26 @@ def _get_theme_absolute_path(folder_name: str) -> str:
     return str(path.resolve())
 
 
-def get_html_theme_path():
-    """Return the absolute path to this package.
-
-    This is traditionally used to set the option `html_theme_path`, but that should not be
-    necessary. If you install the `qiskit_sphinx_theme` via pip, you only need to set `html_theme`.
+def remove_thebe_if_not_needed(app, pagename, templatename, context, doctree):
     """
-    warn(
-        "`qiskit_sphinx_theme.get_html_theme_path()` is deprecated and will be removed in version "
-        "1.13 of the package. We are adding multiple 'variants' / theme names to the package, so "
-        "the function no longer makes semantic sense.\n\n"
-        "It should not be necessary to set the option `html_theme_path`; you only need to set "
-        "`html_theme`. See https://github.com/Qiskit/qiskit-finance/pull/244 for an example.",
-        stacklevel=2,
-        category=DeprecationWarning,
-    )
-    return _get_theme_absolute_path("pytorch_base")
+    Remove files that jupyter-sphinx incorrectly tries to add.
+    
+    See https://github.com/Qiskit/qiskit_sphinx_theme/issues/291 for more context. 
+    """
+    # jupyter-sphinx might be not installed. If so, skip this function.
+    try:
+        from jupyter_sphinx.thebelab import ThebeButtonNode
+    except ImportError:
+        return 
+
+    if not doctree  or doctree.traverse(ThebeButtonNode):   
+        return 
+    
+    thebe_js_files = ["_static/sphinx-thebe.js", "_static/thebelab-helper.js", "https://unpkg.com/thebelab@latest/lib/index.js"]
+    context["script_files"] = [js_file for js_file in context["script_files"] if js_file not in thebe_js_files]
+
+    thebe_css_files = ['_static/thebelab.css', '_static/sphinx-thebe.css']
+    context["css_files"] = [css_file for css_file in context["css_files"] if css_file not in thebe_css_files]
 
 
 # See https://www.sphinx-doc.org/en/master/development/theming.html
@@ -59,6 +62,8 @@ def setup(app):
 
     app.add_html_theme("qiskit_sphinx_theme", _get_theme_absolute_path("pytorch_base"))
     app.add_html_theme("_qiskit_furo", _get_theme_absolute_path("furo/base"))
+
+    app.connect("html-page-context", remove_thebe_if_not_needed)
 
     if app.config.html_theme == "_qiskit_furo":
         # The below must be kept in sync with `furo/__init__.py`.
