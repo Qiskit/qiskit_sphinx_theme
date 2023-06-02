@@ -17,7 +17,6 @@ from pathlib import Path
 from qiskit_sphinx_theme import directives, previous_releases, translations
 
 
-
 __version__ = '1.12.0rc1'
 __version_full__ = __version__
 
@@ -33,27 +32,18 @@ def remove_thebe_if_not_needed(app, pagename, templatename, context, doctree):
     
     See https://github.com/Qiskit/qiskit_sphinx_theme/issues/291 for more context. 
     """
-    # jupyter-sphinx might be not installed. 
+    # jupyter-sphinx might be not installed. If so, skip this function.
     try:
         from jupyter_sphinx.thebelab import ThebeButtonNode
     except ImportError:
         return 
 
-    if not doctree:
-        return
-    
-    if not doctree.traverse(ThebeButtonNode):
-        new_script_files = []
-        for js_file in context["script_files"]:
-            if js_file not in ["_static/sphinx-thebe.js", "_static/thebelab-helper.js", "https://unpkg.com/thebelab@latest/lib/index.js"]:
-                new_script_files.append(js_file)
-        context["script_files"] = new_script_files
+    if not doctree  or doctree.traverse(ThebeButtonNode):    
+        thebe_js_files = ["_static/sphinx-thebe.js", "_static/thebelab-helper.js", "https://unpkg.com/thebelab@latest/lib/index.js"]
+        context["script_files"] = [js_file for js_file in context["script_files"] if js_file not in thebe_js_files]
 
-        new_css_files = []
-        for css_file in context["css_files"]:
-            if css_file not in ['_static/thebelab.css', '_static/sphinx-thebe.css']:
-                new_css_files.append(css_file)
-        context["css_files"] = new_css_files
+        thebe_css_files = ['_static/thebelab.css', '_static/sphinx-thebe.css']
+        context["css_files"] = [css_file for css_file in context["css_files"] if css_file not in thebe_css_files]
 
 
 # See https://www.sphinx-doc.org/en/master/development/theming.html
@@ -84,7 +74,6 @@ def setup(app):
         )
 
         
-
         app.add_post_transform(WrapTableAndMathInAContainerTransform)
         app.connect("html-page-context", _html_page_context)
         app.connect("builder-inited", _builder_inited)
