@@ -1,10 +1,12 @@
 {% if version_list %}
-    <div>Previous Releases</div>
-    <div>
+    <div class="sidebar-tree">
+        <p class="caption" role="heading"><span class="caption-text">Previous Releases</span></p>
+        <ul>
         {% for version in version_list | sort(reverse=True) %}
-            <div>
-                <a href="{{ previous_versions_url(version) }}" rel="nofollow">{{ version }}</a>
-            </div>
+            <li class="toctree-l1">
+                <a class="reference internal" href="{{ previous_versions_url(version) }}" rel="nofollow">{{ version }}</a>
+            </li>
         {% endfor %}
+        </ul>
     </div>
 {% endif %}
