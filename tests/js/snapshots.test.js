@@ -12,6 +12,12 @@ const setTablet = async (page) => {
   await page.setViewportSize({ width: 1280, height: 720 });
 };
 
+const click = async (page, selector) => {
+  await page.locator(selector).click();
+  // Wait for the page to update.
+  await page.waitForTimeout(500);
+};
+
 const scrollDown = async (page, numPixels) => {
   await page.evaluate((numPixels) => {
     window.scrollBy(0, numPixels);
@@ -100,13 +106,7 @@ test.describe("Qiskit top nav bar", () => {
     await setMobile(page);
     await page.goto("");
 
-    const click = async (selector) => {
-      await page.locator(selector).click();
-      // Wait for the page to update.
-      await page.waitForTimeout(500);
-    };
-
-    await click("div.header-right label.toc-overlay-icon i");
+    await click(page, "div.header-right label.toc-overlay-icon i");
     const pageToCVisible = await isVisibleInViewport(
       page,
       "div.toc-title-container"
@@ -116,7 +116,7 @@ test.describe("Qiskit top nav bar", () => {
     // Reload the page to close the nav bar.
     await page.goto("");
 
-    await click("div.header-left i");
+    await click(page, "div.header-left i");
     const searchVisible = await isVisibleInViewport(
       page,
       "input.sidebar-search"
@@ -141,10 +141,21 @@ test.describe("Furo menu bars", () => {
   });
 });
 
-test("left side bar table of contents renders correctly", async ({ page }) => {
-  await page.goto("");
-  const leftToC = page.locator("div.sidebar-tree");
-  await expect(leftToC).toHaveScreenshot();
+test.describe("left side bar", () => {
+  test("table of contents renders correctly", async ({ page }) => {
+    await page.goto("");
+    const leftToC = page.locator("div.sidebar-tree");
+    await expect(leftToC).toHaveScreenshot();
+  });
+
+  test("translations render correctly", async ({ page }) => {
+    await page.goto("");
+    const translations = page.locator("div.qiskit-translations-container");
+    await expect(translations).toHaveScreenshot();
+
+    await click(page, "div.qiskit-translations-container i");
+    await expect(translations).toHaveScreenshot();
+  });
 });
 
 test.describe("footer", () => {
