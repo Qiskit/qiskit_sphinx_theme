@@ -50,4 +50,3 @@ jobs:
         with:
           name: html_docs
           path: artifacts
-
