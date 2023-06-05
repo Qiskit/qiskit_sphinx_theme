@@ -6,11 +6,11 @@ jobs:
     runs-on: ubuntu-latest
     if: github.repository_owner == 'Qiskit'
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 18
       - name: Install Node.js dependencies
@@ -18,7 +18,7 @@ jobs:
       - name: Run Node.js tests
         run: npm test
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: 3.9
       - name: Install Ubuntu deps
@@ -44,7 +44,9 @@ jobs:
           tar -zcvf furo_html_docs.tar.gz example_docs/_build_furo/html
           mv furo_html_docs.tar.gz artifacts/.
           rm -rf example_docs/_build_furo
-      - uses: actions/upload-artifact@v2
+      - name: Upload Sphinx builds
+        uses: actions/upload-artifact@v3
+        if: always()
         with:
           name: html_docs
           path: artifacts
