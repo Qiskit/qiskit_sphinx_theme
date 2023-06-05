@@ -47,16 +47,32 @@ Sometimes Sphinx's caching can get in a bad state. First, try running `tox -e do
 We are in the process of migrating our theme from Pytorch to Furo (see https://github.com/Qiskit/qiskit_sphinx_theme/issues/232). To build the local docs using the Furo theme, use `THEME=_qiskit_furo` in front of the command, e.g. `THEME=_qiskit_furo tox -e docs`.
 
 ------
-## Run JavaScript tests
+## Visual regression testing
 
-We write some tests in JavaScript (Node.js) to have automated checks of the theme, e.g. that certain components render properly.
+We use visual regression testing via [Playwright](https://playwright.dev/docs/test-snapshots) to take screenshots of the site and check that every change we make is intentional. If a screenshot has changed, the test will fail. You can inspect the folder `snapshot_results` to compare the before and after. If the change was intentional, then we update the expected screenshot:
 
-To run these tests, you first need to install Node.js on your machine. If you expect to use JavaScript in other projects, we recommend using [NVM](https://github.com/nvm-sh/nvm). Otherwise, consider using [Homebrew](https://formulae.brew.sh/formula/node) or installing [Node.js directly](https://nodejs.org/en).
+1. Find the "actual" snapshot for the failing test, such as `footer-snapshot-has-not-changed-1-actual.png`.
+2. Copy that snapshot into the folder `tests/js/snapshots.test.js-snapshots`. Rename the `-actual.png` file ending to be `-linux.png` and overwrite the prior file.
 
-Then:
+We upload `snapshot_results` in CI. So, you can get the changed snapshot from GitHub Actions:
+
+1. Navigate to the GitHub Actions page for the "Tests" action.
+2. Open the "Summary" page with the house icon.
+3. Under the "Artifacts" section, there should be a "snapshot_results" entry. Download it.
+
+You can also run the tests locally. First, you need to install:
+
+1. [Node.js](https://nodejs.org/en). If you expect to use JavaScript in other projects, consider using [NVM](https://github.com/nvm-sh/nvm). Otherwise, consider using [Homebrew](https://formulae.brew.sh/formula/node) or installing [Node.js directly](https://nodejs.org/en).
+2. [Docker](https://www.docker.com). You must also ensure that it is running.
+   * If you cannot install Docker Desktop (such as IBM contributors), you can use [Rancher Desktop](https://rancherdesktop.io). When installing, choose Moby/Dockerd as the engine, rather than nerdctl. To ensure it's running, open up the app "Rancher Desktop". 
+
+Then, to run the tests locally:
 
 1. `npm install`
-2. `npm test`
+2. Build the docs with Furo, `THEME=_qiskit_furo tox -e docs`
+3. `npm test`
+
+You must rebuild the docs with `THEME=_qiskit_furo tox -e docs` whenever you make changes to the theme or docs folder. The docs will not automatically rebuild.
 
 ------
 ## Updating bundled web components
