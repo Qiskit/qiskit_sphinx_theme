@@ -6,3 +6,7 @@ sphinx-design
 sphinx-autodoc-typehints
 nbsphinx==0.9.*
 pytest==7.*
+
+# Dev tooling
+black~=23.3
+isort~=5.11
