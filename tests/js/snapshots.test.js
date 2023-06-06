@@ -1,7 +1,9 @@
-import { test, expect } from "@playwright/test";
+import { expect, test } from "@playwright/test";
 
-test("footer snapshot has not changed", async ({ page }) => {
-  await page.goto("");
-  const footer = page.locator("footer");
-  await expect(footer).toHaveScreenshot();
+test.describe("footer", () => {
+  test("to include page analytics", async ({ page }) => {
+    await page.goto("");
+    const footer = page.locator("footer");
+    await expect(footer).toHaveScreenshot();
+  });
 });
