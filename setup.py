@@ -34,8 +34,7 @@ setup(
         "sphinx>=6.0",
         # Remove jQuery once we get rid of the Pytorch theme.
         "sphinxcontrib-jquery",
-        # When upgrading Furo, closely analyze each commit in the release to check for any changes
-        # that would break our fork.
+        # See CONTRIBUTING.md for how to upgrade Furo.
         "furo==2023.5.20",
     ],
     project_urls={
