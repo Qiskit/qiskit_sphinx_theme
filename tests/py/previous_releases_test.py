@@ -2,7 +2,10 @@ from unittest.mock import Mock
 
 import pytest
 
-from qiskit_sphinx_theme.previous_releases import extend_html_context, get_previous_versions_url
+from qiskit_sphinx_theme.previous_releases import (
+    extend_html_context,
+    get_previous_versions_url,
+)
 
 
 @pytest.mark.parametrize(
@@ -10,7 +13,7 @@ from qiskit_sphinx_theme.previous_releases import extend_html_context, get_previ
     [
         ("documentation", "/documentation/stable/0.5/index.html"),
         ("ecosystem/finance", "/ecosystem/finance/stable/0.5/index.html"),
-    ]
+    ],
 )
 def test_get_previous_versions_url(docs_url_prefix: str, expected: str) -> None:
     """Check that we redirect to `/<prefix>/stable/<version>/index.html`."""

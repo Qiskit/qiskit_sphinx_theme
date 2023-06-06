@@ -93,6 +93,43 @@ We upload the docs builds to CI. So, you can download what the site will look li
 Contributors with write access can also use live previews of the docs: GitHub will deploy a website using your changes. To use live previews, push your branch to `upstream` rather than your fork. GitHub will leave a comment with the link to the site. Please prefix your branch name with your initials, e.g. `EA/add-translations`, for good Git hygiene.
 
 ------
+## FYI: How Furo Theme Inheritance Works
+
+We use Sphinx's inheritance future for our Furo theme, which we set in `furo/base/theme.conf`. Sphinx will default to using all the files from Furo. But if we have a file with the same name as Furo, then Sphinx will use our copy. That allows us to override only what we care about.
+
+We try to keep changes to a minimum because every divergence we make from base Furo increases our maintenance burden. Hence we prioritise only making changes that are important to the Qiskit brand. If the change would be generally useful to other users of Furo, we try to contribute upstream to the Furo project itself.
+
+### How to change HTML
+Copy the HTML template from Furo and save it in the same file path. Then, at the top of the file, add this header:
+
+```
+{#- This file is vendored from Furo. When adding custom Qiskit code, surround it with
+`QISKIT CHANGE: start` and `QISKIT CHANGE: end` Jinja-style comments. -#}
+```
+
+When making changes, use those comments to make clear where and what we changed. For example:
+
+```
+{#- QISKIT CHANGE: start. -#}
+{% include "custom_templates/extra_head.html" %}
+{#- QISKIT CHANGE: end. -#}
+```
+
+If the change is greater than 1-3 lines, write the code in a new file in `custom_templates`, then use Jinja's `include` directive, as shown in the example right above.
+
+### How to change CSS
+Make CSS changes in the file `qiskit_changes.css`. It takes precedence over any CSS rules from Furo.
+
+When adding changes, document the rationale unless the code is already self-documenting and obvious. Group similar changes into sections.
+
+You can change [Furo's CSS variable values](https://github.com/pradyunsg/furo/tree/main/src/furo/assets/styles/variables) by setting them in the `body` rule at the top. When introducing our own CSS variables, prefix it with `--qiskit` for clarity, e.g. `--qiskit-top-nav-bar-height`.
+
+### How to update the Furo version
+Update the version in `setup.py`. Always pin to an exact version of Furo.
+
+However, when updating, closely analyze each commit in the release to check for any changes that would break our fork. We want to make sure that our HTML files are always in sync with Furo. If they have made any changes, then add them back to our copy of the file.
+
+------
 ## Releases
 
 We use [semantic versioning](https://semver.org/). Every release is part of one specific "minor version release series"; for example, 1.11.0rc1 and 1.11.3 are both part of the 1.11 release series.
