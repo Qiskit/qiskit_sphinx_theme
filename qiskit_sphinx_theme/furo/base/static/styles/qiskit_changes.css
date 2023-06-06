@@ -13,7 +13,6 @@ body {
      * exposed globally. Keep in sync. */
     --qiskit-top-nav-bar-height: 3.5rem;
     --qiskit-color-purple: #8A3FFC;
-    --qiskit-color-purple-light: #8B34FC;
 }
 
 /* ------------------------------
@@ -105,13 +104,13 @@ footer .helpful-container .was-helpful-thank-you {
 
 .helpful-container .helpful-question.yes-link,
 .helpful-container .helpful-question.no-link {
-  color: var(--qiskit-color-purple-light);
+  color: var(--qiskit-color-purple);
   cursor: pointer;
   text-decoration: none;
 }
 
 .helpful-container .helpful-question.yes-link:hover,
 .helpful-container .helpful-question.no-link:hover {
-  background-color: var(--qiskit-color-purple-light);
+  background-color: var(--qiskit-color-purple);
   color: #ffffff;
 }
