@@ -42,7 +42,7 @@ class CardItemDirective(Directive):
         header = self.options.get("header")
         if header is None:
             raise ValueError(f"`header` not set in {self.NAME} directive")
-        image_source = self.options.get('image')
+        image_source = self.options.get("image")
         if image_source is None:
             raise ValueError(f"`image` not set in {self.NAME} directive")
         link = self.options.get("link", "")
