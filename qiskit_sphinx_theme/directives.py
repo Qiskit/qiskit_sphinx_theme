@@ -23,6 +23,7 @@ if TYPE_CHECKING:
 
 from typing import List
 
+
 def setup(app: sphinx.application.Sphinx) -> None:
     app.add_directive(CardItemDirective.NAME, CardItemDirective)
     app.add_directive(CallToActionItemDirective.NAME, CallToActionItemDirective)

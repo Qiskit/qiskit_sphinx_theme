@@ -13,9 +13,10 @@
 """Pytorch Sphinx theme."""
 
 from pathlib import Path
-from typing import Dict, Any
+from typing import Any, Dict
 
 from qiskit_sphinx_theme import directives, previous_releases, translations
+
 __version__ = "1.12.0rc1"
 __version_full__ = __version__
 
@@ -25,7 +26,9 @@ def _get_theme_absolute_path(folder_name: str) -> str:
     return str(path.resolve())
 
 
-def remove_thebe_if_not_needed(app: Any, pagename: Any, templatename: Any, context: Any, doctree: Any) -> None:
+def remove_thebe_if_not_needed(
+    app: Any, pagename: Any, templatename: Any, context: Any, doctree: Any
+) -> None:
     """
     Remove files that jupyter-sphinx incorrectly tries to add.
 
@@ -56,7 +59,7 @@ def remove_thebe_if_not_needed(app: Any, pagename: Any, templatename: Any, conte
 
 
 # See https://www.sphinx-doc.org/en/master/development/theming.html
-def setup(app : Any) -> Dict[str,bool]:
+def setup(app: Any) -> Dict[str, bool]:
     # Used to generate URL references. Expected to be e.g. `ecosystem/finance`.
     app.add_config_value("docs_url_prefix", default=None, rebuild="html", types=[str])
 
