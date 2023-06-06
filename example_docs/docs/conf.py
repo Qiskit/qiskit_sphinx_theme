@@ -16,33 +16,33 @@ import sys
 # This allows autodoc to find the `api_example` folder.
 sys.path.insert(0, os.path.abspath(".."))
 
-project = 'Qiskit sphinx theme'
-project_copyright = '2020, Qiskit Development Team'
-author = 'Qiskit Development Team'
+project = "Qiskit sphinx theme"
+project_copyright = "2020, Qiskit Development Team"
+author = "Qiskit Development Team"
 language = "en"
 release = "9.99"
 
 # This allows including custom CSS and HTML templates.
-html_static_path = ['_static']
-templates_path = ['_templates']
+html_static_path = ["_static"]
+templates_path = ["_templates"]
 
 # Sphinx should ignore these patterns when building.
-exclude_patterns = ['_build', '**.ipynb_checkpoints']
+exclude_patterns = ["_build", "**.ipynb_checkpoints"]
 
 extensions = [
-    'sphinx.ext.napoleon',
-    'sphinx.ext.autodoc',
-    'sphinx.ext.autosummary',
-    'sphinx.ext.mathjax',
-    'sphinx.ext.viewcode',
-    'sphinx.ext.extlinks',
-    'jupyter_sphinx',
-    'sphinx_design',
+    "sphinx.ext.napoleon",
+    "sphinx.ext.autodoc",
+    "sphinx.ext.autosummary",
+    "sphinx.ext.mathjax",
+    "sphinx.ext.viewcode",
+    "sphinx.ext.extlinks",
+    "jupyter_sphinx",
+    "sphinx_design",
     "nbsphinx",
     "qiskit_sphinx_theme",
 ]
 
-html_last_updated_fmt = '%Y/%m/%d'
+html_last_updated_fmt = "%Y/%m/%d"
 
 # This allows us to test both the Furo and Pytorch themes. In normal repositories, `html_theme`
 # would be set to one specific theme.
@@ -51,22 +51,22 @@ html_theme = _THEME
 
 if _THEME != "_qiskit_furo":
     html_theme_options = {
-        'logo_only': True,
-        'display_version': True,
-        'prev_next_buttons_location': 'bottom',
+        "logo_only": True,
+        "display_version": True,
+        "prev_next_buttons_location": "bottom",
     }
     # Sets a better style for code syntax highlighting.
-    pygments_style = 'colorful'
+    pygments_style = "colorful"
 
 html_context = {
     # Add "Was this page useful?" to the footer.
-    'analytics_enabled': True,
+    "analytics_enabled": True,
     # Users of the theme can set prior version numbers. They'll
     # show up in the sidebar under the "Previous Versions" section.
-    'version_list': [0.1, 0.2, 0.3],
+    "version_list": [0.1, 0.2, 0.3],
     # This allows docs authors to have folders that can be
     # closed and opened in the left sidebar.
-    'expandable_sidebar': True
+    "expandable_sidebar": True,
 }
 
 docs_url_prefix = "ecosystem/example_docs"
@@ -74,9 +74,9 @@ docs_url_prefix = "ecosystem/example_docs"
 # When creating a new repo, follow the instructions in this repo's README.md on
 # `Enable translations`. Remove this value if you aren't using translations.
 translations_list = [
-    ('en', 'English'),
-    ('bn_BN', 'Bengali'),
-    ('fr_FR', 'French'),
+    ("en", "English"),
+    ("bn_BN", "Bengali"),
+    ("fr_FR", "French"),
 ]
 
 # This allows RST files to put `|version|` in their file and
@@ -95,9 +95,7 @@ autodoc_typehints_description_target = "documented_params"
 # This adds numbers to the captions for figures, tables,
 # and code blocks.
 numfig = True
-numfig_format = {
-    'table': 'Table %s'
-}
+numfig_format = {"table": "Table %s"}
 
 # Settings for Jupyter notebooks.
 nbsphinx_execute = "never"

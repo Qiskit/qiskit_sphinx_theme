@@ -21,7 +21,7 @@ if TYPE_CHECKING:
 
 
 def setup(app: sphinx.application.Sphinx) -> None:
-    app.connect('config-inited', extend_html_context)
+    app.connect("config-inited", extend_html_context)
 
 
 def extend_html_context(_: sphinx.application.Sphinx, config: sphinx.config.Config) -> None:
