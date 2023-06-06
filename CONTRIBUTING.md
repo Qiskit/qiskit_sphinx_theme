@@ -117,6 +117,9 @@ Update the version in `setup.py`. Always pin to an exact version of Furo.
 
 However, when updating, closely analyze each commit in the release to check for any changes that would break our fork. We want to make sure that our HTML files are always in sync with Furo. If they have made any changes, then add them back to our copy of the file.
 
+### How to add an icon
+In the repository, if you are using a new icon, you should access `furo/base/partials/icons.html`. Copy the HTML code of the `<svg></svg>` tags and add them as the first element within the `<symbol>` tag. Don't forget to include the `id` attribute, which will serve as the name associated with the icon. To use the icon, you must reference it with `#`. Failure to do so will result in the SVG files not being displayed.
+
 ------
 ## Releases
 
