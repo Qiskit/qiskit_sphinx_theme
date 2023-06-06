@@ -12,7 +12,7 @@ body {
     /* This value is duplicated from `top-nav-bar.js`. Its definition of the variable is not
      * exposed globally. Keep in sync. */
     --qiskit-top-nav-bar-height: 3.5rem;
-    --qiskit-color-purple: #8A3FFC;
+    --qiskit-color-purple: #6929C4;
 }
 
 /* ------------------------------
