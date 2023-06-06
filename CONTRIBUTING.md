@@ -88,7 +88,7 @@ We upload the docs builds to CI. So, you can download what the site will look li
 1. Navigate to the GitHub Actions page for the "Tests" action.
 2. Open the "Summary" page with the house icon.
 3. Under the "Artifacts" section, there should be a "html_docs" entry. Download it.
-4. Choose the theme you want, such as `furo_html_docs.tar.gz`, and un-tar it. Then, open the `index.html` page ina browser.
+4. Choose the theme you want, such as `furo_html_docs.tar.gz`, and un-tar it. Then, open the `index.html` page in a browser.
 
 Contributors with write access can also use live previews of the docs: GitHub will deploy a website using your changes. To use live previews, push your branch to `upstream` rather than your fork. GitHub will leave a comment with the link to the site. Please prefix your branch name with your initials, e.g. `EA/add-translations`, for good Git hygiene.
 
