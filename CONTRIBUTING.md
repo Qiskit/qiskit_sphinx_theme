@@ -85,7 +85,7 @@ If you want to add a new web component:
 
 We use Sphinx's inheritance future for our Furo theme, which we set in `furo/base/theme.conf`. Sphinx will default to using all the files from Furo. But if we have a file with the same name as Furo, then Sphinx will use our copy. That allows us to override only what we care about.
 
-We try to keep changes to a minimum because every divergence we make from base Furo increases our maintenance burden. Bias towards only making changes that are important to the Qiskit brand. If the change would be generally useful to upstream Furo, try to upstream the change.
+We try to keep changes to a minimum because every divergence we make from base Furo increases our maintenance burden. Hence we prioritise only making changes that are important to the Qiskit brand. If the change would be generally useful to other users of Furo, we try to contribute upstream to the Furo project itself.
 
 ### How to change HTML
 Copy the HTML template from Furo and save it in the same file path. Then, at the top of the file, add this header:
