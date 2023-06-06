@@ -13,3 +13,30 @@ target-version = ["py37", "py38", "py39", "py310", "py311"]
 
 [tool.isort]
 profile = "black"
+
+[tool.mypy]
+disallow_untyped_defs = true
+show_error_codes = true
+no_implicit_optional = true
+warn_return_any = true
+warn_unused_ignores = true
+exclude = ["example_docs", "docs_guide", "tests"]
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = [
+    "botocore",
+    "bs4",
+    "chevron",
+    "colors",
+    "dockerfile",
+    "fasteners",
+    "freezegun",
+    "gnupg",
+    "hdrh",
+    "hdrh.histogram",
+    "ijson.*",
+    "nodesemver",
+    "pex.*",
+    "psutil",
+]
