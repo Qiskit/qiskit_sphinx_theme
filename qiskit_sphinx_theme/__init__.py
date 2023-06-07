@@ -12,6 +12,8 @@
 
 """Pytorch Sphinx theme."""
 
+from __future__ import annotations
+
 from pathlib import Path
 from typing import TYPE_CHECKING
 
@@ -69,7 +71,7 @@ def remove_thebe_if_not_needed(
 
 
 # See https://www.sphinx-doc.org/en/master/development/theming.html
-def setup(app: sphinx.application.Sphinx) -> dict:
+def setup(app: sphinx.application.Sphinx) -> dict[str, bool]:
     # Used to generate URL references. Expected to be e.g. `ecosystem/finance`.
     app.add_config_value("docs_url_prefix", default=None, rebuild="html", types=[str])
 
