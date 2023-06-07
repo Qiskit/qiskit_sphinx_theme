@@ -21,8 +21,6 @@ from docutils.statemachine import StringList
 if TYPE_CHECKING:
     import sphinx.application
 
-from typing import List
-
 
 def setup(app: sphinx.application.Sphinx) -> None:
     app.add_directive(CardItemDirective.NAME, CardItemDirective)
@@ -40,7 +38,7 @@ class CardItemDirective(Directive):
         "tags": directives.unchanged,
     }
 
-    def run(self) -> List[nodes.paragraph]:
+    def run(self) -> list:
         header = self.options.get("header")
         if header is None:
             raise ValueError(f"`header` not set in {self.NAME} directive")
@@ -83,7 +81,7 @@ class CallToActionItemDirective(Directive):
         "button_text": directives.unchanged,
     }
 
-    def run(self) -> List[nodes.paragraph]:
+    def run(self) -> list:
         description = self.options.get("description", "")
         header = self.options.get("header")
         if header is None:

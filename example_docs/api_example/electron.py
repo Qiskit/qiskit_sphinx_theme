@@ -6,7 +6,7 @@ from typing import overload
 class Electron:
     """A representation of an electron."""
 
-    def __init__(self, size: str = "", name: str = "") -> None:
+    def __init__(self, size: str = None, name: str = None) -> None:
         """Create an electron.
 
         Args:
@@ -42,7 +42,6 @@ class Electron:
         Raises:
             ValueError: You did something wrong
         """
-        return 0.0
 
     def method_with_a_reallyyreallreallyreallyreallyreallyreallreallyreallyreallyreally_long_title(
         self,
