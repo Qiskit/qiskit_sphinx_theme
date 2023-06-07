@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import sphinx.application
     import sphinx.config
 
-DEFAULT_LANGUAGE = "en"
+DEFAULT_LANGUAGE = "en" 
 
 
 def setup(app: sphinx.application.Sphinx) -> None:
