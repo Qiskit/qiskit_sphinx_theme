@@ -7,6 +7,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   use: {
     baseURL,
+    viewport: { width: 1920, height: 1080 },
   },
   webServer: {
     command: "npm run start",
