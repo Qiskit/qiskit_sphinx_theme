@@ -13,10 +13,15 @@
 """Pytorch Sphinx theme."""
 
 from pathlib import Path
+from typing import TYPE_CHECKING
 
 import sphinx.addnodes
 
 from qiskit_sphinx_theme import directives, previous_releases, translations
+
+if TYPE_CHECKING:
+    import sphinx.addnodes
+    import sphinx.application
 
 __version__ = "1.12.0rc1"
 __version_full__ = __version__
