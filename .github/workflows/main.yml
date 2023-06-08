@@ -58,7 +58,7 @@ jobs:
           path: artifacts
 
       - name: Run JavaScript and snapshot tests
-        run: npm run _run-tests
+        run: npm run _run-snapshot-tests
       - name: Upload snapshot results
         if: failure()
         uses: actions/upload-artifact@v3

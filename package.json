@@ -8,9 +8,9 @@
   },
   "scripts": {
     "start": "cd example_docs/docs/_build/html; http-server",
-    "test": "npm run _docker-build && npm run _docker-run",
+    "test-snapshots": "npm run _docker-build && npm run _docker-run",
     "_docker-build": "docker build -t qiskit_sphinx_theme -f tests/js/Dockerfile .",
     "_docker-run": "docker run --rm --init -v $(pwd)/snapshot_results:/snapshot_results -v $(pwd)/tests/js/snapshots.test.js-snapshots:/tests/js/snapshots.test.js-snapshots qiskit_sphinx_theme",
-    "_run-tests": "playwright test"
+    "_run-snapshot-tests": "playwright test"
   }
 }
