@@ -37,7 +37,7 @@ def _get_theme_absolute_path(folder_name: str) -> str:
 def remove_thebe_if_not_needed(
     app: sphinx.application.Sphinx,
     pagename: str,
-    templatenam: str,
+    templatename: str,
     context: dict,
     doctree: sphinx.addnodes.document,
 ) -> None:
