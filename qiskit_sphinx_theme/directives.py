@@ -38,7 +38,7 @@ class CardItemDirective(Directive):
         "tags": directives.unchanged,
     }
 
-    def run(self):
+    def run(self) -> list[nodes.paragraph]:
         header = self.options.get("header")
         if header is None:
             raise ValueError(f"`header` not set in {self.NAME} directive")
@@ -81,7 +81,7 @@ class CallToActionItemDirective(Directive):
         "button_text": directives.unchanged,
     }
 
-    def run(self):
+    def run(self) -> list[nodes.paragraph]:
         description = self.options.get("description", "")
         header = self.options.get("header")
         if header is None:

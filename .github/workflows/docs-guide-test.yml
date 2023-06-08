@@ -1,5 +1,10 @@
 name: Test Docs Guide
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
+      - '1.*'
+  pull_request:
 
 permissions:
   contents: write
