@@ -47,16 +47,50 @@ Sometimes Sphinx's caching can get in a bad state. First, try running `tox -e do
 We are in the process of migrating our theme from Pytorch to Furo (see https://github.com/Qiskit/qiskit_sphinx_theme/issues/232). To build the local docs using the Furo theme, use `THEME=_qiskit_furo` in front of the command, e.g. `THEME=_qiskit_furo tox -e docs`.
 
 ------
-## Run JavaScript tests
+## Visual regression testing
 
-We write some tests in JavaScript (Node.js) to have automated checks of the theme, e.g. that certain components render properly.
+We use visual regression testing via [Playwright](https://playwright.dev/docs/test-snapshots) to take screenshots of the site and check that every change we make is intentional. If a screenshot has changed, the test will fail. 
 
-To run these tests, you first need to install Node.js on your machine. If you expect to use JavaScript in other projects, we recommend using [NVM](https://github.com/nvm-sh/nvm). Otherwise, consider using [Homebrew](https://formulae.brew.sh/formula/node) or installing [Node.js directly](https://nodejs.org/en).
+If the change was intentional, we need to update the screenshot. Otherwise, it means your change unintentionally impacted something, so you need to tweak your change.
 
-Then:
+The test runner creates a folder called `snapshot_results`, which is useful to determine what the difference is. For each failed test, there will be three files:
+
+* `<my-test-name>-actual.png`, what your change resulted in.
+* `<my-test-name>-expected.png`, what we expected.
+* `<my-test-name>-diff.png`, a heat map showing where the differences are.
+
+### How to check snapshot results in CI
+
+We upload `snapshot_results` in CI. So, you can get the changed snapshot from GitHub Actions:
+
+1. Navigate to the GitHub Actions page for the "Tests" action.
+2. Open the "Summary" page with the house icon.
+3. Under the "Artifacts" section, there should be a "snapshot_results" entry. Download it.
+
+### How to check snapshot results locally
+
+You can also run the tests locally for faster iteration, although it requires a little setup. If you don't want to install the below tools, it is okay to use CI for snapshot testing.
+
+First, you need to install:
+
+1. [Node.js](https://nodejs.org/en). If you expect to use JavaScript in other projects, consider using [NVM](https://github.com/nvm-sh/nvm). Otherwise, consider using [Homebrew](https://formulae.brew.sh/formula/node) or installing [Node.js directly](https://nodejs.org/en).
+2. [Docker](https://www.docker.com). You must also ensure that it is running.
+   * If you cannot install Docker Desktop (such as IBM contributors), you can use [Rancher Desktop](https://rancherdesktop.io). When installing, choose Moby/Dockerd as the engine, rather than nerdctl. To ensure it's running, open up the app "Rancher Desktop". 
+
+Then, to run the tests locally:
 
 1. `npm install`
-2. `npm test`
+2. Build the docs with Furo, `THEME=_qiskit_furo tox -e docs`
+3. `npm run test-snapshots`
+
+You must rebuild the docs with `THEME=_qiskit_furo tox -e docs` whenever you make changes to the theme or docs folder. The docs will not automatically rebuild.
+
+### How to update the expected snapshot for intentional changes
+
+First, get the `snapshot_results` folder, either by downloading it from CI or by running the tests locally. Then:
+
+1. Find the "actual" snapshot for the failing test, such as `footer-includes-page-analytics-1-actual.png`.
+2. Copy that snapshot into the folder `tests/js/snapshots.test.js-snapshots`. Rename the `-actual.png` file ending to be `-linux.png` and overwrite the prior file.
 
 ------
 ## Updating bundled web components
