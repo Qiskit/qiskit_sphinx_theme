@@ -13,9 +13,9 @@ const setTablet = async (page) => {
 };
 
 const scrollDown = async (page, numPixels) => {
-  await page.evaluate(() => {
-    window.scrollBy(0, 200);
-  });
+  await page.evaluate(numPixels => {
+    window.scrollBy(0, numPixels);
+  }, numPixels);
   // We have to wait for the page animation to update.
   await page.waitForTimeout(600);
 };
