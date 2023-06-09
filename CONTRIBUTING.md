@@ -69,7 +69,7 @@ We upload `snapshot_results` in CI. So, you can get the changed snapshot from Gi
 
 ### How to check snapshot results locally
 
-You can also run the tests locally for faster iteration, although it requires a little setup. If you don't want to install the below tools, it is 100% okay to rely on CI for snapshot testing.
+You can also run the tests locally for faster iteration, although it requires a little setup. If you don't want to install the below tools, it is okay to use CI for snapshot testing.
 
 First, you need to install:
 
@@ -85,7 +85,7 @@ Then, to run the tests locally:
 
 You must rebuild the docs with `THEME=_qiskit_furo tox -e docs` whenever you make changes to the theme or docs folder. The docs will not automatically rebuild.
 
-### How to update the expected snapshot
+### How to update the expected snapshot for intentional changes
 
 First, get the `snapshot_results` folder, either by downloading it from CI or by running the tests locally. Then:
 
