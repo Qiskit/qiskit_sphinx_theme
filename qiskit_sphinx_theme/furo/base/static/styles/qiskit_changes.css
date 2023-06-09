@@ -27,8 +27,20 @@ body {
 /* Fix Qiskit top nav bar hiding Furo's top nav bar when scrolled down. */
 .mobile-header,
 .sidebar-sticky,
-.toc-sticky {
+.toc-sticky,
+#__navigation:checked ~ .page .sidebar-drawer,
+#__toc:checked ~ .page .toc-drawer {
   top: var(--qiskit-top-nav-bar-height);
+}
+@media (max-width: 67em) {
+  .sidebar-drawer {
+    top: var(--qiskit-top-nav-bar-height);
+  }
+}
+@media (max-width: 82em) {
+  .toc-drawer {
+    top: var(--qiskit-top-nav-bar-height);
+  }
 }
 
 /* Fix # anchor links not accounting for the top nav bar.
@@ -46,21 +58,6 @@ body {
   /* When a heading is selected */
   section > span:target {
     scroll-margin-top: calc(0.8rem + var(--header-height) + var(--qiskit-top-nav-bar-height));
-  }
-}
-
-/* Show the whole contents of the mobile expandable menus.
-*  `box-sizing: border-box` ensures padding is included in the height calculations. */
-@media (max-width: 67em) {
-  .sidebar-drawer {
-    padding-top: var(--qiskit-top-nav-bar-height);
-    box-sizing: border-box;
-  }
-}
-@media (max-width: 82em) {
-  .toc-drawer {
-    padding-top: var(--qiskit-top-nav-bar-height);
-    box-sizing: border-box;
   }
 }
 
