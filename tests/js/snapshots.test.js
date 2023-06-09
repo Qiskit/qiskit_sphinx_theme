@@ -4,6 +4,10 @@ import { expect, test } from "@playwright/test";
 // Helper functions
 // -----------------------------------------------------------------------
 
+const setDesktop = async (page) => {
+  await page.setViewportSize({ width: 1920, height: 1080 });
+};
+
 const setMobile = async (page) => {
   await page.setViewportSize({ width: 375, height: 812 });
 };
@@ -52,26 +56,37 @@ test.describe("Qiskit top nav bar", () => {
     page,
   }) => {
     await page.goto("sphinx_guide/lists.html");
+
+    const check = async () => {
+      const pageToCVisible = await isVisibleInViewport(
+        page,
+        "div.toc-title-container"
+      );
+      expect(pageToCVisible).toBe(true);
+
+      const searchVisible = await isVisibleInViewport(
+        page,
+        "input.sidebar-search"
+      );
+      expect(searchVisible).toBe(true);
+
+      await setMobile(page);
+      const mobileHeaderVisible = await isVisibleInViewport(
+        page,
+        "header.mobile-header"
+      );
+      expect(mobileHeaderVisible).toBe(true);
+    };
+
+    // First check after scrolling down a little bit.
     await scrollDown(page, 200);
+    await check();
 
-    const pageToCVisible = await isVisibleInViewport(
-      page,
-      "div.toc-title-container"
-    );
-    expect(pageToCVisible).toBe(true);
-
-    const searchVisible = await isVisibleInViewport(
-      page,
-      "input.sidebar-search"
-    );
-    expect(searchVisible).toBe(true);
-
-    await setMobile(page);
-    const mobileHeaderVisible = await isVisibleInViewport(
-      page,
-      "header.mobile-header"
-    );
-    expect(mobileHeaderVisible).toBe(true);
+    // Then scroll to the bottom of the page. We use the home page because it's short.
+    await setDesktop(page);
+    await page.goto("");
+    await scrollDown(page, 1000);
+    await check();
   });
 
   test("does not cover the top of # anchor links", async ({ page }) => {
