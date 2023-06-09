@@ -24,7 +24,7 @@ body {
   display: none;
 }
 
-/* Fix Qiskit top nav bar hiding Furo's top nav bar when scrolled down. */
+/* Fix Qiskit top nav bar hiding Furo's top nav bar and side menus. */
 .mobile-header,
 .sidebar-sticky,
 .toc-sticky,
@@ -41,6 +41,16 @@ body {
   .toc-drawer {
     top: var(--qiskit-top-nav-bar-height);
   }
+}
+
+/* These are also necessary to fix the Qiskit top nav bar hiding Furo content/menus, specifically
+*  when the user is scrolled down to the bottom of the page. They override Furo's rules. */
+.sidebar-sticky,
+.toc-sticky {
+  height: calc(100vh - var(--qiskit-top-nav-bar-height));
+}
+.toc-scroll {
+  max-height: calc(100vh - var(--qiskit-top-nav-bar-height));
 }
 
 /* Fix # anchor links not accounting for the top nav bar.
