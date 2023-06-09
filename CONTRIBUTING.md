@@ -163,6 +163,16 @@ Update the version in `setup.py`. Always pin to an exact version of Furo.
 
 However, when updating, closely analyze each commit in the release to check for any changes that would break our fork. We want to make sure that our HTML files are always in sync with Furo. If they have made any changes, then add them back to our copy of the file.
 
+### How to add an icon
+Edit the file `furo/base/partials/icons.html`. Copy the HTML code of the `<svg></svg>` tags and add them as the first element within the `<symbol>` tag. Don't forget to include the `id` attribute, which will serve as the name associated with the icon. 
+
+
+To use the icon, reference it with `#`.
+
+ For example:
+https://github.com/Qiskit/qiskit_sphinx_theme/blob/1a1c1341a39d196d78fb79d6264b762ab5398c93/qiskit_sphinx_theme/furo/base/page.html#L57
+
+
 ------
 ## Releases
 
