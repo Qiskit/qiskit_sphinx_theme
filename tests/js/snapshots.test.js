@@ -48,7 +48,7 @@ const isVisibleInViewport = async (page, selector) => {
 // -----------------------------------------------------------------------
 
 test.describe("Qiskit top nav bar", () => {
-  test("does not cover Furo's top nav bar when scrolled down", async ({
+  test("does not cover Furo's menu bars when scrolled down", async ({
     page,
   }) => {
     await page.goto("sphinx_guide/lists.html");
@@ -94,7 +94,7 @@ test.describe("Qiskit top nav bar", () => {
     await checkHeader();
   });
 
-  test("does not cover the side menus when expanded on mobile", async ({
+  test("does not cover the side menus when they're expanded on mobile", async ({
     page,
   }) => {
     await setMobile(page);
@@ -125,15 +125,15 @@ test.describe("Qiskit top nav bar", () => {
   });
 });
 
-test.describe("Furo top nav bar", () => {
-  test("uses custom page ToC icon on tablet", async ({ page }) => {
+test.describe("Furo menu bars", () => {
+  test("use custom page ToC icon on tablet", async ({ page }) => {
     await setTablet(page);
     await page.goto("");
     const pageToC = page.locator("div.content-icon-container");
     await expect(pageToC).toHaveScreenshot();
   });
 
-  test("uses custom icon and text on mobile", async ({ page }) => {
+  test("use custom icon and text on mobile", async ({ page }) => {
     await setMobile(page);
     await page.goto("");
     const header = page.locator("header.mobile-header");
