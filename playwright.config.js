@@ -12,6 +12,7 @@ export default defineConfig({
   },
   use: {
     baseURL,
+    viewport: { width: 1920, height: 1080 }, // Sets default viewport to desktop dimensions.
   },
   webServer: {
     command: "npm run start",
