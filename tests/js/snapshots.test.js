@@ -13,7 +13,7 @@ const setTablet = async (page) => {
 };
 
 const scrollDown = async (page, numPixels) => {
-  await page.evaluate(numPixels => {
+  await page.evaluate((numPixels) => {
     window.scrollBy(0, numPixels);
   }, numPixels);
   // We have to wait for the page animation to update.
@@ -151,8 +151,16 @@ test.describe("footer", () => {
   test("says 'thank you' when analytics clicked", async ({ page }) => {
     await page.goto("");
     const yesOption = page.locator("a.helpful-question.yes-link");
-    await yesOption.click();
 
+    // First, check that we change the color of the buttons when hovering.
+    await yesOption.hover();
+    const backgroundColor = await yesOption.evaluate(
+      (node) => getComputedStyle(node).backgroundColor
+    );
+    expect(backgroundColor).toEqual("rgb(105, 41, 196)");
+
+    // Then, check the screenshot when clicking.
+    await yesOption.click();
     const analytics = page.locator("div.helpful-container");
     await expect(analytics).toHaveScreenshot();
   });
