@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-test("left side bar only uses purple for current page", async ({ page }) => {
+test("left side bar table of contents renders correctly", async ({ page }) => {
   await page.goto("");
   const leftToC = page.locator("div.sidebar-tree");
   await expect(leftToC).toHaveScreenshot();
