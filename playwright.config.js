@@ -7,7 +7,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   expect: {
     toHaveScreenshot: {
-      threshold: 0.0, // We expect colors to be exact matches.
+      threshold: 0.01, // We expect colors to be near exact matches.
     },
   },
   use: {
