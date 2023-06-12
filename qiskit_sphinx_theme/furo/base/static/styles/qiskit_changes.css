@@ -95,3 +95,15 @@ footer .helpful-container .was-helpful-thank-you {
   background-color: #8B34FC;
   color: #ffffff;
 }
+
+/* ---------------------------------------------------------------------------
+* Tutorials
+* ---------------------------------------------------------------------------- */
+
+/* Don't have a purple border. This rule overrides `.npshinx-gallery > a`.
+*
+* We keep the default style of the text itself being purple to make it more clear that this is a
+* clickable link (better accessibility).*/
+.nbsphinx-gallery > a.reference {
+  border: 1px dotted var(--color-foreground-secondary);
+}
