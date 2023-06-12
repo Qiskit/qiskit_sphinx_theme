@@ -5,13 +5,14 @@
  * Variables that start with `--qiskit-` are new values we use in this file; they are not overrides.
  */
 body {
-    --color-brand-primary: #8A3FFC;
-    --color-brand-content: #8A3FFC;
+    --color-brand-primary: var(--qiskit-color-purple);
+    --color-brand-content: var(--qiskit-color-purple);
     --font-stack: 'IBM Plex Sans', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
     --font-stack--monospace: 'IBM Plex Mono', 'Consolas', 'Courier New', monospace;
     /* This value is duplicated from `top-nav-bar.js`. Its definition of the variable is not
      * exposed globally. Keep in sync. */
     --qiskit-top-nav-bar-height: 3.5rem;
+    --qiskit-color-purple: #6929C4;
 }
 
 /* ------------------------------
@@ -64,6 +65,24 @@ body {
 }
 
 /* ------------------------------
+* Left side bar
+* ------------------------------ */
+
+/* By default, top level entries in the table of contents would be purple. We instead
+*  use the same color as nested entries for a more muted look. */
+.sidebar-tree .toctree-l1 > .reference,
+.sidebar-tree .toctree-l1 > label .icon {
+  color: var(--color-sidebar-link-text);
+}
+
+/* But, we change the currently selected page to be purple to make it more obvious.
+*
+* We keep Furo making the entry bold, including for accessibility with color blindness. */
+.sidebar-tree .current-page > .reference {
+  color: var(--qiskit-color-purple);
+}
+
+/* ------------------------------
 * User analytics in the footer
 * ------------------------------ */
 
@@ -85,13 +104,13 @@ footer .helpful-container .was-helpful-thank-you {
 
 .helpful-container .helpful-question.yes-link,
 .helpful-container .helpful-question.no-link {
-  color: #8B34FC;
+  color: var(--qiskit-color-purple);
   cursor: pointer;
   text-decoration: none;
 }
 
 .helpful-container .helpful-question.yes-link:hover,
 .helpful-container .helpful-question.no-link:hover {
-  background-color: #8B34FC;
+  background-color: var(--qiskit-color-purple);
   color: #ffffff;
 }
