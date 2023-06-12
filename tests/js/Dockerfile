@@ -14,8 +14,8 @@ COPY package*.json ./
 RUN npm ci
 
 # Copy over only the folders needed for our tests.
-COPY ../../playwright.config.js ./
+COPY playwright.config.js ./
 COPY tests/js tests/js
-COPY ../../example_docs/docs/_build/html example_docs/docs/_build/html
+COPY example_docs/docs/_build/html example_docs/docs/_build/html
 
-CMD [ "npm", "run", "_run-tests" ]
+CMD [ "npm", "run", "_run-snapshot-tests" ]
