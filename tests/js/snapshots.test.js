@@ -66,11 +66,11 @@ test.describe("Qiskit top nav bar", () => {
     );
     expect(pageToCVisible).toBe(true);
 
-    const searchVisible = await isVisibleInViewport(
+    const translationsVisible = await isVisibleInViewport(
       page,
-      "input.sidebar-search"
+      "div.qiskit-translations-container p"
     );
-    expect(searchVisible).toBe(true);
+    expect(translationsVisible).toBe(true);
 
     await setMobile(page);
     const mobileHeaderVisible = await isVisibleInViewport(
@@ -117,11 +117,11 @@ test.describe("Qiskit top nav bar", () => {
     await page.goto("");
 
     await click(page, "div.header-left i");
-    const searchVisible = await isVisibleInViewport(
+    const translationsVisible = await isVisibleInViewport(
       page,
-      "input.sidebar-search"
+      "div.qiskit-translations-container p"
     );
-    expect(searchVisible).toBe(true);
+    expect(translationsVisible).toBe(true);
   });
 });
 
