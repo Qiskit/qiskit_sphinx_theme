@@ -5,13 +5,14 @@
  * Variables that start with `--qiskit-` are new values we use in this file; they are not overrides.
  */
 body {
-    --color-brand-primary: #8A3FFC;
-    --color-brand-content: #8A3FFC;
+    --color-brand-primary: var(--qiskit-color-purple);
+    --color-brand-content: var(--qiskit-color-purple);
     --font-stack: 'IBM Plex Sans', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
     --font-stack--monospace: 'IBM Plex Mono', 'Consolas', 'Courier New', monospace;
     /* This value is duplicated from `top-nav-bar.js`. Its definition of the variable is not
      * exposed globally. Keep in sync. */
     --qiskit-top-nav-bar-height: 3.5rem;
+    --qiskit-color-purple: #6929C4;
 }
 
 /* ------------------------------
@@ -23,11 +24,33 @@ body {
   display: none;
 }
 
-/* Fix Qiskit top nav bar hiding Furo's top nav bar when scrolled down. */
+/* Fix Qiskit top nav bar hiding Furo's top nav bar and side menus. */
 .mobile-header,
 .sidebar-sticky,
-.toc-sticky {
+.toc-sticky,
+#__navigation:checked ~ .page .sidebar-drawer,
+#__toc:checked ~ .page .toc-drawer {
   top: var(--qiskit-top-nav-bar-height);
+}
+@media (max-width: 67em) {
+  .sidebar-drawer {
+    top: var(--qiskit-top-nav-bar-height);
+  }
+}
+@media (max-width: 82em) {
+  .toc-drawer {
+    top: var(--qiskit-top-nav-bar-height);
+  }
+}
+
+/* These are also necessary to fix the Qiskit top nav bar hiding Furo content/menus, specifically
+*  when the user is scrolled down to the bottom of the page. They override Furo's rules. */
+.sidebar-sticky,
+.toc-sticky {
+  height: calc(100vh - var(--qiskit-top-nav-bar-height));
+}
+.toc-scroll {
+  max-height: calc(100vh - var(--qiskit-top-nav-bar-height));
 }
 
 /* Fix # anchor links not accounting for the top nav bar.
@@ -48,19 +71,22 @@ body {
   }
 }
 
-/* Show the whole contents of the mobile expandable menus.
-*  `box-sizing: border-box` ensures padding is included in the height calculations. */
-@media (max-width: 67em) {
-  .sidebar-drawer {
-    padding-top: var(--qiskit-top-nav-bar-height);
-    box-sizing: border-box;
-  }
+/* ------------------------------
+* Left side bar
+* ------------------------------ */
+
+/* By default, top level entries in the table of contents would be purple. We instead
+*  use the same color as nested entries for a more muted look. */
+.sidebar-tree .toctree-l1 > .reference,
+.sidebar-tree .toctree-l1 > label .icon {
+  color: var(--color-sidebar-link-text);
 }
-@media (max-width: 82em) {
-  .toc-drawer {
-    padding-top: var(--qiskit-top-nav-bar-height);
-    box-sizing: border-box;
-  }
+
+/* But, we change the currently selected page to be purple to make it more obvious.
+*
+* We keep Furo making the entry bold, including for accessibility with color blindness. */
+.sidebar-tree .current-page > .reference {
+  color: var(--qiskit-color-purple);
 }
 
 /* ------------------------------
@@ -85,13 +111,13 @@ footer .helpful-container .was-helpful-thank-you {
 
 .helpful-container .helpful-question.yes-link,
 .helpful-container .helpful-question.no-link {
-  color: #8B34FC;
+  color: var(--qiskit-color-purple);
   cursor: pointer;
   text-decoration: none;
 }
 
 .helpful-container .helpful-question.yes-link:hover,
 .helpful-container .helpful-question.no-link:hover {
-  background-color: #8B34FC;
+  background-color: var(--qiskit-color-purple);
   color: #ffffff;
 }
