@@ -96,6 +96,7 @@ body {
 
 .qiskit-translations-list-container {
   display: none;
+  padding-bottom: var(--sidebar-item-spacing-vertical);
 }
 #translations-checkbox:checked ~ .qiskit-translations-list-container {
   display: block;
