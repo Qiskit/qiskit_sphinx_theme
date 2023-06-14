@@ -97,7 +97,7 @@ body {
   border-bottom: solid 2px var(--qiskit-color-purple);
 }
 
-.qiskit-translations-current-container label {
+.qiskit-translations-header-container label {
   cursor: pointer;
 }
 
@@ -110,7 +110,7 @@ body {
 }
 
 /* Based off of `.toctree-l1 li`. */
-.qiskit-translations-current-container {
+.qiskit-translations-header-container {
   margin: 0;
   position: relative;
   /* Normally this is set on `.sidebar-tree label`, which corresponds to our
@@ -121,7 +121,7 @@ body {
 }
 
 /* Based off of `.sidebar-tree li.has-children > reference` and `.sidebar-tree .reference`. */
-.qiskit-translations-current-container p {
+.qiskit-translations-header-container p {
   padding-right: var(--sidebar-expander-width);
   box-sizing: border-box;
   display: inline-block;
@@ -135,7 +135,7 @@ body {
 
 /* Based off of `.sidebar-tree .reference:hover`, but applied to the whole container rather than
 *  only the label text. */
-.qiskit-translations-current-container:hover {
+.qiskit-translations-header-container:hover {
   background: var(--color-sidebar-item-background--hover);
 }
 
@@ -158,10 +158,10 @@ body {
   display: none;
   position: absolute;
 }
-.qiskit-translations-current-container svg {
+.qiskit-translations-header-container svg {
   transform: rotate(90deg);
 }
-#translations-checkbox:checked ~ .qiskit-translations-current-container svg {
+#translations-checkbox:checked ~ .qiskit-translations-header-container svg {
   transform: rotate(-90deg);
 }
 

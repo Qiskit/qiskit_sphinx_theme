@@ -1,14 +1,14 @@
 {% if translations_list %}
-<div class="qiskit-translations-container" aria-label="languages">
-  {#- The HTML and CSS structure for `qiskit-translations-current-container` is inspired by Furo's
-      left sidebar's table of contents for a top-level page with subpages. It has a similar
-      setup to us: a text label and chevron icon to indicate the section is expandable.
+{#- The HTML and CSS structure is inspired by Furo's left sidebar's table of contents for a
+ top-level page with subpages. It has a similar setup to us: a text label and chevron icon to
+ indicate the section is expandable.
 
-      We use custom class names for clarity and because this isn't an identical replica. The CSS
-      rules explain in comments how the Furo classes map to our classes.
-  -#}
+ We use custom class names for clarity and because this isn't an identical replica. The CSS rules
+ explain in comments how the Furo classes map to our classes.
+-#}
+<div class="qiskit-translations-container" aria-label="languages">
   <input id="translations-checkbox" name="translations-checkbox" role="switch" type="checkbox">
-  <div class="qiskit-translations-current-container">
+  <div class="qiskit-translations-header-container">
     {#- Using a label for the whole div means the user can click anywhere in it to toggle the checkbox. -#}
     <label for="translations-checkbox">
       <p role="note">{{ language_label }}</p>
