@@ -1,16 +1,29 @@
 {% if translations_list %}
-<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
-  <span class="rst-current-version" data-toggle="rst-current-version">
-    <span class="rst-current-version-label">{{ language_label }}</span>
-    <span class="rst-versions-dropdown-icon"></span>
-  </span>
-  <div class="rst-other-versions">
-    <dl>
-      <dt>{{ _('Languages') }}</dt>
-      {% for code, language in translations_list %}
-        <dd><a class="version" href="{{ translation_url(code, pagename) }}">{{ language }}</a></dd>
+{#- The HTML and CSS structure is inspired by Furo's left sidebar's table of contents for a
+ top-level page with subpages. It has a similar setup to us: a text label and chevron icon to
+ indicate the section is expandable.
+
+ We use custom class names for clarity and because this isn't an identical replica. The CSS rules
+ explain in comments how the Furo classes map to our classes.
+-#}
+<div class="qiskit-translations-container" aria-label="languages">
+  <input id="translations-checkbox" name="translations-checkbox" role="switch" type="checkbox">
+  <div class="qiskit-translations-header-container">
+    {#- Using a label for the whole div means the user can click anywhere in it to toggle the checkbox. -#}
+    <label for="translations-checkbox">
+      <p role="note">{{ language_label }}</p>
+      <div class="qiskit-translations-toggle-container">
+        <div class="visually-hidden">Toggle translations list</div>
+        <i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i>
+      </div>
+    </label>
+  </div>
+  <div class="qiskit-translations-list-container">
+    <ul>
+      {% for lang_code, language in translations_list %}
+        <li><a href="{{ translation_url(lang_code, pagename) }}">{{ language }}</a></li>
       {% endfor %}
-    </dl>
+    </ul>
   </div>
   <script>
     document.querySelectorAll('.version').forEach((element) => {
