@@ -1,15 +1,15 @@
 /* Define variables & override some Furo ones. See
 * https://github.com/pradyunsg/furo/tree/main/src/furo/assets/styles/variables
-* for all options. */
+* for all options.
+*
+* Any variable starting with `--qiskit` is custom, rather than overriding Furo. */
 body {
     /* -----------------------------------------------------------------------
     * Primary colors
     * ------------------------------------------------------------------------ */
+    --qiskit-color-purple: #6929C4;
     --color-brand-primary: var(--qiskit-color-purple);
     --color-brand-content: var(--qiskit-color-purple);
-
-    /* Use gray for the top-level sidebar to be more muted. */
-    --color-sidebar-link-text--top-level: var(--color-sidebar-link-text);
 
     /* -----------------------------------------------------------------------
     * Fonts
@@ -18,20 +18,25 @@ body {
     --font-stack--monospace: 'IBM Plex Mono', 'Consolas', 'Courier New', monospace;
 
     /* -----------------------------------------------------------------------
+    * Top nav bar.
+    * ----------------------------------------------------------------------- */
+    /* This value is duplicated from `top-nav-bar.js`. Its definition of the variable is not
+     * exposed globally. Keep in sync. */
+    --qiskit-top-nav-bar-height: 3.5rem;
+
+    /* -----------------------------------------------------------------------
+    * Left sidebar
+    * ----------------------------------------------------------------------- */
+    /* Use gray for the top-level links to be more muted. */
+    --color-sidebar-link-text--top-level: var(--color-sidebar-link-text);
+    /* This defaults to 15em in Furo, but we want a little bigger. */
+    --qiskit-left-sidebar-width: 18em;
+
+    /* -----------------------------------------------------------------------
     * Tables
     * ------------------------------------------------------------------------ */
     /* Use the same table header color as qiskit.org. */
     --color-table-header-background: #dde1e6;
-
-    /* -----------------------------------------------------------------------
-    * Custom Qiskit variables.
-    * ------------------------------------------------------------------------ */
-    /* This value is duplicated from `top-nav-bar.js`. Its definition of the variable is not
-     * exposed globally. Keep in sync. */
-    --qiskit-top-nav-bar-height: 3.5rem;
-    --qiskit-color-purple: #6929C4;
-    /* This defaults to 15em in Furo, but we want a little bigger. */
-    --qiskit-left-sidebar-width: 18em;
 }
 
 /* ------------------------------------------------------------------------------
