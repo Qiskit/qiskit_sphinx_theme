@@ -157,18 +157,16 @@ test.describe("Furo menu bars", () => {
 });
 
 test.describe("left side bar", () => {
-  test("table of contents renders correctly", async ({ page }) => {
+  test("renders correctly", async ({ page }) => {
     await page.goto("");
-    const leftToC = page.locator("div.sidebar-tree");
+    const leftToC = page.locator(".sidebar-drawer");
     await expect(leftToC).toHaveScreenshot();
   });
 
-  test("translations render correctly", async ({ page }) => {
+  test("translations are expandable", async ({ page }) => {
     await page.goto("");
-    const translations = page.locator("div.qiskit-translations-container");
-    await expect(translations).toHaveScreenshot();
-
     await click(page, "div.qiskit-translations-container i");
+    const translations = page.locator("div.qiskit-translations-container");
     await expect(translations).toHaveScreenshot();
   });
 });
