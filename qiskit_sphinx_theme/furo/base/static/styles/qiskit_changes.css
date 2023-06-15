@@ -92,6 +92,26 @@ body {
 * Left side bar
 * ------------------------------------------------------------------------------- */
 
+/* We don't like how Furo makes the left side bar resize dynamically. Instead, we'd rather have the
+*  left sidebar stay the same size and resize the main content.
+*
+*  We also increase the size from 15em to 18em. */
+.sidebar-drawer,
+.sidebar-container {
+  width: 18em;
+}
+.sidebar-drawer {
+  min-width: unset;
+}
+@media (max-width: 67em) {
+  .sidebar-drawer {
+    left: -18em;
+  }
+}
+@media (max-width: 82em) {
+  width: 18em;
+}
+
 /* Even though we override --color-sidebar-link--top-level to be a more muted look, we change
 *  the currently selected page to be purple to make it more obvious. */
 .sidebar-tree .current-page > .reference {
