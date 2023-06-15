@@ -30,6 +30,8 @@ body {
      * exposed globally. Keep in sync. */
     --qiskit-top-nav-bar-height: 3.5rem;
     --qiskit-color-purple: #6929C4;
+    /* This defaults to 15em in Furo, but we want a little bigger. */
+    --qiskit-left-sidebar-width: 18em;
 }
 
 /* ------------------------------------------------------------------------------
@@ -92,31 +94,41 @@ body {
 * Page layout
 * ------------------------------------------------------------------------------- */
 
-/* We don't like how Furo makes the left side bar resize dynamically. Instead, we'd rather have the
-*  left sidebar stay the same size and resize the main content.
+/* By default, Furo expands the left sidebar when the page width increases, but it doesn't
+*  increase the entry size.
 *
-*  We also increase the size from 15em to 18em. */
-.sidebar-drawer,
-.sidebar-container {
-  width: 18em;
-}
+* Instead, we always keep the left side bar the same size. Instead, we expand the main page
+* contents. We keep the right sidebar fixed, like Furo. This is a better use of screen real estate
+* and is more consistent with qiskit.org.
+*
+* The easiest way to achieve this is using flexbox, given that Furo already uses it. */
 .sidebar-drawer {
-  min-width: unset;
+  flex: 0 0 var(--qiskit-left-sidebar-width);
 }
-@media (max-width: 67em) {
-  .sidebar-drawer {
-    left: -18em;
-  }
+.content {
+  flex: 1 1 46em;
 }
-@media (max-width: 82em) {
-  width: 18em;
+.toc-drawer {
+  flex: 0 0 15em;
 }
 
-/* We want to allow the main page content to dynamically resize to take advantage of wide screens.
-*  We set `min-width` to 46em, what Furo normally would use for `width`.*/
-div.content {
-  min-width: 46em;
+/* For clarity, we unset Furo's use of `width` and `min-width`, even though Flexbox mostly ignores
+*  these. */
+.sidebar-drawer,
+.sidebar-container,
+.content,
+.toc-drawer {
   width: unset;
+  min-width: unset;
+}
+
+/* On mobile, we don't use flexbox for the left sidebar drawer. */
+@media (max-width: 67em) {
+  .sidebar-drawer {
+    flex: 0 0 0;
+    width: var(--qiskit-left-sidebar-width);
+    left: calc(var(--qiskit-left-sidebar-width) * -1);
+  }
 }
 
 /* ------------------------------------------------------------------------------
