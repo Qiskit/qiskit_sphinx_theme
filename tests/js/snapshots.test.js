@@ -197,3 +197,9 @@ test.describe("footer", () => {
     await expect(analytics).toHaveScreenshot();
   });
 });
+
+test("tables align with qiskit.org", async ({ page }) => {
+  await page.goto("sphinx_guide/tables.html");
+  const gridTablesSection = page.locator("section#grid-tables");
+  await expect(gridTablesSection).toHaveScreenshot();
+});

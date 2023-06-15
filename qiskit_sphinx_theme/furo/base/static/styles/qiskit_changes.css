@@ -1,23 +1,37 @@
-/* Define some Furo variables. See
- *  https://github.com/pradyunsg/furo/tree/main/src/furo/assets/styles/variables
- *  for all options.
- *
- * Variables that start with `--qiskit-` are new values we use in this file; they are not overrides.
- */
+/* Define variables & override some Furo ones. See
+* https://github.com/pradyunsg/furo/tree/main/src/furo/assets/styles/variables
+* for all options. */
 body {
+    /* -----------------------------------------------------------------------
+    * Primary colors
+    * ------------------------------------------------------------------------ */
     --color-brand-primary: var(--qiskit-color-purple);
     --color-brand-content: var(--qiskit-color-purple);
+
+    /* -----------------------------------------------------------------------
+    * Fonts
+    * ----------------------------------------------------------------------- */
     --font-stack: 'IBM Plex Sans', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
     --font-stack--monospace: 'IBM Plex Mono', 'Consolas', 'Courier New', monospace;
+
+    /* -----------------------------------------------------------------------
+    * Tables
+    * ------------------------------------------------------------------------ */
+    /* Use the same table header color as qiskit.org. */
+    --color-table-header-background: #dde1e6;
+
+    /* -----------------------------------------------------------------------
+    * Custom Qiskit variables.
+    * ------------------------------------------------------------------------ */
     /* This value is duplicated from `top-nav-bar.js`. Its definition of the variable is not
      * exposed globally. Keep in sync. */
     --qiskit-top-nav-bar-height: 3.5rem;
     --qiskit-color-purple: #6929C4;
 }
 
-/* ------------------------------
+/* ------------------------------------------------------------------------------
 * Top nav bar
-* ------------------------------ */
+* ------------------------------------------------------------------------------- */
 
 /* Disable dark mode until qiskit.org has it: https://github.com/Qiskit/qiskit.org/issues/2310 */
 .theme-toggle-container {
@@ -71,9 +85,9 @@ body {
   }
 }
 
-/* ------------------------------
+/* ------------------------------------------------------------------------------
 * Left side bar
-* ------------------------------ */
+* ------------------------------------------------------------------------------- */
 
 /* By default, top level entries in the table of contents would be purple. We instead
 *  use the same color as nested entries for a more muted look. */
@@ -199,9 +213,9 @@ body {
   background: var(--color-sidebar-item-background--hover);
 }
 
-/* ------------------------------
+/* ------------------------------------------------------------------------------
 * User analytics in the footer
-* ------------------------------ */
+* ------------------------------------------------------------------------------- */
 
 footer .helpful-container {
   display: inline-flex;
