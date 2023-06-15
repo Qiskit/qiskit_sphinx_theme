@@ -1,20 +1,29 @@
 {% if version_list %}
-    <div class="sidebar-tree qiskit-previous-releases-container">
+{#- The HTML and CSS structure is inspired by Furo's left sidebar's table of contents for a
+ top-level page with subpages, but with the text looking like a sidebar caption. It has a
+ similar setup to us: a text label and chevron icon to indicate the section is expandable.
+
+ We use custom class names for clarity and because this isn't an identical replica. The CSS rules
+ explain in comments how the Furo classes map to our classes.
+-#}
+<div class="qiskit-previous-releases-container">
+    <input id="previous-releases-checkbox" name="previous-releases-checkbox" role="switch" type="checkbox">
+    <div class="qiskit-previous-releases-header-container">
+        {#- Using a label for the whole div means the user can click anywhere in it to toggle the checkbox. -#}
+        <label for="previous-releases-checkbox">
+            <p role="note">Previous Releases</p>
+            <div class="qiskit-previous-releases-toggle-container">
+                <div class="visually-hidden">Toggle navigation of Previous Releases</div>
+                <i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i>
+            </div>
+        </label>
+    </div>
+    <div class="qiskit-previous-releases-list-container">
         <ul>
-            <li class="toctree-l1 has-children">
-                <p class="reference internal qiskit-previous-releases-caption">Previous Releases</p>
-                <input class="toctree-checkbox" id="toctree-checkbox-previous-releases" name="toctree-checkbox-previous-releases" role="switch" type="checkbox">
-                <label for="toctree-checkbox-previous-releases">
-                    <div class="visually-hidden">Toggle navigation of Previous Releases</div>
-                    <i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i>
-                </label>
-                <ul>
-                {% for version in version_list | sort(reverse=True) %}
-                    <li class="toctree-l2">
-                        <a class="reference internal" href="{{ previous_versions_url(version) }}" rel="nofollow">{{ version }}</a>
-                    </li>
-                {% endfor %}
-                </ul>
+        {% for version in version_list | sort(reverse=True) %}
+            <li><a href="{{ previous_versions_url(version) }}" rel="nofollow">{{ version }}</a></li>
+        {% endfor %}
         </ul>
     </div>
+</div>
 {% endif %}

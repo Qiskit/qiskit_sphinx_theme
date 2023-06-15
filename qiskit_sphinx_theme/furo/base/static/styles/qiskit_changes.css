@@ -104,39 +104,107 @@ body {
 }
 
 /* --------------------------------------------------------------------------------------
-* Left side bar: Translations
+* Left side bar: Translations & Previous Releases common config
 * -------------------------------------------------------------------------------------- */
 
-.qiskit-translations-container {
-  border-bottom: solid 2px var(--qiskit-color-purple);
-}
-
-.qiskit-translations-header-container label {
-  cursor: pointer;
-}
-
-.qiskit-translations-list-container {
+.qiskit-translations-list-container,
+.qiskit-previous-releases-list-container {
   display: none;
-  padding-bottom: var(--sidebar-item-spacing-vertical);
 }
-#translations-checkbox:checked ~ .qiskit-translations-list-container {
+#translations-checkbox:checked ~ .qiskit-translations-list-container,
+#previous-releases-checkbox:checked ~ .qiskit-previous-releases-list-container{
   display: block;
 }
 
+.qiskit-translations-header-container label,
+.qiskit-previous-releases-header-container label {
+  cursor: pointer;
+}
+
 /* Based off of `.toctree-l1 li`. */
-.qiskit-translations-header-container {
+.qiskit-translations-header-container,
+.qiskit-previous-releases-header-container {
   margin: 0;
   position: relative;
-  /* Normally this is set on `.sidebar-tree label`, which corresponds to our
-  * `.qiskit-translations-toggle-container`. But we set it on the whole container because
-  * otherwise we get annoying browser highlighting of the text. */
+  /* Normally this is set on `.sidebar-tree label`, which corresponds to
+  * `.qiskit-translations-toggle-container` and `.qiskit-previous-releases-toggle-container`.
+  * But we set it on the whole container because otherwise we get annoying browser highlighting
+  * of the text. */
   -webkit-user-select: none;
   user-select: none;
 }
 
 /* Based off of `.sidebar-tree li.has-children > reference` and `.sidebar-tree .reference`. */
-.qiskit-translations-header-container p {
+.qiskit-translations-header-container p,
+.qiskit-previous-releases-header-container p {
+  box-sizing: border-box;
+  display: inline-block;
+  height: 100%;
+  line-height: var(--sidebar-item-line-height);
+  overflow-wrap: anywhere;
+  text-decoration: none;
+  width: 100%;
+  padding-left: var(--sidebar-item-spacing-horizontal);
   padding-right: var(--sidebar-expander-width);
+}
+
+/* Based off of `.sidebar-tree .reference:hover`, but applied to the whole container rather than
+*  only the label text. */
+.qiskit-translations-header-container:hover,
+.qiskit-previous-releases-header-container:hover {
+  background: var(--color-sidebar-item-background--hover);
+}
+
+/* Based off of `.sidebar-tree label`. */
+.qiskit-translations-toggle-container,
+.qiskit-previous-releases-toggle-container {
+  background: var(--color-sidebar-item-expander-background);
+  align-items: center;
+  display: flex;
+  height: var(--sidebar-item-height);
+  justify-content: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: var(--sidebar-expander-width);
+}
+
+/* Based off of `.toctree-checkbox`. */
+#translations-checkbox,
+#previous-releases-checkbox {
+  display: none;
+  position: absolute;
+}
+.qiskit-translations-header-container svg,
+.qiskit-previous-releases-header-container svg {
+  transform: rotate(90deg);
+}
+#translations-checkbox:checked ~ .qiskit-translations-header-container svg,
+#previous-releases-checkbox:checked ~ .qiskit-previous-releases-header-container svg {
+  transform: rotate(-90deg);
+}
+
+/* Based off of `.sidebar-tree ul`. */
+.qiskit-translations-list-container ul,
+.qiskit-previous-releases-list-container ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding: 0;
+}
+
+/* Based off of `.sidebar-tree li`. */
+.qiskit-translations-list-container li,
+.qiskit-previous-releases-list-container li {
+  margin: 0;
+  position: relative;
+}
+
+/* Based off of `.sidebar-tree .reference`. */
+.qiskit-translations-list-container a,
+.qiskit-previous-releases-list-container a {
   box-sizing: border-box;
   display: inline-block;
   height: 100%;
@@ -147,85 +215,55 @@ body {
   width: 100%;
 }
 
-/* Based off of `.sidebar-tree .reference:hover`, but applied to the whole container rather than
-*  only the label text. */
-.qiskit-translations-header-container:hover {
+/* Based off of `.sidebar-tree .reference:hover`. */
+.qiskit-translations-list-container a:hover,
+.qiskit-previous-releases-list-container a:hover {
   background: var(--color-sidebar-item-background--hover);
 }
 
-/* Based off of `.sidebar-tree label`. */
+/* --------------------------------------------------------------------------------------
+* Left side bar: Translations
+* -------------------------------------------------------------------------------------- */
+
+.qiskit-translations-container {
+  border-bottom: solid 2px var(--qiskit-color-purple);
+}
+
+.qiskit-translations-list-container {
+  padding-bottom: var(--sidebar-item-spacing-vertical);
+}
+
 .qiskit-translations-toggle-container {
-  background: var(--color-sidebar-item-expander-background);
-  align-items: center;
-  display: flex;
   /* Unlike Furo, we set this to 100% instead of `var(--sidebar-item-height)`. */
   height: 100%;
-  justify-content: center;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: var(--sidebar-expander-width);
 }
 
-/* Based off of `.toctree-checkbox`. */
-#translations-checkbox {
-  display: none;
-  position: absolute;
-}
-.qiskit-translations-header-container svg {
-  transform: rotate(90deg);
-}
-#translations-checkbox:checked ~ .qiskit-translations-header-container svg {
-  transform: rotate(-90deg);
-}
-
-/* Based off of `.sidebar-tree ul`. */
-.qiskit-translations-list-container ul {
-  display: flex;
-  flex-direction: column;
-  list-style: none;
-  margin-bottom: 0;
-  margin-top: 0;
-  padding: 0;
-}
-
-/* Based off of `.sidebar-tree li`. */
-.qiskit-translations-list-container li {
-  margin: 0;
-  position: relative;
-}
-
-/* Based off of `.sidebar-tree .reference`. */
 .qiskit-translations-list-container a {
-  box-sizing: border-box;
-  display: inline-block;
-  height: 100%;
-  line-height: var(--sidebar-item-line-height);
-  overflow-wrap: anywhere;
   /* We double the horizontal padding for some visual distinction with the normal sidebar. */
   padding: var(--sidebar-item-spacing-vertical) calc(var(--sidebar-item-spacing-horizontal) * 2);
-  text-decoration: none;
-  width: 100%;
-}
-
-/* Based off of `.sidebar-tree .reference:hover`. */
-.qiskit-translations-list-container a:hover {
-  background: var(--color-sidebar-item-background--hover);
 }
 
 /* ------------------------------------------------------------------------------
 * Left side bar: Previous Releases
 * ------------------------------------------------------------------------------- */
-/* The Previous Releases page is not a standalone page; you cannot click it. You only can expand
-* the section to see its subpages. This is unlike typical Furo table of contents entries,
-* where you can both go to subpages and the top-level page.
-*
-* We use the CSS classes `internal` and `reference` on our "Previous Releases" <p> element because
-* it gets the right spacing for the expand/collapse button. But, we need to overwrite the styling
-* so that it doesn't look like you can click the top-level page entry itself. We make this instead
-* look like a Table of Contents section header; we copy the CSS rules for
-* `.sidebar-tree .caption, .sidebar-tree :not(.caption)>.caption-text`. */
-.sidebar-tree li.has-children > .qiskit-previous-releases-caption {
+
+/* Inspired by `.sidebar-tree li > ul`. */
+.qiskit-previous-releases-list-container ul {
+  margin-left: var(--sidebar-item-spacing-horizontal);
+}
+
+/* Inspired by `.sidebar-tree`. */
+.qiskit-previous-releases-container {
+  font-size: var(--sidebar-item-font-size);
+  margin-bottom: var(--sidebar-item-spacing-vertical);
+  margin-top: 0;
+}
+
+.qiskit-previous-releases-list-container a {
+  color: var(--color-sidebar-link-text);
+}
+
+.qiskit-previous-releases-header-container p {
   color: var(--color-sidebar-caption-text);
   font-size: var(--sidebar-caption-font-size);
   font-weight: 700;
