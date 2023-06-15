@@ -31,6 +31,8 @@ body {
     --color-sidebar-link-text--top-level: var(--color-sidebar-link-text);
     /* This defaults to 15em in Furo, but we want a little bigger. */
     --qiskit-left-sidebar-width: 18em;
+    /* This defaults to 1rem, but we make it bigger since we increase the size of the sidebar. */
+    --sidebar-item-spacing-horizontal: 2rem;
 
     /* -----------------------------------------------------------------------
     * Tables
@@ -245,8 +247,8 @@ body {
   height: 100%;
   line-height: var(--sidebar-item-line-height);
   overflow-wrap: anywhere;
-  /* We double the horizontal padding for some visual distinction with the normal sidebar. */
-  padding: var(--sidebar-item-spacing-vertical) calc(var(--sidebar-item-spacing-horizontal) * 2);
+  /* We increase the horizontal padding for some visual distinction with the normal sidebar. */
+  padding: var(--sidebar-item-spacing-vertical) calc(var(--sidebar-item-spacing-horizontal) * 1.5);
   text-decoration: none;
   width: 100%;
 }
