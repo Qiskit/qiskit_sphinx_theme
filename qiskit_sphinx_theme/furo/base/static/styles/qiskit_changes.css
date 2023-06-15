@@ -89,7 +89,7 @@ body {
 }
 
 /* ------------------------------------------------------------------------------
-* Left side bar
+* Page layout
 * ------------------------------------------------------------------------------- */
 
 /* We don't like how Furo makes the left side bar resize dynamically. Instead, we'd rather have the
@@ -111,6 +111,17 @@ body {
 @media (max-width: 82em) {
   width: 18em;
 }
+
+/* We want to allow the main page content to dynamically resize to take advantage of wide screens.
+*  We set `min-width` to 46em, what Furo normally would use for `width`.*/
+div.content {
+  min-width: 46em;
+  width: unset;
+}
+
+/* ------------------------------------------------------------------------------
+* Left side bar: styling
+* ------------------------------------------------------------------------------- */
 
 /* Even though we override --color-sidebar-link--top-level to be a more muted look, we change
 *  the currently selected page to be purple to make it more obvious. */
