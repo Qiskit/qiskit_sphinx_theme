@@ -98,8 +98,6 @@ test.describe("Qiskit top nav bar", () => {
   test("does not cover the top of # anchor links", async ({ page }) => {
     const checkHeader = async () => {
       await page.goto("sphinx_guide/lists.html#definition-lists");
-      // We have to wait for the page animation to update.
-      await page.waitForTimeout(800);
       const headerVisible = await isVisibleInViewport(
         page,
         "section#definition-lists > h2"

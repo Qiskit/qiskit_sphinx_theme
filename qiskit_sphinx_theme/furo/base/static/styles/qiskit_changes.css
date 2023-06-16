@@ -29,6 +29,11 @@ body {
     --qiskit-color-purple: #6929C4;
 }
 
+/* Turn off scroll animation for anchor links: https://github.com/pradyunsg/furo/discussions/384 */
+html {
+  scroll-behavior: auto;
+}
+
 /* ------------------------------------------------------------------------------
 * Top nav bar
 * ------------------------------------------------------------------------------- */
