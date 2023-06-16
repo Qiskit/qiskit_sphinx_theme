@@ -98,8 +98,6 @@ test.describe("Qiskit top nav bar", () => {
   test("does not cover the top of # anchor links", async ({ page }) => {
     const checkHeader = async () => {
       await page.goto("sphinx_guide/lists.html#definition-lists");
-      // We have to wait for the page animation to update.
-      await page.waitForTimeout(800);
       const headerVisible = await isVisibleInViewport(
         page,
         "section#definition-lists > h2"
@@ -156,9 +154,17 @@ test.describe("Furo menu bars", () => {
   });
 });
 
+test("right side bar is not broken by our page layout", async ({ page }) => {
+  // We intentionally use a short page to keep the screenshot shorter.
+  await page.goto("sphinx_guide/notebook.html");
+  const tocDrawer = page.locator(".toc-drawer");
+  await expect(tocDrawer).toHaveScreenshot();
+});
+
 test.describe("left side bar", () => {
   test("renders correctly", async ({ page }) => {
-    await page.goto("");
+    // Go to a top-level page so that we can see how the expanded side bar looks.
+    await page.goto("sphinx_guide/autodoc.html");
     const leftToC = page.locator(".sidebar-drawer");
     await expect(leftToC).toHaveScreenshot();
   });
@@ -209,4 +215,10 @@ test("tables align with qiskit.org", async ({ page }) => {
   await page.goto("sphinx_guide/tables.html");
   const gridTablesSection = page.locator("section#grid-tables");
   await expect(gridTablesSection).toHaveScreenshot();
+});
+
+test("tutorials do not have purple border", async ({ page }) => {
+  await page.goto("sphinx_guide/notebook_gallery.html");
+  const tutorial = page.locator("div.nbsphinx-gallery");
+  await expect(tutorial).toHaveScreenshot();
 });
