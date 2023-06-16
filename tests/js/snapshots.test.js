@@ -154,6 +154,13 @@ test.describe("Furo menu bars", () => {
   });
 });
 
+test("right side bar is not broken by our page layout", async ({ page }) => {
+  // We intentionally use a short page to keep the screenshot shorter.
+  await page.goto("sphinx_guide/notebook.html");
+  const tocDrawer = page.locator(".toc-drawer");
+  await expect(tocDrawer).toHaveScreenshot();
+});
+
 test.describe("left side bar", () => {
   test("renders correctly", async ({ page }) => {
     await page.goto("");

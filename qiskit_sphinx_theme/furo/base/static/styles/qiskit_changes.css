@@ -1,10 +1,13 @@
 /* Define variables & override some Furo ones. See
 * https://github.com/pradyunsg/furo/tree/main/src/furo/assets/styles/variables
-* for all options. */
+* for all options.
+*
+* Any variable starting with `--qiskit` is custom, rather than overriding Furo. */
 body {
     /* -----------------------------------------------------------------------
     * Primary colors
     * ------------------------------------------------------------------------ */
+    --qiskit-color-purple: #6929C4;
     --color-brand-primary: var(--qiskit-color-purple);
     --color-brand-content: var(--qiskit-color-purple);
 
@@ -15,18 +18,69 @@ body {
     --font-stack--monospace: 'IBM Plex Mono', 'Consolas', 'Courier New', monospace;
 
     /* -----------------------------------------------------------------------
+    * Top nav bar.
+    * ----------------------------------------------------------------------- */
+    /* This value is duplicated from `top-nav-bar.js`. Its definition of the variable is not
+     * exposed globally. Keep in sync. */
+    --qiskit-top-nav-bar-height: 3.5rem;
+
+    /* -----------------------------------------------------------------------
+    * Left sidebar
+    * ----------------------------------------------------------------------- */
+    /* Use gray for the top-level links to be more muted. */
+    --color-sidebar-link-text--top-level: var(--color-sidebar-link-text);
+    /* This defaults to 15em in Furo, but we want a little bigger. */
+    --qiskit-left-sidebar-width: 18em;
+    /* This defaults to 1rem, but we make it bigger since we increase the size of the sidebar. */
+    --sidebar-item-spacing-horizontal: 2rem;
+
+    /* -----------------------------------------------------------------------
     * Tables
     * ------------------------------------------------------------------------ */
     /* Use the same table header color as qiskit.org. */
     --color-table-header-background: #dde1e6;
+}
 
-    /* -----------------------------------------------------------------------
-    * Custom Qiskit variables.
-    * ------------------------------------------------------------------------ */
-    /* This value is duplicated from `top-nav-bar.js`. Its definition of the variable is not
-     * exposed globally. Keep in sync. */
-    --qiskit-top-nav-bar-height: 3.5rem;
-    --qiskit-color-purple: #6929C4;
+/* ------------------------------------------------------------------------------
+* Page layout
+* ------------------------------------------------------------------------------- */
+
+/* By default, Furo expands the left and right sidebars when the page width increases, but it
+* doesn't increase the entry size. It also keeps the page contents fixed at 46em.
+*
+* Instead, we always keep the side bars the same size, and we expand the main page
+* contents. This is a better use of screen real estate and is more consistent with qiskit.org.
+*
+* But, we only expand the main contents up to 60em because best practices recommend not having
+* prose-heavy sites spread content over too long:
+* https://www.mediawiki.org/wiki/Reading/Web/Desktop_Improvements/Features/Limiting_content_width#Goals_and_Motivation
+* When the max-width is reached, the right page table of contents will stay in its same position and
+* whitespace will be added to the right. That is much simpler for us to implement and avoids the
+* sidebar from being split way too far from the page content itself.
+*
+* The easiest way to achieve this is using flexbox, given that Furo already uses it. We keep
+* Furo's default values for `width` and `min-width` because it's necessary for spacing to work
+* properly.  */
+.sidebar-drawer {
+  flex: 0 0 var(--qiskit-left-sidebar-width);
+  width: var(--qiskit-left-sidebar-width);
+  min-width: var(--qiskit-left-sidebar-width);
+}
+.sidebar-container {
+  width: var(--qiskit-left-sidebar-width);
+}
+.content {
+  flex: 1 1 46em;
+  max-width: 60em;
+}
+.toc-drawer {
+  flex: 0 0 15em;
+}
+
+@media (max-width: 67em) {
+  .sidebar-drawer {
+    left: calc(var(--qiskit-left-sidebar-width) * -1);
+  }
 }
 
 /* Turn off scroll animation for anchor links: https://github.com/pradyunsg/furo/discussions/384 */
@@ -91,19 +145,11 @@ html {
 }
 
 /* ------------------------------------------------------------------------------
-* Left side bar
+* Left side bar: styling
 * ------------------------------------------------------------------------------- */
 
-/* By default, top level entries in the table of contents would be purple. We instead
-*  use the same color as nested entries for a more muted look. */
-.sidebar-tree .toctree-l1 > .reference,
-.sidebar-tree .toctree-l1 > label .icon {
-  color: var(--color-sidebar-link-text);
-}
-
-/* But, we change the currently selected page to be purple to make it more obvious.
-*
-* We keep Furo making the entry bold, including for accessibility with color blindness. */
+/* Even though we override --color-sidebar-link--top-level to be a more muted look, we change
+*  the currently selected page to be purple to make it more obvious. */
 .sidebar-tree .current-page > .reference {
   color: var(--qiskit-color-purple);
 }
@@ -207,8 +253,8 @@ html {
   height: 100%;
   line-height: var(--sidebar-item-line-height);
   overflow-wrap: anywhere;
-  /* We double the horizontal padding for some visual distinction with the normal sidebar. */
-  padding: var(--sidebar-item-spacing-vertical) calc(var(--sidebar-item-spacing-horizontal) * 2);
+  /* We increase the horizontal padding for some visual distinction with the normal sidebar. */
+  padding: var(--sidebar-item-spacing-vertical) calc(var(--sidebar-item-spacing-horizontal) * 1.5);
   text-decoration: none;
   width: 100%;
 }
