@@ -103,6 +103,116 @@ body {
   color: var(--qiskit-color-purple);
 }
 
+/* --------------------------------------------------------------------------------------
+* Left side bar: Translations
+* -------------------------------------------------------------------------------------- */
+
+.qiskit-translations-container {
+  border-bottom: solid 2px var(--qiskit-color-purple);
+}
+
+.qiskit-translations-header-container label {
+  cursor: pointer;
+}
+
+.qiskit-translations-list-container {
+  display: none;
+  padding-bottom: var(--sidebar-item-spacing-vertical);
+}
+#translations-checkbox:checked ~ .qiskit-translations-list-container {
+  display: block;
+}
+
+/* Based off of `.toctree-l1 li`. */
+.qiskit-translations-header-container {
+  margin: 0;
+  position: relative;
+  /* Normally this is set on `.sidebar-tree label`, which corresponds to our
+  * `.qiskit-translations-toggle-container`. But we set it on the whole container because
+  * otherwise we get annoying browser highlighting of the text. */
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Based off of `.sidebar-tree li.has-children > reference` and `.sidebar-tree .reference`. */
+.qiskit-translations-header-container p {
+  padding-right: var(--sidebar-expander-width);
+  box-sizing: border-box;
+  display: inline-block;
+  height: 100%;
+  line-height: var(--sidebar-item-line-height);
+  overflow-wrap: anywhere;
+  padding: var(--sidebar-item-spacing-vertical) var(--sidebar-item-spacing-horizontal);
+  text-decoration: none;
+  width: 100%;
+}
+
+/* Based off of `.sidebar-tree .reference:hover`, but applied to the whole container rather than
+*  only the label text. */
+.qiskit-translations-header-container:hover {
+  background: var(--color-sidebar-item-background--hover);
+}
+
+/* Based off of `.sidebar-tree label`. */
+.qiskit-translations-toggle-container {
+  background: var(--color-sidebar-item-expander-background);
+  align-items: center;
+  display: flex;
+  /* Unlike Furo, we set this to 100% instead of `var(--sidebar-item-height)`. */
+  height: 100%;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: var(--sidebar-expander-width);
+}
+
+/* Based off of `.toctree-checkbox`. */
+#translations-checkbox {
+  display: none;
+  position: absolute;
+}
+.qiskit-translations-header-container svg {
+  transform: rotate(90deg);
+}
+#translations-checkbox:checked ~ .qiskit-translations-header-container svg {
+  transform: rotate(-90deg);
+}
+
+/* Based off of `.sidebar-tree ul`. */
+.qiskit-translations-list-container ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding: 0;
+}
+
+/* Based off of `.sidebar-tree li`. */
+.qiskit-translations-list-container li {
+  margin: 0;
+  position: relative;
+}
+
+/* Based off of `.sidebar-tree .reference`. */
+.qiskit-translations-list-container a {
+  box-sizing: border-box;
+  display: inline-block;
+  height: 100%;
+  line-height: var(--sidebar-item-line-height);
+  overflow-wrap: anywhere;
+  /* We double the horizontal padding for some visual distinction with the normal sidebar. */
+  padding: var(--sidebar-item-spacing-vertical) calc(var(--sidebar-item-spacing-horizontal) * 2);
+  text-decoration: none;
+  width: 100%;
+}
+
+/* Based off of `.sidebar-tree .reference:hover`. */
+.qiskit-translations-list-container a:hover {
+  background: var(--color-sidebar-item-background--hover);
+}
+
 /* ------------------------------------------------------------------------------
 * User analytics in the footer
 * ------------------------------------------------------------------------------- */
