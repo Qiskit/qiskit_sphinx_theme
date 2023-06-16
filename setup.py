@@ -2,7 +2,7 @@ from setuptools import find_namespace_packages, setup
 
 setup(
     name='qiskit_sphinx_theme',
-    version="1.12.0",
+    version="1.12.1",
     author="Qiskit Development Team",
     author_email="hello@qiskit.org",
     url="https://github.com/Qiskit/qiskit_sphinx_theme",
