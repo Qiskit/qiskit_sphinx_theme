@@ -12,20 +12,21 @@ Qiskit sphinx theme |version| documentation
    sphinx_guide/tables
    sphinx_guide/panels
    sphinx_guide/images
+   sphinx_guide/paragraph
+   sphinx_guide/structural
 
 .. toctree::
   :hidden:
-  :caption: API (An Expandable Section)
+  :caption: API
 
    Autodoc <sphinx_guide/autodoc>
    Super duper duper duper duper duper long title to test line wrapping <sphinx_guide/long_title>
 
 .. toctree::
    :hidden:
+   :caption: Special elements
 
    sphinx_guide/jupyter
-   sphinx_guide/paragraph
-   sphinx_guide/structural
    sphinx_guide/notebook_gallery
    sphinx_guide/custom_directives
    sphinx_guide/long_title
