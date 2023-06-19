@@ -176,6 +176,32 @@ test.describe("left side bar", () => {
   });
 });
 
+test.describe("api docs", () => {
+  test("module page", async ({ page }) => {
+    await page.goto("sphinx_guide/autodoc.html");
+    const content = page.locator("div.article-container");
+    await expect(content).toHaveScreenshot();
+  });
+
+  test("class page", async ({ page }) => {
+    await page.goto("stubs/api_example.Electron.html");
+    const content = page.locator("div.article-container");
+    await expect(content).toHaveScreenshot();
+  });
+
+  test("method page", async ({ page }) => {
+    await page.goto("stubs/api_example.Electron.compute_momentum.html");
+    const content = page.locator("div.article-container");
+    await expect(content).toHaveScreenshot();
+  });
+
+  test("function page", async ({ page }) => {
+    await page.goto("stubs/api_example.my_function.html");
+    const content = page.locator("div.article-container");
+    await expect(content).toHaveScreenshot();
+  });
+});
+
 test.describe("footer", () => {
   test("includes page analytics", async ({ page }) => {
     await page.goto("");
