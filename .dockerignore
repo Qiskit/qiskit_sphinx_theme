@@ -1,0 +1,8 @@
+/.tox
+/.venv
+/venv
+/node_modules
+__pycache__/
+
+/example_docs/docs/stubs/
+/docs_guide

@@ -1,33 +1,129 @@
-/* Define some Furo variables. See
- *  https://github.com/pradyunsg/furo/tree/main/src/furo/assets/styles/variables
- *  for all options.
- *
- * Variables that start with `--qiskit-` are new values we use in this file; they are not overrides.
- */
+/* Define variables & override some Furo ones. See
+* https://github.com/pradyunsg/furo/tree/main/src/furo/assets/styles/variables
+* for all options.
+*
+* Any variable starting with `--qiskit` is custom, rather than overriding Furo. */
 body {
-    --color-brand-primary: #8A3FFC;
-    --color-brand-content: #8A3FFC;
+    /* -----------------------------------------------------------------------
+    * Primary colors
+    * ------------------------------------------------------------------------ */
+    --qiskit-color-purple: #6929C4;
+    --color-brand-primary: var(--qiskit-color-purple);
+    --color-brand-content: var(--qiskit-color-purple);
+
+    /* -----------------------------------------------------------------------
+    * Fonts
+    * ----------------------------------------------------------------------- */
     --font-stack: 'IBM Plex Sans', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
     --font-stack--monospace: 'IBM Plex Mono', 'Consolas', 'Courier New', monospace;
+
+    /* -----------------------------------------------------------------------
+    * Top nav bar.
+    * ----------------------------------------------------------------------- */
     /* This value is duplicated from `top-nav-bar.js`. Its definition of the variable is not
      * exposed globally. Keep in sync. */
     --qiskit-top-nav-bar-height: 3.5rem;
+
+    /* -----------------------------------------------------------------------
+    * Left sidebar
+    * ----------------------------------------------------------------------- */
+    /* Use gray for the top-level links to be more muted. */
+    --color-sidebar-link-text--top-level: var(--color-sidebar-link-text);
+    /* This defaults to 15em in Furo, but we want a little bigger. */
+    --qiskit-left-sidebar-width: 18em;
+    /* This defaults to 1rem, but we make it bigger since we increase the size of the sidebar. */
+    --sidebar-item-spacing-horizontal: 2rem;
+
+    /* -----------------------------------------------------------------------
+    * Tables
+    * ------------------------------------------------------------------------ */
+    /* Use the same table header color as qiskit.org. */
+    --color-table-header-background: #dde1e6;
 }
 
-/* ------------------------------
+/* ------------------------------------------------------------------------------
+* Page layout
+* ------------------------------------------------------------------------------- */
+
+/* By default, Furo expands the left and right sidebars when the page width increases, but it
+* doesn't increase the entry size. It also keeps the page contents fixed at 46em.
+*
+* Instead, we always keep the side bars the same size, and we expand the main page
+* contents. This is a better use of screen real estate and is more consistent with qiskit.org.
+*
+* But, we only expand the main contents up to 60em because best practices recommend not having
+* prose-heavy sites spread content over too long:
+* https://www.mediawiki.org/wiki/Reading/Web/Desktop_Improvements/Features/Limiting_content_width#Goals_and_Motivation
+* When the max-width is reached, the right page table of contents will stay in its same position and
+* whitespace will be added to the right. That is much simpler for us to implement and avoids the
+* sidebar from being split way too far from the page content itself.
+*
+* The easiest way to achieve this is using flexbox, given that Furo already uses it. We keep
+* Furo's default values for `width` and `min-width` because it's necessary for spacing to work
+* properly.  */
+.sidebar-drawer {
+  flex: 0 0 var(--qiskit-left-sidebar-width);
+  width: var(--qiskit-left-sidebar-width);
+  min-width: var(--qiskit-left-sidebar-width);
+}
+.sidebar-container {
+  width: var(--qiskit-left-sidebar-width);
+}
+.content {
+  flex: 1 1 46em;
+  max-width: 60em;
+}
+.toc-drawer {
+  flex: 0 0 15em;
+}
+
+@media (max-width: 67em) {
+  .sidebar-drawer {
+    left: calc(var(--qiskit-left-sidebar-width) * -1);
+  }
+}
+
+/* Turn off scroll animation for anchor links: https://github.com/pradyunsg/furo/discussions/384 */
+html {
+  scroll-behavior: auto;
+}
+
+/* ------------------------------------------------------------------------------
 * Top nav bar
-* ------------------------------ */
+* ------------------------------------------------------------------------------- */
 
 /* Disable dark mode until qiskit.org has it: https://github.com/Qiskit/qiskit.org/issues/2310 */
 .theme-toggle-container {
   display: none;
 }
 
-/* Fix Qiskit top nav bar hiding Furo's top nav bar when scrolled down. */
+/* Fix Qiskit top nav bar hiding Furo's top nav bar and side menus. */
 .mobile-header,
 .sidebar-sticky,
-.toc-sticky {
+.toc-sticky,
+#__navigation:checked ~ .page .sidebar-drawer,
+#__toc:checked ~ .page .toc-drawer {
   top: var(--qiskit-top-nav-bar-height);
+}
+@media (max-width: 67em) {
+  .sidebar-drawer {
+    top: var(--qiskit-top-nav-bar-height);
+  }
+}
+@media (max-width: 82em) {
+  .toc-drawer {
+    top: var(--qiskit-top-nav-bar-height);
+  }
+}
+
+/* These are also necessary to fix the Qiskit top nav bar hiding Furo content/menus, specifically
+*  when the user is scrolled down to the bottom of the page. They override Furo's rules. */
+.sidebar-sticky,
+.toc-sticky {
+  height: calc(100vh - var(--qiskit-top-nav-bar-height));
+}
+.toc-scroll {
+  max-height: calc(100vh - var(--qiskit-top-nav-bar-height));
 }
 
 /* Fix # anchor links not accounting for the top nav bar.
@@ -48,24 +144,129 @@ body {
   }
 }
 
-/* Show the whole contents of the mobile expandable menus.
-*  `box-sizing: border-box` ensures padding is included in the height calculations. */
-@media (max-width: 67em) {
-  .sidebar-drawer {
-    padding-top: var(--qiskit-top-nav-bar-height);
-    box-sizing: border-box;
-  }
-}
-@media (max-width: 82em) {
-  .toc-drawer {
-    padding-top: var(--qiskit-top-nav-bar-height);
-    box-sizing: border-box;
-  }
+/* ------------------------------------------------------------------------------
+* Left side bar: styling
+* ------------------------------------------------------------------------------- */
+
+/* Even though we override --color-sidebar-link--top-level to be a more muted look, we change
+*  the currently selected page to be purple to make it more obvious. */
+.sidebar-tree .current-page > .reference {
+  color: var(--qiskit-color-purple);
 }
 
-/* ------------------------------
+/* --------------------------------------------------------------------------------------
+* Left side bar: Translations
+* -------------------------------------------------------------------------------------- */
+
+.qiskit-translations-container {
+  border-bottom: solid 2px var(--qiskit-color-purple);
+}
+
+.qiskit-translations-header-container label {
+  cursor: pointer;
+}
+
+.qiskit-translations-list-container {
+  display: none;
+  padding-bottom: var(--sidebar-item-spacing-vertical);
+}
+#translations-checkbox:checked ~ .qiskit-translations-list-container {
+  display: block;
+}
+
+/* Based off of `.toctree-l1 li`. */
+.qiskit-translations-header-container {
+  margin: 0;
+  position: relative;
+  /* Normally this is set on `.sidebar-tree label`, which corresponds to our
+  * `.qiskit-translations-toggle-container`. But we set it on the whole container because
+  * otherwise we get annoying browser highlighting of the text. */
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Based off of `.sidebar-tree li.has-children > reference` and `.sidebar-tree .reference`. */
+.qiskit-translations-header-container p {
+  padding-right: var(--sidebar-expander-width);
+  box-sizing: border-box;
+  display: inline-block;
+  height: 100%;
+  line-height: var(--sidebar-item-line-height);
+  overflow-wrap: anywhere;
+  padding: var(--sidebar-item-spacing-vertical) var(--sidebar-item-spacing-horizontal);
+  text-decoration: none;
+  width: 100%;
+}
+
+/* Based off of `.sidebar-tree .reference:hover`, but applied to the whole container rather than
+*  only the label text. */
+.qiskit-translations-header-container:hover {
+  background: var(--color-sidebar-item-background--hover);
+}
+
+/* Based off of `.sidebar-tree label`. */
+.qiskit-translations-toggle-container {
+  background: var(--color-sidebar-item-expander-background);
+  align-items: center;
+  display: flex;
+  /* Unlike Furo, we set this to 100% instead of `var(--sidebar-item-height)`. */
+  height: 100%;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: var(--sidebar-expander-width);
+}
+
+/* Based off of `.toctree-checkbox`. */
+#translations-checkbox {
+  display: none;
+  position: absolute;
+}
+.qiskit-translations-header-container svg {
+  transform: rotate(90deg);
+}
+#translations-checkbox:checked ~ .qiskit-translations-header-container svg {
+  transform: rotate(-90deg);
+}
+
+/* Based off of `.sidebar-tree ul`. */
+.qiskit-translations-list-container ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding: 0;
+}
+
+/* Based off of `.sidebar-tree li`. */
+.qiskit-translations-list-container li {
+  margin: 0;
+  position: relative;
+}
+
+/* Based off of `.sidebar-tree .reference`. */
+.qiskit-translations-list-container a {
+  box-sizing: border-box;
+  display: inline-block;
+  height: 100%;
+  line-height: var(--sidebar-item-line-height);
+  overflow-wrap: anywhere;
+  /* We increase the horizontal padding for some visual distinction with the normal sidebar. */
+  padding: var(--sidebar-item-spacing-vertical) calc(var(--sidebar-item-spacing-horizontal) * 1.5);
+  text-decoration: none;
+  width: 100%;
+}
+
+/* Based off of `.sidebar-tree .reference:hover`. */
+.qiskit-translations-list-container a:hover {
+  background: var(--color-sidebar-item-background--hover);
+}
+
+/* ------------------------------------------------------------------------------
 * User analytics in the footer
-* ------------------------------ */
+* ------------------------------------------------------------------------------- */
 
 footer .helpful-container {
   display: inline-flex;
@@ -85,13 +286,25 @@ footer .helpful-container .was-helpful-thank-you {
 
 .helpful-container .helpful-question.yes-link,
 .helpful-container .helpful-question.no-link {
-  color: #8B34FC;
+  color: var(--qiskit-color-purple);
   cursor: pointer;
   text-decoration: none;
 }
 
 .helpful-container .helpful-question.yes-link:hover,
 .helpful-container .helpful-question.no-link:hover {
-  background-color: #8B34FC;
+  background-color: var(--qiskit-color-purple);
   color: #ffffff;
+}
+
+/* ---------------------------------------------------------------------------
+* Tutorials
+* ---------------------------------------------------------------------------- */
+
+/* Don't have a purple border. This rule overrides `.npshinx-gallery > a`.
+*
+* We keep the default style of the text itself being purple to be consistent with the general style
+* of the site using purple for links.*/
+.nbsphinx-gallery > a.reference {
+  border: 1px dotted var(--color-foreground-secondary);
 }

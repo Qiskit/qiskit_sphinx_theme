@@ -47,16 +47,50 @@ Sometimes Sphinx's caching can get in a bad state. First, try running `tox -e do
 We are in the process of migrating our theme from Pytorch to Furo (see https://github.com/Qiskit/qiskit_sphinx_theme/issues/232). To build the local docs using the Furo theme, use `THEME=_qiskit_furo` in front of the command, e.g. `THEME=_qiskit_furo tox -e docs`.
 
 ------
-## Run JavaScript tests
+## Visual regression testing
 
-We write some tests in JavaScript (Node.js) to have automated checks of the theme, e.g. that certain components render properly.
+We use visual regression testing via [Playwright](https://playwright.dev/docs/test-snapshots) to take screenshots of the site and check that every change we make is intentional. If a screenshot has changed, the test will fail. 
 
-To run these tests, you first need to install Node.js on your machine. If you expect to use JavaScript in other projects, we recommend using [NVM](https://github.com/nvm-sh/nvm). Otherwise, consider using [Homebrew](https://formulae.brew.sh/formula/node) or installing [Node.js directly](https://nodejs.org/en).
+If the change was intentional, we need to update the screenshot. Otherwise, it means your change unintentionally impacted something, so you need to tweak your change.
 
-Then:
+The test runner creates a folder called `snapshot_results`, which is useful to determine what the difference is. For each failed test, there will be three files:
+
+* `<my-test-name>-actual.png`, what your change resulted in.
+* `<my-test-name>-expected.png`, what we expected.
+* `<my-test-name>-diff.png`, a heat map showing where the differences are.
+
+### How to check snapshot results in CI
+
+We upload `snapshot_results` in CI. So, you can get the changed snapshot from GitHub Actions:
+
+1. Navigate to the GitHub Actions page for the "Tests" action.
+2. Open the "Summary" page with the house icon.
+3. Under the "Artifacts" section, there should be a "snapshot_results" entry. Download it.
+
+### How to check snapshot results locally
+
+You can also run the tests locally for faster iteration, although it requires a little setup. If you don't want to install the below tools, it is okay to use CI for snapshot testing.
+
+First, you need to install:
+
+1. [Node.js](https://nodejs.org/en). If you expect to use JavaScript in other projects, consider using [NVM](https://github.com/nvm-sh/nvm). Otherwise, consider using [Homebrew](https://formulae.brew.sh/formula/node) or installing [Node.js directly](https://nodejs.org/en).
+2. [Docker](https://www.docker.com). You must also ensure that it is running.
+   * If you cannot install Docker Desktop (such as IBM contributors), you can use [Rancher Desktop](https://rancherdesktop.io). When installing, choose Moby/Dockerd as the engine, rather than nerdctl. To ensure it's running, open up the app "Rancher Desktop". 
+
+Then, to run the tests locally:
 
 1. `npm install`
-2. `npm test`
+2. Build the docs with Furo, `THEME=_qiskit_furo tox -e docs`
+3. `npm run test-snapshots`
+
+You must rebuild the docs with `THEME=_qiskit_furo tox -e docs` whenever you make changes to the theme or docs folder. The docs will not automatically rebuild.
+
+### How to update the expected snapshot for intentional changes
+
+First, get the `snapshot_results` folder, either by downloading it from CI or by running the tests locally. Then:
+
+1. Find the "actual" snapshot for the failing test, such as `footer-includes-page-analytics-1-actual.png`.
+2. Copy that snapshot into the folder `tests/js/snapshots.test.js-snapshots`. Rename the `-actual.png` file ending to be `-linux.png` and overwrite the prior file.
 
 ------
 ## Updating bundled web components
@@ -79,6 +113,18 @@ If you want to add a new web component:
 4. Use the web component element in the relevant HTML, e.g. `<my-component>` in `layout.html`. Remember to surround the change with a `QISKIT CHANGE:` comment.
 5. Build the example docs with `THEME=_qiskit_furo tox -e docs` to ensure everything works.
 6. Update this guide with specific instructions for the web component.
+
+------
+## How to preview docs in PRs
+
+We upload the docs builds to CI. So, you can download what the site will look like from GitHub Actions:
+
+1. Navigate to the GitHub Actions page for the "Tests" action.
+2. Open the "Summary" page with the house icon.
+3. Under the "Artifacts" section, there should be a "html_docs" entry. Download it.
+4. Choose the theme you want, such as `furo_html_docs.tar.gz`, and un-tar it. Then, open the `index.html` page in a browser.
+
+Contributors with write access can also use live previews of the docs: GitHub will deploy a website using your changes. To use live previews, push your branch to `upstream` rather than your fork. GitHub will leave a comment with the link to the site. Please prefix your branch name with your initials, e.g. `EA/add-translations`, for good Git hygiene.
 
 ------
 ## FYI: How Furo Theme Inheritance Works
@@ -116,6 +162,16 @@ You can change [Furo's CSS variable values](https://github.com/pradyunsg/furo/tr
 Update the version in `setup.py`. Always pin to an exact version of Furo.
 
 However, when updating, closely analyze each commit in the release to check for any changes that would break our fork. We want to make sure that our HTML files are always in sync with Furo. If they have made any changes, then add them back to our copy of the file.
+
+### How to add an icon
+Edit the file `furo/base/partials/icons.html`. Copy the HTML code of the `<svg></svg>` tags and add them as the first element within the `<symbol>` tag. Don't forget to include the `id` attribute, which will serve as the name associated with the icon. 
+
+
+To use the icon, reference it with `#`.
+
+ For example:
+https://github.com/Qiskit/qiskit_sphinx_theme/blob/1a1c1341a39d196d78fb79d6264b762ab5398c93/qiskit_sphinx_theme/furo/base/page.html#L57
+
 
 ------
 ## Releases
