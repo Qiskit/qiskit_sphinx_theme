@@ -222,3 +222,9 @@ test("tutorials do not have purple border", async ({ page }) => {
   const tutorial = page.locator("div.nbsphinx-gallery");
   await expect(tutorial).toHaveScreenshot();
 });
+
+test("admonitions use Carbon style", async ({ page }) => {
+  await page.goto("sphinx_guide/paragraph.html#admonitions");
+  const admonitions = page.locator("section#admonitions");
+  await expect(admonitions).toHaveScreenshot();
+});

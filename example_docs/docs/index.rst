@@ -19,7 +19,6 @@ Qiskit sphinx theme |version| documentation
   :hidden:
   :caption: API
 
-   Functions <sphinx_guide/functions>
    Autodoc <sphinx_guide/autodoc>
    Super duper duper duper duper duper long title to test line wrapping <sphinx_guide/long_title>
 
