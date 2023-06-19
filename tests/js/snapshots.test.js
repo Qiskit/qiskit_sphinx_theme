@@ -218,3 +218,10 @@ test("admonitions use Carbon style", async ({ page }) => {
   const admonitions = page.locator("section#admonitions");
   await expect(admonitions).toHaveScreenshot();
 });
+
+test("Sphinx Design elements have no shadows", async ({ page }) => {
+  await page.goto("sphinx_guide/panels.html");
+  await page.locator(".sd-dropdown").first().click();
+  const pageContents = page.locator("section#panels");
+  await expect(pageContents).toHaveScreenshot();
+});
