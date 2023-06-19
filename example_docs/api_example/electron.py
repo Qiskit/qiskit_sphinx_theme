@@ -4,7 +4,16 @@ from typing import overload
 
 
 class Electron:
-    """A representation of an electron."""
+    """A representation of an electron.
+
+    Examples:
+
+        .. code-block:: python
+
+            from api_example import Electron
+
+            ELECTRON = Electron(size="2GB", name="QuantumComputing")
+    """
 
     def __init__(self, size: str = None, name: str = None) -> None:
         """Create an electron.
