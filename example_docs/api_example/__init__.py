@@ -10,6 +10,8 @@ Welcome to my super cool module!
 .. note::
   This is an example!
 
+Testing internal references... :meth:`.Electron.compute_momentum`.
+
 Electron
 =================
 
