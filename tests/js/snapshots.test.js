@@ -163,7 +163,8 @@ test("right side bar is not broken by our page layout", async ({ page }) => {
 
 test.describe("left side bar", () => {
   test("renders correctly", async ({ page }) => {
-    await page.goto("");
+    // Go to a top-level page so that we can see how the expanded side bar looks.
+    await page.goto("sphinx_guide/autodoc.html");
     const leftToC = page.locator(".sidebar-drawer");
     await expect(leftToC).toHaveScreenshot();
   });
@@ -173,6 +174,15 @@ test.describe("left side bar", () => {
     await click(page, "div.qiskit-translations-container i");
     const translations = page.locator("div.qiskit-translations-container");
     await expect(translations).toHaveScreenshot();
+  });
+
+  test("previous releases are expandable", async ({ page }) => {
+    await page.goto("");
+    await click(page, "div.qiskit-previous-releases-container i");
+    const previousReleases = page.locator(
+      "div.qiskit-previous-releases-container"
+    );
+    await expect(previousReleases).toHaveScreenshot();
   });
 });
 
