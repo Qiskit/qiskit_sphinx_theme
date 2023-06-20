@@ -53,6 +53,15 @@ const isVisibleInViewport = async (page, selector) => {
   }, selector);
 };
 
+/* If the content is too big for the viewport, the Qiskit top nav bar will hide the content. That
+*  has for some reason caused some flakes in CI, that the nav bar very minorly changes its
+*  position. And it's generally annoying to hide the content we care about. */
+const hideTopNavBar = async (page) => {
+  await page
+    .locator("qiskit-ui-shell")
+    .evaluate((el) => (el.style.display = "none"));
+};
+
 // -----------------------------------------------------------------------
 // Snapshot tests
 // -----------------------------------------------------------------------
@@ -213,6 +222,7 @@ test.describe("footer", () => {
 
 test("tables align with qiskit.org", async ({ page }) => {
   await page.goto("sphinx_guide/tables.html");
+  await hideTopNavBar(page);
   const gridTablesSection = page.locator("section#grid-tables");
   await expect(gridTablesSection).toHaveScreenshot();
 });
@@ -225,12 +235,14 @@ test("tutorials do not have purple border", async ({ page }) => {
 
 test("admonitions use Carbon style", async ({ page }) => {
   await page.goto("sphinx_guide/paragraph.html#admonitions");
+  await hideTopNavBar(page);
   const admonitions = page.locator("section#admonitions");
   await expect(admonitions).toHaveScreenshot();
 });
 
 test("Sphinx Design elements have no shadows", async ({ page }) => {
   await page.goto("sphinx_guide/panels.html");
+  await hideTopNavBar(page);
   await page.locator(".sd-dropdown").first().click();
   const pageContents = page.locator("section#panels");
   await expect(pageContents).toHaveScreenshot();
