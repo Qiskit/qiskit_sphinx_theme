@@ -190,6 +190,13 @@ html {
   }
 }
 
+/* Turn off highlighting of the current page until we can properly solve
+*  https://github.com/Qiskit/qiskit_sphinx_theme/issues/368. */
+.toc-tree li.scroll-current > .reference {
+  color: var(--color-toc-item-text);
+  font-weight: unset;
+}
+
 /* ------------------------------------------------------------------------------
 * Left side bar: styling
 * ------------------------------------------------------------------------------- */
