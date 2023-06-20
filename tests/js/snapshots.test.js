@@ -203,6 +203,11 @@ test.describe("api docs", () => {
     await page.goto("stubs/api_example.Electron.compute_momentum.html");
     const content = page.locator("div.article-container");
     await expect(content).toHaveScreenshot();
+
+    // Also test a method with @typing.overload.
+    await page.goto("stubs/api_example.Electron.overloaded_func.html");
+    const content2 = page.locator("div.article-container");
+    await expect(content2).toHaveScreenshot();
   });
 
   test("function page", async ({ page }) => {
