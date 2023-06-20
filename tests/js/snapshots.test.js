@@ -204,6 +204,7 @@ test.describe("api docs", () => {
 
   test("class page", async ({ page }) => {
     await page.goto("stubs/api_example.Electron.html");
+    await hideTopNavBar(page);
     const content = page.locator("div.article-container");
     await expect(content).toHaveScreenshot();
   });
