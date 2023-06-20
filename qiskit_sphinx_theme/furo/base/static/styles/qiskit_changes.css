@@ -123,7 +123,8 @@ html {
   scroll-behavior: auto;
 }
 
-/* Without this, long titles break the site. This is especially a problem in API docs. */
+/* Without this, long titles break the site. This is especially a problem in API docs.
+*  Remove if https://github.com/pradyunsg/furo/pull/670 gets merged and released. */
 .h1,
 .h2,
 .h3,
