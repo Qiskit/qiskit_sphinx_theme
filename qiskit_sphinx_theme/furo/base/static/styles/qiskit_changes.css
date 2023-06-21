@@ -373,7 +373,8 @@ html {
 
 .admonition,
 .topic,
-table.docutils {
+table.docutils,
+kbd:not(.compound) {
   border-radius: 0;
   box-shadow: none;
 }
