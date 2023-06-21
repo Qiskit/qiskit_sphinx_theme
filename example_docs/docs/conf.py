@@ -37,6 +37,7 @@ extensions = [
     "sphinx.ext.viewcode",
     "sphinx.ext.extlinks",
     "jupyter_sphinx",
+    "sphinx_copybutton",
     "sphinx_design",
     "nbsphinx",
     "qiskit_sphinx_theme",

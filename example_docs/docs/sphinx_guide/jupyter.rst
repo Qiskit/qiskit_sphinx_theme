@@ -2,6 +2,12 @@
 Jupyter
 =======
 
+One-line block (https://github.com/Qiskit/qiskit_sphinx_theme/issues/306).
+
+.. jupyter-input::
+
+    python -m pip install qiskit-sphinx-theme
+
 Basic plot
 ==========
 

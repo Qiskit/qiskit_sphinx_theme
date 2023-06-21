@@ -389,7 +389,7 @@ div.header-left svg use {
 }
 
 /* ---------------------------------------------------------------------------
-* Drop shadows
+* Drop shadows and border-radius
 * ---------------------------------------------------------------------------- */
 
 .admonition,
@@ -420,6 +420,16 @@ table.docutils th:first-child {
   box-shadow: none !important;
   border-radius: 0 !important;
   border: 1px solid var(--color-table-border);
+}
+
+div:not(#specifity-war).jupyter_container {
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+:not(#specifity-war).jupyter_container div.code_cell,
+:not(#specifity-war).highlight {
+  border-radius: 0;
 }
 
 /* ------------------------------------------------------------------------------
@@ -650,4 +660,14 @@ dl.py dd p.rubric {
   text-transform: unset;
   /* This is custom because Furo doesn't have enough space by default. */
   margin-top: 1.25em;
+}
+
+/* ---------------------------------------------------------------------------
+* jupyter-sphinx
+* ---------------------------------------------------------------------------- */
+
+/* Fix for https://github.com/Qiskit/qiskit_sphinx_theme/issues/306. Instead, use the rule from
+*  `.highlight pre, pre.literal-block`. */
+:not(#specifity-war).jupyter_container div.code_cell pre {
+  padding: .625rem .875rem;
 }
