@@ -404,6 +404,8 @@ table.docutils th:first-child {
 /* ------------------------------------------------------------------------------
 * Admonitions
 * ------------------------------------------------------------------------------- */
+/* The changes in this section are to align with Carbon:
+*  https://carbondesignsystem.com/components/notification/style/ */
 
 .topic {
   border: 1px solid var(--qiskit-color-admonition-info--background);
