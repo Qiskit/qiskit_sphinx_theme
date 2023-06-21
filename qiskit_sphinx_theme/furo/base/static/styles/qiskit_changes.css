@@ -523,14 +523,21 @@ section > dl.py:not(.docutils) > dt:nth-child(1) {
   border-top-width: 1px;
 }
 
-/* Fix some of the definition terms like "Parameters" having no padding and being in all caps. */
-dl[class]:not(.option-list):not(.field-list):not(.footnote):not(.glossary):not(.simple) .field-list > dt {
-  text-transform: unset;
-  font-size: unset;
+/* Fix some of the definition terms like "Parameters" having no padding and being in all caps.
+*
+*  Some Qiskit projects, like Experiments, use custom API sections. Those don't set the class
+* `.field-set` on the `dl`, so we change Furo's selector from `.field-set > dt` to `dl > dt`. But,
+*  to override Furo's properties we don't like, we also have to use `.field-list > dt` for some
+*  rules to win the specificity war. */
+dl[class]:not(.option-list):not(.field-list):not(.footnote):not(.glossary):not(.simple) dl > dt {
   font-weight: 700;
   /* Copied from Furo's `.sig:not(.sig-inline)` */
   padding: .25rem .5rem .25rem 3em;
   text-indent: -2.5em;
+}
+dl[class]:not(.option-list):not(.field-list):not(.footnote):not(.glossary):not(.simple) .field-list > dt {
+  text-transform: unset;
+  font-size: unset;
 }
 
 .sig:not(.sig-inline) {
