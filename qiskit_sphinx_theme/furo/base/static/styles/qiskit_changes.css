@@ -596,7 +596,7 @@ dl.py:not(.docutils) dt {
 }
 
 /* Rules that impact the top-level entry for the code object, which e.g. has the `[source]` button. */
-section > dl.py:not(.docutils) > dt:nth-child(1) {
+section > dl.py:not(.docutils) > dt {
   /* We normally want to use inline-block for definition terms so that the purple border we add on
   *  top does not stretch across the whole screen. But, we make an exception here it will have a
   * `[source]` button that floats to the right. The spacing of that is non-trivial and was the
@@ -604,6 +604,13 @@ section > dl.py:not(.docutils) > dt:nth-child(1) {
   display: block;
   /* Make the border less thick so its clear the top-level page header corresponds to this line. */
   border-top-width: 1px;
+  margin-bottom: 1rem;
+}
+/* It's possible to have multiple entries for the same code object, e.g. when using typing.overload.
+*  This cancels out the margin-bottom such that only the bottom-most `dt` will have a margin-bottom
+*  in effect. */
+section > dl.py:not(.docutils) > dt:not(:first-child) {
+  margin-top: -1rem;
 }
 
 /* Fix some of the definition terms like "Parameters" having no padding and being in all caps.
