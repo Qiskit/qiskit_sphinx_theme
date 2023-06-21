@@ -127,6 +127,11 @@ html {
   display: none;
 }
 
+/* Improve the custom design of the header icon in terms of its thickness. */
+div.header-left svg use {
+  stroke-width: 0.5;
+}
+
 /* Fix Qiskit top nav bar hiding Furo's top nav bar and side menus. */
 .mobile-header,
 .sidebar-sticky,
