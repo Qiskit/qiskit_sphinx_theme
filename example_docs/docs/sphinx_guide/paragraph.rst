@@ -300,12 +300,6 @@ Admonitions
 
 .. Caution:: Don't take any wooden nickels.
 
-.. DANGER:: Mad scientist at work!
-
-.. Error:: Does not compute.
-
-.. Hint:: It's bigger than a bread box.
-
 .. Important::
    - Wash behind your ears.
    - Clean up your room.
@@ -317,6 +311,15 @@ Admonitions
        - Clean the sink.
    - Call your mother.
    - Back up your data.
+
+.. WARNING:: Strong prose may provoke extreme mental exertion.
+   Reader discretion is strongly advised.
+
+.. DANGER:: Mad scientist at work!
+
+.. Error:: Does not compute.
+
+.. Hint:: It's bigger than a bread box.
 
 .. Note:: This is a note.
    Equations within a note:
@@ -333,9 +336,6 @@ Admonitions
     +---------+
     | Thing3  |
     +---------+
-
-.. WARNING:: Strong prose may provoke extreme mental exertion.
-   Reader discretion is strongly advised.
 
 .. admonition:: And, by the way...
 

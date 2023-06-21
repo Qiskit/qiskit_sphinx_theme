@@ -53,6 +53,15 @@ const isVisibleInViewport = async (page, selector) => {
   }, selector);
 };
 
+/* If the content is too big for the viewport, the Qiskit top nav bar will hide the content. That
+*  has for some reason caused some flakes in CI, that the nav bar very minorly changes its
+*  position. And it's generally annoying to hide the content we care about. */
+const hideTopNavBar = async (page) => {
+  await page
+    .locator("qiskit-ui-shell")
+    .evaluate((el) => (el.style.display = "none"));
+};
+
 // -----------------------------------------------------------------------
 // Snapshot tests
 // -----------------------------------------------------------------------
@@ -163,7 +172,8 @@ test("right side bar is not broken by our page layout", async ({ page }) => {
 
 test.describe("left side bar", () => {
   test("renders correctly", async ({ page }) => {
-    await page.goto("");
+    // Go to a top-level page so that we can see how the expanded side bar looks.
+    await page.goto("sphinx_guide/autodoc.html");
     const leftToC = page.locator(".sidebar-drawer");
     await expect(leftToC).toHaveScreenshot();
   });
@@ -173,6 +183,15 @@ test.describe("left side bar", () => {
     await click(page, "div.qiskit-translations-container i");
     const translations = page.locator("div.qiskit-translations-container");
     await expect(translations).toHaveScreenshot();
+  });
+
+  test("previous releases are expandable", async ({ page }) => {
+    await page.goto("");
+    await click(page, "div.qiskit-previous-releases-container i");
+    const previousReleases = page.locator(
+      "div.qiskit-previous-releases-container"
+    );
+    await expect(previousReleases).toHaveScreenshot();
   });
 });
 
@@ -211,4 +230,11 @@ test("tutorials do not have purple border", async ({ page }) => {
   await page.goto("sphinx_guide/notebook_gallery.html");
   const tutorial = page.locator("div.nbsphinx-gallery");
   await expect(tutorial).toHaveScreenshot();
+});
+
+test("admonitions use Carbon style", async ({ page }) => {
+  await page.goto("sphinx_guide/paragraph.html#admonitions");
+  await hideTopNavBar(page);
+  const admonitions = page.locator("section#admonitions");
+  await expect(admonitions).toHaveScreenshot();
 });
