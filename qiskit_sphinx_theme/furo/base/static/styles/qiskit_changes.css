@@ -504,7 +504,7 @@ footer .helpful-container .was-helpful-thank-you {
 
 /* Definition lists are used for sections like "Parameters", "Return type", and "Attributes"
 *  (properties of a class). */
-dl:not(.docutils) dt {
+dl.py:not(.docutils) dt {
   /* This causes the definition-term and its border-top to only take up as much space as the
   *  content, plus padding and margins. */
   display: inline-block;
@@ -513,7 +513,7 @@ dl:not(.docutils) dt {
 }
 
 /* Rules that impact the top-level entry for the code object, which e.g. has the `[source]` button. */
-section > dl:not(.docutils) > dt:nth-child(1) {
+section > dl.py:not(.docutils) > dt:nth-child(1) {
   /* We normally want to use inline-block for definition terms so that the purple border we add on
   *  top does not stretch across the whole screen. But, we make an exception here it will have a
   * `[source]` button that floats to the right. The spacing of that is non-trivial and was the
@@ -541,7 +541,7 @@ dl[class]:not(.option-list):not(.field-list):not(.footnote):not(.glossary):not(.
 /* Revert Furo's special-casing of rubrics for API docs. These rubrics are used for top-level
 *  section headers like "Attributes" and "Methods". We disagree with the design in
 *  https://github.com/pradyunsg/furo/discussions/505. Instead, use the rules from `p.rubric`. */
-dd p.rubric {
+dl.py dd p.rubric {
   font-size: 1.125em;
   font-weight: 700;
   line-height: 1.25;
