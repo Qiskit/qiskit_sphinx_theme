@@ -621,7 +621,7 @@ section > dl.py:not(.docutils) > dt:not(:first-child) {
 /* Fix some of the definition terms like "Parameters" having no padding and being in all caps.
 *
 *  Some Qiskit projects, like Experiments, use custom API sections. Those don't set the class
-* `.field-set` on the `dl`, so we change Furo's selector from `.field-set > dt` to `dl > dt`. But,
+* `.field-list` on the `dl`, so we change Furo's selector from `.field-list > dt` to `dl > dt`. But,
 *  to override Furo's properties we don't like, we also have to use `.field-list > dt` for some
 *  rules to win the specificity war. */
 dl[class]:not(.option-list):not(.field-list):not(.footnote):not(.glossary):not(.simple) dl > dt {
