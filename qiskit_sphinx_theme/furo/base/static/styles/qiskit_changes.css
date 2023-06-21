@@ -383,9 +383,76 @@ html {
   text-transform: uppercase;
 }
 
+/* ---------------------------------------------------------------------------
+* Drop shadows
+* ---------------------------------------------------------------------------- */
+
+.admonition,
+.topic,
+table.docutils,
+kbd:not(.compound) {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Restore borders for tables by overriding rules that disabled them. */
+table.docutils td:last-child,
+table.docutils th:last-child {
+  border-right: 1px solid var(--color-table-border);
+}
+table.docutils td:first-child,
+table.docutils th:first-child {
+  border-left: 1px solid var(--color-table-border);
+}
+
+/* We have a specificity war with Sphinx design elements. The `:not(#specifity-war)` selector
+*  works around that. */
+:not(#specifity-war).sd-card,
+:not(#specifity-war).sd-tab-content,
+:not(#specifity-war).sd-shadow-sm,
+:not(#specifity-war).sd-shadow-md,
+:not(#specifity-war).sd-shadow-lg {
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  border: 1px solid var(--color-table-border);
+}
+
 /* ------------------------------------------------------------------------------
 * Admonitions
 * ------------------------------------------------------------------------------- */
+/* The changes in this section are to align with Carbon:
+*  https://carbondesignsystem.com/components/notification/style/ */
+
+.topic {
+  border: 1px solid var(--qiskit-color-admonition-info--background);
+}
+
+/* Admonitions are complex because they use a 3px left border with a different color than the rest
+*  of the div. If we naively used `border-left`, we'd end up with a weird-looking diagonal, as
+*  described at
+*  https://stackoverflow.com/questions/18129718/weird-css-behavior-diagonal-border-why-is-the-border-edge-not-straight.
+*  So, instead, we use `.admonition:before` to set up the left border.
+*
+*  We don't specify the border colors or the `background` for `.admonition:before` because each
+*  specific admonition type will set them. We also don't set a border-top because we expect the
+*  border color to be the same as the top's background. */
+.admonition {
+  border-left: 0;  /* Turn off Furo's border. */
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  position: relative;
+  padding-left: 12px;
+}
+.admonition:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 3px;
+}
 
 .admonition.attention > .admonition-title:before,
 .admonition.caution > .admonition-title:before,
@@ -412,7 +479,13 @@ html {
 .admonition.caution,
 .admonition.important,
 .admonition.warning {
-  border-left-color: var(--qiskit-color-admonition-warning--border);
+  border-color: var(--qiskit-color-admonition-warning--background);
+}
+.admonition.attention:before,
+.admonition.caution:before,
+.admonition.important:before,
+.admonition.warning:before {
+  background: var(--qiskit-color-admonition-warning--border);
 }
 
 .admonition.danger > .admonition-title:before,
@@ -427,7 +500,11 @@ html {
 }
 .admonition.danger,
 .admonition.error {
-  border-left-color: var(--qiskit-color-admonition-error--border);
+  border-color: var(--qiskit-color-admonition-error--background);
+}
+.admonition.danger:before,
+.admonition.error:before {
+  background: var(--qiskit-color-admonition-error--border);
 }
 
 .admonition > .admonition-title:before,
@@ -450,7 +527,13 @@ p.topic-title {
 .admonition.hint,
 .admonition.note,
 .admonition.tip {
-  border-left-color: var(--qiskit-color-admonition-info--border);
+  border-color: var(--qiskit-color-admonition-info--background);
+}
+.admonition:before,
+.admonition.hint:before,
+.admonition.note:before,
+.admonition.tip:before {
+  background: var(--qiskit-color-admonition-info--border);
 }
 
 /* -------------------------------------------------------------------------------
