@@ -195,6 +195,38 @@ test.describe("left side bar", () => {
   });
 });
 
+test.describe("api docs", () => {
+  test("module page", async ({ page }) => {
+    await page.goto("sphinx_guide/autodoc.html");
+    const content = page.locator("div.article-container");
+    await expect(content).toHaveScreenshot();
+  });
+
+  test("class page", async ({ page }) => {
+    await page.goto("stubs/api_example.Electron.html");
+    await hideTopNavBar(page);
+    const content = page.locator("div.article-container");
+    await expect(content).toHaveScreenshot();
+  });
+
+  test("method page", async ({ page }) => {
+    await page.goto("stubs/api_example.Electron.compute_momentum.html");
+    const content = page.locator("div.article-container");
+    await expect(content).toHaveScreenshot();
+
+    // Also test a method with @typing.overload.
+    await page.goto("stubs/api_example.Electron.overloaded_func.html");
+    const content2 = page.locator("div.article-container");
+    await expect(content2).toHaveScreenshot();
+  });
+
+  test("function page", async ({ page }) => {
+    await page.goto("stubs/api_example.my_function.html");
+    const content = page.locator("div.article-container");
+    await expect(content).toHaveScreenshot();
+  });
+});
+
 test.describe("footer", () => {
   test("includes page analytics", async ({ page }) => {
     await page.goto("");
@@ -222,6 +254,7 @@ test.describe("footer", () => {
 
 test("tables align with qiskit.org", async ({ page }) => {
   await page.goto("sphinx_guide/tables.html");
+  await hideTopNavBar(page);
   const gridTablesSection = page.locator("section#grid-tables");
   await expect(gridTablesSection).toHaveScreenshot();
 });
@@ -237,4 +270,12 @@ test("admonitions use Carbon style", async ({ page }) => {
   await hideTopNavBar(page);
   const admonitions = page.locator("section#admonitions");
   await expect(admonitions).toHaveScreenshot();
+});
+
+test("Sphinx Design elements have no shadows", async ({ page }) => {
+  await page.goto("sphinx_guide/panels.html");
+  await hideTopNavBar(page);
+  await page.locator(".sd-dropdown").first().click();
+  const pageContents = page.locator("section#panels");
+  await expect(pageContents).toHaveScreenshot();
 });
