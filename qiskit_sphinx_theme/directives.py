@@ -35,7 +35,6 @@ class CardItemDirective(Directive):
         "image": directives.unchanged,
         "link": directives.unchanged,
         "card_description": directives.unchanged,
-        "tags": directives.unchanged,
     }
 
     def run(self) -> list[nodes.paragraph]:
@@ -47,19 +46,17 @@ class CardItemDirective(Directive):
             raise ValueError(f"`image` not set in {self.NAME} directive")
         link = self.options.get("link", "")
         card_description = self.options.get("card_description", "")
-        tags = self.options.get("tags", "")
 
         card_rst = f"""
 .. raw:: html
 
-    <div class="col-md-12 tutorials-card-container" data-tags={tags}>
+    <div class="col-md-12 tutorials-card-container">
     <div class="card tutorials-card" link={link}>
     <div class="card-body">
     <div class="card-title-container">
         <h4>{header}</h4>
     </div>
     <p class="card-summary">{card_description}</p>
-    <p class="tags">{tags}</p>
     <div class="tutorials-image"><img src='{image_source}'></div>
     </div>
     </div>
