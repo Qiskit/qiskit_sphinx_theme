@@ -53,11 +53,9 @@ class CardItemDirective(Directive):
     <div class="col-md-12 qiskit-card-container">
     <div class="card tutorials-card" link={link}>
     <div class="card-body">
-    <div class="card-title-container">
-        <h4>{header}</h4>
-    </div>
-    <p class="card-summary">{card_description}</p>
-    <div class="tutorials-image"><img src='{image_source}'></div>
+        <div class="card-title-container"><h4>{header}</h4></div>
+        <p class="card-summary">{card_description}</p>
+        <div class="qiskit-card-image-container"><img src='{image_source}'></div>
     </div>
     </div>
     </div>
