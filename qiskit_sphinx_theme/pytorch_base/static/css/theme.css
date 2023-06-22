@@ -11588,26 +11588,25 @@ a:hover {
   background: #000000;
   opacity: .075;
 }
-.qiskit-card-container .card.tutorials-card .card-title-container {
+.qiskit-card-title-container {
   width: 70%;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
 }
 @media screen and (min-width: 768px) {
-  .qiskit-card-container .card.tutorials-card .card-title-container {
+  .qiskit-card-title-container {
     width: 75%;
   }
 }
 @media (min-width: 768px) and (max-width: 1239px) {
-  .qiskit-card-container .card.tutorials-card .card-title-container {
+  .qiskit-card-title-container {
     width: 70%;
   }
 }
-.qiskit-card-container .card.tutorials-card .card-title-container h4 {
+.qiskit-card-container .qiskit-card-title-container h4 {
   margin-bottom: 1.125rem;
   margin-top: 0;
   font-size: 1.5rem;
+  color: #262626;
 }
 .qiskit-card-container .card.tutorials-card p.card-summary {
   font-size: 0.9375rem;
@@ -11626,10 +11625,6 @@ a:hover {
   .qiskit-card-container .card.tutorials-card p.card-summary {
     width: 70%;
   }
-}
-.qiskit-card-container .card.tutorials-card h4 {
-  color: #262626;
-  margin-bottom: 1.125rem;
 }
 @media screen and (min-width: 768px) {
   .qiskit-card-container .card.tutorials-card:after {
