@@ -402,16 +402,6 @@ kbd:not(.compound) {
   box-shadow: none;
 }
 
-/* Restore borders for tables by overriding rules that disabled them. */
-table.docutils td:last-child,
-table.docutils th:last-child {
-  border-right: 1px solid var(--color-table-border);
-}
-table.docutils td:first-child,
-table.docutils th:first-child {
-  border-left: 1px solid var(--color-table-border);
-}
-
 /* We have a specificity war with Sphinx design elements. The `:not(#specifity-war)` selector
 *  works around that. */
 :not(#specifity-war).sd-card,
@@ -422,6 +412,30 @@ table.docutils th:first-child {
   box-shadow: none !important;
   border-radius: 0 !important;
   border: 1px solid var(--color-table-border);
+}
+
+/* ------------------------------------------------------------------------------
+* Tables
+* ------------------------------------------------------------------------------- */
+
+/* Because we disable drop shadows, restore borders for tables by overriding rules that disabled
+*  them. */
+table.docutils td:last-child,
+table.docutils th:last-child {
+  border-right: 1px solid var(--color-table-border);
+}
+table.docutils td:first-child,
+table.docutils th:first-child {
+  border-left: 1px solid var(--color-table-border);
+}
+
+/* Also add a border to the top of the table so that tables without headers have a border.
+*
+*  It's arguably not necessary to add a top border when the table has a header and we could
+*  use a more precise selector `table.docutils tbody`. But, the rest of the table will already have
+*  borders so we are consistent this way. */
+table.docutils {
+  border-top: 1px solid var(--color-table-border);
 }
 
 /* ------------------------------------------------------------------------------
