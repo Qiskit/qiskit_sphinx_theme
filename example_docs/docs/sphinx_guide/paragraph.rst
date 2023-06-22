@@ -152,6 +152,9 @@ Code Blocks
     # parsed-literal test
     curl -O http://someurl/release-|version|.tar-gz
 
+.. code-block:: bash
+
+     curl -O http://someurl/release-|version|.tar-gz
 
 .. code-block:: json
     :caption: Code Blocks can have captions.

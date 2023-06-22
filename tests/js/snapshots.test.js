@@ -279,3 +279,10 @@ test("Sphinx Design elements have no shadows", async ({ page }) => {
   const pageContents = page.locator("section#panels");
   await expect(pageContents).toHaveScreenshot();
 });
+
+test("Jupyter works with copybutton", async ({ page }) => {
+  // Regression test of https://github.com/Qiskit/qiskit_sphinx_theme/issues/306.
+  await page.goto("sphinx_guide/jupyter.html");
+  const pageContents = page.locator("section#jupyter");
+  await expect(pageContents).toHaveScreenshot();
+});
