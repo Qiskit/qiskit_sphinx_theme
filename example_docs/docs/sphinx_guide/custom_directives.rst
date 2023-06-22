@@ -34,20 +34,20 @@ qiskit-call-to-action-item
    </div>
 
 
-qiskit-card-item
-================
+qiskit-card
+===========
 
 ..
   Note: To get the `image` working locally, we have to use a relative link like `../`. In
   production, it should simply be `_static/ibm_qlab.png.
 
-.. qiskit-card-item::
+.. qiskit-card::
   :header: IBM Quantum Lab
   :card_description: Build quantum applications and experiments with Qiskit in a cloud programming environment.
   :image: ../_static/ibm_qlab.png
   :link: https://quantum-computing.ibm.com/
 
-.. qiskit-card-item::
+.. qiskit-card::
   :header: Card #2
   :card_description: Some card description.
   :image: ../_static/ibm_qlab.png
