@@ -438,6 +438,11 @@ table.docutils {
   border-top: 1px solid var(--color-table-border);
 }
 
+/* Turn off center aligning of tables. */
+table.align-default {
+  margin-left: 0;
+}
+
 /* ------------------------------------------------------------------------------
 * Admonitions
 * ------------------------------------------------------------------------------- */
