@@ -79,7 +79,5 @@ Cards
 
         This is an example card.
 
-        :math:`\sin^{2}(x)+\cos^{2}(x) = 1`
-
         :bdg-primary:`Example`
         :bdg-success:`Tutorial`
