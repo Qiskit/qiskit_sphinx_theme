@@ -11531,10 +11531,10 @@ a:hover {
 * qiskit-card-item
 * ------------------------------------------------------------------------------- */
 
-#tutorial-cards-container #tutorial-cards {
+#tutorial-cards {
   width: 100%;
 }
-#tutorial-cards-container .card.tutorials-card {
+.qiskit-card-container .card.tutorials-card {
   border-radius: 0;
   border-color: #f3f4f7;
   height: 98px;
@@ -11545,18 +11545,18 @@ a:hover {
   cursor: pointer;
 }
 @media screen and (min-width: 1240px) {
-  #tutorial-cards-container .card.tutorials-card {
+  .qiskit-card-container .card.tutorials-card {
     height: 200px;
     overflow: inherit;
   }
 }
 @media (min-width: 768px) and (max-width: 1239px) {
-  #tutorial-cards-container .card.tutorials-card {
+  .qiskit-card-container .card.tutorials-card {
     height: 200px;
     overflow: scroll;
   }
 }
-#tutorial-cards-container .card.tutorials-card .tutorials-image {
+.qiskit-card-container .card.tutorials-card .tutorials-image {
   position: absolute;
   top: 0px;
   right: 0px;
@@ -11564,23 +11564,23 @@ a:hover {
   width: 96px;
   opacity: 0.5;
 }
-#tutorial-cards-container .card.tutorials-card .tutorials-image img {
+.qiskit-card-container .card.tutorials-card .tutorials-image img {
   height: 100%;
   width: 100%;
 }
 @media screen and (min-width: 768px) {
-  #tutorial-cards-container .card.tutorials-card .tutorials-image {
+  .qiskit-card-container .card.tutorials-card .tutorials-image {
     height: 100%;
     width: 25%;
   }
 }
 @media (min-width: 768px) and (max-width: 1239px) {
-  #tutorial-cards-container .card.tutorials-card .tutorials-image {
+  .qiskit-card-container .card.tutorials-card .tutorials-image {
     height: 100%;
     width: 198px;
   }
 }
-#tutorial-cards-container .card.tutorials-card .tutorials-image:before {
+.qiskit-card-container .card.tutorials-card .tutorials-image:before {
   content: '';
   position: absolute;
   top: 0;
@@ -11591,28 +11591,28 @@ a:hover {
   background: #000000;
   opacity: .075;
 }
-#tutorial-cards-container .card.tutorials-card .card-title-container {
+.qiskit-card-container .card.tutorials-card .card-title-container {
   width: 70%;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
 }
 @media screen and (min-width: 768px) {
-  #tutorial-cards-container .card.tutorials-card .card-title-container {
+  .qiskit-card-container .card.tutorials-card .card-title-container {
     width: 75%;
   }
 }
 @media (min-width: 768px) and (max-width: 1239px) {
-  #tutorial-cards-container .card.tutorials-card .card-title-container {
+  .qiskit-card-container .card.tutorials-card .card-title-container {
     width: 70%;
   }
 }
-#tutorial-cards-container .card.tutorials-card .card-title-container h4 {
+.qiskit-card-container .card.tutorials-card .card-title-container h4 {
   margin-bottom: 1.125rem;
   margin-top: 0;
   font-size: 1.5rem;
 }
-#tutorial-cards-container .card.tutorials-card p.card-summary {
+.qiskit-card-container .card.tutorials-card p.card-summary {
   font-size: 0.9375rem;
   line-height: 1.5rem;
   margin-bottom: 0;
@@ -11621,21 +11621,21 @@ a:hover {
   width: 70%;
 }
 @media screen and (min-width: 768px) {
-  #tutorial-cards-container .card.tutorials-card p.card-summary {
+  .qiskit-card-container .card.tutorials-card p.card-summary {
     width: 75%;
   }
 }
 @media (min-width: 768px) and (max-width: 1239px) {
-  #tutorial-cards-container .card.tutorials-card p.card-summary {
+  .qiskit-card-container .card.tutorials-card p.card-summary {
     width: 70%;
   }
 }
-#tutorial-cards-container .card.tutorials-card h4 {
+.qiskit-card-container .card.tutorials-card h4 {
   color: #262626;
   margin-bottom: 1.125rem;
 }
 @media screen and (min-width: 768px) {
-  #tutorial-cards-container .card.tutorials-card:after {
+  .qiskit-card-container .card.tutorials-card:after {
     content: "";
     display: block;
     width: 0;
@@ -11647,19 +11647,19 @@ a:hover {
     -webkit-transition: width .250s ease-in-out;
     transition: width .250s ease-in-out;
   }
-  #tutorial-cards-container .card.tutorials-card:hover:after {
+  .qiskit-card-container .card.tutorials-card:hover:after {
     width: 100%;
   }
 }
-#tutorial-cards-container .card.tutorials-card:hover {
+.qiskit-card-container .card.tutorials-card:hover {
   background-color: #ffffff;
   border: 1px solid #e2e2e2;
   border-bottom: none;
 }
-#tutorial-cards-container .card.tutorials-card:hover p.card-summary {
+.qiskit-card-container .card.tutorials-card:hover p.card-summary {
   color: #262626;
 }
-#tutorial-cards-container .card.tutorials-card:hover .tutorials-image {
+.qiskit-card-container .card.tutorials-card:hover .tutorials-image {
   opacity: unset;
 }
 

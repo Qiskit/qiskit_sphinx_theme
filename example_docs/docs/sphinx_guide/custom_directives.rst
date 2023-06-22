@@ -39,7 +39,6 @@ qiskit-card-item
 
 .. raw:: html
 
-  <div id="tutorial-cards-container">
   <div class="row">
   <div id="tutorial-cards">
 
@@ -61,6 +60,5 @@ qiskit-card-item
 
 .. raw:: html
 
-  </div>
   </div>
   </div>
