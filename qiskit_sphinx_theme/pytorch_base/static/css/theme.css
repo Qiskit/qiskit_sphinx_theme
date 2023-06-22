@@ -11531,9 +11531,6 @@ a:hover {
 * qiskit-card-item
 * ------------------------------------------------------------------------------- */
 
-#tutorial-cards {
-  width: 100%;
-}
 .qiskit-card-container .card.tutorials-card {
   border-radius: 0;
   border-color: #f3f4f7;

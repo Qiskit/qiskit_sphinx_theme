@@ -37,11 +37,6 @@ qiskit-call-to-action-item
 qiskit-card-item
 ================
 
-.. raw:: html
-
-  <div class="row">
-  <div id="tutorial-cards">
-
 ..
   Note: To get the `image` working locally, we have to use a relative link like `../`. In
   production, it should simply be `_static/ibm_qlab.png.
@@ -57,8 +52,3 @@ qiskit-card-item
   :card_description: Some card description.
   :image: ../_static/ibm_qlab.png
   :link: https://quantum-computing.ibm.com/
-
-.. raw:: html
-
-  </div>
-  </div>
