@@ -55,8 +55,6 @@ body {
     --qiskit-left-sidebar-width: 18em;
     /* This defaults to 1rem, but we make it bigger since we increase the size of the sidebar. */
     --sidebar-item-spacing-horizontal: 2rem;
-    /* We use 0.75rem rather than 1.5rem because it looks better with the translations feature. */
-    --sidebar-tree-space-above: 0.75rem;
 
     /* -----------------------------------------------------------------------
     * Admonitions
@@ -345,8 +343,7 @@ div.header-left svg use {
 * -------------------------------------------------------------------------------------- */
 
 .qiskit-translations-container {
-  border-bottom: solid 2px var(--qiskit-color-purple);
-  margin-bottom: var(--sidebar-tree-space-above);
+  border-top: solid 2px var(--qiskit-color-purple);
 }
 
 .qiskit-translations-list-container {
