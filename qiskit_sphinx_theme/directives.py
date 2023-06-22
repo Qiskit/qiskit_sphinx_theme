@@ -50,7 +50,7 @@ class QiskitCardDirective(Directive):
         card_rst = f"""
 .. raw:: html
 
-    <div class="col-md-12 qiskit-card-container">
+    <div class="qiskit-card-container">
     <div class="card tutorials-card" link={link}>
     <div class="card-body">
         <div class="qiskit-card-title-container"><h4>{header}</h4></div>
