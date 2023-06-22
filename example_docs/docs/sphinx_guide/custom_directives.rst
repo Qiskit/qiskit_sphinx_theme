@@ -16,6 +16,18 @@ qiskit-call-to-action-item
    :button_link:  https://qiskit.org
    :button_text: qiskit.org
 
+.. qiskit-call-to-action-item::
+   :header: CTA #2
+   :description: Call me, maybe?
+   :button_link:  https://qiskit.org
+   :button_text: qiskit.org
+
+.. qiskit-call-to-action-item::
+   :header: CTA #3
+   :description: No really, call me!
+   :button_link:  https://qiskit.org
+   :button_text: qiskit.org
+
 .. raw:: html
 
       </div>
@@ -40,6 +52,12 @@ qiskit-card-item
 .. qiskit-card-item::
   :header: IBM Quantum Lab
   :card_description: Build quantum applications and experiments with Qiskit in a cloud programming environment.
+  :image: ../_static/ibm_qlab.png
+  :link: https://quantum-computing.ibm.com/
+
+.. qiskit-card-item::
+  :header: Card #2
+  :card_description: Some card description.
   :image: ../_static/ibm_qlab.png
   :link: https://quantum-computing.ibm.com/
 
