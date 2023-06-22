@@ -127,12 +127,12 @@ html {
 
 /* Without this, long titles break the site. This is especially a problem in API docs.
 *  Remove if https://github.com/pradyunsg/furo/pull/670 gets merged and released. */
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   overflow-wrap: break-word;
 }
 
