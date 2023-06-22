@@ -12,7 +12,7 @@ body {
     --color-brand-content: var(--qiskit-color-purple);
 
     /* By default, Furo uses an aggressive red color for API docs. We use a more muted black
-    *  and gray/ */
+    *  and gray. */
     --color-api-name: var(--color-foreground-primary);
     --color-api-pre-name: var(--color-foreground-secondary);
 
@@ -49,6 +49,8 @@ body {
     * ----------------------------------------------------------------------- */
     /* Use gray for the top-level links to be more muted. */
     --color-sidebar-link-text--top-level: var(--color-sidebar-link-text);
+    /* Turn off gradient for hover. */
+    --color-sidebar-item-background--hover: #efeff4;
     /* This defaults to 15em in Furo, but we want a little bigger. */
     --qiskit-left-sidebar-width: 18em;
     /* This defaults to 1rem, but we make it bigger since we increase the size of the sidebar. */
