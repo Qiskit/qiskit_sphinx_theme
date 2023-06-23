@@ -12,7 +12,7 @@ body {
     --color-brand-content: var(--qiskit-color-purple);
 
     /* By default, Furo uses an aggressive red color for API docs. We use a more muted black
-    *  and gray/ */
+    *  and gray. */
     --color-api-name: var(--color-foreground-primary);
     --color-api-pre-name: var(--color-foreground-secondary);
 
@@ -49,12 +49,12 @@ body {
     * ----------------------------------------------------------------------- */
     /* Use gray for the top-level links to be more muted. */
     --color-sidebar-link-text--top-level: var(--color-sidebar-link-text);
+    /* Turn off gradient for hover. */
+    --color-sidebar-item-background--hover: #efeff4;
     /* This defaults to 15em in Furo, but we want a little bigger. */
     --qiskit-left-sidebar-width: 18em;
     /* This defaults to 1rem, but we make it bigger since we increase the size of the sidebar. */
     --sidebar-item-spacing-horizontal: 2rem;
-    /* We use 0.75rem rather than 1.5rem because it looks better with the translations feature. */
-    --sidebar-tree-space-above: 0.75rem;
 
     /* -----------------------------------------------------------------------
     * Admonitions
@@ -343,8 +343,7 @@ div.header-left svg use {
 * -------------------------------------------------------------------------------------- */
 
 .qiskit-translations-container {
-  border-bottom: solid 2px var(--qiskit-color-purple);
-  margin-bottom: var(--sidebar-tree-space-above);
+  border-top: solid 2px var(--qiskit-color-purple);
 }
 
 .qiskit-translations-list-container {
@@ -389,7 +388,7 @@ div.header-left svg use {
 }
 
 /* ---------------------------------------------------------------------------
-* Drop shadows
+* Drop shadows and border-radius
 * ---------------------------------------------------------------------------- */
 
 .admonition,
@@ -398,16 +397,6 @@ table.docutils,
 kbd:not(.compound) {
   border-radius: 0;
   box-shadow: none;
-}
-
-/* Restore borders for tables by overriding rules that disabled them. */
-table.docutils td:last-child,
-table.docutils th:last-child {
-  border-right: 1px solid var(--color-table-border);
-}
-table.docutils td:first-child,
-table.docutils th:first-child {
-  border-left: 1px solid var(--color-table-border);
 }
 
 /* We have a specificity war with Sphinx design elements. The `:not(#specifity-war)` selector
@@ -420,6 +409,45 @@ table.docutils th:first-child {
   box-shadow: none !important;
   border-radius: 0 !important;
   border: 1px solid var(--color-table-border);
+}
+
+div:not(#specifity-war).jupyter_container {
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+:not(#specifity-war).jupyter_container div.code_cell,
+:not(#specifity-war).highlight {
+  border-radius: 0;
+}
+
+/* ------------------------------------------------------------------------------
+* Tables
+* ------------------------------------------------------------------------------- */
+
+/* Because we disable drop shadows, restore borders for tables by overriding rules that disabled
+*  them. */
+table.docutils td:last-child,
+table.docutils th:last-child {
+  border-right: 1px solid var(--color-table-border);
+}
+table.docutils td:first-child,
+table.docutils th:first-child {
+  border-left: 1px solid var(--color-table-border);
+}
+
+/* Also add a border to the top of the table so that tables without headers have a border.
+*
+*  It's arguably not necessary to add a top border when the table has a header and we could
+*  use a more precise selector `table.docutils tbody`. But, the rest of the table will already have
+*  borders so we are consistent this way. */
+table.docutils {
+  border-top: 1px solid var(--color-table-border);
+}
+
+/* Turn off center aligning of tables. */
+table.align-default {
+  margin-left: 0;
 }
 
 /* ------------------------------------------------------------------------------
@@ -650,4 +678,14 @@ dl.py dd p.rubric {
   text-transform: unset;
   /* This is custom because Furo doesn't have enough space by default. */
   margin-top: 1.25em;
+}
+
+/* ---------------------------------------------------------------------------
+* jupyter-sphinx
+* ---------------------------------------------------------------------------- */
+
+/* Fix for https://github.com/Qiskit/qiskit_sphinx_theme/issues/306. Instead, use the rule from
+*  `.highlight pre, pre.literal-block`. */
+:not(#specifity-war).jupyter_container div.code_cell pre {
+  padding: .625rem .875rem;
 }
