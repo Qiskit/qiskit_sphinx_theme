@@ -11532,13 +11532,19 @@ a:hover {
 * ------------------------------------------------------------------------------- */
 
 div.qiskit-card {
-  border-radius: 0;
-  border-color: #f3f4f7;
+  position: relative;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
   height: 98px;
-  margin-bottom: 1.25rem;
+  padding: 1.25rem;
   margin-bottom: 1.875rem;
+  min-width: 0;
+  word-wrap: break-word;
+  border: 1px solid #f3f4f7;
   overflow: scroll;
   background-color: #f3f4f7;
+  background-clip: border-box;
   cursor: pointer;
 }
 @media screen and (min-width: 1240px) {
