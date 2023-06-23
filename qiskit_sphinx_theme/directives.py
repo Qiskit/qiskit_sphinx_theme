@@ -54,7 +54,7 @@ class QiskitCardDirective(Directive):
     <div class="card tutorials-card" link={link}>
     <div class="card-body">
         <div class="qiskit-card-title-container"><h4>{header}</h4></div>
-        <p class="card-summary">{card_description}</p>
+        <p class="qiskit-card-summary">{card_description}</p>
         <div class="qiskit-card-image-container"><img src='{image_source}'></div>
     </div>
     </div>

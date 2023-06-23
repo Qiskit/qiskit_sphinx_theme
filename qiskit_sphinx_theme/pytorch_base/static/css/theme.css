@@ -11608,7 +11608,7 @@ a:hover {
   font-size: 1.5rem;
   color: #262626;
 }
-.qiskit-card-container .card.tutorials-card p.card-summary {
+.qiskit-card-container .qiskit-card-summary {
   font-size: 0.9375rem;
   line-height: 1.5rem;
   margin-bottom: 0;
@@ -11617,12 +11617,12 @@ a:hover {
   width: 70%;
 }
 @media screen and (min-width: 768px) {
-  .qiskit-card-container .card.tutorials-card p.card-summary {
+  .qiskit-card-container .qiskit-card-summary {
     width: 75%;
   }
 }
 @media (min-width: 768px) and (max-width: 1239px) {
-  .qiskit-card-container .card.tutorials-card p.card-summary {
+  .qiskit-card-container .qiskit-card-summary {
     width: 70%;
   }
 }
@@ -11648,7 +11648,7 @@ a:hover {
   border: 1px solid #e2e2e2;
   border-bottom: none;
 }
-.qiskit-card-container .card.tutorials-card:hover p.card-summary {
+.qiskit-card-container .card.tutorials-card:hover .qiskit-card-summary {
   color: #262626;
 }
 .qiskit-card-container .card.tutorials-card:hover .qiskit-card-image-container {
