@@ -11531,7 +11531,7 @@ a:hover {
 * qiskit-card
 * ------------------------------------------------------------------------------- */
 
-.qiskit-card-container {
+.qiskit-card {
   border-radius: 0;
   border-color: #f3f4f7;
   height: 98px;
@@ -11542,13 +11542,13 @@ a:hover {
   cursor: pointer;
 }
 @media screen and (min-width: 1240px) {
-  .qiskit-card-container {
+  .qiskit-card {
     height: 200px;
     overflow: inherit;
   }
 }
 @media (min-width: 768px) and (max-width: 1239px) {
-  .qiskit-card-container {
+  .qiskit-card {
     height: 200px;
     overflow: scroll;
   }
@@ -11602,13 +11602,13 @@ a:hover {
     width: 70%;
   }
 }
-.qiskit-card-container .qiskit-card-title-container h4 {
+.qiskit-card .qiskit-card-title-container h4 {
   margin-bottom: 1.125rem;
   margin-top: 0;
   font-size: 1.5rem;
   color: #262626;
 }
-.qiskit-card-container .qiskit-card-summary {
+.qiskit-card .qiskit-card-summary {
   font-size: 0.9375rem;
   line-height: 1.5rem;
   margin-bottom: 0;
@@ -11617,17 +11617,17 @@ a:hover {
   width: 70%;
 }
 @media screen and (min-width: 768px) {
-  .qiskit-card-container .qiskit-card-summary {
+  .qiskit-card .qiskit-card-summary {
     width: 75%;
   }
 }
 @media (min-width: 768px) and (max-width: 1239px) {
-  .qiskit-card-container .qiskit-card-summary {
+  .qiskit-card .qiskit-card-summary {
     width: 70%;
   }
 }
 @media screen and (min-width: 768px) {
-  .qiskit-card-container:after {
+  .qiskit-card:after {
     content: "";
     display: block;
     width: 0;
@@ -11639,19 +11639,19 @@ a:hover {
     -webkit-transition: width .250s ease-in-out;
     transition: width .250s ease-in-out;
   }
-  .qiskit-card-container:hover:after {
+  .qiskit-card:hover:after {
     width: 100%;
   }
 }
-.qiskit-card-container:hover {
+.qiskit-card:hover {
   background-color: #ffffff;
   border: 1px solid #e2e2e2;
   border-bottom: none;
 }
-.qiskit-card-container:hover .qiskit-card-summary {
+.qiskit-card:hover .qiskit-card-summary {
   color: #262626;
 }
-.qiskit-card-container:hover .qiskit-card-image-container {
+.qiskit-card:hover .qiskit-card-image-container {
   opacity: unset;
 }
 
