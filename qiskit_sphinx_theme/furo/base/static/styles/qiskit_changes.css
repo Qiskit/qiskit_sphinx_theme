@@ -80,6 +80,14 @@ body {
 * Page layout
 * ------------------------------------------------------------------------------- */
 
+/* Disable Furo making the whole site larger on big screens. This results in `rem` having a
+* bigger size, so things like the Qiskit top nav bar getting bigger, which we don't like. */
+@media (min-width: 97em) {
+  html {
+    font-size: 100%;
+  }
+}
+
 /* By default, Furo expands the left and right sidebars when the page width increases, but it
 * doesn't increase the entry size. It also keeps the page contents fixed at 46em.
 *
