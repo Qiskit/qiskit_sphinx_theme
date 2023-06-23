@@ -325,8 +325,7 @@ Admonitions
 .. Hint:: It's bigger than a bread box.
 
 .. Note:: This is a note.
-   Equations within a note:
-   :math:`G_{\mu\nu} = 8 \pi G (T_{\mu\nu}  + \rho_\Lambda g_{\mu\nu})`.
+   Equations within a note: what's up!
 
 .. Tip:: 15% if the service is good.
 
