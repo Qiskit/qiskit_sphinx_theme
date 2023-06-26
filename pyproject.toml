@@ -1,6 +1,6 @@
 [build-system]
-requires = ["setuptools"]
-build-backend = "setuptools.build_meta"
+requires = ["sphinx-theme-builder>=0.2.0b2"]
+build-backend = "sphinx_theme_builder"
 
 [project]
 name = "qiskit-sphinx-theme"
@@ -39,6 +39,9 @@ _qiskit_furo = "qiskit_sphinx_theme"
 [project.urls]
 "Bug Tracker" = "https://github.com/Qiskit/qiskit_sphinx_theme/issues"
 "Source Code" = "https://github.com/Qiskit/qiskit_sphinx_theme"
+
+[tool.sphinx-theme-builder]
+node-version = "18.16.0"
 
 
 [tool.pytest.ini_options]

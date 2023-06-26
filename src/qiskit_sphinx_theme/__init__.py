@@ -82,26 +82,16 @@ def setup(app: sphinx.application.Sphinx) -> dict[str, bool]:
     translations.setup(app)
 
     app.add_html_theme("qiskit_sphinx_theme", _get_theme_absolute_path("pytorch"))
-    app.add_html_theme("_qiskit_furo", _get_theme_absolute_path("furo"))
+    app.add_html_theme("_qiskit_furo", _get_theme_absolute_path("theme/qiskit-sphinx-theme"))
 
     app.connect("html-page-context", remove_thebe_if_not_needed)
 
-    if app.config.html_theme == "_qiskit_furo":
-        # The below must be kept in sync with `furo/__init__.py`.
-        from furo import (
-            WrapTableAndMathInAContainerTransform,
-            _builder_inited,
-            _html_page_context,
-            _overwrite_pygments_css,
-        )
+    # TODO: figure out how to make this conditional.
+    app.add_css_file("styles/furo.css", 100)
+    app.add_js_file("scripts/furo.js")
 
-        app.add_post_transform(WrapTableAndMathInAContainerTransform)
-        app.connect("html-page-context", _html_page_context)
-        app.connect("builder-inited", _builder_inited)
-        app.connect("build-finished", _overwrite_pygments_css)
-    else:
-        # Sphinx 6 stopped including jQuery by default. Our Pytorch theme depend on jQuery,
-        # so activate it for our users automatically.
-        app.setup_extension("sphinxcontrib.jquery")
+    # Sphinx 6 stopped including jQuery by default. Our Pytorch theme depend on jQuery,
+    # so activate it for our users automatically.
+    app.setup_extension("sphinxcontrib.jquery")
 
     return {"parallel_read_safe": True, "parallel_write_safe": True}

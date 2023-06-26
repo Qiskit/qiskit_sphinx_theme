@@ -134,3 +134,4 @@ dmypy.json
 # JavaScript
 /node_modules
 /snapshot_results
+/.nodeenv/

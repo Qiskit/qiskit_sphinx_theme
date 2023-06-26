@@ -1,4 +1,0 @@
-recursive-include src *.html
-recursive-include src theme.conf
-graft src/qiskit_sphinx_theme/furo/static
-graft src/qiskit_sphinx_theme/pytorch/static
