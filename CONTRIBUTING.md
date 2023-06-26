@@ -159,7 +159,7 @@ When adding changes, document the rationale unless the code is already self-docu
 You can change [Furo's CSS variable values](https://github.com/pradyunsg/furo/tree/main/src/furo/assets/styles/variables) by setting them in the `body` rule at the top. When introducing our own CSS variables, prefix it with `--qiskit` for clarity, e.g. `--qiskit-top-nav-bar-height`.
 
 ### How to update the Furo version
-Update the version in `setup.py`. Always pin to an exact version of Furo.
+Update the version in `pyproject.toml`. Always pin to an exact version of Furo.
 
 However, when updating, closely analyze each commit in the release to check for any changes that would break our fork. We want to make sure that our HTML files are always in sync with Furo. If they have made any changes, then add them back to our copy of the file.
 
@@ -187,7 +187,7 @@ The release process changes whether you are releasing the very first `rc1` for t
    1. `git checkout main`
    2. `git pull upstream main`
    3. `git checkout -b release-<version-number>`, e.g. `release-1.11.0rc1`
-   4. Bump `setup.py` and `src/qiskit_sphinx_theme/__init__.py` to use the new version, e.g. https://github.com/Qiskit/qiskit_sphinx_theme/pull/207
+   4. Bump `src/qiskit_sphinx_theme/__init__.py` to use the new version, e.g. https://github.com/Qiskit/qiskit_sphinx_theme/pull/207
    5. PR the change and land it
 2. Push the Git tag:
    1. `git checkout main`
@@ -221,7 +221,7 @@ Use this process for:
    1. `git checkout <release-branch>`, e.g. `1.11`.
    2. `git pull upstream <release-branch>`, e.g. `1.11`.
    3. `git checkout -b release-<full-version>`, e.g. `release-1.11.0rc3`
-   4. Bump `setup.py` and `src/qiskit_sphinx_theme/__init__.py` to use the new version, e.g. https://github.com/Qiskit/qiskit_sphinx_theme/pull/207
+   4. Bump `src/qiskit_sphinx_theme/__init__.py` to use the new version, e.g. https://github.com/Qiskit/qiskit_sphinx_theme/pull/207
    5. PR the change and land it. Change the PR's merge base in the top to the release branch; it defaults to `main`.
 3. Push the Git tag:
    1. `git checkout <release-branch>`, e.g. `1.11`.
