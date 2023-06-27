@@ -10,8 +10,6 @@
 # copyright notice, and modified files need to carry a notice indicating
 # that they have been altered from the originals.
 
-"""Pytorch Sphinx theme."""
-
 from __future__ import annotations
 
 from pathlib import Path
@@ -83,8 +81,8 @@ def setup(app: sphinx.application.Sphinx) -> dict[str, bool]:
     previous_releases.setup(app)
     translations.setup(app)
 
-    app.add_html_theme("qiskit_sphinx_theme", _get_theme_absolute_path("pytorch_base"))
-    app.add_html_theme("_qiskit_furo", _get_theme_absolute_path("furo/base"))
+    app.add_html_theme("qiskit_sphinx_theme", _get_theme_absolute_path("pytorch"))
+    app.add_html_theme("_qiskit_furo", _get_theme_absolute_path("furo"))
 
     app.connect("html-page-context", remove_thebe_if_not_needed)
 

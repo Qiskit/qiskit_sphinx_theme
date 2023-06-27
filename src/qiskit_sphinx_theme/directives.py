@@ -23,19 +23,18 @@ if TYPE_CHECKING:
 
 
 def setup(app: sphinx.application.Sphinx) -> None:
-    app.add_directive(CardItemDirective.NAME, CardItemDirective)
+    app.add_directive(QiskitCardDirective.NAME, QiskitCardDirective)
     app.add_directive(CallToActionItemDirective.NAME, CallToActionItemDirective)
 
 
-class CardItemDirective(Directive):
-    NAME = "qiskit-card-item"
+class QiskitCardDirective(Directive):
+    NAME = "qiskit-card"
 
     option_spec = {
         "header": directives.unchanged,
         "image": directives.unchanged,
         "link": directives.unchanged,
         "card_description": directives.unchanged,
-        "tags": directives.unchanged,
     }
 
     def run(self) -> list[nodes.paragraph]:
@@ -47,22 +46,14 @@ class CardItemDirective(Directive):
             raise ValueError(f"`image` not set in {self.NAME} directive")
         link = self.options.get("link", "")
         card_description = self.options.get("card_description", "")
-        tags = self.options.get("tags", "")
 
         card_rst = f"""
 .. raw:: html
 
-    <div class="col-md-12 tutorials-card-container" data-tags={tags}>
-    <div class="card tutorials-card" link={link}>
-    <div class="card-body">
-    <div class="card-title-container">
+    <div class="qiskit-card" link={link}>
         <h4>{header}</h4>
-    </div>
-    <p class="card-summary">{card_description}</p>
-    <p class="tags">{tags}</p>
-    <div class="tutorials-image"><img src='{image_source}'></div>
-    </div>
-    </div>
+        <p>{card_description}</p>
+        <div class="qiskit-card-image-container"><img src='{image_source}'></div>
     </div>
 """
         card_list = StringList(card_rst.splitlines())

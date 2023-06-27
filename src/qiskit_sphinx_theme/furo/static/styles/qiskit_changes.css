@@ -80,6 +80,14 @@ body {
 * Page layout
 * ------------------------------------------------------------------------------- */
 
+/* Disable Furo making the whole site larger on big screens. This results in `rem` having a
+* bigger size, so things like the Qiskit top nav bar getting bigger, which we don't like. */
+@media (min-width: 97em) {
+  html {
+    font-size: 100%;
+  }
+}
+
 /* By default, Furo expands the left and right sidebars when the page width increases, but it
 * doesn't increase the entry size. It also keeps the page contents fixed at 46em.
 *
@@ -121,17 +129,6 @@ body {
 /* Turn off scroll animation for anchor links: https://github.com/pradyunsg/furo/discussions/384 */
 html {
   scroll-behavior: auto;
-}
-
-/* Without this, long titles break the site. This is especially a problem in API docs.
-*  Remove if https://github.com/pradyunsg/furo/pull/670 gets merged and released. */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  overflow-wrap: break-word;
 }
 
 /* ------------------------------------------------------------------------------
@@ -385,6 +382,30 @@ div.header-left svg use {
   font-size: var(--sidebar-caption-font-size);
   font-weight: 700;
   text-transform: uppercase;
+}
+
+/* ------------------------------------------------------------------------------
+* Typography
+* ------------------------------------------------------------------------------- */
+
+/* Without this, long titles break the site. This is especially a problem in API docs.
+*  Remove if https://github.com/pradyunsg/furo/pull/670 gets merged and released. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* Carbon only uses bold for the smallest headers:
+*  https://carbondesignsystem.com/guidelines/typography/type-sets/ */
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 400;
 }
 
 /* ---------------------------------------------------------------------------
