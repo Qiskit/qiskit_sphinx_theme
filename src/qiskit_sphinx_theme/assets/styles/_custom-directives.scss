@@ -1,0 +1,74 @@
+// -------------------------------------------------------------------------------
+// qiskit-card
+// -------------------------------------------------------------------------------
+
+.qiskit-card {
+  position: relative;  // Needed for `.qiskit-card::after`.
+  display: flex;
+  justify-content: space-between;
+  height: 12rem;
+  margin-bottom: 1.875rem;
+
+  border: 1px solid var(--color-table-border);
+  background-color: var(--color-sidebar-background);
+  cursor: pointer;
+
+  p {
+    color: var(--color-sidebar-link-text);
+  }
+
+  // This creates a purple border at the bottom. We set the width to 0, but to 100% on hover, so
+  // that it transitions in.
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--qiskit-color-purple);
+    transition: width .250s ease-in-out;
+  }
+
+  &:hover {
+    background-color: unset;
+    border-bottom: none;
+
+    p {
+      color: unset;
+    }
+
+    &::after {
+      width: 100%;
+    }
+
+    .qiskit-card-image-container {
+      opacity: unset;
+    }
+  }
+}
+
+.qiskit-card-text-container {
+  flex-grow: 1;
+  min-width: 0;
+  padding: 1rem;
+}
+
+.qiskit-card-image-container {
+  flex-shrink: 0;
+  height: 100%;
+  width: 20rem;  // We use a fixed width so the image doesn't keep resizing.
+
+  opacity: 0.7;
+
+  // Float the image to the right of the container.
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  img {
+    max-height: 100%;
+    max-width: 100%;
+  }
+}
