@@ -2,10 +2,47 @@
 requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
-[tool.pytest.ini_options]
-addopts = [
-    "--import-mode=importlib",
+[project]
+name = "qiskit-sphinx-theme"
+description = "A Sphinx theme for Qiskit and Qiskit Ecosystem projects"
+dynamic = ["version"]
+
+license = { text = "Apache 2" }
+authors = [{ name = "Qiskit Development Team", email = "hello@qiskit.org" }]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Web Environment",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Topic :: Internet",
+    "Topic :: Software Development :: Documentation",
+    "Framework :: Sphinx :: Theme",
 ]
+
+dependencies = [
+    "docutils",
+    # Keep in sync with Furo's constraint.
+    "sphinx>=6.0",
+    # Remove jQuery once we get rid of the Pytorch theme.
+    "sphinxcontrib-jquery",
+    # See CONTRIBUTING.md for how to upgrade Furo.
+    "furo==2023.5.20",
+]
+
+[project.entry-points."sphinx.html_themes"]
+qiskit_sphinx_theme = "qiskit_sphinx_theme"
+_qiskit_furo = "qiskit_sphinx_theme"
+
+[project.urls]
+"Bug Tracker" = "https://github.com/Qiskit/qiskit_sphinx_theme/issues"
+"Source Code" = "https://github.com/Qiskit/qiskit_sphinx_theme"
+
+
+[tool.pytest.ini_options]
+addopts = ["--import-mode=importlib"]
 
 [tool.black]
 line-length = 100
