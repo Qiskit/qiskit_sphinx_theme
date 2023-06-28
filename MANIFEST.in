@@ -1,3 +1,0 @@
-recursive-include qiskit_sphinx_theme *.html
-recursive-include qiskit_sphinx_theme theme.conf
-graft qiskit_sphinx_theme/**/static
