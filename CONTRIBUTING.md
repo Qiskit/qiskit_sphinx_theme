@@ -16,9 +16,13 @@ contributing to qiskit_sphinx_theme, these are documented below.
 There are a few important subfolders to be aware of:
 
 ### `/src`
-This subfolder contains the raw HTML, CSS, and Python files that are used to set the framework for Qiskit documentation web pages. The files in this folder will set the styles when a project calls the `qiskit_sphinx_theme` in its `conf.py`, unless the project overrides the style with their own files.
+This subfolder contains the HTML, CSS, and Python files that are used for the Qiskit themes. It has these folders:
 
-E.g. if a qiskit project (with the `qiskit_sphinx_theme` installed) wants to override any of the themes files (such as the `layout.html`) that the `qiskit_sphinx_theme` provides it needs to have its own version of that file (e.g. `layout.html`) stored in its `docs/_templates` folder.
+* `assets`: CSS and JavaScript for our Furo theme, which is the future of the Sphinx theme.
+* `pytorch`: all the code for the legacy Pytorch theme.
+* `theme`: static files, like HTML templates, for our Furo theme.
+
+The top-level Python files are used for logic used by the theme, such as `translations.py` determining what URLs the HTML should use for translations support.
 
 ### `/example_docs`
 This subfolder contains a scaled down version of the Sphinx build that builds the documentation for the Qiskit repos. 
@@ -102,13 +106,13 @@ To update the top nav bar web component:
 1. In https://github.com/Qiskit/web-components, run `npm install` then `npm run build`.
 2. There should be a file created at the root of the web components repository called `experimental-bundled-ui-shell.js`. Copy its contents into these files in this theme repository:
    1. `src/qiskit_sphinx_theme/pytorch/static/js/web-components/top-nav-bar.js`
-   2. `src/qiskit_sphinx_theme/furo/static/js/web-components/top-nav-bar.js`
+   2. `src/qiskit_sphinx_theme/theme/qiskit-sphinx-theme/static/js/web-components/top-nav-bar.js`
 3. Build the example docs with `tox -e docs` and `THEME=_qiskit_furo tox -e docs` to ensure everything works.
 
 If you want to add a new web component:
 
 1. Work with the web components repository's team to set up `npm run build` to generate a single JavaScript file.
-2. Add the file contents to the `src/qiskit_sphinx_theme/furo/static/js/web-components/` folder in this theme repository. (We shouldn't add web components to Pytorch.)
+2. Add the file contents to the `src/qiskit_sphinx_theme/theme/qiskit-sphinx-theme/static/js/web-components/` folder in this theme repository. (We shouldn't add web components to Pytorch.)
 3. Load the web component in `extra_head.html` with a line like `<script src="{{ pathto('_static/js/web-components/my-component.js', 1) }}"></script>`.
 4. Use the web component element in the relevant HTML, e.g. `<my-component>` in `layout.html`. Remember to surround the change with a `QISKIT CHANGE:` comment.
 5. Build the example docs with `THEME=_qiskit_furo tox -e docs` to ensure everything works.
@@ -129,7 +133,7 @@ Contributors with write access can also use live previews of the docs: GitHub wi
 ------
 ## FYI: How Furo Theme Inheritance Works
 
-We use Sphinx's inheritance future for our Furo theme, which we set in `furo/theme.conf`. Sphinx will default to using all the files from Furo. But if we have a file with the same name as Furo, then Sphinx will use our copy. That allows us to override only what we care about.
+We use Sphinx's inheritance future for our Furo theme, which we set in `theme/qiskit-sphinx-theme/theme.conf`. Sphinx will default to using all the files from Furo. But if we have a file with the same name as Furo, then Sphinx will use our copy. That allows us to override only what we care about.
 
 We try to keep changes to a minimum because every divergence we make from base Furo increases our maintenance burden. Hence we prioritise only making changes that are important to the Qiskit brand. If the change would be generally useful to other users of Furo, we try to contribute upstream to the Furo project itself.
 
@@ -149,10 +153,10 @@ When making changes, use those comments to make clear where and what we changed.
 {#- QISKIT CHANGE: end. -#}
 ```
 
-If the change is greater than 1-3 lines, write the code in a new file in `custom_templates`, then use Jinja's `include` directive, as shown in the example right above.
+If the change is greater than 1-3 lines, write the code in a new file in `theme/qiskit-sphinx-theme/custom_templates`, then use Jinja's `include` directive, as shown in the example right above.
 
 ### How to change CSS
-Make CSS changes in the file `qiskit_changes.css`. It takes precedence over any CSS rules from Furo.
+Make CSS changes in the file `assets/styles/qiskit-sphinx-theme.css`. It takes precedence over any CSS rules from Furo.
 
 When adding changes, document the rationale unless the code is already self-documenting and obvious. Group similar changes into sections.
 
@@ -164,7 +168,7 @@ Update the version in `pyproject.toml`. Always pin to an exact version of Furo.
 However, when updating, closely analyze each commit in the release to check for any changes that would break our fork. We want to make sure that our HTML files are always in sync with Furo. If they have made any changes, then add them back to our copy of the file.
 
 ### How to add an icon
-Edit the file `furo/partials/icons.html`. Copy the HTML code of the `<svg></svg>` tags and add them as the first element within the `<symbol>` tag. Don't forget to include the `id` attribute, which will serve as the name associated with the icon. 
+Edit the file `theme/qiskit-sphinx-theme/partials/icons.html`. Copy the HTML code of the `<svg></svg>` tags and add them as the first element within the `<symbol>` tag. Don't forget to include the `id` attribute, which will serve as the name associated with the icon. 
 
 To use the icon, reference it with `#`.
 

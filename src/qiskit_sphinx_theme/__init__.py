@@ -15,13 +15,12 @@ from __future__ import annotations
 from pathlib import Path
 from typing import TYPE_CHECKING
 
-import sphinx.addnodes
-
 from qiskit_sphinx_theme import directives, previous_releases, translations
 
 if TYPE_CHECKING:
     import sphinx.addnodes
     import sphinx.application
+    import sphinx.config
 
 __version__ = "1.12.0rc1"
 __version_full__ = __version__
@@ -68,6 +67,17 @@ def remove_thebe_if_not_needed(
     ]
 
 
+def activate_themes(app: sphinx.application.Sphinx, config: sphinx.config.Config) -> None:
+    if config.html_theme == "_qiskit_furo":
+        # We set a low priority so that our Qiskit CSS file overrides Furo.
+        app.add_css_file("styles/furo.css", 100)
+        app.add_js_file("scripts/furo.js")
+    else:
+        # Sphinx 6 stopped including jQuery by default. Our Pytorch theme depend on jQuery,
+        # so activate it for our users automatically.
+        app.setup_extension("sphinxcontrib.jquery")
+
+
 # See https://www.sphinx-doc.org/en/master/development/theming.html
 def setup(app: sphinx.application.Sphinx) -> dict[str, bool]:
     # Used to generate URL references. Expected to be e.g. `ecosystem/finance`.
@@ -82,26 +92,9 @@ def setup(app: sphinx.application.Sphinx) -> dict[str, bool]:
     translations.setup(app)
 
     app.add_html_theme("qiskit_sphinx_theme", _get_theme_absolute_path("pytorch"))
-    app.add_html_theme("_qiskit_furo", _get_theme_absolute_path("furo"))
+    app.add_html_theme("_qiskit_furo", _get_theme_absolute_path("theme/qiskit-sphinx-theme"))
 
     app.connect("html-page-context", remove_thebe_if_not_needed)
-
-    if app.config.html_theme == "_qiskit_furo":
-        # The below must be kept in sync with `furo/__init__.py`.
-        from furo import (
-            WrapTableAndMathInAContainerTransform,
-            _builder_inited,
-            _html_page_context,
-            _overwrite_pygments_css,
-        )
-
-        app.add_post_transform(WrapTableAndMathInAContainerTransform)
-        app.connect("html-page-context", _html_page_context)
-        app.connect("builder-inited", _builder_inited)
-        app.connect("build-finished", _overwrite_pygments_css)
-    else:
-        # Sphinx 6 stopped including jQuery by default. Our Pytorch theme depend on jQuery,
-        # so activate it for our users automatically.
-        app.setup_extension("sphinxcontrib.jquery")
+    app.connect("config-inited", activate_themes)
 
     return {"parallel_read_safe": True, "parallel_write_safe": True}

@@ -134,3 +134,8 @@ dmypy.json
 # JavaScript
 /node_modules
 /snapshot_results
+/.nodeenv/
+
+# These get copied from sphinx-theme-builder.
+/src/qiskit_sphinx_theme/theme/qiskit-sphinx-theme/static/styles
+/src/qiskit_sphinx_theme/theme/qiskit-sphinx-theme/static/scripts
