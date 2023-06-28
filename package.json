@@ -7,7 +7,7 @@
     "playwright": "^1.34.3"
   },
   "scripts": {
-    "build": "echo 'no-op'",
+    "build": ":",
     "start": "http-server example_docs/docs/_build/html",
     "test-snapshots": "npm run _docker-build && npm run _docker-run",
     "_docker-build": "docker build -t qiskit_sphinx_theme -f tests/js/Dockerfile .",
