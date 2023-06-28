@@ -16,7 +16,7 @@ contributing to qiskit_sphinx_theme, these are documented below.
 There are a few important subfolders to be aware of:
 
 ### `/src`
-This subfolder contains the HTML, CSS, and Python files that are used to for the Qiskit themes. It has a few folders:
+This subfolder contains the HTML, CSS, and Python files that are used for the Qiskit themes. It has these folders:
 
 * `assets`: CSS and JavaScript for our Furo theme, which is the future of the Sphinx theme.
 * `pytorch`: all the code for the legacy Pytorch theme.
