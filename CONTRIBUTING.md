@@ -48,7 +48,7 @@ We use [Tox](https://tox.wiki/en/latest/), which you will need to install global
 
 Sometimes Sphinx's caching can get in a bad state. First, try running `tox -e docs-clean`, which will remove Sphinx's cache. If you are still having issues, try adding `-r` your command, e.g. `tox -e docs -r`. `-r` tells Tox to reinstall the dependencies.
 
-We are in the process of migrating our theme from Pytorch to Furo (see https://github.com/Qiskit/qiskit_sphinx_theme/issues/232). To build the local docs using the Furo theme, use `THEME=_qiskit_furo` in front of the command, e.g. `THEME=_qiskit_furo tox -e docs`.
+We migrated the theme from Pytorch to Furo (see https://github.com/Qiskit/qiskit_sphinx_theme/issues/232). To build the legacy Pytorch theme, use `THEME=qiskit_sphinx_theme` in front of the command, e.g. `THEME=qiskit_sphinx_theme tox -e docs`.
 
 ------
 ## Visual regression testing
@@ -84,10 +84,10 @@ First, you need to install:
 Then, to run the tests locally:
 
 1. `npm install`
-2. Build the docs with Furo, `THEME=_qiskit_furo tox -e docs`
+2. Build the docs, `tox -e docs`
 3. `npm run test-snapshots`
 
-You must rebuild the docs with `THEME=_qiskit_furo tox -e docs` whenever you make changes to the theme or docs folder. The docs will not automatically rebuild.
+You must rebuild the docs with `tox -e docs` whenever you make changes to the theme or docs folder. The docs will not automatically rebuild.
 
 ### How to update the expected snapshot for intentional changes
 
@@ -107,7 +107,7 @@ To update the top nav bar web component:
 2. There should be a file created at the root of the web components repository called `experimental-bundled-ui-shell.js`. Copy its contents into these files in this theme repository:
    1. `src/qiskit_sphinx_theme/pytorch/static/js/web-components/top-nav-bar.js`
    2. `src/qiskit_sphinx_theme/theme/qiskit-sphinx-theme/static/js/web-components/top-nav-bar.js`
-3. Build the example docs with `tox -e docs` and `THEME=_qiskit_furo tox -e docs` to ensure everything works.
+3. Build the example docs with `tox -e docs` and `THEME=qiskit_sphinx_theme tox -e docs` to ensure everything works.
 
 If you want to add a new web component:
 
@@ -115,7 +115,7 @@ If you want to add a new web component:
 2. Add the file contents to the `src/qiskit_sphinx_theme/theme/qiskit-sphinx-theme/static/js/web-components/` folder in this theme repository. (We shouldn't add web components to Pytorch.)
 3. Load the web component in `extra_head.html` with a line like `<script src="{{ pathto('_static/js/web-components/my-component.js', 1) }}"></script>`.
 4. Use the web component element in the relevant HTML, e.g. `<my-component>` in `layout.html`. Remember to surround the change with a `QISKIT CHANGE:` comment.
-5. Build the example docs with `THEME=_qiskit_furo tox -e docs` to ensure everything works.
+5. Build the example docs with `tox -e docs` to ensure everything works.
 6. Update this guide with specific instructions for the web component.
 
 ------

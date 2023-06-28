@@ -54,7 +54,7 @@ jobs:
           rm -rf example_docs/_build_legacy
       - name: Build Furo theme
         run: |
-          THEME=_qiskit_furo tox run -e docs
+          THEME=qiskit tox run -e docs
           tar -zcvf furo_html_docs.tar.gz example_docs/docs/_build/html
           mv furo_html_docs.tar.gz artifacts/.
       - name: Upload Sphinx builds

@@ -49,10 +49,10 @@ html_last_updated_fmt = "2020/01/01"
 
 # This allows us to test both the Furo and Pytorch themes. In normal repositories, `html_theme`
 # would be set to one specific theme.
-_THEME = os.getenv("THEME", "qiskit_sphinx_theme")
+_THEME = os.getenv("THEME", "qiskit")
 html_theme = _THEME
 
-if _THEME != "_qiskit_furo":
+if _THEME == "qiskit_sphinx_theme":
     html_theme_options = {
         "logo_only": True,
         "display_version": True,
