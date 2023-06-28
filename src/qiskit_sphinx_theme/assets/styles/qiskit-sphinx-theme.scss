@@ -53,8 +53,6 @@ body {
     --color-sidebar-item-background--hover: #efeff4;
     /* This defaults to 15em in Furo, but we want a little bigger. */
     --qiskit-left-sidebar-width: 18em;
-    /* This defaults to 1rem, but we make it bigger since we increase the size of the sidebar. */
-    --sidebar-item-spacing-horizontal: 2rem;
 
     /* -----------------------------------------------------------------------
     * Admonitions
@@ -202,14 +200,6 @@ div.header-left svg use {
 /* ------------------------------------------------------------------------------
 * Left side bar: styling
 * ------------------------------------------------------------------------------- */
-
-/* Our override of --sidebar-item-spacing-horizontal to be 2rem rather than 1rem would naively
-*  result in subpages in the left table of contents having too much indentation. We want to keep
-*  the same indentation, only increase the overall padding of the left bar. So, we revert back
-*  this rule to be the original 1rem. */
-.sidebar-tree li > ul {
-  margin-left: calc(var(--sidebar-item-spacing-horizontal) * 0.5);
-}
 
 /* Even though we override --color-sidebar-link--top-level to be a more muted look, we change
 *  the currently selected page to be purple to make it more obvious. */
