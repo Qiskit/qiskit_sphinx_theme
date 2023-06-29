@@ -104,21 +104,20 @@
     font-size: 1.125rem;
     background-color: var(--color-sidebar-background);
     color: var(--color-sidebar-link-text);
-    position: relative;
     text-decoration: none;
+    -webkit-user-select: none;
+    user-select: none;
+
+    position: relative;
+    display: inline-block;
+    white-space: nowrap;
+    padding: 0.375rem 0.75rem;
+    padding-right: 2em;
 
     background-size: 8px 14px;
     background-position: center right 12px;
     // background-image: url("../images/chevron-right-purple.svg");
     background-repeat: no-repeat;
-
-    display: inline-block;
-    white-space: nowrap;
-
-    -webkit-user-select: none;
-    user-select: none;
-    padding: 0.375rem 0.75rem;
-    padding-right: 2em;
   }
 
   a::after {
