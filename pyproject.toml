@@ -41,7 +41,7 @@ _qiskit_furo = "qiskit_sphinx_theme"
 "Source Code" = "https://github.com/Qiskit/qiskit_sphinx_theme"
 
 [tool.sphinx-theme-builder]
-node-version = "18.16.0"
+node-version = "18.16.1"
 
 
 [tool.pytest.ini_options]
