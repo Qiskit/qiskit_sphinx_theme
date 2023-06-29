@@ -1,3 +1,17 @@
+// This creates a purple border at the bottom. We set the width to 0. The relevant rule
+// should change the width to 100% on hover so that it transitions in.
+@mixin purple-underline {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--qiskit-color-purple);
+  transition: width .250s ease-in-out;
+}
+
 // -------------------------------------------------------------------------------
 // qiskit-card
 // -------------------------------------------------------------------------------
@@ -17,18 +31,8 @@
     color: var(--color-sidebar-link-text);
   }
 
-  // This creates a purple border at the bottom. We set the width to 0, but to 100% on hover, so
-  // that it transitions in.
   &::after {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 0;
-    height: 1px;
-    bottom: 0;
-    left: 0;
-    background-color: var(--qiskit-color-purple);
-    transition: width .250s ease-in-out;
+    @include purple-underline;
   }
 
   &:hover {
@@ -126,15 +130,7 @@
   }
 
   a::after {
-    content: "";
-    display: block;
-    width: 0;
-    height: 1px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    background-color: #8B34FC;
-    transition: width .250s ease-in-out;
+    @include purple-underline;
   }
 
   a:hover::after {
