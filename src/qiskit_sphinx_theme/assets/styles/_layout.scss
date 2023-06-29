@@ -49,6 +49,6 @@ body {
 
 @media (max-width: 67em) {
   .sidebar-drawer {
-    left: calc(var(--qiskit-left-sidebar-width) // -1);
+    left: calc(var(--qiskit-left-sidebar-width) * -1);
   }
 }

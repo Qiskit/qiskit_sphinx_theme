@@ -147,7 +147,7 @@ body {
 
 .qiskit-translations-list-container a {
   // We increase the horizontal padding for some visual distinction with the normal sidebar.
-  padding: var(--sidebar-item-spacing-vertical) calc(var(--sidebar-item-spacing-horizontal) // 1.5);
+  padding: var(--sidebar-item-spacing-vertical) calc(var(--sidebar-item-spacing-horizontal) * 1.5);
 }
 
 .qiskit-translations-toggle-container {
@@ -161,7 +161,7 @@ body {
 
 // Inspired by `.sidebar-tree li > ul`. 
 .qiskit-previous-releases-list-container ul {
-  margin-left: calc(var(--sidebar-item-spacing-horizontal) // 0.5);
+  margin-left: calc(var(--sidebar-item-spacing-horizontal) * 0.5);
 }
 
 .qiskit-previous-releases-list-container a {
