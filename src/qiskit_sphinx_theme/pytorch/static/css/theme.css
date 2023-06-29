@@ -11699,23 +11699,22 @@ div.qiskit-card:hover .qiskit-card-image-container {
   position: relative;
   letter-spacing: 0.25px;
 }
-@media screen and (min-width: 768px) {
-  .qiskit-call-to-action-item .btn.callout-button::after {
-    content: "";
-    display: block;
-    width: 0;
-    height: 1px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    background-color: #8B34FC;
-    -webkit-transition: width .250s ease-in-out;
-    transition: width .250s ease-in-out;
-  }
-  .qiskit-call-to-action-item .btn.callout-button:hover:after {
-    width: 100%;
-  }
+
+.qiskit-call-to-action-item .btn.callout-button::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 1px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #8B34FC;
+  transition: width .250s ease-in-out;
 }
+.qiskit-call-to-action-item .btn.callout-button:hover::after {
+  width: 100%;
+}
+
 .qiskit-call-to-action-item .btn.callout-button a {
   color: inherit;
 }
