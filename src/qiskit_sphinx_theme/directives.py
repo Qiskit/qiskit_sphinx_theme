@@ -84,7 +84,7 @@ class QiskitCallToActionItemDirective(Directive):
         callout_rst = f"""
 .. raw:: html
 
-    <div class="qiskit-call-to-action-item col-md-6">
+    <div class="qiskit-call-to-action-item">
         <div class="text-container">
             <h3>{header}</h3>
             <p class="body-paragraph">{description}</p>
