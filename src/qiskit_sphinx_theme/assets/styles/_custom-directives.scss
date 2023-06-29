@@ -72,3 +72,72 @@
     max-width: 100%;
   }
 }
+
+// -------------------------------------------------------------------------------
+// qiskit-call-to-action
+// -------------------------------------------------------------------------------
+
+.qiskit-call-to-action-grid  {
+  padding-bottom: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.qiskit-call-to-action-item {
+  flex: 0 0 50%;
+  max-width: 50%;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding: 10px 15px 20px 15px;
+
+  p {
+    color: #666666;
+    font-weight: 300;
+    font-size: 1.125rem;
+    line-height: 1.875rem;
+  }
+
+  a {
+    font-size: 1.125rem;
+    border-radius: 0;
+    border: none;
+    background-color: #f3f4f7;
+    color: #6c6c6d;
+    font-weight: 400;
+    position: relative;
+    letter-spacing: 0.25px;
+
+    background-size: 8px 14px;
+    background-position: center right 12px;
+    // background-image: url("../images/chevron-right-purple.svg");
+    background-repeat: no-repeat;
+
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    padding: 0.375rem 0.75rem;
+    padding-right: 2em;
+    line-height: 1.5;
+  }
+
+  a::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 1px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #8B34FC;
+    transition: width .250s ease-in-out;
+  }
+
+  a:hover::after {
+    width: 100%;
+  }
+}
