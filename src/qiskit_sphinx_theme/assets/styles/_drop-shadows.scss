@@ -1,4 +1,6 @@
 // We use a flat design with Carbon, so disable box-shadows and rounded borders.
+//
+// `:not(#specifity-war)` is to work around specifity wars.
 
 .admonition,
 .topic,
@@ -8,8 +10,6 @@ kbd:not(.compound) {
   box-shadow: none;
 }
 
-/* We have a specificity war with Sphinx design elements. The `:not(#specifity-war)` selector
-*  works around that. */
 :not(#specifity-war).sd-card,
 :not(#specifity-war).sd-tab-content,
 :not(#specifity-war).sd-shadow-sm,
