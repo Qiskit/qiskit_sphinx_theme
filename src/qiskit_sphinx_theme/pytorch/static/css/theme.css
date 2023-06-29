@@ -11704,9 +11704,17 @@ div.qiskit-call-to-action-item p {
 
   background-size: 8px 14px;
   background-position: center right 12px;
-  padding-right: 2em;
   background-image: url("../images/chevron-right-purple.svg");
   background-repeat: no-repeat;
+
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  padding: 0.375rem 0.75rem;
+  padding-right: 2em;
+  line-height: 1.5;
 }
 
 .qiskit-call-to-action-item a::after {
