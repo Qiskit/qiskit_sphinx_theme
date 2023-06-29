@@ -5,41 +5,29 @@ Custom Directives
 qiskit-call-to-action-item
 ==========================
 
-.. raw:: html
+.. qiskit-call-to-action-grid::
 
-   <div class="tutorials-callout-container">
-      <div class="row">
+    .. qiskit-call-to-action-item::
+       :header: Go back to qiskit.org!
+       :description: That's a cool site too :)
+       :button_link:  https://qiskit.org
+       :button_text: qiskit.org
 
-.. qiskit-call-to-action-item::
-   :header: Go back to qiskit.org!
-   :description: That's a cool site too :)
-   :button_link:  https://qiskit.org
-   :button_text: qiskit.org
+    .. qiskit-call-to-action-item::
+       :header: CTA #2
+       :description: Call me, maybe?
+       :button_link:  https://qiskit.org
+       :button_text: qiskit.org
 
-.. qiskit-call-to-action-item::
-   :header: CTA #2
-   :description: Call me, maybe?
-   :button_link:  https://qiskit.org
-   :button_text: qiskit.org
-
-.. qiskit-call-to-action-item::
-   :header: CTA #3
-   :description: No really, call me!
-   :button_link:  https://qiskit.org
-   :button_text: qiskit.org
-
-.. raw:: html
-
-      </div>
-   </div>
+    .. qiskit-call-to-action-item::
+       :header: CTA #3
+       :description: No really, call me!
+       :button_link:  https://qiskit.org
+       :button_text: qiskit.org
 
 
 qiskit-card
 ===========
-
-..
-  Note: To get the `image` working locally, we have to use a relative link like `../`. In
-  production, it should simply be `_static/ibm_qlab.png.
 
 .. qiskit-card::
   :header: IBM Quantum Lab
