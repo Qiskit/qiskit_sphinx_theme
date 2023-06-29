@@ -24,7 +24,8 @@ if TYPE_CHECKING:
 
 def setup(app: sphinx.application.Sphinx) -> None:
     app.add_directive(QiskitCardDirective.NAME, QiskitCardDirective)
-    app.add_directive(CallToActionItemDirective.NAME, CallToActionItemDirective)
+    app.add_directive(QiskitCallToActionItemDirective.NAME, QiskitCallToActionItemDirective)
+    app.add_directive(QiskitCallToActionGridDirective.NAME, QiskitCallToActionGridDirective)
 
 
 class QiskitCardDirective(Directive):
@@ -64,7 +65,7 @@ class QiskitCardDirective(Directive):
         return [card]
 
 
-class CallToActionItemDirective(Directive):
+class QiskitCallToActionItemDirective(Directive):
     NAME = "qiskit-call-to-action-item"
 
     option_spec = {
@@ -85,12 +86,10 @@ class CallToActionItemDirective(Directive):
         callout_rst = f"""
 .. raw:: html
 
-    <div class="col-md-6">
-        <div class="text-container">
-            <h3>{header}</h3>
-            <p class="body-paragraph">{description}</p>
-            <a class="btn with-right-arrow callout-button" href="{button_link}">{button_text}</a>
-        </div>
+    <div class="qiskit-call-to-action-item">
+        <h3>{header}</h3>
+        <p>{description}</p>
+        <a href="{button_link}">{button_text}</a>
     </div>
 """
 
@@ -98,3 +97,16 @@ class CallToActionItemDirective(Directive):
         callout = nodes.paragraph()
         self.state.nested_parse(callout_list, self.content_offset, callout)
         return [callout]
+
+
+class QiskitCallToActionGridDirective(Directive):
+    NAME = "qiskit-call-to-action-grid"
+
+    has_content = True
+
+    def run(self) -> list[nodes.Element]:
+        outer_div_open = nodes.raw("", '<div class="qiskit-call-to-action-grid">', format="html")
+        outer_div_close = nodes.raw("", "</div>", format="html")
+        node = nodes.Element()
+        self.state.nested_parse(self.content, self.content_offset, node)
+        return [outer_div_open, *node, outer_div_close]
