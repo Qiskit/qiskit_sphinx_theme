@@ -82,20 +82,18 @@
 // -------------------------------------------------------------------------------
 
 .qiskit-call-to-action-grid  {
-  padding-bottom: 50px;
   display: flex;
   flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
+  margin-top: 1rem;
 }
 
 .qiskit-call-to-action-item {
   flex: 0 0 50%;
   max-width: 50%;
+  box-sizing: border-box;
   position: relative;
   width: 100%;
-  min-height: 1px;
-  padding: 10px 15px 20px 15px;
+  margin-bottom: 1.5rem;
 
   p {
     color: #666666;
