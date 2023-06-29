@@ -1,0 +1,72 @@
+// By default, Furo uses an aggressive red color for API docs. We use a more muted black and gray.
+body {
+  --color-api-name: var(--color-foreground-primary);
+  --color-api-pre-name: var(--color-foreground-secondary);
+}
+
+// Definition lists are used for sections like "Parameters", "Return type", and "Attributes"
+// (properties of a class).
+dl.py:not(.docutils) dt {
+  // This causes the definition-term and its border-top to only take up as much space as the
+  // content, plus padding and margins.
+  display: inline-block;
+  border-top: 2px solid var(--qiskit-color-purple);
+  background-color: var(--color-background-secondary);
+}
+
+// Rules that impact the top-level entry for the code object, which e.g. has the `[source]` button.
+section > dl.py:not(.docutils) {
+  > dt {
+    // We normally want to use inline-block for definition terms so that the purple border we add on
+    // top does not stretch across the whole screen. But, we make an exception here it will have a
+    // `[source]` button that floats to the right. The spacing of that is non-trivial and was the
+    // source of issues in Pytorch, so we stick with Furo's spacing.
+    display: block;
+    // Make the border less thick so its clear the top-level page header corresponds to this line.
+    border-top-width: 1px;
+    margin-bottom: 1rem;
+  }
+
+  // It's possible to have multiple entries for the same code object, e.g. when using typing.overload.
+  // This cancels out the margin-bottom such that only the bottom-most `dt` will have a margin-bottom
+  // in effect.
+  > dt:not(:first-child) {
+    margin-top: -1rem;
+  }
+}
+
+// Fix some of the definition terms like "Parameters" having no padding and being in all caps.
+dl[class]:not(.option-list):not(.field-list):not(.footnote):not(.glossary):not(.simple) {
+  //  Some Qiskit projects, like Experiments, use custom API sections. Those don't set the class
+  // `.field-list` on the `dl`, so we change Furo's selector from `.field-list > dt` to `dl > dt`.
+  dl > dt {
+    font-weight: 700;
+    // Copied from Furo's `.sig:not(.sig-inline)`
+    padding: .25rem .5rem .25rem 3em;
+    text-indent: -2.5em;
+  }
+
+  // But, to override Furo's properties we don't like, we also have to use `.field-list > dt` for some
+  // rules to win the specificity war.
+  .field-list > dt {
+    text-transform: unset;
+    font-size: unset;
+  }
+}
+
+.sig:not(.sig-inline) {
+  background: var(--color-background-secondary);
+  border-radius: 0;
+}
+
+// Revert Furo's special-casing of rubrics for API docs. These rubrics are used for top-level
+// section headers like "Attributes" and "Methods". We disagree with the design in
+// https://github.com/pradyunsg/furo/discussions/505. Instead, use the rules from `p.rubric`.
+dl.py dd p.rubric {
+  font-size: 1.125em;
+  font-weight: 700;
+  line-height: 1.25;
+  text-transform: unset;
+  // This is custom because Furo doesn't have enough space by default.
+  margin-top: 1.25em;
+}

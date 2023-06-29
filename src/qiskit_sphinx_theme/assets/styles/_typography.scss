@@ -1,0 +1,24 @@
+body {
+  --font-stack: 'IBM Plex Sans', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
+  --font-stack--monospace: 'IBM Plex Mono', 'Consolas', 'Courier New', monospace;
+}
+
+// Without this, long titles break the site. This is especially a problem in API docs.
+// Remove if https://github.com/pradyunsg/furo/pull/670 gets merged and released.
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+// Carbon only uses bold for the smallest headers:
+// https://carbondesignsystem.com/guidelines/typography/type-sets/
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 400;
+}

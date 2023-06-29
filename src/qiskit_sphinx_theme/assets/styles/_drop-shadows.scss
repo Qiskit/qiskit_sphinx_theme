@@ -1,0 +1,31 @@
+// We use a flat design with Carbon, so disable box-shadows and rounded borders.
+//
+// `:not(#specifity-war)` is to work around specifity wars.
+
+.admonition,
+.topic,
+table.docutils,
+kbd:not(.compound) {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+:not(#specifity-war).sd-card,
+:not(#specifity-war).sd-tab-content,
+:not(#specifity-war).sd-shadow-sm,
+:not(#specifity-war).sd-shadow-md,
+:not(#specifity-war).sd-shadow-lg {
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  border: 1px solid var(--color-table-border);
+}
+
+div:not(#specifity-war).jupyter_container {
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+:not(#specifity-war).jupyter_container div.code_cell,
+:not(#specifity-war).highlight {
+  border-radius: 0;
+}

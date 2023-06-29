@@ -1,0 +1,22 @@
+@import "admonitions";
+@import "api";
+@import "drop-shadows";
+@import "footer";
+@import "icons";
+@import "layout";
+@import "left-sidebar";
+@import "sphinx-extensions";
+@import "tables";
+@import "top-nav-bar";
+@import "typography";
+
+body {
+  --qiskit-color-purple: #6929C4;
+  --color-brand-primary: var(--qiskit-color-purple);
+  --color-brand-content: var(--qiskit-color-purple);
+}
+
+// Turn off scroll animation for anchor links: https://github.com/pradyunsg/furo/discussions/384
+html {
+  scroll-behavior: auto;
+}

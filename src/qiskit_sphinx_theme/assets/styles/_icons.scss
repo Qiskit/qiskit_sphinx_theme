@@ -1,0 +1,14 @@
+// We must use Carbon for all icons: https://carbondesignsystem.com/guidelines/icons/library/.
+// To use an icon, download it and format it to one line.
+//
+// We only override icons for what we use. Others get turned off by e.g. our "admonitions"
+// CSS rules.
+
+body {
+  --icon-search: url('data:image/svg+xml;charset=utf-8,<svg id="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><defs><style>.cls-1 {fill: none;}</style></defs><path d="M29,27.5859l-7.5521-7.5521a11.0177,11.0177,0,1,0-1.4141,1.4141L27.5859,29ZM4,13a9,9,0,1,1,9,9A9.01,9.01,0,0,1,4,13Z" transform="translate(0 0)"/><rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32" height="32"/></svg>');
+  --icon-info: url('data:image/svg+xml;charset=utf-8,<svg id="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><defs><style>.cls-1 {fill: none;}</style></defs><path id="inner-path" class="cls-1" d="M16,8a1.5,1.5,0,1,1-1.5,1.5A1.5,1.5,0,0,1,16,8Zm4,13.875H17.125v-8H13v2.25h1.875v5.75H12v2.25h8Z" transform="translate(0 0)"/><path d="M16,2A14,14,0,1,0,30,16,14,14,0,0,0,16,2Zm0,6a1.5,1.5,0,1,1-1.5,1.5A1.5,1.5,0,0,1,16,8Zm4,16.125H12v-2.25h2.875v-5.75H13v-2.25h4.125v8H20Z" transform="translate(0 0)"/><rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32" height="32"/></svg>');
+  // We manually set the CSS classes `st1` and `st2` to the colors for warnings. See
+  // _admonitions.scss for an explanation of why.
+  --icon-warning: url('data:image/svg+xml;charset=utf-8,<svg version="1.1" id="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve"><style type="text/css">.st0{fill:none;}.st1{fill:%23f1c21b;}.st2{fill:black;}</style><rect id="Transparent_Rectangle" class="st0" width="32" height="32"/><path id="Compound_Path" class="st1" d="M16,2C8.3,2,2,8.3,2,16s6.3,14,14,14s14-6.3,14-14C30,8.3,23.7,2,16,2z M14.9,8h2.2v11h-2.2V8z M16,25c-0.8,0-1.5-0.7-1.5-1.5S15.2,22,16,22c0.8,0,1.5,0.7,1.5,1.5S16.8,25,16,25z"/><path id="inner-path" class="st2" d="M17.5,23.5c0,0.8-0.7,1.5-1.5,1.5c-0.8,0-1.5-0.7-1.5-1.5S15.2,22,16,22C16.8,22,17.5,22.7,17.5,23.5z M17.1,8h-2.2v11h2.2V8z"/></svg>');
+  --icon-failure: url('data:image/svg+xml;charset=utf-8,<svg id="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><defs><style>.cls-1 {fill: none;}</style></defs><rect id="inner-path" class="cls-1" x="14.9004" y="7.2004" width="2.1996" height="17.5994" transform="translate(-6.6275 16.0001) rotate(-45)"/><path d="M16,2A13.914,13.914,0,0,0,2,16,13.914,13.914,0,0,0,16,30,13.914,13.914,0,0,0,30,16,13.914,13.914,0,0,0,16,2Zm5.4449,21L9,10.5557,10.5557,9,23,21.4448Z"/><rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32" height="32"/></svg>');
+}

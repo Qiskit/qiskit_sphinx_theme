@@ -1,0 +1,124 @@
+// We use https://carbondesignsystem.com/components/notification/style/ for admonitions
+// (e.g. warning boxes). We don't use the Success admonition though.
+
+body {
+    // See https://carbondesignsystem.com/guidelines/color/usage and
+    // https://carbondesignsystem.com/components/notification/style/ for where these colors
+    // come from.
+    --qiskit-color-admonition-info--background: #edf5ff;
+    --qiskit-color-admonition-info--border: #0043ce;
+    --qiskit-color-admonition-warning--background: #fcf4d6;
+    --qiskit-color-admonition-warning--border: #f1c21b;
+    --qiskit-color-admonition-error--background: #fff1f1;
+    --qiskit-color-admonition-error--border: #da1e28;
+}
+
+.topic {
+  border: 1px solid var(--qiskit-color-admonition-info--background);
+}
+
+p.topic-title {
+  background-color: var(--qiskit-color-admonition-info--background);
+
+  &::before {
+    -webkit-mask-image: var(--icon-info);
+    mask-image: var(--icon-info);
+    background-color: var(--qiskit-color-admonition-info--border);
+  }
+}
+
+// Admonitions are complex because they use a 3px left border with a different color than the rest
+// of the div. If we naively used `border-left`, we'd end up with a weird-looking diagonal, as
+// described at
+// https://stackoverflow.com/questions/18129718/weird-css-behavior-diagonal-border-why-is-the-border-edge-not-straight.
+// So, instead, we use `.admonition::before` to set up the left border.
+//
+// We don't specify the border colors or the `background` for `.admonition::before` because each
+// specific admonition type will set them. We also don't set a border-top because we expect the
+// border color to be the same as the top's background.
+.admonition {
+  border-left: 0;  // Turn off Furo's border.
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  position: relative;
+  padding-left: 12px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 3px;
+  }
+}
+
+.admonition.attention,
+.admonition.caution,
+.admonition.important,
+.admonition.warning {
+  border-color: var(--qiskit-color-admonition-warning--background);
+
+  &::before {
+    background: var(--qiskit-color-admonition-warning--border);
+  }
+
+  > .admonition-title {
+    background-color: var(--qiskit-color-admonition-warning--background);
+  }
+
+  > .admonition-title::before {
+    // Rather than using mask-image like Furo normally does, we set `content` to the SVG. This is
+    // because Carbon requires that we have a black exclamation mark for accessibility: the
+    // light yellow background wouldn't be distinct enough compared to the dark yellow icon. Mask
+    // image doesn't let us set colors, only whether to use the background color of the underlying
+    // HTML element vs. use the background color of the SVG container. So, having a black exclamation
+    // mark would require setting the entire .admonition-title background color to black.
+    content: var(--icon-warning);
+    -webkit-mask-image: unset;
+    mask-image: unset;
+    background-color: var(--qiskit-color-admonition-warning--background);
+  }
+}
+
+.admonition.danger,
+.admonition.error {
+  border-color: var(--qiskit-color-admonition-error--background);
+
+  &::before {
+    background: var(--qiskit-color-admonition-error--border);
+  }
+
+  > .admonition-title {
+    background-color: var(--qiskit-color-admonition-error--background);
+  }
+
+  > .admonition-title::before {
+    -webkit-mask-image: var(--icon-failure);
+    mask-image: var(--icon-failure);
+    background-color: var(--qiskit-color-admonition-error--border);
+  }
+}
+
+.admonition,
+.admonition.hint,
+.admonition.note,
+.admonition.tip {
+  border-color: var(--qiskit-color-admonition-info--background);
+
+  &::before {
+    background: var(--qiskit-color-admonition-info--border);
+  }
+
+  > .admonition-title {
+    background-color: var(--qiskit-color-admonition-info--background);
+  }
+
+  > .admonition-title::before {
+    -webkit-mask-image: var(--icon-info);
+    mask-image: var(--icon-info);
+    background-color: var(--qiskit-color-admonition-info--border);
+  }
+}

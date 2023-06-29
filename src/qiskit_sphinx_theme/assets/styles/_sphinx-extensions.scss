@@ -1,0 +1,21 @@
+// ---------------------------------------------------------------------------
+// nbsphinx (tutorials)
+// ---------------------------------------------------------------------------
+
+// Don't have a purple border. This rule overrides `.npshinx-gallery > a`.
+//
+// We keep the default style of the text itself being purple to be consistent with the general style
+// of the site using purple for links.
+.nbsphinx-gallery > a.reference {
+  border: 1px dotted var(--color-foreground-secondary);
+}
+
+// ---------------------------------------------------------------------------
+// jupyter-sphinx
+// ---------------------------------------------------------------------------
+
+// Fix for https://github.com/Qiskit/qiskit_sphinx_theme/issues/306. Instead, use the rule from
+// `.highlight pre, pre.literal-block`.
+:not(#specifity-war).jupyter_container div.code_cell pre {
+  padding: .625rem .875rem;
+}
