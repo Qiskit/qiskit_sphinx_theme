@@ -13,6 +13,10 @@
   background-color: var(--color-sidebar-background);
   cursor: pointer;
 
+  // Turn off default rules for `<a>`.
+  color: unset;
+  text-decoration: none;
+
   p {
     color: var(--color-sidebar-link-text);
   }
@@ -34,6 +38,9 @@
   &:hover {
     background-color: unset;
     border-bottom: none;
+
+    // Turn off default rule for `<a>`.
+    color: unset;
 
     p {
       color: unset;
