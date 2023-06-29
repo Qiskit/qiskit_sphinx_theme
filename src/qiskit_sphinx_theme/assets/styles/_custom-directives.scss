@@ -99,20 +99,15 @@
 
   p {
     color: #666666;
-    font-weight: 300;
     font-size: 1.125rem;
-    line-height: 1.875rem;
   }
 
   a {
     font-size: 1.125rem;
-    border-radius: 0;
-    border: none;
-    background-color: #f3f4f7;
+    background-color: var(--color-sidebar-background);
     color: #6c6c6d;
-    font-weight: 400;
     position: relative;
-    letter-spacing: 0.25px;
+    text-decoration: none;
 
     background-size: 8px 14px;
     background-position: center right 12px;
@@ -120,13 +115,12 @@
     background-repeat: no-repeat;
 
     display: inline-block;
-    text-align: center;
     white-space: nowrap;
-    vertical-align: middle;
+
+    -webkit-user-select: none;
     user-select: none;
     padding: 0.375rem 0.75rem;
     padding-right: 2em;
-    line-height: 1.5;
   }
 
   a::after {
