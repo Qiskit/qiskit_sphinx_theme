@@ -16,7 +16,6 @@ from typing import TYPE_CHECKING
 
 from docutils import nodes
 from docutils.parsers.rst import Directive, directives
-from docutils.statemachine import StringList
 
 if TYPE_CHECKING:
     import sphinx.application
