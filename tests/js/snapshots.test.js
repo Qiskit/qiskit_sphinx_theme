@@ -54,8 +54,8 @@ const isVisibleInViewport = async (page, selector) => {
 };
 
 /* If the content is too big for the viewport, the Qiskit top nav bar will hide the content. That
-*  has for some reason caused some flakes in CI, that the nav bar very minorly changes its
-*  position. And it's generally annoying to hide the content we care about. */
+ *  has for some reason caused some flakes in CI, that the nav bar very minorly changes its
+ *  position. And it's generally annoying to hide the content we care about. */
 const hideTopNavBar = async (page) => {
   await page
     .locator("qiskit-ui-shell")
@@ -236,7 +236,7 @@ test.describe("footer", () => {
 
   test("says 'thank you' when analytics clicked", async ({ page }) => {
     await page.goto("");
-    const yesOption = page.locator("a.helpful-question.yes-link");
+    const yesOption = page.locator("div.qiskit-analytics-container a").first();
 
     // First, check that we change the color of the buttons when hovering.
     await yesOption.hover();
@@ -247,7 +247,7 @@ test.describe("footer", () => {
 
     // Then, check the screenshot when clicking.
     await yesOption.click();
-    const analytics = page.locator("div.helpful-container");
+    const analytics = page.locator("div.qiskit-analytics-container");
     await expect(analytics).toHaveScreenshot();
   });
 });
@@ -285,4 +285,11 @@ test("Jupyter works with copybutton", async ({ page }) => {
   await page.goto("sphinx_guide/jupyter.html");
   const pageContents = page.locator("section#jupyter");
   await expect(pageContents).toHaveScreenshot();
+});
+
+test("custom directives", async ({ page }) => {
+  await page.goto("sphinx_guide/custom_directives.html");
+  const cards = page.locator("section#qiskit-card");
+  await cards.hover();
+  await expect(cards).toHaveScreenshot();
 });
