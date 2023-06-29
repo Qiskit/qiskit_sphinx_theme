@@ -106,7 +106,7 @@ class QiskitCallToActionGridDirective(Directive):
 
     def run(self) -> list[nodes.Element]:
         outer_div_open = nodes.raw(
-            "", '<div class="tutorials-callout-container row">', format="html"
+            "", '<div class="qiskit-call-to-action-grid row">', format="html"
         )
         outer_div_close = nodes.raw("", "</div>", format="html")
         node = nodes.Element()
