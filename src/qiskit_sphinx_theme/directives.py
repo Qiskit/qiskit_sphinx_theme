@@ -57,7 +57,7 @@ class QiskitCardDirective(Directive):
       <div class="qiskit-card-image-container"><img src='{image_source}'></div>
     </a>
 """
-        card_node = nodes.raw("", card_html, format='html')
+        card_node = nodes.raw("", card_html, format="html")
         return [card_node]
 
 
