@@ -32,6 +32,10 @@ body {
   flex: 0 0 var(--qiskit-left-sidebar-width);
   width: var(--qiskit-left-sidebar-width);
   min-width: var(--qiskit-left-sidebar-width);
+
+  @media (max-width: 67em) {
+    left: calc(var(--qiskit-left-sidebar-width) * -1);
+  }
 }
 
 .sidebar-container {
@@ -45,10 +49,4 @@ body {
 
 .toc-drawer {
   flex: 0 0 15em;
-}
-
-@media (max-width: 67em) {
-  .sidebar-drawer {
-    left: calc(var(--qiskit-left-sidebar-width) * -1);
-  }
 }
