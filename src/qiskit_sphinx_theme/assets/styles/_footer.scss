@@ -1,0 +1,28 @@
+footer .helpful-container {
+  display: inline-flex;
+  border-top: 1px solid var(--color-background-border);
+  border-bottom: 1px solid var(--color-background-border);
+  color: var(--color-foreground-secondary);
+}
+
+footer .helpful-container .helpful-question,
+footer .helpful-container .was-helpful-thank-you {
+  padding: 0.625rem 1.25rem 0.625rem 1.25rem;
+}
+
+#was-helpful-thank-you {
+  visibility: hidden;
+}
+
+.helpful-container .helpful-question.yes-link,
+.helpful-container .helpful-question.no-link {
+  color: var(--qiskit-color-purple);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.helpful-container .helpful-question.yes-link:hover,
+.helpful-container .helpful-question.no-link:hover {
+  background-color: var(--qiskit-color-purple);
+  color: #ffffff;
+}
