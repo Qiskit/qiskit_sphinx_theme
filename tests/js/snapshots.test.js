@@ -236,7 +236,7 @@ test.describe("footer", () => {
 
   test("says 'thank you' when analytics clicked", async ({ page }) => {
     await page.goto("");
-    const yesOption = page.locator("a.helpful-question.yes-link");
+    const yesOption = page.locator("div.qiskit-analytics-container a").first();
 
     // First, check that we change the color of the buttons when hovering.
     await yesOption.hover();
@@ -247,7 +247,7 @@ test.describe("footer", () => {
 
     // Then, check the screenshot when clicking.
     await yesOption.click();
-    const analytics = page.locator("div.helpful-container");
+    const analytics = page.locator("div.qiskit-analytics-container");
     await expect(analytics).toHaveScreenshot();
   });
 });
