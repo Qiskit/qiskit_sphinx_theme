@@ -11692,7 +11692,7 @@ div.qiskit-call-to-action-item p {
   line-height: 1.875rem;
 }
 
-.qiskit-call-to-action-item .btn.callout-button {
+.qiskit-call-to-action-item a {
   font-size: 1.125rem;
   border-radius: 0;
   border: none;
@@ -11703,7 +11703,7 @@ div.qiskit-call-to-action-item p {
   letter-spacing: 0.25px;
 }
 
-.qiskit-call-to-action-item .btn.callout-button::after {
+.qiskit-call-to-action-item a::after {
   content: "";
   display: block;
   width: 0;
@@ -11715,12 +11715,8 @@ div.qiskit-call-to-action-item p {
   transition: width .250s ease-in-out;
 }
 
-.qiskit-call-to-action-item .btn.callout-button:hover::after {
+.qiskit-call-to-action-item a:hover::after {
   width: 100%;
-}
-
-.qiskit-call-to-action-item .btn.callout-button a {
-  color: inherit;
 }
 
 
