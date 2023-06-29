@@ -48,7 +48,7 @@ class QiskitCardDirective(Directive):
         link = self.options.get("link", "")
         card_description = self.options.get("card_description", "")
 
-        card_html = f"""
+        html = f"""
     <a class="qiskit-card" href="{link}">
       <div class="qiskit-card-text-container">
         <h3>{header}</h3>
@@ -57,8 +57,8 @@ class QiskitCardDirective(Directive):
       <div class="qiskit-card-image-container"><img src='{image_source}'></div>
     </a>
 """
-        card_node = nodes.raw("", card_html, format="html")
-        return [card_node]
+        node = nodes.raw("", html, format="html")
+        return [node]
 
 
 class QiskitCallToActionItemDirective(Directive):
