@@ -106,9 +106,9 @@ class QiskitCallToActionGridDirective(Directive):
 
     def run(self) -> list[nodes.Element]:
         outer_div_open = nodes.raw(
-            "", '<div class="tutorials-callout-container"><div class="row">', format="html"
+            "", '<div class="tutorials-callout-container row">', format="html"
         )
-        outer_div_close = nodes.raw("", "</div></div>", format="html")
+        outer_div_close = nodes.raw("", "</div>", format="html")
         node = nodes.Element()
         self.state.nested_parse(self.content, self.content_offset, node)
         return [outer_div_open, *node, outer_div_close]
