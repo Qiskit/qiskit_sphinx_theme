@@ -11676,20 +11676,20 @@ article.pytorch-article .qiskit-call-to-action-grid  {
   margin-left: -15px;
 }
 
-article.pytorch-article .qiskit-call-to-action-grid  .col-md-6 {
+article.pytorch-article .qiskit-call-to-action-item .col-md-6 {
   padding-bottom: 10px;
 }
-article.pytorch-article .qiskit-call-to-action-grid  .text-container {
+article.pytorch-article .qiskit-call-to-action-item .text-container {
   padding: 10px 0px 30px 0px;
   padding-bottom: 10px;
 }
-article.pytorch-article .qiskit-call-to-action-grid  .text-container .body-paragraph {
+article.pytorch-article .qiskit-call-to-action-item .text-container .body-paragraph {
   color: #666666;
   font-weight: 300;
   font-size: 1.125rem;
   line-height: 1.875rem;
 }
-article.pytorch-article .qiskit-call-to-action-grid  .btn.callout-button {
+article.pytorch-article .qiskit-call-to-action-item .btn.callout-button {
   font-size: 1.125rem;
   border-radius: 0;
   border: none;
@@ -11700,7 +11700,7 @@ article.pytorch-article .qiskit-call-to-action-grid  .btn.callout-button {
   letter-spacing: 0.25px;
 }
 @media screen and (min-width: 768px) {
-  article.pytorch-article .qiskit-call-to-action-grid  .btn.callout-button:after {
+  article.pytorch-article .qiskit-call-to-action-item .btn.callout-button::after {
     content: "";
     display: block;
     width: 0;
@@ -11712,11 +11712,11 @@ article.pytorch-article .qiskit-call-to-action-grid  .btn.callout-button {
     -webkit-transition: width .250s ease-in-out;
     transition: width .250s ease-in-out;
   }
-  article.pytorch-article .qiskit-call-to-action-grid  .btn.callout-button:hover:after {
+  article.pytorch-article .qiskit-call-to-action-item .btn.callout-button:hover:after {
     width: 100%;
   }
 }
-article.pytorch-article .qiskit-call-to-action-grid  .btn.callout-button a {
+article.pytorch-article .qiskit-call-to-action-item .btn.callout-button a {
   color: inherit;
 }
 
