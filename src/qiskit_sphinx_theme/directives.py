@@ -52,9 +52,11 @@ class QiskitCardDirective(Directive):
 .. raw:: html
 
     <div class="qiskit-card" link={link}>
-        <h4>{header}</h4>
+      <div class="qiskit-card-text-container">
+        <h3>{header}</h3>
         <p>{card_description}</p>
-        <div class="qiskit-card-image-container"><img src='{image_source}'></div>
+      </div>
+      <div class="qiskit-card-image-container"><img src='{image_source}'></div>
     </div>
 """
         card_list = StringList(card_rst.splitlines())

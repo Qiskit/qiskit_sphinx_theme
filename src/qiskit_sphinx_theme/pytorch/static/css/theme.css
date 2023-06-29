@@ -11596,7 +11596,7 @@ div.qiskit-card {
   opacity: .075;
 }
 
-div.qiskit-card h4 {
+div.qiskit-card h3 {
   width: 70%;
   display: inline-flex;
   margin-bottom: 1.125rem;
@@ -11605,12 +11605,12 @@ div.qiskit-card h4 {
   color: #262626;
 }
 @media screen and (min-width: 768px) {
-  div.qiskit-card h4 {
+  div.qiskit-card h3 {
     width: 75%;
   }
 }
 @media (min-width: 768px) and (max-width: 1239px) {
-  div.qiskit-card h4 {
+  div.qiskit-card h3 {
     width: 70%;
   }
 }
