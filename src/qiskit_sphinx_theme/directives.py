@@ -38,7 +38,7 @@ class QiskitCardDirective(Directive):
         "card_description": directives.unchanged,
     }
 
-    def run(self) -> list[nodes.paragraph]:
+    def run(self) -> list[nodes.Element]:
         header = self.options.get("header")
         if header is None:
             raise ValueError(f"`header` not set in {self.NAME} directive")
@@ -48,21 +48,17 @@ class QiskitCardDirective(Directive):
         link = self.options.get("link", "")
         card_description = self.options.get("card_description", "")
 
-        card_rst = f"""
-.. raw:: html
-
-    <div class="qiskit-card" link={link}>
+        html = f"""
+    <a class="qiskit-card" href="{link}">
       <div class="qiskit-card-text-container">
         <h3>{header}</h3>
         <p>{card_description}</p>
       </div>
       <div class="qiskit-card-image-container"><img src='{image_source}'></div>
-    </div>
+    </a>
 """
-        card_list = StringList(card_rst.splitlines())
-        card = nodes.paragraph()
-        self.state.nested_parse(card_list, self.content_offset, card)
-        return [card]
+        node = nodes.raw("", html, format="html")
+        return [node]
 
 
 class QiskitCallToActionItemDirective(Directive):
