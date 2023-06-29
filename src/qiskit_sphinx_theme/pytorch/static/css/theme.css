@@ -11685,12 +11685,13 @@ div.qiskit-card:hover .qiskit-card-image-container {
   padding: 10px 15px 20px 15px;
 }
 
-.qiskit-call-to-action-item .body-paragraph {
+div.qiskit-call-to-action-item p {
   color: #666666;
   font-weight: 300;
   font-size: 1.125rem;
   line-height: 1.875rem;
 }
+
 .qiskit-call-to-action-item .btn.callout-button {
   font-size: 1.125rem;
   border-radius: 0;
@@ -11713,6 +11714,7 @@ div.qiskit-card:hover .qiskit-card-image-container {
   background-color: #8B34FC;
   transition: width .250s ease-in-out;
 }
+
 .qiskit-call-to-action-item .btn.callout-button:hover::after {
   width: 100%;
 }
