@@ -1,23 +1,23 @@
-/* ------------------------------------------------------------------------------
-* Colors
-* ------------------------------------------------------------------------------- */
+// ------------------------------------------------------------------------------
+// Colors
+// ------------------------------------------------------------------------------
 
 body {
-  /* Use gray for the top-level links to be more muted. */
+  // Use gray for the top-level links to be more muted.
   --color-sidebar-link-text--top-level: var(--color-sidebar-link-text);
-  /* Turn off gradient for hover. */
+  // Turn off gradient for hover.
   --color-sidebar-item-background--hover: #efeff4;
 }
 
-/* Even though we override --color-sidebar-link--top-level to be a more muted look, we change
-*  the currently selected page to be purple to make it more obvious. */
+// Even though we override --color-sidebar-link--top-level to be a more muted look, we change
+// the currently selected page to be purple to make it more obvious.
 .sidebar-tree .current-page > .reference {
   color: var(--qiskit-color-purple);
 }
 
-/* --------------------------------------------------------------------------------------
-* Common config for Translations & Previous Releases
-* -------------------------------------------------------------------------------------- */
+// --------------------------------------------------------------------------------------
+// Common config for Translations & Previous Releases
+// --------------------------------------------------------------------------------------
 
 .qiskit-translations-list-container,
 .qiskit-previous-releases-list-container {
@@ -28,46 +28,43 @@ body {
   display: block;
 }
 
-.qiskit-translations-header-container label,
-.qiskit-previous-releases-header-container label {
-  cursor: pointer;
-}
-
-/* Based off of `.toctree-l1 li`. */
+// Based off of `.toctree-l1 li`.
 .qiskit-translations-header-container,
 .qiskit-previous-releases-header-container {
   margin: 0;
   position: relative;
-  /* Normally this is set on `.sidebar-tree label`, which corresponds to
-  * `.qiskit-translations-toggle-container` and `.qiskit-previous-releases-toggle-container`.
-  * But we set it on the whole container because otherwise we get annoying browser highlighting
-  * of the text. */
+  // Normally this is set on `.sidebar-tree label`, which corresponds to
+  // `.qiskit-translations-toggle-container` and `.qiskit-previous-releases-toggle-container`.
+  // But we set it on the whole container because otherwise we get annoying browser highlighting
+  // of the text.
   -webkit-user-select: none;
   user-select: none;
+
+  // Based off of `.sidebar-tree .reference:hover`, but applied to the whole container rather than
+  // only the label text.
+  &:hover {
+    background: var(--color-sidebar-item-background--hover);
+  }
+
+  label {
+    cursor: pointer;
+  }
+
+  // Based off of `.sidebar-tree li.has-children > reference` and `.sidebar-tree .reference`.
+  p {
+    box-sizing: border-box;
+    display: inline-block;
+    height: 100%;
+    line-height: var(--sidebar-item-line-height);
+    overflow-wrap: anywhere;
+    text-decoration: none;
+    width: 100%;
+    padding-left: var(--sidebar-item-spacing-horizontal);
+    padding-right: var(--sidebar-expander-width);
+  }
 }
 
-/* Based off of `.sidebar-tree li.has-children > reference` and `.sidebar-tree .reference`. */
-.qiskit-translations-header-container p,
-.qiskit-previous-releases-header-container p {
-  box-sizing: border-box;
-  display: inline-block;
-  height: 100%;
-  line-height: var(--sidebar-item-line-height);
-  overflow-wrap: anywhere;
-  text-decoration: none;
-  width: 100%;
-  padding-left: var(--sidebar-item-spacing-horizontal);
-  padding-right: var(--sidebar-expander-width);
-}
-
-/* Based off of `.sidebar-tree .reference:hover`, but applied to the whole container rather than
-*  only the label text. */
-.qiskit-translations-header-container:hover,
-.qiskit-previous-releases-header-container:hover {
-  background: var(--color-sidebar-item-background--hover);
-}
-
-/* Based off of `.sidebar-tree label`. */
+// Based off of `.sidebar-tree label`.
 .qiskit-translations-toggle-container,
 .qiskit-previous-releases-toggle-container {
   background: var(--color-sidebar-item-expander-background);
@@ -81,7 +78,7 @@ body {
   width: var(--sidebar-expander-width);
 }
 
-/* Based off of `.toctree-checkbox`. */
+// Based off of `.toctree-checkbox`.
 #translations-checkbox,
 #previous-releases-checkbox {
   display: none;
@@ -96,46 +93,45 @@ body {
   transform: rotate(-90deg);
 }
 
-/* Based off of `.sidebar-tree ul`. */
-.qiskit-translations-list-container ul,
-.qiskit-previous-releases-list-container ul {
-  display: flex;
-  flex-direction: column;
-  list-style: none;
-  margin-bottom: 0;
-  margin-top: 0;
-  padding: 0;
+.qiskit-translations-list-container,
+.qiskit-previous-releases-list-container {
+  // Based off of `.sidebar-tree ul`.
+  ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: 0;
+  }
+
+  // Based off of `.sidebar-tree li`.
+  li {
+    margin: 0;
+    position: relative;
+  }
+
+  // Based off of `.sidebar-tree .reference`.
+  a {
+    box-sizing: border-box;
+    display: inline-block;
+    height: 100%;
+    line-height: var(--sidebar-item-line-height);
+    overflow-wrap: anywhere;
+    padding: var(--sidebar-item-spacing-vertical) var(--sidebar-item-spacing-horizontal);
+    text-decoration: none;
+    width: 100%;
+  }
+
+  // Based off of `.sidebar-tree .reference:hover`.
+  a:hover {
+    background: var(--color-sidebar-item-background--hover);
+  }
 }
 
-/* Based off of `.sidebar-tree li`. */
-.qiskit-translations-list-container li,
-.qiskit-previous-releases-list-container li {
-  margin: 0;
-  position: relative;
-}
-
-/* Based off of `.sidebar-tree .reference`. */
-.qiskit-translations-list-container a,
-.qiskit-previous-releases-list-container a {
-  box-sizing: border-box;
-  display: inline-block;
-  height: 100%;
-  line-height: var(--sidebar-item-line-height);
-  overflow-wrap: anywhere;
-  padding: var(--sidebar-item-spacing-vertical) var(--sidebar-item-spacing-horizontal);
-  text-decoration: none;
-  width: 100%;
-}
-
-/* Based off of `.sidebar-tree .reference:hover`. */
-.qiskit-translations-list-container a:hover,
-.qiskit-previous-releases-list-container a:hover {
-  background: var(--color-sidebar-item-background--hover);
-}
-
-/* --------------------------------------------------------------------------------------
-* Translations
-* -------------------------------------------------------------------------------------- */
+// --------------------------------------------------------------------------------------
+// Translations
+// --------------------------------------------------------------------------------------
 
 .qiskit-translations-container {
   border-top: solid 2px var(--qiskit-color-purple);
@@ -143,36 +139,38 @@ body {
 
 .qiskit-translations-list-container {
   padding-bottom: var(--sidebar-item-spacing-vertical);
+
+  a {
+    // We increase the horizontal padding for some visual distinction with the normal sidebar.
+    padding: var(--sidebar-item-spacing-vertical) calc(var(--sidebar-item-spacing-horizontal) * 1.5);
+  }
 }
 
 .qiskit-translations-toggle-container {
-  /* Unlike Furo, we set this to 100% instead of `var(--sidebar-item-height)`. */
+  // Unlike Furo, we set this to 100% instead of `var(--sidebar-item-height)`.
   height: 100%;
 }
 
-.qiskit-translations-list-container a {
-  /* We increase the horizontal padding for some visual distinction with the normal sidebar. */
-  padding: var(--sidebar-item-spacing-vertical) calc(var(--sidebar-item-spacing-horizontal) * 1.5);
+// ------------------------------------------------------------------------------
+// Previous Releases
+// ------------------------------------------------------------------------------
+
+.qiskit-previous-releases-list-container {
+  // Inspired by `.sidebar-tree li > ul`.
+  ul {
+    margin-left: calc(var(--sidebar-item-spacing-horizontal) * 0.5);
+  }
+
+  a {
+    color: var(--color-sidebar-link-text);
+  }
 }
 
-/* ------------------------------------------------------------------------------
-* Previous Releases
-* ------------------------------------------------------------------------------- */
-
-/* Inspired by `.sidebar-tree li > ul`. */
-.qiskit-previous-releases-list-container ul {
-  margin-left: calc(var(--sidebar-item-spacing-horizontal) * 0.5);
-}
-
-/* Inspired by `.sidebar-tree`. */
+// Inspired by `.sidebar-tree`.
 .qiskit-previous-releases-container {
   font-size: var(--sidebar-item-font-size);
   margin-bottom: var(--sidebar-item-spacing-vertical);
   margin-top: 0;
-}
-
-.qiskit-previous-releases-list-container a {
-  color: var(--color-sidebar-link-text);
 }
 
 .qiskit-previous-releases-header-container p {

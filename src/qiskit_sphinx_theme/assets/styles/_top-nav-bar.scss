@@ -1,20 +1,20 @@
 body {
-  /* This value is duplicated from `top-nav-bar.js`. Its definition of the variable is not
-  * exposed globally. Keep in sync. */
+  // This value is duplicated from `top-nav-bar.js`. Its definition of the variable is not
+  // exposed globally. Keep in sync.
   --qiskit-top-nav-bar-height: 3.5rem;
 }
 
-/* Disable dark mode until qiskit.org has it: https://github.com/Qiskit/qiskit.org/issues/2310 */
+// Disable dark mode until qiskit.org has it: https://github.com/Qiskit/qiskit.org/issues/2310
 .theme-toggle-container {
   display: none;
 }
 
-/* Improve the custom design of the header icon in terms of its thickness. */
+// Improve the custom design of the header icon in terms of its thickness.
 div.header-left svg use {
   stroke-width: 0.5;
 }
 
-/* Fix Qiskit top nav bar hiding Furo's top nav bar and side menus. */
+// Fix Qiskit top nav bar hiding Furo's top nav bar and side menus.
 .mobile-header,
 .sidebar-sticky,
 .toc-sticky,
@@ -33,8 +33,8 @@ div.header-left svg use {
   }
 }
 
-/* These are also necessary to fix the Qiskit top nav bar hiding Furo content/menus, specifically
-*  when the user is scrolled down to the bottom of the page. They override Furo's rules. */
+// These are also necessary to fix the Qiskit top nav bar hiding Furo content/menus, specifically
+// when the user is scrolled down to the bottom of the page. They override Furo's rules.
 .sidebar-sticky,
 .toc-sticky {
   height: calc(100vh - var(--qiskit-top-nav-bar-height));
@@ -43,11 +43,11 @@ div.header-left svg use {
   max-height: calc(100vh - var(--qiskit-top-nav-bar-height));
 }
 
-/* Fix # anchor links not accounting for the top nav bar.
-*
-* The rules for mobile come from Furo, but we add --qiskit-top-nav-bar-height.
-* But for some reason, the default rule has too much spacing if we include Furo's original rule's
-* --header-height. */
+// Fix # anchor links not accounting for the top nav bar.
+//
+// The rules for mobile come from Furo, but we add --qiskit-top-nav-bar-height.
+// But for some reason, the default rule has too much spacing if we include Furo's original rule's
+// --header-height.
 :target {
   scroll-margin-top: var(--qiskit-top-nav-bar-height);
 }
@@ -55,14 +55,14 @@ div.header-left svg use {
   :target {
      scroll-margin-top: calc(0.5rem + var(--header-height) + var(--qiskit-top-nav-bar-height));
   }
-  /* When a heading is selected */
+  // When a heading is selected.
   section > span:target {
     scroll-margin-top: calc(0.8rem + var(--header-height) + var(--qiskit-top-nav-bar-height));
   }
 }
 
-/* Turn off highlighting of the current page until we can properly solve
-*  https://github.com/Qiskit/qiskit_sphinx_theme/issues/368. */
+// Turn off highlighting of the current page until we can properly solve
+// https://github.com/Qiskit/qiskit_sphinx_theme/issues/368.
 .toc-tree li.scroll-current > .reference {
   color: var(--color-toc-item-text);
   font-weight: unset;

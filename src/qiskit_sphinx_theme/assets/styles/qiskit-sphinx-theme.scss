@@ -17,7 +17,7 @@ body {
   --color-brand-content: var(--qiskit-color-purple);
 }
 
-/* Turn off scroll animation for anchor links: https://github.com/pradyunsg/furo/discussions/384 */
+// Turn off scroll animation for anchor links: https://github.com/pradyunsg/furo/discussions/384
 html {
   scroll-behavior: auto;
 }
