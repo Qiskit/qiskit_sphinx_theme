@@ -85,11 +85,9 @@ class QiskitCallToActionItemDirective(Directive):
 .. raw:: html
 
     <div class="qiskit-call-to-action-item">
-        <div class="text-container">
-            <h3>{header}</h3>
-            <p class="body-paragraph">{description}</p>
-            <a class="btn with-right-arrow callout-button" href="{button_link}">{button_text}</a>
-        </div>
+        <h3>{header}</h3>
+        <p class="body-paragraph">{description}</p>
+        <a class="btn with-right-arrow callout-button" href="{button_link}">{button_text}</a>
     </div>
 """
 

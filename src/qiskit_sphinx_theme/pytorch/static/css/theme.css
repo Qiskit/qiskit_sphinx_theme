@@ -11682,16 +11682,10 @@ div.qiskit-card:hover .qiskit-card-image-container {
   position: relative;
   width: 100%;
   min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px;
-  padding-bottom: 10px;
+  padding: 10px 15px 20px 15px;
 }
 
-.qiskit-call-to-action-item .text-container {
-  padding: 10px 0px 30px 0px;
-  padding-bottom: 10px;
-}
-.qiskit-call-to-action-item .text-container .body-paragraph {
+.qiskit-call-to-action-item .body-paragraph {
   color: #666666;
   font-weight: 300;
   font-size: 1.125rem;
