@@ -134,8 +134,6 @@ To migrate:
 4. In `conf.py`, remove `expandable_sidebar` from `html_context`, if set. If it was set, follow the below section [How to migrate expandable_sidebar](#how-to-migrate-expandablesidebar).
 5. Render the docs and check that everything looks how expected. If not, please open a GitHub issue or reach out on Slack for help.
 
-Reminder: you do not have to migrate to the `qiskit` theme until qiskit-sphinx-theme 2.0. For example, you can migrate but rollback to `qiskit_sphinx_theme` if you discover there is an issue.
-
 ### How to migrate expandable_sidebar
 
 With the old theme, to have expandable folders, you had to have a dedicated `.. toctree ::` directive with a `:caption:` option, like this:
