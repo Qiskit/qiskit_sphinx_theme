@@ -1,154 +1,230 @@
-<!DOCTYPE html>
-  <html class="no-js" lang="en" >
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Sphinx Guide" href="../sphinx_guide/index.html" /><link rel="prev" title="The Diátaxis Framework" href="diataxis.html" />
 
-  <title>Create a New Documentation Project &mdash; Qiskit Docs Guide 1.0 documentation</title>
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/jupyter-sphinx.css" type="text/css" /><script src="../_static/js/web-components/top-nav-bar.js"></script>
-
-  <!-- SEGMENT ANALYTICS --></head>
-<body class="pytorch-body">
-  <!-- UNIFIED TOP MENU -->
-  <qiskit-ui-shell variant="hide-account"></qiskit-ui-shell>
-
-   
-
-    <!-- LEFT SIDE BAR -->
-
-    <!-- if translations available, display language dropdown menu -->
+    <!-- Generated with Sphinx 6.2.1 and Furo 2023.05.20 -->
+        <title>Create a New Documentation Project - Qiskit Docs Guide 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/qiskit-sphinx-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    
     
 
-    <!-- Menu becomes dropdown in mobile view -->
-    <div class="table-of-contents-link-wrapper">
-      <span>Table of Contents</span>
-      <a href="#" class="toggle-table-of-contents" data-behavior="toggle-table-of-contents"></a>
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<script src="../_static/js/web-components/top-nav-bar.js"></script></head>
+  <body>
+    
+    <script>document.body.dataset.theme = localStorage.getItem("theme") || "light";</script>
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg id="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+      <defs><style>.cls-1{fill:none;}</style></defs>
+      <path d="M28,4H4A2,2,0,0,0,2,6V26a2,2,0,0,0,2,2H28a2,2,0,0,0,2-2V6A2,2,0,0,0,28,4ZM4,6H20V26H4ZM28,26H22V6h6Z"/>
+      <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32" height="32"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg version="1.1" id="icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+         viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve"><polygon points="22,16 12,26 10.6,24.6 19.2,16 10.6,7.4 12,6 " stroke="currentColor"/>
+      <rect id="_x3C_Transparent_Rectangle_x3E_" fill="none" width="32" height="32"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg><qiskit-ui-shell variant="hide-account"></qiskit-ui-shell><input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>Site contents <i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label>
     </div>
-
-    <!-- left side bar main content -->
-    <nav data-toggle="wy-nav-shift" class="pytorch-left-menu" id="pytorch-left-menu">
-    <div class="pytorch-menu pytorch-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-      <div class="sidebar">
-    <div class="pytorch-left-menu-search">
-        <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search Qiskit Docs Guide Docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
+    <div class="header-center"></div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
     </div>
-
-    <!-- render sidebar from the toctree -->
-    
-    
-        <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search Qiskit Docs Guide docs" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Start Here</a></li>
 <li class="toctree-l1"><a class="reference internal" href="how_to_use_this_guide.html">How to Use This Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="diataxis.html">The Diátaxis Framework</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Create a New Documentation Project</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../sphinx_guide/index.html">Sphinx Guide</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Create a New Documentation Project</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../sphinx_guide/index.html">Sphinx Guide</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Sphinx Guide</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sphinx_guide/sphinx.html">Sphinx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sphinx_guide/rst.html">reStructuredText</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sphinx_guide/how_to_build_docs.html">How to build documentation locally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sphinx_guide/how_to_add_sections.html">How to add sections to documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sphinx_guide/how_to_add_sections.html#title-name">Title name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sphinx_guide/how_to_create_lists.html">How to create lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sphinx_guide/how_to_cross-reference.html">How to cross-reference to other pages from documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sphinx_guide/how_to_add_external_links.html">How to add external links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sphinx_guide/how_to_add_code.html">How to add code to documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sphinx_guide/how_to_write_mathematical_expressions.html">How to write mathematical expressions</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Instructions for Standard Pages</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../home.html">Documentation Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../how_to/index.html">How-to Guides</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../apidocs/index.html">API Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../explanations/index.html">Explanations</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tutorials/index.html">Tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Tutorials</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/tutorials_guidelines.html">Tutorials Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/tutorials_examples.html">Tutorials Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/tutorials_templates.html">Tutorials Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/how_to_add_a_tutorial.html">How to add a tutorial</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../how_to/index.html">How-to Guides</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of How-to Guides</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../how_to/how_to_guidelines.html">How-to Guides Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../how_to/how_to_examples.html">How-to Guides Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../how_to/how_to_templates.html">How-to Guides Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../how_to/how_to_add_a_how_to_guide.html">How to add a how-to guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../apidocs/index.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of API Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../apidocs/api_guidelines.html">API Reference Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../apidocs/api_examples.html">API Reference Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../apidocs/api_templates.html">API Reference Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../apidocs/how_to_add_an_api_reference.html">How to add an API reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../explanations/index.html">Explanations</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Explanations</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../explanations/explanations_guidelines.html">Explanation Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../explanations/explanations_examples.html">Explanation Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../explanations/explanations_templates.html">Explanations Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../explanations/how_to_add_an_explanation.html">How to add an explanation</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../release_notes.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/Qiskit/qiskit_sphinx_theme">GitHub</a></li>
 </ul>
 
-    
-
-    <!-- PREVIOUS RELEASES -->
-        
-
-    </div>
-  </div>
-</nav>
-
-<!-- OPTIONAL EXPANDABLE FUNCTIONALITY -->
-
-
-<!-- STYLING -->
-<script>
-    // indent subheadings under captions
-    expandable_rows = document.getElementsByClassName("caption");
-    var i;
-    for (i = 0; i < expandable_rows.length; i++) {
-        expandable_rows[i].nextElementSibling.style.marginLeft = "1rem"
-
-        // un-bold subheadings in dropdown
-        var subheadings = expandable_rows[i].nextElementSibling
-        for (j = 0; j < subheadings.children.length; j++) {
-            subheadings.children[j].style.fontWeight = "unset"
-        }
-    }
-
-    // adjust toctree class name to style external links
-    var toc_rows = document.getElementsByClassName("toctree-l1");
-    var i;
-    for (i = 0; i < toc_rows.length; i++) {
-        if (toc_rows[i].children[0].className === "reference external") {
-            toc_rows[i].className = "toctree-l1-external"
-            }
-    }
-
-    // expand and unexpand previous releases dropdown when clicked
-    var release_rows = document.getElementsByClassName("sidebar-l1-expandable");
-    for (i = 0; i < release_rows.length; i++) {
-        release_rows[i].addEventListener("click", function() {
-            this.classList.toggle("open");
-            var clicked_subheadings = this.nextElementSibling;
-            if (clicked_subheadings.style.display === "block") {
-            clicked_subheadings.style.display = "none";
-            } else {
-            clicked_subheadings.style.display = "block";
-            }
-        });
-    }
-</script>
-
-    <div class="pytorch-container">
-
-      <!-- BREADCRUMB MINI MENU BELOW TOP NAV BAR -->
-      <div class="pytorch-page-level-bar" id="pytorch-page-level-bar">
-        <div class="pytorch-breadcrumbs-wrapper">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="pytorch-breadcrumbs">
-    
-      <li>
-        <a href="../index.html">
-            Qiskit Docs Guide  documentation
-        </a> &gt;
-      </li>
-
-        
-      <li>Create a New Documentation Project</li>
-    
-  </ul>
-</div>
-        </div>
+</div></div>
       </div>
-
-      <!-- MAIN CENTRE CONTENT -->
-      <section data-toggle="wy-nav-shift" id="pytorch-content-wrap" class="pytorch-content-wrap">
-        
-        <div class="pytorch-content-left">
-          <div class="rst-content">
-            <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
-             <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
-              
-  <section id="create-a-new-documentation-project">
-<span id="create-new-doc-project"></span><h1>Create a New Documentation Project<a class="headerlink" href="#create-a-new-documentation-project" title="Permalink to this heading">¶</a></h1>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="create-a-new-documentation-project">
+<span id="create-new-doc-project"></span><h1>Create a New Documentation Project<a class="headerlink" href="#create-a-new-documentation-project" title="Permalink to this heading">#</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This page was written in the style of a <cite>Tutorial</cite> according to <a class="reference internal" href="diataxis.html#diataxis"><span class="std std-ref">The Diátaxis Framework</span></a>.</p>
@@ -160,13 +236,13 @@ Qiskit’s Sphinx HTML theme, the <code class="docutils literal notranslate"><sp
 GitHub workflow to deploy your documentation to <a class="reference external" href="https://qiskit.org/ecosystem">qiskit.org/ecosystem</a> (only applicable
 for selected projects) with <a class="reference external" href="https://rclone.org">Rclone</a>.</p>
 <section id="background-information">
-<h2>Background information<a class="headerlink" href="#background-information" title="Permalink to this heading">¶</a></h2>
+<h2>Background information<a class="headerlink" href="#background-information" title="Permalink to this heading">#</a></h2>
 <p>Before you dive into the creation of the documentation project, it’s important to know what reStructuredText and Sphinx are.</p>
 <p><a class="reference external" href="https://docutils.sourceforge.io/rst.html">reStructuredText</a> (RST) is a lightweight markup language, that is, an easy to read language that formats plaintext documents according to a set of tags. It enables the creation of web pages and documentation from, for example, Python docstrings.</p>
 <p><a class="reference external" href="https://www.sphinx-doc.org/en/master/index.html" title="(in Sphinx v7.1.0)"><span class="xref std std-doc">Sphinx</span></a> is a documentation generator that converts RST files to formats like <a class="reference external" href="https://html.spec.whatwg.org/multipage/">HTML</a>, <a class="reference external" href="https://www.latex-project.org/">LaTeX</a>, <a class="reference external" href="https://www.w3.org/publishing/epub32/">ePub</a>, <a class="reference external" href="https://www.gnu.org/software/texinfo/">Texinfo</a>, manual pages or plain text. It is written in Python. The <code class="docutils literal notranslate"><span class="pre">qiskit_sphinx_theme</span></code> will focus on converting RST to HTML pages.</p>
 </section>
 <section id="install-the-qiskit-sphinx-theme">
-<h2>Install the <code class="docutils literal notranslate"><span class="pre">qiskit_sphinx_theme</span></code><a class="headerlink" href="#install-the-qiskit-sphinx-theme" title="Permalink to this heading">¶</a></h2>
+<h2>Install the <code class="docutils literal notranslate"><span class="pre">qiskit_sphinx_theme</span></code><a class="headerlink" href="#install-the-qiskit-sphinx-theme" title="Permalink to this heading">#</a></h2>
 <p>In order to use use the <code class="docutils literal notranslate"><span class="pre">qiskit_sphinx_theme</span></code> you need to first install it. You can do that with <code class="docutils literal notranslate"><span class="pre">pip</span></code> by running this:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>qiskit-sphinx-theme
 </pre></div>
@@ -177,7 +253,7 @@ for selected projects) with <a class="reference external" href="https://rclone.o
 </div>
 </section>
 <section id="create-the-documentation-in-your-repository">
-<h2>Create the documentation in your repository<a class="headerlink" href="#create-the-documentation-in-your-repository" title="Permalink to this heading">¶</a></h2>
+<h2>Create the documentation in your repository<a class="headerlink" href="#create-the-documentation-in-your-repository" title="Permalink to this heading">#</a></h2>
 <p>In order to create a documentation folder you can use <a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html" title="(in Sphinx v7.1.0)"><span>sphinx-quickstart</span></a>. It asks some questions and creates a functional documentation folder according to your answers.
 You can use <code class="docutils literal notranslate"><span class="pre">sphinx-quickstart</span></code> by going to the root directory of your repository and running this command.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sphinx-quickstart<span class="w"> </span>docs
@@ -236,7 +312,7 @@ Finished: An initial directory structure has been created.
 and change the value of the variable <code class="docutils literal notranslate"><span class="pre">html_theme</span></code> from <code class="docutils literal notranslate"><span class="pre">'alabaster'</span></code> to <code class="docutils literal notranslate"><span class="pre">'qiskit_sphinx_theme'</span></code>.</p>
 </section>
 <section id="structure-your-documentation">
-<span id="doc-structure"></span><h2>Structure your documentation<a class="headerlink" href="#structure-your-documentation" title="Permalink to this heading">¶</a></h2>
+<span id="doc-structure"></span><h2>Structure your documentation<a class="headerlink" href="#structure-your-documentation" title="Permalink to this heading">#</a></h2>
 <p>In Qiskit and its Ecosystem, we are following <a class="reference internal" href="diataxis.html#diataxis"><span class="std std-ref">The Diátaxis Framework</span></a>, that means that our documentation is divided into four categories:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://diataxis.fr/tutorials/">Tutorials</a></p></li>
@@ -264,7 +340,7 @@ and change the value of the variable <code class="docutils literal notranslate">
 </div>
 </section>
 <section id="sidebar">
-<h2>Sidebar<a class="headerlink" href="#sidebar" title="Permalink to this heading">¶</a></h2>
+<h2>Sidebar<a class="headerlink" href="#sidebar" title="Permalink to this heading">#</a></h2>
 <p>Now that you have all the needed <code class="docutils literal notranslate"><span class="pre">.rst</span></code> files, you can create a sidebar for your documentation page. This can be done by linking to the files with a <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-toctree" title="(in Sphinx v7.1.0)"><code class="docutils literal notranslate"><span class="pre">toctree</span></code></a>
 in <code class="docutils literal notranslate"><span class="pre">docs/index.rst</span></code>.  Your <code class="docutils literal notranslate"><span class="pre">index.rst</span></code> should look like this:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>###############################################################################
@@ -297,7 +373,7 @@ Explain your package here.
 </div>
 </section>
 <section id="build-your-documentation-locally">
-<h2>Build your documentation locally<a class="headerlink" href="#build-your-documentation-locally" title="Permalink to this heading">¶</a></h2>
+<h2>Build your documentation locally<a class="headerlink" href="#build-your-documentation-locally" title="Permalink to this heading">#</a></h2>
 <p>Now that you have created your documentation project, it’s recommended to build it locally to check whether it looks and works as intended.</p>
 <p>In order to do that, you first need to have your package installed. You can do this by running the following command on the root directory of your local copy of the repository:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>.
@@ -320,7 +396,7 @@ to <code class="docutils literal notranslate"><span class="pre">html</span></cod
 </figure>
 </section>
 <section id="deploy-docs-to-qiskit-org-ecosystem">
-<h2>Deploy docs to <a class="reference external" href="https://qiskit.org/ecosystem">qiskit.org/ecosystem</a><a class="headerlink" href="#deploy-docs-to-qiskit-org-ecosystem" title="Permalink to this heading">¶</a></h2>
+<h2>Deploy docs to <a class="reference external" href="https://qiskit.org/ecosystem">qiskit.org/ecosystem</a><a class="headerlink" href="#deploy-docs-to-qiskit-org-ecosystem" title="Permalink to this heading">#</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>At the moment, this section is only applicable for selected Qiskit projects such as Qiskit and
@@ -354,10 +430,10 @@ These properties can be accessed with the <a class="reference external" href="ht
 </div>
 <p>Once this setup is done, you can start creating the jobs.</p>
 <section id="publish-docs">
-<h3>Publish docs<a class="headerlink" href="#publish-docs" title="Permalink to this heading">¶</a></h3>
+<h3>Publish docs<a class="headerlink" href="#publish-docs" title="Permalink to this heading">#</a></h3>
 <p>The job will consist of publishing the documentation and will be called <code class="docutils literal notranslate"><span class="pre">docs_publish</span></code>.</p>
 <section id="set-up-the-job">
-<h4>Set up the job<a class="headerlink" href="#set-up-the-job" title="Permalink to this heading">¶</a></h4>
+<h4>Set up the job<a class="headerlink" href="#set-up-the-job" title="Permalink to this heading">#</a></h4>
 <p>In order to make sure that the deployment only comes from a stable branch and is triggered by a maintainer, you can use the <a class="reference external" href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idif">if</a>
 key. The first condition can be written using the <a class="reference external" href="https://docs.github.com/en/actions/learn-github-actions/expressions#startswith">startsWith expression</a> by checking whether <code class="docutils literal notranslate"><span class="pre">github.ref</span></code> starts with <code class="docutils literal notranslate"><span class="pre">refs/heads/stable</span></code>. For the second condition, you can use the <a class="reference external" href="https://docs.github.com/en/actions/learn-github-actions/expressions#contains">contains expression</a> to check whether
 <code class="docutils literal notranslate"><span class="pre">github.actor</span></code>, that is the user that triggers the workflow, is a maintainer. This job will use the latest version of <a class="reference external" href="https://ubuntu.com/">Ubuntu</a>. To ensure that, you will set the <a class="reference external" href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idruns-on">runs-on</a> key to <code class="docutils literal notranslate"><span class="pre">ubuntu-latest</span></code>.
@@ -375,9 +451,9 @@ This matrix will be called <code class="docutils literal notranslate"><span clas
 </div>
 </section>
 <section id="steps">
-<h4>Steps<a class="headerlink" href="#steps" title="Permalink to this heading">¶</a></h4>
+<h4>Steps<a class="headerlink" href="#steps" title="Permalink to this heading">#</a></h4>
 <section id="check-out-the-repository">
-<h5>Check-out the repository<a class="headerlink" href="#check-out-the-repository" title="Permalink to this heading">¶</a></h5>
+<h5>Check-out the repository<a class="headerlink" href="#check-out-the-repository" title="Permalink to this heading">#</a></h5>
 <p>The first step of this job consists of enabling the workflow to access your repository. To do that you only need to call the latest version (version 3, <code class="docutils literal notranslate"><span class="pre">&#64;v3</span></code>) the pre-defined <a class="reference external" href="https://github.com/actions/checkout">checkout action</a> with the <a class="reference external" href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsuses">uses</a> key.
 By setting the <code class="docutils literal notranslate"><span class="pre">fetch-depth</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">0</span></code> via the <a class="reference external" href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idwith">with</a> key, you can let the action reach for the full history of your repository.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v3</span>
@@ -387,7 +463,7 @@ By setting the <code class="docutils literal notranslate"><span class="pre">fetc
 </div>
 </section>
 <section id="setup-python">
-<h5>Setup Python<a class="headerlink" href="#setup-python" title="Permalink to this heading">¶</a></h5>
+<h5>Setup Python<a class="headerlink" href="#setup-python" title="Permalink to this heading">#</a></h5>
 <p>Once your repo has been reached, the workflow continues by installing a Python version, in this case, the 3.8, as defined in <code class="docutils literal notranslate"><span class="pre">matrix.python-version</span></code>. Fortunately, the
 <a class="reference external" href="https://github.com/actions/setup-python">setup-python action</a> already does this for us!. To choose the Python version you only need to set the <code class="docutils literal notranslate"><span class="pre">python-version</span></code> parameter with the corresponding value.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v4</span>
@@ -397,7 +473,7 @@ By setting the <code class="docutils literal notranslate"><span class="pre">fetc
 </div>
 </section>
 <section id="install-the-package">
-<h5>Install the package<a class="headerlink" href="#install-the-package" title="Permalink to this heading">¶</a></h5>
+<h5>Install the package<a class="headerlink" href="#install-the-package" title="Permalink to this heading">#</a></h5>
 <p>Now that you have Python, let’s install our package and its more immediate dependencies and constraints from <code class="docutils literal notranslate"><span class="pre">requirements-dev.txt</span></code> and <code class="docutils literal notranslate"><span class="pre">constraints.txt</span></code> respectively.
 You can use the <a class="reference external" href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun">run</a> key and add the usual bash commands as a multiline block with the pipe indicator <code class="docutils literal notranslate"><span class="pre">|</span></code>. These commands are: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code> for the editable (<code class="docutils literal notranslate"><span class="pre">-e</span></code>) version of the package, <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-U</span> <span class="pre">-r</span> <span class="pre">requirements-dev.txt</span></code> for the latest version (<code class="docutils literal notranslate"><span class="pre">-U</span></code>) of the requirements (<code class="docutils literal notranslate"><span class="pre">-r</span></code>) and <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">constraints.txt</span></code> for the constraints (<code class="docutils literal notranslate"><span class="pre">-c</span></code>).
 You can set the shell to <code class="docutils literal notranslate"><span class="pre">bash</span></code> via the
@@ -411,7 +487,7 @@ You can set the shell to <code class="docutils literal notranslate"><span class=
 </div>
 </section>
 <section id="install-other-dependencies">
-<h5>Install other dependencies<a class="headerlink" href="#install-other-dependencies" title="Permalink to this heading">¶</a></h5>
+<h5>Install other dependencies<a class="headerlink" href="#install-other-dependencies" title="Permalink to this heading">#</a></h5>
 <p>In case there are another dependencies that are not covered in the <code class="docutils literal notranslate"><span class="pre">requirements-dev.txt</span></code>, you can add them in a similar step.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install Dependencies</span>
 <span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
@@ -426,7 +502,7 @@ the Python package <code class="docutils literal notranslate"><span class="pre">
 <a class="reference external" href="https://linux.die.net/man/8/apt-get">apt-get</a> has to be used instead.</p>
 </section>
 <section id="build-and-publish-to-qiskit-org-ecosystem">
-<h5>Build and publish to qiskit.org/ecosystem<a class="headerlink" href="#build-and-publish-to-qiskit-org-ecosystem" title="Permalink to this heading">¶</a></h5>
+<h5>Build and publish to qiskit.org/ecosystem<a class="headerlink" href="#build-and-publish-to-qiskit-org-ecosystem" title="Permalink to this heading">#</a></h5>
 <p>If you are deploying your documentation to a qiskit.org/ecosystem domain, then your documentation will need to be deployed to <a class="reference external" href="https://www.ibm.com/cloud/object-storage">IBM Cloud Object Storage</a>, where qiskit.org is hosted, with <a class="reference external" href="https://rclone.org">Rclone</a>, a command-line program that enables you to manage content from the cloud.</p>
 <p>Before starting with this step, it is necessary to ask a <a class="reference external" href="https://github.com/orgs/Qiskit/people?query=role%3Aowner">Qiskit organization administrator</a> to create a data container or <a class="reference external" href="https://dataplatform.cloud.ibm.com/docs/content/wsj/manage-data/cos_buckets.html?locale=en">bucket</a> called, following our HAL Provider example, <code class="docutils literal notranslate"><span class="pre">qiskit-org-web-resources/ecosystem/hal-provider</span></code>, from whose content the page <code class="docutils literal notranslate"><span class="pre">qiskit.org/ecosystem/hal-provider</span></code> will be generated,
 and to add some encrypted credentials to your repo. These credentials are:</p>
@@ -716,7 +792,7 @@ You also need to add <code class="docutils literal notranslate"><span class="pre
 </section>
 </section>
 <section id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><dl class="simple">
 <dt><a class="reference external" href="https://github.com/Qiskit/qiskit">Qiskit metapackage</a></dt><dd><ul>
@@ -750,57 +826,60 @@ You also need to add <code class="docutils literal notranslate"><span class="pre
 </section>
 </section>
 
-
-             </article>
-            </div>
-            <footer>
-<!-- USER FEEDBACK -->
-  
-
-  <!-- NEXT/PREVIOUS BUTTONS -->
-  <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-    
-      <a href="../sphinx_guide/index.html" class="btn btn-neutral float-right" title="Sphinx Guide" accesskey="n" rel="next">Next <img src="../_static/images/chevron-right-purple.svg" class="next-page"></a>
-    
-    
-      <a href="diataxis.html" class="btn btn-neutral" title="The Diátaxis Framework" accesskey="p" rel="prev"><img src="../_static/images/chevron-right-purple.svg" class="previous-page"> Previous</a>
-    
-  </div>
-
-  <div role="contentinfo">
-    <p>
-    <!-- SHOW QISKIT COPYRIGHT TEXT -->
-        &copy; Copyright 2022-2023, Qiskit Development Team.
-
-    <!-- SHOW DATE PAGE LAST UPDATED -->
-
-    </p>
-  </div>
-
-<!-- SHOW 'MADE WITH SPHINX' TEXT -->
-    
-      <div>
-        Built with <a href="http://sphinx-doc.org/">Sphinx</a> using <a href="https://github.com/Qiskit/qiskit_sphinx_theme">Qiskit Sphinx Theme </a> (based on <a href="https://github.com/pytorch/pytorch_sphinx_theme"> PyTorch Sphinx Theme</a>).
+        </article>
       </div>
-     
-<br>
-</footer>
-
-<script>
-  function clicked(ctaType) {
-    document.getElementById('was-helpful-thank-you').style.visibility = 'visible';
-    window.trackCta(`Helpful - ${ctaType}`);
-  }
-</script>
-
+      <footer>
+        <div class="related-pages">
+          <a class="next-page" href="../sphinx_guide/index.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Sphinx Guide</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="diataxis.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">The Diátaxis Framework</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2022-2023, Qiskit Development Team
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
           </div>
         </div>
-
-        <!-- RIGHT SIDE AUTOSUMMARY MENU -->
-        <div class="pytorch-content-right" id="pytorch-content-right">
-          <div class="pytorch-right-menu" id="pytorch-right-menu">
-            <div class="pytorch-side-scroll" id="pytorch-side-scroll-right">
-              <ul>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
 <li><a class="reference internal" href="#">Create a New Documentation Project</a><ul>
 <li><a class="reference internal" href="#background-information">Background information</a></li>
 <li><a class="reference internal" href="#install-the-qiskit-sphinx-theme">Install the <code class="docutils literal notranslate"><span class="pre">qiskit_sphinx_theme</span></code></a></li>
@@ -828,46 +907,19 @@ You also need to add <code class="docutils literal notranslate"><span class="pre
 </li>
 </ul>
 
-            </div>
           </div>
         </div>
-      </section>
-    </div> 
-
-  <!-- MOBILE MENU FOR SIDEBAR -->
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-      <script src="../_static/doctools.js"></script>
-      <script src="../_static/sphinx_highlight.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-  <!-- enable language dropdown menu expand -->
-  <script type="text/javascript">
-    jQuery(function () {
-        SphinxRtdTheme.Navigation.enable(true);
-    });
-  </script>
-
-  <script type="text/javascript">
-    $(document).ready(function() {
-      mobileMenu.bind();
-      mobileTOC.bind();
-      sideMenus.bind();
-      scrollToAnchor.bind();
-      highlightNavigation.bind();
-      mainMenuDropdown.bind();
-      filterTags.bind();
-
-      // Add class to links that have code blocks, since we cannot create links in code blocks
-      $("article.pytorch-article a span.pre").each(function(e) {
-        $(this).closest("a").addClass("has-code");
-      });
-    })
-  </script>
-
-</body>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/furo.js"></script>
+    <script src="../_static/scripts/furo.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    </body>
 </html>
