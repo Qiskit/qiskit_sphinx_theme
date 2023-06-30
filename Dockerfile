@@ -15,7 +15,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN THEME=_qiskit_furo tox run -e docs
+RUN tox run -e docs
 
 EXPOSE 8000
 CMD ["python", "-m", "http.server", "-d", "example_docs/docs/_build/html"]

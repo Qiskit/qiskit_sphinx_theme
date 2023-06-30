@@ -33,8 +33,8 @@ dependencies = [
 ]
 
 [project.entry-points."sphinx.html_themes"]
+qiskit = "qiskit_sphinx_theme"
 qiskit_sphinx_theme = "qiskit_sphinx_theme"
-_qiskit_furo = "qiskit_sphinx_theme"
 
 [project.urls]
 "Bug Tracker" = "https://github.com/Qiskit/qiskit_sphinx_theme/issues"

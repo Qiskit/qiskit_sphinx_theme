@@ -68,7 +68,7 @@ def remove_thebe_if_not_needed(
 
 
 def activate_themes(app: sphinx.application.Sphinx, config: sphinx.config.Config) -> None:
-    if config.html_theme == "_qiskit_furo":
+    if config.html_theme == "qiskit":
         # We set a low priority so that our Qiskit CSS file overrides Furo.
         app.add_css_file("styles/furo.css", 100)
         app.add_js_file("scripts/furo.js")
@@ -92,7 +92,7 @@ def setup(app: sphinx.application.Sphinx) -> dict[str, bool]:
     translations.setup(app)
 
     app.add_html_theme("qiskit_sphinx_theme", _get_theme_absolute_path("pytorch"))
-    app.add_html_theme("_qiskit_furo", _get_theme_absolute_path("theme/qiskit-sphinx-theme"))
+    app.add_html_theme("qiskit", _get_theme_absolute_path("theme/qiskit-sphinx-theme"))
 
     app.connect("html-page-context", remove_thebe_if_not_needed)
     app.connect("config-inited", activate_themes)
