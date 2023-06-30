@@ -15,6 +15,16 @@ body {
   color: var(--qiskit-color-purple);
 }
 
+// ------------------------------------------------------------------------------
+// Captions
+// ------------------------------------------------------------------------------
+
+.sidebar-tree .caption,
+.sidebar-tree :not(.caption) > .caption-text {
+  font-size: var(--font-size-normal);
+  text-transform: unset;
+}
+
 // --------------------------------------------------------------------------------------
 // Common config for Translations & Previous Releases
 // --------------------------------------------------------------------------------------
@@ -175,7 +185,6 @@ body {
 
 .qiskit-previous-releases-header-container p {
   color: var(--color-sidebar-caption-text);
-  font-size: var(--sidebar-caption-font-size);
+  font-size: var(--font-size-normal);
   font-weight: 700;
-  text-transform: uppercase;
 }

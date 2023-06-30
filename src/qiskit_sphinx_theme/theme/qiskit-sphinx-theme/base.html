@@ -90,7 +90,9 @@
   <body>
     {% block body %}
     <script>
-      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+      {#- QISKIT CHANGE: start. Set default theme to light mode. -#}
+      document.body.dataset.theme = localStorage.getItem("theme") || "light";
+      {#- QISKIT CHANGE: end. -#}
     </script>
     {% endblock %}
 
