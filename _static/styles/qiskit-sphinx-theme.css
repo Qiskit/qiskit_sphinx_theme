@@ -378,6 +378,12 @@ body {
   color: var(--qiskit-color-purple);
 }
 
+.sidebar-tree .caption,
+.sidebar-tree :not(.caption) > .caption-text {
+  font-size: var(--font-size-normal);
+  text-transform: unset;
+}
+
 .qiskit-translations-list-container,
 .qiskit-previous-releases-list-container {
   display: none;
@@ -505,9 +511,8 @@ body {
 
 .qiskit-previous-releases-header-container p {
   color: var(--color-sidebar-caption-text);
-  font-size: var(--sidebar-caption-font-size);
+  font-size: var(--font-size-normal);
   font-weight: 700;
-  text-transform: uppercase;
 }
 
 .nbsphinx-gallery > a.reference {
