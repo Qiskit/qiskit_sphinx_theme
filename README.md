@@ -1,16 +1,20 @@
 # qiskit_sphinx_theme
 The Sphinx theme for the Qiskit documentation.
 
+### Warning: new theme migration
+
+In qiskit-sphinx-theme 1.13, we migrated the theme from Pytorch to Furo, which brings several improvements. The old Pytorch theme will be removed in qiskit-sphinx-theme 2.0, which we expect to release in July or August 2023.
+
+See the section [Migrate from old Pytorch theme to new theme](#migrate-from-old-pytorch-theme-to-new-theme) for migration instructions.
+
 ## Overview
 
 This repository hosts three things: 
-- Qiskit Sphinx theme (located in the [qiskit_sphinx_theme](/qiskit_sphinx_theme) folder)
-- Example Docs (located in the [example_docs](/example_docs) folder)
-- Qiskit Docs Guide (located in the [docs_guide](/docs_guide) folder)
+- Qiskit Sphinx theme (located in the `src/` folder)
+- Example Docs (located in the `example_docs/` folder)
+- Qiskit Docs Guide (located in the `docs_guide/` folder)
 
-The Qiskit Sphinx Theme is the theme used by Qiskit
-Documentation (https://qiskit.org/documentation/) site. It contains mainly front end elements that
-gives the Qiskit design style.
+The Qiskit Sphinx Theme is the theme used by Qiskit Documentation (https://qiskit.org/documentation/) and Qiskit Ecosystem projects.
 
 The Example Docs is a minimal Sphinx project that is used for testing the Qiskit Sphinx Theme. Every
 pull request will trigger [a GitHub workflow](https://github.com/Qiskit/qiskit_sphinx_theme/blob/main/.github/workflows/main.yml) that builds the Example Docs to make sure the changes do
@@ -30,99 +34,8 @@ pip install qiskit-sphinx-theme
 
 Then, set up the theme by updating `conf.py`:
 
-1. Set `html_theme = "qiskit_sphinx_theme"`
+1. Set `html_theme = "qiskit"`
 2. Add `"qiskit_sphinx_theme"` to `extensions`
-
-## Configure Left Sidebar
-
-To keep UX/UI similar across different Qiskit packages we strongly encourage the following structure for you sidebar, which can be set in the toctree of your `index.rst`:
-
-```rst
-.. toctree::
-  :hidden:
-
-   Documentation Home <index>
-   Getting Started <getting_started>
-   Tutorials <tutorials/index>
-   How-to Guides <how_to/index>
-   API Reference <apidocs/index>
-   Explanations <explanations/index>
-   Release Notes <release_notes>
-   GitHub <https://github.com/your-repo>
-```
-
-The above toctree will render a sidebar that looks like the image below:
-
-<img width="626" alt="Screenshot 2023-02-09 at 12 13 52 PM" src="https://user-images.githubusercontent.com/23662430/217783745-43623c4f-897a-4a96-9d05-137d881ddb3f.png">
-
-Each item in the toctree corresponds to a single `.rst` file, and can use internal links or external. External links will have a "new tab" icon rendered next to them.
-
-<img width="257" alt="Screenshot 2023-02-09 at 12 14 45 PM" src="https://user-images.githubusercontent.com/23662430/217783918-ae4fc420-43c5-4d56-b135-4f12043cd881.png">
-
-In addition to the pages in the toctree, the sidebar also adds:
-- (optional) a separate dropdown menu *at the top* with different languages, but only if you have a `translations_list` setup in your `html_context` in your `conf.py` corresponding logic in a `version_utils.py`.
-- (optional) a dropdown *at the bottom* with links to previous releases, if you have a `version_list` setup in your `html_context` in your `conf.py` and corresponding logic in a `version_utils.py`.
-
-### Add Expandable Items to Sidebar
-
-You may want to configure your documentation to include expandable items in the sidebar, for example:
-
-<img width="467" alt="Screenshot 2023-02-09 at 12 29 13 PM" src="https://user-images.githubusercontent.com/23662430/217787248-8017da57-c347-4eea-a220-8515ca2ce8d6.png">
-
-To configure your documentation to use exapandable sidebar headings like the example above you must do the following:
-1. Add a `expandable_sidebar` variable to the `html_context` object in your `conf.py` and set the value to `True`:
-    ```python
-    html_context = {
-        'expandable_sidebar': True
-    }
-    ```
-2. Refactor the `toctree` in your `index.rst` to separate your pages into different sections. Sections that include a `:caption:` directive will be turned into expandable sidebar sections, with the caption forming the title of the dropdown. for example, to render the expandable sidebar shown above your `toctree` in your `index.rst` should look like this:
-    ```rst
-    .. toctree::
-    :hidden:
-
-    Documentation Home <index>
-    Getting Started <get_started>
-
-    .. toctree::
-    :hidden:
-    :caption: Tutorials
-
-    Tutorial 1 <tutorials/01>
-    Tutorial 2 <tutorials/02>
-    Tutorial 3 <tutorials/03>>
-    All Tutorials <tutorials/index>
-
-    .. toctree::
-    :hidden:
-    :glob:
-    :caption: How-to Guides
-
-    how_tos/*
-
-    .. toctree::
-    :hidden:
-    :glob:
-    :caption: API Reference
-
-    apidocs/*
-
-    .. toctree::
-    :hidden:
-    :glob:
-    :caption: Explanations
-
-    expalanations/*
-
-    .. toctree::
-    :hidden:
-
-    Release Notes <release_notes>
-    GitHub <https://github.com/your-repo>
-    ```
-
-
-*Tip: if you want to add all files in a sub-directory to your expandable dropdown section you can use the `:glob:` directive instead of listing out each page (see example above for the How-to Guides, API Reference and Explanations sections). This will list out each page in alphabetical order, so if you want a specific order you will need to list the pages out individually in the `toctree` (see example above for the Tutorials section)*
 
 ## Enable translations
 
@@ -193,7 +106,7 @@ The `qiskit_sphinx_theme` extension defines the below custom directives for you 
 
 ## Enable Qiskit.org Analytics
 
-Qiskit.org uses Segment Analytics to collect information on traffic to sites under the qiskit.org domain. This is not enabled by default but if you would like to enable it you can add a `analytics_enabled` variable to the `html_context` object in your `conf.py`. Setting this to `True` will enable analytics for your site once it is deployed to `qiskit.org/documentation`. 
+Qiskit.org uses Segment Analytics to collect information on traffic to sites under the qiskit.org domain. This is not enabled by default but if you would like to enable it you can add a `analytics_enabled` variable to the `html_context` object in your `conf.py`. Setting this to `True` will enable analytics for your site once it is deployed to `qiskit.org/`.
 
 ```python
 html_context = {
@@ -203,7 +116,68 @@ html_context = {
 
 By enabling analytics we will be able to collect information on number of visits to each documentation page. It will also trigger the addition of a `Was this page helpful?` component at the bottom of each documentation page, so users will be able to provide yes/no feedback for each page.
 
-<img width="538" alt="Screenshot 2022-11-14 at 11 28 11 AM" src="https://user-images.githubusercontent.com/23662430/201715694-1e75b1fb-875b-4137-b9f3-93d1e1894f5a.png">
+![](tests/js/snapshots.test.js-snapshots/footer-includes-page-analytics-1-linux.png)
 
-If you do not enable analytics no data will be collected and the `Was this page helpful?` component will not show.
+If you do not enable analytics, no data will be collected and the `Was this page helpful?` component will not show.
 
+## Migrate from old Pytorch theme to new theme
+
+In qiskit-sphinx-theme 1.13, we migrated to a new Sphinx theme based on Furo, which is used by pip, Black, and attrs documentation. See https://github.com/Qiskit/qiskit_sphinx_theme/issues/232 for the motivation.
+
+qiskit-sphinx-theme 1.13 continues to support the legacy Pytorch theme, but support will be removed in version 2.0.
+
+To migrate:
+
+1. In `conf.py`, ensure that `"qiskit_sphinx_theme"` is in the `extensions` list.
+2. In `conf.py`, set `html_theme = "qiskit"` rather than `"qiskit_sphinx_theme"`.
+3. In `conf.py`, remove all `html_theme_options`.
+4. In `conf.py`, remove `expandable_sidebar` from `html_context`, if set. If it was set, follow the below section [How to migrate expandable_sidebar](#how-to-migrate-expandablesidebar).
+5. Render the docs and check that everything looks how expected. If not, please open a GitHub issue or reach out on Slack for help.
+
+### How to migrate expandable_sidebar
+
+With the old theme, to have expandable folders, you had to have a dedicated `.. toctree ::` directive with a `:caption:` option, like this:
+
+```rst
+.. toctree::
+  :caption: My Folder
+  :hidden:
+
+  Page 1 <page1>
+  Page 2 <page2>
+```
+
+Instead, the new theme will render the `:caption:` as a top-level section header in the left sidebar, with top-level entries for each page. See the screenshot in the PR description of https://github.com/Qiskit/qiskit_sphinx_theme/pull/384 for an example of how the old theme renders `:caption:` and compare to [the new theme](https://github.com/Qiskit/qiskit_sphinx_theme/blob/main/tests/js/snapshots.test.js-snapshots/left-side-bar-renders-correctly-1-linux.png).
+
+Additionally, the new theme renders pages with their own subpages as expandable folders, unlike the old theme. [For example](https://github.com/Qiskit/qiskit_sphinx_theme/blob/main/tests/js/snapshots.test.js-snapshots/left-side-bar-renders-correctly-1-linux.png), `<apidocs/index>` will include all subpages that are listed in the `.. toctree ::` of the page `apidocs/index.rst`.
+
+So, when migrating, you have to decide which behavior you want:
+
+- Use the new theme's style. No changes necessary.
+- Use the new theme's style, but get rid of the top level section header. To implement:
+  1. Consolidate the `.. toctree ::` directive with earlier ones so that they are all in the same `toctree`.
+- Keep the `:caption:` as an expandable folder, rather than a top-level section header. To implement:
+  1. Create a new directory and RST file like `my_folder/index.rst`.
+  2. Move the `.. toctree::` directive to that page.
+  3. Get rid of the `:caption:` option.
+  4. Link to the new file `my_folder/index.rst` in the parent `index.rst` by adding it to a `.. toctree ::` in the parent.
+
+## Tip: suggested site structure
+
+To keep UX/UI similar across different Qiskit packages, we encourage the following structure for you sidebar, which can be set in the toctree of your `index.rst`:
+
+```rst
+.. toctree::
+  :hidden:
+
+   Documentation Home <index>
+   Getting Started <getting_started>
+   Tutorials <tutorials/index>
+   How-to Guides <how_to/index>
+   API Reference <apidocs/index>
+   Explanations <explanations/index>
+   Release Notes <release_notes>
+   GitHub <https://github.com/your-repo>
+```
+
+Each item in the toctree corresponds to a single `.rst` file, and can use internal links or external. External links will have a "new tab" icon rendered next to them.
