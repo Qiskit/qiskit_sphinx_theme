@@ -94,7 +94,7 @@ docs_url_prefix = "ecosystem/finance"
 The `qiskit_sphinx_theme` extension defines the below custom directives for you to use in RST, if you'd like. See `example_docs/docs/sphinx_guide/custom_directives.rst` for examples of how to use them.
 
 * `qiskit-card`
-* `qiskit-call-to-action-item`
+* `qiskit-call-to-action-item` and `qiskit-call-to-action-grid`
 
 ![Screenshot of examples of custom directives](https://github.com/Qiskit/qiskit_sphinx_theme/assets/14852634/9c672417-6451-4547-bc36-10709f7f3880)
 

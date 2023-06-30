@@ -11531,7 +11531,7 @@ a:hover {
 * qiskit-card
 * ------------------------------------------------------------------------------- */
 
-div.qiskit-card {
+a.qiskit-card {
   position: relative;
   display: flex;
   flex: 1 1 auto;
@@ -11548,13 +11548,13 @@ div.qiskit-card {
   cursor: pointer;
 }
 @media screen and (min-width: 1240px) {
-  div.qiskit-card {
+  a.qiskit-card {
     height: 200px;
     overflow: inherit;
   }
 }
 @media (min-width: 768px) and (max-width: 1239px) {
-  div.qiskit-card {
+  a.qiskit-card {
     height: 200px;
     overflow: scroll;
   }
@@ -11596,7 +11596,7 @@ div.qiskit-card {
   opacity: .075;
 }
 
-div.qiskit-card h4 {
+a.qiskit-card h3 {
   width: 70%;
   display: inline-flex;
   margin-bottom: 1.125rem;
@@ -11605,17 +11605,17 @@ div.qiskit-card h4 {
   color: #262626;
 }
 @media screen and (min-width: 768px) {
-  div.qiskit-card h4 {
+  a.qiskit-card h3 {
     width: 75%;
   }
 }
 @media (min-width: 768px) and (max-width: 1239px) {
-  div.qiskit-card h4 {
+  a.qiskit-card h3 {
     width: 70%;
   }
 }
 
-div.qiskit-card p {
+a.qiskit-card p {
   font-size: 0.9375rem;
   line-height: 1.5rem;
   margin-bottom: 0;
@@ -11624,18 +11624,18 @@ div.qiskit-card p {
   width: 70%;
 }
 @media screen and (min-width: 768px) {
-  div.qiskit-card p {
+  a.qiskit-card p {
     width: 75%;
   }
 }
 @media (min-width: 768px) and (max-width: 1239px) {
-  div.qiskit-card p {
+  a.qiskit-card p {
     width: 70%;
   }
 }
 
 @media screen and (min-width: 768px) {
-  div.qiskit-card:after {
+  a.qiskit-card:after {
     content: "";
     display: block;
     width: 0;
@@ -11647,20 +11647,20 @@ div.qiskit-card p {
     -webkit-transition: width .250s ease-in-out;
     transition: width .250s ease-in-out;
   }
-  div.qiskit-card:hover:after {
+  a.qiskit-card:hover:after {
     width: 100%;
   }
 }
 
-div.qiskit-card:hover {
+a.qiskit-card:hover {
   background-color: #ffffff;
   border: 1px solid #e2e2e2;
   border-bottom: none;
 }
-div.qiskit-card:hover p {
+a.qiskit-card:hover p {
   color: #262626;
 }
-div.qiskit-card:hover .qiskit-card-image-container {
+a.qiskit-card:hover .qiskit-card-image-container {
   opacity: unset;
 }
 
@@ -11668,23 +11668,31 @@ div.qiskit-card:hover .qiskit-card-image-container {
 * qiskit-call-to-action
 * ------------------------------------------------------------------------------- */
 
-article.pytorch-article .tutorials-callout-container {
+.qiskit-call-to-action-grid  {
   padding-bottom: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
 }
-article.pytorch-article .tutorials-callout-container .col-md-6 {
-  padding-bottom: 10px;
+
+.qiskit-call-to-action-item {
+  flex: 0 0 50%;
+  max-width: 50%;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding: 10px 15px 20px 15px;
 }
-article.pytorch-article .tutorials-callout-container .text-container {
-  padding: 10px 0px 30px 0px;
-  padding-bottom: 10px;
-}
-article.pytorch-article .tutorials-callout-container .text-container .body-paragraph {
+
+div.qiskit-call-to-action-item p {
   color: #666666;
   font-weight: 300;
   font-size: 1.125rem;
   line-height: 1.875rem;
 }
-article.pytorch-article .tutorials-callout-container .btn.callout-button {
+
+.qiskit-call-to-action-item a {
   font-size: 1.125rem;
   border-radius: 0;
   border: none;
@@ -11693,27 +11701,38 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button {
   font-weight: 400;
   position: relative;
   letter-spacing: 0.25px;
+
+  background-size: 8px 14px;
+  background-position: center right 12px;
+  background-image: url("../images/chevron-right-purple.svg");
+  background-repeat: no-repeat;
+
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  padding: 0.375rem 0.75rem;
+  padding-right: 2em;
+  line-height: 1.5;
 }
-@media screen and (min-width: 768px) {
-  article.pytorch-article .tutorials-callout-container .btn.callout-button:after {
-    content: "";
-    display: block;
-    width: 0;
-    height: 1px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    background-color: #8B34FC;
-    -webkit-transition: width .250s ease-in-out;
-    transition: width .250s ease-in-out;
-  }
-  article.pytorch-article .tutorials-callout-container .btn.callout-button:hover:after {
-    width: 100%;
-  }
+
+.qiskit-call-to-action-item a::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 1px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #8B34FC;
+  transition: width .250s ease-in-out;
 }
-article.pytorch-article .tutorials-callout-container .btn.callout-button a {
-  color: inherit;
+
+.qiskit-call-to-action-item a:hover::after {
+  width: 100%;
 }
+
 
 .pytorch-container {
   margin: 0 auto;
