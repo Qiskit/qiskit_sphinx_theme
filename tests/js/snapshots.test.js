@@ -292,4 +292,7 @@ test("custom directives", async ({ page }) => {
   const cards = page.locator("section#qiskit-card");
   await cards.hover();
   await expect(cards).toHaveScreenshot();
+
+  const callToActions = page.locator("section#qiskit-call-to-action-item");
+  await expect(callToActions).toHaveScreenshot();
 });
