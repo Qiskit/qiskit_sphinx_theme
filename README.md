@@ -128,10 +128,11 @@ qiskit-sphinx-theme 1.13 continues to support the legacy Pytorch theme, but supp
 
 To migrate:
 
-1. In `conf.py`, set `html_theme = "qiskit"` rather than `"qiskit_sphinx_theme"`.
-2. In `conf.py`, remove all `html_theme_options`.
-3. In `conf.py`, remove `expandable_sidebar` from `html_context`, if set. If it was set, follow the below section [How to migrate expandable_sidebar](#how-to-migrate-expandablesidebar).
-4. Render the docs and check that everything looks how expected. If not, please open a GitHub issue or reach out on Slack for help.
+1. In `conf.py`, ensure that `"qiskit_sphinx_theme"` is in the `extensions` list.
+2. In `conf.py`, set `html_theme = "qiskit"` rather than `"qiskit_sphinx_theme"`.
+3. In `conf.py`, remove all `html_theme_options`.
+4. In `conf.py`, remove `expandable_sidebar` from `html_context`, if set. If it was set, follow the below section [How to migrate expandable_sidebar](#how-to-migrate-expandablesidebar).
+5. Render the docs and check that everything looks how expected. If not, please open a GitHub issue or reach out on Slack for help.
 
 Reminder: you do not have to migrate to the `qiskit` theme until qiskit-sphinx-theme 2.0. For example, you can migrate but rollback to `qiskit_sphinx_theme` if you discover there is an issue.
 
