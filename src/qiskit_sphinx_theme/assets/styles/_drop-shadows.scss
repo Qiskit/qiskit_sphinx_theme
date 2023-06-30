@@ -20,6 +20,12 @@ kbd:not(.compound) {
   border: 1px solid var(--color-table-border);
 }
 
+// Revert adding left/right borders to Sphinx Design tabs.
+:not(#specifity-war).sd-tab-content {
+  border-left: none;
+  border-right: none;
+}
+
 div:not(#specifity-war).jupyter_container {
   box-shadow: none;
   -moz-box-shadow: none;
