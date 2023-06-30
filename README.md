@@ -1,6 +1,12 @@
 # qiskit_sphinx_theme
 The Sphinx theme for the Qiskit documentation.
 
+### Warning: new theme migration
+
+In qiskit-sphinx-theme 1.13, we migrated the theme from Pytorch to Furo, which brings several improvements. The old Pytorch theme will be removed in qiskit-sphinx-theme 2.0, which we expect to release in July or August 2023.
+
+See the section [Migrate from old Pytorch theme to new theme](#migrate-from-old-pytorch-theme-to-new-theme) for migration instructions.
+
 ## Overview
 
 This repository hosts three things: 
@@ -124,11 +130,38 @@ To migrate:
 
 1. In `conf.py`, set `html_theme = "qiskit"` rather than `"qiskit_sphinx_theme"`.
 2. In `conf.py`, remove all `html_theme_options`.
-3. In `conf.py`, remove `expandable_sidebar` from `html_context`, if set.
-4. If `expandable_sidebar` was enabled, then update your `index.rst` files. The new theme always has expandable sidebars. Before, you had to have a dedicated `.. toctree::` directive for each expandable folder, along with the `:caption:` option set to the folder name. To migrate, consolidate all of your `.. toctree::` directives into one. Alternatively, you can keep the separate `.. toctree::` entries; the `:caption:` will render as a top-level header and the folder contents will be expanded.
-5. Render the docs and check that everything looks how expected. If not, please open a GitHub issue or reach out on Slack for help.
+3. In `conf.py`, remove `expandable_sidebar` from `html_context`, if set. If it was set, follow the below section [How to migrate expandable_sidebar](#how-to-migrate-expandablesidebar).
+4. Render the docs and check that everything looks how expected. If not, please open a GitHub issue or reach out on Slack for help.
 
 Reminder: you do not have to migrate to the `qiskit` theme until qiskit-sphinx-theme 2.0. For example, you can migrate but rollback to `qiskit_sphinx_theme` if you discover there is an issue.
+
+### How to migrate expandable_sidebar
+
+With the old theme, to have expandable folders, you had to have a dedicated `.. toctree ::` directive with a `:caption:` option, like this:
+
+```rst
+.. toctree::
+  :caption: My Folder
+  :hidden:
+
+  Page 1 <page1>
+  Page 2 <page2>
+```
+
+Instead, the new theme will render the `:caption:` as a top-level section header in the left sidebar, with top-level entries for each page. See the screenshot in the PR description of https://github.com/Qiskit/qiskit_sphinx_theme/pull/384 for an example of how the old theme renders `:caption:` and compare to [the new theme](https://github.com/Qiskit/qiskit_sphinx_theme/blob/main/tests/js/snapshots.test.js-snapshots/left-side-bar-renders-correctly-1-linux.png).
+
+Additionally, the new theme renders pages with their own subpages as expandable folders, unlike the old theme. [For example](https://github.com/Qiskit/qiskit_sphinx_theme/blob/main/tests/js/snapshots.test.js-snapshots/left-side-bar-renders-correctly-1-linux.png), `<apidocs/index>` will include all subpages that are listed in the `.. toctree ::` of the page `apidocs/index.rst`.
+
+So, when migrating, you have to decide which behavior you want:
+
+- Use the new theme's style. No changes necessary.
+- Use the new theme's style, but get rid of the top level section header. To implement:
+  1. Consolidate the `.. toctree ::` directive with earlier ones so that they are all in the same `toctree`.
+- Keep the `:caption:` as an expandable folder, rather than a top-level section header. To implement:
+  1. Create a new directory and RST file like `my_folder/index.rst`.
+  2. Move the `.. toctree::` directive to that page.
+  3. Get rid of the `:caption:` option.
+  4. Link to the new file `my_folder/index.rst` in the parent `index.rst` by adding it to a `.. toctree ::` in the parent.
 
 ## Tip: suggested site structure
 

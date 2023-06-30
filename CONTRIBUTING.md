@@ -48,7 +48,7 @@ We use [Tox](https://tox.wiki/en/latest/), which you will need to install global
 
 Sometimes Sphinx's caching can get in a bad state. First, try running `tox -e docs-clean`, which will remove Sphinx's cache. If you are still having issues, try adding `-r` your command, e.g. `tox -e docs -r`. `-r` tells Tox to reinstall the dependencies.
 
-We migrated the theme from Pytorch to Furo (see https://github.com/Qiskit/qiskit_sphinx_theme/issues/232). To build the legacy Pytorch theme, use `THEME=qiskit_sphinx_theme` in front of the command, e.g. `THEME=qiskit_sphinx_theme tox -e docs`.
+We migrated the theme from Pytorch to Furo in qiskit-sphinx-theme 1.13 (see https://github.com/Qiskit/qiskit_sphinx_theme/issues/232). Pytorch will be removed in 2.0. To build the legacy Pytorch theme, use `THEME=qiskit_sphinx_theme` in front of the command, e.g. `THEME=qiskit_sphinx_theme tox -e docs`.
 
 ------
 ## Visual regression testing
