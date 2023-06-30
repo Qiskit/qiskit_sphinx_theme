@@ -15,6 +15,7 @@ extensions = [
     "sphinx.ext.doctest",
     "sphinx.ext.intersphinx",
     "sphinx_toolbox.confval",
+    "qiskit_sphinx_theme",
 ]
 
 templates_path = ["_templates"]
