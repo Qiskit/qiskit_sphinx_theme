@@ -9,8 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     if: github.repository_owner == 'Qiskit'
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
         name: Install Python
         with:
           python-version: '3.8'
@@ -18,10 +18,9 @@ jobs:
         run: pip install -U twine wheel
       - name: Build Artifacts
         run: |
-          python setup.py sdist
-          python setup.py bdist_wheel
+          python -m build
         shell: bash
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           path: ./dist/qiskit*
       - name: Publish to PyPi
