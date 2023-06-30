@@ -16,7 +16,6 @@ from typing import TYPE_CHECKING
 
 from docutils import nodes
 from docutils.parsers.rst import Directive, directives
-from docutils.statemachine import StringList
 
 if TYPE_CHECKING:
     import sphinx.application
@@ -71,7 +70,7 @@ class QiskitCallToActionItemDirective(Directive):
         "button_text": directives.unchanged,
     }
 
-    def run(self) -> list[nodes.paragraph]:
+    def run(self) -> list[nodes.Element]:
         description = self.options.get("description", "")
         header = self.options.get("header")
         if header is None:
@@ -79,20 +78,15 @@ class QiskitCallToActionItemDirective(Directive):
         button_link = self.options.get("button_link", "")
         button_text = self.options.get("button_text", "")
 
-        callout_rst = f"""
-.. raw:: html
-
+        html = f"""
     <div class="qiskit-call-to-action-item">
         <h3>{header}</h3>
         <p>{description}</p>
         <a href="{button_link}">{button_text}</a>
     </div>
 """
-
-        callout_list = StringList(callout_rst.splitlines())
-        callout = nodes.paragraph()
-        self.state.nested_parse(callout_list, self.content_offset, callout)
-        return [callout]
+        node = nodes.raw("", html, format="html")
+        return [node]
 
 
 class QiskitCallToActionGridDirective(Directive):

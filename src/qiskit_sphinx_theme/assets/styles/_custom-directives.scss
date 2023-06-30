@@ -1,3 +1,17 @@
+// This creates a purple border at the bottom. We set the width to 0. The relevant rule
+// should change the width to 100% on hover so that it transitions in.
+@mixin purple-underline {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--qiskit-color-purple);
+  transition: width .250s ease-in-out;
+}
+
 // -------------------------------------------------------------------------------
 // qiskit-card
 // -------------------------------------------------------------------------------
@@ -21,18 +35,8 @@
     color: var(--color-sidebar-link-text);
   }
 
-  // This creates a purple border at the bottom. We set the width to 0, but to 100% on hover, so
-  // that it transitions in.
   &::after {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 0;
-    height: 1px;
-    bottom: 0;
-    left: 0;
-    background-color: var(--qiskit-color-purple);
-    transition: width .250s ease-in-out;
+    @include purple-underline;
   }
 
   &:hover {
@@ -77,5 +81,57 @@
   img {
     max-height: 100%;
     max-width: 100%;
+  }
+}
+
+// -------------------------------------------------------------------------------
+// qiskit-call-to-action
+// -------------------------------------------------------------------------------
+
+.qiskit-call-to-action-grid  {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.qiskit-call-to-action-item {
+  flex: 0 0 50%;
+  max-width: 50%;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  margin-bottom: 2rem;
+
+  p {
+    color: var(--color-sidebar-link-text);
+    font-size: 1.125rem;
+  }
+
+  a {
+    font-size: 1.125rem;
+    background-color: var(--color-sidebar-background);
+    color: var(--color-sidebar-link-text);
+    text-decoration: none;
+    -webkit-user-select: none;
+    user-select: none;
+
+    position: relative;
+    display: inline-block;
+    white-space: nowrap;
+    padding: 0.375rem 0.75rem;
+    padding-right: 2em;
+
+    background-size: 8px 14px;
+    background-position: center right 12px;
+    background-image: var(--qiskit-icon-chevron-right-purple);
+    background-repeat: no-repeat;
+  }
+
+  a::after {
+    @include purple-underline;
+  }
+
+  a:hover::after {
+    width: 100%;
   }
 }
