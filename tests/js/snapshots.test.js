@@ -56,10 +56,15 @@ const isVisibleInViewport = async (page, selector) => {
 /* If the content is too big for the viewport, the Qiskit top nav bar will hide the content. That
  *  has for some reason caused some flakes in CI, that the nav bar very minorly changes its
  *  position. And it's generally annoying to hide the content we care about. */
-const hideTopNavBar = async (page) => {
+const hideTopNavBar = async (page, mobile = false) => {
   await page
     .locator("qiskit-ui-shell")
     .evaluate((el) => (el.style.display = "none"));
+  if (mobile) {
+    await page
+      .locator(".mobile-header")
+      .evaluate((el) => (el.style.display = "none"));
+  }
 };
 
 // -----------------------------------------------------------------------
@@ -294,5 +299,10 @@ test("custom directives", async ({ page }) => {
   await expect(cards).toHaveScreenshot();
 
   const callToActions = page.locator("section#qiskit-call-to-action-item");
+  await expect(callToActions).toHaveScreenshot();
+
+  await setMobile(page);
+  await hideTopNavBar(page, true);
+  await expect(cards).toHaveScreenshot();
   await expect(callToActions).toHaveScreenshot();
 });

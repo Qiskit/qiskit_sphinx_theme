@@ -8,16 +8,16 @@ qiskit-call-to-action-item
 .. qiskit-call-to-action-grid::
 
     .. qiskit-call-to-action-item::
-       :header: Go back to qiskit.org!
-       :description: That's a cool site too :)
+       :header: Go back to qiskit.org! Some more long text for overflow.
+       :description: That's a cool site too :) Some long text to see what happens with overflowing!
        :button_link:  https://qiskit.org
-       :button_text: qiskit.org
+       :button_text: Really long text that overwraps on mobile
 
     .. qiskit-call-to-action-item::
        :header: CTA #2
        :description: Call me, maybe?
        :button_link:  https://qiskit.org
-       :button_text: qiskit.org
+       :button_text: Buttons are fun
 
     .. qiskit-call-to-action-item::
        :header: CTA #3
