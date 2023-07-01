@@ -60,6 +60,10 @@ if _THEME == "qiskit_sphinx_theme":
     }
     # Sets a better style for code syntax highlighting.
     pygments_style = "colorful"
+else:
+    # Most projects need to set `navigation_depth` to 1 or 2 to build quickly enough. We're
+    # fine with the default of -1, but this tests that setting the option works.
+    html_theme_options = {"navigation_depth": 2}
 
 html_context = {
     # Add "Was this page useful?" to the footer.

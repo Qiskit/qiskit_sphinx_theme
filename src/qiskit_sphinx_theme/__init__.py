@@ -13,7 +13,9 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Any
+
+from furo.navigation import get_navigation_tree
 
 from qiskit_sphinx_theme import directives, previous_releases, translations
 
@@ -35,7 +37,7 @@ def remove_thebe_if_not_needed(
     app: sphinx.application.Sphinx,
     pagename: str,
     templatename: str,
-    context: dict,
+    context: dict[str, Any],
     doctree: sphinx.addnodes.document,
 ) -> None:
     """
@@ -78,6 +80,28 @@ def activate_themes(app: sphinx.application.Sphinx, config: sphinx.config.Config
         app.setup_extension("sphinxcontrib.jquery")
 
 
+def override_furo_toc(
+    app: sphinx.application.Sphinx,
+    pagename: str,
+    templatename: str,
+    context: dict[str, Any],
+    doctree: sphinx.addnodes.document,
+) -> None:
+    """Furo always fully expands its table of contents, which takes way too long to build docs
+    for most Qiskit projects."""
+    if "toctree" in context:
+        toctree = context["toctree"]
+        toctree_html = toctree(
+            collapse=False,
+            titles_only=True,
+            maxdepth=app.config.html_theme_options.get("navigation_depth", 2),
+            includehidden=True,
+        )
+    else:
+        toctree_html = ""
+    context["furo_navigation_tree"] = get_navigation_tree(toctree_html)
+
+
 # See https://www.sphinx-doc.org/en/master/development/theming.html
 def setup(app: sphinx.application.Sphinx) -> dict[str, bool]:
     # Used to generate URL references. Expected to be e.g. `ecosystem/finance`.
@@ -94,7 +118,8 @@ def setup(app: sphinx.application.Sphinx) -> dict[str, bool]:
     app.add_html_theme("qiskit_sphinx_theme", _get_theme_absolute_path("pytorch"))
     app.add_html_theme("qiskit", _get_theme_absolute_path("theme/qiskit-sphinx-theme"))
 
-    app.connect("html-page-context", remove_thebe_if_not_needed)
     app.connect("config-inited", activate_themes)
+    app.connect("html-page-context", override_furo_toc, priority=600)
+    app.connect("html-page-context", remove_thebe_if_not_needed)
 
     return {"parallel_read_safe": True, "parallel_write_safe": True}

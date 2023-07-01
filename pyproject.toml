@@ -65,7 +65,7 @@ check_untyped_defs = true
 
 [[tool.mypy.overrides]]
 module = [
-    "furo",
+    "furo.*",
     "jupyter_sphinx.thebelab"
 ]
 ignore_missing_imports = true
