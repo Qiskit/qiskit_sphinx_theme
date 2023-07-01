@@ -294,6 +294,8 @@ test("Jupyter works with copybutton", async ({ page }) => {
 
 test("custom directives", async ({ page }) => {
   await page.goto("sphinx_guide/custom_directives.html");
+  await hideTopNavBar(page, true);
+
   const cards = page.locator("section#qiskit-card");
   await cards.hover();
   await expect(cards).toHaveScreenshot();
@@ -302,7 +304,6 @@ test("custom directives", async ({ page }) => {
   await expect(callToActions).toHaveScreenshot();
 
   await setMobile(page);
-  await hideTopNavBar(page, true);
   await expect(cards).toHaveScreenshot();
   await expect(callToActions).toHaveScreenshot();
 });

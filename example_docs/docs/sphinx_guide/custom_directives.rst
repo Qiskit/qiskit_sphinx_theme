@@ -30,8 +30,8 @@ qiskit-card
 ===========
 
 .. qiskit-card::
-  :header: IBM Quantum Lab
-  :card_description: Build quantum applications and experiments with Qiskit in a cloud programming environment.
+  :header: IBM Quantum Lab is the best lab around! Utility FTW.
+  :card_description: Build quantum applications and experiments with Qiskit in a cloud programming environment. Some more text to try out wrapping.
   :image: ../_static/ibm_qlab.png
   :link: https://quantum-computing.ibm.com/
 
