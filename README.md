@@ -39,7 +39,7 @@ Then, set up the theme by updating `conf.py`:
 
 ## Slow Sphinx build? Limit `navigation_depth`
 
-By default, every subpage is included in the left table of contents. This can result in incredibly slow build times, especially when you have API documentation.
+By default, every subpage is included in the left table of contents. This can result in incredibly slow build times, especially when you have API documentation. It can also substantially increase the size of your HTML pages, which worsens the load time for the site.
 
 You can speed up your build by setting `navigation_depth` in `html_theme_options` in `conf.py` to a number like `1` or `2`:
 
@@ -47,7 +47,17 @@ You can speed up your build by setting `navigation_depth` in `html_theme_options
 html_theme_options = {"navigation_depth": 2}
 ```
 
-However, keep in mind that it is usually a nicer experience for users to have subpages rendered because it makes it easier to navigate the site. So, experiment with a value like `2` or `3` that balances Sphinx build speed with the user experience. Nevertheless, some projects like Qiskit have so many subpages that they will need to set `1`, which is okay.
+However, keep in mind that it is usually a nicer experience for users to have subpages rendered because it makes it easier to navigate the site. So, experiment with a value like `2` or `3` that balances Sphinx build speed with the user experience. Nevertheless, some projects like Qiskit have so many subpages that they may need to set `1`, which is okay.
+
+Another option is to dynamically set the `navigation_depth` by using environment variables; set a lower value in development and a higher value or `-1` in production builds. For example, set up your `conf.py` like this:
+
+```python
+import os
+
+html_theme_options = {
+   "navigation_depth": os.getenv("NAVIGATION_DEPTH", 1)
+}
+```
 
 ## Enable translations
 
