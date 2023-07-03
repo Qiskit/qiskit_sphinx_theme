@@ -1,26 +1,17 @@
 /*!*****************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./src/qiskit_sphinx_theme/assets/styles/qiskit-sphinx-theme.scss ***!
   \*****************************************************************************************************************************************************************************************************************/
-body {
-  --qiskit-color-admonition-info--background: #edf5ff;
-  --qiskit-color-admonition-info--border: #0043ce;
-  --qiskit-color-admonition-warning--background: #fcf4d6;
-  --qiskit-color-admonition-warning--border: #f1c21b;
-  --qiskit-color-admonition-error--background: #fff1f1;
-  --qiskit-color-admonition-error--border: #da1e28;
-}
-
 .topic {
-  border: 1px solid var(--qiskit-color-admonition-info--background);
+  border: 1px solid #edf5ff;
 }
 
 p.topic-title {
-  background-color: var(--qiskit-color-admonition-info--background);
+  background-color: #edf5ff;
 }
 p.topic-title::before {
   -webkit-mask-image: var(--icon-info);
   mask-image: var(--icon-info);
-  background-color: var(--qiskit-color-admonition-info--border);
+  background-color: #0043ce;
 }
 
 .admonition {
@@ -45,19 +36,19 @@ p.topic-title::before {
 .admonition.caution,
 .admonition.important,
 .admonition.warning {
-  border-color: var(--qiskit-color-admonition-warning--background);
+  border-color: #fcf4d6;
 }
 .admonition.attention::before,
 .admonition.caution::before,
 .admonition.important::before,
 .admonition.warning::before {
-  background: var(--qiskit-color-admonition-warning--border);
+  background: #f1c21b;
 }
 .admonition.attention > .admonition-title,
 .admonition.caution > .admonition-title,
 .admonition.important > .admonition-title,
 .admonition.warning > .admonition-title {
-  background-color: var(--qiskit-color-admonition-warning--background);
+  background-color: #fcf4d6;
 }
 .admonition.attention > .admonition-title::before,
 .admonition.caution > .admonition-title::before,
@@ -66,45 +57,45 @@ p.topic-title::before {
   content: var(--icon-warning);
   -webkit-mask-image: unset;
   mask-image: unset;
-  background-color: var(--qiskit-color-admonition-warning--background);
+  background-color: #fcf4d6;
 }
 
 .admonition.danger,
 .admonition.error {
-  border-color: var(--qiskit-color-admonition-error--background);
+  border-color: #fff1f1;
 }
 .admonition.danger::before,
 .admonition.error::before {
-  background: var(--qiskit-color-admonition-error--border);
+  background: #da1e28;
 }
 .admonition.danger > .admonition-title,
 .admonition.error > .admonition-title {
-  background-color: var(--qiskit-color-admonition-error--background);
+  background-color: #fff1f1;
 }
 .admonition.danger > .admonition-title::before,
 .admonition.error > .admonition-title::before {
   -webkit-mask-image: var(--icon-failure);
   mask-image: var(--icon-failure);
-  background-color: var(--qiskit-color-admonition-error--border);
+  background-color: #da1e28;
 }
 
 .admonition,
 .admonition.hint,
 .admonition.note,
 .admonition.tip {
-  border-color: var(--qiskit-color-admonition-info--background);
+  border-color: #edf5ff;
 }
 .admonition::before,
 .admonition.hint::before,
 .admonition.note::before,
 .admonition.tip::before {
-  background: var(--qiskit-color-admonition-info--border);
+  background: #0043ce;
 }
 .admonition > .admonition-title,
 .admonition.hint > .admonition-title,
 .admonition.note > .admonition-title,
 .admonition.tip > .admonition-title {
-  background-color: var(--qiskit-color-admonition-info--background);
+  background-color: #edf5ff;
 }
 .admonition > .admonition-title::before,
 .admonition.hint > .admonition-title::before,
@@ -112,7 +103,7 @@ p.topic-title::before {
 .admonition.tip > .admonition-title::before {
   -webkit-mask-image: var(--icon-info);
   mask-image: var(--icon-info);
-  background-color: var(--qiskit-color-admonition-info--border);
+  background-color: #0043ce;
 }
 
 body {
@@ -541,10 +532,6 @@ table.align-default {
   margin-left: 0;
 }
 
-body {
-  --qiskit-top-nav-bar-height: 3.5rem;
-}
-
 .theme-toggle-container {
   display: none;
 }
@@ -558,38 +545,38 @@ div.header-left svg use {
 .toc-sticky,
 #__navigation:checked ~ .page .sidebar-drawer,
 #__toc:checked ~ .page .toc-drawer {
-  top: var(--qiskit-top-nav-bar-height);
+  top: 3.5rem;
 }
 
 @media (max-width: 67em) {
   .sidebar-drawer {
-    top: var(--qiskit-top-nav-bar-height);
+    top: 3.5rem;
   }
 }
 @media (max-width: 82em) {
   .toc-drawer {
-    top: var(--qiskit-top-nav-bar-height);
+    top: 3.5rem;
   }
 }
 .sidebar-sticky,
 .toc-sticky {
-  height: calc(100vh - var(--qiskit-top-nav-bar-height));
+  height: calc(100vh - 3.5rem);
 }
 
 .toc-scroll {
-  max-height: calc(100vh - var(--qiskit-top-nav-bar-height));
+  max-height: calc(100vh - 3.5rem);
 }
 
 :target {
-  scroll-margin-top: var(--qiskit-top-nav-bar-height);
+  scroll-margin-top: 3.5rem;
 }
 
 @media (max-width: 67em) {
   :target {
-    scroll-margin-top: calc(0.5rem + var(--header-height) + var(--qiskit-top-nav-bar-height));
+    scroll-margin-top: calc(0.5rem + var(--header-height) + 3.5rem);
   }
   section > span:target {
-    scroll-margin-top: calc(0.8rem + var(--header-height) + var(--qiskit-top-nav-bar-height));
+    scroll-margin-top: calc(0.8rem + var(--header-height) + 3.5rem);
   }
 }
 .toc-tree li.scroll-current > .reference {
