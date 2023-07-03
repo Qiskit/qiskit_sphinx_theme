@@ -336,37 +336,35 @@ body {
   --qiskit-icon-chevron-right-purple: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3Adc%3D%22http%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%22%20xmlns%3Acc%3D%22http%3A%2F%2Fcreativecommons.org%2Fns%23%22%20xmlns%3Ardf%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%22%20xmlns%3Asvg%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Asodipodi%3D%22http%3A%2F%2Fsodipodi.sourceforge.net%2FDTD%2Fsodipodi-0.dtd%22%20xmlns%3Ainkscape%3D%22http%3A%2F%2Fwww.inkscape.org%2Fnamespaces%2Finkscape%22%20version%3D%221.1%22%20id%3D%22Layer_1%22%20x%3D%220px%22%20y%3D%220px%22%20viewBox%3D%220.3%200.3%208.2%2014.4%22%20enable-background%3D%22new%200.3%200.3%208.2%2014.4%22%20xml%3Aspace%3D%22preserve%22%20sodipodi%3Adocname%3D%22chevron-right-purple.svg%22%20inkscape%3Aversion%3D%221.0.1%20%28c497b03c%2C%202020-09-10%29%22%3E%3Cmetadata%20id%3D%22metadata847%22%3E%3Crdf%3ARDF%3E%3Ccc%3AWork%20rdf%3Aabout%3D%22%22%3E%3Cdc%3Aformat%3Eimage%2Fsvg%2Bxml%3C%2Fdc%3Aformat%3E%3Cdc%3Atype%20rdf%3Aresource%3D%22http%3A%2F%2Fpurl.org%2Fdc%2Fdcmitype%2FStillImage%22%20%2F%3E%3C%2Fcc%3AWork%3E%3C%2Frdf%3ARDF%3E%3C%2Fmetadata%3E%3Cdefs%20id%3D%22defs845%22%3E%3C%2Fdefs%3E%3Csodipodi%3Anamedview%20pagecolor%3D%22%23ffffff%22%20bordercolor%3D%22%23666666%22%20borderopacity%3D%221%22%20objecttolerance%3D%2210%22%20gridtolerance%3D%2210%22%20guidetolerance%3D%2210%22%20inkscape%3Apageopacity%3D%220%22%20inkscape%3Apageshadow%3D%222%22%20inkscape%3Awindow-width%3D%221237%22%20inkscape%3Awindow-height%3D%22480%22%20id%3D%22namedview843%22%20showgrid%3D%22false%22%20inkscape%3Azoom%3D%2251.041667%22%20inkscape%3Acx%3D%224.1%22%20inkscape%3Acy%3D%227.2%22%20inkscape%3Awindow-x%3D%220%22%20inkscape%3Awindow-y%3D%2223%22%20inkscape%3Awindow-maximized%3D%220%22%20inkscape%3Acurrent-layer%3D%22cta%22%2F%3E%3Ctitle%20id%3D%22title833%22%3EPage%201%3C%2Ftitle%3E%3Cdesc%20id%3D%22desc835%22%3ECreated%20with%20Sketch.%3C%2Fdesc%3E%3Cg%20id%3D%22desktop%22%3E%3Cg%20id%3D%22_x30_1_x5F_Home%22%20transform%3D%22translate%28-864.000000%2C%20-1683.000000%29%22%3E%3Cg%20id%3D%22cta%22%20transform%3D%22translate%28723%2C1668%29%22%3E%3Cpolyline%20id%3D%22Page-1%22%20fill%3D%22none%22%20stroke%3D%22%23ee4c2c%22%20stroke-width%3D%222%22%20points%3D%22142%2C16%20148.1%2C22.5%20142%2C29%22%20style%3D%22stroke%3A%236929C4%3Bstroke-opacity%3A1%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E");
 }
 
-body {
-  --qiskit-left-sidebar-width: 18em;
-}
-
 @media (min-width: 97em) {
   html {
     font-size: 100%;
   }
 }
 .sidebar-drawer {
-  flex: 0 0 var(--qiskit-left-sidebar-width);
-  width: var(--qiskit-left-sidebar-width);
-  min-width: var(--qiskit-left-sidebar-width);
+  flex: 0 0 18em;
+  width: 18em;
+  min-width: 18em;
 }
 @media (max-width: 67em) {
   .sidebar-drawer {
-    left: calc(var(--qiskit-left-sidebar-width) * -1);
+    left: -18em;
   }
 }
 
 .sidebar-container {
-  width: var(--qiskit-left-sidebar-width);
+  width: 18em;
 }
 
 .content {
-  flex: 1 1 46em;
+  flex: 1 1 43em;
+  width: 43em;
   max-width: 60em;
 }
 
 .toc-drawer {
   flex: 0 0 15em;
+  min-width: 15em;
 }
 
 body {
