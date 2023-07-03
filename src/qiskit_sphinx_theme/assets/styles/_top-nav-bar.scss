@@ -1,5 +1,8 @@
 // This value is duplicated from `top-nav-bar.js`. Its definition of the variable is not
 // exposed globally. Keep in sync.
+//
+// Also keep in sync with `qiskit-sphinx-theme.js`, which adds the top nav bar
+// in the function `setupScrollSpy`.
 $top-nav-bar-height: 3.5rem;
 
 // Disable dark mode until qiskit.org has it: https://github.com/Qiskit/qiskit.org/issues/2310
@@ -57,11 +60,4 @@ div.header-left svg use {
   section > span:target {
     scroll-margin-top: calc(0.8rem + var(--header-height) + $top-nav-bar-height);
   }
-}
-
-// Turn off highlighting of the current page until we can properly solve
-// https://github.com/Qiskit/qiskit_sphinx_theme/issues/368.
-.toc-tree li.scroll-current > .reference {
-  color: var(--color-toc-item-text);
-  font-weight: unset;
 }
