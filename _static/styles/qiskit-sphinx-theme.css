@@ -583,11 +583,6 @@ div.header-left svg use {
     scroll-margin-top: calc(0.8rem + var(--header-height) + 3.5rem);
   }
 }
-.toc-tree li.scroll-current > .reference {
-  color: var(--color-toc-item-text);
-  font-weight: unset;
-}
-
 body {
   --font-stack: "IBM Plex Sans", "Roboto", "Helvetica Neue", "Arial", sans-serif;
   --font-stack--monospace: "IBM Plex Mono", "Consolas", "Courier New", monospace;
