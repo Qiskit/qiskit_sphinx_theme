@@ -71,11 +71,23 @@ def activate_themes(app: sphinx.application.Sphinx, config: sphinx.config.Config
     if config.html_theme == "qiskit":
         # We set a low priority so that our Qiskit CSS file overrides Furo.
         app.add_css_file("styles/furo.css", 100)
-        app.add_js_file("scripts/furo.js")
+        app.add_js_file("scripts/qiskit-sphinx-theme.js")
     else:
         # Sphinx 6 stopped including jQuery by default. Our Pytorch theme depend on jQuery,
         # so activate it for our users automatically.
         app.setup_extension("sphinxcontrib.jquery")
+
+
+def remove_furo_js(
+    app: sphinx.application.Sphinx,
+    pagename: str,
+    templatename: str,
+    context: dict,
+    doctree: sphinx.addnodes.document,
+) -> None:
+    context["script_files"] = [
+        js_file for js_file in context["script_files"] if js_file != "_static/scripts/furo.js"
+    ]
 
 
 # See https://www.sphinx-doc.org/en/master/development/theming.html
@@ -94,7 +106,8 @@ def setup(app: sphinx.application.Sphinx) -> dict[str, bool]:
     app.add_html_theme("qiskit_sphinx_theme", _get_theme_absolute_path("pytorch"))
     app.add_html_theme("qiskit", _get_theme_absolute_path("theme/qiskit-sphinx-theme"))
 
-    app.connect("html-page-context", remove_thebe_if_not_needed)
     app.connect("config-inited", activate_themes)
+    app.connect("html-page-context", remove_furo_js, priority=600)
+    app.connect("html-page-context", remove_thebe_if_not_needed)
 
     return {"parallel_read_safe": True, "parallel_write_safe": True}
