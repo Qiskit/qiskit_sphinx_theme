@@ -51,20 +51,8 @@ body {
   flex: 0 0 15em;
 }
 
-// Without this, long text breaks the site layout. This is especially a problem in API docs
-// with long headers. Simplify if
-// https://github.com/pradyunsg/furo/pull/670 gets merged and released.
-//
-// But, we keep tables without wrapping because they already have horizontal scrolling that works
-// correctly. The horizontal scroll is consistent with qiskit.org.
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p:not(table p),
-a:not(table a) {
+// Remove once https://github.com/pradyunsg/furo/commit/c8b51d09af3dcaac3046f7e761119e9d1b7c9e37
+// is released.
+article {
   overflow-wrap: break-word;
-  word-break: break-word;
 }
