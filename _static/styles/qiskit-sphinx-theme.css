@@ -358,6 +358,10 @@ body {
   min-width: 15em;
 }
 
+article {
+  overflow-wrap: break-word;
+}
+
 body {
   --color-sidebar-link-text--top-level: var(--color-sidebar-link-text);
   --color-sidebar-item-background--hover: #efeff4;
@@ -587,15 +591,6 @@ div.header-left svg use {
 body {
   --font-stack: "IBM Plex Sans", "Roboto", "Helvetica Neue", "Arial", sans-serif;
   --font-stack--monospace: "IBM Plex Mono", "Consolas", "Courier New", monospace;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  overflow-wrap: break-word;
 }
 
 h1,
