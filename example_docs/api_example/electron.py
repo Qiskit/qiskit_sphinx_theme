@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import re
 from typing import overload
 
 
@@ -14,6 +15,9 @@ class Electron:
 
             ELECTRON = Electron(size="2GB", name="QuantumComputing")
     """
+
+    # Regression test for https://github.com/Qiskit/qiskit_sphinx_theme/issues/50.
+    CLASS_ATTRIBUTE = re.compile("abc")
 
     def __init__(self, size: str = None, name: str = None) -> None:
         """Create an electron.
