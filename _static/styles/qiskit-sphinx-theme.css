@@ -153,7 +153,8 @@ dl.py dd p.rubric {
   position: relative;
   display: flex;
   justify-content: space-between;
-  height: 12rem;
+  align-items: flex-start;
+  min-height: 12rem;
   margin-bottom: 1.875rem;
   border: 1px solid var(--color-table-border);
   background-color: var(--color-sidebar-background);
@@ -202,11 +203,22 @@ dl.py dd p.rubric {
   width: 20rem;
   opacity: 0.7;
   display: flex;
+  align-self: center;
   align-items: center;
   justify-content: flex-end;
 }
+@media (max-width: 67em) {
+  .qiskit-card-image-container {
+    width: 15rem;
+  }
+}
+@media (max-width: 40em) {
+  .qiskit-card-image-container {
+    width: 10rem;
+  }
+}
 .qiskit-card-image-container img {
-  max-height: 100%;
+  object-fit: contain;
   max-width: 100%;
 }
 
@@ -223,6 +235,14 @@ dl.py dd p.rubric {
   position: relative;
   width: 100%;
   margin-bottom: 2rem;
+  padding-right: 3rem;
+}
+@media (max-width: 67em) {
+  .qiskit-call-to-action-item {
+    flex-basis: 100%;
+    max-width: 100%;
+    padding-right: 0;
+  }
 }
 .qiskit-call-to-action-item p {
   color: var(--color-sidebar-link-text);
@@ -237,7 +257,6 @@ dl.py dd p.rubric {
   user-select: none;
   position: relative;
   display: inline-block;
-  white-space: nowrap;
   padding: 0.375rem 0.75rem;
   padding-right: 2em;
   background-size: 8px 14px;
