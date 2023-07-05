@@ -15,11 +15,6 @@
 // Furo's default values for `width` and `min-width` for the .sidebar-drawer because it's necessary
 // for spacing to work properly.
 
-body {
-  // This defaults to 15em in Furo, but we want a little bigger.
-  --qiskit-left-sidebar-width: 18em;
-}
-
 // Disable Furo making the whole site larger on big screens. This results in `rem` having a
 // bigger size, so things like the Qiskit top nav bar getting bigger, which we don't like.
 @media (min-width: 97em) {
@@ -28,25 +23,38 @@ body {
   }
 }
 
+$left-sidebar-width: 18em;  // Furo defaults to 15em, but we want a little bigger.
+$content-width: 43em;  // Furo defaults to 46em.
+$content-max-width: 60em;
+$right-sidebar-width: 15em;  // Default in Furo.
+
 .sidebar-drawer {
-  flex: 0 0 var(--qiskit-left-sidebar-width);
-  width: var(--qiskit-left-sidebar-width);
-  min-width: var(--qiskit-left-sidebar-width);
+  flex: 0 0 $left-sidebar-width;
+  width: $left-sidebar-width;
+  min-width: $left-sidebar-width;
 
   @media (max-width: 67em) {
-    left: calc(var(--qiskit-left-sidebar-width) * -1);
+    left: calc($left-sidebar-width * -1);
   }
 }
 
 .sidebar-container {
-  width: var(--qiskit-left-sidebar-width);
+  width: $left-sidebar-width;
 }
 
 .content {
-  flex: 1 1 46em;
-  max-width: 60em;
+  flex: 1 1 $content-width;
+  width: $content-width;
+  max-width: $content-max-width;
 }
 
 .toc-drawer {
-  flex: 0 0 15em;
+  flex: 0 0 $right-sidebar-width;
+  min-width: $right-sidebar-width;
+}
+
+// Remove once https://github.com/pradyunsg/furo/commit/c8b51d09af3dcaac3046f7e761119e9d1b7c9e37
+// is released.
+article {
+  overflow-wrap: break-word;
 }

@@ -1,29 +1,27 @@
 // We use https://carbondesignsystem.com/components/notification/style/ for admonitions
-// (e.g. warning boxes). We don't use the Success admonition though.
+// (e.g. warning boxes. We don't use the Success admonition though.
 
-body {
-    // See https://carbondesignsystem.com/guidelines/color/usage and
-    // https://carbondesignsystem.com/components/notification/style/ for where these colors
-    // come from.
-    --qiskit-color-admonition-info--background: #edf5ff;
-    --qiskit-color-admonition-info--border: #0043ce;
-    --qiskit-color-admonition-warning--background: #fcf4d6;
-    --qiskit-color-admonition-warning--border: #f1c21b;
-    --qiskit-color-admonition-error--background: #fff1f1;
-    --qiskit-color-admonition-error--border: #da1e28;
-}
+// See https://carbondesignsystem.com/guidelines/color/usage and
+// https://carbondesignsystem.com/components/notification/style/ for where these colors
+// come from.
+$info-background: #edf5ff;
+$info-border: #0043ce;
+$warning-background: #fcf4d6;
+$warning-border: #f1c21b;
+$error-background: #fff1f1;
+$error-border: #da1e28;
 
 .topic {
-  border: 1px solid var(--qiskit-color-admonition-info--background);
+  border: 1px solid $info-background;
 }
 
 p.topic-title {
-  background-color: var(--qiskit-color-admonition-info--background);
+  background-color: $info-background;
 
   &::before {
     -webkit-mask-image: var(--icon-info);
     mask-image: var(--icon-info);
-    background-color: var(--qiskit-color-admonition-info--border);
+    background-color: $info-border;
   }
 }
 
@@ -59,14 +57,14 @@ p.topic-title {
 .admonition.caution,
 .admonition.important,
 .admonition.warning {
-  border-color: var(--qiskit-color-admonition-warning--background);
+  border-color: $warning-background;
 
   &::before {
-    background: var(--qiskit-color-admonition-warning--border);
+    background: $warning-border;
   }
 
   > .admonition-title {
-    background-color: var(--qiskit-color-admonition-warning--background);
+    background-color: $warning-background;
   }
 
   > .admonition-title::before {
@@ -79,26 +77,26 @@ p.topic-title {
     content: var(--icon-warning);
     -webkit-mask-image: unset;
     mask-image: unset;
-    background-color: var(--qiskit-color-admonition-warning--background);
+    background-color: $warning-background;
   }
 }
 
 .admonition.danger,
 .admonition.error {
-  border-color: var(--qiskit-color-admonition-error--background);
+  border-color: $error-background;
 
   &::before {
-    background: var(--qiskit-color-admonition-error--border);
+    background: $error-border;
   }
 
   > .admonition-title {
-    background-color: var(--qiskit-color-admonition-error--background);
+    background-color: $error-background;
   }
 
   > .admonition-title::before {
     -webkit-mask-image: var(--icon-failure);
     mask-image: var(--icon-failure);
-    background-color: var(--qiskit-color-admonition-error--border);
+    background-color: $error-border;
   }
 }
 
@@ -106,19 +104,19 @@ p.topic-title {
 .admonition.hint,
 .admonition.note,
 .admonition.tip {
-  border-color: var(--qiskit-color-admonition-info--background);
+  border-color: $info-background;
 
   &::before {
-    background: var(--qiskit-color-admonition-info--border);
+    background: $info-border;
   }
 
   > .admonition-title {
-    background-color: var(--qiskit-color-admonition-info--background);
+    background-color: $info-background;
   }
 
   > .admonition-title::before {
     -webkit-mask-image: var(--icon-info);
     mask-image: var(--icon-info);
-    background-color: var(--qiskit-color-admonition-info--border);
+    background-color: $info-border;
   }
 }
