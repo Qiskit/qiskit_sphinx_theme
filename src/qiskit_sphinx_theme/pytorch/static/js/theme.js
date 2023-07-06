@@ -1,3 +1,16 @@
+/* This code is part of Qiskit.
+ *
+ * (C) Copyright IBM 2023.
+ *
+ * This code is licensed under the Apache License, Version 2.0. You may
+ * obtain a copy of this license in the LICENSE.txt file in the root directory
+ * of this source tree or at http://www.apache.org/licenses/LICENSE-2.0.
+ *
+ * Any modifications or derivative works of this code must retain this
+ * copyright notice, and modified files need to carry a notice indicating
+ * that they have been altered from the originals.
+ */
+
 derlinkrequire=(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 window.utilities = {
   scrollTop: function() {
