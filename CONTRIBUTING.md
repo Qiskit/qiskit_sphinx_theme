@@ -141,8 +141,12 @@ We try to keep changes to a minimum because every divergence we make from base F
 Copy the HTML template from Furo and save it in the same file path. Then, at the top of the file, add this header:
 
 ```
-{#- This file is vendored from Furo. When adding custom Qiskit code, surround it with
-`QISKIT CHANGE: start` and `QISKIT CHANGE: end` Jinja-style comments. -#}
+{#-
+  This file is vendored from Furo (created by Pradyun Gedam) and used under the MIT license.
+
+  When adding custom Qiskit code, surround it with `QISKIT CHANGE: start` and
+  `QISKIT CHANGE: end` Jinja-style comments.
+-#}
 ```
 
 When making changes, use those comments to make clear where and what we changed. For example:
