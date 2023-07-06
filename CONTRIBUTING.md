@@ -142,7 +142,7 @@ Copy the HTML template from Furo and save it in the same file path. Then, at the
 
 ```
 {#-
-  This file is vendored from Furo by Pradyun Gedam, used under the MIT license.
+  This file is vendored from Furo (created by Pradyun Gedam) and used under the MIT license.
 
   When adding custom Qiskit code, surround it with `QISKIT CHANGE: start` and
   `QISKIT CHANGE: end` Jinja-style comments.

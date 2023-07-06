@@ -1,4 +1,4 @@
-/*! This file is vendored from Furo by Pradyun Gedam, used under the MIT license. */
+/*! This file is vendored from Furo (created by Pradyun Gedam) and used under the MIT license. */
 /*!
  * gumshoejs v5.1.2 (patched by @pradyunsg)
  * A simple, framework-agnostic scrollspy script.
