@@ -1,4 +1,4 @@
-// Vendored exactly from Furo's `assets/scripts/gumshoe-patched.js`.
+/*! This file is vendored from Furo by Pradyun Gedam, used under the MIT license. */
 /*!
  * gumshoejs v5.1.2 (patched by @pradyunsg)
  * A simple, framework-agnostic scrollspy script.

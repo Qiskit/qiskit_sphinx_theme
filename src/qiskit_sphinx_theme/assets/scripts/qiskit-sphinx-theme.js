@@ -1,5 +1,5 @@
-// This file is vendored from Furo's `assets/scripts/furo.js`. When adding custom Qiskit code,
-// surround it with `QISKIT CHANGE: start` and `QISKIT CHANGE: end` comments.
+/*! This file is vendored from Furo by Pradyun Gedam, used under the MIT license. */
+// When making changes, surround it with `QISKIT CHANGE: start` and `QISKIT CHANGE: end` comments.
 
 import Gumshoe from "./gumshoe-patched.js";
 
