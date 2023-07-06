@@ -11,6 +11,10 @@
  * that they have been altered from the originals.
  */
 
+// Import the base Furo style
+@import "furo";
+
+// Import our overrides.
 @import "admonitions";
 @import "api";
 @import "custom-directives";

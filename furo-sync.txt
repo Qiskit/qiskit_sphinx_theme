@@ -1,0 +1,3 @@
+# The commit from Furo from the last time we synced with upstream.
+# See CONTRIBUTING.md's section `How to sync with upstream Furo`.
+834e951

@@ -65,9 +65,3 @@ $right-sidebar-width: 15em;  // Default in Furo.
   flex: 0 0 $right-sidebar-width;
   min-width: $right-sidebar-width;
 }
-
-// Remove once https://github.com/pradyunsg/furo/commit/c8b51d09af3dcaac3046f7e761119e9d1b7c9e37
-// is released.
-article {
-  overflow-wrap: break-word;
-}

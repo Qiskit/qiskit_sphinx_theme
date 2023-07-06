@@ -19,6 +19,7 @@ There are a few important subfolders to be aware of:
 This subfolder contains the HTML, CSS, and Python files that are used for the Qiskit themes. It has these folders:
 
 * `assets`: CSS and JavaScript for our Furo theme, which is the future of the Sphinx theme.
+* `furo_py`: Python initialization code vendored from the Furo theme.
 * `pytorch`: all the code for the legacy Pytorch theme.
 * `theme`: static files, like HTML templates, for our Furo theme.
 
@@ -131,14 +132,18 @@ We upload the docs builds to CI. So, you can download what the site will look li
 Contributors with write access can also use live previews of the docs: GitHub will deploy a website using your changes. To use live previews, push your branch to `upstream` rather than your fork. GitHub will leave a comment with the link to the site. Please prefix your branch name with your initials, e.g. `EA/add-translations`, for good Git hygiene.
 
 ------
-## FYI: How Furo Theme Inheritance Works
+## FYI: Vendoring Furo
 
-We use Sphinx's inheritance future for our Furo theme, which we set in `theme/qiskit-sphinx-theme/theme.conf`. Sphinx will default to using all the files from Furo. But if we have a file with the same name as Furo, then Sphinx will use our copy. That allows us to override only what we care about.
+We vendor [Furo](https://github.com/pradyunsg/furo), meaning that we copy its code into this project. This allows us to make some changes that we could not easily do via Sphinx's alternative of using "theme inheritance".
 
-We try to keep changes to a minimum because every divergence we make from base Furo increases our maintenance burden. Hence we prioritise only making changes that are important to the Qiskit brand. If the change would be generally useful to other users of Furo, we try to contribute upstream to the Furo project itself.
+To keep it clear what is base Furo vs. our code, every vendored file has either one of these two styles of comments:
 
-### How to change HTML
-Copy the HTML template from Furo and save it in the same file path. Then, at the top of the file, add this header:
+```
+{#-
+  This file is vendored from Furo (created by Pradyun Gedam) and used under the MIT license.
+  It should have no changes.
+-#}
+```
 
 ```
 {#-
@@ -148,6 +153,12 @@ Copy the HTML template from Furo and save it in the same file path. Then, at the
   `QISKIT CHANGE: end` Jinja-style comments.
 -#}
 ```
+
+We are careful to not change certain files like Furo's styling files to make it easier to sync our code with theirs.
+
+In general, we try to keep changes to a minimum because every divergence we make from base Furo increases our maintenance burden. Hence we prioritise only making changes that are important to the Qiskit brand. If the change would be generally useful to other users of Furo, we try to contribute upstream to the Furo project itself.
+
+### How to change HTML
 
 When making changes, use those comments to make clear where and what we changed. For example:
 
@@ -159,19 +170,38 @@ When making changes, use those comments to make clear where and what we changed.
 
 If the change is greater than 1-3 lines, write the code in a new file in `theme/qiskit-sphinx-theme/custom_templates`, then use Jinja's `include` directive, as shown in the example right above.
 
-### How to change CSS
-Make CSS changes in the file `assets/styles/qiskit-sphinx-theme.css`. It takes precedence over any CSS rules from Furo.
+### How to change styling (CSS/Sass)
+
+Make SCSS changes in the files at `assets/styles`. 
+
+Do not put any changes in `assets/styles/furo`. We keep that folder in sync with upstream Furo and must never customize its code. Instead, all changes must be in our own custom files, including overrides of the base Furo styling.
 
 When adding changes, document the rationale unless the code is already self-documenting and obvious. Group similar changes into sections.
 
-You can change [Furo's CSS variable values](https://github.com/pradyunsg/furo/tree/main/src/furo/assets/styles/variables) by setting them in the `body` rule at the top. When introducing our own CSS variables, prefix it with `--qiskit` for clarity, e.g. `--qiskit-top-nav-bar-height`.
+You can change [Furo's CSS variable values](https://github.com/pradyunsg/furo/tree/main/src/furo/assets/styles/variables) by setting them in the `body` rule at the top. When introducing our own variables, either use a Sass variable or prefix the CSS variable with `--qiskit` for clarity, e.g. `--qiskit-top-nav-bar-height`.
 
-### How to update the Furo version
-Update the version in `pyproject.toml`. Always pin to an exact version of Furo.
+### How to change Furo's Python setup
 
-However, when updating, closely analyze each commit in the release to check for any changes that would break our fork. We want to make sure that our HTML files are always in sync with Furo. If they have made any changes, then add them back to our copy of the file.
+Edit `furo_setup.py`, but use comments like this to make the change clear:
+
+```python
+# QISKIT CHANGE: start. change the theme path.
+THEME_PATH = (Path(__file__).parent / "theme" / "qiskit-sphinx-theme").resolve()
+# QISKIT CHANGE: end.
+```
+
+### How to sync with upstream Furo
+
+Check this repository's file `furo-sync.txt` to get the commit of Furo from the last time we synced; we need to closely analyze all changes made to Furo's `main` branch since that commit.
+
+Find the specific commits that have changed since the commit from `furo-sync.txt` and the lastest commit on `main`. You can do this in GitHub's web UI at https://github.com/pradyunsg/furo/commits/main, or by running `git log --oneline <commit-id>..main`, e.g. `git log --online 490527b..main`.
+
+Then, for each commit, look closely at which files have changed. Update our vendored code to match Furo. It can often be easiest to copy-and-paste the Furo file exactly, and then look at the Git diff to add back any changes we've made, such as the comments we add at the top of files explaining how vendoring works. If you need to add any new files, add a comment attributing the code to Furo (look at sibling files) and make sure the file is included in the `NOTICES` file.
+
+Finally, update `furo-sync.txt` with the commit ID from `main`.
 
 ### How to add an icon
+
 Edit the file `theme/qiskit-sphinx-theme/partials/icons.html`. Copy the HTML code of the `<svg></svg>` tags and add them as the first element within the `<symbol>` tag. Don't forget to include the `id` attribute, which will serve as the name associated with the icon. 
 
 To use the icon, reference it with `#`.

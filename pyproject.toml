@@ -24,12 +24,13 @@ classifiers = [
 
 dependencies = [
     "docutils",
-    # Keep in sync with Furo's constraint.
+    # Keep these in sync with Furo's constraint.
     "sphinx>=6.0",
+    "sphinx-basic-ng",
+    "beautifulsoup4",
+    "pygments >= 2.7",
     # Remove jQuery once we get rid of the Pytorch theme.
     "sphinxcontrib-jquery",
-    # See CONTRIBUTING.md for how to upgrade Furo.
-    "furo==2023.5.20",
 ]
 
 [project.entry-points."sphinx.html_themes"]
@@ -64,8 +65,5 @@ exclude = ["example_docs", "docs_guide", "tests"]
 check_untyped_defs = true
 
 [[tool.mypy.overrides]]
-module = [
-    "furo",
-    "jupyter_sphinx.thebelab"
-]
+module = ["jupyter_sphinx.thebelab"]
 ignore_missing_imports = true
