@@ -7,7 +7,7 @@
   \*******************************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// Vendored exactly from Furo's `assets/scripts/gumshoe-patched.js`.
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! This file is vendored from Furo (created by Pradyun Gedam) and used under the MIT license. */
 /*!
  * gumshoejs v5.1.2 (patched by @pradyunsg)
  * A simple, framework-agnostic scrollspy script.
@@ -566,8 +566,8 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _gumshoe_patched_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./gumshoe-patched.js */ "./src/qiskit_sphinx_theme/assets/scripts/gumshoe-patched.js");
 /* harmony import */ var _gumshoe_patched_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_gumshoe_patched_js__WEBPACK_IMPORTED_MODULE_0__);
-// This file is vendored from Furo's `assets/scripts/furo.js`. When adding custom Qiskit code,
-// surround it with `QISKIT CHANGE: start` and `QISKIT CHANGE: end` comments.
+/*! This file is vendored from Furo (created by Pradyun Gedam) and used under the MIT license. */
+// When making changes, surround it with `QISKIT CHANGE: start` and `QISKIT CHANGE: end` comments.
 
 
 
