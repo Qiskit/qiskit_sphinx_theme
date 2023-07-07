@@ -39,6 +39,15 @@ dl.py:not(.docutils).function > dt {
   display: block;
 }
 
+// Use a thicker border for top-level code objects to distinguish from their metadata like
+// `Returns` and `Return type`.
+dl.py:not(.docutils).class > dt,
+dl.py:not(.docutils).method > dt,
+dl.py:not(.docutils).function > dt,
+dl.py:not(.docutils).attribute > dt {
+  border-top-width: 2px;
+}
+
 // Rules that impact the top-level entry for the code object at the top of the file. These add
 // spacing between the page header and the top entry.
 section > dl.py:not(.docutils) {
