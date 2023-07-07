@@ -116,7 +116,7 @@ html_context = {
 
 By enabling analytics we will be able to collect information on number of visits to each documentation page. It will also trigger the addition of a `Was this page helpful?` component at the bottom of each documentation page, so users will be able to provide yes/no feedback for each page.
 
-![](tests/js/snapshots.test.js-snapshots/footer-includes-page-analytics-1-linux.png)
+![](tests/js/qiskit.test.js-snapshots/footer-includes-page-analytics-1-linux.png)
 
 If you do not enable analytics, no data will be collected and the `Was this page helpful?` component will not show.
 

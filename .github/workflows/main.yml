@@ -58,8 +58,8 @@ jobs:
           name: html_docs
           path: artifacts
 
-      - name: Run JavaScript and snapshot tests
-        run: npm run _run-snapshot-tests
+      - name: Run JavaScript snapshot tests
+        run: npm run _run-playwright
       - name: Upload snapshot results
         if: failure()
         uses: actions/upload-artifact@v3

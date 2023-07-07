@@ -85,17 +85,16 @@ First, you need to install:
 Then, to run the tests locally:
 
 1. `npm install`
-2. Build the docs, `tox -e qiskit`
-3. `npm run test-snapshots`
+2. `npm run test-qiskit`
 
-You must rebuild the docs with `tox -e qiskit` whenever you make changes to the theme or docs folder. The docs will not automatically rebuild.
+The docs will rebuild every time you run `npm run test-qiskit`.
 
 ### How to update the expected snapshot for intentional changes
 
 First, get the `snapshot_results` folder, either by downloading it from CI or by running the tests locally. Then:
 
 1. Find the "actual" snapshot for the failing test, such as `footer-includes-page-analytics-1-actual.png`.
-2. Copy that snapshot into the folder `tests/js/snapshots.test.js-snapshots`. Rename the `-actual.png` file ending to be `-linux.png` and overwrite the prior file.
+2. Copy that snapshot into the folder `tests/js/qiskit.test.js-snapshots`. Rename the `-actual.png` file ending to be `-linux.png` and overwrite the prior file.
 
 ------
 ## Updating bundled web components
