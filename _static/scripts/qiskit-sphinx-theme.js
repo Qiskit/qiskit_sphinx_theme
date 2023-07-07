@@ -712,9 +712,13 @@ function setupScrollSpy() {
     navClass: "scroll-current",
     offset: () => {
       let rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
-      // QISKIT CHANGE: start. Add 3.5rem for the Qiskit top nav bar.
+      // QISKIT CHANGE: start. Add 3.5rem for the Qiskit top nav bar, if visible.
       // See _top-nav-bar.scss for where the value comes from.
-      return header.getBoundingClientRect().height + (0.5 * rem) + 1 + (3.5 * rem);
+      const topNavBar = document.querySelector('qiskit-ui-shell');
+      const topNavBarHeight = (topNavBar && getComputedStyle(topNavBar).display !== 'none')
+        ? 3.5 * rem
+        : 0;
+      return header.getBoundingClientRect().height + (0.5 * rem) + 1 + topNavBarHeight;
       // QISKIT CHANGE: end.
     },
   });
