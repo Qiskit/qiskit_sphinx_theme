@@ -37,6 +37,19 @@ Then, set up the theme by updating `conf.py`:
 1. Set `html_theme = "qiskit"`
 2. Add `"qiskit_sphinx_theme"` to `extensions`
 
+## Slow Sphinx build? Set `remove_methods_from_toc`
+
+By default, every subpage is included in the left table of contents. This can result in incredibly slow build times, especially when you have API documentation. It can also substantially increase the size of your HTML pages, which worsens the load time for the site.
+
+You can set `remove_methods_from_toc` in `conf.py` to remove pages for methods from the table of contents:
+
+```python
+# Speed up docs build and reduce HTML page size.
+remove_methods_from_toc = True
+```
+
+However, consider instead changing your Autosummary templates to stop having a dedicated HTML page per method. While Qiskit projects have historically used that approach, it is a suboptimal user experience and also results in a substantially slower docs build.
+
 ## Enable translations
 
 First, coordinate with the Translations team at https://github.com/qiskit-community/qiskit-translations to express your interest and to coordinate setting up the infrastructure.
@@ -126,41 +139,14 @@ In qiskit-sphinx-theme 1.13, we migrated to a new Sphinx theme based on Furo, wh
 
 qiskit-sphinx-theme 1.13 continues to support the legacy Pytorch theme, but support will be removed in version 2.0.
 
-To migrate:
+To migrate, in `conf.py`:
 
-1. In `conf.py`, ensure that `"qiskit_sphinx_theme"` is in the `extensions` list.
-2. In `conf.py`, set `html_theme = "qiskit"` rather than `"qiskit_sphinx_theme"`.
-3. In `conf.py`, remove all `html_theme_options`.
-4. In `conf.py`, remove `expandable_sidebar` from `html_context`, if set. If it was set, follow the below section [How to migrate expandable_sidebar](#how-to-migrate-expandablesidebar).
-5. Render the docs and check that everything looks how expected. If not, please open a GitHub issue or reach out on Slack for help.
+1. Ensure that `"qiskit_sphinx_theme"` is in the `extensions` list.
+2. Set `html_theme = "qiskit"` rather than `"qiskit_sphinx_theme"`.
+3. Remove all `html_theme_options`.
+4. Decide if you want to set `remove_methods_from_toc=True` to speed up the docs build and reduce HTML page size. The new theme includes far more . Refer to [Slow Sphinx build? Set `remove_methods_from_toc`](#slow-sphinx-build-set-removemethodsfromtoc).
 
-### How to migrate expandable_sidebar
-
-With the old theme, to have expandable folders, you had to have a dedicated `.. toctree ::` directive with a `:caption:` option, like this:
-
-```rst
-.. toctree::
-  :caption: My Folder
-  :hidden:
-
-  Page 1 <page1>
-  Page 2 <page2>
-```
-
-Instead, the new theme will render the `:caption:` as a top-level section header in the left sidebar, with top-level entries for each page. See the screenshot in the PR description of https://github.com/Qiskit/qiskit_sphinx_theme/pull/384 for an example of how the old theme renders `:caption:` and compare to [the new theme](https://github.com/Qiskit/qiskit_sphinx_theme/blob/main/tests/js/snapshots.test.js-snapshots/left-side-bar-renders-correctly-1-linux.png).
-
-Additionally, the new theme renders pages with their own subpages as expandable folders, unlike the old theme. [For example](https://github.com/Qiskit/qiskit_sphinx_theme/blob/main/tests/js/snapshots.test.js-snapshots/left-side-bar-renders-correctly-1-linux.png), `<apidocs/index>` will include all subpages that are listed in the `.. toctree ::` of the page `apidocs/index.rst`.
-
-So, when migrating, you have to decide which behavior you want:
-
-- Use the new theme's style. No changes necessary.
-- Use the new theme's style, but get rid of the top level section header. To implement:
-  1. Consolidate the `.. toctree ::` directive with earlier ones so that they are all in the same `toctree`.
-- Keep the `:caption:` as an expandable folder, rather than a top-level section header. To implement:
-  1. Create a new directory and RST file like `my_folder/index.rst`.
-  2. Move the `.. toctree::` directive to that page.
-  3. Get rid of the `:caption:` option.
-  4. Link to the new file `my_folder/index.rst` in the parent `index.rst` by adding it to a `.. toctree ::` in the parent.
+Then, build the docs and check that everything looks how expected. If not, please open a GitHub issue or reach out on Slack for help.
 
 ## Tip: suggested site structure
 

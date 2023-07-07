@@ -80,6 +80,9 @@ html_context = {
 
 docs_url_prefix = "ecosystem/example_docs"
 
+# See the README's section on "Slow Sphinx Build?" for why we set this.
+remove_methods_from_toc = True
+
 # When creating a new repo, follow the instructions in this repo's README.md on
 # `Enable translations`. Remove this value if you aren't using translations.
 translations_list = [

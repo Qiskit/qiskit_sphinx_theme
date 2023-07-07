@@ -15,7 +15,12 @@ from __future__ import annotations
 from pathlib import Path
 from typing import TYPE_CHECKING
 
-from qiskit_sphinx_theme import directives, previous_releases, translations
+from qiskit_sphinx_theme import (
+    directives,
+    previous_releases,
+    translations,
+    trim_toctree,
+)
 
 if TYPE_CHECKING:
     import sphinx.addnodes
@@ -97,11 +102,13 @@ def setup(app: sphinx.application.Sphinx) -> dict[str, bool]:
 
     # We always activate these plugins, but they are only used when users:
     # * use the directives in their RST,
-    # * set `translations_list` in conf.py, or
-    # * set `versions_list` in conf.py.
+    # * set `translations_list` in conf.py,
+    # * set `versions_list` in conf.py, or
+    # * set `remove_methods_from_toc` in `conf.py`,
     directives.setup(app)
     previous_releases.setup(app)
     translations.setup(app)
+    trim_toctree.setup(app)
 
     app.add_html_theme("qiskit_sphinx_theme", _get_theme_absolute_path("pytorch"))
     app.add_html_theme("qiskit", _get_theme_absolute_path("theme/qiskit-sphinx-theme"))
