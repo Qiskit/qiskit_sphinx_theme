@@ -30,4 +30,4 @@ COPY playwright.config.js ./
 COPY tests/js tests/js
 COPY example_docs/docs/_qiskit_build example_docs/docs/_qiskit_build
 
-CMD [ "npm", "run", "_run-snapshot-tests" ]
+CMD [ "npm", "run", "_run-playwright" ]
