@@ -38,25 +38,19 @@ jobs:
         run: tox run -e lint
       - name: Run Pytest
         run: tox run -e py
-      # For some reason, the Jupyter Extension fails to build properly if one theme has already
-      # been built with a custom BUILD_DIR. So, we eagerly upload the artifacts for each theme
-      # build, and then delete the BUILD_DIR before proceeding to the next theme.
-      #
-      # But, we build Furo with the default BUILD_DIR because our JavaScript Snapshot tests start
-      # the server at that standard location.
+
       - name: Create artifacts/ folder
         run: mkdir artifacts
-      - name: Build Legacy theme
+      - name: Build Legacy Pytorch theme
         run: |
-          THEME=qiskit_sphinx_theme BUILD_DIR=example_docs/_build_legacy/html tox run -e docs
-          tar -zcvf legacy_html_docs.tar.gz example_docs/_build_legacy/html
-          mv legacy_html_docs.tar.gz artifacts/.
-          rm -rf example_docs/_build_legacy
-      - name: Build Furo theme
+          tox run -e pytorch
+          tar -zcvf pytorch_html_docs.tar.gz example_docs/docs/_pytorch_build
+          mv pytorch_html_docs.tar.gz artifacts/.
+      - name: Build Qiskit (Furo) theme
         run: |
-          THEME=qiskit tox run -e docs
-          tar -zcvf furo_html_docs.tar.gz example_docs/docs/_build/html
-          mv furo_html_docs.tar.gz artifacts/.
+          tox run -e qiskit
+          tar -zcvf qiskit_html_docs.tar.gz example_docs/docs/_qiskit_build
+          mv qiskit_html_docs.tar.gz artifacts/.
       - name: Upload Sphinx builds
         uses: actions/upload-artifact@v3
         if: always()
