@@ -170,6 +170,11 @@ def _html_page_context(
     context: Dict[str, Any],
     doctree: Any,
 ) -> None:
+    # QISKIT CHANGE: start.
+    if app.config.html_theme == "qiskit_sphinx_theme":
+        return None
+    # QISKIT CHANGE: end.
+
     if not isinstance(app.builder, StandaloneHTMLBuilder):
         raise Exception(
             "Furo is being used with a non-HTML builder. "
@@ -228,6 +233,11 @@ def _html_page_context(
 
 
 def _builder_inited(app: sphinx.application.Sphinx) -> None:
+    # QISKIT CHANGE: start.
+    if app.config.html_theme == "qiskit_sphinx_theme":
+        return None
+    # QISKIT CHANGE: end.
+
     if "furo" in app.config.extensions:
         raise Exception(
             "Did you list 'furo' in the `extensions` in conf.py? "
@@ -384,6 +394,11 @@ def _overwrite_pygments_css(
     app: sphinx.application.Sphinx,
     exception: Optional[Exception],
 ) -> None:
+    # QISKIT CHANGE: start.
+    if app.config.html_theme == "qiskit_sphinx_theme":
+        return None
+    # QISKIT CHANGE: end.
+
     if exception is not None:
         return
 

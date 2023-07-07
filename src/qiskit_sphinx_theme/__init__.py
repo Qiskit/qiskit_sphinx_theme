@@ -68,13 +68,13 @@ def remove_thebe_if_not_needed(
 
 
 def activate_themes(app: sphinx.application.Sphinx, config: sphinx.config.Config) -> None:
-    if config.html_theme == "qiskit":
-        app.add_js_file("scripts/qiskit-sphinx-theme.js")
-        furo_py.setup(app)
-    else:
+    if config.html_theme == "qiskit_sphinx_theme":
         # Sphinx 6 stopped including jQuery by default. Our Pytorch theme depend on jQuery,
         # so activate it for our users automatically.
         app.setup_extension("sphinxcontrib.jquery")
+        return
+
+    app.add_js_file("scripts/qiskit-sphinx-theme.js")
 
 
 # See https://www.sphinx-doc.org/en/master/development/theming.html
@@ -89,6 +89,9 @@ def setup(app: sphinx.application.Sphinx) -> dict[str, bool]:
     directives.setup(app)
     previous_releases.setup(app)
     translations.setup(app)
+
+    # While this runs for Pytorch too, we early exit in the relevant functions with Pytorch.
+    furo_py.setup(app)
 
     app.add_html_theme("qiskit_sphinx_theme", _get_theme_absolute_path("pytorch"))
     app.add_html_theme("qiskit", _get_theme_absolute_path("theme/qiskit-sphinx-theme"))
