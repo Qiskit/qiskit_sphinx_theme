@@ -12,7 +12,7 @@
  */
 
 body {
-  --qiskit-top-nav-bar-height: 0;
+  --qiskit-top-nav-bar-height: 0px;
 }
 
 qiskit-ui-shell {
