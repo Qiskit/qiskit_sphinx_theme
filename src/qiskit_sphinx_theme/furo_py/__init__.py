@@ -171,7 +171,9 @@ def _html_page_context(
     doctree: Any,
 ) -> None:
     # QISKIT CHANGE: start.
-    if app.config.html_theme == "qiskit_sphinx_theme":
+    if app.config.html_theme == "qiskit_sphinx_theme" or not not isinstance(
+        app.builder, StandaloneHTMLBuilder
+    ):
         return None
     # QISKIT CHANGE: end.
 
@@ -234,7 +236,9 @@ def _html_page_context(
 
 def _builder_inited(app: sphinx.application.Sphinx) -> None:
     # QISKIT CHANGE: start.
-    if app.config.html_theme == "qiskit_sphinx_theme":
+    if app.config.html_theme == "qiskit_sphinx_theme" or not not isinstance(
+        app.builder, StandaloneHTMLBuilder
+    ):
         return None
     # QISKIT CHANGE: end.
 
@@ -395,7 +399,9 @@ def _overwrite_pygments_css(
     exception: Optional[Exception],
 ) -> None:
     # QISKIT CHANGE: start.
-    if app.config.html_theme == "qiskit_sphinx_theme":
+    if app.config.html_theme == "qiskit_sphinx_theme" or not not isinstance(
+        app.builder, StandaloneHTMLBuilder
+    ):
         return None
     # QISKIT CHANGE: end.
 
