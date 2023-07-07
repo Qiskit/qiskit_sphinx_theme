@@ -70,6 +70,9 @@ instance/
 
 # Sphinx documentation
 example_docs/docs/_build/
+example_docs/docs/_pytorch_build/
+example_docs/docs/_qiskit_build/
+example_docs/docs/jupyter_execute/
 example_docs/docs/stubs/
 docs_guide/_build/
 

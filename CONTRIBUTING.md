@@ -27,7 +27,7 @@ The top-level Python files are used for logic used by the theme, such as `transl
 ### `/example_docs`
 This subfolder contains a scaled down version of the Sphinx build that builds the documentation for the Qiskit repos. 
 
-It pulls styles from the `/src` subfolder. You can check any changes you are making to theme by building the documentation (see running locally section) and opening the HTML files generated in `/example_docs/docs/_build/html`.
+It pulls styles from the `/src` subfolder. You can check any changes you are making to theme by building the documentation (see running locally section) and opening the HTML files generated in `example_docs/docs/_qiskit_build` and `example_docs/docs/_pytorch_build`.
 
 ### `/docs_guide`
 This subfolder contains guidance on how to write documentation and build sphinx projects for Qiskit and Qiskit Ecosystem projects. You can view the fully rendered docs guide at https://qisk.it/docs-guide
@@ -38,17 +38,18 @@ This subfolder contains guidance on how to write documentation and build sphinx 
 We use [Tox](https://tox.wiki/en/latest/), which you will need to install globally (e.g. using [`pipx`](https://pypa.github.io/pipx/)).
 
 * Run Python tests: `tox -e py`
-* Build `example_docs/`:
-  1. `tox -e docs`
-  2. Open up `example_docs/docs/_build/html/index.html` in your browser
+* Build `example_docs/` with the new Furo "Qiskit" theme:
+  1. `tox -e qiskit`
+  2. Open up `example_docs/docs/_qiskit_build/index.html` in your browser
+* Build `example_docs/` with the legacy Pytorch theme:
+  1. `tox -e pytorch`
+  2. Open up `example_docs/docs/_pytorch_build/index.html` in your browser
 * Build `docs_guide`:
   1. `tox -e docs-guide`
   2. Open up `docs_guide/_build/html/index.html` in your browser.
 * Run doctests for the docs guide: `tox -e doctest`
 
-Sometimes Sphinx's caching can get in a bad state. First, try running `tox -e docs-clean`, which will remove Sphinx's cache. If you are still having issues, try adding `-r` your command, e.g. `tox -e docs -r`. `-r` tells Tox to reinstall the dependencies.
-
-We migrated the theme from Pytorch to Furo in qiskit-sphinx-theme 1.13 (see https://github.com/Qiskit/qiskit_sphinx_theme/issues/232). Pytorch will be removed in 2.0. To build the legacy Pytorch theme, use `THEME=qiskit_sphinx_theme` in front of the command, e.g. `THEME=qiskit_sphinx_theme tox -e docs`.
+Sometimes Sphinx's caching can get in a bad state. First, try running `tox -e clean`, which will remove Sphinx's cache. If you are still having issues, try adding `-r` your command, e.g. `tox -e qiskit -r`. `-r` tells Tox to reinstall the dependencies.
 
 ------
 ## Visual regression testing
@@ -84,10 +85,10 @@ First, you need to install:
 Then, to run the tests locally:
 
 1. `npm install`
-2. Build the docs, `tox -e docs`
+2. Build the docs, `tox -e qiskit`
 3. `npm run test-snapshots`
 
-You must rebuild the docs with `tox -e docs` whenever you make changes to the theme or docs folder. The docs will not automatically rebuild.
+You must rebuild the docs with `tox -e qiskit` whenever you make changes to the theme or docs folder. The docs will not automatically rebuild.
 
 ### How to update the expected snapshot for intentional changes
 
@@ -107,7 +108,7 @@ To update the top nav bar web component:
 2. There should be a file created at the root of the web components repository called `experimental-bundled-ui-shell.js`. Copy its contents into these files in this theme repository:
    1. `src/qiskit_sphinx_theme/pytorch/static/js/web-components/top-nav-bar.js`
    2. `src/qiskit_sphinx_theme/theme/qiskit-sphinx-theme/static/js/web-components/top-nav-bar.js`
-3. Build the example docs with `tox -e docs` and `THEME=qiskit_sphinx_theme tox -e docs` to ensure everything works.
+3. Build the example docs with `tox -e qiskit` and `tox -e pytorch` to ensure everything works.
 
 If you want to add a new web component:
 
@@ -115,7 +116,7 @@ If you want to add a new web component:
 2. Add the file contents to the `src/qiskit_sphinx_theme/theme/qiskit-sphinx-theme/static/js/web-components/` folder in this theme repository. (We shouldn't add web components to Pytorch.)
 3. Load the web component in `extra_head.html` with a line like `<script src="{{ pathto('_static/js/web-components/my-component.js', 1) }}"></script>`.
 4. Use the web component element in the relevant HTML, e.g. `<my-component>` in `layout.html`. Remember to surround the change with a `QISKIT CHANGE:` comment.
-5. Build the example docs with `tox -e docs` to ensure everything works.
+5. Build the example docs with `tox -e qiskit` to ensure everything works.
 6. Update this guide with specific instructions for the web component.
 
 ------
@@ -126,7 +127,7 @@ We upload the docs builds to CI. So, you can download what the site will look li
 1. Navigate to the GitHub Actions page for the "Tests" action.
 2. Open the "Summary" page with the house icon.
 3. Under the "Artifacts" section, there should be a "html_docs" entry. Download it.
-4. Choose the theme you want, such as `furo_html_docs.tar.gz`, and un-tar it. Then, open the `index.html` page in a browser.
+4. Choose the theme you want, such as `qiskit_html_docs.tar.gz`, and un-tar it. Then, open the `index.html` page in a browser.
 
 Contributors with write access can also use live previews of the docs: GitHub will deploy a website using your changes. To use live previews, push your branch to `upstream` rather than your fork. GitHub will leave a comment with the link to the site. Please prefix your branch name with your initials, e.g. `EA/add-translations`, for good Git hygiene.
 
