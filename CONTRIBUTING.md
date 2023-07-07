@@ -182,7 +182,7 @@ You can change [Furo's CSS variable values](https://github.com/pradyunsg/furo/tr
 
 ### How to change Furo's Python setup
 
-Edit `furo_setup.py`, but use comments like this to make the change clear:
+Edit `furo_py/__init__.py`, but use comments like this to make the change clear:
 
 ```python
 # QISKIT CHANGE: start. change the theme path.
@@ -196,7 +196,7 @@ Check this repository's file `furo-sync.txt` to get the commit of Furo from the 
 
 Find the specific commits that have changed since the commit from `furo-sync.txt` and the lastest commit on `main`. You can do this in GitHub's web UI at https://github.com/pradyunsg/furo/commits/main, or by running `git log --oneline <commit-id>..main`, e.g. `git log --online 490527b..main`.
 
-Then, for each commit, look closely at which files have changed. Update our vendored code to match Furo. It can often be easiest to copy-and-paste the Furo file exactly, and then look at the Git diff to add back any changes we've made, such as the comments we add at the top of files explaining how vendoring works. If you need to add any new files, add a comment attributing the code to Furo (look at sibling files) and make sure the file is included in the `NOTICES` file.
+Then, for each commit, look closely at which files have changed. Update our vendored code to match Furo. It can often be easiest to copy-and-paste the Furo file exactly, and then look at the Git diff to add back any changes we've made, such as the comments we add at the top of files explaining how vendoring works. If you need to add any new files, add a comment attributing the code to Furo (look at sibling files).
 
 Finally, update `furo-sync.txt` with the commit ID from `main`.
 

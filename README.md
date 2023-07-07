@@ -1,7 +1,7 @@
 # qiskit_sphinx_theme
 The Sphinx theme for the Qiskit documentation.
 
-This theme is built on top of the [Furo Sphinx theme](https://github.com/pradyunsg/furo) developed by Pradyun Gedam and licensed under the MIT License. See the file `NOTICES` for Furo's LICENSE and which files are vendored from Furo.
+This theme is built on top of the [Furo Sphinx theme](https://github.com/pradyunsg/furo) developed by Pradyun Gedam and licensed under the MIT License.
 
 ### Warning: new theme migration
 
