@@ -51,6 +51,11 @@ jobs:
           tox run -e qiskit
           tar -zcvf qiskit_html_docs.tar.gz example_docs/docs/_qiskit_build
           mv qiskit_html_docs.tar.gz artifacts/.
+      - name: Build Ecosystem theme
+        run: |
+          tox run -e ecosystem
+          tar -zcvf ecosystem_html_docs.tar.gz example_docs/docs/_ecosystem_build
+          mv ecosystem_html_docs.tar.gz artifacts/.
       - name: Upload Sphinx builds
         uses: actions/upload-artifact@v3
         if: always()

@@ -29,6 +29,7 @@ templates_path = ["_templates"]
 # Sphinx should ignore these patterns when building.
 exclude_patterns = [
     "_build",
+    "_ecosystem_build",
     "_qiskit_build",
     "_pytorch_build",
     "**.ipynb_checkpoints",
