@@ -27,7 +27,13 @@ html_static_path = ["_static"]
 templates_path = ["_templates"]
 
 # Sphinx should ignore these patterns when building.
-exclude_patterns = ["_build", "**.ipynb_checkpoints"]
+exclude_patterns = [
+    "_build",
+    "_qiskit_build",
+    "_pytorch_build",
+    "**.ipynb_checkpoints",
+    "jupyter_execute",
+]
 
 extensions = [
     "sphinx.ext.napoleon",

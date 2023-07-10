@@ -7,7 +7,7 @@ name = "qiskit-sphinx-theme"
 description = "A Sphinx theme for Qiskit and Qiskit Ecosystem projects"
 dynamic = ["version"]
 
-license = { text = "Apache 2" }
+license = { file = "LICENSE" }
 authors = [{ name = "Qiskit Development Team", email = "hello@qiskit.org" }]
 classifiers = [
     "Development Status :: 5 - Production/Stable",

@@ -1,3 +1,16 @@
+/* This code is part of Qiskit.
+ *
+ * (C) Copyright IBM 2023.
+ *
+ * This code is licensed under the Apache License, Version 2.0. You may
+ * obtain a copy of this license in the LICENSE.txt file in the root directory
+ * of this source tree or at http://www.apache.org/licenses/LICENSE-2.0.
+ *
+ * Any modifications or derivative works of this code must retain this
+ * copyright notice, and modified files need to carry a notice indicating
+ * that they have been altered from the originals.
+ */
+
 import { expect, test } from "@playwright/test";
 
 // -----------------------------------------------------------------------
@@ -56,10 +69,15 @@ const isVisibleInViewport = async (page, selector) => {
 /* If the content is too big for the viewport, the Qiskit top nav bar will hide the content. That
  *  has for some reason caused some flakes in CI, that the nav bar very minorly changes its
  *  position. And it's generally annoying to hide the content we care about. */
-const hideTopNavBar = async (page) => {
+const hideTopNavBar = async (page, mobile = false) => {
   await page
     .locator("qiskit-ui-shell")
     .evaluate((el) => (el.style.display = "none"));
+  if (mobile) {
+    await page
+      .locator(".mobile-header")
+      .evaluate((el) => (el.style.display = "none"));
+  }
 };
 
 // -----------------------------------------------------------------------
@@ -289,10 +307,16 @@ test("Jupyter works with copybutton", async ({ page }) => {
 
 test("custom directives", async ({ page }) => {
   await page.goto("sphinx_guide/custom_directives.html");
+  await hideTopNavBar(page, true);
+
   const cards = page.locator("section#qiskit-card");
   await cards.hover();
   await expect(cards).toHaveScreenshot();
 
   const callToActions = page.locator("section#qiskit-call-to-action-item");
+  await expect(callToActions).toHaveScreenshot();
+
+  await setMobile(page);
+  await expect(cards).toHaveScreenshot();
   await expect(callToActions).toHaveScreenshot();
 });

@@ -1,3 +1,15 @@
+# This code is part of Qiskit.
+#
+# (C) Copyright IBM 2023.
+#
+# This code is licensed under the Apache License, Version 2.0. You may
+# obtain a copy of this license in the LICENSE.txt file in the root directory
+# of this source tree or at http://www.apache.org/licenses/LICENSE-2.0.
+#
+# Any modifications or derivative works of this code must retain this
+# copyright notice, and modified files need to carry a notice indicating
+# that they have been altered from the originals.
+
 # A dockerfile to run our snapshot tests locally. This is to avoid issues with CI and local
 # differing. In CI, we also run with the same base image.
 # See https://playwright.dev/docs/test-snapshots.
@@ -16,6 +28,6 @@ RUN npm ci
 # Copy over only the folders needed for our tests.
 COPY playwright.config.js ./
 COPY tests/js tests/js
-COPY example_docs/docs/_build/html example_docs/docs/_build/html
+COPY example_docs/docs/_qiskit_build example_docs/docs/_qiskit_build
 
-CMD [ "npm", "run", "_run-snapshot-tests" ]
+CMD [ "npm", "run", "_run-playwright" ]

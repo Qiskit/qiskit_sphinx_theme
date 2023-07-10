@@ -1,9 +1,26 @@
+/* This code is part of Qiskit.
+ *
+ * (C) Copyright IBM 2023.
+ *
+ * This code is licensed under the Apache License, Version 2.0. You may
+ * obtain a copy of this license in the LICENSE.txt file in the root directory
+ * of this source tree or at http://www.apache.org/licenses/LICENSE-2.0.
+ *
+ * Any modifications or derivative works of this code must retain this
+ * copyright notice, and modified files need to carry a notice indicating
+ * that they have been altered from the originals.
+ */
+
 // This value is duplicated from `top-nav-bar.js`. Its definition of the variable is not
 // exposed globally. Keep in sync.
 //
 // Also keep in sync with `qiskit-sphinx-theme.js`, which adds the top nav bar
 // in the function `setupScrollSpy`.
-$top-nav-bar-height: 3.5rem;
+//
+// We use a CSS variable so that the ecosystem theme can modify the value.
+body {
+  --qiskit-top-nav-bar-height: 3.5rem;
+}
 
 // Disable dark mode until qiskit.org has it: https://github.com/Qiskit/qiskit.org/issues/2310
 .theme-toggle-container {
@@ -21,16 +38,16 @@ div.header-left svg use {
 .toc-sticky,
 #__navigation:checked ~ .page .sidebar-drawer,
 #__toc:checked ~ .page .toc-drawer {
-  top: $top-nav-bar-height;
+  top: var(--qiskit-top-nav-bar-height);
 }
 @media (max-width: 67em) {
   .sidebar-drawer {
-    top: $top-nav-bar-height;
+    top: var(--qiskit-top-nav-bar-height);
   }
 }
 @media (max-width: 82em) {
   .toc-drawer {
-    top: $top-nav-bar-height;
+    top: var(--qiskit-top-nav-bar-height);
   }
 }
 
@@ -38,10 +55,10 @@ div.header-left svg use {
 // when the user is scrolled down to the bottom of the page. They override Furo's rules.
 .sidebar-sticky,
 .toc-sticky {
-  height: calc(100vh - $top-nav-bar-height);
+  height: calc(100vh - var(--qiskit-top-nav-bar-height));
 }
 .toc-scroll {
-  max-height: calc(100vh - $top-nav-bar-height);
+  max-height: calc(100vh - var(--qiskit-top-nav-bar-height));
 }
 
 // Fix # anchor links not accounting for the top nav bar.
@@ -50,14 +67,14 @@ div.header-left svg use {
 // But for some reason, the default rule has too much spacing if we include Furo's original rule's
 // --header-height.
 :target {
-  scroll-margin-top: $top-nav-bar-height;
+  scroll-margin-top: var(--qiskit-top-nav-bar-height);
 }
 @media (max-width: 67em) {
   :target {
-     scroll-margin-top: calc(0.5rem + var(--header-height) + $top-nav-bar-height);
+     scroll-margin-top: calc(0.5rem + var(--header-height) + var(--qiskit-top-nav-bar-height));
   }
   // When a heading is selected.
   section > span:target {
-    scroll-margin-top: calc(0.8rem + var(--header-height) + $top-nav-bar-height);
+    scroll-margin-top: calc(0.8rem + var(--header-height) + var(--qiskit-top-nav-bar-height));
   }
 }
