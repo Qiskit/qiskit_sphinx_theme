@@ -11,10 +11,12 @@
  * that they have been altered from the originals.
  */
 
-// By default, Furo uses an aggressive red color for API docs. We use a more muted black and gray.
 body {
+  // By default, Furo uses an aggressive red color for API docs. We use a more muted black and gray.
   --color-api-name: var(--color-foreground-primary);
   --color-api-pre-name: var(--color-foreground-secondary);
+  // Use normal font sizes rather than the default of `--font-size-small`.
+  --api-font-size: var(--font-size-normal);
 }
 
 // Definition lists are used for sections like "Parameters", "Return type", and "Attributes"
@@ -23,20 +25,36 @@ dl.py:not(.docutils) dt {
   // This causes the definition-term and its border-top to only take up as much space as the
   // content, plus padding and margins.
   display: inline-block;
-  border-top: 2px solid var(--qiskit-color-purple);
+  border-top: 1px solid var(--qiskit-color-purple);
   background-color: var(--color-background-secondary);
 }
 
-// Rules that impact the top-level entry for the code object, which e.g. has the `[source]` button.
+// Some code objects have a `[source]` text that normally floats to the right. While that usually
+// looks better, it results in messed up styling on long code signatures where the `[source]
+// overlaps with actual code. That often happens with Qiskit APIs, so it's not worth the sometimes
+// nicer styling.
+.viewcode-back,
+.viewcode-link {
+  float: unset;
+  text-align: unset;
+  margin-left: 0.75em;
+}
+
+// Use a thicker border for top-level code objects to distinguish from their metadata like
+// `Returns` and `Return type`.
+dl.py:not(.docutils).class > dt,
+dl.py:not(.docutils).method > dt,
+dl.py:not(.docutils).function > dt,
+dl.py:not(.docutils).attribute > dt {
+  border-top-width: 2px;
+}
+
+// Rules that impact the top-level entry for the code object at the top of the file. These add
+// spacing between the page header and the top entry. We also make it stretch across the entire
+// screen for better information hierarchy.
 section > dl.py:not(.docutils) {
   > dt {
-    // We normally want to use inline-block for definition terms so that the purple border we add on
-    // top does not stretch across the whole screen. But, we make an exception here it will have a
-    // `[source]` button that floats to the right. The spacing of that is non-trivial and was the
-    // source of issues in Pytorch, so we stick with Furo's spacing.
     display: block;
-    // Make the border less thick so its clear the top-level page header corresponds to this line.
-    border-top-width: 1px;
     margin-bottom: 1rem;
   }
 
@@ -76,7 +94,7 @@ dl[class]:not(.option-list):not(.field-list):not(.footnote):not(.glossary):not(.
 // section headers like "Attributes" and "Methods". We disagree with the design in
 // https://github.com/pradyunsg/furo/discussions/505. Instead, use the rules from `p.rubric`.
 dl.py dd p.rubric {
-  font-size: 1.125em;
+  font-size: 125%;  // We make this bigger than p.rubric to match the bigger font sizes for the page.
   font-weight: 700;
   line-height: 1.25;
   text-transform: unset;
