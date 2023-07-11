@@ -50,9 +50,11 @@ dl.py:not(.docutils).attribute > dt {
 }
 
 // Rules that impact the top-level entry for the code object at the top of the file. These add
-// spacing between the page header and the top entry.
+// spacing between the page header and the top entry. We also make it stretch across the entire
+// screen for better information hierarchy.
 section > dl.py:not(.docutils) {
   > dt {
+    display: block;
     margin-bottom: 1rem;
   }
 
