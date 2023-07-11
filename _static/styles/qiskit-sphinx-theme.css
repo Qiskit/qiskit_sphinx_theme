@@ -145,17 +145,31 @@ p.topic-title::before {
 body {
   --color-api-name: var(--color-foreground-primary);
   --color-api-pre-name: var(--color-foreground-secondary);
+  --api-font-size: var(--font-size-normal);
 }
 
 dl.py:not(.docutils) dt {
   display: inline-block;
-  border-top: 2px solid var(--qiskit-color-purple);
+  border-top: 1px solid var(--qiskit-color-purple);
   background-color: var(--color-background-secondary);
+}
+
+.viewcode-back,
+.viewcode-link {
+  float: unset;
+  text-align: unset;
+  margin-left: 0.75em;
+}
+
+dl.py:not(.docutils).class > dt,
+dl.py:not(.docutils).method > dt,
+dl.py:not(.docutils).function > dt,
+dl.py:not(.docutils).attribute > dt {
+  border-top-width: 2px;
 }
 
 section > dl.py:not(.docutils) > dt {
   display: block;
-  border-top-width: 1px;
   margin-bottom: 1rem;
 }
 section > dl.py:not(.docutils) > dt:not(:first-child) {
@@ -178,7 +192,7 @@ dl[class]:not(.option-list):not(.field-list):not(.footnote):not(.glossary):not(.
 }
 
 dl.py dd p.rubric {
-  font-size: 1.125em;
+  font-size: 125%;
   font-weight: 700;
   line-height: 1.25;
   text-transform: unset;
