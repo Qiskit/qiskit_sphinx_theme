@@ -1,4 +1,4 @@
-/* This code is a Qiskit project.
+/* This code is part of Qiskit.
  *
  * (C) Copyright IBM 2023.
  *
@@ -12,15 +12,9 @@
  */
 
 body {
-  --font-stack: 'IBM Plex Sans', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
-  --font-stack--monospace: 'IBM Plex Mono', 'Consolas', 'Courier New', monospace;
+  --qiskit-top-nav-bar-height: 0px;
 }
 
-// Carbon only uses bold for the smallest headers:
-// https://carbondesignsystem.com/guidelines/typography/type-sets/
-h1,
-h2,
-h3,
-h4 {
-  font-weight: 400;
+qiskit-ui-shell {
+  display: none;
 }

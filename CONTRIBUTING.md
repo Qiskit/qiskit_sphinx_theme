@@ -41,6 +41,9 @@ We use [Tox](https://tox.wiki/en/latest/), which you will need to install global
 * Build `example_docs/` with the new Furo "Qiskit" theme:
   1. `tox -e qiskit`
   2. Open up `example_docs/docs/_qiskit_build/index.html` in your browser
+* Build `example_docs/` with the work-in-progress Ecosystem theme:
+  1. `tox -e ecosystem`
+  2. Open up `example_docs/docs/_ecosystem_build/index.html` in your browser
 * Build `example_docs/` with the legacy Pytorch theme:
   1. `tox -e pytorch`
   2. Open up `example_docs/docs/_pytorch_build/index.html` in your browser

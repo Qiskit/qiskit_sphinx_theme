@@ -463,7 +463,7 @@ So the ``tools/ignore_untagged_notes.sh`` file will look like this:
 
     #!/bin/bash
 
-    # This code is part of Qiskit.
+    # This code is a Qiskit project.
     #
     # (C) Copyright IBM 20XX.
     #
@@ -572,7 +572,7 @@ The full ``tools/deploy_documentation.sh`` should then look like this:
 
     #!/bin/bash
 
-    # This code is part of Qiskit.
+    # This code is a Qiskit project.
     #
     # (C) Copyright IBM 20XX.
     #
@@ -636,7 +636,7 @@ The complete ``.github/workflows/deploy-docs.yml`` is then:
 
 .. code-block:: yaml
 
-    # This code is part of Qiskit.
+    # This code is a Qiskit project.
     #
     # (C) Copyright IBM 20XX.
     #

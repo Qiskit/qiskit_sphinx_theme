@@ -1,4 +1,4 @@
-# This code is part of Qiskit.
+# This code is a Qiskit project.
 #
 # (C) Copyright IBM 2020, 2023.
 #
@@ -68,7 +68,7 @@ def remove_thebe_if_not_needed(
 
 
 def activate_themes(app: sphinx.application.Sphinx, config: sphinx.config.Config) -> None:
-    if config.html_theme == "qiskit":
+    if config.html_theme in ["qiskit", "_qiskit-ecosystem"]:
         # We set a low priority so that our Qiskit CSS file overrides Furo.
         app.add_css_file("styles/furo.css", 100)
         app.add_js_file("scripts/qiskit-sphinx-theme.js")
@@ -105,6 +105,7 @@ def setup(app: sphinx.application.Sphinx) -> dict[str, bool]:
 
     app.add_html_theme("qiskit_sphinx_theme", _get_theme_absolute_path("pytorch"))
     app.add_html_theme("qiskit", _get_theme_absolute_path("theme/qiskit-sphinx-theme"))
+    app.add_html_theme("_qiskit-ecosystem", _get_theme_absolute_path("ecosystem"))
 
     app.connect("config-inited", activate_themes)
     app.connect("html-page-context", remove_furo_js, priority=600)
