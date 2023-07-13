@@ -28,6 +28,14 @@ WORKDIR /app
 COPY . .
 
 RUN tox run -e qiskit
+RUN tox run -e ecosystem
 
 EXPOSE 8000
+
+# To preview the ecosystem theme in your PR, switch which line is commented out
+# so that `_ecosystem_build` is used rather than `_qiskit_build`.
+#
+# Before merging your PR, be sure to revert the change; the `main` branch should
+# use `_qiskit_build`.
 CMD ["python", "-m", "http.server", "-d", "example_docs/docs/_qiskit_build"]
+# CMD ["python", "-m", "http.server", "-d", "example_docs/docs/_ecosystem_build"]

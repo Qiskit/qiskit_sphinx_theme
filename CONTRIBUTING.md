@@ -131,7 +131,13 @@ We upload the docs builds to CI. So, you can download what the site will look li
 3. Under the "Artifacts" section, there should be a "html_docs" entry. Download it.
 4. Choose the theme you want, such as `qiskit_html_docs.tar.gz`, and un-tar it. Then, open the `index.html` page in a browser.
 
-Contributors with write access can also use live previews of the docs: GitHub will deploy a website using your changes. To use live previews, push your branch to `upstream` rather than your fork. GitHub will leave a comment with the link to the site. Please prefix your branch name with your initials, e.g. `EA/add-translations`, for good Git hygiene.
+### Live docs preview
+
+Contributors with write access can also use live previews of the docs: GitHub will deploy a website using your changes.
+
+To use live previews, push your branch to `upstream` rather than your fork. GitHub will leave a comment with the link to the site. Please prefix your branch name with your initials, e.g. `EA/add-translations`, for good Git hygiene.
+
+If you want a live preview of the Ecosystem theme rather than the normal Qiskit theme, read the comments in the root level `Dockerfile` to change which line of code is commented out. Be careful to revert your change to the `Dockerfile` before merging the PR.
 
 ------
 ## FYI: How Furo Theme Inheritance Works
