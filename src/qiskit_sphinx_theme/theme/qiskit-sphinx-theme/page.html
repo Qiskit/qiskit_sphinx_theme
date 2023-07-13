@@ -38,14 +38,12 @@
       <label class="nav-overlay-icon" for="__navigation">
         <div class="visually-hidden">Toggle site navigation sidebar</div>
         {#- QISKIT CHANGE: start. Replace left table of contents with text. -#}
-        Site contents <i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i>
+        Site <i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i>
         {#- QISKIT CHANGE: end. -#}
       </label>
     </div>
     <div class="header-center">
-      {#- QISKIT CHANGE: start. Don't show the project title on mobile. -#}
-      {#- <a href="{{ pathto(master_doc) }}"><div class="brand">{{ docstitle if docstitle else project }}</div></a> -#}
-      {#- QISKIT CHANGE: end -#}
+      <a href="{{ pathto(master_doc) }}"><div class="brand">{{ docstitle if docstitle else project }}</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">

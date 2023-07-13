@@ -32,6 +32,11 @@ div.header-left svg use {
   stroke-width: 0.5;
 }
 
+// Hide the project name because the Qiskit top nav bar already shows it.
+.mobile-header .header-center {
+  visibility: hidden;
+}
+
 // Fix Qiskit top nav bar hiding Furo's top nav bar and side menus.
 .mobile-header,
 .sidebar-sticky,
