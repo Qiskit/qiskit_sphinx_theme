@@ -84,29 +84,27 @@ const hideTopNavBar = async (page, mobile = false) => {
 // Snapshot tests
 // -----------------------------------------------------------------------
 
-test.describe("Qiskit top nav bar", () => {
-  test("does not cover Furo's menu bars when scrolled down", async ({
-    page,
-  }) => {
+test.describe("Qiskit top nav bar does not cover", () => {
+  test("Furo's menu bars when scrolled down", async ({ page }) => {
     await page.goto("sphinx_guide/lists.html");
 
     const check = async () => {
       const pageToCVisible = await isVisibleInViewport(
         page,
-        "div.toc-title-container"
+        "div.toc-title-container",
       );
       expect(pageToCVisible).toBe(true);
 
-      const translationsVisible = await isVisibleInViewport(
+      const searchVisible = await isVisibleInViewport(
         page,
-        "div.qiskit-translations-container p"
+        "input.sidebar-search",
       );
-      expect(translationsVisible).toBe(true);
+      expect(searchVisible).toBe(true);
 
       await setMobile(page);
       const mobileHeaderVisible = await isVisibleInViewport(
         page,
-        "header.mobile-header"
+        "header.mobile-header",
       );
       expect(mobileHeaderVisible).toBe(true);
     };
@@ -122,12 +120,12 @@ test.describe("Qiskit top nav bar", () => {
     await check();
   });
 
-  test("does not cover the top of # anchor links", async ({ page }) => {
+  test("the top of # anchor links", async ({ page }) => {
     const checkHeader = async () => {
       await page.goto("sphinx_guide/lists.html#definition-lists");
       const headerVisible = await isVisibleInViewport(
         page,
-        "section#definition-lists > h2"
+        "section#definition-lists > h2",
       );
       expect(headerVisible).toBe(true);
     };
@@ -140,16 +138,14 @@ test.describe("Qiskit top nav bar", () => {
     await checkHeader();
   });
 
-  test("does not cover the side menus when they're expanded on mobile", async ({
-    page,
-  }) => {
+  test("the side menus when they're expanded on mobile", async ({ page }) => {
     await setMobile(page);
     await page.goto("");
 
     await click(page, "div.header-right label.toc-overlay-icon i");
     const pageToCVisible = await isVisibleInViewport(
       page,
-      "div.toc-title-container"
+      "div.toc-title-container",
     );
     expect(pageToCVisible).toBe(true);
 
@@ -157,11 +153,11 @@ test.describe("Qiskit top nav bar", () => {
     await page.goto("");
 
     await click(page, "div.header-left i");
-    const translationsVisible = await isVisibleInViewport(
+    const searchVisible = await isVisibleInViewport(
       page,
-      "div.qiskit-translations-container p"
+      "input.sidebar-search",
     );
-    expect(translationsVisible).toBe(true);
+    expect(searchVisible).toBe(true);
   });
 });
 
@@ -207,7 +203,7 @@ test.describe("left side bar", () => {
     await page.goto("");
     await click(page, "div.qiskit-previous-releases-container i");
     const previousReleases = page.locator(
-      "div.qiskit-previous-releases-container"
+      "div.qiskit-previous-releases-container",
     );
     await expect(previousReleases).toHaveScreenshot();
   });
@@ -248,7 +244,7 @@ test.describe("footer", () => {
     // First, check that we change the color of the buttons when hovering.
     await yesOption.hover();
     const backgroundColor = await yesOption.evaluate(
-      (node) => getComputedStyle(node).backgroundColor
+      (node) => getComputedStyle(node).backgroundColor,
     );
     expect(backgroundColor).toEqual("rgb(105, 41, 196)");
 
