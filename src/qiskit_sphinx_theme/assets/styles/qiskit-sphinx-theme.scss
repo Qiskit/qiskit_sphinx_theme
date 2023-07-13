@@ -25,9 +25,9 @@
 @import "typography";
 
 body {
-  --qiskit-color-purple: #6929C4;
-  --color-brand-primary: var(--qiskit-color-purple);
-  --color-brand-content: var(--qiskit-color-purple);
+  // Use Carbon's purple70, which is the main color for Qiskit.
+  --color-brand-primary: #6929C4;
+  --color-brand-content: var(--color-brand-primary);
 }
 
 // Turn off scroll animation for anchor links: https://github.com/pradyunsg/furo/discussions/384
