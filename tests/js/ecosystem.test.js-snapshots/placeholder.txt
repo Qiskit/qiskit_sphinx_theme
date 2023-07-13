@@ -1,1 +1,0 @@
-# A placeholder until we have actual snapshot tests for the ecosystem.
