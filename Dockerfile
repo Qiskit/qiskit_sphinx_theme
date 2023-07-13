@@ -37,5 +37,5 @@ EXPOSE 8000
 #
 # Before merging your PR, be sure to revert the change; the `main` branch should
 # use `_qiskit_build`.
-# CMD ["python", "-m", "http.server", "-d", "example_docs/docs/_qiskit_build"]
-CMD ["python", "-m", "http.server", "-d", "example_docs/docs/_ecosystem_build"]
+CMD ["python", "-m", "http.server", "-d", "example_docs/docs/_qiskit_build"]
+# CMD ["python", "-m", "http.server", "-d", "example_docs/docs/_ecosystem_build"]
