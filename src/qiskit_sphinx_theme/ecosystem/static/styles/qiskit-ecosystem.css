@@ -12,6 +12,8 @@
  */
 
 body {
+  /* Use Carbon's magenta70. */
+  --color-brand-primary: #9f1853;
   --qiskit-top-nav-bar-height: 0px;
 }
 
