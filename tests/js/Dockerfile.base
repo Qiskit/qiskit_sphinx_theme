@@ -10,14 +10,19 @@
 # copyright notice, and modified files need to carry a notice indicating
 # that they have been altered from the originals.
 
-# A dockerfile to run our snapshot tests locally. This is to avoid issues with CI and local
+
+# A base Dockerfile to run our snapshot tests locally. This is to avoid issues with CI and local
 # differing. In CI, we also run with the same base image.
 # See https://playwright.dev/docs/test-snapshots.
 #
 # Note that we build the Sphinx docs outside of this Docker image; we only need to run the
 # server inside Docker so that the docs are rendered the same locally and in CI.
+#
+# Each specific theme extends this base image to copy in the built docs and run their specific
+# project with Playwright.
 
-# Keep this base image in sync with .githug/workflows/main.yml.
+
+# Keep this base image in sync with .github/workflows/main.yml.
 FROM mcr.microsoft.com/playwright:v1.34.0-jammy
 
 # Install our dependencies in CI mode so that we error if changes are necessary.
@@ -25,9 +30,6 @@ FROM mcr.microsoft.com/playwright:v1.34.0-jammy
 COPY package*.json ./
 RUN npm ci
 
-# Copy over only the folders needed for our tests.
+# Copy over our tests.
 COPY playwright.config.js ./
 COPY tests/js tests/js
-COPY example_docs/docs/_qiskit_build example_docs/docs/_qiskit_build
-
-CMD [ "npm", "run", "_run-playwright" ]
