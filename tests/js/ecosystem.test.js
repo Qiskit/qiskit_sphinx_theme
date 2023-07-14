@@ -13,6 +13,8 @@
 
 import { expect, test } from "@playwright/test";
 
+import { click } from "./utils";
+
 test.describe("left side bar", () => {
   test("renders correctly", async ({ page }) => {
     await page.goto("");
