@@ -1,8 +1,8 @@
-###########################################
-Qiskit sphinx theme |version| documentation
-###########################################
+############
+Example Docs
+############
 
-
+A site to test out styling for qiskit-sphinx-theme.
 
 .. toctree::
    :hidden:

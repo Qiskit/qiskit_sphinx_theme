@@ -16,7 +16,7 @@ import sys
 # This allows autodoc to find the `api_example` folder.
 sys.path.insert(0, os.path.abspath(".."))
 
-project = "Qiskit sphinx theme"
+project = "Example Docs"
 project_copyright = "2020, Qiskit Development Team"
 author = "Qiskit Development Team"
 language = "en"
@@ -53,6 +53,11 @@ extensions = [
 # Usually this would be something like "%Y/%m/%d", but we need a deterministic value for our
 # Playwright visual regression tests.
 html_last_updated_fmt = "2020/01/01"
+
+# Most projects will want to set this. It defaults to `{project} {release} documentation`;
+# the `documentation` at the end is noisy. Note that you have to use f-strings
+# for interpolation, i.e. Sphinx doesn't have built-in interpolation.
+html_title = f"{project} {release}"
 
 # This allows us to test both the Furo and Pytorch themes. In normal repositories, `html_theme`
 # would be set to one specific theme.
