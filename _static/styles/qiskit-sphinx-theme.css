@@ -353,6 +353,11 @@ dl.py dd p.rubric {
  * copyright notice, and modified files need to carry a notice indicating
  * that they have been altered from the originals.
  */
+.mobile-header.scrolled {
+  border-bottom: 1px solid var(--color-header-border);
+  box-shadow: none;
+}
+
 .admonition,
 .topic,
 table.docutils,
