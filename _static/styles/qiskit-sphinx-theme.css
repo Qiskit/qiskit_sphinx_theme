@@ -150,7 +150,7 @@ body {
 
 dl.py:not(.docutils) dt {
   display: inline-block;
-  border-top: 1px solid var(--qiskit-color-purple);
+  border-top: 1px solid var(--color-brand-primary);
   background-color: var(--color-background-secondary);
 }
 
@@ -199,6 +199,14 @@ dl.py dd p.rubric {
   margin-top: 1.25em;
 }
 
+body {
+  --qiskit-color-purple: #6929C4;
+  --qiskit-color-magenta: #9f1853;
+  --qiskit-color-blue: #0043ce;
+  --color-brand-content: var(--color-brand-primary);
+  --color-brand-primary: var(--qiskit-color-purple);
+}
+
 /* This code is a Qiskit project.
  *
  * (C) Copyright IBM 2023.
@@ -235,7 +243,7 @@ dl.py dd p.rubric {
   height: 1px;
   bottom: 0;
   left: 0;
-  background-color: var(--qiskit-color-purple);
+  background-color: var(--color-brand-primary);
   transition: width 0.25s ease-in-out;
 }
 .qiskit-card:hover {
@@ -334,7 +342,7 @@ dl.py dd p.rubric {
   height: 1px;
   bottom: 0;
   left: 0;
-  background-color: var(--qiskit-color-purple);
+  background-color: var(--color-brand-primary);
   transition: width 0.25s ease-in-out;
 }
 .qiskit-call-to-action-item a:hover::after {
@@ -416,12 +424,12 @@ div:not(#specifity-war).jupyter_container {
   padding: 0.625rem 1.25rem 0.625rem 1.25rem;
 }
 .qiskit-analytics-container a {
-  color: var(--qiskit-color-purple);
+  color: var(--color-brand-primary);
   cursor: pointer;
   text-decoration: none;
 }
 .qiskit-analytics-container a:hover {
-  background-color: var(--qiskit-color-purple);
+  background-color: var(--color-brand-primary);
   color: #ffffff;
 }
 
@@ -514,7 +522,7 @@ body {
 }
 
 .sidebar-tree .current-page > .reference {
-  color: var(--qiskit-color-purple);
+  color: var(--color-brand-primary);
 }
 
 .sidebar-tree .caption,
@@ -621,7 +629,7 @@ body {
 }
 
 .qiskit-translations-container {
-  border-top: solid 2px var(--qiskit-color-purple);
+  border-top: solid 2px var(--color-brand-primary);
 }
 
 .qiskit-translations-list-container {
@@ -796,12 +804,6 @@ h4 {
 .toctree-wrapper.compound .caption {
   text-transform: none;
   font-size: unset;
-}
-
-body {
-  --qiskit-color-purple: #6929C4;
-  --color-brand-primary: var(--qiskit-color-purple);
-  --color-brand-content: var(--qiskit-color-purple);
 }
 
 html {
