@@ -23,9 +23,9 @@ body {
 }
 
 // Even though we override --color-sidebar-link--top-level to be a more muted look, we change
-// the currently selected page to be purple to make it more obvious.
+// the currently selected page to be the brand color to make it more obvious.
 .sidebar-tree .current-page > .reference {
-  color: var(--qiskit-color-purple);
+  color: var(--color-brand-primary);
 }
 
 // ------------------------------------------------------------------------------
@@ -157,7 +157,7 @@ body {
 // --------------------------------------------------------------------------------------
 
 .qiskit-translations-container {
-  border-top: solid 2px var(--qiskit-color-purple);
+  border-top: solid 2px var(--color-brand-primary);
 }
 
 .qiskit-translations-list-container {

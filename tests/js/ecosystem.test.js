@@ -13,7 +13,7 @@
 
 import { expect, test } from "@playwright/test";
 
-import { setMobile, setDesktop, click, scrollDown, getPosition } from "./utils";
+import { click, getPosition, setMobile, setDesktop, scrollDown } from "./utils";
 
 test.describe("Reverted Qiskit top nav bar does not break positioning of", () => {
   test("Furo's menu bars when scrolled down", async ({ page }) => {
@@ -83,9 +83,34 @@ test.describe("Reverted Qiskit top nav bar does not break positioning of", () =>
   });
 });
 
+test.describe("left side bar", () => {
+  test("renders correctly", async ({ page }) => {
+    await page.goto("");
+    const leftToC = page.locator(".sidebar-drawer");
+    await expect(leftToC).toHaveScreenshot();
+  });
+
+  test("translations use ecosystem colors", async ({ page }) => {
+    await page.goto("");
+    await click(page, "div.qiskit-translations-container i");
+    const translations = page.locator("div.qiskit-translations-container");
+    await expect(translations).toHaveScreenshot();
+  });
+});
+
 test("mobile header uses Furo design", async ({ page }) => {
   await setMobile(page);
   await page.goto("");
   const header = page.locator("header.mobile-header");
   await expect(header).toHaveScreenshot();
+});
+
+test("footer uses ecosystem colors", async ({ page }) => {
+  await page.goto("");
+
+  const yesOption = page.locator("div.qiskit-analytics-container a").first();
+  await yesOption.hover();
+
+  const footer = page.locator("footer");
+  await expect(footer).toHaveScreenshot();
 });
