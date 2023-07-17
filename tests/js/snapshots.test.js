@@ -309,3 +309,9 @@ test("custom directives", async ({ page }) => {
   await expect(cards).toHaveScreenshot();
   await expect(callToActions).toHaveScreenshot();
 });
+
+test("inline table of contents have correct fonts", async ({ page }) => {
+  await page.goto("");
+  const contents = page.locator("section#example-docs");
+  await expect(contents).toHaveScreenshot();
+});

@@ -1,11 +1,11 @@
-###########################################
-Qiskit sphinx theme |version| documentation
-###########################################
+############
+Example Docs
+############
 
 
 
 .. toctree::
-   :hidden:
+   :maxdepth: 1
 
    Documentation Home <self>
    sphinx_guide/lists
@@ -16,15 +16,14 @@ Qiskit sphinx theme |version| documentation
    sphinx_guide/structural
 
 .. toctree::
-  :hidden:
   :caption: API
+  :maxdepth: 2
 
    Autodoc <sphinx_guide/autodoc>
-   Super duper duper duper duper duper long title to test line wrapping <sphinx_guide/long_title>
 
 .. toctree::
-   :hidden:
    :caption: Special elements
+   :maxdepth: 1
 
    sphinx_guide/jupyter
    sphinx_guide/notebook_gallery
