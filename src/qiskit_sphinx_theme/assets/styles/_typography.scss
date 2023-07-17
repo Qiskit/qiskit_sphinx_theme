@@ -24,3 +24,10 @@ h3,
 h4 {
   font-weight: 400;
 }
+
+// Fix in-line table of contents caption headers to not be upper-case and
+// small font. (That is, ToCs on the page itself.)
+.toctree-wrapper.compound .caption {
+  text-transform: none;
+  font-size: unset;
+}

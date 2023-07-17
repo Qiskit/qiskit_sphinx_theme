@@ -13,7 +13,7 @@
 
 import { expect, test } from "@playwright/test";
 
-import { click } from "./utils";
+import { click, setMobile } from "./utils";
 
 test.describe("left side bar", () => {
   test("renders correctly", async ({ page }) => {
@@ -28,6 +28,13 @@ test.describe("left side bar", () => {
     const translations = page.locator("div.qiskit-translations-container");
     await expect(translations).toHaveScreenshot();
   });
+});
+
+test("mobile header uses Furo design", async ({ page }) => {
+  await setMobile(page);
+  await page.goto("");
+  const header = page.locator("header.mobile-header");
+  await expect(header).toHaveScreenshot();
 });
 
 test("footer uses ecosystem colors", async ({ page }) => {
