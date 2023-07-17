@@ -25,7 +25,7 @@ dl.py:not(.docutils) dt {
   // This causes the definition-term and its border-top to only take up as much space as the
   // content, plus padding and margins.
   display: inline-block;
-  border-top: 1px solid var(--qiskit-color-purple);
+  border-top: 1px solid var(--color-brand-primary);
   background-color: var(--color-background-secondary);
 }
 

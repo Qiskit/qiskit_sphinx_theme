@@ -13,7 +13,7 @@
 
 // This creates a purple border at the bottom. We set the width to 0. The relevant rule
 // should change the width to 100% on hover so that it transitions in.
-@mixin purple-underline {
+@mixin brand-color-underline {
   content: "";
   display: block;
   position: absolute;
@@ -21,7 +21,7 @@
   height: 1px;
   bottom: 0;
   left: 0;
-  background-color: var(--qiskit-color-purple);
+  background-color: var(--color-brand-primary);
   transition: width .250s ease-in-out;
 }
 
@@ -50,7 +50,7 @@
   }
 
   &::after {
-    @include purple-underline;
+    @include brand-color-underline;
   }
 
   &:hover {
@@ -159,7 +159,7 @@
   }
 
   a::after {
-    @include purple-underline;
+    @include brand-color-underline;
   }
 
   a:hover::after {
