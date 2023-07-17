@@ -788,6 +788,11 @@ h4 {
   font-weight: 400;
 }
 
+.toctree-wrapper.compound .caption {
+  text-transform: none;
+  font-size: unset;
+}
+
 body {
   --qiskit-color-purple: #6929C4;
   --color-brand-primary: var(--qiskit-color-purple);
