@@ -13,8 +13,11 @@
 
 import { expect, test } from "@playwright/test";
 
-test("placeholder test", async ({ page }) => {
-  // Check that loading the docs works.
+import { setMobile } from "./utils";
+
+test("mobile header uses Furo design", async ({ page }) => {
+  await setMobile(page);
   await page.goto("");
-  expect(true).toBe(true);
+  const header = page.locator("header.mobile-header");
+  await expect(header).toHaveScreenshot();
 });
