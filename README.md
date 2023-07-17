@@ -1,20 +1,20 @@
-# qiskit_sphinx_theme
-The Sphinx theme for the Qiskit documentation.
+# qiskit-sphinx-theme
+The Sphinx themes for Qiskit and Qiskit Ecosystem documentation.
 
 ### Warning: new theme migration
 
-In qiskit-sphinx-theme 1.13, we migrated the theme from Pytorch to Furo, which brings several improvements. The old Pytorch theme will be removed in qiskit-sphinx-theme 2.0, which we expect to release in July or August 2023.
+In qiskit-sphinx-theme 1.13, we added the new `qiskit` theme, which migrates from Pytorch to Furo for several improvements. qiskit-sphinx-theme 1.14 added the `qiskit-ecosystem` theme. The old Pytorch theme will be removed in qiskit-sphinx-theme 2.0, which we expect to release in July or August 2023.
 
 See the section [Migrate from old Pytorch theme to new theme](#migrate-from-old-pytorch-theme-to-new-theme) for migration instructions.
 
 ## Overview
 
 This repository hosts three things: 
-- Qiskit Sphinx theme (located in the `src/` folder)
+- Qiskit Sphinx themes (located in the `src/` folder)
 - Example Docs (located in the `example_docs/` folder)
 - Qiskit Docs Guide (located in the `docs_guide/` folder)
 
-The Qiskit Sphinx Theme is the theme used by Qiskit Documentation (https://qiskit.org/documentation/) and Qiskit Ecosystem projects.
+The Qiskit Sphinx Themes are the themes used by Qiskit Documentation (https://qiskit.org/documentation/) and Qiskit Ecosystem projects.
 
 The Example Docs is a minimal Sphinx project that is used for testing the Qiskit Sphinx Theme. Every
 pull request will trigger [a GitHub workflow](https://github.com/Qiskit/qiskit_sphinx_theme/blob/main/.github/workflows/main.yml) that builds the Example Docs to make sure the changes do
@@ -34,7 +34,7 @@ pip install qiskit-sphinx-theme
 
 Then, set up the theme by updating `conf.py`:
 
-1. Set `html_theme = "qiskit"`
+1. Set `html_theme = "qiskit-ecosystem"` (only Qiskit Terra should use `qiskit`)
 2. Add `"qiskit_sphinx_theme"` to `extensions`
 
 ## Enable translations
@@ -102,7 +102,8 @@ The `qiskit_sphinx_theme` extension defines the below custom directives for you 
 * `qiskit-card`
 * `qiskit-call-to-action-item` and `qiskit-call-to-action-grid`
 
-![Screenshot of examples of custom directives](https://github.com/Qiskit/qiskit_sphinx_theme/assets/14852634/9c672417-6451-4547-bc36-10709f7f3880)
+![](tests/js/qiskit.test.js-snapshots/custom-directives-1-linux.png)
+![](tests/js/qiskit.test.js-snapshots/custom-directives-2-linux.png)
 
 ## Enable Qiskit.org Analytics
 
@@ -120,19 +121,48 @@ By enabling analytics we will be able to collect information on number of visits
 
 If you do not enable analytics, no data will be collected and the `Was this page helpful?` component will not show.
 
+## Customize or disable the logo
+
+The `qiskit-ecosystem` theme includes the Qiskit Ecosystem logo by default.
+
+You can use a custom logo by adding a logo file (SVG or PNG) as a sibling to your `conf.py`, e.g. `docs/logo.svg`. Then, set `html_logo` in `conf.py` to the name of the file, e.g. `html_logo = "logo.png"`.
+
+You can disable logos by setting `disable_ecosystem_logo` in `html_theme_options`, like this:
+
+```python
+html_theme_options = {
+    disable_ecosystem_logo=True,
+}
+```
+
+## Change color scheme
+
+The `qiskit-ecosystem` theme defaults to using a dark magenta color for its accent. This is to comply with Qiskit Ecosystem branding guidelines.
+
+But, Ecosystem projects in the `main` tier and closely aligned with IBM, such as Qiskit IBM Runtime, can set the color scheme to blue, like this:
+
+```conf.py
+html_theme_options = {
+    "light_css_variables": {
+        "color-brand-primary": "var(--qiskit-color-blue)",
+    }
+}
+```
+
 ## Migrate from old Pytorch theme to new theme
 
-In qiskit-sphinx-theme 1.13, we migrated to a new Sphinx theme based on Furo, which is used by pip, Black, and attrs documentation. See https://github.com/Qiskit/qiskit_sphinx_theme/issues/232 for the motivation.
+In qiskit-sphinx-theme 1.13, we migrated to a new Sphinx theme called `qiskit`, which is based on Furo from the pip, Black, and attrs documentation. See https://github.com/Qiskit/qiskit_sphinx_theme/issues/232 for the motivation. qiskit-sphinx-theme 1.14 added the `qiskit-ecosystem` theme for Ecosystem projects.
 
-qiskit-sphinx-theme 1.13 continues to support the legacy Pytorch theme, but support will be removed in version 2.0.
+qiskit-sphinx-theme 1.13+ continues to support the legacy Pytorch theme, but support will be removed in version 2.0.
 
-To migrate:
+To migrate, in `conf.py`:
 
-1. In `conf.py`, ensure that `"qiskit_sphinx_theme"` is in the `extensions` list.
-2. In `conf.py`, set `html_theme = "qiskit"` rather than `"qiskit_sphinx_theme"`.
-3. In `conf.py`, remove all `html_theme_options`.
-4. In `conf.py`, remove `expandable_sidebar` from `html_context`, if set. If it was set, follow the below section [How to migrate expandable_sidebar](#how-to-migrate-expandablesidebar).
-5. Render the docs and check that everything looks how expected. If not, please open a GitHub issue or reach out on Slack for help.
+1. Ensure that `"qiskit_sphinx_theme"` is in the `extensions` list.
+2. Set `html_theme = "qiskit-ecosystem"` rather than `"qiskit_sphinx_theme"`. (`qiskit` should only be used by Qiskit Terra.)
+3. Remove all `html_theme_options`.
+4. Remove `expandable_sidebar` from `html_context`, if set. If it was set, follow the below section [How to migrate expandable_sidebar](#how-to-migrate-expandable_sidebar).
+
+Render the docs and check that everything looks how expected. If not, please open a GitHub issue or reach out on Slack for help.
 
 ### How to migrate expandable_sidebar
 
@@ -147,9 +177,9 @@ With the old theme, to have expandable folders, you had to have a dedicated `.. 
   Page 2 <page2>
 ```
 
-Instead, the new theme will render the `:caption:` as a top-level section header in the left sidebar, with top-level entries for each page. See the screenshot in the PR description of https://github.com/Qiskit/qiskit_sphinx_theme/pull/384 for an example of how the old theme renders `:caption:` and compare to [the new theme](https://github.com/Qiskit/qiskit_sphinx_theme/blob/main/tests/js/snapshots.test.js-snapshots/left-side-bar-renders-correctly-1-linux.png).
+Instead, the new theme will render the `:caption:` as a top-level section header in the left sidebar, with top-level entries for each page. See the screenshot in the PR description of https://github.com/Qiskit/qiskit_sphinx_theme/pull/384 for an example of how the old theme renders `:caption:` and compare to [the new theme](tests/js/qiskit.test.js-snapshots/left-side-bar-renders-correctly-1-linux.png).
 
-Additionally, the new theme renders pages with their own subpages as expandable folders, unlike the old theme. [For example](https://github.com/Qiskit/qiskit_sphinx_theme/blob/main/tests/js/snapshots.test.js-snapshots/left-side-bar-renders-correctly-1-linux.png), `<apidocs/index>` will include all subpages that are listed in the `.. toctree ::` of the page `apidocs/index.rst`.
+Additionally, the new theme renders pages with their own subpages as expandable folders, unlike the old theme. [For example](tests/js/qiskit.test.js-snapshots/left-side-bar-renders-correctly-1-linux.png), `<apidocs/index>` will include all subpages that are listed in the `.. toctree ::` of the page `apidocs/index.rst`.
 
 So, when migrating, you have to decide which behavior you want:
 
