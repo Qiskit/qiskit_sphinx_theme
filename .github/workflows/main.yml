@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.repository_owner == 'Qiskit'
     container:
-      # Keep in sync with tests/js/Dockerfile's base image.
+      # Keep in sync with tests/js/Dockerfile.base's base image.
       image: mcr.microsoft.com/playwright:v1.34.0-jammy
     steps:
       - uses: actions/checkout@v3
@@ -63,8 +63,10 @@ jobs:
           name: html_docs
           path: artifacts
 
-      - name: Run JavaScript snapshot tests
-        run: npm run _run-playwright
+      - name: Run visual regression tests
+        run: |
+          npm run _run-qiskit-tests
+          npm run _run-ecosystem-tests
       - name: Upload snapshot results
         if: failure()
         uses: actions/upload-artifact@v3

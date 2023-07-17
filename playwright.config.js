@@ -13,11 +13,23 @@
 
 import { defineConfig } from "@playwright/test";
 
-const baseURL = "http://127.0.0.1:8080";
+let testMatch;
+let baseURL;
+let startCommand;
+if (process.env.THEME === "qiskit") {
+  testMatch = /.*qiskit.test.js/;
+  baseURL = "http://127.0.0.1:8080";
+  startCommand = "start-qiskit";
+} else {
+  testMatch = /.*ecosystem.test.js/;
+  baseURL = "http://127.0.0.1:8081";
+  startCommand = "start-ecosystem";
+}
 
 export default defineConfig({
   outputDir: "snapshot_results",
   workers: process.env.CI ? 1 : undefined,
+  testMatch,
   expect: {
     toHaveScreenshot: {
       threshold: 0.01, // We expect colors to be near exact matches.
@@ -25,11 +37,11 @@ export default defineConfig({
   },
   use: {
     baseURL,
-    viewport: { width: 1920, height: 1080 }, // Sets default viewport to desktop dimensions.
+    // Sets default viewport to desktop dimensions.
+    viewport: { width: 1920, height: 1080 },
   },
   webServer: {
-    command: "npm run start",
+    command: `npm run ${startCommand}`,
     url: baseURL,
-    reuseExistingServer: !process.env.CI,
   },
 });

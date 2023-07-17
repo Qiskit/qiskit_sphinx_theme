@@ -1,4 +1,4 @@
-/* This code is part of Qiskit.
+/* This code is a Qiskit project.
  *
  * (C) Copyright IBM 2023.
  *
@@ -11,6 +11,13 @@
  * that they have been altered from the originals.
  */
 
-body {
-  --qiskit-top-nav-bar-height: 0px;
-}
+import { expect, test } from "@playwright/test";
+
+import { setMobile } from "./utils";
+
+test("mobile header uses Furo design", async ({ page }) => {
+  await setMobile(page);
+  await page.goto("");
+  const header = page.locator("header.mobile-header");
+  await expect(header).toHaveScreenshot();
+});

@@ -4,7 +4,7 @@
   When adding custom Qiskit code, surround it with `QISKIT CHANGE: start` and
   `QISKIT CHANGE: end` Jinja-style comments.
 
-  We also vendor this file in the ecosystem theme. When making changes, check if `ecosystem/page.html`
+  We also vendor this file in the Qiskit theme. When making changes, check if `theme/page.html`
   should have it too.
 -#}
 
@@ -13,10 +13,6 @@
 {% block body -%}
 {{ super() }}
 {% include "partials/icons.html" %}
-
-{#- QISKIT CHANGE: start. -#}
-<qiskit-ui-shell variant="hide-account"></qiskit-ui-shell>
-{#- QISKIT CHANGE: end. -#}
 
 <input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
 <input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
@@ -40,15 +36,11 @@
     <div class="header-left">
       <label class="nav-overlay-icon" for="__navigation">
         <div class="visually-hidden">Toggle site navigation sidebar</div>
-        {#- QISKIT CHANGE: start. Replace left table of contents with text. -#}
-        Site contents <i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i>
-        {#- QISKIT CHANGE: end. -#}
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
       </label>
     </div>
     <div class="header-center">
-      {#- QISKIT CHANGE: start. Don't show the project title on mobile. -#}
-      {#- <a href="{{ pathto(master_doc) }}"><div class="brand">{{ docstitle if docstitle else project }}</div></a> -#}
-      {#- QISKIT CHANGE: end -#}
+      <a href="{{ pathto(master_doc) }}"><div class="brand">{{ docstitle if docstitle else project }}</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">

@@ -15,10 +15,11 @@
   },
   "scripts": {
     "build": "webpack",
-    "start": "http-server example_docs/docs/_qiskit_build",
-    "test-qiskit": "tox -e qiskit && npm run _docker-build && npm run _docker-run",
-    "_docker-build": "docker build -t qiskit_sphinx_theme -f tests/js/Dockerfile .",
-    "_docker-run": "docker run --rm --init -v $(pwd)/snapshot_results:/snapshot_results -v $(pwd)/tests/js/qiskit.test.js-snapshots:/tests/js/qiskit.test.js-snapshots qiskit_sphinx_theme",
-    "_run-playwright": "playwright test"
+    "start-qiskit": "http-server example_docs/docs/_qiskit_build -p 8080",
+    "start-ecosystem": "http-server example_docs/docs/_ecosystem_build -p 8081",
+    "test-qiskit": "tests/js/run_docker.py qiskit",
+    "test-ecosystem": "tests/js/run_docker.py ecosystem",
+    "_run-qiskit-tests": "THEME=qiskit playwright test",
+    "_run-ecosystem-tests": "THEME=ecosystem playwright test"
   }
 }
