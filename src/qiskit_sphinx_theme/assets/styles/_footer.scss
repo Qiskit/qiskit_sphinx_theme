@@ -25,12 +25,12 @@
   }
 
   a {
-    color: var(--qiskit-color-purple);
+    color: var(--color-brand-primary);
     cursor: pointer;
     text-decoration: none;
 
     &:hover {
-      background-color: var(--qiskit-color-purple);
+      background-color: var(--color-brand-primary);
       color: #ffffff;
     }
   }
