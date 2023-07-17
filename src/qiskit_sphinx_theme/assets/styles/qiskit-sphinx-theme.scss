@@ -13,6 +13,7 @@
 
 @import "admonitions";
 @import "api";
+@import "colors";
 @import "custom-directives";
 @import "drop-shadows";
 @import "footer";
@@ -23,12 +24,6 @@
 @import "tables";
 @import "top-nav-bar";
 @import "typography";
-
-body {
-  // Use Carbon's purple70, which is the main color for Qiskit.
-  --color-brand-primary: #6929C4;
-  --color-brand-content: var(--color-brand-primary);
-}
 
 // Turn off scroll animation for anchor links: https://github.com/pradyunsg/furo/discussions/384
 html {

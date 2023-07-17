@@ -12,7 +12,6 @@
  */
 
 body {
-  /* Use Carbon's magenta70. */
-  --color-brand-primary: #9f1853;
+  --color-brand-primary: var(--qiskit-color-magenta);
   --qiskit-top-nav-bar-height: 0px;
 }
