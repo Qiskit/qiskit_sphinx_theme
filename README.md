@@ -146,6 +146,19 @@ html_theme_options = {
 }
 ```
 
+## IBM Projects: how to use blue color scheme
+
+By default, the `qiskit-ecosystem` theme uses purple as an accent color. Most projects should continue to use this, but certain highly IBM-affiliated projects like Qiskit IBM Runtime can change the accent color to blue by setting up `conf.py` like this:
+
+```python
+# Only intended for specific IBM projects.
+html_theme_options = {
+    "light_css_variables": {
+        "color-brand-primary": "var(--qiskit-color-blue)",
+    }
+}
+```
+
 ## Migrate from old Pytorch theme to new theme
 
 In qiskit-sphinx-theme 1.13, we migrated to a new Sphinx theme called `qiskit`, which is based on Furo from the pip, Black, and attrs documentation. See https://github.com/Qiskit/qiskit_sphinx_theme/issues/232 for the motivation. qiskit-sphinx-theme 1.14 added the `qiskit-ecosystem` theme for Ecosystem projects.
