@@ -15,3 +15,9 @@ body {
   --color-brand-primary: var(--qiskit-color-magenta);
   --qiskit-top-nav-bar-height: 0px;
 }
+
+/* Furo only sets `max-width` to 100%, and height stays at `auto`. That results in
+ * logos appearing small in the in the left sidebar. */
+.sidebar-logo {
+  width: 100%;
+}
