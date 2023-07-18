@@ -87,19 +87,10 @@ test.describe("Reverted Qiskit top nav bar does not break positioning of", () =>
   });
 });
 
-test.describe("left side bar", () => {
-  test("renders correctly", async ({ page }) => {
-    await page.goto("");
-    const leftToC = page.locator(".sidebar-drawer");
-    await expect(leftToC).toHaveScreenshot();
-  });
-
-  test("translations use ecosystem colors", async ({ page }) => {
-    await page.goto("");
-    await click(page, "div.qiskit-translations-container i");
-    const translations = page.locator("div.qiskit-translations-container");
-    await expect(translations).toHaveScreenshot();
-  });
+test("left side bar renders correctly", async ({ page }) => {
+  await page.goto("");
+  const leftToC = page.locator(".sidebar-drawer");
+  await expect(leftToC).toHaveScreenshot();
 });
 
 test("mobile header uses Furo design", async ({ page }) => {
@@ -109,12 +100,21 @@ test("mobile header uses Furo design", async ({ page }) => {
   await expect(header).toHaveScreenshot();
 });
 
-test("footer uses ecosystem colors", async ({ page }) => {
-  await page.goto("");
+test.describe("colors can be changed", () => {
+  test("translations", async ({ page }) => {
+    await page.goto("");
+    await click(page, "div.qiskit-translations-container i");
+    const translations = page.locator("div.qiskit-translations-container");
+    await expect(translations).toHaveScreenshot();
+  });
 
-  const yesOption = page.locator("div.qiskit-analytics-container a").first();
-  await yesOption.hover();
+  test("footer", async ({ page }) => {
+    await page.goto("");
 
-  const footer = page.locator("footer");
-  await expect(footer).toHaveScreenshot();
+    const yesOption = page.locator("div.qiskit-analytics-container a").first();
+    await yesOption.hover();
+
+    const footer = page.locator("footer");
+    await expect(footer).toHaveScreenshot();
+  });
 });
