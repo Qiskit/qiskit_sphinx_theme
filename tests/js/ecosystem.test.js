@@ -15,6 +15,10 @@ import { expect, test } from "@playwright/test";
 
 import { click, getPosition, setMobile, setDesktop, scrollDown } from "./utils";
 
+// These tests use `getPosition` to get the exact x and y coordinates of HTML elements.
+// It's possible we'll make design changes in the future that change those coordinates;
+// if so, first check the example docs to make sure they look right, and then update
+// the expected coordinates below.
 test.describe("Reverted Qiskit top nav bar does not break positioning of", () => {
   test("Furo's menu bars when scrolled down", async ({ page }) => {
     await page.goto("sphinx_guide/lists.html");
