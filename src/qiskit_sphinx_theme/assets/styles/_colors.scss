@@ -3,10 +3,8 @@ body {
     // https://github.com/carbon-design-system/carbon/blob/v10/packages/colors/src/colors.js
     // that are consistent with Qiskit's branding.
     //
-    // While we set default colors, certain users will want to choose a specific
-    // color, such as IBM-focused projects choosing blue.
+    // While we set default colors, IBM-focused projects will want to use blue.
     --qiskit-color-purple: #6929C4;  // purple70
-    --qiskit-color-magenta: #9f1853;  // magenta70
     --qiskit-color-blue: #0043ce;  // blue70
 
     // Furo normally distinguishes between these two variables, but
