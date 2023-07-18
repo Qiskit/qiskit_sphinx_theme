@@ -72,7 +72,7 @@ if _THEME == "qiskit_sphinx_theme":
     }
     # Sets a better style for code syntax highlighting.
     pygments_style = "colorful"
-elif _THEME == "_qiskit-ecosystem":
+elif _THEME == "qiskit-ecosystem":
     # This tests out that ecosystem projects can change the color scheme.
     # Only specific IBM projects should set this! Most Ecosystem projects
     # should use the default of purple.
