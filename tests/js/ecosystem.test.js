@@ -26,8 +26,8 @@ test.describe("Reverted Qiskit top nav bar does not break positioning of", () =>
       );
       expect(pageToCPosition).toEqual({ x: 1344, y: 0 });
 
-      const searchPosition = await getPosition(page, "input.sidebar-search");
-      expect(searchPosition).toEqual({ x: 0, y: 8 });
+      const leftLogoPosition = await getPosition(page, ".sidebar-brand");
+      expect(leftLogoPosition).toEqual({ x: 0, y: 0 });
 
       await setMobile(page);
       const mobileHeaderPosition = await getPosition(
@@ -78,8 +78,8 @@ test.describe("Reverted Qiskit top nav bar does not break positioning of", () =>
     await page.goto("");
 
     await click(page, "div.header-left i");
-    const searchPosition = await getPosition(page, "input.sidebar-search");
-    expect(searchPosition).toEqual({ x: 0, y: 8 });
+    const leftLogoPosition = await getPosition(page, ".sidebar-brand");
+    expect(leftLogoPosition).toEqual({ x: 0, y: 0 });
   });
 });
 
