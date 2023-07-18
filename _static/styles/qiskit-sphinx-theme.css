@@ -201,7 +201,6 @@ dl.py dd p.rubric {
 
 body {
   --qiskit-color-purple: #6929C4;
-  --qiskit-color-magenta: #9f1853;
   --qiskit-color-blue: #0043ce;
   --color-brand-content: var(--color-brand-primary);
   --color-brand-primary: var(--qiskit-color-purple);
