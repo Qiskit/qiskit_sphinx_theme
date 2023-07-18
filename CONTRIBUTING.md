@@ -18,16 +18,17 @@ There are a few important subfolders to be aware of:
 ### `/src`
 This subfolder contains the HTML, CSS, and Python files that are used for the Qiskit themes. It has these folders:
 
-* `assets`: CSS and JavaScript for our Furo theme, which is the future of the Sphinx theme.
-* `pytorch`: all the code for the legacy Pytorch theme.
-* `theme`: static files, like HTML templates, for our Furo theme.
+* `assets`: CSS and JavaScript for the `qiskit` theme.
+* `pytorch`: all the code for the legacy Pytorch theme (`qiskit_sphinx_theme`).
+* `ecosystem`: the code for the `qiskit-ecosystem` theme, which is built on top of the base `qiskit` theme. This folder only has overrides.
+* `theme`: static files, like HTML templates, for the `qiskit` theme.
 
 The top-level Python files are used for logic used by the theme, such as `translations.py` determining what URLs the HTML should use for translations support.
 
 ### `/example_docs`
 This subfolder contains a scaled down version of the Sphinx build that builds the documentation for the Qiskit repos. 
 
-It pulls styles from the `/src` subfolder. You can check any changes you are making to theme by building the documentation (see running locally section) and opening the HTML files generated in `example_docs/docs/_qiskit_build` and `example_docs/docs/_pytorch_build`.
+It pulls styles from the `/src` subfolder. You can check any changes you are making to theme by building the documentation (see running locally section) and opening the HTML files generated in `example_docs/docs/_qiskit_build`, `example_docs/docs/_ecosystem_build`, and `example_docs/docs/_pytorch_build`.
 
 ### `/docs_guide`
 This subfolder contains guidance on how to write documentation and build sphinx projects for Qiskit and Qiskit Ecosystem projects. You can view the fully rendered docs guide at https://qisk.it/docs-guide
@@ -38,10 +39,10 @@ This subfolder contains guidance on how to write documentation and build sphinx 
 We use [Tox](https://tox.wiki/en/latest/), which you will need to install globally (e.g. using [`pipx`](https://pypa.github.io/pipx/)).
 
 * Run Python tests: `tox -e py`
-* Build `example_docs/` with the new Furo "Qiskit" theme:
+* Build `example_docs/` with the `qiskit` theme:
   1. `tox -e qiskit`
   2. Open up `example_docs/docs/_qiskit_build/index.html` in your browser
-* Build `example_docs/` with the work-in-progress Ecosystem theme:
+* Build `example_docs/` with the `qiskit-ecosystem` theme:
   1. `tox -e ecosystem`
   2. Open up `example_docs/docs/_ecosystem_build/index.html` in your browser
 * Build `example_docs/` with the legacy Pytorch theme:
@@ -136,9 +137,15 @@ Contributors with write access can also use live previews of the docs: GitHub wi
 ------
 ## FYI: How Furo Theme Inheritance Works
 
-We use Sphinx's inheritance future for our Furo theme, which we set in `theme/qiskit-sphinx-theme/theme.conf`. Sphinx will default to using all the files from Furo. But if we have a file with the same name as Furo, then Sphinx will use our copy. That allows us to override only what we care about.
+We use Sphinx's inheritance future for our Furo-based `qiskit` theme, which we set in `theme/qiskit-sphinx-theme/theme.conf`. Sphinx will default to using all the files from Furo. But if we have a file with the same name as Furo, then Sphinx will use our copy. That allows us to override only what we care about.
 
 We try to keep changes to a minimum because every divergence we make from base Furo increases our maintenance burden. Hence we prioritise only making changes that are important to the Qiskit brand. If the change would be generally useful to other users of Furo, we try to contribute upstream to the Furo project itself.
+
+The `qiskit-ecosystem` theme then inherits the `qiskit` theme to make some tweaks: 
+
+1. Adding back `brand.html` to the left sidebar, but with some custom code.
+2. Restoring Furo's `page.html` to remove the Qiskit top nav bar and restore the mobile header design.
+3. `qiskit-ecosystem.css` setting the Qiskit top nav bar height to 0px.
 
 ### How to change HTML
 Copy the HTML template from Furo and save it in the same file path. Then, at the top of the file, add this header:

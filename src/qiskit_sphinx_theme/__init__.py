@@ -107,7 +107,7 @@ def setup(app: sphinx.application.Sphinx) -> dict[str, bool]:
 
     app.add_html_theme("qiskit_sphinx_theme", _get_theme_absolute_path("pytorch"))
     app.add_html_theme("qiskit", _get_theme_absolute_path("theme/qiskit-sphinx-theme"))
-    app.add_html_theme("_qiskit-ecosystem", _get_theme_absolute_path("ecosystem"))
+    app.add_html_theme("qiskit-ecosystem", _get_theme_absolute_path("ecosystem"))
 
     app.connect("config-inited", activate_furo)
     app.connect("html-page-context", remove_furo_js, priority=600)

@@ -21,7 +21,7 @@ extensions = [
 templates_path = ["_templates"]
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
-html_theme = "_qiskit-ecosystem"
+html_theme = "qiskit-ecosystem"
 html_title = project
 
 intersphinx_mapping = {
