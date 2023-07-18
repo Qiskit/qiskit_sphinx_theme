@@ -135,20 +135,6 @@ html_theme_options = {
 }
 ```
 
-## Change color scheme
-
-The `qiskit-ecosystem` theme defaults to using a dark magenta color for its accent. This is to comply with Qiskit Ecosystem branding guidelines.
-
-But, Ecosystem projects in the `main` tier and closely aligned with IBM, such as Qiskit IBM Runtime, can set the color scheme to blue, like this:
-
-```conf.py
-html_theme_options = {
-    "light_css_variables": {
-        "color-brand-primary": "var(--qiskit-color-blue)",
-    }
-}
-```
-
 ## Migrate from old Pytorch theme to new theme
 
 In qiskit-sphinx-theme 1.13, we migrated to a new Sphinx theme called `qiskit`, which is based on Furo from the pip, Black, and attrs documentation. See https://github.com/Qiskit/qiskit_sphinx_theme/issues/232 for the motivation. qiskit-sphinx-theme 1.14 added the `qiskit-ecosystem` theme for Ecosystem projects.
