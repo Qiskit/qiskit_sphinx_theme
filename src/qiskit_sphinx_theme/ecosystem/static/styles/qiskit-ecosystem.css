@@ -12,7 +12,6 @@
  */
 
 body {
-  --color-brand-primary: var(--qiskit-color-magenta);
   --qiskit-top-nav-bar-height: 0px;
 }
 
