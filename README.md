@@ -37,6 +37,17 @@ Then, set up the theme by updating `conf.py`:
 1. Set `html_theme = "qiskit-ecosystem"` (only Qiskit Terra should use `qiskit`)
 2. Add `"qiskit_sphinx_theme"` to `extensions`
 
+You also likely want to set `html_title` in `conf.py`. This results in the left sidebar having a more useful and concise name, along with the page title in the browser. Most projects will want to use this in their `conf.py`:
+
+```python
+# Sphinx expects you to set these already.
+project = "My Project"
+release = "4.12"
+
+# This sets the title to e.g. `My Project 4.12`.
+html_title = f"{project} {release}"
+```
+
 ## Enable translations
 
 First, coordinate with the Translations team at https://github.com/qiskit-community/qiskit-translations to express your interest and to coordinate setting up the infrastructure.
