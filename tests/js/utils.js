@@ -37,6 +37,11 @@ const scrollDown = async (page, numPixels) => {
   await page.waitForTimeout(600);
 };
 
+const getPosition = async (page, selector) => {
+  const box = await page.locator(selector).boundingBox();
+  return { x: box.x, y: box.y };
+};
+
 const isVisibleInViewport = async (page, selector) => {
   return await page.evaluate((selector) => {
     const element = document.querySelector(selector);
@@ -75,11 +80,12 @@ const hideTopNavBar = async (page, mobile = false) => {
 };
 
 export {
-    setDesktop,
-    setMobile,
-    setTablet,
-    click,
-    scrollDown,
-    isVisibleInViewport,
-    hideTopNavBar,
-}
+  setDesktop,
+  setMobile,
+  setTablet,
+  click,
+  scrollDown,
+  getPosition,
+  isVisibleInViewport,
+  hideTopNavBar,
+};
