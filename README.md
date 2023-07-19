@@ -142,7 +142,7 @@ You can disable logos by setting `disable_ecosystem_logo` in `html_theme_options
 
 ```python
 html_theme_options = {
-    disable_ecosystem_logo=True,
+    "disable_ecosystem_logo": True,
 }
 ```
 
