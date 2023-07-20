@@ -20,6 +20,12 @@ Contents
 
    Electron
    my_function
+
+Functions
+=========
+
+.. autofunction:: my_function
+   :noindex:
 """
 
 from __future__ import annotations
