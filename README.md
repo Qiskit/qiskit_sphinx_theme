@@ -138,7 +138,15 @@ The `qiskit-ecosystem` theme includes the Qiskit Ecosystem logo by default.
 
 You can use a custom logo by adding a logo file (SVG or PNG) as a sibling to your `conf.py`, e.g. `docs/logo.svg`. Then, set `html_logo` in `conf.py` to the name of the file, e.g. `html_logo = "logo.png"`.
 
-You can disable logos by setting `disable_ecosystem_logo` in `html_theme_options`, like this:
+When using a custom logo, you may want to disable the project's name in the sidebar by setting `sidebar_hide_name` in `html_theme_options`:
+
+```python
+html_theme_options = {
+    "sidebar_hide_name": True,
+}
+```
+
+You can disable logos by setting `disable_ecosystem_logo` in `html_theme_options`:
 
 ```python
 html_theme_options = {
