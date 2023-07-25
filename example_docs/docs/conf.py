@@ -10,6 +10,8 @@
 # copyright notice, and modified files need to carry a notice indicating
 # that they have been altered from the originals.
 
+from __future__ import annotations
+
 import os
 import sys
 
@@ -41,7 +43,7 @@ extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.autosummary",
     "sphinx.ext.mathjax",
-    "sphinx.ext.viewcode",
+    "sphinx.ext.linkcode",
     "sphinx.ext.extlinks",
     "jupyter_sphinx",
     "sphinx_copybutton",
@@ -127,3 +129,25 @@ nbsphinx_thumbnails = {
     # Default image for thumbnails.
     "**": "_static/images/logo.png",
 }
+
+
+# --------------------------------------------------------------------------------------
+# sphinx.ext.linkcode
+# --------------------------------------------------------------------------------------
+
+def linkcode_resolve(domain: str, info: dict[str, str]) -> str | None:
+    """Set up where source code is defined in GitHub.
+
+    This implementation assumes that all of our autodoc/autosummary is always defined in
+    `__init__.py` files. The links will go back to the `__init__.py` files, and then the users
+    can retrace where the code was originally defined.
+    """
+    if domain != "py":
+        return None
+    if not info['module']:
+        return None
+    module_as_url = info['module'].replace('.', '/')
+    return (
+        "https://github.com/Qiskit/qiskit_sphinx_theme/tree/main/example_docs/" +
+        f"{module_as_url}/__init__.py"
+    )
