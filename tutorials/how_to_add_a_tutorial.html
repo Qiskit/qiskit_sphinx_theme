@@ -258,16 +258,16 @@
 <p>This guide shows how to add a tutorial to your project repository.</p>
 <section id="pre-requisites">
 <h2>Pre-requisites<a class="headerlink" href="#pre-requisites" title="Permalink to this heading">#</a></h2>
-<p>This guide assumes your project already has a working <a class="reference external" href="https://www.sphinx-doc.org/en/master/index.html" title="(in Sphinx v7.1.0)"><span class="xref std std-doc">Sphinx</span></a> documentation project in a
+<p>This guide assumes your project already has a working <a class="reference external" href="https://www.sphinx-doc.org/en/master/index.html" title="(in Sphinx v7.2.0)"><span class="xref std std-doc">Sphinx</span></a> documentation project in a
 folder called <code class="docutils literal notranslate"><span class="pre">docs</span></code> and <a class="reference internal" href="../intro/new_doc_project.html#doc-structure"><span class="std std-ref">the recommended folder structure</span></a>. If you don’t
-have it, you can set it up with <a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html" title="(in Sphinx v7.1.0)"><span>sphinx-quickstart</span></a> following the tutorial <a class="reference internal" href="../intro/new_doc_project.html#create-new-doc-project"><span class="std std-ref">Create a New Documentation Project</span></a>.</p>
+have it, you can set it up with <a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html" title="(in Sphinx v7.2.0)"><span>sphinx-quickstart</span></a> following the tutorial <a class="reference internal" href="../intro/new_doc_project.html#create-new-doc-project"><span class="std std-ref">Create a New Documentation Project</span></a>.</p>
 </section>
 <section id="create-a-new-tutorial">
 <h2>Create a new tutorial<a class="headerlink" href="#create-a-new-tutorial" title="Permalink to this heading">#</a></h2>
 <p>In order to create a tutorial, go to the  <code class="docutils literal notranslate"><span class="pre">docs/tutorials</span></code> folder of your Qiskit project repository and add a new <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> or (prefereably) <code class="docutils literal notranslate"><span class="pre">.rst</span></code> file there. In this guide we will assume your tutorial is called <code class="docutils literal notranslate"><span class="pre">your_tutorial.ipynb</span></code> or <code class="docutils literal notranslate"><span class="pre">your_tutorial.rst</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If the tutorial is an <code class="docutils literal notranslate"><span class="pre">ipynb</span></code> file, <code class="docutils literal notranslate"><span class="pre">nbsphinx</span></code> needs to be included in the <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-extensions" title="(in Sphinx v7.1.0)"><code class="docutils literal notranslate"><span class="pre">extensions</span></code></a> variable of <code class="docutils literal notranslate"><span class="pre">docs/conf.py</span></code> to convert the <code class="docutils literal notranslate"><span class="pre">ipynb</span></code> file into an <code class="docutils literal notranslate"><span class="pre">rst</span></code> file during the documentation building process.</p>
+<p>If the tutorial is an <code class="docutils literal notranslate"><span class="pre">ipynb</span></code> file, <code class="docutils literal notranslate"><span class="pre">nbsphinx</span></code> needs to be included in the <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-extensions" title="(in Sphinx v7.2.0)"><code class="docutils literal notranslate"><span class="pre">extensions</span></code></a> variable of <code class="docutils literal notranslate"><span class="pre">docs/conf.py</span></code> to convert the <code class="docutils literal notranslate"><span class="pre">ipynb</span></code> file into an <code class="docutils literal notranslate"><span class="pre">rst</span></code> file during the documentation building process.</p>
 </div>
 </section>
 <section id="update-the-page">
@@ -275,7 +275,7 @@ have it, you can set it up with <a class="reference external" href="https://www.
 <p>Once you have created and written your file, you need to update the <code class="docutils literal notranslate"><span class="pre">docs/tutorials/index.rst</span></code> file so your new tutorial appears in the web page.</p>
 <section id="rst">
 <h3><code class="docutils literal notranslate"><span class="pre">.rst</span></code><a class="headerlink" href="#rst" title="Permalink to this heading">#</a></h3>
-<p>If your tutorial is an <code class="docutils literal notranslate"><span class="pre">.rst</span></code> file, add it to a <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-toctree" title="(in Sphinx v7.1.0)"><code class="docutils literal notranslate"><span class="pre">toctree</span></code></a> like this one:</p>
+<p>If your tutorial is an <code class="docutils literal notranslate"><span class="pre">.rst</span></code> file, add it to a <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-toctree" title="(in Sphinx v7.2.0)"><code class="docutils literal notranslate"><span class="pre">toctree</span></code></a> like this one:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Section name
 ============
 
@@ -289,7 +289,7 @@ have it, you can set it up with <a class="reference external" href="https://www.
 </div>
 <p>In this example, the title from the first existing tutorial (<code class="docutils literal notranslate"><span class="pre">existing_tutorial_1.rst</span></code>) is taken directly from it while for <code class="docutils literal notranslate"><span class="pre">existing_tutorial_2.rst</span></code> and your new tutorial
 the title is set manually.</p>
-<p>It’s important to make sure that the indentation of the items inside the <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-toctree" title="(in Sphinx v7.1.0)"><code class="docutils literal notranslate"><span class="pre">toctree</span></code></a> is of at least three whitespaces.</p>
+<p>It’s important to make sure that the indentation of the items inside the <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-toctree" title="(in Sphinx v7.2.0)"><code class="docutils literal notranslate"><span class="pre">toctree</span></code></a> is of at least three whitespaces.</p>
 <p>The section name header needs to be covered by equal signs <code class="docutils literal notranslate"><span class="pre">=</span></code> below.</p>
 </section>
 <section id="ipynb">
@@ -306,7 +306,7 @@ the title is set manually.</p>
     Title of your tutorial &lt;your_tutorial&gt;
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">nbgallery</span></code> directive has the same arguments as <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-toctree" title="(in Sphinx v7.1.0)"><code class="docutils literal notranslate"><span class="pre">toctree</span></code></a>, so the only
+<p>The <code class="docutils literal notranslate"><span class="pre">nbgallery</span></code> directive has the same arguments as <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-toctree" title="(in Sphinx v7.2.0)"><code class="docutils literal notranslate"><span class="pre">toctree</span></code></a>, so the only
 difference between this case and the <code class="docutils literal notranslate"><span class="pre">.rst</span></code> one is writing the name of the directive.</p>
 </section>
 </section>
