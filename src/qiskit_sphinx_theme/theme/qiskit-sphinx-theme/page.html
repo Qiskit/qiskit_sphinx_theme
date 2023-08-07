@@ -28,9 +28,14 @@
 </label>
 
 {% if theme_announcement -%}
-<div class="announcement">
-  <aside class="announcement-content">
+<div class="custom-announcement">
+  <aside class="custom-announcement-content">
     {% block announcement %} {{ theme_announcement }} {% endblock announcement %}
+    {% if announcement_url -%}
+    <a href="{{announcement_url}}" class="reference internal">Learn more
+      <svg class="icon"><use href="#svg-new-tab"></use></svg>
+    </a>
+    {%- endif %}
   </aside>
 </div>
 {%- endif %}
