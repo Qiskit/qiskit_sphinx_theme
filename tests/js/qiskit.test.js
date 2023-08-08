@@ -251,18 +251,3 @@ test("inline table of contents have correct fonts", async ({ page }) => {
   const contents = page.locator("section#example-docs");
   await expect(contents).toHaveScreenshot();
 });
-
-test.describe("announcement", () => {
-  test("banner renders correctly", async ({ page }) => {
-    await page.goto("");
-    const announcement = page.locator("custom-announcement");
-    await expect(announcement).toHaveScreenshot();
-  });
-
-  test("banner renders correctly on mobile", async ({ page }) => {
-    await setMobile(page);
-    await page.goto("");
-    const announcement = page.locator("custom-announcement");
-    await expect(announcement).toHaveScreenshot();
-  });
-});
