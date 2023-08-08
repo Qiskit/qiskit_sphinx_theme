@@ -15,6 +15,7 @@
     --qiskit-top-nav-bar-height: 3.5rem;
   }
 
+// prevent the text looking squished on mobile by adding some extra padding
   @media (max-width: 67em) {
     .custom-announcement {
       padding-top: 8px;
@@ -22,7 +23,7 @@
     }
   }
 
-
+// custom announcement banner with purple gradient
  .custom-announcement {
     top: var(--qiskit-top-nav-bar-height); 
     height: calc(var(--qiskit-top-nav-bar-height) * 0.7);
@@ -33,6 +34,7 @@
     align-items: center;
  }
 
+// custom styling for inner text/link content for custom announcement banner 
  .custom-announcement-content {
     text-align: left;
     font-weight: bold;
