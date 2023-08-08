@@ -93,7 +93,7 @@ html_context = {
     "expandable_sidebar": True,
     # Users of the theme can set the text and optional url for an announcement banner
     "theme_announcement": "🎉 Custom announcement text!",
-    "announcement_url": "https://google.com"
+    "announcement_url": "https://google.com",
 }
 
 docs_url_prefix = "ecosystem/example_docs"
