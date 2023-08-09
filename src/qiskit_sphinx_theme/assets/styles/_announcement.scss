@@ -15,21 +15,12 @@
     --qiskit-top-nav-bar-height: 3.5rem;
   }
 
-// prevent the text looking squished on mobile by adding some extra padding
-  @media (max-width: 67em) {
-    .custom-announcement {
-      padding-top: 8px;
-      padding-bottom: 8px;
-    }
-  }
-
 // custom announcement banner with purple gradient
  .custom-announcement {
     top: var(--qiskit-top-nav-bar-height); 
-    height: calc(var(--qiskit-top-nav-bar-height) * 0.7);
     background: linear-gradient(90deg, rgba(245,239,255,1) 0%, rgba(255,255,255,1) 100%);
     border-bottom: 1px solid var(--color-background-border);
-    padding-left: var(--sidebar-item-spacing-horizontal);
+    padding: 14px var(--sidebar-item-spacing-horizontal);
     display: flex;
     align-items: center;
  }

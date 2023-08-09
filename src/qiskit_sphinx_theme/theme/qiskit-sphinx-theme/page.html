@@ -32,7 +32,12 @@
   <aside class="custom-announcement-content">
     {% block announcement %} {{ theme_announcement }} {% endblock announcement %}
     {% if announcement_url -%}
-    <a href="{{announcement_url}}" class="reference internal">Learn more
+    <a href="{{announcement_url}}" class="reference internal">
+      {% if announcement_url_text -%}
+      {{announcement_url_text}}
+      {% else %}
+      Learn more
+      {%- endif %}
       <svg class="icon"><use href="#svg-new-tab"></use></svg>
     </a>
     {%- endif %}

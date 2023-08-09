@@ -161,6 +161,14 @@ The above code will render the following banner:
 
 <img width="1327" alt="Screenshot 2023-08-07 at 5 12 02 PM" src="https://github.com/qiskit-community/ecosystem/assets/23662430/79ccb19d-3392-4ea9-993e-b006dc7481dc">
 
+The default text for the link is "Learn more" but you can provide custom link text by setting the `announcement_url_text` in the `html_context`:
+```
+html_context = {
+    "theme_announcement": "🎉 Custom announcement text!",
+    "announcement_url": "https://example.com",
+    "announcement_url_text": "Check it out",
+}
+```
 
 ## Customize or disable the Ecosystem theme logo
 
