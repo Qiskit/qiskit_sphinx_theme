@@ -17,7 +17,6 @@
 
 // custom announcement banner with purple gradient
  .custom-announcement {
-    top: var(--qiskit-top-nav-bar-height); 
     background: linear-gradient(90deg, rgba(245,239,255,1) 0%, rgba(255,255,255,1) 100%);
     border-bottom: 1px solid var(--color-background-border);
     padding: 14px var(--sidebar-item-spacing-horizontal);
