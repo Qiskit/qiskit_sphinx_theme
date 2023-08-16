@@ -201,7 +201,7 @@ The release process changes whether you are releasing the very first `rc1` for t
 
 ### Process for first `rc1` release in the release series
 
-Do not use this process for `rc1`s for patch releases, e.g. `1.11.1rc1`. It is only for the first release in the release series, e.g. `1.11.0rc1`.
+`rc1`s for patch releases (e.g. `1.11.1rc1`) should use the other process below. This process is only for the first release in the release series, e.g. `1.11.0rc1`.
 
 1. Bump the version:
    1. `git checkout main`
