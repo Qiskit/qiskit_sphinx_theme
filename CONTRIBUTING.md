@@ -199,7 +199,9 @@ When starting a new minor release series like `1.11`, we create a new Git branch
 
 The release process changes whether you are releasing the very first `rc1` for that release series, e.g. `1.11.0rc1` or `1.12.0rc1`. Otherwise, all other releases follow the same process.
 
-### Process for `rc1` releases
+### Process for first `rc1` release in the release series
+
+`rc1`s for patch releases (e.g. `1.11.1rc1`) should use the other process below. This process is only for the first release in the release series, e.g. `1.11.0rc1`.
 
 1. Bump the version:
    1. `git checkout main`
