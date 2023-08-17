@@ -24,8 +24,10 @@ classifiers = [
 
 dependencies = [
     "docutils",
-    # Keep in sync with Furo's constraint.
-    "sphinx>=6.0",
+    # Keep in sync with Furo's constraint. <7.2 is to work
+    # around https://github.com/sphinx-doc/sphinx/issues/11608
+    # and https://github.com/pradyunsg/furo/discussions/693.
+    "sphinx>=6.0,<7.2",
     # Remove jQuery once we get rid of the Pytorch theme.
     "sphinxcontrib-jquery",
     # See CONTRIBUTING.md for how to upgrade Furo.
