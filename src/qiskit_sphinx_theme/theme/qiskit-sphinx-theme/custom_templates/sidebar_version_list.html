@@ -35,7 +35,7 @@
     <div class="qiskit-previous-releases-list-container">
         <ul>
         {% for version in version_list | sort(reverse=True) %}
-            <li><a href="{{ previous_versions_url(version) }}" rel="nofollow">{{ version }}</a></li>
+            <li><a href="{{ previous_versions_url(version) }}" rel="nofollow noindex">{{ version }}</a></li>
         {% endfor %}
         </ul>
     </div>
