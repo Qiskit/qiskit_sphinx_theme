@@ -33,7 +33,7 @@
             <div class="sidebar-subheadings">
                 {% for version in version_list | sort(reverse=True) %}
                     <div class="sidebar-l2">
-                        <a href="{{ previous_versions_url(version) }}" rel="nofollow">{{ version }}</a>
+                        <a href="{{ previous_versions_url(version) }}" rel="nofollow noindex">{{ version }}</a>
                     </div>
                 {% endfor %}
             </div>
