@@ -20,7 +20,7 @@
 // We keep the default style of the text itself being purple to be consistent with the general style
 // of the site using purple for links.
 .nbsphinx-gallery > a.reference {
-  border: 1px dotted var(--color-foreground-secondary);
+  border: 1px solid var(--color-foreground-secondary);
 }
 
 // ---------------------------------------------------------------------------
