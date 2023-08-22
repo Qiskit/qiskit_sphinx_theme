@@ -90,6 +90,7 @@ Then, to run the tests locally:
 
 1. `npm install`
 2. `npm run test-qiskit` or `npm run test-ecosystem`, depending on which theme you want.
+   * Warning: the very first time you run the tests, they will fail because the `snapshot-results` folder will not yet exist. Try running again.
 
 The docs will rebuild every time you run `npm run test-qiskit` and `npm run test-ecosystem`.
 
