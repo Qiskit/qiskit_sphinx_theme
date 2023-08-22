@@ -716,7 +716,7 @@ body {
  * that they have been altered from the originals.
  */
 .nbsphinx-gallery > a.reference {
-  border: 1px dotted var(--color-foreground-secondary);
+  border: 1px solid var(--color-foreground-secondary);
 }
 
 :not(#specifity-war).jupyter_container div.code_cell pre {

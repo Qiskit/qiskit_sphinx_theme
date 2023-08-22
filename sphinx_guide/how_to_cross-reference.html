@@ -9,7 +9,7 @@
         <title>How to cross-reference to other pages from documentation - Qiskit Docs Guide</title>
       <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/qiskit-sphinx-theme.css?v=e72b047e" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/qiskit-sphinx-theme.css?v=7ac24553" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/qiskit-ecosystem.css?v=745c5aa7" />
     <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
@@ -277,9 +277,9 @@ you are actually linking to an external page, and therefore you should check <a 
 </div>
 <section id="pre-requisites">
 <h2>Pre-requisites<a class="headerlink" href="#pre-requisites" title="Permalink to this heading">#</a></h2>
-<p>This guide assumes your project already has a working <a class="reference external" href="https://www.sphinx-doc.org/en/master/index.html" title="(in Sphinx v7.2.2)"><span class="xref std std-doc">Sphinx</span></a> documentation project in a
+<p>This guide assumes your project already has a working <a class="reference external" href="https://www.sphinx-doc.org/en/master/index.html" title="(in Sphinx v7.2.3)"><span class="xref std std-doc">Sphinx</span></a> documentation project in a
 folder called <code class="docutils literal notranslate"><span class="pre">docs</span></code> and <a class="reference internal" href="../intro/new_doc_project.html#doc-structure"><span class="std std-ref">the recommended folder structure</span></a>. If you don’t
-have it, you can set it up with <a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html" title="(in Sphinx v7.2.2)"><span>sphinx-quickstart</span></a> following the tutorial <a class="reference internal" href="../intro/new_doc_project.html#create-new-doc-project"><span class="std std-ref">Create a New Documentation Project</span></a>.</p>
+have it, you can set it up with <a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html" title="(in Sphinx v7.2.3)"><span>sphinx-quickstart</span></a> following the tutorial <a class="reference internal" href="../intro/new_doc_project.html#create-new-doc-project"><span class="std std-ref">Create a New Documentation Project</span></a>.</p>
 </section>
 <section id="add-the-links">
 <h2>Add the links<a class="headerlink" href="#add-the-links" title="Permalink to this heading">#</a></h2>
@@ -331,8 +331,8 @@ An example of Qiskit module is <a class="reference external" href="https://qiski
 <section id="pages-from-other-documentation-projects">
 <h3>Pages from other documentation projects<a class="headerlink" href="#pages-from-other-documentation-projects" title="Permalink to this heading">#</a></h3>
 <p>You can also use practically the same syntax to link to pages from other documentation projects. For this to work you need to
-add <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html#module-sphinx.ext.intersphinx" title="(in Sphinx v7.2.2)"><code class="docutils literal notranslate"><span class="pre">sphinx.ext.intersphinx</span></code></a> to the <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-extensions" title="(in Sphinx v7.2.2)"><code class="docutils literal notranslate"><span class="pre">extensions</span></code></a> variable of your <code class="docutils literal notranslate"><span class="pre">docs/conf.py</span></code>.</p>
-<p>After that, you’d need to create a new variable called <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html#confval-intersphinx_mapping" title="(in Sphinx v7.2.2)"><code class="docutils literal notranslate"><span class="pre">intersphinx_mapping</span></code></a> in your <code class="docutils literal notranslate"><span class="pre">docs/conf.py</span></code>. This variable
+add <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html#module-sphinx.ext.intersphinx" title="(in Sphinx v7.2.3)"><code class="docutils literal notranslate"><span class="pre">sphinx.ext.intersphinx</span></code></a> to the <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-extensions" title="(in Sphinx v7.2.3)"><code class="docutils literal notranslate"><span class="pre">extensions</span></code></a> variable of your <code class="docutils literal notranslate"><span class="pre">docs/conf.py</span></code>.</p>
+<p>After that, you’d need to create a new variable called <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html#confval-intersphinx_mapping" title="(in Sphinx v7.2.3)"><code class="docutils literal notranslate"><span class="pre">intersphinx_mapping</span></code></a> in your <code class="docutils literal notranslate"><span class="pre">docs/conf.py</span></code>. This variable
 has to be a dictionary whose keys are the name of the other projects (or any desired shortcut) and whose values are tuples that include
 the HTML page of the corresponding documentation and the object inventory. If the inventory is set to <code class="docutils literal notranslate"><span class="pre">None</span></code>, the</p>
 <p>The basic syntax is then:</p>
@@ -346,10 +346,10 @@ the HTML page of the corresponding documentation and the object inventory. If th
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Once you have set the <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html#confval-intersphinx_mapping" title="(in Sphinx v7.2.2)"><code class="docutils literal notranslate"><span class="pre">intersphinx_mapping</span></code></a>, you can link to any <code class="xref py py-mod docutils literal notranslate"><span class="pre">sphinx:roles</span></code> like
+<p>Once you have set the <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html#confval-intersphinx_mapping" title="(in Sphinx v7.2.3)"><code class="docutils literal notranslate"><span class="pre">intersphinx_mapping</span></code></a>, you can link to any <code class="xref py py-mod docutils literal notranslate"><span class="pre">sphinx:roles</span></code> like
 <code class="docutils literal notranslate"><span class="pre">:mod:</span></code>, <code class="docutils literal notranslate"><span class="pre">:func:</span></code> or <code class="docutils literal notranslate"><span class="pre">:class:</span></code> in the same way as the previous sections, that is, <code class="docutils literal notranslate"><span class="pre">:role:`name`</span></code>.</p>
 <p>However, if you want to make sure you are taking the object from the documentation of a specific package, the name of the object has to be preceded by that of the
-project that you set in <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html#confval-intersphinx_mapping" title="(in Sphinx v7.2.2)"><code class="docutils literal notranslate"><span class="pre">intersphinx_mapping</span></code></a>, followed by a colon <code class="docutils literal notranslate"><span class="pre">:</span></code>. So the syntax is:</p>
+project that you set in <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html#confval-intersphinx_mapping" title="(in Sphinx v7.2.3)"><code class="docutils literal notranslate"><span class="pre">intersphinx_mapping</span></code></a>, followed by a colon <code class="docutils literal notranslate"><span class="pre">:</span></code>. So the syntax is:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>:role:`package:name`
 </pre></div>
 </div>
@@ -357,7 +357,7 @@ project that you set in <a class="reference external" href="https://www.sphinx-d
 <code class="docutils literal notranslate"><span class="pre">:class:`qiskit:qiskit.circuit.QuantumCircuit</span></code>. In this case it doesn’t matter because there’s only one class with this name.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Strictly speaking, what you are doing with <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html#module-sphinx.ext.intersphinx" title="(in Sphinx v7.2.2)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">intersphinx</span></code></a> is linking to external pages but with the cross-reference syntax.
+<p>Strictly speaking, what you are doing with <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html#module-sphinx.ext.intersphinx" title="(in Sphinx v7.2.3)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">intersphinx</span></code></a> is linking to external pages but with the cross-reference syntax.
 For more information about linking to external pages, check <a class="reference internal" href="how_to_add_external_links.html#add-external-links"><span class="std std-ref">How to add external links</span></a>.</p>
 </div>
 </section>

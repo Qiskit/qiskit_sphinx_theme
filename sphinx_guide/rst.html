@@ -9,7 +9,7 @@
         <title>reStructuredText - Qiskit Docs Guide</title>
       <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/qiskit-sphinx-theme.css?v=e72b047e" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/qiskit-sphinx-theme.css?v=7ac24553" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/qiskit-ecosystem.css?v=745c5aa7" />
     <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
@@ -283,11 +283,11 @@ into formats like <a class="reference external" href="https://html.spec.whatwg.o
 <section id="why-do-we-use-restructuredtext-in-qiskit">
 <h2>Why do we use reStructuredText in Qiskit?<a class="headerlink" href="#why-do-we-use-restructuredtext-in-qiskit" title="Permalink to this heading">#</a></h2>
 <p>The main reason we are using reStructuredText in Qiskit is that it is the native language of
-<a class="reference external" href="https://www.sphinx-doc.org/en/master/index.html" title="(in Sphinx v7.2.2)"><span class="xref std std-doc">Sphinx</span></a>, the documentation generator used in Qiskit.
+<a class="reference external" href="https://www.sphinx-doc.org/en/master/index.html" title="(in Sphinx v7.2.3)"><span class="xref std std-doc">Sphinx</span></a>, the documentation generator used in Qiskit.
 Using other languages requires converation to RST, which is generally less efficient than using RST from the start and can occasionally cause <a class="reference external" href="https://github.com/spatialaudio/nbsphinx/issues/301">unintended formatting issues</a>.</p>
 <p>Because RST is the native language for Sphinx, comparing with other options like <a class="reference external" href="https://jupyter.org/">Jupyter notebooks</a> (<code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> files) or <a class="reference external" href="https://daringfireball.net/projects/markdown/">Markdown</a> (<code class="docutils literal notranslate"><span class="pre">.md</span></code> files), writing documentation in RST has the great benefit of automatic cross-referencing to other sections or files within the documentation. So if a page has been moved, the documentation will automatically change accordingly. And if a cross-reference link is broken, it can be caught in the docs building process. All of these means documentation maintenance is much easier with RST.</p>
 <p>Jupyter notebooks have one functionality that is better than RST, that is the ease of running code cells. In addition, our users are familiar with using Jupyter notebooks to execute codes. Therefore, tutorials at the moment are mostly written in Jupyter notebooks. However, in addition to no cross-referencing, Jupyter notebooks are difficult to maintain because it is not written in plaintext. It is hard to review changes.</p>
-<p>In the future, we hope to use only RST for documentation (including tutorials). There are ways to execute Python code within RST (using <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/doctest.html" title="(in Sphinx v7.2.2)"><span class="xref std std-doc">doctest</span></a> or <a class="reference external" href="https://jupyter-sphinx.readthedocs.io/en/latest/">jupyter-sphinx</a> extension) and expose output Jupyter notebooks for users to download while Markdown doesn’t offer any of these options.</p>
+<p>In the future, we hope to use only RST for documentation (including tutorials). There are ways to execute Python code within RST (using <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/doctest.html" title="(in Sphinx v7.2.3)"><span class="xref std std-doc">doctest</span></a> or <a class="reference external" href="https://jupyter-sphinx.readthedocs.io/en/latest/">jupyter-sphinx</a> extension) and expose output Jupyter notebooks for users to download while Markdown doesn’t offer any of these options.</p>
 </section>
 </section>
 
