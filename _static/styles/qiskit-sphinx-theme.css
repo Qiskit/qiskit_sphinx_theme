@@ -130,6 +130,60 @@ p.topic-title::before {
   background-color: #0043ce;
 }
 
+div.deprecated {
+  border-color: #fcf4d6;
+  border-left: 0;
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  position: relative;
+  background: var(--color-admonition-background);
+  font-size: var(--admonition-font-size);
+  margin: 1rem auto;
+  overflow: hidden;
+  padding: 0 0.5rem 0.5rem;
+  padding-left: 12px;
+  page-break-inside: avoid;
+}
+
+div.deprecated::before {
+  background: #f1c21b;
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 3px;
+}
+
+span.deprecated {
+  background-color: #fcf4d6;
+  font-size: var(--admonition-title-font-size);
+  line-height: 1.3;
+  margin: 0 -0.5rem 0.25rem -0.55rem;
+  padding: 0.4rem;
+  position: relative;
+  display: block;
+  font-style: normal;
+}
+
+span.deprecated::before {
+  content: "";
+  display: inline-block;
+  background-image: var(--icon-warning);
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+  vertical-align: bottom;
+}
+
+div.deprecated p,
+div.versionchanged p {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
 /* This code is a Qiskit project.
  *
  * (C) Copyright IBM 2023.
