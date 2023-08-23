@@ -58,12 +58,12 @@ def remove_thebe_if_not_needed(
         "https://unpkg.com/thebelab@latest/lib/index.js",
     ]
     context["script_files"] = [
-        js_file for js_file in context["script_files"] if js_file not in thebe_js_files
+        js_file for js_file in context["script_files"] if js_file.filename not in thebe_js_files
     ]
 
     thebe_css_files = ["_static/thebelab.css", "_static/sphinx-thebe.css"]
     context["css_files"] = [
-        css_file for css_file in context["css_files"] if css_file not in thebe_css_files
+        css_file for css_file in context["css_files"] if css_file.filename not in thebe_css_files
     ]
 
 

@@ -5,6 +5,7 @@ build-backend = "sphinx_theme_builder"
 [project]
 name = "qiskit-sphinx-theme"
 description = "A Sphinx theme for Qiskit and Qiskit Ecosystem projects"
+readme = "README.md"
 dynamic = ["version"]
 
 license = { file = "LICENSE" }
@@ -24,14 +25,12 @@ classifiers = [
 
 dependencies = [
     "docutils",
-    # Keep in sync with Furo's constraint. <7.2 is to work
-    # around https://github.com/sphinx-doc/sphinx/issues/11608
-    # and https://github.com/pradyunsg/furo/discussions/693.
-    "sphinx>=6.0,<7.2",
+    # Keep in sync with Furo's constraint.
+    "sphinx>=6.0",
     # Remove jQuery once we get rid of the Pytorch theme.
     "sphinxcontrib-jquery",
     # See CONTRIBUTING.md for how to upgrade Furo.
-    "furo==2023.5.20",
+    "furo==2023.8.19",
 ]
 
 [project.entry-points."sphinx.html_themes"]
