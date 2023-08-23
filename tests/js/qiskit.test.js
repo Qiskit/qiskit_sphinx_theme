@@ -215,6 +215,12 @@ test("admonitions use Carbon style", async ({ page }) => {
   await expect(admonitions).toHaveScreenshot();
 });
 
+test("deprecations look like warning", async ({ page }) => {
+  await page.goto("sphinx_guide/paragraph.html#deprecation-note");
+  const deprecations = page.locator("section#deprecation-note");
+  await expect(deprecations).toHaveScreenshot();
+});
+
 test("Sphinx Design elements have no shadows", async ({ page }) => {
   await page.goto("sphinx_guide/panels.html");
   await hideTopNavBar(page);
