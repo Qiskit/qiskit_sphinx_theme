@@ -5,14 +5,14 @@
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="How-to Guides" href="../how_to/index.html" /><link rel="prev" title="Tutorials Templates" href="tutorials_templates.html" />
 
-    <!-- Generated with Sphinx 7.1.2 and Furo 2023.05.20 -->
+    <!-- Generated with Sphinx 7.2.2 and Furo 2023.08.19 -->
         <title>How to add a tutorial - Qiskit Docs Guide</title>
-      <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
+      <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/qiskit-sphinx-theme.css?v=e9a31f78" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/qiskit-sphinx-theme.css?v=3317aaf7" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/qiskit-ecosystem.css?v=745c5aa7" />
     <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
     
     
 
@@ -264,20 +264,20 @@
         </div>
         <article role="main">
           <section id="how-to-add-a-tutorial">
-<h1>How to add a tutorial<a class="headerlink" href="#how-to-add-a-tutorial" title="Permalink to this heading">#</a></h1>
+<h1>How to add a tutorial<a class="headerlink" href="#how-to-add-a-tutorial" title="Link to this heading">#</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This page was written in the style of a <cite>How-to Guide</cite> according to <a class="reference internal" href="../intro/diataxis.html#diataxis"><span class="std std-ref">The Diátaxis Framework</span></a>.</p>
 </div>
 <p>This guide shows how to add a tutorial to your project repository.</p>
 <section id="pre-requisites">
-<h2>Pre-requisites<a class="headerlink" href="#pre-requisites" title="Permalink to this heading">#</a></h2>
+<h2>Pre-requisites<a class="headerlink" href="#pre-requisites" title="Link to this heading">#</a></h2>
 <p>This guide assumes your project already has a working <a class="reference external" href="https://www.sphinx-doc.org/en/master/index.html" title="(in Sphinx v7.2.3)"><span class="xref std std-doc">Sphinx</span></a> documentation project in a
 folder called <code class="docutils literal notranslate"><span class="pre">docs</span></code> and <a class="reference internal" href="../intro/new_doc_project.html#doc-structure"><span class="std std-ref">the recommended folder structure</span></a>. If you don’t
 have it, you can set it up with <a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html" title="(in Sphinx v7.2.3)"><span>sphinx-quickstart</span></a> following the tutorial <a class="reference internal" href="../intro/new_doc_project.html#create-new-doc-project"><span class="std std-ref">Create a New Documentation Project</span></a>.</p>
 </section>
 <section id="create-a-new-tutorial">
-<h2>Create a new tutorial<a class="headerlink" href="#create-a-new-tutorial" title="Permalink to this heading">#</a></h2>
+<h2>Create a new tutorial<a class="headerlink" href="#create-a-new-tutorial" title="Link to this heading">#</a></h2>
 <p>In order to create a tutorial, go to the  <code class="docutils literal notranslate"><span class="pre">docs/tutorials</span></code> folder of your Qiskit project repository and add a new <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> or (prefereably) <code class="docutils literal notranslate"><span class="pre">.rst</span></code> file there. In this guide we will assume your tutorial is called <code class="docutils literal notranslate"><span class="pre">your_tutorial.ipynb</span></code> or <code class="docutils literal notranslate"><span class="pre">your_tutorial.rst</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -285,10 +285,10 @@ have it, you can set it up with <a class="reference external" href="https://www.
 </div>
 </section>
 <section id="update-the-page">
-<h2>Update the page<a class="headerlink" href="#update-the-page" title="Permalink to this heading">#</a></h2>
+<h2>Update the page<a class="headerlink" href="#update-the-page" title="Link to this heading">#</a></h2>
 <p>Once you have created and written your file, you need to update the <code class="docutils literal notranslate"><span class="pre">docs/tutorials/index.rst</span></code> file so your new tutorial appears in the web page.</p>
 <section id="rst">
-<h3><code class="docutils literal notranslate"><span class="pre">.rst</span></code><a class="headerlink" href="#rst" title="Permalink to this heading">#</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">.rst</span></code><a class="headerlink" href="#rst" title="Link to this heading">#</a></h3>
 <p>If your tutorial is an <code class="docutils literal notranslate"><span class="pre">.rst</span></code> file, add it to a <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-toctree" title="(in Sphinx v7.2.3)"><code class="docutils literal notranslate"><span class="pre">toctree</span></code></a> like this one:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Section name
 ============
@@ -307,7 +307,7 @@ the title is set manually.</p>
 <p>The section name header needs to be covered by equal signs <code class="docutils literal notranslate"><span class="pre">=</span></code> below.</p>
 </section>
 <section id="ipynb">
-<h3><code class="docutils literal notranslate"><span class="pre">.ipynb</span></code><a class="headerlink" href="#ipynb" title="Permalink to this heading">#</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">.ipynb</span></code><a class="headerlink" href="#ipynb" title="Link to this heading">#</a></h3>
 <p>If your tutorial is an <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> file, add it to a <code class="docutils literal notranslate"><span class="pre">nbgallery</span></code> like this one:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Section name
 ============
@@ -401,9 +401,9 @@ difference between this case and the <code class="docutils literal notranslate">
   </div>
 </div><script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=359c27e9"></script>
+    <script src="../_static/documentation_options.js?v=f2a433a1"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/qiskit-sphinx-theme.js?v=0ad60474"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>

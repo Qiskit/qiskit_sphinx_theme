@@ -595,10 +595,6 @@ body {
   min-width: 15em;
 }
 
-article {
-  overflow-wrap: break-word;
-}
-
 /* This code is a Qiskit project.
  *
  * (C) Copyright IBM 2023.

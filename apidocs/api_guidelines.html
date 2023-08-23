@@ -5,14 +5,14 @@
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="API Reference Examples" href="api_examples.html" /><link rel="prev" title="API Reference" href="index.html" />
 
-    <!-- Generated with Sphinx 7.1.2 and Furo 2023.05.20 -->
+    <!-- Generated with Sphinx 7.2.2 and Furo 2023.08.19 -->
         <title>API Reference Guidelines - Qiskit Docs Guide</title>
-      <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
+      <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/qiskit-sphinx-theme.css?v=e9a31f78" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/qiskit-sphinx-theme.css?v=3317aaf7" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/qiskit-ecosystem.css?v=745c5aa7" />
     <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
     
     
 
@@ -264,7 +264,7 @@
         </div>
         <article role="main">
           <section id="api-reference-guidelines">
-<h1>API Reference Guidelines<a class="headerlink" href="#api-reference-guidelines" title="Permalink to this heading">#</a></h1>
+<h1>API Reference Guidelines<a class="headerlink" href="#api-reference-guidelines" title="Link to this heading">#</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>We are mainly using <code class="docutils literal notranslate"><span class="pre">jupyter-execute</span></code> directive for including code examples. We will investigate
@@ -273,7 +273,7 @@ doc building process complexity. See
 <a class="reference external" href="https://github.com/Qiskit/qiskit-terra/issues/7661">qiskit-terra#7661</a> for discussions.</p>
 </div>
 <section id="show-a-decent-amount-of-arguments-options">
-<h2>1. Show a decent amount of arguments / options<a class="headerlink" href="#show-a-decent-amount-of-arguments-options" title="Permalink to this heading">#</a></h2>
+<h2>1. Show a decent amount of arguments / options<a class="headerlink" href="#show-a-decent-amount-of-arguments-options" title="Link to this heading">#</a></h2>
 <p>Focus on the arguments that make bigger differences. If there are multiple arguments with similar functionality, show only
 the ones with significant differences. For example, if you are using <code class="docutils literal notranslate"><span class="pre">plot_histogram</span></code> and want to
 show different options of the <code class="docutils literal notranslate"><span class="pre">sort</span></code> argument, don’t pick two that mostly do the same like
@@ -284,7 +284,7 @@ of class, method, function level api page. For example, <a class="reference exte
 examples to <code class="docutils literal notranslate"><span class="pre">qiskit.visualization</span></code> module level API page.</p>
 </section>
 <section id="be-reasonable-with-the-amount-of-code-examples-cells">
-<h2>2. Be reasonable with the amount of code examples/cells<a class="headerlink" href="#be-reasonable-with-the-amount-of-code-examples-cells" title="Permalink to this heading">#</a></h2>
+<h2>2. Be reasonable with the amount of code examples/cells<a class="headerlink" href="#be-reasonable-with-the-amount-of-code-examples-cells" title="Link to this heading">#</a></h2>
 <p>If there are more than 4 arguments that make significant changes, it can be better to distribute
 them evenly between 2 examples. That way you avoid having an overloaded example and a user can see
 how some of the default values work.</p>
@@ -292,7 +292,7 @@ how some of the default values work.</p>
 demonstrate more functionalities, please consider writing a dedicated <a class="reference internal" href="../how_to/index.html#how-to"><span class="std std-ref">how-to guide</span></a>.</p>
 </section>
 <section id="don-t-over-complicate-nor-oversimplify-the-steps-to-get-the-input-arguments">
-<h2>3. Don’t over complicate nor oversimplify the steps to get the input arguments<a class="headerlink" href="#don-t-over-complicate-nor-oversimplify-the-steps-to-get-the-input-arguments" title="Permalink to this heading">#</a></h2>
+<h2>3. Don’t over complicate nor oversimplify the steps to get the input arguments<a class="headerlink" href="#don-t-over-complicate-nor-oversimplify-the-steps-to-get-the-input-arguments" title="Link to this heading">#</a></h2>
 <p>The priority should always be showing the object/function itself, not the many ways of obtaining
 the input. So try to stick to the simplest way to show the desired functionality.</p>
 <p>If a more complicated input is useful to show some functionality, like creating a state with many different
@@ -301,14 +301,14 @@ possible (the fewest possible gates, use relatively common gates, avoid extra im
 <p>On the other side, make sure you are showing the full functionality.</p>
 </section>
 <section id="import-only-what-s-strictly-needed-when-needed">
-<h2>4. Import only what’s strictly needed when needed<a class="headerlink" href="#import-only-what-s-strictly-needed-when-needed" title="Permalink to this heading">#</a></h2>
+<h2>4. Import only what’s strictly needed when needed<a class="headerlink" href="#import-only-what-s-strictly-needed-when-needed" title="Link to this heading">#</a></h2>
 <p>If you have more than one example, don’t repeat the imports from the former examples. Only add the
 ones that don’t appear there. That’s because these cells are all in one Jupyter kernel session. It will make code
 examples look cleaner. And if users want to use only one of the examples, they just need to copy all
 the imports from previous cells.</p>
 </section>
 <section id="make-all-the-different-examples-self-contained-except-for-the-imports">
-<h2>5. Make all the different examples self-contained (except for the imports)<a class="headerlink" href="#make-all-the-different-examples-self-contained-except-for-the-imports" title="Permalink to this heading">#</a></h2>
+<h2>5. Make all the different examples self-contained (except for the imports)<a class="headerlink" href="#make-all-the-different-examples-self-contained-except-for-the-imports" title="Link to this heading">#</a></h2>
 <p>Don’t reuse variables like backends even if they are the same in more than one example. That way a
 user can directly copy and paste the desired example without having to look carefully into the
 variables of the rest.</p>
@@ -388,9 +388,9 @@ variables of the rest.</p>
   </div>
 </div><script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=359c27e9"></script>
+    <script src="../_static/documentation_options.js?v=f2a433a1"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/qiskit-sphinx-theme.js?v=0ad60474"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>

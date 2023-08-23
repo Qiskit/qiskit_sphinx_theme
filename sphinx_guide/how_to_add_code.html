@@ -5,14 +5,14 @@
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="How to write mathematical expressions" href="how_to_write_mathematical_expressions.html" /><link rel="prev" title="How to add external links" href="how_to_add_external_links.html" />
 
-    <!-- Generated with Sphinx 7.1.2 and Furo 2023.05.20 -->
+    <!-- Generated with Sphinx 7.2.2 and Furo 2023.08.19 -->
         <title>How to add code to documentation - Qiskit Docs Guide</title>
-      <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
+      <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/qiskit-sphinx-theme.css?v=e9a31f78" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/qiskit-sphinx-theme.css?v=3317aaf7" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/qiskit-ecosystem.css?v=745c5aa7" />
     <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
     
     
 
@@ -264,14 +264,14 @@
         </div>
         <article role="main">
           <section id="how-to-add-code-to-documentation">
-<h1>How to add code to documentation<a class="headerlink" href="#how-to-add-code-to-documentation" title="Permalink to this heading">#</a></h1>
+<h1>How to add code to documentation<a class="headerlink" href="#how-to-add-code-to-documentation" title="Link to this heading">#</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This page was written in the style of a <cite>How-to Guide</cite> according to <a class="reference internal" href="../intro/diataxis.html#diataxis"><span class="std std-ref">The Diátaxis Framework</span></a>.</p>
 </div>
 <p>This guide shows how to include code in your documentation.</p>
 <section id="pre-requisites">
-<h2>Pre-requisites<a class="headerlink" href="#pre-requisites" title="Permalink to this heading">#</a></h2>
+<h2>Pre-requisites<a class="headerlink" href="#pre-requisites" title="Link to this heading">#</a></h2>
 <p>This guide assumes your project already has a working <a class="reference external" href="https://www.sphinx-doc.org/en/master/index.html" title="(in Sphinx v7.2.3)"><span class="xref std std-doc">Sphinx</span></a> documentation project in a
 folder called <code class="docutils literal notranslate"><span class="pre">docs</span></code> and <a class="reference internal" href="../intro/new_doc_project.html#doc-structure"><span class="std std-ref">the recommended folder structure</span></a>. If you don’t
 have it, you can set it up with <a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html" title="(in Sphinx v7.2.3)"><span>sphinx-quickstart</span></a> following the tutorial <a class="reference internal" href="../intro/new_doc_project.html#create-new-doc-project"><span class="std std-ref">Create a New Documentation Project</span></a>.</p>
@@ -282,14 +282,14 @@ have it, you can set it up with <a class="reference external" href="https://www.
 </ul>
 </section>
 <section id="inline-code">
-<h2>Inline code<a class="headerlink" href="#inline-code" title="Permalink to this heading">#</a></h2>
+<h2>Inline code<a class="headerlink" href="#inline-code" title="Link to this heading">#</a></h2>
 <p>If you want to include a snippet of code inside your text, you only need to surround your code with pairs of backquotes, that is,  <code class="docutils literal notranslate"><span class="pre">``your_code``</span></code>. So if you want to say that the output of <code class="docutils literal notranslate"><span class="pre">2&gt;3</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>, what you write is:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>the output of ``2&gt;3`` is ``False``
 </pre></div>
 </div>
 </section>
 <section id="code-blocks">
-<h2>Code blocks<a class="headerlink" href="#code-blocks" title="Permalink to this heading">#</a></h2>
+<h2>Code blocks<a class="headerlink" href="#code-blocks" title="Link to this heading">#</a></h2>
 <p>There are several ways to include code cells in your documentation:</p>
 <ul class="simple">
 <li><p>Executable cells with <code class="docutils literal notranslate"><span class="pre">jupyter-execute</span></code>.</p></li>
@@ -297,7 +297,7 @@ have it, you can set it up with <a class="reference external" href="https://www.
 <li><p>Testable code cells with <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/doctest.html#module-sphinx.ext.doctest" title="(in Sphinx v7.2.3)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sphinx.ext.doctest</span></code></a>.</p></li>
 </ul>
 <section id="executable-cells">
-<h3>Executable cells<a class="headerlink" href="#executable-cells" title="Permalink to this heading">#</a></h3>
+<h3>Executable cells<a class="headerlink" href="#executable-cells" title="Link to this heading">#</a></h3>
 <p>If you want to run Python code that includes visualization, you can use <code class="docutils literal notranslate"><span class="pre">jupyter-execute</span></code> to include cells that are executed in a Jupyter kernel and show the output of that code in your documentation. The syntax is:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>.. jupyter-execute::
 
@@ -342,7 +342,7 @@ more complex, so it is recommended to use <a class="reference external" href="ht
 </div>
 </section>
 <section id="non-executable-cells">
-<h3>Non-executable cells<a class="headerlink" href="#non-executable-cells" title="Permalink to this heading">#</a></h3>
+<h3>Non-executable cells<a class="headerlink" href="#non-executable-cells" title="Link to this heading">#</a></h3>
 <p>There are some situations in which executing the code is not convenient, such as when:</p>
 <ul class="simple">
 <li><p>The code you are showing is written in languages other than Python, like reStructuredText, YAML, Markdown or Rust.</p></li>
@@ -374,7 +374,7 @@ For example, you can write this:</p>
 </div>
 </section>
 <section id="testable-cells">
-<h3>Testable cells<a class="headerlink" href="#testable-cells" title="Permalink to this heading">#</a></h3>
+<h3>Testable cells<a class="headerlink" href="#testable-cells" title="Link to this heading">#</a></h3>
 <p>If you want to write Python code cells that don’t include visualizations and check if they work as intended, you have two different options:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/doctest.html#directive-doctest" title="(in Sphinx v7.2.3)"><code class="docutils literal notranslate"><span class="pre">doctest</span></code></a></p></li>
@@ -385,7 +385,7 @@ For example, you can write this:</p>
 <p>For the <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/doctest.html#directive-doctest" title="(in Sphinx v7.2.3)"><code class="docutils literal notranslate"><span class="pre">doctest</span></code></a>, <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/doctest.html#directive-testcode" title="(in Sphinx v7.2.3)"><code class="docutils literal notranslate"><span class="pre">testcode</span></code></a> and <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/doctest.html#directive-testoutput" title="(in Sphinx v7.2.3)"><code class="docutils literal notranslate"><span class="pre">testoutput</span></code></a> cells to appear you need to add the extension <code class="docutils literal notranslate"><span class="pre">sphinx.ext.doctest</span></code> to the <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> of your repository.</p>
 </div>
 <section id="sphinx-doctest">
-<h4><a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/doctest.html#directive-doctest" title="(in Sphinx v7.2.3)"><code class="docutils literal notranslate"><span class="pre">doctest</span></code></a><a class="headerlink" href="#sphinx-doctest" title="Permalink to this heading">#</a></h4>
+<h4><a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/doctest.html#directive-doctest" title="(in Sphinx v7.2.3)"><code class="docutils literal notranslate"><span class="pre">doctest</span></code></a><a class="headerlink" href="#sphinx-doctest" title="Link to this heading">#</a></h4>
 <p>If you want both input and output in the same code cell, you can use <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/doctest.html#directive-doctest" title="(in Sphinx v7.2.3)"><code class="docutils literal notranslate"><span class="pre">doctest</span></code></a>, whose syntax is:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>.. doctest::
 
@@ -408,7 +408,7 @@ As an example, you can write this:</p>
 </div>
 </section>
 <section id="sphinx-testcode-and-sphinx-testoutput">
-<h4><a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/doctest.html#directive-testcode" title="(in Sphinx v7.2.3)"><code class="docutils literal notranslate"><span class="pre">testcode</span></code></a> and <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/doctest.html#directive-testoutput" title="(in Sphinx v7.2.3)"><code class="docutils literal notranslate"><span class="pre">testoutput</span></code></a><a class="headerlink" href="#sphinx-testcode-and-sphinx-testoutput" title="Permalink to this heading">#</a></h4>
+<h4><a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/doctest.html#directive-testcode" title="(in Sphinx v7.2.3)"><code class="docutils literal notranslate"><span class="pre">testcode</span></code></a> and <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/doctest.html#directive-testoutput" title="(in Sphinx v7.2.3)"><code class="docutils literal notranslate"><span class="pre">testoutput</span></code></a><a class="headerlink" href="#sphinx-testcode-and-sphinx-testoutput" title="Link to this heading">#</a></h4>
 <p>If you prefer to keep the code to test from the expected output, you can put the former in a <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/doctest.html#directive-testcode" title="(in Sphinx v7.2.3)"><code class="docutils literal notranslate"><span class="pre">testcode</span></code></a> cell and the latter in a <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/doctest.html#directive-testoutput" title="(in Sphinx v7.2.3)"><code class="docutils literal notranslate"><span class="pre">testoutput</span></code></a> cell.
 The syntax would then be:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>.. testcode::
@@ -439,7 +439,7 @@ The syntax would then be:</p>
 </div>
 </section>
 <section id="run-the-tests">
-<h4>Run the tests<a class="headerlink" href="#run-the-tests" title="Permalink to this heading">#</a></h4>
+<h4>Run the tests<a class="headerlink" href="#run-the-tests" title="Link to this heading">#</a></h4>
 <p>In order to run the tests, you can use <a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-build.html" title="(in Sphinx v7.2.3)"><span class="xref std std-doc">sphinx-build</span></a> by setting the builder (<code class="docutils literal notranslate"><span class="pre">-b</span></code>)
 to <code class="docutils literal notranslate"><span class="pre">doctest</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sphinx-build<span class="w"> </span>-b<span class="w"> </span>doctest<span class="w"> </span>your_files<span class="w"> </span>output_file_path
@@ -471,7 +471,7 @@ Testing of doctests in the sources finished, look at the results in docs_guide/_
 </div>
 </section>
 <section id="add-setup-cells">
-<h4>Add setup cells<a class="headerlink" href="#add-setup-cells" title="Permalink to this heading">#</a></h4>
+<h4>Add setup cells<a class="headerlink" href="#add-setup-cells" title="Link to this heading">#</a></h4>
 <p>For both <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/doctest.html#directive-doctest" title="(in Sphinx v7.2.3)"><code class="docutils literal notranslate"><span class="pre">doctest</span></code></a> and <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/doctest.html#directive-testcode" title="(in Sphinx v7.2.3)"><code class="docutils literal notranslate"><span class="pre">testcode</span></code></a> - <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/doctest.html#directive-testoutput" title="(in Sphinx v7.2.3)"><code class="docutils literal notranslate"><span class="pre">testoutput</span></code></a> you can also add a cell that is executed before the test but not shown. This <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/doctest.html#directive-testsetup" title="(in Sphinx v7.2.3)"><code class="docutils literal notranslate"><span class="pre">testsetup</span></code></a> cell can be useful,
 for example, to import a package or define a function that will be used for one or more tests.</p>
 <p>The general syntax is:</p>
@@ -592,9 +592,9 @@ for example, to import a package or define a function that will be used for one 
   </div>
 </div><script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=359c27e9"></script>
+    <script src="../_static/documentation_options.js?v=f2a433a1"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/qiskit-sphinx-theme.js?v=0ad60474"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>

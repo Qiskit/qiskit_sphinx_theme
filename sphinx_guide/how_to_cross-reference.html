@@ -5,14 +5,14 @@
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="How to add external links" href="how_to_add_external_links.html" /><link rel="prev" title="How to create lists" href="how_to_create_lists.html" />
 
-    <!-- Generated with Sphinx 7.1.2 and Furo 2023.05.20 -->
+    <!-- Generated with Sphinx 7.2.2 and Furo 2023.08.19 -->
         <title>How to cross-reference to other pages from documentation - Qiskit Docs Guide</title>
-      <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
+      <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/qiskit-sphinx-theme.css?v=e9a31f78" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/qiskit-sphinx-theme.css?v=3317aaf7" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/qiskit-ecosystem.css?v=745c5aa7" />
     <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=36a5483c" />
     
     
 
@@ -264,7 +264,7 @@
         </div>
         <article role="main">
           <section id="how-to-cross-reference-to-other-pages-from-documentation">
-<span id="cross-reference"></span><h1>How to cross-reference to other pages from documentation<a class="headerlink" href="#how-to-cross-reference-to-other-pages-from-documentation" title="Permalink to this heading">#</a></h1>
+<span id="cross-reference"></span><h1>How to cross-reference to other pages from documentation<a class="headerlink" href="#how-to-cross-reference-to-other-pages-from-documentation" title="Link to this heading">#</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This page was written in the style of a <cite>How-to Guide</cite> according to <a class="reference internal" href="../intro/diataxis.html#diataxis"><span class="std std-ref">The Diátaxis Framework</span></a>.</p>
@@ -276,13 +276,13 @@
 you are actually linking to an external page, and therefore you should check <a class="reference internal" href="how_to_add_external_links.html#add-external-links"><span class="std std-ref">How to add external links</span></a> instead.</p>
 </div>
 <section id="pre-requisites">
-<h2>Pre-requisites<a class="headerlink" href="#pre-requisites" title="Permalink to this heading">#</a></h2>
+<h2>Pre-requisites<a class="headerlink" href="#pre-requisites" title="Link to this heading">#</a></h2>
 <p>This guide assumes your project already has a working <a class="reference external" href="https://www.sphinx-doc.org/en/master/index.html" title="(in Sphinx v7.2.3)"><span class="xref std std-doc">Sphinx</span></a> documentation project in a
 folder called <code class="docutils literal notranslate"><span class="pre">docs</span></code> and <a class="reference internal" href="../intro/new_doc_project.html#doc-structure"><span class="std std-ref">the recommended folder structure</span></a>. If you don’t
 have it, you can set it up with <a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html" title="(in Sphinx v7.2.3)"><span>sphinx-quickstart</span></a> following the tutorial <a class="reference internal" href="../intro/new_doc_project.html#create-new-doc-project"><span class="std std-ref">Create a New Documentation Project</span></a>.</p>
 </section>
 <section id="add-the-links">
-<h2>Add the links<a class="headerlink" href="#add-the-links" title="Permalink to this heading">#</a></h2>
+<h2>Add the links<a class="headerlink" href="#add-the-links" title="Link to this heading">#</a></h2>
 <p>There are several types of pages that can be referenced:</p>
 <ul class="simple">
 <li><p>Module pages</p></li>
@@ -293,7 +293,7 @@ have it, you can set it up with <a class="reference external" href="https://www.
 <li><p>Pages from other documentation projects</p></li>
 </ul>
 <section id="module-pages">
-<h3>Module pages<a class="headerlink" href="#module-pages" title="Permalink to this heading">#</a></h3>
+<h3>Module pages<a class="headerlink" href="#module-pages" title="Link to this heading">#</a></h3>
 <p>If the page to which you want to link corresponds to a module, you should use <code class="docutils literal notranslate"><span class="pre">:mod:`your_module`</span></code>.
 An example of Qiskit module is <a class="reference external" href="https://qiskit.org/documentation/apidoc/visualization.html#module-qiskit.visualization" title="(in Qiskit v0.44)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">qiskit.visualization</span></code></a> and the link can be written as:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>:mod:`qiskit.visualization`
@@ -301,35 +301,35 @@ An example of Qiskit module is <a class="reference external" href="https://qiski
 </div>
 </section>
 <section id="function-pages">
-<h3>Function pages<a class="headerlink" href="#function-pages" title="Permalink to this heading">#</a></h3>
+<h3>Function pages<a class="headerlink" href="#function-pages" title="Link to this heading">#</a></h3>
 <p>If you want to link to a function page, you need to use <code class="docutils literal notranslate"><span class="pre">:func:`your_function`</span></code>. For example, you can link to the <a class="reference external" href="https://qiskit.org/documentation/stubs/qiskit.visualization.circuit_drawer.html#qiskit.visualization.circuit_drawer" title="(in Qiskit v0.44)"><code class="xref py py-func docutils literal notranslate"><span class="pre">qiskit.visualization.circuit_drawer()</span></code></a> by writing:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>:func:`qiskit.visualization.circuit_drawer`
 </pre></div>
 </div>
 </section>
 <section id="class-pages">
-<h3>Class pages<a class="headerlink" href="#class-pages" title="Permalink to this heading">#</a></h3>
+<h3>Class pages<a class="headerlink" href="#class-pages" title="Link to this heading">#</a></h3>
 <p>In order to link to a class page, you should use <code class="docutils literal notranslate"><span class="pre">:class:`your_class`</span></code>. As an example, you can link to <a class="reference external" href="https://qiskit.org/documentation/stubs/qiskit.circuit.QuantumCircuit.html#qiskit.circuit.QuantumCircuit" title="(in Qiskit v0.44)"><code class="xref py py-class docutils literal notranslate"><span class="pre">qiskit.circuit.QuantumCircuit</span></code></a> by writing:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>:class:`qiskit.circuit.QuantumCircuit`
 </pre></div>
 </div>
 </section>
 <section id="method-pages">
-<h3>Method pages<a class="headerlink" href="#method-pages" title="Permalink to this heading">#</a></h3>
+<h3>Method pages<a class="headerlink" href="#method-pages" title="Link to this heading">#</a></h3>
 <p>If your objective is to link the page of a method, you can use <code class="docutils literal notranslate"><span class="pre">:meth:`your_method`</span></code>. For example, to link to the <a class="reference external" href="https://qiskit.org/documentation/stubs/qiskit.circuit.QuantumCircuit.html#qiskit.circuit.QuantumCircuit.draw" title="(in Qiskit v0.44)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">qiskit.circuit.QuantumCircuit.draw()</span></code></a> method if you write:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>:meth:`qiskit.circuit.QuantumCircuit.draw`
 </pre></div>
 </div>
 </section>
 <section id="attribute-pages">
-<h3>Attribute pages<a class="headerlink" href="#attribute-pages" title="Permalink to this heading">#</a></h3>
+<h3>Attribute pages<a class="headerlink" href="#attribute-pages" title="Link to this heading">#</a></h3>
 <p>If you want to link to an attribute page, you should use <code class="docutils literal notranslate"><span class="pre">:attr:`your_attribute`</span></code>. You can link, for example, to <a class="reference external" href="https://qiskit.org/documentation/stubs/qiskit.circuit.QuantumCircuit.html#qiskit.circuit.QuantumCircuit.parameters" title="(in Qiskit v0.44)"><code class="xref py py-attr docutils literal notranslate"><span class="pre">qiskit.circuit.QuantumCircuit.parameters</span></code></a> by writing:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>:attr:`qiskit.circuit.QuantumCircuit.parameters`
 </pre></div>
 </div>
 </section>
 <section id="pages-from-other-documentation-projects">
-<h3>Pages from other documentation projects<a class="headerlink" href="#pages-from-other-documentation-projects" title="Permalink to this heading">#</a></h3>
+<h3>Pages from other documentation projects<a class="headerlink" href="#pages-from-other-documentation-projects" title="Link to this heading">#</a></h3>
 <p>You can also use practically the same syntax to link to pages from other documentation projects. For this to work you need to
 add <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html#module-sphinx.ext.intersphinx" title="(in Sphinx v7.2.3)"><code class="docutils literal notranslate"><span class="pre">sphinx.ext.intersphinx</span></code></a> to the <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-extensions" title="(in Sphinx v7.2.3)"><code class="docutils literal notranslate"><span class="pre">extensions</span></code></a> variable of your <code class="docutils literal notranslate"><span class="pre">docs/conf.py</span></code>.</p>
 <p>After that, you’d need to create a new variable called <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html#confval-intersphinx_mapping" title="(in Sphinx v7.2.3)"><code class="docutils literal notranslate"><span class="pre">intersphinx_mapping</span></code></a> in your <code class="docutils literal notranslate"><span class="pre">docs/conf.py</span></code>. This variable
@@ -363,14 +363,14 @@ For more information about linking to external pages, check <a class="reference 
 </section>
 </section>
 <section id="shorten-the-links">
-<h2>Shorten the links<a class="headerlink" href="#shorten-the-links" title="Permalink to this heading">#</a></h2>
+<h2>Shorten the links<a class="headerlink" href="#shorten-the-links" title="Link to this heading">#</a></h2>
 <p>You can shorten the links if you add <code class="docutils literal notranslate"><span class="pre">~</span></code> just before the name of your object (<code class="docutils literal notranslate"><span class="pre">:obj:`~your_object`</span></code>). For example, <a class="reference external" href="https://qiskit.org/documentation/stubs/qiskit.circuit.QuantumCircuit.html#qiskit.circuit.QuantumCircuit" title="(in Qiskit v0.44)"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuantumCircuit</span></code></a> is shorter than <a class="reference external" href="https://qiskit.org/documentation/stubs/qiskit.circuit.QuantumCircuit.html#qiskit.circuit.QuantumCircuit" title="(in Qiskit v0.44)"><code class="xref py py-class docutils literal notranslate"><span class="pre">qiskit.circuit.QuantumCircuit</span></code></a>. This last sentence is written as:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>For example, :class:`~qiskit.circuit.QuantumCircuit` is shorter than :class:`qiskit.circuit.QuantumCircuit`.
 </pre></div>
 </div>
 </section>
 <section id="shorten-the-reference">
-<h2>Shorten the reference<a class="headerlink" href="#shorten-the-reference" title="Permalink to this heading">#</a></h2>
+<h2>Shorten the reference<a class="headerlink" href="#shorten-the-reference" title="Link to this heading">#</a></h2>
 <p>It’s not always necessary to specify the full name of your object when writing the reference. For example, you can write <code class="docutils literal notranslate"><span class="pre">:class:`.QuantumCircuit`</span></code> instead of <code class="docutils literal notranslate"><span class="pre">:class:`qiskit.circuit.QuantumCircuit`</span></code> to link to <code class="xref py py-class docutils literal notranslate"><span class="pre">QuantumCircuit</span></code> if no other class from any module is called <code class="docutils literal notranslate"><span class="pre">QuantumCircuit</span></code>. If there is another class with the same name, you will get a warning from Sphinx.
 You can also set any title you want for your links by using the following syntax: <code class="docutils literal notranslate"><span class="pre">:role:`title</span> <span class="pre">&lt;name&gt;`</span></code>. For example, you can add
 <a class="reference external" href="https://qiskit.org/documentation/stubs/qiskit.circuit.QuantumCircuit.html#qiskit.circuit.QuantumCircuit" title="(in Qiskit v0.44)"><code class="xref py py-class docutils literal notranslate"><span class="pre">this</span> <span class="pre">link</span></code></a> by writing:</p>
@@ -460,9 +460,9 @@ You can also set any title you want for your links by using the following syntax
   </div>
 </div><script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=359c27e9"></script>
+    <script src="../_static/documentation_options.js?v=f2a433a1"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/qiskit-sphinx-theme.js?v=0ad60474"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
