@@ -101,6 +101,12 @@ First, get the `snapshot_results` folder, either by downloading it from CI or by
 1. Find the "actual" snapshot for the failing test, such as `footer-includes-page-analytics-1-actual.png`.
 2. Copy that snapshot into the folder `tests/js/qiskit.test.js-snapshots` or `tests/js/ecosystem.test.js-snapshots`, depending on which theme failed. Rename the `-actual.png` file ending to be `-linux.png` and overwrite the prior file.
 
+### How to add a new snapshot
+
+Copy the tests in `qiskit.test.js` or `ecosystem.test.js` for inspiration. Make sure the selector you use in `page.locator()` is accurate. Title the tests with a useful but concise description of what you're testing.
+
+Then, run the tests either locally or in CI to generate the snapshots. When running locally, the files will be added automatically. When using CI, follow the section [How to update the expected snapshot for intentional changes](#how-to-update-the-expected-snapshot-for-intentional-changes).
+
 ------
 ## Updating bundled web components
 
