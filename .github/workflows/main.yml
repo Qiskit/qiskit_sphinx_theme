@@ -1,10 +1,5 @@
 name: Tests
-on:
-  push:
-    branches:
-      - main
-      - '1.*'
-  pull_request:
+on: [pull_request]
 jobs:
   docs:
     name: Sample Docs Build
