@@ -59,20 +59,12 @@ html_last_updated_fmt = "2020/01/01"
 # for interpolation, i.e. Sphinx doesn't have built-in interpolation.
 html_title = f"{project} {release}"
 
-# This allows us to test both the Furo and Pytorch themes. In normal repositories, `html_theme`
+# This allows us to test both the Qiskit and Qiskit Ecosystem themes. In normal repositories, `html_theme`
 # would be set to one specific theme.
 _THEME = os.getenv("THEME", "qiskit")
 html_theme = _THEME
 
-if _THEME == "qiskit_sphinx_theme":
-    html_theme_options = {
-        "logo_only": True,
-        "display_version": True,
-        "prev_next_buttons_location": "bottom",
-    }
-    # Sets a better style for code syntax highlighting.
-    pygments_style = "colorful"
-elif _THEME == "qiskit-ecosystem":
+if _THEME == "qiskit-ecosystem":
     # This tests out that ecosystem projects can change the color scheme.
     # Only specific IBM projects should set this! Most Ecosystem projects
     # should use the default of purple.
