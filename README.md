@@ -1,5 +1,5 @@
 # qiskit-sphinx-theme
-The Sphinx themes for Qiskit Ecosystem documentation.
+The Sphinx theme for Qiskit Ecosystem documentation.
 
 ### Warning: new theme migration
 
