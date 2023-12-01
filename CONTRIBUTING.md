@@ -19,7 +19,6 @@ There are a few important subfolders to be aware of:
 This subfolder contains the HTML, CSS, and Python files that are used for the Qiskit themes. It has these folders:
 
 * `assets`: CSS and JavaScript for the `qiskit` theme.
-* `pytorch`: all the code for the legacy Pytorch theme (`qiskit_sphinx_theme`).
 * `ecosystem`: the code for the `qiskit-ecosystem` theme, which is built on top of the base `qiskit` theme. This folder only has overrides.
 * `theme`: static files, like HTML templates, for the `qiskit` theme.
 
@@ -28,7 +27,7 @@ The top-level Python files are used for logic used by the theme, such as `transl
 ### `/example_docs`
 This subfolder contains a scaled down version of the Sphinx build that builds the documentation for the Qiskit repos. 
 
-It pulls styles from the `/src` subfolder. You can check any changes you are making to theme by building the documentation (see running locally section) and opening the HTML files generated in `example_docs/docs/_qiskit_build`, `example_docs/docs/_ecosystem_build`, and `example_docs/docs/_pytorch_build`.
+It pulls styles from the `/src` subfolder. You can check any changes you are making to theme by building the documentation (see running locally section) and opening the HTML files generated in `example_docs/docs/_qiskit_build` and `example_docs/docs/_ecosystem_build`.
 
 ### `/docs_guide`
 This subfolder contains guidance on how to write documentation and build sphinx projects for Qiskit and Qiskit Ecosystem projects. You can view the fully rendered docs guide at https://qisk.it/docs-guide
@@ -45,9 +44,6 @@ We use [Tox](https://tox.wiki/en/latest/), which you will need to install global
 * Build `example_docs/` with the `qiskit-ecosystem` theme:
   1. `tox -e ecosystem`
   2. Open up `example_docs/docs/_ecosystem_build/index.html` in your browser
-* Build `example_docs/` with the legacy Pytorch theme:
-  1. `tox -e pytorch`
-  2. Open up `example_docs/docs/_pytorch_build/index.html` in your browser
 * Build `docs_guide`:
   1. `tox -e docs-guide`
   2. Open up `docs_guide/_build/html/index.html` in your browser.
@@ -115,15 +111,13 @@ We use web components from https://github.com/Qiskit/web-components to include c
 To update the top nav bar web component:
 
 1. In https://github.com/Qiskit/web-components, run `npm install` then `npm run build`.
-2. There should be a file created at the root of the web components repository called `experimental-bundled-ui-shell.js`. Copy its contents into these files in this theme repository:
-   1. `src/qiskit_sphinx_theme/pytorch/static/js/web-components/top-nav-bar.js`
-   2. `src/qiskit_sphinx_theme/theme/qiskit-sphinx-theme/static/js/web-components/top-nav-bar.js`
-3. Build the example docs with `tox -e qiskit` and `tox -e pytorch` to ensure everything works.
+2. There should be a file created at the root of the web components repository called `experimental-bundled-ui-shell.js`. Copy its contents into `src/qiskit_sphinx_theme/theme/qiskit-sphinx-theme/static/js/web-components/top-nav-bar.js`
+3. Build the example docs with `tox -e qiskit` to ensure everything works.
 
 If you want to add a new web component:
 
 1. Work with the web components repository's team to set up `npm run build` to generate a single JavaScript file.
-2. Add the file contents to the `src/qiskit_sphinx_theme/theme/qiskit-sphinx-theme/static/js/web-components/` folder in this theme repository. (We shouldn't add web components to Pytorch.)
+2. Add the file contents to the `src/qiskit_sphinx_theme/theme/qiskit-sphinx-theme/static/js/web-components/` folder in this theme repository.
 3. Load the web component in `extra_head.html` with a line like `<script src="{{ pathto('_static/js/web-components/my-component.js', 1) }}"></script>`.
 4. Use the web component element in the relevant HTML, e.g. `<my-component>` in `layout.html`. Remember to surround the change with a `QISKIT CHANGE:` comment.
 5. Build the example docs with `tox -e qiskit` to ensure everything works.

@@ -68,8 +68,6 @@ def remove_thebe_if_not_needed(
 
 
 def activate_furo(app: sphinx.application.Sphinx, config: sphinx.config.Config) -> None:
-    if config.html_theme == "qiskit_sphinx_theme":
-        return
     # We set a low priority so that our Qiskit CSS file overrides Furo.
     app.add_css_file("styles/furo.css", 100)
     app.add_js_file("scripts/qiskit-sphinx-theme.js")
@@ -92,11 +90,6 @@ def setup(app: sphinx.application.Sphinx) -> dict[str, bool]:
     # Used to generate URL references. Expected to be e.g. `ecosystem/finance`.
     app.add_config_value("docs_url_prefix", default=None, rebuild="html", types=[str])
 
-    # Sphinx 6 stopped including jQuery by default. Our Pytorch theme depend on jQuery,
-    # so activate it for our users automatically. Unfortunately, we can't make this activation
-    # conditional based on which theme is chosen.
-    app.setup_extension("sphinxcontrib.jquery")
-
     # We always activate these plugins, but they are only used when users:
     # * use the directives in their RST,
     # * set `translations_list` in conf.py, or
@@ -105,7 +98,6 @@ def setup(app: sphinx.application.Sphinx) -> dict[str, bool]:
     previous_releases.setup(app)
     translations.setup(app)
 
-    app.add_html_theme("qiskit_sphinx_theme", _get_theme_absolute_path("pytorch"))
     app.add_html_theme("qiskit", _get_theme_absolute_path("theme/qiskit-sphinx-theme"))
     app.add_html_theme("qiskit-ecosystem", _get_theme_absolute_path("ecosystem"))
 
