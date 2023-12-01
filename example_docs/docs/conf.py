@@ -83,14 +83,9 @@ elif _THEME == "qiskit-ecosystem":
     }
 
 html_context = {
-    # Add "Was this page useful?" to the footer.
-    "analytics_enabled": True,
     # Users of the theme can set prior version numbers. They'll
     # show up in the sidebar under the "Previous Versions" section.
     "version_list": [0.1, 0.2, 0.3],
-    # This allows docs authors to have folders that can be
-    # closed and opened in the left sidebar.
-    "expandable_sidebar": True,
     # Users of the theme can set the text and optional url for an announcement banner
     "theme_announcement": "🎉 Custom announcement text!",
     "announcement_url_text": "Check it out",

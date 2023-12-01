@@ -116,22 +116,6 @@ The `qiskit_sphinx_theme` extension defines the below custom directives for you 
 ![](tests/js/qiskit.test.js-snapshots/custom-directives-1-linux.png)
 ![](tests/js/qiskit.test.js-snapshots/custom-directives-2-linux.png)
 
-## Enable Qiskit.org Analytics
-
-Qiskit.org uses Segment Analytics to collect information on traffic to sites under the qiskit.org domain. This is not enabled by default but if you would like to enable it you can add a `analytics_enabled` variable to the `html_context` object in your `conf.py`. Setting this to `True` will enable analytics for your site once it is deployed to `qiskit.org/`.
-
-```python
-html_context = {
-    'analytics_enabled': True
-}
-```
-
-By enabling analytics we will be able to collect information on number of visits to each documentation page. It will also trigger the addition of a `Was this page helpful?` component at the bottom of each documentation page, so users will be able to provide yes/no feedback for each page.
-
-![](tests/js/qiskit.test.js-snapshots/footer-includes-page-analytics-1-linux.png)
-
-If you do not enable analytics, no data will be collected and the `Was this page helpful?` component will not show.
-
 ## Add an announcement banner to all pages
 
 > :warning: **Note:** This feature is currently only available for the Qiskit theme, it is not yet available in the Ecosystem theme
