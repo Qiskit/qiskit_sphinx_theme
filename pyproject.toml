@@ -27,15 +27,12 @@ dependencies = [
     "docutils",
     # Keep in sync with Furo's constraint.
     "sphinx>=6.0",
-    # Remove jQuery once we get rid of the Pytorch theme.
-    "sphinxcontrib-jquery",
     # See CONTRIBUTING.md for how to upgrade Furo.
     "furo==2023.8.19",
 ]
 
 [project.entry-points."sphinx.html_themes"]
 qiskit = "qiskit_sphinx_theme"
-qiskit_sphinx_theme = "qiskit_sphinx_theme"
 qiskit-ecosystem = "qiskit_sphinx_theme"
 
 [project.urls]
