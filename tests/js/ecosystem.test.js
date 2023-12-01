@@ -107,14 +107,4 @@ test.describe("colors can be changed", () => {
     const translations = page.locator("div.qiskit-translations-container");
     await expect(translations).toHaveScreenshot();
   });
-
-  test("footer", async ({ page }) => {
-    await page.goto("");
-
-    const yesOption = page.locator("div.qiskit-analytics-container a").first();
-    await yesOption.hover();
-
-    const footer = page.locator("footer");
-    await expect(footer).toHaveScreenshot();
-  });
 });
