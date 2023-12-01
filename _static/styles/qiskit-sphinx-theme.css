@@ -507,43 +507,6 @@ div:not(#specifity-war).jupyter_container {
  * copyright notice, and modified files need to carry a notice indicating
  * that they have been altered from the originals.
  */
-.qiskit-analytics-container {
-  display: inline-flex;
-  border-top: 1px solid var(--color-background-border);
-  border-bottom: 1px solid var(--color-background-border);
-  color: var(--color-foreground-secondary);
-  margin-bottom: 1rem;
-}
-.qiskit-analytics-container div,
-.qiskit-analytics-container a {
-  padding: 0.625rem 1.25rem 0.625rem 1.25rem;
-}
-.qiskit-analytics-container a {
-  color: var(--color-brand-primary);
-  cursor: pointer;
-  text-decoration: none;
-}
-.qiskit-analytics-container a:hover {
-  background-color: var(--color-brand-primary);
-  color: #ffffff;
-}
-
-#qiskit-analytics-thank-you {
-  visibility: hidden;
-}
-
-/* This code is a Qiskit project.
- *
- * (C) Copyright IBM 2023.
- *
- * This code is licensed under the Apache License, Version 2.0. You may
- * obtain a copy of this license in the LICENSE.txt file in the root directory
- * of this source tree or at http://www.apache.org/licenses/LICENSE-2.0.
- *
- * Any modifications or derivative works of this code must retain this
- * copyright notice, and modified files need to carry a notice indicating
- * that they have been altered from the originals.
- */
 body {
   --icon-search: url("data:image/svg+xml;charset=utf-8,<svg id=\"icon\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 32 32\"><defs><style>.cls-1 {fill: none;}</style></defs><path d=\"M29,27.5859l-7.5521-7.5521a11.0177,11.0177,0,1,0-1.4141,1.4141L27.5859,29ZM4,13a9,9,0,1,1,9,9A9.01,9.01,0,0,1,4,13Z\" transform=\"translate%280 0%29\"/><rect id=\"_Transparent_Rectangle_\" data-name=\"&lt;Transparent Rectangle&gt;\" class=\"cls-1\" width=\"32\" height=\"32\"/></svg>");
   --icon-info: url("data:image/svg+xml;charset=utf-8,<svg id=\"icon\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 32 32\"><defs><style>.cls-1 {fill: none;}</style></defs><path id=\"inner-path\" class=\"cls-1\" d=\"M16,8a1.5,1.5,0,1,1-1.5,1.5A1.5,1.5,0,0,1,16,8Zm4,13.875H17.125v-8H13v2.25h1.875v5.75H12v2.25h8Z\" transform=\"translate%280 0%29\"/><path d=\"M16,2A14,14,0,1,0,30,16,14,14,0,0,0,16,2Zm0,6a1.5,1.5,0,1,1-1.5,1.5A1.5,1.5,0,0,1,16,8Zm4,16.125H12v-2.25h2.875v-5.75H13v-2.25h4.125v8H20Z\" transform=\"translate%280 0%29\"/><rect id=\"_Transparent_Rectangle_\" data-name=\"&lt;Transparent Rectangle&gt;\" class=\"cls-1\" width=\"32\" height=\"32\"/></svg>");
