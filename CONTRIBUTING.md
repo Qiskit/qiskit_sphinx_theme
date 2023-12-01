@@ -94,7 +94,7 @@ The docs will rebuild every time you run `npm run test-qiskit` and `npm run test
 
 First, get the `snapshot_results` folder, either by downloading it from CI or by running the tests locally. Then:
 
-1. Find the "actual" snapshot for the failing test, such as `footer-includes-page-analytics-1-actual.png`.
+1. Find the "actual" snapshot for the failing test, such as `api-docs-class-page-1-actual.png`.
 2. Copy that snapshot into the folder `tests/js/qiskit.test.js-snapshots` or `tests/js/ecosystem.test.js-snapshots`, depending on which theme failed. Rename the `-actual.png` file ending to be `-linux.png` and overwrite the prior file.
 
 ### How to add a new snapshot

@@ -1,11 +1,9 @@
 {#-
   This file is vendored from Furo (created by Pradyun Gedam) and used under the MIT license.
 
-  When adding custom Qiskit code, surround it with `QISKIT CHANGE: start` and
-  `QISKIT CHANGE: end` Jinja-style comments.
-
-  We also vendor this file in the Qiskit theme. When making changes, check if `theme/page.html`
-  should have it too.
+  No changes should be made to it. This file is only to overwrite the changes made
+  in the Qiskit theme. Once that theme is deleted, this file should be deleted so
+  that we can go back to using the default file from Furo.
 -#}
 
 {% extends "base.html" %}
@@ -103,10 +101,6 @@
       </div>
       <footer>
         {% block footer %}
-
-        {#- QISKIT CHANGE: start. -#}
-        {% include "custom_templates/footer_analytics.html" %}
-        {#- QISKIT CHANGE: end. -#}
 
         <div class="related-pages">
           {% if next -%}

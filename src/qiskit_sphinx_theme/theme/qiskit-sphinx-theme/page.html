@@ -122,10 +122,6 @@
       <footer>
         {% block footer %}
 
-        {#- QISKIT CHANGE: start. -#}
-        {% include "custom_templates/footer_analytics.html" %}
-        {#- QISKIT CHANGE: end. -#}
-
         <div class="related-pages">
           {% if next -%}
             <a class="next-page" href="{{ next.link }}">

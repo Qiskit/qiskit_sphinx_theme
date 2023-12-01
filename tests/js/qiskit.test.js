@@ -170,31 +170,6 @@ test.describe("api docs", () => {
   });
 });
 
-test.describe("footer", () => {
-  test("includes page analytics", async ({ page }) => {
-    await page.goto("");
-    const footer = page.locator("footer");
-    await expect(footer).toHaveScreenshot();
-  });
-
-  test("says 'thank you' when analytics clicked", async ({ page }) => {
-    await page.goto("");
-    const yesOption = page.locator("div.qiskit-analytics-container a").first();
-
-    // First, check that we change the color of the buttons when hovering.
-    await yesOption.hover();
-    const backgroundColor = await yesOption.evaluate(
-      (node) => getComputedStyle(node).backgroundColor,
-    );
-    expect(backgroundColor).toEqual("rgb(105, 41, 196)");
-
-    // Then, check the screenshot when clicking.
-    await yesOption.click();
-    const analytics = page.locator("div.qiskit-analytics-container");
-    await expect(analytics).toHaveScreenshot();
-  });
-});
-
 test("tables align with qiskit.org", async ({ page }) => {
   await page.goto("sphinx_guide/tables.html");
   await hideTopNavBar(page);
