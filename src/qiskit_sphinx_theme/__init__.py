@@ -72,7 +72,6 @@ def activate_furo(app: sphinx.application.Sphinx, config: sphinx.config.Config) 
     app.add_css_file("styles/furo.css", 100)
 
 
-
 # See https://www.sphinx-doc.org/en/master/development/theming.html
 def setup(app: sphinx.application.Sphinx) -> dict[str, bool]:
     # Used to generate URL references. Expected to be e.g. `ecosystem/finance`.
