@@ -14,91 +14,10 @@
 import { expect, test } from "@playwright/test";
 
 import {
-  setDesktop,
   setMobile,
   setTablet,
   click,
-  scrollDown,
-  isVisibleInViewport,
-  hideTopNavBar,
 } from "./utils";
-
-test.describe("Qiskit top nav bar does not cover", () => {
-  test("Furo's menu bars when scrolled down", async ({ page }) => {
-    await page.goto("sphinx_guide/lists.html");
-
-    const check = async () => {
-      const pageToCVisible = await isVisibleInViewport(
-        page,
-        "div.toc-title-container",
-      );
-      expect(pageToCVisible).toBe(true);
-
-      const searchVisible = await isVisibleInViewport(
-        page,
-        "input.sidebar-search",
-      );
-      expect(searchVisible).toBe(true);
-
-      await setMobile(page);
-      const mobileHeaderVisible = await isVisibleInViewport(
-        page,
-        "header.mobile-header",
-      );
-      expect(mobileHeaderVisible).toBe(true);
-    };
-
-    // First check after scrolling down a little bit.
-    await scrollDown(page, 200);
-    await check();
-
-    // Then scroll to the bottom of the page. We use the home page because it's short.
-    await setDesktop(page);
-    await page.goto("");
-    await scrollDown(page, 1000);
-    await check();
-  });
-
-  test("the top of # anchor links", async ({ page }) => {
-    const checkHeader = async () => {
-      await page.goto("sphinx_guide/lists.html#definition-lists");
-      const headerVisible = await isVisibleInViewport(
-        page,
-        "section#definition-lists > h2",
-      );
-      expect(headerVisible).toBe(true);
-    };
-
-    await checkHeader();
-
-    await setMobile(page);
-    // Go to a new page first to reset the scroll state.
-    await page.goto("");
-    await checkHeader();
-  });
-
-  test("the side menus when they're expanded on mobile", async ({ page }) => {
-    await setMobile(page);
-    await page.goto("");
-
-    await click(page, "div.header-right label.toc-overlay-icon i");
-    const pageToCVisible = await isVisibleInViewport(
-      page,
-      "div.toc-title-container",
-    );
-    expect(pageToCVisible).toBe(true);
-
-    // Reload the page to close the nav bar.
-    await page.goto("");
-
-    await click(page, "div.header-left i");
-    const searchVisible = await isVisibleInViewport(
-      page,
-      "input.sidebar-search",
-    );
-    expect(searchVisible).toBe(true);
-  });
-});
 
 test.describe("Furo menu bars", () => {
   test("use custom page ToC icon on tablet", async ({ page }) => {
@@ -151,14 +70,12 @@ test.describe("left side bar", () => {
 test.describe("api docs", () => {
   test("module page", async ({ page }) => {
     await page.goto("sphinx_guide/autodoc.html");
-    await hideTopNavBar(page);
     const content = page.locator("div.article-container");
     await expect(content).toHaveScreenshot();
   });
 
   test("class page", async ({ page }) => {
     await page.goto("stubs/api_example.Electron.html");
-    await hideTopNavBar(page);
     const content = page.locator("div.article-container");
     await expect(content).toHaveScreenshot();
   });
@@ -172,7 +89,6 @@ test.describe("api docs", () => {
 
 test("tables align with qiskit.org", async ({ page }) => {
   await page.goto("sphinx_guide/tables.html");
-  await hideTopNavBar(page);
   const gridTablesSection = page.locator("section#grid-tables");
   await expect(gridTablesSection).toHaveScreenshot();
 });
@@ -185,7 +101,6 @@ test("tutorials do not have purple border", async ({ page }) => {
 
 test("admonitions use Carbon style", async ({ page }) => {
   await page.goto("sphinx_guide/paragraph.html#admonitions");
-  await hideTopNavBar(page);
   const admonitions = page.locator("section#admonitions");
   await expect(admonitions).toHaveScreenshot();
 });
@@ -198,7 +113,6 @@ test("deprecations look like warning", async ({ page }) => {
 
 test("Sphinx Design elements have no shadows", async ({ page }) => {
   await page.goto("sphinx_guide/panels.html");
-  await hideTopNavBar(page);
   await page.locator(".sd-dropdown").first().click();
   const pageContents = page.locator("section#panels");
   await expect(pageContents).toHaveScreenshot();
@@ -213,7 +127,6 @@ test("Jupyter works with copybutton", async ({ page }) => {
 
 test("custom directives", async ({ page }) => {
   await page.goto("sphinx_guide/custom_directives.html");
-  await hideTopNavBar(page, true);
 
   const cards = page.locator("section#qiskit-card");
   await cards.hover();

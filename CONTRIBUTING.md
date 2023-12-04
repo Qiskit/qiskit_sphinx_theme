@@ -104,26 +104,6 @@ Copy the tests in `qiskit.test.js` or `ecosystem.test.js` for inspiration. Make 
 Then, run the tests either locally or in CI to generate the snapshots. When running locally, the files will be added automatically. When using CI, follow the section [How to update the expected snapshot for intentional changes](#how-to-update-the-expected-snapshot-for-intentional-changes).
 
 ------
-## Updating bundled web components
-
-We use web components from https://github.com/Qiskit/web-components to include common design elements from qiskit.org in our documentation.
-
-To update the top nav bar web component:
-
-1. In https://github.com/Qiskit/web-components, run `npm install` then `npm run build`.
-2. There should be a file created at the root of the web components repository called `experimental-bundled-ui-shell.js`. Copy its contents into `src/qiskit_sphinx_theme/theme/qiskit-sphinx-theme/static/js/web-components/top-nav-bar.js`
-3. Build the example docs with `tox -e qiskit` to ensure everything works.
-
-If you want to add a new web component:
-
-1. Work with the web components repository's team to set up `npm run build` to generate a single JavaScript file.
-2. Add the file contents to the `src/qiskit_sphinx_theme/theme/qiskit-sphinx-theme/static/js/web-components/` folder in this theme repository.
-3. Load the web component in `extra_head.html` with a line like `<script src="{{ pathto('_static/js/web-components/my-component.js', 1) }}"></script>`.
-4. Use the web component element in the relevant HTML, e.g. `<my-component>` in `layout.html`. Remember to surround the change with a `QISKIT CHANGE:` comment.
-5. Build the example docs with `tox -e qiskit` to ensure everything works.
-6. Update this guide with specific instructions for the web component.
-
-------
 ## How to preview docs in PRs
 
 We upload the docs builds to CI. So, you can download what the site will look like from GitHub Actions:
@@ -145,8 +125,8 @@ We try to keep changes to a minimum because every divergence we make from base F
 The `qiskit-ecosystem` theme then inherits the `qiskit` theme to make some tweaks: 
 
 1. Adding back `brand.html` to the left sidebar, but with some custom code.
-2. Restoring Furo's `page.html` to remove the Qiskit top nav bar and restore the mobile header design.
-3. `qiskit-ecosystem.css` setting the Qiskit top nav bar height to 0px.
+2. Restoring Furo's `page.html` to restore the mobile header design.
+3. `qiskit-ecosystem.css` fixing some logo sizing.
 
 ### How to change HTML
 Copy the HTML template from Furo and save it in the same file path. Then, at the top of the file, add this header:
@@ -175,7 +155,7 @@ Make CSS changes in the file `assets/styles/qiskit-sphinx-theme.css`. It takes p
 
 When adding changes, document the rationale unless the code is already self-documenting and obvious. Group similar changes into sections.
 
-You can change [Furo's CSS variable values](https://github.com/pradyunsg/furo/tree/main/src/furo/assets/styles/variables) by setting them in the `body` rule at the top. When introducing our own CSS variables, prefix it with `--qiskit` for clarity, e.g. `--qiskit-top-nav-bar-height`.
+You can change [Furo's CSS variable values](https://github.com/pradyunsg/furo/tree/main/src/furo/assets/styles/variables) by setting them in the `body` rule at the top. When introducing our own CSS variables, prefix it with `--qiskit` for clarity, e.g. `--qiskit-my-variable`.
 
 ### How to update the Furo version
 Update the version in `pyproject.toml`. Always pin to an exact version of Furo.
