@@ -78,10 +78,6 @@ html_context = {
     # Users of the theme can set prior version numbers. They'll
     # show up in the sidebar under the "Previous Versions" section.
     "version_list": [0.1, 0.2, 0.3],
-    # Users of the theme can set the text and optional url for an announcement banner
-    "theme_announcement": "🎉 Custom announcement text!",
-    "announcement_url_text": "Check it out",
-    "announcement_url": "https://google.com",
 }
 
 docs_url_prefix = "ecosystem/example_docs"

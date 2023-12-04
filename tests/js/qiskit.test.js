@@ -232,12 +232,3 @@ test("inline table of contents have correct fonts", async ({ page }) => {
   const contents = page.locator("section#example-docs");
   await expect(contents).toHaveScreenshot();
 });
-
-test("custom announcement banner", async ({ page }) => {
-  await page.goto("");
-  const banner = page.locator(".custom-announcement");
-  await expect(banner).toHaveScreenshot();
-
-  await setMobile(page);
-  await expect(banner).toHaveScreenshot();
-});

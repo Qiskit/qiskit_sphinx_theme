@@ -116,44 +116,6 @@ The `qiskit_sphinx_theme` extension defines the below custom directives for you 
 ![](tests/js/qiskit.test.js-snapshots/custom-directives-1-linux.png)
 ![](tests/js/qiskit.test.js-snapshots/custom-directives-2-linux.png)
 
-## Add an announcement banner to all pages
-
-> :warning: **Note:** This feature is currently only available for the Qiskit theme, it is not yet available in the Ecosystem theme
-
-
-The `qiskit` theme includes the ability to add a custom announcement banner to every page. You can configure this in your `conf.py` by adding your
-custom announcement text to the `theme_announcement` variable in the `html_context` object, for example:
-
-```
-html_context = {
-    "theme_announcement": "🎉 Custom announcement text!",
-}
-```
-The above code will enable the following banner:
-
-<img width="1330" alt="Screenshot 2023-08-07 at 5 13 10 PM" src="https://github.com/qiskit-community/ecosystem/assets/23662430/cbb86903-17fd-4752-a955-5e8c5eda3383">
-
-You can also optionally add a "Learn more" url by additionally setting the `announcement_url` in the `html_context`, like so:
-
-```
-html_context = {
-    "theme_announcement": "🎉 Custom announcement text!",
-    "announcement_url": "https://example.com"
-}
-```
-The above code will render the following banner:
-
-<img width="1327" alt="Screenshot 2023-08-07 at 5 12 02 PM" src="https://github.com/qiskit-community/ecosystem/assets/23662430/79ccb19d-3392-4ea9-993e-b006dc7481dc">
-
-The default text for the link is "Learn more" but you can provide custom link text by setting the `announcement_url_text` in the `html_context`:
-```
-html_context = {
-    "theme_announcement": "🎉 Custom announcement text!",
-    "announcement_url": "https://example.com",
-    "announcement_url_text": "Check it out",
-}
-```
-
 ## Customize or disable the Ecosystem theme logo
 
 The `qiskit-ecosystem` theme includes the Qiskit Ecosystem logo by default.
