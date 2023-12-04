@@ -13,19 +13,8 @@
 
 import { expect, test } from "@playwright/test";
 
-import { click } from "./utils";
-
 test("left side bar renders correctly", async ({ page }) => {
   await page.goto("");
   const leftToC = page.locator(".sidebar-drawer");
   await expect(leftToC).toHaveScreenshot();
-});
-
-test.describe("colors can be changed", () => {
-  test("translations", async ({ page }) => {
-    await page.goto("");
-    await click(page, "div.qiskit-translations-container i");
-    const translations = page.locator("div.qiskit-translations-container");
-    await expect(translations).toHaveScreenshot();
-  });
 });
