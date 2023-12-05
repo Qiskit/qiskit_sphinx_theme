@@ -22,6 +22,8 @@ author = "Qiskit Development Team"
 language = "en"
 release = "9.99"
 
+html_theme = "qiskit-ecosystem"
+
 # This allows including custom CSS and HTML templates.
 html_static_path = ["_static"]
 templates_path = ["_templates"]
@@ -57,11 +59,6 @@ html_last_updated_fmt = "2020/01/01"
 # the `documentation` at the end is noisy. Note that you have to use f-strings
 # for interpolation, i.e. Sphinx doesn't have built-in interpolation.
 html_title = f"{project} {release}"
-
-# This allows us to test both the Qiskit and Qiskit Ecosystem themes. In normal repositories, `html_theme`
-# would be set to one specific theme.
-_THEME = os.getenv("THEME", "qiskit")
-html_theme = _THEME
 
 html_context = {
     # Users of the theme can set prior version numbers. They'll

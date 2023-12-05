@@ -10,14 +10,14 @@ See [Migrate from old Pytorch theme to new theme](https://github.com/Qiskit/qisk
 ## Overview
 
 This repository hosts three things: 
-- Qiskit Sphinx themes (located in the `src/` folder)
-- Example Docs (located in the `example_docs/` folder)
+- `qiskit-ecosystem` theme (located in the `src/` folder)
+- example docs (located in the `example_docs/` folder)
 - Qiskit Docs Guide (located in the `docs_guide/` folder)
 
-The Qiskit Sphinx Themes are the themes used by Qiskit Documentation (https://qiskit.org/documentation/) and Qiskit Ecosystem projects.
+The `qiskit-ecosystem` theme is used by projects in the [Qiskit Ecosystem](https://qiskit.github.io/ecosystem).
 
-The Example Docs is a minimal Sphinx project that is used for testing the Qiskit Sphinx Theme. Every
-pull request will trigger [a GitHub workflow](https://github.com/Qiskit/qiskit_sphinx_theme/blob/main/.github/workflows/main.yml) that builds the Example Docs to make sure the changes do
+The example docs are a minimal Sphinx project that is used for testing the Qiskit Sphinx Theme. Every
+pull request will trigger [a GitHub workflow](https://github.com/Qiskit/qiskit_sphinx_theme/blob/main/.github/workflows/main.yml) that builds the example docs to make sure the changes do
 not introduce unintended changes.
 
 The Qiskit Docs Guide hosts instructions, guidelines and recommendations of good documentation
@@ -34,7 +34,7 @@ pip install qiskit-sphinx-theme
 
 Then, set up the theme by updating `conf.py`:
 
-1. Set `html_theme = "qiskit-ecosystem"` (only Qiskit Terra should use `qiskit`)
+1. Set `html_theme = "qiskit-ecosystem"`
 2. Add `"qiskit_sphinx_theme"` to `extensions`
 
 You also likely want to set `html_title` in `conf.py`. This results in the left sidebar having a more useful and concise name, along with the page title in the browser. Most projects will want to use this in their `conf.py`:
