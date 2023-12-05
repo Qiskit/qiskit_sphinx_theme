@@ -738,10 +738,6 @@ table.align-default {
  * copyright notice, and modified files need to carry a notice indicating
  * that they have been altered from the originals.
  */
-body {
-  --qiskit-top-nav-bar-height: 3.5rem;
-}
-
 .theme-toggle-container {
   display: none;
 }
@@ -750,45 +746,6 @@ div.header-left svg use {
   stroke-width: 0.5;
 }
 
-.mobile-header,
-.sidebar-sticky,
-.toc-sticky,
-#__navigation:checked ~ .page .sidebar-drawer,
-#__toc:checked ~ .page .toc-drawer {
-  top: var(--qiskit-top-nav-bar-height);
-}
-
-@media (max-width: 67em) {
-  .sidebar-drawer {
-    top: var(--qiskit-top-nav-bar-height);
-  }
-}
-@media (max-width: 82em) {
-  .toc-drawer {
-    top: var(--qiskit-top-nav-bar-height);
-  }
-}
-.sidebar-sticky,
-.toc-sticky {
-  height: calc(100vh - var(--qiskit-top-nav-bar-height));
-}
-
-.toc-scroll {
-  max-height: calc(100vh - var(--qiskit-top-nav-bar-height));
-}
-
-:target {
-  scroll-margin-top: var(--qiskit-top-nav-bar-height);
-}
-
-@media (max-width: 67em) {
-  :target {
-    scroll-margin-top: calc(0.5rem + var(--header-height) + var(--qiskit-top-nav-bar-height));
-  }
-  section > span:target {
-    scroll-margin-top: calc(0.8rem + var(--header-height) + var(--qiskit-top-nav-bar-height));
-  }
-}
 /* This code is a Qiskit project.
  *
  * (C) Copyright IBM 2023.
