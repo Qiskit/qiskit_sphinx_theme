@@ -38,6 +38,17 @@ body {
   text-transform: unset;
 }
 
+
+// ------------------------------------------------------------------------------
+// Logos
+// ------------------------------------------------------------------------------
+
+// Furo only sets `max-width` to 100%, and height stays at `auto`. That results in
+// logos appearing small in the in the left sidebar.
+.sidebar-logo {
+  width: 100%;
+}
+
 // --------------------------------------------------------------------------------------
 // Common config for Translations & Previous Releases
 // --------------------------------------------------------------------------------------
