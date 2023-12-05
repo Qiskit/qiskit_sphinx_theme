@@ -13,19 +13,12 @@
 
 import { expect, test } from "@playwright/test";
 
-import { click, setMobile } from "./utils";
+import { click } from "./utils";
 
 test("left side bar renders correctly", async ({ page }) => {
   await page.goto("");
   const leftToC = page.locator(".sidebar-drawer");
   await expect(leftToC).toHaveScreenshot();
-});
-
-test("mobile header uses Furo design", async ({ page }) => {
-  await setMobile(page);
-  await page.goto("");
-  const header = page.locator("header.mobile-header");
-  await expect(header).toHaveScreenshot();
 });
 
 test.describe("colors can be changed", () => {

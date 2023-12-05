@@ -122,11 +122,7 @@ We use Sphinx's inheritance future for our Furo-based `qiskit` theme, which we s
 
 We try to keep changes to a minimum because every divergence we make from base Furo increases our maintenance burden. Hence we prioritise only making changes that are important to the Qiskit brand. If the change would be generally useful to other users of Furo, we try to contribute upstream to the Furo project itself.
 
-The `qiskit-ecosystem` theme then inherits the `qiskit` theme to make some tweaks: 
-
-1. Adding back `brand.html` to the left sidebar, but with some custom code.
-2. Restoring Furo's `page.html` to restore the mobile header design.
-3. `qiskit-ecosystem.css` fixing some logo sizing.
+The `qiskit-ecosystem` theme then inherits the `qiskit` theme to make some tweaks, although we're removing the `qiskit` theme so the themes are converging.
 
 ### How to change HTML
 Copy the HTML template from Furo and save it in the same file path. Then, at the top of the file, add this header:

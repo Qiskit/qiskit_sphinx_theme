@@ -19,15 +19,15 @@ import {
   click,
 } from "./utils";
 
-test.describe("Furo menu bars", () => {
-  test("use custom page ToC icon on tablet", async ({ page }) => {
+test.describe("top nav bar", () => {
+  test("uses custom page ToC icon on tablet", async ({ page }) => {
     await setTablet(page);
     await page.goto("");
     const pageToC = page.locator("div.content-icon-container");
     await expect(pageToC).toHaveScreenshot();
   });
 
-  test("use custom icon and text on mobile", async ({ page }) => {
+  test("uses custom icons on mobile", async ({ page }) => {
     await setMobile(page);
     await page.goto("");
     const header = page.locator("header.mobile-header");
