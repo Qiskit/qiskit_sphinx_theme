@@ -29,7 +29,7 @@
 // for spacing to work properly.
 
 // Disable Furo making the whole site larger on big screens. This results in `rem` having a
-// bigger size, so things like the Qiskit top nav bar getting bigger, which we don't like.
+// bigger size, which we don't like.
 @media (min-width: 97em) {
   html {
     font-size: 100%;
