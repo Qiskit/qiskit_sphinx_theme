@@ -138,19 +138,6 @@ html_theme_options = {
 }
 ```
 
-## IBM Projects: how to use blue color scheme for Ecosystem theme
-
-By default, the `qiskit-ecosystem` theme uses purple as an accent color. Most projects should continue to use this, but certain highly IBM-affiliated projects like Qiskit IBM Runtime can change the accent color to blue by setting up `conf.py` like this:
-
-```python
-# Only intended for specific IBM projects.
-html_theme_options = {
-    "light_css_variables": {
-        "color-brand-primary": "var(--qiskit-color-blue)",
-    }
-}
-```
-
 ## Tip: suggested site structure
 
 To keep UX/UI similar across different Qiskit packages, we encourage the following structure for you sidebar, which can be set in the toctree of your `index.rst`:

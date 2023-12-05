@@ -42,7 +42,6 @@ extensions = [
     "sphinx.ext.autosummary",
     "sphinx.ext.mathjax",
     "sphinx.ext.viewcode",
-    "sphinx.ext.extlinks",
     "jupyter_sphinx",
     "sphinx_copybutton",
     "sphinx_design",
@@ -63,16 +62,6 @@ html_title = f"{project} {release}"
 # would be set to one specific theme.
 _THEME = os.getenv("THEME", "qiskit")
 html_theme = _THEME
-
-if _THEME == "qiskit-ecosystem":
-    # This tests out that ecosystem projects can change the color scheme.
-    # Only specific IBM projects should set this! Most Ecosystem projects
-    # should use the default of purple.
-    html_theme_options = {
-        "light_css_variables": {
-            "color-brand-primary": "var(--qiskit-color-blue)",
-        }
-    }
 
 html_context = {
     # Users of the theme can set prior version numbers. They'll

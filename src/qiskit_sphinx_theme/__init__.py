@@ -86,7 +86,7 @@ def setup(app: sphinx.application.Sphinx) -> dict[str, bool]:
     translations.setup(app)
 
     app.add_html_theme("qiskit", _get_theme_absolute_path("theme/qiskit-sphinx-theme"))
-    app.add_html_theme("qiskit-ecosystem", _get_theme_absolute_path("ecosystem"))
+    app.add_html_theme("qiskit-ecosystem", _get_theme_absolute_path("theme/qiskit-sphinx-theme"))
 
     app.connect("config-inited", activate_furo)
     app.connect("html-page-context", remove_thebe_if_not_needed)

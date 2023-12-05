@@ -1,11 +1,9 @@
 body {
-    // Define some Carbon color schemes from 
+    // Define the Carbon color schemes from
     // https://github.com/carbon-design-system/carbon/blob/v10/packages/colors/src/colors.js
-    // that are consistent with Qiskit's branding.
     //
-    // While we set default colors, IBM-focused projects will want to use blue.
+    // Projects can override `--color-brand-primary` to whatever they want.
     --qiskit-color-purple: #6929C4;  // purple70
-    --qiskit-color-blue: #0043ce;  // blue70
 
     // Furo normally distinguishes between these two variables, but
     // we want them to be the same.
