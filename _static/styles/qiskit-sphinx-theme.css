@@ -255,7 +255,6 @@ dl.py dd p.rubric {
 
 body {
   --qiskit-color-purple: #6929C4;
-  --qiskit-color-blue: #0043ce;
   --color-brand-content: var(--color-brand-primary);
   --color-brand-primary: var(--qiskit-color-purple);
 }
@@ -541,6 +540,10 @@ body {
 .sidebar-tree :not(.caption) > .caption-text {
   font-size: var(--font-size-normal);
   text-transform: unset;
+}
+
+.sidebar-logo {
+  width: 100%;
 }
 
 .qiskit-translations-list-container,
