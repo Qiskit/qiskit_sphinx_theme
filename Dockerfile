@@ -27,7 +27,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN tox run -e qiskit
+RUN tox run -e docs
 
 EXPOSE 8000
-CMD ["python", "-m", "http.server", "-d", "example_docs/docs/_qiskit_build"]
+CMD ["python", "-m", "http.server", "-d", "example_docs/docs/_build"]

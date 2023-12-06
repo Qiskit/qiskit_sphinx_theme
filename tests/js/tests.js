@@ -87,7 +87,7 @@ test.describe("api docs", () => {
   });
 });
 
-test("tables align with qiskit.org", async ({ page }) => {
+test("tables align with qiskit.", async ({ page }) => {
   await page.goto("sphinx_guide/tables.html");
   const gridTablesSection = page.locator("section#grid-tables");
   await expect(gridTablesSection).toHaveScreenshot();

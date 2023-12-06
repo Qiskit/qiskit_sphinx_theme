@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.repository_owner == 'Qiskit'
     container:
-      # Keep in sync with tests/js/Dockerfile.base's base image.
+      # Keep in sync with tests/js/Dockerfile's base image.
       image: mcr.microsoft.com/playwright:v1.34.0-jammy
     steps:
       - uses: actions/checkout@v3
@@ -36,16 +36,11 @@ jobs:
 
       - name: Create artifacts/ folder
         run: mkdir artifacts
-      - name: Build Qiskit (Furo) theme
-        run: |
-          tox run -e qiskit
-          tar -zcvf qiskit_html_docs.tar.gz example_docs/docs/_qiskit_build
-          mv qiskit_html_docs.tar.gz artifacts/.
       - name: Build Ecosystem theme
         run: |
-          tox run -e ecosystem
-          tar -zcvf ecosystem_html_docs.tar.gz example_docs/docs/_ecosystem_build
-          mv ecosystem_html_docs.tar.gz artifacts/.
+          tox run -e docs
+          tar -zcvf html_docs.tar.gz example_docs/docs/_build
+          mv html_docs.tar.gz artifacts/.
       - name: Upload Sphinx builds
         uses: actions/upload-artifact@v3
         if: always()
@@ -55,8 +50,7 @@ jobs:
 
       - name: Run visual regression tests
         run: |
-          npm run _run-qiskit-tests
-          npm run _run-ecosystem-tests
+          npm run _run-tests
       - name: Upload snapshot results
         if: failure()
         uses: actions/upload-artifact@v3

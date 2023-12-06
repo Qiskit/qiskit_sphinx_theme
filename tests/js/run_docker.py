@@ -12,23 +12,24 @@
 # that they have been altered from the originals.
 
 import subprocess
-import sys
 from pathlib import Path
 
+TAG = "qiskit-sphinx-theme-snapshots"
 
-def build_image(tag: str, dockerfile: str) -> None:
+
+def build_image() -> None:
     subprocess.run(
-        ["docker", "build", "-t", tag, "-f", f"tests/js/{dockerfile}", "."],
+        ["docker", "build", "-t", TAG, "-f", f"tests/js/Dockerfile", "."],
         check=True,
     )
 
 
-def build_docs(theme: str) -> None:
-    subprocess.run(["tox", "-e", theme], check=True)
+def build_docs() -> None:
+    subprocess.run(["tox", "-e", "docs"], check=True)
 
 
-def run_image(theme: str) -> None:
-    snapshot_folder = Path.cwd() / "tests" / "js" / f"{theme}.test.js-snapshots"
+def run_image() -> None:
+    snapshot_folder = Path.cwd() / "tests" / "js" / "tests.js-snapshots"
     subprocess.run(
         [
             "docker",
@@ -38,19 +39,17 @@ def run_image(theme: str) -> None:
             "-v",
             f"{Path.cwd() / 'snapshot_results'}:/snapshot_results",
             "-v",
-            f"{snapshot_folder}:/tests/js/{theme}.test.js-snapshots",
-            f"qiskit_sphinx_theme_{theme}",
+            f"{snapshot_folder}:/tests/js/tests.js-snapshots",
+            TAG,
         ],
         check=True,
     )
 
 
 def main() -> None:
-    build_image("qiskit_sphinx_theme_base", "Dockerfile.base")
-    theme = sys.argv[1]
-    build_docs(theme)
-    build_image(f"qiskit_sphinx_theme_{theme}", f"Dockerfile.{theme}")
-    run_image(theme)
+    build_image()
+    build_docs()
+    run_image()
 
 
 if __name__ == "__main__":

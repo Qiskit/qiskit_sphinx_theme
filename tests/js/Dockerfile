@@ -11,15 +11,12 @@
 # that they have been altered from the originals.
 
 
-# A base Dockerfile to run our snapshot tests locally. This is to avoid issues with CI and local
+# This Dockerfile allows us to run our snapshot tests locally. That avoids issues with CI and local
 # differing. In CI, we also run with the same base image.
 # See https://playwright.dev/docs/test-snapshots.
 #
 # Note that we build the Sphinx docs outside of this Docker image; we only need to run the
 # server inside Docker so that the docs are rendered the same locally and in CI.
-#
-# Each specific theme extends this base image to copy in the built docs and run their specific
-# project with Playwright.
 
 
 # Keep this base image in sync with .github/workflows/main.yml.
@@ -33,3 +30,6 @@ RUN npm ci
 # Copy over our tests.
 COPY playwright.config.js ./
 COPY tests/js tests/js
+
+COPY example_docs/docs/_build example_docs/docs/_build
+CMD [ "npm", "run", "_run-tests" ]

@@ -1,9 +1,6 @@
 # Contributing
 
-First read the overall Qiskit project contributing guidelines. These are all
-included in the qiskit documentation:
-
-https://qiskit.org/documentation/contributing_to_qiskit.html
+First read the overall [Qiskit project contributing guidelines](https://github.com/Qiskit/qiskit/blob/main/CONTRIBUTING.md#).
 
 ## Contributing to qiskit_sphinx_theme
 
@@ -16,18 +13,17 @@ contributing to qiskit_sphinx_theme, these are documented below.
 There are a few important subfolders to be aware of:
 
 ### `/src`
-This subfolder contains the HTML, CSS, and Python files that are used for the Qiskit themes. It has these folders:
+This subfolder contains the HTML, CSS, and Python files that are used for the `qiskit-ecosystem` theme. It has these folders:
 
-* `assets`: CSS and JavaScript for the `qiskit` theme.
-* `ecosystem`: the code for the `qiskit-ecosystem` theme, which is built on top of the base `qiskit` theme. This folder only has overrides.
-* `theme`: static files, like HTML templates, for the `qiskit` theme.
+* `assets`: CSS
+* `theme`: HTML templates and the `theme.conf` config file
 
 The top-level Python files are used for logic used by the theme, such as `translations.py` determining what URLs the HTML should use for translations support.
 
 ### `/example_docs`
 This subfolder contains a scaled down version of the Sphinx build that builds the documentation for the Qiskit repos. 
 
-It pulls styles from the `/src` subfolder. You can check any changes you are making to theme by building the documentation (see running locally section) and opening the HTML files generated in `example_docs/docs/_qiskit_build` and `example_docs/docs/_ecosystem_build`.
+It pulls styles from the `/src` subfolder. You can check any changes you are making to theme by building the documentation (see running locally section) and opening the HTML files generated in `example_docs/docs/_build`.
 
 ### `/docs_guide`
 This subfolder contains guidance on how to write documentation and build sphinx projects for Qiskit and Qiskit Ecosystem projects. You can view the fully rendered docs guide at https://qisk.it/docs-guide
@@ -38,18 +34,15 @@ This subfolder contains guidance on how to write documentation and build sphinx 
 We use [Tox](https://tox.wiki/en/latest/), which you will need to install globally (e.g. using [`pipx`](https://pypa.github.io/pipx/)).
 
 * Run Python tests: `tox -e py`
-* Build `example_docs/` with the `qiskit` theme:
-  1. `tox -e qiskit`
-  2. Open up `example_docs/docs/_qiskit_build/index.html` in your browser
-* Build `example_docs/` with the `qiskit-ecosystem` theme:
-  1. `tox -e ecosystem`
-  2. Open up `example_docs/docs/_ecosystem_build/index.html` in your browser
+* Build `example_docs/`:
+  1. `tox -e docs`
+  2. Open up `example_docs/docs/_build/index.html` in your browser
 * Build `docs_guide`:
   1. `tox -e docs-guide`
   2. Open up `docs_guide/_build/html/index.html` in your browser.
 * Run doctests for the docs guide: `tox -e doctest`
 
-Sometimes Sphinx's caching can get in a bad state. First, try running `tox -e clean`, which will remove Sphinx's cache. If you are still having issues, try adding `-r` your command, e.g. `tox -e qiskit -r`. `-r` tells Tox to reinstall the dependencies.
+Sometimes Sphinx's caching can get in a bad state. First, try running `tox -e clean`, which will remove Sphinx's cache. If you are still having issues, try adding `-r` your command, e.g. `tox -e docs -r`. `-r` tells Tox to reinstall the dependencies.
 
 ------
 ## Visual regression testing
@@ -85,21 +78,21 @@ First, you need to install:
 Then, to run the tests locally:
 
 1. `npm install`
-2. `npm run test-qiskit` or `npm run test-ecosystem`, depending on which theme you want.
+2. `npm run test`.
    * Warning: the very first time you run the tests, they will fail because the `snapshot-results` folder will not yet exist. Try running again.
 
-The docs will rebuild every time you run `npm run test-qiskit` and `npm run test-ecosystem`.
+The docs will rebuild every time you run `npm run test`.
 
 ### How to update the expected snapshot for intentional changes
 
 First, get the `snapshot_results` folder, either by downloading it from CI or by running the tests locally. Then:
 
 1. Find the "actual" snapshot for the failing test, such as `api-docs-class-page-1-actual.png`.
-2. Copy that snapshot into the folder `tests/js/qiskit.test.js-snapshots` or `tests/js/ecosystem.test.js-snapshots`, depending on which theme failed. Rename the `-actual.png` file ending to be `-linux.png` and overwrite the prior file.
+2. Copy that snapshot into the folder `tests/js/tests.js-snapshots`. Rename the `-actual.png` file ending to be `-linux.png` and overwrite the prior file.
 
 ### How to add a new snapshot
 
-Copy the tests in `qiskit.test.js` or `ecosystem.test.js` for inspiration. Make sure the selector you use in `page.locator()` is accurate. Title the tests with a useful but concise description of what you're testing.
+Copy the tests in `tests.js` for inspiration. Make sure the selector you use in `page.locator()` is accurate. Title the tests with a useful but concise description of what you're testing.
 
 Then, run the tests either locally or in CI to generate the snapshots. When running locally, the files will be added automatically. When using CI, follow the section [How to update the expected snapshot for intentional changes](#how-to-update-the-expected-snapshot-for-intentional-changes).
 
@@ -110,19 +103,16 @@ We upload the docs builds to CI. So, you can download what the site will look li
 
 1. Navigate to the GitHub Actions page for the "Tests" action.
 2. Open the "Summary" page with the house icon.
-3. Under the "Artifacts" section, there should be a "html_docs" entry. Download it.
-4. Choose the theme you want, such as `qiskit_html_docs.tar.gz`, and un-tar it. Then, open the `index.html` page in a browser.
+3. Under the "Artifacts" section, there should be a "html_docs" entry. Download it. Un-tar it, then open the `index.html` page in a browswer.
 
 Contributors with write access can also use live previews of the docs: GitHub will deploy a website using your changes. To use live previews, push your branch to `upstream` rather than your fork. GitHub will leave a comment with the link to the site. Please prefix your branch name with your initials, e.g. `EA/add-translations`, for good Git hygiene.
 
 ------
 ## FYI: How Furo Theme Inheritance Works
 
-We use Sphinx's inheritance future for our Furo-based `qiskit` theme, which we set in `theme/qiskit-sphinx-theme/theme.conf`. Sphinx will default to using all the files from Furo. But if we have a file with the same name as Furo, then Sphinx will use our copy. That allows us to override only what we care about.
+We use Sphinx's inheritance feature because our theme is built on top of [Furo](https://github.com/pradyunsg/furo). The `furo` inheritance is configured in `theme/qiskit-sphinx-theme/theme.conf`. Sphinx will default to using all the files from Furo. But if we have a file with the same name as Furo, then Sphinx will use our copy. That allows us to override only what we care about.
 
-We try to keep changes to a minimum because every divergence we make from base Furo increases our maintenance burden. Hence we prioritise only making changes that are important to the Qiskit brand. If the change would be generally useful to other users of Furo, we try to contribute upstream to the Furo project itself.
-
-The `qiskit-ecosystem` theme then inherits the `qiskit` theme to make some tweaks, although we're removing the `qiskit` theme so the themes are converging.
+We try to keep changes to a minimum because every divergence we make from base Furo increases our maintenance burden. Hence we prioritise only making changes that are important to the Qiskit Ecosystem brand. If the change would be generally useful to other users of Furo, we try to contribute upstream to the Furo project itself.
 
 ### How to change HTML
 Copy the HTML template from Furo and save it in the same file path. Then, at the top of the file, add this header:
