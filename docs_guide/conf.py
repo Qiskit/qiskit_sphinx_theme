@@ -12,7 +12,6 @@
 
 import os
 import sys
-import inspect
 
 # This allows autodoc to find the `api_example` folder.
 sys.path.insert(0, os.path.abspath(".."))
@@ -21,7 +20,8 @@ project = "Sphinx LinkCode"
 project_copyright = "2020, Qiskit Development Team"
 author = "Qiskit Development Team"
 language = "en"
-release = "1.1"
+release = "1.0"
+
 html_theme = "qiskit-ecosystem"
 
 # This allows including custom CSS and HTML templates.
@@ -44,7 +44,6 @@ extensions = [
     "sphinx.ext.autosummary",
     "sphinx.ext.mathjax",
     "sphinx.ext.linkcode",
-    "sphinx.ext.viewcode",
     "jupyter_sphinx",
     "sphinx_copybutton",
     "sphinx_design",
