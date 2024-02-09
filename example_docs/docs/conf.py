@@ -12,15 +12,16 @@
 
 import os
 import sys
+import inspect
 
 # This allows autodoc to find the `api_example` folder.
 sys.path.insert(0, os.path.abspath(".."))
 
-project = "Example Docs"
+project = "Sphinx-ext-linkcode Testing"
 project_copyright = "2020, Qiskit Development Team"
 author = "Qiskit Development Team"
 language = "en"
-release = "9.99"
+release = "1.8"
 
 html_theme = "qiskit-ecosystem"
 
@@ -43,7 +44,7 @@ extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.autosummary",
     "sphinx.ext.mathjax",
-    "sphinx.ext.viewcode",
+    "sphinx.ext.linkcode",
     "jupyter_sphinx",
     "sphinx_copybutton",
     "sphinx_design",
@@ -100,3 +101,72 @@ nbsphinx_thumbnails = {
     # Default image for thumbnails.
     "**": "_static/images/logo.png",
 }
+
+
+def linkcode_resolve(domain, info):
+    """
+    Determine the URL corresponding to Python object
+    """
+    if domain != 'py':
+        return None
+
+    modname = info['module']
+    fullname = info['fullname']
+    print("Mod name: {}".format(modname))
+    print("Full name: {}".format(fullname))
+
+    submod = sys.modules.get(modname)
+    print("Submod: {}".format(submod))
+    if submod is None:
+        return None
+
+    obj = submod
+    for part in fullname.split('.'):
+        try:
+            obj = getattr(obj, part)
+            print("Obj: {}".format(obj))
+        except Exception:
+            return None
+
+    # # strip decorators, which would resolve to the source of the decorator
+    # # possibly an upstream bug in getsourcefile, bpo-1764286
+    # try:
+    #     unwrap = inspect.unwrap
+    # except AttributeError:
+    #     pass
+    # else:
+    #     obj = unwrap(obj)
+
+    try:
+        fn = inspect.getsourcefile(obj)
+    except Exception as e:
+        print("Error! {}".format(e))
+        fn = None
+    if not fn:
+        return None
+    print("Fn: {}".format(fn))
+
+    # # Ignore re-exports as their source files are not within the numpy repo
+    # module = inspect.getmodule(obj)
+    # if module is not None and not module.__name__.startswith("qiskit"):
+    #     return None
+
+    try:
+        source, lineno = inspect.getsourcelines(obj)
+    except Exception:
+        lineno = None
+    print("Source: {}".format(source))
+
+    if lineno:
+        linespec = "#L%d-L%d" % (lineno, lineno + len(source) - 1)
+    else:
+        linespec = ""
+    #
+    # if 'dev' in qiskit_sphinx_theme.__version__:
+    #     return "https://github.com/Qiskit/documentation/%s%s" % (
+    #        fn, linespec)
+    # else:
+    #     return "https://github.com/numpy/numpy/blob/v%s/numpy/%s%s" % (
+    #        qiskit_sphinx_theme.__version__, fn, linespec)
+
+    return "%s/%s" % (fn, linespec)

@@ -4,12 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a2b5772-e61a-4e0e-ad12-d9e83038f18f" name="Changes" comment="" />
+    <list default="true" id="9a2b5772-e61a-4e0e-ad12-d9e83038f18f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/docs_guide/conf.py" beforeDir="false" afterPath="$PROJECT_DIR$/docs_guide/conf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example_docs/docs/conf.py" beforeDir="false" afterPath="$PROJECT_DIR$/example_docs/docs/conf.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "git-widget-placeholder": "Reverting in ML/test-sphinx-ext-linkcode"
+  }
+}]]></component>
   <component name="TaskManager">
     <servers />
   </component>
