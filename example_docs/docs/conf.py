@@ -21,7 +21,7 @@ project = "Sphinx-ext-linkcode Testing"
 project_copyright = "2020, Qiskit Development Team"
 author = "Qiskit Development Team"
 language = "en"
-release = ("1.2.7")
+release = ("1.3.1")
 
 html_theme = "qiskit-ecosystem"
 
@@ -124,9 +124,9 @@ def linkcode_resolve(domain, info):
     for part in fullname.split('.'):
         print("Part: {}".format(part))
         obj = getattr(obj, part)
-        if not inspect.isclass(obj) or inspect.ismethod(obj):
-            obj = submod
         print("Obj: {}".format(obj))
+        if not (inspect.isclass(obj) or inspect.ismethod(obj) or inspect.isfunction(obj)):
+            return None
 
     # # strip decorators, which would resolve to the source of the decorator
     # # possibly an upstream bug in getsourcefile, bpo-1764286
@@ -146,6 +146,7 @@ def linkcode_resolve(domain, info):
 
     try:
         source, lineno = inspect.getsourcelines(obj)
+        print("lineno: {}".format(lineno))
     except Exception:
         lineno = None
     print("Source: {}".format(source))
