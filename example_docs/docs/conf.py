@@ -21,7 +21,7 @@ project = "Sphinx-ext-linkcode Testing"
 project_copyright = "2020, Qiskit Development Team"
 author = "Qiskit Development Team"
 language = "en"
-release = "1.8"
+release = ("1.2.7")
 
 html_theme = "qiskit-ecosystem"
 
@@ -122,11 +122,11 @@ def linkcode_resolve(domain, info):
 
     obj = submod
     for part in fullname.split('.'):
-        try:
-            obj = getattr(obj, part)
-            print("Obj: {}".format(obj))
-        except Exception:
-            return None
+        print("Part: {}".format(part))
+        obj = getattr(obj, part)
+        if not inspect.isclass(obj) or inspect.ismethod(obj):
+            obj = submod
+        print("Obj: {}".format(obj))
 
     # # strip decorators, which would resolve to the source of the decorator
     # # possibly an upstream bug in getsourcefile, bpo-1764286
@@ -138,18 +138,11 @@ def linkcode_resolve(domain, info):
     #     obj = unwrap(obj)
 
     try:
-        fn = inspect.getsourcefile(obj)
+        fn = inspect.getsourcefile(obj).split("qiskit_sphinx_theme")[1]
     except Exception as e:
-        print("Error! {}".format(e))
-        fn = None
-    if not fn:
+        print("Error: {}".format(e))
         return None
     print("Fn: {}".format(fn))
-
-    # # Ignore re-exports as their source files are not within the numpy repo
-    # module = inspect.getmodule(obj)
-    # if module is not None and not module.__name__.startswith("qiskit"):
-    #     return None
 
     try:
         source, lineno = inspect.getsourcelines(obj)
@@ -161,6 +154,7 @@ def linkcode_resolve(domain, info):
         linespec = "#L%d-L%d" % (lineno, lineno + len(source) - 1)
     else:
         linespec = ""
+    print("linespec: {}".format(linespec))
     #
     # if 'dev' in qiskit_sphinx_theme.__version__:
     #     return "https://github.com/Qiskit/documentation/%s%s" % (
@@ -169,4 +163,6 @@ def linkcode_resolve(domain, info):
     #     return "https://github.com/numpy/numpy/blob/v%s/numpy/%s%s" % (
     #        qiskit_sphinx_theme.__version__, fn, linespec)
 
-    return "%s/%s" % (fn, linespec)
+    print("Returning https://github.com/Qiskit/qiskit_sphinx_theme/tree/main{}/{}".format(fn, linespec))
+
+    return "https://github.com/Qiskit/qiskit_sphinx_theme/tree/main{}/{}".format(fn, linespec)
