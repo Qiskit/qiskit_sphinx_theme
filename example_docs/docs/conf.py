@@ -112,58 +112,50 @@ def linkcode_resolve(domain, info):
 
     modname = info['module']
     fullname = info['fullname']
-    print("Mod name: {}".format(modname))
-    print("Full name: {}".format(fullname))
+    # print("Mod name: {}".format(modname))
+    # print("Full name: {}".format(fullname))
 
     submod = sys.modules.get(modname)
-    print("Submod: {}".format(submod))
+    # print("Submod: {}".format(submod))
     if submod is None:
         return None
 
     obj = submod
     for part in fullname.split('.'):
-        print("Part: {}".format(part))
+        # print("Part: {}".format(part))
         obj = getattr(obj, part)
-        print("Obj: {}".format(obj))
+        # print("Obj: {}".format(obj))
         if not (inspect.isclass(obj) or inspect.ismethod(obj) or inspect.isfunction(obj)):
             return None
-
-    # # strip decorators, which would resolve to the source of the decorator
-    # # possibly an upstream bug in getsourcefile, bpo-1764286
-    # try:
-    #     unwrap = inspect.unwrap
-    # except AttributeError:
-    #     pass
-    # else:
-    #     obj = unwrap(obj)
 
     try:
         fn = inspect.getsourcefile(obj).split("qiskit_sphinx_theme")[1]
     except Exception as e:
-        print("Error: {}".format(e))
+        # print("Error: {}".format(e))
         return None
-    print("Fn: {}".format(fn))
+    # print("Fn: {}".format(fn))
 
     try:
         source, lineno = inspect.getsourcelines(obj)
-        print("lineno: {}".format(lineno))
+        # print("lineno: {}".format(lineno))
     except Exception:
         lineno = None
-    print("Source: {}".format(source))
+    # print("Source: {}".format(source))
 
     if lineno:
         linespec = "#L%d-L%d" % (lineno, lineno + len(source) - 1)
     else:
         linespec = ""
-    print("linespec: {}".format(linespec))
+    # print("linespec: {}".format(linespec))
+
     #
-    # if 'dev' in qiskit_sphinx_theme.__version__:
+    # if 'dev' in release:
     #     return "https://github.com/Qiskit/documentation/%s%s" % (
     #        fn, linespec)
     # else:
     #     return "https://github.com/numpy/numpy/blob/v%s/numpy/%s%s" % (
-    #        qiskit_sphinx_theme.__version__, fn, linespec)
+    #        release, fn, linespec)
 
-    print("Returning https://github.com/Qiskit/qiskit_sphinx_theme/tree/main{}/{}".format(fn, linespec))
+    # print("Returning https://github.com/Qiskit/qiskit_sphinx_theme/tree/main{}/{}".format(fn, linespec))
 
     return "https://github.com/Qiskit/qiskit_sphinx_theme/tree/main{}/{}".format(fn, linespec)
