@@ -1,4 +1,4 @@
 # this file contains extra requirements for building the docs guide in addition to `requirements-dev.txt`
-qiskit-terra
+qiskit~=1.0
 pylatexenc
 sphinx_toolbox

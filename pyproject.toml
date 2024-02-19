@@ -9,7 +9,7 @@ readme = "README.md"
 dynamic = ["version"]
 
 license = { file = "LICENSE" }
-authors = [{ name = "Qiskit Development Team", email = "hello@qiskit.org" }]
+authors = [{ name = "Qiskit Development Team", email = "qiskit@us.ibm.com" }]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Environment :: Web Environment",
