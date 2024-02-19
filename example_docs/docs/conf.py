@@ -10,9 +10,9 @@
 # copyright notice, and modified files need to carry a notice indicating
 # that they have been altered from the originals.
 
+import inspect
 import os
 import sys
-import inspect
 
 # This allows autodoc to find the `api_example` folder.
 sys.path.insert(0, os.path.abspath(".."))
@@ -21,7 +21,7 @@ project = "Sphinx-ext-linkcode Testing"
 project_copyright = "2020, Qiskit Development Team"
 author = "Qiskit Development Team"
 language = "en"
-release = ("1.3.1")
+release = "1.3.1"
 
 html_theme = "qiskit-ecosystem"
 
@@ -107,11 +107,11 @@ def linkcode_resolve(domain, info):
     """
     Determine the URL corresponding to Python object
     """
-    if domain != 'py':
+    if domain != "py":
         return None
 
-    modname = info['module']
-    fullname = info['fullname']
+    modname = info["module"]
+    fullname = info["fullname"]
     # print("Mod name: {}".format(modname))
     # print("Full name: {}".format(fullname))
 
@@ -121,7 +121,7 @@ def linkcode_resolve(domain, info):
         return None
 
     obj = submod
-    for part in fullname.split('.'):
+    for part in fullname.split("."):
         # print("Part: {}".format(part))
         obj = getattr(obj, part)
         # print("Obj: {}".format(obj))
