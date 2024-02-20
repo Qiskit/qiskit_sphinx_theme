@@ -13,6 +13,7 @@
 import inspect
 import os
 import sys
+from pathlib import PurePath
 
 # This allows autodoc to find the `api_example` folder.
 sys.path.insert(0, os.path.abspath(".."))
@@ -110,52 +111,28 @@ def linkcode_resolve(domain, info):
     if domain != "py":
         return None
 
-    modname = info["module"]
-    fullname = info["fullname"]
-    # print("Mod name: {}".format(modname))
-    # print("Full name: {}".format(fullname))
-
-    submod = sys.modules.get(modname)
-    # print("Submod: {}".format(submod))
-    if submod is None:
+    module = sys.modules.get(info["module"])
+    if module is None:
         return None
 
-    obj = submod
-    for part in fullname.split("."):
-        # print("Part: {}".format(part))
+    obj = module
+    for part in info["fullname"].split("."):
         obj = getattr(obj, part)
-        # print("Obj: {}".format(obj))
-        if not (inspect.isclass(obj) or inspect.ismethod(obj) or inspect.isfunction(obj)):
+        if not inspect.isclass(obj) or inspect.ismethod(obj) or inspect.isfunction(obj):
             return None
 
-    try:
-        fn = inspect.getsourcefile(obj).split("qiskit_sphinx_theme")[1]
-    except Exception as e:
-        # print("Error: {}".format(e))
+    full_file_name = inspect.getsourcefile(obj)
+    if full_file_name is None:
         return None
-    # print("Fn: {}".format(fn))
+    repo_root = PurePath(__file__).parent.parent.parent
+    file_name = PurePath(full_file_name).relative_to(repo_root)
 
     try:
         source, lineno = inspect.getsourcelines(obj)
-        # print("lineno: {}".format(lineno))
-    except Exception:
-        lineno = None
-    # print("Source: {}".format(source))
-
-    if lineno:
-        linespec = "#L%d-L%d" % (lineno, lineno + len(source) - 1)
-    else:
+    except OSError:
         linespec = ""
-    # print("linespec: {}".format(linespec))
+    else:
+        ending_lineno = lineno + len(source) - 1
+        linespec = f"#L{lineno}-L{ending_lineno}"
 
-    #
-    # if 'dev' in release:
-    #     return "https://github.com/Qiskit/documentation/%s%s" % (
-    #        fn, linespec)
-    # else:
-    #     return "https://github.com/numpy/numpy/blob/v%s/numpy/%s%s" % (
-    #        release, fn, linespec)
-
-    # print("Returning https://github.com/Qiskit/qiskit_sphinx_theme/tree/main{}/{}".format(fn, linespec))
-
-    return "https://github.com/Qiskit/qiskit_sphinx_theme/tree/main{}/{}".format(fn, linespec)
+    return f"https://github.com/Qiskit/qiskit_sphinx_theme/tree/main/{file_name}/{linespec}"
