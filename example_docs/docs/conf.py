@@ -21,7 +21,7 @@ project = "Sphinx-ext-linkcode Testing"
 project_copyright = "2020, Qiskit Development Team"
 author = "Qiskit Development Team"
 language = "en"
-release = "1.3.1"
+release = "1.3.2"
 
 html_theme = "qiskit-ecosystem"
 
