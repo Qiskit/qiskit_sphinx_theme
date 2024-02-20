@@ -15,7 +15,7 @@
 // doesn't increase the entry size. It also keeps the page contents fixed at 46em.
 //
 // Instead, we always keep the side bars the same size, and we expand the main page
-// contents. This is a better use of screen real estate and is more consistent with qiskit.org.
+// contents. This is a better use of screen real estate.
 //
 // But, we only expand the main contents up to 60em because best practices recommend not having
 // prose-heavy sites spread content over too long:

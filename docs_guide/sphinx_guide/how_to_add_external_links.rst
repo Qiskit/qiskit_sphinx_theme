@@ -13,11 +13,11 @@ There are two types of files
 ``.rst``
 =========
 
-In order to link to an external page you have to write ```text of your link <your_url>`_``. For example, you can link to `Qiskit's page <https://qiskit.org/>`_ by writing:
+In order to link to an external page you have to write ```text of your link <your_url>`_``. For example, you can link to `IBM Quantum documentation <https://docs.quantum.ibm.com>`_ by writing:
 
 .. code-block:: text
 
-    `Qiskit's page <https://qiskit.org/>`_
+    `IBM Quantum documentation <https://docs.quantum.ibm.com>`_
 
 .. note::
 
@@ -27,11 +27,11 @@ In order to link to an external page you have to write ```text of your link <you
 ``.ipynb``
 ===========
 
-If your file is a Jupyter notebook, what you have to write to link to a page is ``[text of your link](your_url)``. If you want to link to `Qiskit's page <https://qiskit.org/>`_ you can write:
+If your file is a Jupyter notebook, what you have to write to link to a page is ``[text of your link](your_url)``. If you want to link to `IBM Quantum Documentation <https://docs.quantum.ibm.com>`_ you can write:
 
 .. code-block:: text
 
-    [Qiskit's page](https://qiskit.org/)
+    [Qiskit's page](https://docs.quantum.ibm.com)
 
 
 .. warning::

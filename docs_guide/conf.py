@@ -26,6 +26,6 @@ html_title = project
 
 intersphinx_mapping = {
     "sphinx": ("https://www.sphinx-doc.org/en/master/", None),
-    "qiskit": ("https://qiskit.org/documentation/", None),
-    "qiskit-ibm-runtime": ("https://qiskit.org/ecosystem/ibm-runtime/", None),
+    "qiskit": ("https://docs.quantum.ibm.com/api/qiskit/", None),
+    "qiskit-ibm-runtime": ("https://docs.quantum.ibm.com/api/qiskit-ibm-runtime/", None),
 }

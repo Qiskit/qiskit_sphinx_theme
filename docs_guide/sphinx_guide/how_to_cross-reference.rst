@@ -95,7 +95,7 @@ For example, if you want to add Qiskit's and Sphinx's documentation you can writ
 .. code-block:: python
 
     intersphinx_mapping = {
-        "qiskit": ("https://qiskit.org/documentation/", None),
+        "qiskit": ("https://docs.quantum.ibm.com/api/qiskit/", None),
         "sphinx": ("https://www.sphinx-doc.org/en/master/", None)
     }
 
