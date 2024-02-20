@@ -8,6 +8,6 @@ examples to create your own tutorials.
 Qiskit IBM Runtime
 ==================
 
-* :doc:`qiskit-ibm-runtime:tutorials/grover_with_sampler`
-* :doc:`qiskit-ibm-runtime:tutorials/chsh_with_estimator`
-* :doc:`qiskit-ibm-runtime:tutorials/vqe_with_estimator`
+* https://github.com/Qiskit/qiskit-ibm-runtime/blob/stable/0.16/docs/tutorials/grover_with_sampler.ipynb
+* https://github.com/Qiskit/qiskit-ibm-runtime/blob/stable/0.16/docs/tutorials/chsh_with_estimator.ipynb
+* https://github.com/Qiskit/qiskit-ibm-runtime/blob/stable/0.16/docs/tutorials/vqe_with_estimator.ipynb
