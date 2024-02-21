@@ -108,10 +108,11 @@ def determine_github_branch() -> str:
 
     We need to decide whether to use `stable/<version>` vs. `main` for dev builds. Refer to https://docs.github.com/en/actions/learn-github-actions/variables for how we determine this with GitHub Actions.
     """
+    print(os.environ)
     # If not `GITHUB_REF_NAME` is not set, default to `main`. This
     # is relevant for local builds.
     if "GITHUB_REF_NAME" not in os.environ:
-        return "main"
+        return "<default>"
 
     # PR workflows set the branch they're merging into.
     if base_ref := os.environ.get("GITHUB_BASE_REF"):
