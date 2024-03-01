@@ -85,6 +85,12 @@ test.describe("api docs", () => {
     const content = page.locator("div.article-container");
     await expect(content).toHaveScreenshot();
   });
+
+  test("inline classes", async ({ page }) => {
+    await page.goto("sphinx_guide/inline_classes.html");
+    const content = page.locator("div.article-container");
+    await expect(content).toHaveScreenshot();
+  });
 });
 
 test("tables align with qiskit.", async ({ page }) => {
