@@ -20,6 +20,7 @@ A site to test out styling for qiskit-sphinx-theme.
   :maxdepth: 2
 
    Autodoc <sphinx_guide/autodoc>
+   Inline classes <sphinx_guide/inline_classes>
 
 .. toctree::
    :caption: Special elements
