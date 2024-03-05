@@ -45,7 +45,7 @@ test("right side bar is not broken by our page layout", async ({ page }) => {
 test.describe("left side bar", () => {
   test("renders correctly", async ({ page }) => {
     // Go to a top-level page so that we can see how the expanded side bar looks.
-    await page.goto("sphinx_guide/autodoc.html");
+    await page.goto("apidoc/module.html");
     const leftToC = page.locator(".sidebar-drawer");
     await expect(leftToC).toHaveScreenshot();
   });
@@ -69,7 +69,7 @@ test.describe("left side bar", () => {
 
 test.describe("api docs", () => {
   test("module page", async ({ page }) => {
-    await page.goto("apidoc/autodoc.html");
+    await page.goto("apidoc/module.html");
     const content = page.locator("div.article-container");
     await expect(content).toHaveScreenshot();
   });
