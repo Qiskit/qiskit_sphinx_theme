@@ -69,7 +69,7 @@ test.describe("left side bar", () => {
 
 test.describe("api docs", () => {
   test("module page", async ({ page }) => {
-    await page.goto("sphinx_guide/autodoc.html");
+    await page.goto("apidoc/autodoc.html");
     const content = page.locator("div.article-container");
     await expect(content).toHaveScreenshot();
   });
@@ -87,7 +87,7 @@ test.describe("api docs", () => {
   });
 
   test("inline classes", async ({ page }) => {
-    await page.goto("sphinx_guide/inline_classes.html");
+    await page.goto("apidoc/inline_classes.html");
     const content = page.locator("div.article-container");
     await expect(content).toHaveScreenshot();
   });
