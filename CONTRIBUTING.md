@@ -105,8 +105,6 @@ We upload the docs builds to CI. So, you can download what the site will look li
 2. Open the "Summary" page with the house icon.
 3. Under the "Artifacts" section, there should be a "html_docs" entry. Download it. Un-tar it, then open the `index.html` page in a browswer.
 
-Contributors with write access can also use live previews of the docs: GitHub will deploy a website using your changes. To use live previews, push your branch to `upstream` rather than your fork. GitHub will leave a comment with the link to the site. Please prefix your branch name with your initials, e.g. `EA/add-translations`, for good Git hygiene.
-
 ------
 ## FYI: How Furo Theme Inheritance Works
 
