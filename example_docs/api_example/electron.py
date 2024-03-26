@@ -14,6 +14,11 @@ class Electron:
             from api_example import Electron
 
             ELECTRON = Electron(size="2GB", name="QuantumComputing")
+
+    Attributes:
+
+        size (str): How big the Electron is.
+        name: What the Electron is called.
     """
 
     # Regression test for https://github.com/Qiskit/qiskit_sphinx_theme/issues/50.
