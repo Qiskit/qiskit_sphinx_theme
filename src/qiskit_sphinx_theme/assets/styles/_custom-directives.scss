@@ -150,12 +150,11 @@
     position: relative;
     display: inline-block;
     padding: 0.375rem 0.75rem;
-    padding-right: 2em;
 
-    background-size: 8px 14px;
-    background-position: center right 12px;
-    background-image: var(--qiskit-icon-chevron-right-purple);
-    background-repeat: no-repeat;
+    .icon {
+      height: 14px;
+      color: var(--color-brand-primary);
+    }
   }
 
   a::after {
