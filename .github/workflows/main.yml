@@ -9,19 +9,19 @@ jobs:
       # Keep in sync with tests/js/Dockerfile's base image.
       image: mcr.microsoft.com/playwright:v1.34.0-jammy
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Fix permissions for sphinx-theme-builder
         run: chown -R $(id -u):$(id -g) .
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 18
       - name: Install Node.js dependencies
         run: npm ci
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: 3.9
       - name: Install Ubuntu deps
@@ -42,7 +42,7 @@ jobs:
           tar -zcvf html_docs.tar.gz example_docs/docs/_build
           mv html_docs.tar.gz artifacts/.
       - name: Upload Sphinx builds
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: html_docs
@@ -53,7 +53,7 @@ jobs:
           npm run _run-tests
       - name: Upload snapshot results
         if: failure()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: snapshot_results
           path: snapshot_results/
