@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Sphinx Guide" href="../sphinx_guide/index.html" /><link rel="prev" title="The Diátaxis Framework" href="diataxis.html" />
 
-    <!-- Generated with Sphinx 7.2.6 and Furo 2024.01.29 -->
+    <!-- Generated with Sphinx 7.3.7 and Furo 2024.01.29 -->
         <title>Create a New Documentation Project - Qiskit Docs Guide</title>
       <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
@@ -248,25 +248,25 @@
         </div>
         <article role="main">
           <section id="create-a-new-documentation-project">
-<span id="create-new-doc-project"></span><h1>Create a New Documentation Project<a class="headerlink" href="#create-a-new-documentation-project" title="Link to this heading">#</a></h1>
+<span id="create-new-doc-project"></span><h1>Create a New Documentation Project<a class="headerlink" href="#create-a-new-documentation-project" title="Link to this heading">¶</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This page was written in the style of a <cite>Tutorial</cite> according to <a class="reference internal" href="diataxis.html#diataxis"><span class="std std-ref">The Diátaxis Framework</span></a>.</p>
 </div>
-<p>In this tutorial you will use the <a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html" title="(in Sphinx v7.3.0)"><span>sphinx-quickstart</span></a> command to create a new
-documentation project for a repository in the Qiskit Ecosystem with <a class="reference external" href="https://www.sphinx-doc.org/en/master/index.html" title="(in Sphinx v7.3.0)"><span class="xref std std-doc">Sphinx</span></a>.
+<p>In this tutorial you will use the <a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html" title="(in Sphinx v7.4.0)"><span>sphinx-quickstart</span></a> command to create a new
+documentation project for a repository in the Qiskit Ecosystem with <a class="reference external" href="https://www.sphinx-doc.org/en/master/index.html" title="(in Sphinx v7.4.0)"><span class="xref std std-doc">Sphinx</span></a>.
 Then, you will structure the resulting documentation according to the Qiskit standard and make sure
 Qiskit’s Sphinx HTML theme, the <code class="docutils literal notranslate"><span class="pre">qiskit_sphinx_theme</span></code>, is used. After that, you will create a
 GitHub workflow to deploy your documentation to <a class="reference external" href="https://qiskit.org/ecosystem">qiskit.org/ecosystem</a> (only applicable
 for selected projects) with <a class="reference external" href="https://rclone.org">Rclone</a>.</p>
 <section id="background-information">
-<h2>Background information<a class="headerlink" href="#background-information" title="Link to this heading">#</a></h2>
+<h2>Background information<a class="headerlink" href="#background-information" title="Link to this heading">¶</a></h2>
 <p>Before you dive into the creation of the documentation project, it’s important to know what reStructuredText and Sphinx are.</p>
 <p><a class="reference external" href="https://docutils.sourceforge.io/rst.html">reStructuredText</a> (RST) is a lightweight markup language, that is, an easy to read language that formats plaintext documents according to a set of tags. It enables the creation of web pages and documentation from, for example, Python docstrings.</p>
-<p><a class="reference external" href="https://www.sphinx-doc.org/en/master/index.html" title="(in Sphinx v7.3.0)"><span class="xref std std-doc">Sphinx</span></a> is a documentation generator that converts RST files to formats like <a class="reference external" href="https://html.spec.whatwg.org/multipage/">HTML</a>, <a class="reference external" href="https://www.latex-project.org/">LaTeX</a>, <a class="reference external" href="https://www.w3.org/publishing/epub32/">ePub</a>, <a class="reference external" href="https://www.gnu.org/software/texinfo/">Texinfo</a>, manual pages or plain text. It is written in Python. The <code class="docutils literal notranslate"><span class="pre">qiskit_sphinx_theme</span></code> will focus on converting RST to HTML pages.</p>
+<p><a class="reference external" href="https://www.sphinx-doc.org/en/master/index.html" title="(in Sphinx v7.4.0)"><span class="xref std std-doc">Sphinx</span></a> is a documentation generator that converts RST files to formats like <a class="reference external" href="https://html.spec.whatwg.org/multipage/">HTML</a>, <a class="reference external" href="https://www.latex-project.org/">LaTeX</a>, <a class="reference external" href="https://www.w3.org/publishing/epub32/">ePub</a>, <a class="reference external" href="https://www.gnu.org/software/texinfo/">Texinfo</a>, manual pages or plain text. It is written in Python. The <code class="docutils literal notranslate"><span class="pre">qiskit_sphinx_theme</span></code> will focus on converting RST to HTML pages.</p>
 </section>
 <section id="install-the-qiskit-sphinx-theme">
-<h2>Install the <code class="docutils literal notranslate"><span class="pre">qiskit_sphinx_theme</span></code><a class="headerlink" href="#install-the-qiskit-sphinx-theme" title="Link to this heading">#</a></h2>
+<h2>Install the <code class="docutils literal notranslate"><span class="pre">qiskit_sphinx_theme</span></code><a class="headerlink" href="#install-the-qiskit-sphinx-theme" title="Link to this heading">¶</a></h2>
 <p>In order to use use the <code class="docutils literal notranslate"><span class="pre">qiskit_sphinx_theme</span></code> you need to first install it. You can do that with <code class="docutils literal notranslate"><span class="pre">pip</span></code> by running this:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>qiskit-sphinx-theme
 </pre></div>
@@ -277,8 +277,8 @@ for selected projects) with <a class="reference external" href="https://rclone.o
 </div>
 </section>
 <section id="create-the-documentation-in-your-repository">
-<h2>Create the documentation in your repository<a class="headerlink" href="#create-the-documentation-in-your-repository" title="Link to this heading">#</a></h2>
-<p>In order to create a documentation folder you can use <a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html" title="(in Sphinx v7.3.0)"><span>sphinx-quickstart</span></a>. It asks some questions and creates a functional documentation folder according to your answers.
+<h2>Create the documentation in your repository<a class="headerlink" href="#create-the-documentation-in-your-repository" title="Link to this heading">¶</a></h2>
+<p>In order to create a documentation folder you can use <a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html" title="(in Sphinx v7.4.0)"><span>sphinx-quickstart</span></a>. It asks some questions and creates a functional documentation folder according to your answers.
 You can use <code class="docutils literal notranslate"><span class="pre">sphinx-quickstart</span></code> by going to the root directory of your repository and running this command.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sphinx-quickstart<span class="w"> </span>docs
 </pre></div>
@@ -336,7 +336,7 @@ Finished: An initial directory structure has been created.
 and change the value of the variable <code class="docutils literal notranslate"><span class="pre">html_theme</span></code> from <code class="docutils literal notranslate"><span class="pre">'alabaster'</span></code> to <code class="docutils literal notranslate"><span class="pre">'qiskit_sphinx_theme'</span></code>.</p>
 </section>
 <section id="structure-your-documentation">
-<span id="doc-structure"></span><h2>Structure your documentation<a class="headerlink" href="#structure-your-documentation" title="Link to this heading">#</a></h2>
+<span id="doc-structure"></span><h2>Structure your documentation<a class="headerlink" href="#structure-your-documentation" title="Link to this heading">¶</a></h2>
 <p>In Qiskit and its Ecosystem, we are following <a class="reference internal" href="diataxis.html#diataxis"><span class="std std-ref">The Diátaxis Framework</span></a>, that means that our documentation is divided into four categories:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://diataxis.fr/tutorials/">Tutorials</a></p></li>
@@ -364,8 +364,8 @@ and change the value of the variable <code class="docutils literal notranslate">
 </div>
 </section>
 <section id="sidebar">
-<h2>Sidebar<a class="headerlink" href="#sidebar" title="Link to this heading">#</a></h2>
-<p>Now that you have all the needed <code class="docutils literal notranslate"><span class="pre">.rst</span></code> files, you can create a sidebar for your documentation page. This can be done by linking to the files with a <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-toctree" title="(in Sphinx v7.3.0)"><code class="docutils literal notranslate"><span class="pre">toctree</span></code></a>
+<h2>Sidebar<a class="headerlink" href="#sidebar" title="Link to this heading">¶</a></h2>
+<p>Now that you have all the needed <code class="docutils literal notranslate"><span class="pre">.rst</span></code> files, you can create a sidebar for your documentation page. This can be done by linking to the files with a <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-toctree" title="(in Sphinx v7.4.0)"><code class="docutils literal notranslate"><span class="pre">toctree</span></code></a>
 in <code class="docutils literal notranslate"><span class="pre">docs/index.rst</span></code>.  Your <code class="docutils literal notranslate"><span class="pre">index.rst</span></code> should look like this:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>###############################################################################
 Welcome to &lt;Enter your Project Name, e.g. Qiskit HAL Provider&gt;&#39;s documentation!
@@ -397,7 +397,7 @@ Explain your package here.
 </div>
 </section>
 <section id="build-your-documentation-locally">
-<h2>Build your documentation locally<a class="headerlink" href="#build-your-documentation-locally" title="Link to this heading">#</a></h2>
+<h2>Build your documentation locally<a class="headerlink" href="#build-your-documentation-locally" title="Link to this heading">¶</a></h2>
 <p>Now that you have created your documentation project, it’s recommended to build it locally to check whether it looks and works as intended.</p>
 <p>In order to do that, you first need to have your package installed. You can do this by running the following command on the root directory of your local copy of the repository:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>.
@@ -409,7 +409,7 @@ so you only need to run:</p>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">-r</span></code> flag means that instead of installing a package called “<cite>requirements-dev.txt</cite>”, you are installing the packages listed in the requirements text file <code class="docutils literal notranslate"><span class="pre">requirements-dev.txt</span></code>.</p>
-<p>Once you have made the installations, you can finally build your documentation with <a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-build.html" title="(in Sphinx v7.3.0)"><span>sphinx-build</span></a>, setting the builder (<code class="docutils literal notranslate"><span class="pre">-b</span></code>)
+<p>Once you have made the installations, you can finally build your documentation with <a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-build.html" title="(in Sphinx v7.4.0)"><span>sphinx-build</span></a>, setting the builder (<code class="docutils literal notranslate"><span class="pre">-b</span></code>)
 to <code class="docutils literal notranslate"><span class="pre">html</span></code> so the documents from the <code class="docutils literal notranslate"><span class="pre">docs</span></code> folder get built as HTML pages in a new folder, that you will call <code class="docutils literal notranslate"><span class="pre">docs/_build/html</span></code>. So the final command is:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sphinx-build<span class="w"> </span>-b<span class="w"> </span>html<span class="w"> </span>docs<span class="w"> </span>docs/_build/html
 </pre></div>
@@ -420,7 +420,7 @@ to <code class="docutils literal notranslate"><span class="pre">html</span></cod
 </figure>
 </section>
 <section id="deploy-docs-to-qiskit-org-ecosystem">
-<h2>Deploy docs to <a class="reference external" href="https://qiskit.org/ecosystem">qiskit.org/ecosystem</a><a class="headerlink" href="#deploy-docs-to-qiskit-org-ecosystem" title="Link to this heading">#</a></h2>
+<h2>Deploy docs to <a class="reference external" href="https://qiskit.org/ecosystem">qiskit.org/ecosystem</a><a class="headerlink" href="#deploy-docs-to-qiskit-org-ecosystem" title="Link to this heading">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>At the moment, this section is only applicable for selected Qiskit projects such as Qiskit and
@@ -454,10 +454,10 @@ These properties can be accessed with the <a class="reference external" href="ht
 </div>
 <p>Once this setup is done, you can start creating the jobs.</p>
 <section id="publish-docs">
-<h3>Publish docs<a class="headerlink" href="#publish-docs" title="Link to this heading">#</a></h3>
+<h3>Publish docs<a class="headerlink" href="#publish-docs" title="Link to this heading">¶</a></h3>
 <p>The job will consist of publishing the documentation and will be called <code class="docutils literal notranslate"><span class="pre">docs_publish</span></code>.</p>
 <section id="set-up-the-job">
-<h4>Set up the job<a class="headerlink" href="#set-up-the-job" title="Link to this heading">#</a></h4>
+<h4>Set up the job<a class="headerlink" href="#set-up-the-job" title="Link to this heading">¶</a></h4>
 <p>In order to make sure that the deployment only comes from a stable branch and is triggered by a maintainer, you can use the <a class="reference external" href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idif">if</a>
 key. The first condition can be written using the <a class="reference external" href="https://docs.github.com/en/actions/learn-github-actions/expressions#startswith">startsWith expression</a> by checking whether <code class="docutils literal notranslate"><span class="pre">github.ref</span></code> starts with <code class="docutils literal notranslate"><span class="pre">refs/heads/stable</span></code>. For the second condition, you can use the <a class="reference external" href="https://docs.github.com/en/actions/learn-github-actions/expressions#contains">contains expression</a> to check whether
 <code class="docutils literal notranslate"><span class="pre">github.actor</span></code>, that is the user that triggers the workflow, is a maintainer. This job will use the latest version of <a class="reference external" href="https://ubuntu.com/">Ubuntu</a>. To ensure that, you will set the <a class="reference external" href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idruns-on">runs-on</a> key to <code class="docutils literal notranslate"><span class="pre">ubuntu-latest</span></code>.
@@ -475,9 +475,9 @@ This matrix will be called <code class="docutils literal notranslate"><span clas
 </div>
 </section>
 <section id="steps">
-<h4>Steps<a class="headerlink" href="#steps" title="Link to this heading">#</a></h4>
+<h4>Steps<a class="headerlink" href="#steps" title="Link to this heading">¶</a></h4>
 <section id="check-out-the-repository">
-<h5>Check-out the repository<a class="headerlink" href="#check-out-the-repository" title="Link to this heading">#</a></h5>
+<h5>Check-out the repository<a class="headerlink" href="#check-out-the-repository" title="Link to this heading">¶</a></h5>
 <p>The first step of this job consists of enabling the workflow to access your repository. To do that you only need to call the latest version (version 3, <code class="docutils literal notranslate"><span class="pre">&#64;v3</span></code>) the pre-defined <a class="reference external" href="https://github.com/actions/checkout">checkout action</a> with the <a class="reference external" href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsuses">uses</a> key.
 By setting the <code class="docutils literal notranslate"><span class="pre">fetch-depth</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">0</span></code> via the <a class="reference external" href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idwith">with</a> key, you can let the action reach for the full history of your repository.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v3</span>
@@ -487,7 +487,7 @@ By setting the <code class="docutils literal notranslate"><span class="pre">fetc
 </div>
 </section>
 <section id="setup-python">
-<h5>Setup Python<a class="headerlink" href="#setup-python" title="Link to this heading">#</a></h5>
+<h5>Setup Python<a class="headerlink" href="#setup-python" title="Link to this heading">¶</a></h5>
 <p>Once your repo has been reached, the workflow continues by installing a Python version, in this case, the 3.8, as defined in <code class="docutils literal notranslate"><span class="pre">matrix.python-version</span></code>. Fortunately, the
 <a class="reference external" href="https://github.com/actions/setup-python">setup-python action</a> already does this for us!. To choose the Python version you only need to set the <code class="docutils literal notranslate"><span class="pre">python-version</span></code> parameter with the corresponding value.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v4</span>
@@ -497,7 +497,7 @@ By setting the <code class="docutils literal notranslate"><span class="pre">fetc
 </div>
 </section>
 <section id="install-the-package">
-<h5>Install the package<a class="headerlink" href="#install-the-package" title="Link to this heading">#</a></h5>
+<h5>Install the package<a class="headerlink" href="#install-the-package" title="Link to this heading">¶</a></h5>
 <p>Now that you have Python, let’s install our package and its more immediate dependencies and constraints from <code class="docutils literal notranslate"><span class="pre">requirements-dev.txt</span></code> and <code class="docutils literal notranslate"><span class="pre">constraints.txt</span></code> respectively.
 You can use the <a class="reference external" href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun">run</a> key and add the usual bash commands as a multiline block with the pipe indicator <code class="docutils literal notranslate"><span class="pre">|</span></code>. These commands are: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code> for the editable (<code class="docutils literal notranslate"><span class="pre">-e</span></code>) version of the package, <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-U</span> <span class="pre">-r</span> <span class="pre">requirements-dev.txt</span></code> for the latest version (<code class="docutils literal notranslate"><span class="pre">-U</span></code>) of the requirements (<code class="docutils literal notranslate"><span class="pre">-r</span></code>) and <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">constraints.txt</span></code> for the constraints (<code class="docutils literal notranslate"><span class="pre">-c</span></code>).
 You can set the shell to <code class="docutils literal notranslate"><span class="pre">bash</span></code> via the
@@ -511,7 +511,7 @@ You can set the shell to <code class="docutils literal notranslate"><span class=
 </div>
 </section>
 <section id="install-other-dependencies">
-<h5>Install other dependencies<a class="headerlink" href="#install-other-dependencies" title="Link to this heading">#</a></h5>
+<h5>Install other dependencies<a class="headerlink" href="#install-other-dependencies" title="Link to this heading">¶</a></h5>
 <p>In case there are another dependencies that are not covered in the <code class="docutils literal notranslate"><span class="pre">requirements-dev.txt</span></code>, you can add them in a similar step.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install Dependencies</span>
 <span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
@@ -526,7 +526,7 @@ the Python package <code class="docutils literal notranslate"><span class="pre">
 <a class="reference external" href="https://linux.die.net/man/8/apt-get">apt-get</a> has to be used instead.</p>
 </section>
 <section id="build-and-publish-to-qiskit-org-ecosystem">
-<h5>Build and publish to qiskit.org/ecosystem<a class="headerlink" href="#build-and-publish-to-qiskit-org-ecosystem" title="Link to this heading">#</a></h5>
+<h5>Build and publish to qiskit.org/ecosystem<a class="headerlink" href="#build-and-publish-to-qiskit-org-ecosystem" title="Link to this heading">¶</a></h5>
 <p>If you are deploying your documentation to a qiskit.org/ecosystem domain, then your documentation will need to be deployed to <a class="reference external" href="https://www.ibm.com/cloud/object-storage">IBM Cloud Object Storage</a>, where qiskit.org is hosted, with <a class="reference external" href="https://rclone.org">Rclone</a>, a command-line program that enables you to manage content from the cloud.</p>
 <p>Before starting with this step, it is necessary to ask a <a class="reference external" href="https://github.com/orgs/Qiskit/people?query=role%3Aowner">Qiskit organization administrator</a> to create a data container or <a class="reference external" href="https://dataplatform.cloud.ibm.com/docs/content/wsj/manage-data/cos_buckets.html?locale=en">bucket</a> called, following our HAL Provider example, <code class="docutils literal notranslate"><span class="pre">qiskit-org-web-resources/ecosystem/hal-provider</span></code>, from whose content the page <code class="docutils literal notranslate"><span class="pre">qiskit.org/ecosystem/hal-provider</span></code> will be generated,
 and to add some encrypted credentials to your repo. These credentials are:</p>
@@ -725,7 +725,7 @@ openssl<span class="w"> </span>aes-256-cbc<span class="w"> </span>-K<span class=
 rclone<span class="w"> </span>sync<span class="w"> </span>--progress<span class="w"> </span>--exclude<span class="w"> </span>locale/**<span class="w"> </span>./docs/_build/html<span class="w"> </span>IBMCOS:qiskit-org-web-resources/ecosystem/&lt;Enter<span class="w"> </span>Your<span class="w"> </span>Project<span class="w"> </span>Name,<span class="w"> </span>e.g.<span class="w"> </span>hal-provider&gt;
 </pre></div>
 </div>
-<p>Now that all the subscripts are done, you can put them together to finish the docs deployment process, along with building the documentation with <a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-build.html" title="(in Sphinx v7.3.0)"><span>sphinx-build</span></a>.
+<p>Now that all the subscripts are done, you can put them together to finish the docs deployment process, along with building the documentation with <a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-build.html" title="(in Sphinx v7.4.0)"><span>sphinx-build</span></a>.
 You also need to add <code class="docutils literal notranslate"><span class="pre">earliest_version:</span> <span class="pre">0.1.0</span></code> to <code class="docutils literal notranslate"><span class="pre">releasenotes/config.yaml</span></code> so <a class="reference external" href="https://docs.openstack.org/reno/latest/">reno</a> can find the release notes.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
 <span class="w">  </span><span class="no">echo &quot;earliest_version: 0.1.0&quot; &gt;&gt; releasenotes/config.yaml</span>
@@ -816,7 +816,7 @@ You also need to add <code class="docutils literal notranslate"><span class="pre
 </section>
 </section>
 <section id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h2>
+<h2>Examples<a class="headerlink" href="#examples" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><dl class="simple">
 <dt><a class="reference external" href="https://github.com/Qiskit/qiskit">Qiskit metapackage</a></dt><dd><ul>
@@ -940,7 +940,7 @@ You also need to add <code class="docutils literal notranslate"><span class="pre
     </aside>
   </div>
 </div><script src="../_static/documentation_options.js?v=f2a433a1"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>

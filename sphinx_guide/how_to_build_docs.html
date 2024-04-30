@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="How to add sections to documentation" href="how_to_add_sections.html" /><link rel="prev" title="reStructuredText" href="rst.html" />
 
-    <!-- Generated with Sphinx 7.2.6 and Furo 2024.01.29 -->
+    <!-- Generated with Sphinx 7.3.7 and Furo 2024.01.29 -->
         <title>How to build documentation locally - Qiskit Docs Guide</title>
       <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
@@ -248,26 +248,26 @@
         </div>
         <article role="main">
           <section id="how-to-build-documentation-locally">
-<h1>How to build documentation locally<a class="headerlink" href="#how-to-build-documentation-locally" title="Link to this heading">#</a></h1>
+<h1>How to build documentation locally<a class="headerlink" href="#how-to-build-documentation-locally" title="Link to this heading">¶</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This page was written in the style of a <cite>How-to Guide</cite> according to <a class="reference internal" href="../intro/diataxis.html#diataxis"><span class="std std-ref">The Diátaxis Framework</span></a>.</p>
 </div>
 <p>This guide shows how to build the documentation of your project in a local machine.</p>
 <section id="pre-requisites">
-<h2>Pre-requisites<a class="headerlink" href="#pre-requisites" title="Link to this heading">#</a></h2>
+<h2>Pre-requisites<a class="headerlink" href="#pre-requisites" title="Link to this heading">¶</a></h2>
 <p>This guide assumes your project already has a working Sphinx documentation project in a folder called <code class="docutils literal notranslate"><span class="pre">docs</span></code>. If you don’t have it, you can set it up with
-<a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html" title="(in Sphinx v7.3.0)"><span class="xref std std-doc">sphinx-quickstart</span></a>.</p>
+<a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html" title="(in Sphinx v7.4.0)"><span class="xref std std-doc">sphinx-quickstart</span></a>.</p>
 </section>
 <section id="install-package-and-dependencies">
-<h2>Install package and dependencies<a class="headerlink" href="#install-package-and-dependencies" title="Link to this heading">#</a></h2>
+<h2>Install package and dependencies<a class="headerlink" href="#install-package-and-dependencies" title="Link to this heading">¶</a></h2>
 <p>Before trying to build your documentation, make sure you have installed:</p>
 <ul class="simple">
 <li><p>The project you want to build, that in this guide will be called <code class="docutils literal notranslate"><span class="pre">qiskit_x</span></code>.</p></li>
 <li><p>Other required packages from the corresponding <code class="docutils literal notranslate"><span class="pre">requirements-dev.txt</span></code>.</p></li>
 </ul>
 <section id="install-the-qiskit-package">
-<h3>Install the Qiskit package<a class="headerlink" href="#install-the-qiskit-package" title="Link to this heading">#</a></h3>
+<h3>Install the Qiskit package<a class="headerlink" href="#install-the-qiskit-package" title="Link to this heading">¶</a></h3>
 <p>Once you have cloned the <code class="docutils literal notranslate"><span class="pre">qiskit-x</span></code> repository with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/&lt;your</span>
 <span class="pre">user/organization_name/qiskit-x.git</span></code>, you can install the <code class="docutils literal notranslate"><span class="pre">qiskit_x</span></code> package from source by going to
 the root directory of your local copy and running this on your console:</p>
@@ -280,7 +280,7 @@ the root directory of your local copy and running this on your console:</p>
 </div>
 </section>
 <section id="install-required-packages">
-<h3>Install required packages<a class="headerlink" href="#install-required-packages" title="Link to this heading">#</a></h3>
+<h3>Install required packages<a class="headerlink" href="#install-required-packages" title="Link to this heading">¶</a></h3>
 <p>Apart from installing the <code class="docutils literal notranslate"><span class="pre">qiskit_x</span></code> package, there are other needed packages for development. They are included in the <code class="docutils literal notranslate"><span class="pre">requirements-dev.txt</span></code> files of the repository. You can install the packages from those files with:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements-dev.txt
 </pre></div>
@@ -293,15 +293,15 @@ You can install them with <a class="reference external" href="https://linux.die.
 </section>
 </section>
 <section id="build-the-documentation">
-<h2>Build the documentation<a class="headerlink" href="#build-the-documentation" title="Link to this heading">#</a></h2>
-<p>Once you have installed every needed package in your virtual environment, you can build the documentation with <a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-build.html" title="(in Sphinx v7.3.0)"><span>sphinx-build</span></a> the following way:</p>
+<h2>Build the documentation<a class="headerlink" href="#build-the-documentation" title="Link to this heading">¶</a></h2>
+<p>Once you have installed every needed package in your virtual environment, you can build the documentation with <a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-build.html" title="(in Sphinx v7.4.0)"><span>sphinx-build</span></a> the following way:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sphinx-build<span class="w"> </span>-b<span class="w"> </span>html<span class="w"> </span>docs<span class="w"> </span>docs/_build/html
 </pre></div>
 </div>
 <p>After that, the documentation you have built from the <code class="docutils literal notranslate"><span class="pre">docs</span></code> folder will be in <code class="docutils literal notranslate"><span class="pre">docs/_build/html</span></code>.</p>
 </section>
 <section id="shortcuts">
-<h2>Shortcuts<a class="headerlink" href="#shortcuts" title="Link to this heading">#</a></h2>
+<h2>Shortcuts<a class="headerlink" href="#shortcuts" title="Link to this heading">¶</a></h2>
 <p>There are also some shortcuts for all or part of this process that can be made by modifying certain files. This guide will focus on the full process
 but you can remove any lines you don’t want to automatice. This shortcuts are:</p>
 <ul class="simple">
@@ -309,7 +309,7 @@ but you can remove any lines you don’t want to automatice. This shortcuts are:
 <li><p><code class="docutils literal notranslate"><span class="pre">tox</span> <span class="pre">-edocs</span></code></p></li>
 </ul>
 <section id="make-html">
-<h3><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code><a class="headerlink" href="#make-html" title="Link to this heading">#</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code><a class="headerlink" href="#make-html" title="Link to this heading">¶</a></h3>
 <p>In order to build your documentation with <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code> you need to include the following lines in your <code class="docutils literal notranslate"><span class="pre">Makefile</span></code>.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>html:
     pip install -r requirements-dev.txt
@@ -319,7 +319,7 @@ but you can remove any lines you don’t want to automatice. This shortcuts are:
 </div>
 </section>
 <section id="tox-edocs">
-<h3><code class="docutils literal notranslate"><span class="pre">tox</span> <span class="pre">-edocs</span></code><a class="headerlink" href="#tox-edocs" title="Link to this heading">#</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">tox</span> <span class="pre">-edocs</span></code><a class="headerlink" href="#tox-edocs" title="Link to this heading">¶</a></h3>
 <p>If you want to use <code class="docutils literal notranslate"><span class="pre">tox</span> <span class="pre">-edocs</span></code> to build your documentation with <a class="reference external" href="https://tox.wiki/en/latest/">tox</a>, you can include the following in your <code class="docutils literal notranslate"><span class="pre">tox.ini</span></code> file:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[testenv:docs]
 envdir = .tox/docs
@@ -416,7 +416,7 @@ commands =
     </aside>
   </div>
 </div><script src="../_static/documentation_options.js?v=f2a433a1"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
