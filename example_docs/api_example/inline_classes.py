@@ -17,8 +17,7 @@ Every time you use this program, you'll want to create an instance of
 
 It can be useful to use free functions rather than the class:
 
-.. autofunction:: api_example.my_function
-  :noindex:
+.. autofunction:: api_example.inline_classes.inline_function
 
 Sometimes, you even need to use a really complex class!
 
@@ -97,3 +96,11 @@ class InlineClassWithMethods:
 
 class CustomException(Exception):
     """See how exceptions render too."""
+
+
+def inline_function(input1: str, input2: str) -> int:
+    """A function that does awesome stuff.
+
+    Returns:
+        Did the function work.
+    """
