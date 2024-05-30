@@ -82,7 +82,10 @@ class QiskitCallToActionItemDirective(Directive):
     <div class="qiskit-call-to-action-item">
         <h3>{header}</h3>
         <p>{description}</p>
-        <a href="{button_link}">{button_text}</a>
+        <a href="{button_link}">
+            {button_text}
+            <i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i>
+        </a>
     </div>
 """
         node = nodes.raw("", html, format="html")
