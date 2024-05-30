@@ -14,13 +14,7 @@ A site to test out styling for qiskit-sphinx-theme.
    sphinx_guide/images
    sphinx_guide/paragraph
    sphinx_guide/structural
-
-.. toctree::
-  :caption: API
-  :maxdepth: 2
-
-   Autodoc <apidoc/module>
-   Inline classes <apidoc/inline_classes>
+   API Reference <apidoc/index>
 
 .. toctree::
    :caption: Special elements
