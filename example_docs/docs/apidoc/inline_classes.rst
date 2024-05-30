@@ -25,13 +25,9 @@ Sometimes, you even need to use a really complex class!
    :no-members:
    :show-inheritance:
 
-   .. rubric:: Attributes
-    
    .. autoattribute:: CLASS_ATTRIBUTE
    .. autoattribute:: interest_rate
-    
-   .. rubric:: Methods
-    
+
    .. automethod:: method1
    .. automethod:: method2
 
