@@ -81,7 +81,7 @@ test.describe("api docs", () => {
   });
 
   test("function page", async ({ page }) => {
-    await page.goto("stubs/api_example.my_function.html");
+    await page.goto("stubs/api_example.my_function1.html");
     const content = page.locator("div.article-container");
     await expect(content).toHaveScreenshot();
   });
