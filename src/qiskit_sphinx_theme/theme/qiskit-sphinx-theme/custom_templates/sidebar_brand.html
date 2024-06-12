@@ -2,22 +2,7 @@
   This file is inspired by Furo (created by Pradyun Gedam) and used under the MIT license.
 -#}
 
-
-{#- We default to showing a Qiskit Ecosystem logo -#}
-{%- if not logo_url and not theme_light_logo and not theme_dark_logo and not theme_disable_ecosystem_logo -%}
-<div class="sidebar-brand">
-  <a href="https://qiskit.github.io/ecosystem/">
-    <div class="sidebar-logo-container">
-      <img class="sidebar-logo" src="{{ pathto('_static/images/ecosystem-logo.svg', 1) }}" alt="Qiskit Ecosystem logo"/>
-    </div>
-  </a>
-  {% if not theme_sidebar_hide_name %}
-  <span class="sidebar-brand-text">{{ docstitle if docstitle else project }}</span>
-  {%- endif %}
-</div>
-
-{#- Else, use Furo's sidebar code. But, we remove the `centered` class from the `a` element because Carbon left-aligns things. -#}
-{%- else %}
+{#- Use Furo's sidebar code. But, we remove the `centered` class from the `a` element because Carbon left-aligns things. -#}
 <a class="sidebar-brand" href="{{ pathto(master_doc) }}">
   {% block brand_content %}
   {%- if logo_url %}
@@ -36,4 +21,4 @@
   {%- endif %}
   {% endblock brand_content %}
 </a>
-{%- endif %}
+<span class="sidebar-ecosystem-link">This project is part of the <a href="https://qiskit.github.io/ecosystem/">Qiskit ecosystem</a></span>
