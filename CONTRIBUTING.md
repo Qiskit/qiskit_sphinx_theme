@@ -135,7 +135,7 @@ When making changes, use those comments to make clear where and what we changed.
 If the change is greater than 1-3 lines, write the code in a new file in `theme/qiskit-sphinx-theme/custom_templates`, then use Jinja's `include` directive, as shown in the example right above.
 
 ### How to change CSS
-Make CSS changes in the file `assets/styles/qiskit-sphinx-theme.css`. It takes precedence over any CSS rules from Furo.
+Make CSS changes by editing the SCSS files in the `assets/styles/` directory. These take precedence over any CSS rules from Furo.
 
 When adding changes, document the rationale unless the code is already self-documenting and obvious. Group similar changes into sections.
 
