@@ -28,7 +28,7 @@ dependencies = [
     # Keep in sync with Furo's constraint.
     "sphinx>=6.0,<8.0",
     # See CONTRIBUTING.md for how to upgrade Furo.
-    "furo==2024.1.29",
+    "furo==2024.5.6",
 ]
 
 [project.entry-points."sphinx.html_themes"]
