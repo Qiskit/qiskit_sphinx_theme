@@ -22,14 +22,14 @@ import {
 test.describe("top nav bar", () => {
   test("uses custom page ToC icon on tablet", async ({ page }) => {
     await setTablet(page);
-    await page.goto("");
+    await page.goto("sphinx_guide/lists.html");
     const pageToC = page.locator("div.content-icon-container");
     await expect(pageToC).toHaveScreenshot();
   });
 
   test("uses custom icons on mobile", async ({ page }) => {
     await setMobile(page);
-    await page.goto("");
+    await page.goto("sphinx_guide/lists.html");
     const header = page.locator("header.mobile-header");
     await expect(header).toHaveScreenshot();
   });
