@@ -23,6 +23,11 @@ language = "en"
 release = "9.99"
 
 html_theme = "qiskit-ecosystem"
+html_theme_options = {
+    "source_repository": "https://github.com/Qiskit/qiskit_sphinx_theme/",
+    "source_branch": "main",
+    "source_directory": "example_docs/docs/",
+}
 
 # This allows including custom CSS and HTML templates.
 html_static_path = ["_static"]
