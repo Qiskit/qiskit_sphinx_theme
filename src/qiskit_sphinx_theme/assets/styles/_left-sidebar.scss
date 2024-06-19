@@ -49,7 +49,8 @@ body {
   width: 100%;
 }
 .sidebar-ecosystem-link {
-  padding: var(--sidebar-item-spacing-vertical) var(--sidebar-item-spacing-horizontal);
+  padding-left: var(--sidebar-item-spacing-horizontal);
+  padding-right: var(--sidebar-item-spacing-horizontal);
   font-size: var(--sidebar-caption-font-size);
 }
 
