@@ -46,6 +46,19 @@ test.describe("top nav bar", () => {
     const header = page.locator("header.mobile-header");
     await expect(header).toHaveScreenshot();
   });
+
+  test("uses custom icons on mobile dark mode cycle", async ({ page }) => {
+    await setMobile(page);
+    await page.goto("sphinx_guide/lists.html");
+    const header = page.locator("header.mobile-header");
+    await expect(header).toHaveScreenshot();
+    await click(page, "div.theme-toggle-header button");
+    await expect(header).toHaveScreenshot();
+    await click(page, "div.theme-toggle-header button");
+    await expect(header).toHaveScreenshot();
+    await click(page, "div.theme-toggle-header button");
+    await expect(header).toHaveScreenshot();
+  });
 });
 
 test("right side bar is not broken by our page layout", async ({ page }) => {
