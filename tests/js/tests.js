@@ -27,6 +27,19 @@ test.describe("top nav bar", () => {
     await expect(pageToC).toHaveScreenshot();
   });
 
+  test("uses custom page ToC icon on tablet dark mode cycle", async ({ page }) => {
+    await setTablet(page);
+    await page.goto("sphinx_guide/lists.html");
+    const pageToC = page.locator("div.content-icon-container");
+    await expect(pageToC).toHaveScreenshot();
+    await click(page, "div.theme-toggle-content button");
+    await expect(pageToC).toHaveScreenshot();
+    await click(page, "div.theme-toggle-content button");
+    await expect(pageToC).toHaveScreenshot();
+    await click(page, "div.theme-toggle-content button");
+    await expect(pageToC).toHaveScreenshot();
+  });
+
   test("uses custom icons on mobile", async ({ page }) => {
     await setMobile(page);
     await page.goto("sphinx_guide/lists.html");
@@ -76,6 +89,13 @@ test.describe("api docs", () => {
 
   test("class page", async ({ page }) => {
     await page.goto("stubs/api_example.Electron.html");
+    const content = page.locator("div.article-container");
+    await expect(content).toHaveScreenshot();
+  });
+
+  test("class page dark mode", async ({ page }) => {
+    await page.goto("stubs/api_example.Electron.html");
+    await click(page, "div.theme-toggle-content button");
     const content = page.locator("div.article-container");
     await expect(content).toHaveScreenshot();
   });
@@ -133,6 +153,22 @@ test("Jupyter works with copybutton", async ({ page }) => {
 
 test("custom directives", async ({ page }) => {
   await page.goto("sphinx_guide/custom_directives.html");
+
+  const cards = page.locator("section#qiskit-card");
+  await cards.hover();
+  await expect(cards).toHaveScreenshot();
+
+  const callToActions = page.locator("section#qiskit-call-to-action-item");
+  await expect(callToActions).toHaveScreenshot();
+
+  await setMobile(page);
+  await expect(cards).toHaveScreenshot();
+  await expect(callToActions).toHaveScreenshot();
+});
+
+test("custom directives dark mode", async ({ page }) => {
+  await page.goto("sphinx_guide/custom_directives.html");
+  await click(page, "div.theme-toggle-content button");
 
   const cards = page.locator("section#qiskit-card");
   await cards.hover();
