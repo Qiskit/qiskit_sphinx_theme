@@ -220,6 +220,10 @@ body {
   font-size: var(--sidebar-item-font-size);
   margin-bottom: var(--sidebar-item-spacing-vertical);
   margin-top: 0;
+
+  .icon {
+    color: var(--color-sidebar-link-text--top-level)
+  }
 }
 
 .qiskit-previous-releases-header-container p {
