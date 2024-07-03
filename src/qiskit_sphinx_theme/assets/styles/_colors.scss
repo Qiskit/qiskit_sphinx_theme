@@ -35,12 +35,12 @@
   --color-sidebar-item-background--hover: var(--color-background-hover);
 
   // Colors for admonitions
-  --qiskit-color-info-background: #edf5ff;
-  --qiskit-color-info-border: #0043ce;
-  --qiskit-color-warning-background: #fcf4d6;
-  --qiskit-color-warning-border: #f1c21b;
-  --qiskit-color-error-background: #fff1f1;
-  --qiskit-color-error-border: #da1e28;
+  --qiskit-color-info-background: #edf5ff; //blue10
+  --qiskit-color-info-border: #0043ce; // blue70
+  --qiskit-color-warning-background: #fcf4d6; // yellow10
+  --qiskit-color-warning-border: #f1c21b; // yellow30
+  --qiskit-color-error-background: #fff1f1; // red10
+  --qiskit-color-error-border: #da1e28; // red60
 }
 
 @mixin colors-dark {
