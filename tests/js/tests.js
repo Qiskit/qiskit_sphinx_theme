@@ -68,6 +68,14 @@ test("right side bar is not broken by our page layout", async ({ page }) => {
   await expect(tocDrawer).toHaveScreenshot();
 });
 
+test("right side bar is not broken by our page layout dark mode", async ({ page }) => {
+  // We intentionally use a short page to keep the screenshot shorter.
+  await page.goto("sphinx_guide/notebook.html");
+    await click(page, "div.theme-toggle-content button");
+  const tocDrawer = page.locator(".toc-drawer");
+  await expect(tocDrawer).toHaveScreenshot();
+});
+
 test.describe("left side bar", () => {
   test("renders correctly", async ({ page }) => {
     // Go to a top-level page so that we can see how the expanded side bar looks.
@@ -76,8 +84,24 @@ test.describe("left side bar", () => {
     await expect(leftToC).toHaveScreenshot();
   });
 
+  test("renders correctly dark mode", async ({ page }) => {
+    // Go to a top-level page so that we can see how the expanded side bar looks.
+    await page.goto("apidoc/module.html");
+    await click(page, "div.theme-toggle-content button");
+    const leftToC = page.locator(".sidebar-drawer");
+    await expect(leftToC).toHaveScreenshot();
+  });
+
   test("translations are expandable", async ({ page }) => {
     await page.goto("");
+    await click(page, "div.qiskit-translations-container i");
+    const translations = page.locator("div.qiskit-translations-container");
+    await expect(translations).toHaveScreenshot();
+  });
+
+  test("translations are expandable dark mode", async ({ page }) => {
+    await page.goto("");
+    await click(page, "div.theme-toggle-content button");
     await click(page, "div.qiskit-translations-container i");
     const translations = page.locator("div.qiskit-translations-container");
     await expect(translations).toHaveScreenshot();
@@ -91,11 +115,28 @@ test.describe("left side bar", () => {
     );
     await expect(previousReleases).toHaveScreenshot();
   });
+
+  test("previous releases are expandable dark mode", async ({ page }) => {
+    await page.goto("");
+    await click(page, "div.theme-toggle-content button");
+    await click(page, "div.qiskit-previous-releases-container i");
+    const previousReleases = page.locator(
+      "div.qiskit-previous-releases-container",
+    );
+    await expect(previousReleases).toHaveScreenshot();
+  });
 });
 
 test.describe("api docs", () => {
   test("module page", async ({ page }) => {
     await page.goto("apidoc/module.html");
+    const content = page.locator("div.article-container");
+    await expect(content).toHaveScreenshot();
+  });
+
+  test("module page dark mode", async ({ page }) => {
+    await page.goto("apidoc/module.html");
+    await click(page, "div.theme-toggle-content button");
     const content = page.locator("div.article-container");
     await expect(content).toHaveScreenshot();
   });
@@ -119,15 +160,36 @@ test.describe("api docs", () => {
     await expect(content).toHaveScreenshot();
   });
 
+  test("function page dark mode", async ({ page }) => {
+    await page.goto("stubs/api_example.my_function1.html");
+    await click(page, "div.theme-toggle-content button");
+    const content = page.locator("div.article-container");
+    await expect(content).toHaveScreenshot();
+  });
+
   test("inline classes", async ({ page }) => {
     await page.goto("apidoc/inline_classes.html");
     const content = page.locator("div.article-container");
     await expect(content).toHaveScreenshot();
   });
+
+  test("inline classes dark mode", async ({ page }) => {
+    await page.goto("apidoc/inline_classes.html");
+    await click(page, "div.theme-toggle-content button");
+    const content = page.locator("div.article-container");
+    await expect(content).toHaveScreenshot();
+  });
 });
 
-test("tables align with qiskit.", async ({ page }) => {
+test("tables align with qiskit", async ({ page }) => {
   await page.goto("sphinx_guide/tables.html");
+  const gridTablesSection = page.locator("section#grid-tables");
+  await expect(gridTablesSection).toHaveScreenshot();
+});
+
+test("tables align with qiskit dark mode", async ({ page }) => {
+  await page.goto("sphinx_guide/tables.html");
+  await click(page, "div.theme-toggle-content button");
   const gridTablesSection = page.locator("section#grid-tables");
   await expect(gridTablesSection).toHaveScreenshot();
 });
@@ -138,14 +200,35 @@ test("tutorials do not have purple border", async ({ page }) => {
   await expect(tutorial).toHaveScreenshot();
 });
 
+test("tutorials do not have purple border dark mode", async ({ page }) => {
+  await page.goto("sphinx_guide/notebook_gallery.html");
+  await click(page, "div.theme-toggle-content button");
+  const tutorial = page.locator("div.nbsphinx-gallery");
+  await expect(tutorial).toHaveScreenshot();
+});
+
 test("admonitions use Carbon style", async ({ page }) => {
   await page.goto("sphinx_guide/paragraph.html#admonitions");
   const admonitions = page.locator("section#admonitions");
   await expect(admonitions).toHaveScreenshot();
 });
 
+test("admonitions use Carbon style dark mode", async ({ page }) => {
+  await page.goto("sphinx_guide/paragraph.html#admonitions");
+  await click(page, "div.theme-toggle-content button");
+  const admonitions = page.locator("section#admonitions");
+  await expect(admonitions).toHaveScreenshot();
+});
+
 test("deprecations look like warning", async ({ page }) => {
   await page.goto("sphinx_guide/paragraph.html#deprecation-note");
+  const deprecations = page.locator("section#deprecation-note");
+  await expect(deprecations).toHaveScreenshot();
+});
+
+test("deprecations look like warning dark mode", async ({ page }) => {
+  await page.goto("sphinx_guide/paragraph.html#deprecation-note");
+  await click(page, "div.theme-toggle-content button");
   const deprecations = page.locator("section#deprecation-note");
   await expect(deprecations).toHaveScreenshot();
 });
@@ -157,9 +240,25 @@ test("Sphinx Design elements have no shadows", async ({ page }) => {
   await expect(pageContents).toHaveScreenshot();
 });
 
+test("Sphinx Design elements have no shadows dark mode", async ({ page }) => {
+  await page.goto("sphinx_guide/panels.html");
+  await click(page, "div.theme-toggle-content button");
+  await page.locator(".sd-dropdown").first().click();
+  const pageContents = page.locator("section#panels");
+  await expect(pageContents).toHaveScreenshot();
+});
+
 test("Jupyter works with copybutton", async ({ page }) => {
   // Regression test of https://github.com/Qiskit/qiskit_sphinx_theme/issues/306.
   await page.goto("sphinx_guide/jupyter.html");
+  const pageContents = page.locator("section#jupyter");
+  await expect(pageContents).toHaveScreenshot();
+});
+
+test("Jupyter works with copybutton dark mode", async ({ page }) => {
+  // Regression test of https://github.com/Qiskit/qiskit_sphinx_theme/issues/306.
+  await page.goto("sphinx_guide/jupyter.html");
+  await click(page, "div.theme-toggle-content button");
   const pageContents = page.locator("section#jupyter");
   await expect(pageContents).toHaveScreenshot();
 });
@@ -197,6 +296,13 @@ test("custom directives dark mode", async ({ page }) => {
 
 test("inline table of contents have correct fonts", async ({ page }) => {
   await page.goto("");
+  const contents = page.locator("section#example-docs");
+  await expect(contents).toHaveScreenshot();
+});
+
+test("inline table of contents have correct fonts dark mode", async ({ page }) => {
+  await page.goto("");
+  await click(page, "div.theme-toggle-content button");
   const contents = page.locator("section#example-docs");
   await expect(contents).toHaveScreenshot();
 });
