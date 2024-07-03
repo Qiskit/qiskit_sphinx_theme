@@ -146,6 +146,9 @@ div.deprecated {
   padding-left: 12px;
   page-break-inside: avoid;
 }
+div.deprecated .versionmodified {
+  color: var(--color-content-foreground);
+}
 
 div.deprecated::before {
   background: #f1c21b;
