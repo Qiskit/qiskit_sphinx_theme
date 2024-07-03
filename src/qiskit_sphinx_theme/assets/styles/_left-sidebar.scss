@@ -15,13 +15,6 @@
 // Colors
 // ------------------------------------------------------------------------------
 
-body {
-  // Use gray for the top-level links to be more muted.
-  --color-sidebar-link-text--top-level: var(--color-sidebar-link-text);
-  // Turn off gradient for hover.
-  --color-sidebar-item-background--hover: #efeff4;
-}
-
 // Even though we override --color-sidebar-link--top-level to be a more muted look, we change
 // the currently selected page to be the brand color to make it more obvious.
 .sidebar-tree .current-page > .reference {

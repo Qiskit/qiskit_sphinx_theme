@@ -24,10 +24,22 @@
 
   // For the Qiskit theme, use purple.
   --color-brand-primary: var(--qiskit-color-purple);
+
+  // Use the same table header color previously used on qiskit.org.
+  --color-table-header-background: #dde1e6;
+
+  // Use gray for the top-level links to be more muted.
+  --color-sidebar-link-text--top-level: var(--color-sidebar-link-text);
+
+  // Turn off gradient for hover.
+  --color-sidebar-item-background--hover: var(--color-background-hover);
 }
 
 @mixin colors-dark {
   --qiskit-color-purple: #d4bbff; // purple30
   --color-brand-content: var(--color-brand-primary);
   --color-brand-primary: var(--qiskit-color-purple);
+  --color-table-header-background: var(--color-background-secondary);
+  --color-sidebar-link-text--top-level: var(--color-sidebar-link-text);
+  --color-sidebar-item-background--hover: var(--color-background-hover);
 }
