@@ -1,14 +1,20 @@
-body {
-    // Define the Carbon color schemes from
-    // https://github.com/carbon-design-system/carbon/blob/v10/packages/colors/src/colors.js
-    //
-    // Projects can override `--color-brand-primary` to whatever they want.
-    --qiskit-color-purple: #6929C4;  // purple70
+@mixin colors {
+  // Define the Carbon color schemes from
+  // https://github.com/carbon-design-system/carbon/blob/v10/packages/colors/src/colors.js
+  //
+  // Projects can override `--color-brand-primary` to whatever they want.
+  --qiskit-color-purple: #6929c4; // purple70
 
-    // Furo normally distinguishes between these two variables, but
-    // we want them to be the same.
-    --color-brand-content: var(--color-brand-primary);
+  // Furo normally distinguishes between these two variables, but
+  // we want them to be the same.
+  --color-brand-content: var(--color-brand-primary);
 
-    // For the Qiskit theme, use purple.
-    --color-brand-primary: var(--qiskit-color-purple);
-  }
+  // For the Qiskit theme, use purple.
+  --color-brand-primary: var(--qiskit-color-purple);
+}
+
+@mixin colors-dark {
+  --qiskit-color-purple: #8a3ffc; // purple60
+  --color-brand-content: var(--color-brand-primary);
+  --color-brand-primary: var(--qiskit-color-purple);
+}
