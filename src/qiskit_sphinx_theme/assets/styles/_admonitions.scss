@@ -150,6 +150,9 @@ div.deprecated {
   padding: 0 0.5rem 0.5rem;
   padding-left: 12px;
   page-break-inside: avoid;
+  .versionmodified {
+    color: var(--color-content-foreground)
+  }
 }
 
 div.deprecated::before {
