@@ -33,6 +33,14 @@
 
   // Turn off gradient for hover.
   --color-sidebar-item-background--hover: var(--color-background-hover);
+
+  // Colors for admonitions
+  --qiskit-color-info-background: #edf5ff;
+  --qiskit-color-info-border: #0043ce;
+  --qiskit-color-warning-background: #fcf4d6;
+  --qiskit-color-warning-border: #f1c21b;
+  --qiskit-color-error-background: #fff1f1;
+  --qiskit-color-error-border: #da1e28;
 }
 
 @mixin colors-dark {
