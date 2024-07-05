@@ -13,12 +13,7 @@
 
 import { expect, test } from "@playwright/test";
 
-import {
-  setMobile,
-  setTablet,
-  click,
-  toggleColorTheme,
-} from "./utils";
+import { setMobile, setTablet, click, toggleColorTheme } from "./utils";
 
 test.describe("top nav bar", () => {
   test("uses custom page ToC icon on tablet", async ({ page }) => {
@@ -28,7 +23,9 @@ test.describe("top nav bar", () => {
     await expect(pageToC).toHaveScreenshot();
   });
 
-  test("uses custom page ToC icon on tablet dark mode cycle", async ({ page }) => {
+  test("uses custom page ToC icon on tablet dark mode cycle", async ({
+    page,
+  }) => {
     await setTablet(page);
     await page.goto("sphinx_guide/lists.html");
     const pageToC = page.locator("div.content-icon-container");
@@ -69,7 +66,9 @@ test("right side bar is not broken by our page layout", async ({ page }) => {
   await expect(tocDrawer).toHaveScreenshot();
 });
 
-test("right side bar is not broken by our page layout dark mode", async ({ page }) => {
+test("right side bar is not broken by our page layout dark mode", async ({
+  page,
+}) => {
   // We intentionally use a short page to keep the screenshot shorter.
   await page.goto("sphinx_guide/notebook.html");
   await toggleColorTheme(page);
@@ -112,7 +111,7 @@ test.describe("left side bar", () => {
     await page.goto("");
     await click(page, "div.qiskit-previous-releases-container i");
     const previousReleases = page.locator(
-      "div.qiskit-previous-releases-container",
+      "div.qiskit-previous-releases-container"
     );
     await expect(previousReleases).toHaveScreenshot();
   });
@@ -122,7 +121,7 @@ test.describe("left side bar", () => {
     await toggleColorTheme(page);
     await click(page, "div.qiskit-previous-releases-container i");
     const previousReleases = page.locator(
-      "div.qiskit-previous-releases-container",
+      "div.qiskit-previous-releases-container"
     );
     await expect(previousReleases).toHaveScreenshot();
   });
@@ -301,7 +300,9 @@ test("inline table of contents have correct fonts", async ({ page }) => {
   await expect(contents).toHaveScreenshot();
 });
 
-test("inline table of contents have correct fonts dark mode", async ({ page }) => {
+test("inline table of contents have correct fonts dark mode", async ({
+  page,
+}) => {
   await page.goto("");
   await toggleColorTheme(page);
   const contents = page.locator("section#example-docs");
