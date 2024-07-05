@@ -53,11 +53,11 @@ test.describe("top nav bar", () => {
     await page.goto("sphinx_guide/lists.html");
     const header = page.locator("header.mobile-header");
     await expect(header).toHaveScreenshot();
-    await click(page, "div.theme-toggle-header button");
+    await toggleColorTheme(page);
     await expect(header).toHaveScreenshot();
-    await click(page, "div.theme-toggle-header button");
+    await toggleColorTheme(page);
     await expect(header).toHaveScreenshot();
-    await click(page, "div.theme-toggle-header button");
+    await toggleColorTheme(page);
     await expect(header).toHaveScreenshot();
   });
 });

@@ -30,8 +30,13 @@ const click = async (page, selector) => {
 };
 
 const toggleColorTheme = async (page) => {
-  await click(page, "div.theme-toggle-content button");
-  // TODO handle theme-toggle-header
+  if (await page.locator("div.theme-toggle-content button").isVisible()) {
+    await click(page, "div.theme-toggle-content button");
+  } else if (await page.locator("div.theme-toggle-header button").isVisible()) {
+    await click(page, "div.theme-toggle-header button");
+  } else {
+    throw new Error("Theme toggle button is not visible.")
+  }
 };
 
 export {
