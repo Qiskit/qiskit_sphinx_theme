@@ -71,7 +71,7 @@ test("right side bar is not broken by our page layout", async ({ page }) => {
 test("right side bar is not broken by our page layout dark mode", async ({ page }) => {
   // We intentionally use a short page to keep the screenshot shorter.
   await page.goto("sphinx_guide/notebook.html");
-    await click(page, "div.theme-toggle-content button");
+  await click(page, "div.theme-toggle-content button");
   const tocDrawer = page.locator(".toc-drawer");
   await expect(tocDrawer).toHaveScreenshot();
 });
