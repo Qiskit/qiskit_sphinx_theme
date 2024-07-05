@@ -29,9 +29,15 @@ const click = async (page, selector) => {
   await page.waitForTimeout(500);
 };
 
+const toggleColorTheme = async (page) => {
+  await click(page, "div.theme-toggle-content button");
+  // TODO handle theme-toggle-header
+};
+
 export {
   setDesktop,
   setMobile,
   setTablet,
   click,
+  toggleColorTheme,
 };

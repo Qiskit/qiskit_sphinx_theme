@@ -17,6 +17,7 @@ import {
   setMobile,
   setTablet,
   click,
+  toggleColorTheme,
 } from "./utils";
 
 test.describe("top nav bar", () => {
@@ -32,11 +33,11 @@ test.describe("top nav bar", () => {
     await page.goto("sphinx_guide/lists.html");
     const pageToC = page.locator("div.content-icon-container");
     await expect(pageToC).toHaveScreenshot();
-    await click(page, "div.theme-toggle-content button");
+    await toggleColorTheme(page);
     await expect(pageToC).toHaveScreenshot();
-    await click(page, "div.theme-toggle-content button");
+    await toggleColorTheme(page);
     await expect(pageToC).toHaveScreenshot();
-    await click(page, "div.theme-toggle-content button");
+    await toggleColorTheme(page);
     await expect(pageToC).toHaveScreenshot();
   });
 
@@ -71,7 +72,7 @@ test("right side bar is not broken by our page layout", async ({ page }) => {
 test("right side bar is not broken by our page layout dark mode", async ({ page }) => {
   // We intentionally use a short page to keep the screenshot shorter.
   await page.goto("sphinx_guide/notebook.html");
-  await click(page, "div.theme-toggle-content button");
+  await toggleColorTheme(page);
   const tocDrawer = page.locator(".toc-drawer");
   await expect(tocDrawer).toHaveScreenshot();
 });
@@ -87,7 +88,7 @@ test.describe("left side bar", () => {
   test("renders correctly dark mode", async ({ page }) => {
     // Go to a top-level page so that we can see how the expanded side bar looks.
     await page.goto("apidoc/module.html");
-    await click(page, "div.theme-toggle-content button");
+    await toggleColorTheme(page);
     const leftToC = page.locator(".sidebar-drawer");
     await expect(leftToC).toHaveScreenshot();
   });
@@ -101,7 +102,7 @@ test.describe("left side bar", () => {
 
   test("translations are expandable dark mode", async ({ page }) => {
     await page.goto("");
-    await click(page, "div.theme-toggle-content button");
+    await toggleColorTheme(page);
     await click(page, "div.qiskit-translations-container i");
     const translations = page.locator("div.qiskit-translations-container");
     await expect(translations).toHaveScreenshot();
@@ -118,7 +119,7 @@ test.describe("left side bar", () => {
 
   test("previous releases are expandable dark mode", async ({ page }) => {
     await page.goto("");
-    await click(page, "div.theme-toggle-content button");
+    await toggleColorTheme(page);
     await click(page, "div.qiskit-previous-releases-container i");
     const previousReleases = page.locator(
       "div.qiskit-previous-releases-container",
@@ -136,7 +137,7 @@ test.describe("api docs", () => {
 
   test("module page dark mode", async ({ page }) => {
     await page.goto("apidoc/module.html");
-    await click(page, "div.theme-toggle-content button");
+    await toggleColorTheme(page);
     const content = page.locator("div.article-container");
     await expect(content).toHaveScreenshot();
   });
@@ -149,7 +150,7 @@ test.describe("api docs", () => {
 
   test("class page dark mode", async ({ page }) => {
     await page.goto("stubs/api_example.Electron.html");
-    await click(page, "div.theme-toggle-content button");
+    await toggleColorTheme(page);
     const content = page.locator("div.article-container");
     await expect(content).toHaveScreenshot();
   });
@@ -162,7 +163,7 @@ test.describe("api docs", () => {
 
   test("function page dark mode", async ({ page }) => {
     await page.goto("stubs/api_example.my_function1.html");
-    await click(page, "div.theme-toggle-content button");
+    await toggleColorTheme(page);
     const content = page.locator("div.article-container");
     await expect(content).toHaveScreenshot();
   });
@@ -175,7 +176,7 @@ test.describe("api docs", () => {
 
   test("inline classes dark mode", async ({ page }) => {
     await page.goto("apidoc/inline_classes.html");
-    await click(page, "div.theme-toggle-content button");
+    await toggleColorTheme(page);
     const content = page.locator("div.article-container");
     await expect(content).toHaveScreenshot();
   });
@@ -189,7 +190,7 @@ test("tables align with qiskit", async ({ page }) => {
 
 test("tables align with qiskit dark mode", async ({ page }) => {
   await page.goto("sphinx_guide/tables.html");
-  await click(page, "div.theme-toggle-content button");
+  await toggleColorTheme(page);
   const gridTablesSection = page.locator("section#grid-tables");
   await expect(gridTablesSection).toHaveScreenshot();
 });
@@ -202,7 +203,7 @@ test("tutorials do not have purple border", async ({ page }) => {
 
 test("tutorials do not have purple border dark mode", async ({ page }) => {
   await page.goto("sphinx_guide/notebook_gallery.html");
-  await click(page, "div.theme-toggle-content button");
+  await toggleColorTheme(page);
   const tutorial = page.locator("div.nbsphinx-gallery");
   await expect(tutorial).toHaveScreenshot();
 });
@@ -215,7 +216,7 @@ test("admonitions use Carbon style", async ({ page }) => {
 
 test("admonitions use Carbon style dark mode", async ({ page }) => {
   await page.goto("sphinx_guide/paragraph.html#admonitions");
-  await click(page, "div.theme-toggle-content button");
+  await toggleColorTheme(page);
   const admonitions = page.locator("section#admonitions");
   await expect(admonitions).toHaveScreenshot();
 });
@@ -228,7 +229,7 @@ test("deprecations look like warning", async ({ page }) => {
 
 test("deprecations look like warning dark mode", async ({ page }) => {
   await page.goto("sphinx_guide/paragraph.html#deprecation-note");
-  await click(page, "div.theme-toggle-content button");
+  await toggleColorTheme(page);
   const deprecations = page.locator("section#deprecation-note");
   await expect(deprecations).toHaveScreenshot();
 });
@@ -242,7 +243,7 @@ test("Sphinx Design elements have no shadows", async ({ page }) => {
 
 test("Sphinx Design elements have no shadows dark mode", async ({ page }) => {
   await page.goto("sphinx_guide/panels.html");
-  await click(page, "div.theme-toggle-content button");
+  await toggleColorTheme(page);
   await page.locator(".sd-dropdown").first().click();
   const pageContents = page.locator("section#panels");
   await expect(pageContents).toHaveScreenshot();
@@ -258,7 +259,7 @@ test("Jupyter works with copybutton", async ({ page }) => {
 test("Jupyter works with copybutton dark mode", async ({ page }) => {
   // Regression test of https://github.com/Qiskit/qiskit_sphinx_theme/issues/306.
   await page.goto("sphinx_guide/jupyter.html");
-  await click(page, "div.theme-toggle-content button");
+  await toggleColorTheme(page);
   const pageContents = page.locator("section#jupyter");
   await expect(pageContents).toHaveScreenshot();
 });
@@ -280,7 +281,7 @@ test("custom directives", async ({ page }) => {
 
 test("custom directives dark mode", async ({ page }) => {
   await page.goto("sphinx_guide/custom_directives.html");
-  await click(page, "div.theme-toggle-content button");
+  await toggleColorTheme(page);
 
   const cards = page.locator("section#qiskit-card");
   await cards.hover();
@@ -302,7 +303,7 @@ test("inline table of contents have correct fonts", async ({ page }) => {
 
 test("inline table of contents have correct fonts dark mode", async ({ page }) => {
   await page.goto("");
-  await click(page, "div.theme-toggle-content button");
+  await toggleColorTheme(page);
   const contents = page.locator("section#example-docs");
   await expect(contents).toHaveScreenshot();
 });
