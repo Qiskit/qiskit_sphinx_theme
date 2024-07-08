@@ -13,19 +13,10 @@
 
 import { expect, test } from "@playwright/test";
 
-import { setMobile, setTablet, click, toggleColorTheme } from "./utils";
+import { click, setMobile, setTablet, toggleColorTheme } from "./utils";
 
-test.describe("top nav bar", () => {
+test.describe("top nav bar dark mode cycle", () => {
   test("uses custom page ToC icon on tablet", async ({ page }) => {
-    await setTablet(page);
-    await page.goto("sphinx_guide/lists.html");
-    const pageToC = page.locator("div.content-icon-container");
-    await expect(pageToC).toHaveScreenshot();
-  });
-
-  test("uses custom page ToC icon on tablet dark mode cycle", async ({
-    page,
-  }) => {
     await setTablet(page);
     await page.goto("sphinx_guide/lists.html");
     const pageToC = page.locator("div.content-icon-container");
@@ -39,13 +30,6 @@ test.describe("top nav bar", () => {
   });
 
   test("uses custom icons on mobile", async ({ page }) => {
-    await setMobile(page);
-    await page.goto("sphinx_guide/lists.html");
-    const header = page.locator("header.mobile-header");
-    await expect(header).toHaveScreenshot();
-  });
-
-  test("uses custom icons on mobile dark mode cycle", async ({ page }) => {
     await setMobile(page);
     await page.goto("sphinx_guide/lists.html");
     const header = page.locator("header.mobile-header");
@@ -66,6 +50,22 @@ for (const colorScheme of ["light", "dark"]) {
         await page.goto("");
         await toggleColorTheme(page);
       }
+    });
+
+    test.describe("top nav bar", () => {
+      test("uses custom page ToC icon on tablet", async ({ page }) => {
+        await setTablet(page);
+        await page.goto("sphinx_guide/lists.html");
+        const pageToC = page.locator("div.content-icon-container");
+        await expect(pageToC).toHaveScreenshot();
+      });
+
+      test("uses custom icons on mobile", async ({ page }) => {
+        await setMobile(page);
+        await page.goto("sphinx_guide/lists.html");
+        const header = page.locator("header.mobile-header");
+        await expect(header).toHaveScreenshot();
+      });
     });
 
     test("right side bar is not broken by our page layout", async ({
