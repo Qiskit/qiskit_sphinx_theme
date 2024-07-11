@@ -13,7 +13,6 @@
 
 @import "admonitions";
 @import "api";
-@import "colors";
 @import "custom-directives";
 @import "drop-shadows";
 @import "icons";
@@ -22,15 +21,10 @@
 @import "scaffold";
 @import "sphinx-extensions";
 @import "tables";
+@import "theme";
 @import "typography";
 
 // Turn off scroll animation for anchor links: https://github.com/pradyunsg/furo/discussions/384
 html {
   scroll-behavior: auto;
-}
-
-// Disable dark mode for now, but probably re-enable in
-// https://github.com/Qiskit/qiskit_sphinx_theme/issues/575.
-.theme-toggle-container {
-  display: none;
 }
