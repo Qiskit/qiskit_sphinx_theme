@@ -1,6 +1,6 @@
 /* This code is a Qiskit project.
  *
- * (C) Copyright IBM 2023.
+ * (C) Copyright IBM 2024.
  *
  * This code is licensed under the Apache License, Version 2.0. You may
  * obtain a copy of this license in the LICENSE.txt file in the root directory
@@ -11,21 +11,10 @@
  * that they have been altered from the originals.
  */
 
-@import "admonitions";
-@import "api";
-@import "custom-directives";
-@import "drop-shadows";
-@import "icons";
-@import "layout";
-@import "left-sidebar";
-@import "mobile-header";
-@import "scaffold";
-@import "sphinx-extensions";
-@import "tables";
-@import "theme";
-@import "typography";
 
-// Turn off scroll animation for anchor links: https://github.com/pradyunsg/furo/discussions/384
-html {
-  scroll-behavior: auto;
+@media (max-width: 63em) {
+  .toc-header-icon {
+    // On mobile, Furo has no space between the page ToC and dark mode icons. 
+    margin-left: 8px;
+  }
 }
