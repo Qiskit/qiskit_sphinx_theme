@@ -1,5 +1,5 @@
 # qiskit-sphinx-theme
-The Sphinx theme for Qiskit Ecosystem documentation.
+The Sphinx theme for Qiskit ecosystem documentation.
 
 ### Warning: new theme migration
 
@@ -14,7 +14,7 @@ This repository hosts three things:
 - example docs (located in the `example_docs/` folder)
 - Qiskit Docs Guide (located in the `docs_guide/` folder)
 
-The `qiskit-ecosystem` theme is used by projects in the [Qiskit Ecosystem](https://qiskit.github.io/ecosystem).
+The `qiskit-ecosystem` theme is used by projects in the [Qiskit ecosystem](https://www.ibm.com/quantum/ecosystem).
 
 The example docs are a minimal Sphinx project that is used for testing the Qiskit Sphinx Theme. Every
 pull request will trigger [a GitHub workflow](https://github.com/Qiskit/qiskit_sphinx_theme/blob/main/.github/workflows/main.yml) that builds the example docs to make sure the changes do
@@ -50,13 +50,15 @@ html_title = f"{project} {release}"
 
 ## Enable translations
 
-First, coordinate with the Translations team at https://github.com/qiskit-community/qiskit-translations to express your interest and to coordinate setting up the infrastructure.
+Refer to [Sphinx's internationalization guide](https://www.sphinx-doc.org/en/master/usage/advanced/intl.html) for how to build your documentation with different languages.
 
-Once the Translations team is ready, then update your `conf.py`:
+Once you have the translated documentation, you will need to start additionally deploying your docs to `<project-prefix>/locale/<locale-code>/`, e.g. `https://qiskit-community.github.io/qiskit-finance/locale/de_DE/index.html`.
+
+Finally, update your `conf.py`:
 
 * Ensure that `qiskit_sphinx_theme` is in the `extensions` setting.
 * Set the option `translations_list` to a list of pairs of the locale code and the language name, e.g. `[..., ("de_DE", "German")]`.
-* Set the option `docs_url_prefix` to your project's URL prefix, like `ecosystem/finance`.
+* Set the option `docs_url_prefix` to your project's URL prefix, like `qiskit-finance`.
 
 For example:
 
@@ -73,14 +75,14 @@ translations_list = [
     ('de_DE', 'German'),
 ]
 
-docs_url_prefix = "ecosystem/finance"
+docs_url_prefix = "qiskit-finance"
 ```
 
 ## Enable Previous Releases
 
 This feature allows you to link to previous versions of the docs in the left sidebar.
 
-First, start additionally deploying your docs to `<project-prefix>/stable/<version>/`, e.g. `/ecosystem/finance/stable/0.5/index.html`. See https://github.com/Qiskit/qiskit-experiments/blob/227867937a08075092cd11756214bee3fb1d4d3d/tools/deploy_documentation.sh#L38-L39 for an example.
+First, start additionally deploying your docs to `<project-prefix>/stable/<version>/`, e.g. `https://qiskit-community.github.io/qiskit-experiments/stable/0.5/index.html`. See https://github.com/qiskit-community/qiskit-experiments/blob/7a0924c24549ab4f38819a86c0ac49214d819ba2/.github/workflows/docs_stable.yml#L25-L38 for an example.
 
 Then, update your `conf.py`:
 
@@ -89,7 +91,7 @@ Then, update your `conf.py`:
   * Each of these versions must be deployed with the above `stable/<version>` URL scheme.
   * You can manually set this, or some projects write a Sphinx extension to dynamically compute the value.
   * You should only put prior versions in this list, not the current release.
-* Set the option `docs_url_prefix` to your project's URL prefix, like `ecosystem/finance`.
+* Set the option `docs_url_prefix` to your project's URL prefix, like `qiskit-experiments`.
 
 For example:
 
@@ -103,7 +105,7 @@ html_context = {
    "version_list": ["0.4", "0.5"],
 }
 
-docs_url_prefix = "ecosystem/finance"
+docs_url_prefix = "qiskit-experiments"
 ```
 
 ## Use custom RST directives
@@ -116,11 +118,9 @@ The `qiskit_sphinx_theme` extension defines the below custom directives for you 
 ![](tests/js/qiskit.test.js-snapshots/custom-directives-1-linux.png)
 ![](tests/js/qiskit.test.js-snapshots/custom-directives-2-linux.png)
 
-## Customize or disable the Ecosystem theme logo
+## Add a custom logo
 
-The `qiskit-ecosystem` theme includes the Qiskit Ecosystem logo by default.
-
-You can use a custom logo by adding a logo file (SVG or PNG) as a sibling to your `conf.py`, e.g. `docs/logo.svg`. Then, set `html_logo` in `conf.py` to the name of the file, e.g. `html_logo = "logo.png"`.
+You can add a custom logo by adding a logo file (SVG or PNG) as a sibling to your `conf.py`, e.g. `docs/logo.svg`. Then, set `html_logo` in `conf.py` to the name of the file, e.g. `html_logo = "logo.png"`.
 
 When using a custom logo, you may want to disable the project's name in the sidebar by setting `sidebar_hide_name` in `html_theme_options`:
 
@@ -130,17 +130,9 @@ html_theme_options = {
 }
 ```
 
-You can disable logos by setting `disable_ecosystem_logo` in `html_theme_options`:
-
-```python
-html_theme_options = {
-    "disable_ecosystem_logo": True,
-}
-```
-
 ## Tip: suggested site structure
 
-To keep UX/UI similar across different Qiskit packages, we encourage the following structure for you sidebar, which can be set in the toctree of your `index.rst`:
+To keep UX/UI similar across different Qiskit ecosystem packages, consider using the following structure for your sidebar, which can be set in the toctree of your `index.rst`:
 
 ```rst
 .. toctree::

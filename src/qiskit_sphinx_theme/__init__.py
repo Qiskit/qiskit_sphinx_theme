@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import sphinx.application
     import sphinx.config
 
-__version__ = "1.16.0rc1"
+__version__ = "2.0.0rc1"
 __version_full__ = __version__
 
 
