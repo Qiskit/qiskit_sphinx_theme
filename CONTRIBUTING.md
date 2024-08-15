@@ -172,7 +172,7 @@ The release process changes whether you are releasing the very first `rc1` for t
    1. `git checkout main`
    2. `git pull upstream main`
    3. `git checkout -b release-<version-number>`, e.g. `release-1.11.0rc1`
-   4. Bump `src/qiskit_sphinx_theme/__init__.py` to use the new version, e.g. https://github.com/Qiskit/qiskit_sphinx_theme/pull/207
+   4. Bump `src/qiskit_sphinx_theme/__init__.py` to use the new version, e.g. https://github.com/Qiskit/qiskit_sphinx_theme/pull/596
    5. PR the change and land it
 2. Push the Git tag:
    1. `git checkout main`
