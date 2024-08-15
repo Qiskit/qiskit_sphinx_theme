@@ -1,14 +1,59 @@
-body {
-    // Define the Carbon color schemes from
-    // https://github.com/carbon-design-system/carbon/blob/v10/packages/colors/src/colors.js
-    //
-    // Projects can override `--color-brand-primary` to whatever they want.
-    --qiskit-color-purple: #6929C4;  // purple70
+/* This code is a Qiskit project.
+ *
+ * (C) Copyright IBM 2024.
+ *
+ * This code is licensed under the Apache License, Version 2.0. You may
+ * obtain a copy of this license in the LICENSE.txt file in the root directory
+ * of this source tree or at http://www.apache.org/licenses/LICENSE-2.0.
+ *
+ * Any modifications or derivative works of this code must retain this
+ * copyright notice, and modified files need to carry a notice indicating
+ * that they have been altered from the originals.
+ */
 
-    // Furo normally distinguishes between these two variables, but
-    // we want them to be the same.
-    --color-brand-content: var(--color-brand-primary);
+@mixin colors {
+  // Define the Carbon color schemes from
+  // https://github.com/carbon-design-system/carbon/blob/v10/packages/colors/src/colors.js
+  //
+  // Projects can override `--color-brand-primary` to whatever they want.
+  --qiskit-color-purple: #6929c4; // purple70
 
-    // For the Qiskit theme, use purple.
-    --color-brand-primary: var(--qiskit-color-purple);
-  }
+  // Furo normally distinguishes between these two variables, but
+  // we want them to be the same.
+  --color-brand-content: var(--color-brand-primary);
+
+  // For the Qiskit theme, use purple.
+  --color-brand-primary: var(--qiskit-color-purple);
+
+  // Use the same table header color previously used on qiskit.org.
+  --color-table-header-background: #dde1e6;
+
+  // Use gray for the top-level links to be more muted.
+  --color-sidebar-link-text--top-level: var(--color-sidebar-link-text);
+
+  // Turn off gradient for hover.
+  --color-sidebar-item-background--hover: var(--color-background-hover);
+
+  // Colors for admonitions
+  --qiskit-color-info-background: #edf5ff; //blue10
+  --qiskit-color-info-border: #0043ce; // blue70
+  --qiskit-color-warning-background: #fcf4d6; // yellow10
+  --qiskit-color-warning-border: #f1c21b; // yellow30
+  --qiskit-color-error-background: #fff1f1; // red10
+  --qiskit-color-error-border: #da1e28; // red60
+}
+
+@mixin colors-dark {
+  --qiskit-color-purple: #d4bbff; // purple30
+  --color-brand-content: var(--color-brand-primary);
+  --color-brand-primary: var(--qiskit-color-purple);
+  --color-table-header-background: var(--color-background-secondary);
+  --color-sidebar-link-text--top-level: var(--color-sidebar-link-text);
+  --color-sidebar-item-background--hover: var(--color-background-hover);
+  --qiskit-color-info-background: #002d9c; // blue80
+  --qiskit-color-info-border: #78a9ff; // blue40
+  --qiskit-color-warning-background: #684e00; // yellow70
+  --qiskit-color-warning-border: #f1c21b; // yellow30
+  --qiskit-color-error-background: #750e13; // red80
+  --qiskit-color-error-border: #fa4d56; // red50
+}

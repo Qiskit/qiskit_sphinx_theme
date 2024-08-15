@@ -29,9 +29,20 @@ const click = async (page, selector) => {
   await page.waitForTimeout(500);
 };
 
+const toggleColorTheme = async (page) => {
+  if (await page.locator("div.theme-toggle-content button").isVisible()) {
+    await click(page, "div.theme-toggle-content button");
+  } else if (await page.locator("div.theme-toggle-header button").isVisible()) {
+    await click(page, "div.theme-toggle-header button");
+  } else {
+    throw new Error("Theme toggle button is not visible.")
+  }
+};
+
 export {
   setDesktop,
   setMobile,
   setTablet,
   click,
+  toggleColorTheme,
 };
