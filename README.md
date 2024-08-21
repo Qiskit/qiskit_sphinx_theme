@@ -122,13 +122,27 @@ The `qiskit_sphinx_theme` extension defines the below custom directives for you 
 
 You can add a custom logo by adding a logo file (SVG or PNG) as a sibling to your `conf.py`, e.g. `docs/logo.svg`. Then, set `html_logo` in `conf.py` to the name of the file, e.g. `html_logo = "logo.png"`.
 
-When using a custom logo, you may want to disable the project's name in the sidebar by setting `sidebar_hide_name` in `html_theme_options`:
+When using a custom logo, you may want to disable the project's name in the sidebar by setting `sidebar_hide_name` in `html_theme_options` in `conf.py`:
 
 ```python
 html_theme_options = {
     "sidebar_hide_name": True,
 }
 ```
+
+## Qiskit ecosystem members
+
+If your project is a member of the [Qiskit ecosystem](https://www.ibm.com/quantum/ecosystem), we encourage you to set the following configuration so that the left sidebar mentions your project being in the ecosystem.
+
+Update `conf.py`:
+
+```python
+html_theme_options = {
+    "sidebar_qiskit_ecosystem_member": True,
+}
+```
+
+Non-ecosystem members should not set this option.
 
 ## Tip: suggested site structure
 

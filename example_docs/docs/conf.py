@@ -27,6 +27,7 @@ html_theme_options = {
     "source_repository": "https://github.com/Qiskit/qiskit_sphinx_theme/",
     "source_branch": "main",
     "source_directory": "example_docs/docs/",
+    "sidebar_qiskit_ecosystem_member": True,
 }
 
 # This allows including custom CSS and HTML templates.
