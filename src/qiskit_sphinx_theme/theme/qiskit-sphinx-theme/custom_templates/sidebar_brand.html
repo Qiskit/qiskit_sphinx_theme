@@ -21,7 +21,8 @@
   {%- endif %}
   {% endblock brand_content %}
 </a>
-{#- Add a link to the Qiskit ecosystem web page. -#}
+{% if theme_sidebar_qiskit_ecosystem_member %}
 <p class="sidebar-ecosystem-link">
   This project is part of the <a class="reference external" href="https://www.ibm.com/quantum/ecosystem">Qiskit ecosystem</a>
 </p>
+{%- endif %}
