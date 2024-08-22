@@ -27,8 +27,14 @@ html_theme_options = {
     "source_repository": "https://github.com/Qiskit/qiskit_sphinx_theme/",
     "source_branch": "main",
     "source_directory": "example_docs/docs/",
-    "sidebar_qiskit_ecosystem_member": True,
 }
+
+# Members of the Qiskit ecosystem should set `sidebar_qiskit_ecosystem_member`
+# explicitly in `html_theme_options`. This convoluted code is only set up
+# this way to discourage projects who copy this config file from
+# unintentionally configuring this option.
+if project == "Example Docs":
+    html_theme_options["sidebar_qiskit_ecosystem_member"] = True
 
 # This allows including custom CSS and HTML templates.
 html_static_path = ["_static"]
