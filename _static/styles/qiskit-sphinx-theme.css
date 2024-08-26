@@ -38,6 +38,11 @@ p.topic-title::before {
   background-color: var(--qiskit-color-info-border);
 }
 
+.admonition p.admonition-title,
+p.topic-title {
+  margin-left: -0.5625rem;
+}
+
 .admonition {
   border-left: 0;
   border-right-style: solid;
@@ -150,6 +155,13 @@ div.deprecated .versionmodified {
   color: var(--color-content-foreground);
 }
 
+div.deprecated,
+div.versionadded,
+div.versionchanged,
+div.versionremoved {
+  border-radius: 0;
+}
+
 div.deprecated::before {
   background: var(--qiskit-color-warning-border);
   content: "";
@@ -164,7 +176,7 @@ span.deprecated {
   background-color: var(--qiskit-color-warning-background);
   font-size: var(--admonition-title-font-size);
   line-height: 1.3;
-  margin: 0 -0.5rem 0.25rem -0.55rem;
+  margin: 0 -0.5625rem 0.25rem -0.55rem;
   padding: 0.4rem;
   position: relative;
   display: block;
