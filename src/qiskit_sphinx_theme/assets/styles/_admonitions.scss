@@ -32,6 +32,12 @@ p.topic-title {
   }
 }
 
+.admonition p.admonition-title,
+p.topic-title {
+  // We have to add one pixel or else the ::before vertical line has a gap.
+  margin-left: -0.5625rem;
+}
+
 // Admonitions are complex because they use a 3px left border with a different color than the rest
 // of the div. If we naively used `border-left`, we'd end up with a weird-looking diagonal, as
 // described at
@@ -149,6 +155,13 @@ div.deprecated {
   }
 }
 
+div.deprecated,
+div.versionadded,
+div.versionchanged,
+div.versionremoved {
+  border-radius: 0;
+}
+
 div.deprecated::before {
   background: var(--qiskit-color-warning-border);
   content: "";
@@ -163,7 +176,7 @@ span.deprecated {
   background-color: var(--qiskit-color-warning-background);
   font-size: var(--admonition-title-font-size);
   line-height: 1.3;
-  margin: 0 -0.5rem 0.25rem -0.55rem;
+  margin: 0 -0.5625rem 0.25rem -0.55rem;
   padding: 0.4rem;
   position: relative;
   display: block;
