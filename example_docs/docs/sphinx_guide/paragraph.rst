@@ -211,14 +211,6 @@ Footnotes
    footnote reference ([#label]_) and as a hyperlink reference
    (label_).
 
-.. [#] This footnote is numbered automatically and anonymously using a
-   label of "#" only.
-
-.. [*] Footnotes may also use symbols, specified with a "*" label.
-   Here's a reference to the next footnote: [*]_.
-
-.. [*] This footnote shows the next symbol in the sequence.
-
 
 Citations
 ---------
