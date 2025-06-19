@@ -7,7 +7,7 @@ jobs:
     if: github.repository_owner == 'Qiskit'
     container:
       # Keep in sync with tests/js/Dockerfile's base image.
-      image: mcr.microsoft.com/playwright:v1.34.0-jammy
+      image: mcr.microsoft.com/playwright:v1.50.0-noble
     steps:
       - uses: actions/checkout@v4
         with:

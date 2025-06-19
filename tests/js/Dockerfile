@@ -20,7 +20,7 @@
 
 
 # Keep this base image in sync with .github/workflows/main.yml.
-FROM mcr.microsoft.com/playwright:v1.34.0-jammy
+FROM mcr.microsoft.com/playwright:v1.50.0-noble
 
 # Install our dependencies in CI mode so that we error if changes are necessary.
 # Users should `npm install` locally if this is the case.
