@@ -26,9 +26,9 @@ classifiers = [
 dependencies = [
     "docutils",
     # Keep in sync with Furo's constraint.
-    "sphinx>=6.0,<9.0",
+    "sphinx >= 7.0,<10.0",
     # See CONTRIBUTING.md for how to upgrade Furo.
-    "furo==2024.8.6",
+    "furo==2025.12.19",
 ]
 
 [project.entry-points."sphinx.html_themes"]
