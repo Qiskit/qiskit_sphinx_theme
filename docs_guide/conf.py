@@ -14,7 +14,6 @@ extensions = [
     "jupyter_sphinx",
     "sphinx.ext.doctest",
     "sphinx.ext.intersphinx",
-    "sphinx_toolbox.confval",
     "qiskit_sphinx_theme",
 ]
 
