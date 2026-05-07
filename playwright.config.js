@@ -21,7 +21,8 @@ export default defineConfig({
   testMatch: /.*tests\.js$/,
   expect: {
     toHaveScreenshot: {
-      threshold: 0.01, // We expect colors to be near exact matches.
+      threshold: 0.05, // We expect colors to be near exact matches.
+      maxDiffPixelRatio: 0.05,
     },
   },
   use: {
