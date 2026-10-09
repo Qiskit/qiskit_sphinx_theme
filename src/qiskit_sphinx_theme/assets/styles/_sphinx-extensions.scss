@@ -32,3 +32,21 @@
 :not(#specifity-war).jupyter_container div.code_cell pre {
   padding: .625rem .875rem;
 }
+
+// jupyter-sphinx hard-codes light-mode colors for code cells. Use Furo's code
+// colors so that jupyter-execute follows the active light/dark theme.
+:not(#specifity-war).jupyter_container div.code_cell {
+  background-color: var(--color-code-background);
+  border-color: var(--color-background-border);
+}
+
+:not(#specifity-war).jupyter_container div.code_cell pre,
+:not(#specifity-war).jupyter_container div.code_cell div.highlight {
+  background: var(--color-code-background);
+  color: var(--color-code-foreground);
+}
+
+:not(#specifity-war).jupyter_container div.code_cell td.linenos {
+  border-color: var(--color-background-border);
+  color: var(--color-code-foreground);
+}
