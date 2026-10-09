@@ -746,6 +746,22 @@ body .nav-overlay-icon .icon {
   padding: 0.625rem 0.875rem;
 }
 
+:not(#specifity-war).jupyter_container div.code_cell {
+  background-color: var(--color-code-background);
+  border-color: var(--color-background-border);
+}
+
+:not(#specifity-war).jupyter_container div.code_cell pre,
+:not(#specifity-war).jupyter_container div.code_cell div.highlight {
+  background: var(--color-code-background);
+  color: var(--color-code-foreground);
+}
+
+:not(#specifity-war).jupyter_container div.code_cell td.linenos {
+  border-color: var(--color-background-border);
+  color: var(--color-code-foreground);
+}
+
 /* This code is a Qiskit project.
  *
  * (C) Copyright IBM 2023.

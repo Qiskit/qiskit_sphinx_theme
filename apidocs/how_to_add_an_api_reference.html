@@ -9,7 +9,7 @@
         <title>How to add an API reference - Qiskit Docs Guide</title>
       <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/qiskit-sphinx-theme.css?v=c29a6118" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/qiskit-sphinx-theme.css?v=fe834e9f" />
     <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
     
@@ -285,34 +285,34 @@
 <p>This guide shows how to add an API reference page to your documentation.</p>
 <section id="pre-requisites">
 <h2>Pre-requisites<a class="headerlink" href="#pre-requisites" title="Link to this heading">¶</a></h2>
-<p>This guide assumes your project already has a working <a class="reference external" href="https://www.sphinx-doc.org/en/master/index.html" title="(in Sphinx v9.1.0)"><span class="xref std std-doc">Sphinx</span></a> documentation project in a
+<p>This guide assumes your project already has a working <a class="reference external" href="https://www.sphinx-doc.org/en/master/index.html" title="(in Sphinx v9.1.1)"><span class="xref std std-doc">Sphinx</span></a> documentation project in a
 folder called <code class="docutils literal notranslate"><span class="pre">docs</span></code> and <a class="reference internal" href="../intro/new_doc_project.html#doc-structure"><span class="std std-ref">the recommended folder structure</span></a>. If you don’t
-have it, you can set it up with <a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html" title="(in Sphinx v9.1.0)"><span>sphinx-quickstart</span></a> following the tutorial <a class="reference internal" href="../intro/new_doc_project.html#create-new-doc-project"><span class="std std-ref">Create a New Documentation Project</span></a>.</p>
+have it, you can set it up with <a class="reference external" href="https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html" title="(in Sphinx v9.1.1)"><span>sphinx-quickstart</span></a> following the tutorial <a class="reference internal" href="../intro/new_doc_project.html#create-new-doc-project"><span class="std std-ref">Create a New Documentation Project</span></a>.</p>
 </section>
 <section id="set-up-a-new-project-api-reference">
 <h2>Set up a new project API reference<a class="headerlink" href="#set-up-a-new-project-api-reference" title="Link to this heading">¶</a></h2>
-<p>If your project doesn’t have a <a class="reference external" href="https://www.sphinx-doc.org/en/master/index.html" title="(in Sphinx v9.1.0)"><span class="xref std std-doc">Sphinx</span></a>-based API reference yet, you need to add <code class="docutils literal notranslate"><span class="pre">&quot;sphinx.ext.autodoc&quot;</span></code>,
-<code class="docutils literal notranslate"><span class="pre">&quot;sphinx.ext.autosummary&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;sphinx.ext.napoleon&quot;</span></code> to the <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-extensions" title="(in Sphinx v9.1.0)"><code class="docutils literal notranslate"><span class="pre">extensions</span></code></a> variable of <code class="docutils literal notranslate"><span class="pre">docs/conf.py</span></code>.</p>
+<p>If your project doesn’t have a <a class="reference external" href="https://www.sphinx-doc.org/en/master/index.html" title="(in Sphinx v9.1.1)"><span class="xref std std-doc">Sphinx</span></a>-based API reference yet, you need to add <code class="docutils literal notranslate"><span class="pre">&quot;sphinx.ext.autodoc&quot;</span></code>,
+<code class="docutils literal notranslate"><span class="pre">&quot;sphinx.ext.autosummary&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;sphinx.ext.napoleon&quot;</span></code> to the <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-extensions" title="(in Sphinx v9.1.1)"><code class="docutils literal notranslate"><span class="pre">extensions</span></code></a> variable of <code class="docutils literal notranslate"><span class="pre">docs/conf.py</span></code>.</p>
 <p>Also in <code class="docutils literal notranslate"><span class="pre">docs/conf.py</span></code>, it is recommended to set the following configuration variables:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/autosummary.html#confval-autosummary_generate" title="(in Sphinx v9.1.0)"><code class="docutils literal notranslate"><span class="pre">autosummary_generate</span></code></a> to <code class="docutils literal notranslate"><span class="pre">True</span></code> to make sure pages are scanned for autosummary directives.</p></li>
-<li><p><a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/autosummary.html#confval-autosummary_generate_overwrite" title="(in Sphinx v9.1.0)"><code class="docutils literal notranslate"><span class="pre">autosummary_generate_overwrite</span></code></a> to <code class="docutils literal notranslate"><span class="pre">False</span></code> so that <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/autosummary.html#module-sphinx.ext.autosummary" title="(in Sphinx v9.1.0)"><code class="docutils literal notranslate"><span class="pre">sphinx.ext.autosummary</span></code></a> doesn’t overwrite existing files by generated stub files.</p></li>
-<li><p><a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#confval-autodoc_typehints" title="(in Sphinx v9.1.0)"><code class="docutils literal notranslate"><span class="pre">autodoc_typehints</span></code></a> to <code class="docutils literal notranslate"><span class="pre">&quot;description&quot;</span></code> so the type hints are only shown as part of the function or method instead of in the signature.</p></li>
-<li><p><a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#confval-autodoc_typehints_description_target" title="(in Sphinx v9.1.0)"><code class="docutils literal notranslate"><span class="pre">autodoc_typehints_description_target</span></code></a> to <code class="docutils literal notranslate"><span class="pre">&quot;documented_params&quot;</span></code> so that only the types of parameters and return values that are included in the docstring.</p></li>
-<li><p><a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#confval-autoclass_content" title="(in Sphinx v9.1.0)"><code class="docutils literal notranslate"><span class="pre">autoclass_content</span></code></a> to <code class="docutils literal notranslate"><span class="pre">&quot;both&quot;</span></code> so when you use the <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#directive-autoclass" title="(in Sphinx v9.1.0)"><code class="docutils literal notranslate"><span class="pre">autoclass</span></code></a> directive you get the docstrings of both the class and the <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> method.</p></li>
+<li><p><a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/autosummary.html#confval-autosummary_generate" title="(in Sphinx v9.1.1)"><code class="docutils literal notranslate"><span class="pre">autosummary_generate</span></code></a> to <code class="docutils literal notranslate"><span class="pre">True</span></code> to make sure pages are scanned for autosummary directives.</p></li>
+<li><p><a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/autosummary.html#confval-autosummary_generate_overwrite" title="(in Sphinx v9.1.1)"><code class="docutils literal notranslate"><span class="pre">autosummary_generate_overwrite</span></code></a> to <code class="docutils literal notranslate"><span class="pre">False</span></code> so that <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/autosummary.html#module-sphinx.ext.autosummary" title="(in Sphinx v9.1.1)"><code class="docutils literal notranslate"><span class="pre">sphinx.ext.autosummary</span></code></a> doesn’t overwrite existing files by generated stub files.</p></li>
+<li><p><a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#confval-autodoc_typehints" title="(in Sphinx v9.1.1)"><code class="docutils literal notranslate"><span class="pre">autodoc_typehints</span></code></a> to <code class="docutils literal notranslate"><span class="pre">&quot;description&quot;</span></code> so the type hints are only shown as part of the function or method instead of in the signature.</p></li>
+<li><p><a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#confval-autodoc_typehints_description_target" title="(in Sphinx v9.1.1)"><code class="docutils literal notranslate"><span class="pre">autodoc_typehints_description_target</span></code></a> to <code class="docutils literal notranslate"><span class="pre">&quot;documented_params&quot;</span></code> so that only the types of parameters and return values that are included in the docstring.</p></li>
+<li><p><a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#confval-autoclass_content" title="(in Sphinx v9.1.1)"><code class="docutils literal notranslate"><span class="pre">autoclass_content</span></code></a> to <code class="docutils literal notranslate"><span class="pre">&quot;both&quot;</span></code> so when you use the <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#directive-autoclass" title="(in Sphinx v9.1.1)"><code class="docutils literal notranslate"><span class="pre">autoclass</span></code></a> directive you get the docstrings of both the class and the <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> method.</p></li>
 </ul>
 <p>So you should have these lines in your <code class="docutils literal notranslate"><span class="pre">docs/conf.py</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">autosummary_generate</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="n">autosummary_generate_overwrite</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="n">autodoc_typehints</span> <span class="o">=</span> <span class="s2">&quot;description&quot;</span>
-<span class="n">autodoc_typehints_description_target</span> <span class="o">=</span> <span class="s2">&quot;documented_params&quot;</span>
-<span class="n">autoclass_content</span> <span class="o">=</span> <span class="s2">&quot;both&quot;</span>
+<span class="n">autodoc_typehints</span> <span class="o">=</span> <span class="s2">"description"</span>
+<span class="n">autodoc_typehints_description_target</span> <span class="o">=</span> <span class="s2">"documented_params"</span>
+<span class="n">autoclass_content</span> <span class="o">=</span> <span class="s2">"both"</span>
 </pre></div>
 </div>
-<p>For more details about other configuration variables check out the documentation pages of <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/autosummary.html#module-sphinx.ext.autosummary" title="(in Sphinx v9.1.0)"><code class="docutils literal notranslate"><span class="pre">sphinx.ext.autosummary</span></code></a> and <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#module-sphinx.ext.autodoc" title="(in Sphinx v9.1.0)"><code class="docutils literal notranslate"><span class="pre">sphinx.ext.autodoc</span></code></a>.</p>
+<p>For more details about other configuration variables check out the documentation pages of <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/autosummary.html#module-sphinx.ext.autosummary" title="(in Sphinx v9.1.1)"><code class="docutils literal notranslate"><span class="pre">sphinx.ext.autosummary</span></code></a> and <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#module-sphinx.ext.autodoc" title="(in Sphinx v9.1.1)"><code class="docutils literal notranslate"><span class="pre">sphinx.ext.autodoc</span></code></a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#module-sphinx.ext.autodoc" title="(in Sphinx v9.1.0)"><code class="docutils literal notranslate"><span class="pre">sphinx.ext.autodoc</span></code></a> default values might be overridden by <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/autosummary.html#module-sphinx.ext.autosummary" title="(in Sphinx v9.1.0)"><code class="docutils literal notranslate"><span class="pre">sphinx.ext.autosummary</span></code></a>. The latter uses <a class="reference external" href="https://jinja.palletsprojects.com/en/3.1.x/templates/">Jinja template</a>
+<p><a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#module-sphinx.ext.autodoc" title="(in Sphinx v9.1.1)"><code class="docutils literal notranslate"><span class="pre">sphinx.ext.autodoc</span></code></a> default values might be overridden by <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/autosummary.html#module-sphinx.ext.autosummary" title="(in Sphinx v9.1.1)"><code class="docutils literal notranslate"><span class="pre">sphinx.ext.autosummary</span></code></a>. The latter uses <a class="reference external" href="https://jinja.palletsprojects.com/en/3.1.x/templates/">Jinja template</a>
 files that have to be placed in <code class="docutils literal notranslate"><span class="pre">docs/_templates/autosummary</span></code>. Those files are:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">docs/_templates/autosummary/base.rst</span></code>: fallback template.</p></li>
@@ -322,7 +322,7 @@ files that have to be placed in <code class="docutils literal notranslate"><span
 <li><p><code class="docutils literal notranslate"><span class="pre">docs/_templates/autosummary/attribute.rst</span></code>: for attributes.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">docs/_templates/autosummary/method.rst</span></code>: for methods.</p></li>
 </ul>
-<p>For more details, check <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/autosummary.html#autosummary-customizing-templates" title="(in Sphinx v9.1.0)"><span class="xref std std-ref">Sphinx’s official documentation</span></a>.</p>
+<p>For more details, check <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/autosummary.html#autosummary-customizing-templates" title="(in Sphinx v9.1.1)"><span class="xref std std-ref">Sphinx’s official documentation</span></a>.</p>
 </div>
 </section>
 <section id="create-a-new-api-reference-page">
@@ -344,7 +344,7 @@ There are two main different types of API reference pages:</p>
 <h4>Update docstring<a class="headerlink" href="#update-docstring" title="Link to this heading">¶</a></h4>
 <p>The first thing you need to do is to go to your module’s  <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> and
 write just at the start a docstring with <a class="reference external" href="https://docutils.sourceforge.io/rst.html">reStructuredText</a> (RST) markup like this one:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">################################################</span>
 <span class="sd">Name of your module (:mod:`name_of_your_module`)</span>
 <span class="sd">################################################</span>
@@ -376,7 +376,7 @@ write just at the start a docstring with <a class="reference external" href="htt
 
 <span class="sd">   OtherSampleClass</span>
 
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 </pre></div>
 </div>
 <p>For more information about how to deal with RST for module docstrings check the <a class="reference internal" href="../sphinx_guide/index.html#sphinx-guide"><span class="std std-ref">Sphinx Guide</span></a>.</p>
@@ -404,10 +404,10 @@ That file should look like this:</p>
 <h4>Update the docstring<a class="headerlink" href="#update-the-docstring" title="Link to this heading">¶</a></h4>
 <p>First you need to find your function or class in the main code of your project. In Qiskit, we are following <a class="reference external" href="https://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings">the Google Python
 Style Guide</a> for docstrings. While this is not standard <a class="reference external" href="https://docutils.sourceforge.io/rst.html">RST</a>,
-the <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/napoleon.html#module-sphinx.ext.napoleon" title="(in Sphinx v9.1.0)"><code class="docutils literal notranslate"><span class="pre">sphinx.ext.napoleon</span></code></a> extension enables <a class="reference external" href="https://www.sphinx-doc.org/en/master/index.html" title="(in Sphinx v9.1.0)"><span class="xref std std-doc">Sphinx</span></a> to parse these docstrings.</p>
+the <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/napoleon.html#module-sphinx.ext.napoleon" title="(in Sphinx v9.1.1)"><code class="docutils literal notranslate"><span class="pre">sphinx.ext.napoleon</span></code></a> extension enables <a class="reference external" href="https://www.sphinx-doc.org/en/master/index.html" title="(in Sphinx v9.1.1)"><span class="xref std std-doc">Sphinx</span></a> to parse these docstrings.</p>
 <p>If your class has public attributes, they should be documented here in an <code class="docutils literal notranslate"><span class="pre">Attributes</span></code> section.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">SampleClass</span><span class="p">:</span>
-<span class="sd">&quot;&quot;&quot;Summary of class here.</span>
+<span class="sd">"""Summary of class here.</span>
 
 <span class="sd">Longer class information...</span>
 <span class="sd">Longer class information...</span>
@@ -415,19 +415,19 @@ the <a class="reference external" href="https://www.sphinx-doc.org/en/master/usa
 <span class="sd">Attributes:</span>
 <span class="sd">    likes_spam: A boolean indicating if we like SPAM or not.</span>
 <span class="sd">    eggs: An integer count of the eggs we have laid.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">likes_spam</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Initializes the instance based on spam preference.</span>
+<span class="w">    </span><span class="sd">"""Initializes the instance based on spam preference.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">      likes_spam: Defines if instance exhibits this preference.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">likes_spam</span> <span class="o">=</span> <span class="n">likes_spam</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">eggs</span> <span class="o">=</span> <span class="mi">0</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">public_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Performs operation blah.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Performs operation blah."""</span>
 </pre></div>
 </div>
 <p>For functions and methods, document the arguments, return objects and errors in <code class="docutils literal notranslate"><span class="pre">Args</span></code>,
@@ -437,7 +437,7 @@ the <a class="reference external" href="https://www.sphinx-doc.org/en/master/usa
     <span class="n">keys</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">bytes</span> <span class="o">|</span> <span class="nb">str</span><span class="p">],</span>
     <span class="n">require_all_keys</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">bytes</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Fetches rows from a Smalltable.</span>
+<span class="w">    </span><span class="sd">"""Fetches rows from a Smalltable.</span>
 
 <span class="sd">    Retrieves rows pertaining to the given keys from the Table instance</span>
 <span class="sd">    represented by table_handle.  String keys will be UTF-8 encoded.</span>
@@ -454,9 +454,9 @@ the <a class="reference external" href="https://www.sphinx-doc.org/en/master/usa
 <span class="sd">        fetched. Each row is represented as a tuple of strings. For</span>
 <span class="sd">        example:</span>
 
-<span class="sd">        {b&#39;Serak&#39;: (&#39;Rigel VII&#39;, &#39;Preparer&#39;),</span>
-<span class="sd">        b&#39;Zim&#39;: (&#39;Irk&#39;, &#39;Invader&#39;),</span>
-<span class="sd">        b&#39;Lrrr&#39;: (&#39;Omicron Persei 8&#39;, &#39;Emperor&#39;)}</span>
+<span class="sd">        {b'Serak': ('Rigel VII', 'Preparer'),</span>
+<span class="sd">        b'Zim': ('Irk', 'Invader'),</span>
+<span class="sd">        b'Lrrr': ('Omicron Persei 8', 'Emperor')}</span>
 
 <span class="sd">        Returned keys are always bytes.  If a key from the keys argument is</span>
 <span class="sd">        missing from the dictionary, then that row was not found in the</span>
@@ -464,7 +464,7 @@ the <a class="reference external" href="https://www.sphinx-doc.org/en/master/usa
 
 <span class="sd">    Raises:</span>
 <span class="sd">        IOError: An error occurred accessing the smalltable.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 </pre></div>
 </div>
 <p>The above code examples were copied from <a class="reference external" href="https://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings">the Google Python
@@ -473,7 +473,7 @@ refer to it for more detailed explanations.</p>
 </section>
 <section id="update-the-module-page">
 <h4>Update the module page<a class="headerlink" href="#update-the-module-page" title="Link to this heading">¶</a></h4>
-<p>In order to update the module page with your classes and functions you need to add them to the <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> of the module(s) in which it’s included. This can be done by adding the name to a <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-toctree" title="(in Sphinx v9.1.0)"><code class="docutils literal notranslate"><span class="pre">toctree</span></code></a> like this one:</p>
+<p>In order to update the module page with your classes and functions you need to add them to the <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> of the module(s) in which it’s included. This can be done by adding the name to a <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-toctree" title="(in Sphinx v9.1.1)"><code class="docutils literal notranslate"><span class="pre">toctree</span></code></a> like this one:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">autosummary</span><span class="p">::</span>
    <span class="p">:</span><span class="n">toctree</span><span class="p">:</span> <span class="o">../</span><span class="n">stubs</span><span class="o">/</span>
 
